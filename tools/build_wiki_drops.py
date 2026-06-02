@@ -406,6 +406,13 @@ def find_drop_records_from_wikitext(monster_name: str, wikitext: str) -> tuple[l
     return records, skipped
 
 
+def build_notes(item_name: str) -> str:
+    if item_name.lower() == "brimstone key":
+        return "Only drops while on a Slayer task assigned by Konar quo Maten."
+
+    return ""
+
+
 def parse_drop_line(monster_name: str, template_text: str) -> tuple[dict | None, str]:
     body = template_text.strip()
 
@@ -426,12 +433,14 @@ def parse_drop_line(monster_name: str, template_text: str) -> tuple[dict | None,
     if reason:
         return None, reason
 
+    notes = build_notes(item_name)
+
     return {
         "itemName": item_name,
         "monsterName": monster_name,
         "quantity": quantity,
         "dropRate": rarity,
-        "notes": "",
+        "notes": notes,
     }, ""
 
 
