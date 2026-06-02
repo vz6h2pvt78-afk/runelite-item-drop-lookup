@@ -29,10 +29,18 @@ public class ItemPriceLookupService
         }
 
         String query = normalize(itemName);
+        String compactQuery = compactNormalize(itemName);
 
         return getItemPriceRecords().stream()
                 .filter(record -> record.itemName != null)
-                .filter(record -> normalize(record.itemName).equals(query))
+                .filter(record ->
+                {
+                    String normalizedItem = normalize(record.itemName);
+                    String compactItem = compactNormalize(record.itemName);
+
+                    return normalizedItem.equals(query)
+                            || compactItem.equals(compactQuery);
+                })
                 .findFirst()
                 .map(record -> new ItemPrice(
                         record.itemName,
@@ -50,6 +58,12 @@ public class ItemPriceLookupService
                 .replace("-", " ")
                 .replace("_", " ")
                 .replaceAll("\\s+", " ");
+    }
+
+    private String compactNormalize(String value)
+    {
+        return normalize(value)
+                .replaceAll("[^a-z0-9]", "");
     }
 
     private List<ItemPriceRecord> getItemPriceRecords()

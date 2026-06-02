@@ -40,21 +40,35 @@ public class DropLookupService
 
         Set<DropRecord> matches = new LinkedHashSet<>();
 
+        // 1. Exact item-name match.
         matches.addAll(getRecordsByItemName().getOrDefault(resolvedQuery, Collections.emptyList()));
 
+        // 2. Partial and compact matching.
+        // This catches:
+        // dragonboots -> dragon boots
+        // gracefulhood -> graceful hood
+        // runepouch -> rune pouch
         if (matches.isEmpty())
         {
+            String compactQuery = compactNormalize(resolvedQuery);
+
             for (Map.Entry<String, List<DropRecord>> entry : getRecordsByItemName().entrySet())
             {
                 String item = entry.getKey();
+                String compactItem = compactNormalize(item);
 
-                if (item.contains(resolvedQuery) || allWordsMatch(item, resolvedQuery))
+                if (item.contains(resolvedQuery)
+                        || compactItem.equals(compactQuery)
+                        || allWordsMatch(item, resolvedQuery))
                 {
                     matches.addAll(entry.getValue());
                 }
             }
         }
 
+        // 3. Strict typo fallback.
+        // This runs only if exact/partial/compact matching found nothing.
+        // It avoids broad false matches like runepouch -> rune javelin.
         if (matches.isEmpty() && resolvedQuery.length() >= 4)
         {
             for (Map.Entry<String, List<DropRecord>> entry : getRecordsByItemName().entrySet())
@@ -84,11 +98,8 @@ public class DropLookupService
     {
         Map<String, String> aliases = new HashMap<>();
 
-        aliases.put("whip", "abyssal whip");
-        aliases.put("abby whip", "abyssal whip");
-        aliases.put("abbysal whip", "abyssal whip");
-        aliases.put("aby whip", "abyssal whip");
-
+        // Keep this list for narrow/common slang only.
+        // Avoid broad aliases like "whip" because they can mean multiple items.
         aliases.put("dboots", "dragon boots");
         aliases.put("d boots", "dragon boots");
         aliases.put("dragon boot", "dragon boots");
@@ -155,8 +166,7 @@ public class DropLookupService
                 }
 
                 if (itemWord.startsWith(queryWord)
-                        || queryWord.startsWith(itemWord)
-                        || levenshteinDistance(itemWord, queryWord) <= 1)
+                        || isCloseTypo(itemWord, queryWord))
                 {
                     matchedWords++;
                     break;
@@ -170,6 +180,16 @@ public class DropLookupService
         }
 
         return matchedWords == meaningfulQueryWords;
+    }
+
+    private boolean isCloseTypo(String itemWord, String queryWord)
+    {
+        if (Math.abs(itemWord.length() - queryWord.length()) > 2)
+        {
+            return false;
+        }
+
+        return levenshteinDistance(itemWord, queryWord) <= 1;
     }
 
     private int levenshteinDistance(String first, String second)
@@ -209,6 +229,12 @@ public class DropLookupService
                 .replace("-", " ")
                 .replace("_", " ")
                 .replaceAll("\\s+", " ");
+    }
+
+    private String compactNormalize(String value)
+    {
+        return normalize(value)
+                .replaceAll("[^a-z0-9]", "");
     }
 
     private Map<String, List<DropRecord>> getRecordsByItemName()

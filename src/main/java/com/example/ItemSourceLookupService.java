@@ -8,7 +8,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
@@ -30,10 +29,19 @@ public class ItemSourceLookupService
         }
 
         String query = normalize(itemName);
+        String compactQuery = compactNormalize(itemName);
 
         return getItemSourceRecords().stream()
                 .filter(record -> record.itemName != null)
-                .filter(record -> normalize(record.itemName).equals(query))
+                .filter(record ->
+                {
+                    String normalizedItem = normalize(record.itemName);
+                    String compactItem = compactNormalize(record.itemName);
+
+                    return normalizedItem.equals(query)
+                            || compactItem.equals(compactQuery)
+                            || normalizedItem.contains(query);
+                })
                 .map(record -> new ItemSource(
                         record.itemName,
                         record.sourceType,
@@ -52,6 +60,12 @@ public class ItemSourceLookupService
                 .replace("-", " ")
                 .replace("_", " ")
                 .replaceAll("\\s+", " ");
+    }
+
+    private String compactNormalize(String value)
+    {
+        return normalize(value)
+                .replaceAll("[^a-z0-9]", "");
     }
 
     private List<ItemSourceRecord> getItemSourceRecords()
