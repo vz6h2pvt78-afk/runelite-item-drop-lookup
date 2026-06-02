@@ -18,57 +18,137 @@ HEADERS = {
     "User-Agent": "ItemDropLookupPluginDataBuilder/0.1 local-dev"
 }
 
-REQUEST_DELAY_SECONDS = 0.2
+REQUEST_DELAY_SECONDS = 0.08
 
-MONSTER_PAGES = [
+CATEGORY_TITLE = "Category:Monsters"
+
+# Set to None for full send.
+# Set to a number like 100 if you need to test faster later.
+MAX_DISCOVERED_PAGES = None
+
+MANUAL_FALLBACK_MONSTER_PAGES = [
     "Abyssal demon",
     "Spiritual mage",
     "Ancient Wyvern",
-
     "General Graardor",
     "Kree'arra",
     "K'ril Tsutsaroth",
     "Commander Zilyana",
-
     "Kraken",
     "Thermonuclear smoke devil",
     "Gargoyle",
     "Nechryael",
     "Dust devil",
-
     "Dagannoth Rex",
     "Dagannoth Prime",
     "Dagannoth Supreme",
-
     "Vorkath",
     "Zulrah",
     "Alchemical Hydra",
     "Cerberus",
-
     "Demonic gorilla",
     "Lizardman shaman",
     "Cave horror",
     "Basilisk Knight",
     "Vyrewatch Sentinel",
-
     "Tormented Demon",
     "Araxxor",
     "Muspah",
     "The Nightmare",
     "Phosani's Nightmare",
-
     "King Black Dragon",
     "Kalphite Queen",
     "Corporeal Beast",
     "Chaos Elemental",
     "Giant Mole",
-
     "Greater Nechryael",
     "Smoke devil",
     "Abyssal Sire",
     "Skotizo",
     "Sarachnis",
 ]
+
+
+def fetch_json(params: dict) -> dict:
+    url = API_URL + "?" + urllib.parse.urlencode(params)
+    request = urllib.request.Request(url, headers=HEADERS)
+
+    with urllib.request.urlopen(request, timeout=45) as response:
+        return json.loads(response.read().decode("utf-8"))
+
+
+def fetch_monster_pages_from_category() -> list[str]:
+    print(f"Discovering monster pages from {CATEGORY_TITLE}...")
+
+    pages = []
+    cmcontinue = None
+
+    while True:
+        params = {
+            "action": "query",
+            "format": "json",
+            "list": "categorymembers",
+            "cmtitle": CATEGORY_TITLE,
+            "cmnamespace": "0",
+            "cmlimit": "max",
+        }
+
+        if cmcontinue:
+            params["cmcontinue"] = cmcontinue
+
+        data = fetch_json(params)
+
+        members = data.get("query", {}).get("categorymembers", [])
+
+        for member in members:
+            title = member.get("title", "").strip()
+
+            if not title:
+                continue
+
+            if should_skip_discovered_page(title):
+                continue
+
+            pages.append(title)
+
+            if MAX_DISCOVERED_PAGES is not None and len(pages) >= MAX_DISCOVERED_PAGES:
+                pages = sorted(set(pages), key=str.lower)
+                print(f"Discovered {len(pages)} monster pages. Max page cap reached.")
+                return pages
+
+        cmcontinue = data.get("continue", {}).get("cmcontinue")
+
+        if not cmcontinue:
+            break
+
+        time.sleep(REQUEST_DELAY_SECONDS)
+
+    pages = sorted(set(pages), key=str.lower)
+
+    print(f"Discovered {len(pages)} monster pages.")
+
+    if not pages:
+        print("No monster pages discovered. Falling back to manual page list.")
+        return MANUAL_FALLBACK_MONSTER_PAGES
+
+    return pages
+
+
+def should_skip_discovered_page(title: str) -> bool:
+    lowered = title.lower()
+
+    skip_fragments = [
+        "/",
+        "list of",
+        "template:",
+        "module:",
+        "category:",
+    ]
+
+    if any(fragment in lowered for fragment in skip_fragments):
+        return True
+
+    return False
 
 
 def fetch_wikitext(page_title: str) -> str:
@@ -82,11 +162,7 @@ def fetch_wikitext(page_title: str) -> str:
         "redirects": "1",
     }
 
-    url = API_URL + "?" + urllib.parse.urlencode(params)
-    request = urllib.request.Request(url, headers=HEADERS)
-
-    with urllib.request.urlopen(request, timeout=30) as response:
-        data = json.loads(response.read().decode("utf-8"))
+    data = fetch_json(params)
 
     pages = data.get("query", {}).get("pages", {})
 
@@ -574,13 +650,14 @@ def dedupe_records(records: list[dict]) -> list[dict]:
     return deduped
 
 
-def build_records() -> tuple[list[dict], list[dict]]:
+def build_records(monster_pages: list[str]) -> tuple[list[dict], list[dict], list[dict], list[dict]]:
     records = []
     skipped_records = []
     failed_pages = []
+    zero_record_pages = []
 
-    for index, monster_name in enumerate(MONSTER_PAGES, start=1):
-        print(f"[{index}/{len(MONSTER_PAGES)}] Fetching {monster_name}...")
+    for index, monster_name in enumerate(monster_pages, start=1):
+        print(f"[{index}/{len(monster_pages)}] Fetching {monster_name}...")
 
         try:
             wikitext = fetch_wikitext(monster_name)
@@ -593,6 +670,13 @@ def build_records() -> tuple[list[dict], list[dict]]:
             continue
 
         monster_records, skipped = find_drop_records_from_wikitext(monster_name, wikitext)
+
+        if not monster_records and not skipped:
+            zero_record_pages.append({
+                "monsterName": monster_name,
+                "reason": "No DropsLine templates found.",
+            })
+
         print(f"  Found {len(monster_records)} valid simple DropsLine records.")
         print(f"  Skipped {len(skipped)} suspicious DropsLine records.")
 
@@ -606,30 +690,50 @@ def build_records() -> tuple[list[dict], list[dict]]:
     after_dedupe = len(records)
 
     print()
-    print(f"Records before dedupe: {before_dedupe}")
-    print(f"Records after dedupe:  {after_dedupe}")
-    print(f"Removed by dedupe:     {before_dedupe - after_dedupe}")
+    print(f"Monster pages processed: {len(monster_pages)}")
+    print(f"Records before dedupe:  {before_dedupe}")
+    print(f"Records after dedupe:   {after_dedupe}")
+    print(f"Removed by dedupe:      {before_dedupe - after_dedupe}")
+    print(f"Skipped records:        {len(skipped_records)}")
+    print(f"Failed pages:           {len(failed_pages)}")
+    print(f"Zero-record pages:      {len(zero_record_pages)}")
 
-    if failed_pages:
-        print()
-        print("Failed pages:")
-        for failed_page in failed_pages:
-            print(f"  - {failed_page['monsterName']}: {failed_page['error']}")
-
-    return records, skipped_records
+    return records, skipped_records, failed_pages, zero_record_pages
 
 
-def write_skipped_report(skipped_records: list[dict]) -> None:
-    report_file = OUTPUT_FILE.with_name("wiki_drops_skipped_report.json")
+def write_json_file(path: Path, data) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
 
-    with report_file.open("w", encoding="utf-8") as file:
-        json.dump(skipped_records, file, indent=2, ensure_ascii=False)
+    with path.open("w", encoding="utf-8") as file:
+        json.dump(data, file, indent=2, ensure_ascii=False)
 
-    print(f"Wrote {len(skipped_records)} skipped-record reports to {report_file}")
+
+def write_reports(
+        skipped_records: list[dict],
+        failed_pages: list[dict],
+        zero_record_pages: list[dict],
+        monster_pages: list[str],
+) -> None:
+    skipped_file = OUTPUT_FILE.with_name("wiki_drops_skipped_report.json")
+    failed_file = OUTPUT_FILE.with_name("wiki_drops_failed_pages.json")
+    zero_file = OUTPUT_FILE.with_name("wiki_drops_zero_record_pages.json")
+    pages_file = OUTPUT_FILE.with_name("wiki_drops_monster_pages.json")
+
+    write_json_file(skipped_file, skipped_records)
+    write_json_file(failed_file, failed_pages)
+    write_json_file(zero_file, zero_record_pages)
+    write_json_file(pages_file, monster_pages)
+
+    print(f"Wrote skipped report to {skipped_file}")
+    print(f"Wrote failed pages report to {failed_file}")
+    print(f"Wrote zero-record pages report to {zero_file}")
+    print(f"Wrote monster page list to {pages_file}")
 
 
 def main() -> None:
-    records, skipped_records = build_records()
+    monster_pages = fetch_monster_pages_from_category()
+
+    records, skipped_records, failed_pages, zero_record_pages = build_records(monster_pages)
 
     records.sort(key=lambda record: (
         record["itemName"].lower(),
@@ -637,12 +741,8 @@ def main() -> None:
         record["dropRate"].lower(),
     ))
 
-    OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
-
-    with OUTPUT_FILE.open("w", encoding="utf-8") as file:
-        json.dump(records, file, indent=2, ensure_ascii=False)
-
-    write_skipped_report(skipped_records)
+    write_json_file(OUTPUT_FILE, records)
+    write_reports(skipped_records, failed_pages, zero_record_pages, monster_pages)
 
     print()
     print(f"Wrote {len(records)} wiki drop records to {OUTPUT_FILE}")

@@ -48,6 +48,360 @@
     "line": "{{DropsLine|name=Grimy torstol|rolls=2|quantity=10-15 (noted)|rarity=1/{{#expr:1/(3*{{#var:herbbase}}) round 1}}}}"
   },
   {
+    "monsterName": "Alexis",
+    "lineNumber": 121,
+    "reason": "reference/template garbage item name",
+    "line": "{{DropsLine|name=Fur|quantity=1|rarity=100/512}}"
+  },
+  {
+    "monsterName": "Armoured kraken",
+    "lineNumber": 155,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Toadflax seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*216 + {{#var:uncseed}}*27) round 1}}}}"
+  },
+  {
+    "monsterName": "Armoured kraken",
+    "lineNumber": 156,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Irit seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*148 + {{#var:uncseed}}*18) round 1}}}}"
+  },
+  {
+    "monsterName": "Armoured kraken",
+    "lineNumber": 157,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Belladonna seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*143 + {{#var:uncseed}}*18) round 1}}}}"
+  },
+  {
+    "monsterName": "Armoured kraken",
+    "lineNumber": 158,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Avantoe seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*103 + {{#var:uncseed}}*12) round 1}}}}"
+  },
+  {
+    "monsterName": "Armoured kraken",
+    "lineNumber": 159,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Poison ivy seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*101 + {{#var:uncseed}}*13) round 1}}}}"
+  },
+  {
+    "monsterName": "Armoured kraken",
+    "lineNumber": 160,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Camphor seed|quantity=1|rarity=1/{{#expr:1/({{#var:sailseed}}*15) round 1}}}}"
+  },
+  {
+    "monsterName": "Armoured kraken",
+    "lineNumber": 161,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Cactus seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*96 + {{#var:uncseed}}*12) round 1}}}}"
+  },
+  {
+    "monsterName": "Armoured kraken",
+    "lineNumber": 162,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Potato cactus seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*70 + {{#var:uncseed}}*8) round 1}}}}"
+  },
+  {
+    "monsterName": "Armoured kraken",
+    "lineNumber": 163,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Kwuarm seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*69 + {{#var:uncseed}}*9) round 1}}}}"
+  },
+  {
+    "monsterName": "Armoured kraken",
+    "lineNumber": 164,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Snapdragon seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*46 + {{#var:uncseed}}*5) round 1}}}}"
+  },
+  {
+    "monsterName": "Armoured kraken",
+    "lineNumber": 165,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Limpwurt seed|quantity=1|rarity=1/{{#expr:1/({{#var:uncseed}}*137) round 1}}}}"
+  },
+  {
+    "monsterName": "Armoured kraken",
+    "lineNumber": 166,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Strawberry seed|quantity=1|rarity=1/{{#expr:1/({{#var:uncseed}}*131) round 1}}}}"
+  },
+  {
+    "monsterName": "Armoured kraken",
+    "lineNumber": 167,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Cadantine seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*32 + {{#var:uncseed}}*4) round 1}}}}"
+  },
+  {
+    "monsterName": "Armoured kraken",
+    "lineNumber": 168,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Marrentill seed|quantity=1|rarity=1/{{#expr:1/({{#var:uncseed}}*125) round 1}}}}"
+  },
+  {
+    "monsterName": "Armoured kraken",
+    "lineNumber": 169,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Ironwood seed|quantity=1|rarity=1/{{#expr:1/({{#var:sailseed}}*4) round 1}}}}"
+  },
+  {
+    "monsterName": "Armoured kraken",
+    "lineNumber": 170,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Jangerberry seed|quantity=1|rarity=1/{{#expr:1/({{#var:uncseed}}*92) round 1}}}}"
+  },
+  {
+    "monsterName": "Armoured kraken",
+    "lineNumber": 171,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Lantadyme seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*23 + {{#var:uncseed}}*3) round 1}}}}"
+  },
+  {
+    "monsterName": "Armoured kraken",
+    "lineNumber": 172,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Tarromin seed|quantity=1|rarity=1/{{#expr:1/({{#var:uncseed}}*85) round 1}}}}"
+  },
+  {
+    "monsterName": "Armoured kraken",
+    "lineNumber": 173,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Wildblood seed|quantity=1|rarity=1/{{#expr:1/({{#var:uncseed}}*83) round 1}}}}"
+  },
+  {
+    "monsterName": "Armoured kraken",
+    "lineNumber": 174,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Snape grass seed|quantity=3|rarity=1/{{#expr:1/({{#var:rareseed}}*20) round 1}}}}"
+  },
+  {
+    "monsterName": "Armoured kraken",
+    "lineNumber": 175,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Watermelon seed|quantity=1|rarity=1/{{#expr:1/({{#var:uncseed}}*63) round 1}}}}"
+  },
+  {
+    "monsterName": "Armoured kraken",
+    "lineNumber": 176,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Harralander seed|quantity=1|rarity=1/{{#expr:1/({{#var:uncseed}}*56) round 0}}}}"
+  },
+  {
+    "monsterName": "Armoured kraken",
+    "lineNumber": 177,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Dwarf weed seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*14 + {{#var:uncseed}}*2) round 0}}}}"
+  },
+  {
+    "monsterName": "Armoured kraken",
+    "lineNumber": 178,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Snape grass seed|quantity=1|rarity=1/{{#expr:1/({{#var:uncseed}}*40) round 0}}}}"
+  },
+  {
+    "monsterName": "Armoured kraken",
+    "lineNumber": 179,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Ranarr seed|quantity=1|rarity=1/{{#expr:1/({{#var:uncseed}}*39) round 0}}}}"
+  },
+  {
+    "monsterName": "Armoured kraken",
+    "lineNumber": 180,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Torstol seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*9 + {{#var:uncseed}}*1) round 0}}}}"
+  },
+  {
+    "monsterName": "Armoured kraken",
+    "lineNumber": 181,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Whiteberry seed|quantity=1|rarity=1/{{#expr:1/({{#var:uncseed}}*34) round 0}}}}"
+  },
+  {
+    "monsterName": "Armoured kraken",
+    "lineNumber": 182,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Mushroom spore|quantity=1|rarity=1/{{#expr:1/({{#var:uncseed}}*29) round 0}}}}"
+  },
+  {
+    "monsterName": "Armoured kraken",
+    "lineNumber": 183,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Rosewood seed|quantity=1|rarity=1/{{#expr:1/({{#var:sailseed}}*1) round 0}}}}"
+  },
+  {
+    "monsterName": "Bloodthirsty Drake",
+    "lineNumber": 118,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy avantoe|quantity=1-3 (noted)|rarity=1/{{#expr:1/(5*{{#var:herbbase}}) round 1}}|rolls=9}}"
+  },
+  {
+    "monsterName": "Bloodthirsty Drake",
+    "lineNumber": 119,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy kwuarm|quantity=1-3 (noted)|rarity=1/{{#expr:1/(5*{{#var:herbbase}}) round 1}}|rolls=9}}"
+  },
+  {
+    "monsterName": "Bloodthirsty Drake",
+    "lineNumber": 120,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy ranarr weed|quantity=1-3 (noted)|rarity=1/{{#expr:1/(4*{{#var:herbbase}}) round 1}}|rolls=9}}"
+  },
+  {
+    "monsterName": "Bloodthirsty Drake",
+    "lineNumber": 121,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy snapdragon|quantity=1-3 (noted)|rarity=1/{{#expr:1/(4*{{#var:herbbase}}) round 1}}|rolls=9}}"
+  },
+  {
+    "monsterName": "Bloodthirsty Drake",
+    "lineNumber": 122,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy cadantine|quantity=1-3 (noted)|rarity=1/{{#expr:1/(4*{{#var:herbbase}}) round 1}}|rolls=9}}"
+  },
+  {
+    "monsterName": "Bloodthirsty Drake",
+    "lineNumber": 123,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy dwarf weed|quantity=1-3 (noted)|rarity=1/{{#expr:1/(4*{{#var:herbbase}}) round 1}}|rolls=9}}"
+  },
+  {
+    "monsterName": "Bloodthirsty Drake",
+    "lineNumber": 124,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy lantadyme|quantity=1-3 (noted)|rarity=1/{{#expr:1/(3*{{#var:herbbase}}) round 1}}|rolls=9}}"
+  },
+  {
+    "monsterName": "Bloodthirsty Drake",
+    "lineNumber": 125,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy torstol|quantity=1-3 (noted)|rarity=1/{{#expr:1/(3*{{#var:herbbase}}) round 1}}|rolls=9}}"
+  },
+  {
+    "monsterName": "Bloodthirsty Hydra",
+    "lineNumber": 119,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy avantoe|quantity=3 (noted)|rarity=1/{{#expr:1/(5*{{#var:uht}}) round 2}}|rolls=9}}"
+  },
+  {
+    "monsterName": "Bloodthirsty Hydra",
+    "lineNumber": 120,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy ranarr weed|quantity=3 (noted)|rarity=1/{{#expr:1/(4*{{#var:uht}}) round 2}}|rolls=9}}"
+  },
+  {
+    "monsterName": "Bloodthirsty Hydra",
+    "lineNumber": 121,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy snapdragon|quantity=3 (noted)|rarity=1/{{#expr:1/(3*{{#var:uht}}) round 2}}|rolls=9}}"
+  },
+  {
+    "monsterName": "Bloodthirsty Hydra",
+    "lineNumber": 122,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy torstol|quantity=3 (noted)|rarity=1/{{#expr:1/(3*{{#var:uht}}) round 2}}|rolls=9}}"
+  },
+  {
+    "monsterName": "Bloodthirsty Hydra",
+    "lineNumber": 135,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Diamond bolt tips|quantity=20|rarity=1/{{#expr:1/(10*{{#var:bolttipbase}}) round 1}}|rolls=9}}"
+  },
+  {
+    "monsterName": "Bloodthirsty Hydra",
+    "lineNumber": 136,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Ruby bolt tips|quantity=20|rarity=1/{{#expr:1/(9*{{#var:bolttipbase}}) round 1}}|rolls=9}}"
+  },
+  {
+    "monsterName": "Bloodthirsty Hydra",
+    "lineNumber": 137,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Emerald bolt tips|quantity=20|rarity=1/{{#expr:1/(9*{{#var:bolttipbase}}) round 1}}|rolls=9}}"
+  },
+  {
+    "monsterName": "Bloodthirsty Hydra",
+    "lineNumber": 138,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Dragonstone bolt tips|quantity=20|rarity=1/{{#expr:1/(7*{{#var:bolttipbase}}) round 1}}|rolls=9}}"
+  },
+  {
+    "monsterName": "Bloodthirsty Hydra",
+    "lineNumber": 139,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Onyx bolt tips|quantity=20|rarity=1/{{#expr:1/(3*{{#var:bolttipbase}}) round 1}}|rolls=9}}"
+  },
+  {
+    "monsterName": "Bloodthirsty Hydra",
+    "lineNumber": 140,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Sapphire bolt tips|quantity=20|rarity=1/{{#expr:1/(2*{{#var:bolttipbase}}) round 1}}|rolls=9}}"
+  },
+  {
+    "monsterName": "Boris",
+    "lineNumber": 121,
+    "reason": "reference/template garbage item name",
+    "line": "{{DropsLine|name=Fur|quantity=1|rarity=100/512}}"
+  },
+  {
+    "monsterName": "Colossal Hydra",
+    "lineNumber": 103,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy avantoe|quantity=3 (noted)|rarity=1/{{#expr:1/(5*{{#var:uht}}) round 2}}|rolls=3}}"
+  },
+  {
+    "monsterName": "Colossal Hydra",
+    "lineNumber": 104,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy ranarr weed|quantity=3 (noted)|rarity=1/{{#expr:1/(4*{{#var:uht}}) round 2}}|rolls=3}}"
+  },
+  {
+    "monsterName": "Colossal Hydra",
+    "lineNumber": 105,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy snapdragon|quantity=3 (noted)|rarity=1/{{#expr:1/(3*{{#var:uht}}) round 2}}|rolls=3}}"
+  },
+  {
+    "monsterName": "Colossal Hydra",
+    "lineNumber": 106,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy torstol|quantity=3 (noted)|rarity=1/{{#expr:1/(3*{{#var:uht}}) round 2}}|rolls=3}}"
+  },
+  {
+    "monsterName": "Colossal Hydra",
+    "lineNumber": 119,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Diamond bolt tips|quantity=20|rarity=1/{{#expr:1/(10*{{#var:bolttipbase}}) round 1}}|rolls=3}}"
+  },
+  {
+    "monsterName": "Colossal Hydra",
+    "lineNumber": 120,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Ruby bolt tips|quantity=20|rarity=1/{{#expr:1/(9*{{#var:bolttipbase}}) round 1}}|rolls=3}}"
+  },
+  {
+    "monsterName": "Colossal Hydra",
+    "lineNumber": 121,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Emerald bolt tips|quantity=20|rarity=1/{{#expr:1/(9*{{#var:bolttipbase}}) round 1}}|rolls=3}}"
+  },
+  {
+    "monsterName": "Colossal Hydra",
+    "lineNumber": 122,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Dragonstone bolt tips|quantity=20|rarity=1/{{#expr:1/(7*{{#var:bolttipbase}}) round 1}}|rolls=3}}"
+  },
+  {
+    "monsterName": "Colossal Hydra",
+    "lineNumber": 123,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Onyx bolt tips|quantity=20|rarity=1/{{#expr:1/(3*{{#var:bolttipbase}}) round 1}}|rolls=3}}"
+  },
+  {
+    "monsterName": "Colossal Hydra",
+    "lineNumber": 124,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Sapphire bolt tips|quantity=20|rarity=1/{{#expr:1/(2*{{#var:bolttipbase}}) round 1}}|rolls=3}}"
+  },
+  {
     "monsterName": "Demonic gorilla",
     "lineNumber": 133,
     "reason": "raw wiki markup in rarity",
@@ -72,6 +426,264 @@
     "line": "{{DropsLine|name=Grimy dwarf weed|quantity=7-13 (noted)|rarity=1/{{#expr:1/(32*{{#var:herbbase}}) round 1}}}}"
   },
   {
+    "monsterName": "Dinky the drink troll",
+    "lineNumber": 64,
+    "reason": "reference/template garbage item name",
+    "line": "{{DropsLine|name=Rum|quantity=1|rarity=1/10}}"
+  },
+  {
+    "monsterName": "Dinky the drink troll",
+    "lineNumber": 66,
+    "reason": "reference/template garbage item name",
+    "line": "{{DropsLine|name=Gin|quantity=1|rarity=1/10}}"
+  },
+  {
+    "monsterName": "Doom of Mokhaiotl",
+    "lineNumber": 452,
+    "reason": "reference/template garbage item name",
+    "line": "{{DropsLine|name=Dom|quantity=1|rarity=1/1000|altrarity=1/250|altraritydash=yes|raritynotes=<ref group=d>1/1000 at delve level 6, 1/750 at delve level 7, 1/500 at delve level 8, and 1/250 at delve level 9 and beyond.</ref>|gemw=no}}"
+  },
+  {
+    "monsterName": "Drake",
+    "lineNumber": 171,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy avantoe|quantity=1-3|rarity=1/{{#expr:1/(5*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Drake",
+    "lineNumber": 172,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy kwuarm|quantity=1-3|rarity=1/{{#expr:1/(5*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Drake",
+    "lineNumber": 173,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy ranarr weed|quantity=1-3|rarity=1/{{#expr:1/(4*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Drake",
+    "lineNumber": 174,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy snapdragon|quantity=1-3|rarity=1/{{#expr:1/(4*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Drake",
+    "lineNumber": 175,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy cadantine|quantity=1-3|rarity=1/{{#expr:1/(4*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Drake",
+    "lineNumber": 176,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy dwarf weed|quantity=1-3|rarity=1/{{#expr:1/(4*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Drake",
+    "lineNumber": 177,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy lantadyme|quantity=1-3|rarity=1/{{#expr:1/(3*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Drake",
+    "lineNumber": 178,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy torstol|quantity=1-3|rarity=1/{{#expr:1/(3*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Drink troll",
+    "lineNumber": 52,
+    "reason": "reference/template garbage item name",
+    "line": "{{DropsLine|name=Gin|quantity=1|rarity=1/10}}"
+  },
+  {
+    "monsterName": "Drink troll",
+    "lineNumber": 54,
+    "reason": "reference/template garbage item name",
+    "line": "{{DropsLine|name=Rum|quantity=1|rarity=1/10}}"
+  },
+  {
+    "monsterName": "Eduard",
+    "lineNumber": 121,
+    "reason": "reference/template garbage item name",
+    "line": "{{DropsLine|name=Fur|quantity=1|rarity=100/512}}"
+  },
+  {
+    "monsterName": "Galina",
+    "lineNumber": 121,
+    "reason": "reference/template garbage item name",
+    "line": "{{DropsLine|name=Fur|quantity=1|rarity=100/512}}"
+  },
+  {
+    "monsterName": "Georgy",
+    "lineNumber": 119,
+    "reason": "reference/template garbage item name",
+    "line": "{{DropsLine|name=Fur|quantity=1|rarity=100/512}}"
+  },
+  {
+    "monsterName": "Guardian Drake",
+    "lineNumber": 106,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy avantoe|quantity=1-3|rarity=1/{{#expr:1/(5*{{#var:herbbase}}) round 1}}|rolls=3}}"
+  },
+  {
+    "monsterName": "Guardian Drake",
+    "lineNumber": 107,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy kwuarm|quantity=1-3|rarity=1/{{#expr:1/(5*{{#var:herbbase}}) round 1}}|rolls=3}}"
+  },
+  {
+    "monsterName": "Guardian Drake",
+    "lineNumber": 108,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy ranarr weed|quantity=1-3|rarity=1/{{#expr:1/(4*{{#var:herbbase}}) round 1}}|rolls=3}}"
+  },
+  {
+    "monsterName": "Guardian Drake",
+    "lineNumber": 109,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy snapdragon|quantity=1-3|rarity=1/{{#expr:1/(4*{{#var:herbbase}}) round 1}}|rolls=3}}"
+  },
+  {
+    "monsterName": "Guardian Drake",
+    "lineNumber": 110,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy cadantine|quantity=1-3|rarity=1/{{#expr:1/(4*{{#var:herbbase}}) round 1}}|rolls=3}}"
+  },
+  {
+    "monsterName": "Guardian Drake",
+    "lineNumber": 111,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy dwarf weed|quantity=1-3|rarity=1/{{#expr:1/(4*{{#var:herbbase}}) round 1}}|rolls=3}}"
+  },
+  {
+    "monsterName": "Guardian Drake",
+    "lineNumber": 112,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy lantadyme|quantity=1-3|rarity=1/{{#expr:1/(3*{{#var:herbbase}}) round 1}}|rolls=3}}"
+  },
+  {
+    "monsterName": "Guardian Drake",
+    "lineNumber": 113,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy torstol|quantity=1-3|rarity=1/{{#expr:1/(3*{{#var:herbbase}}) round 1}}|rolls=3}}"
+  },
+  {
+    "monsterName": "Hydra",
+    "lineNumber": 147,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy avantoe|quantity=3 (noted)|rarity=1/{{#expr:1/(5*{{#var:uht}}) round 2}}}}"
+  },
+  {
+    "monsterName": "Hydra",
+    "lineNumber": 148,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy ranarr weed|quantity=3 (noted)|rarity=1/{{#expr:1/(4*{{#var:uht}}) round 2}}}}"
+  },
+  {
+    "monsterName": "Hydra",
+    "lineNumber": 149,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy snapdragon|quantity=3 (noted)|rarity=1/{{#expr:1/(3*{{#var:uht}}) round 2}}}}"
+  },
+  {
+    "monsterName": "Hydra",
+    "lineNumber": 150,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy torstol|quantity=3 (noted)|rarity=1/{{#expr:1/(3*{{#var:uht}}) round 2}}}}"
+  },
+  {
+    "monsterName": "Hydra",
+    "lineNumber": 163,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Diamond bolt tips|quantity=20|rarity=1/{{#expr:1/(10*{{#var:bolttipbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Hydra",
+    "lineNumber": 164,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Ruby bolt tips|quantity=20|rarity=1/{{#expr:1/(9*{{#var:bolttipbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Hydra",
+    "lineNumber": 165,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Emerald bolt tips|quantity=20|rarity=1/{{#expr:1/(9*{{#var:bolttipbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Hydra",
+    "lineNumber": 166,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Dragonstone bolt tips|quantity=20|rarity=1/{{#expr:1/(7*{{#var:bolttipbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Hydra",
+    "lineNumber": 167,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Onyx bolt tips|quantity=20|rarity=1/{{#expr:1/(3*{{#var:bolttipbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Hydra",
+    "lineNumber": 168,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Sapphire bolt tips|quantity=20|rarity=1/{{#expr:1/(2*{{#var:bolttipbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Imp",
+    "lineNumber": 458,
+    "reason": "reference/template garbage item name",
+    "line": "{{DropsLine|name=Egg|quantity=1|rarity=5/128}}"
+  },
+  {
+    "monsterName": "Imp",
+    "lineNumber": 475,
+    "reason": "reference/template garbage item name",
+    "line": "{{DropsLine|name=Jug|quantity=1|rarity=2/128}}"
+  },
+  {
+    "monsterName": "Imp",
+    "lineNumber": 477,
+    "reason": "reference/template garbage item name",
+    "line": "{{DropsLine|name=Pot|quantity=1|rarity=2/128}}"
+  },
+  {
+    "monsterName": "Imre",
+    "lineNumber": 121,
+    "reason": "reference/template garbage item name",
+    "line": "{{DropsLine|name=Fur|quantity=1|rarity=100/512}}"
+  },
+  {
+    "monsterName": "Irina",
+    "lineNumber": 121,
+    "reason": "reference/template garbage item name",
+    "line": "{{DropsLine|name=Fur|quantity=1|rarity=100/512}}"
+  },
+  {
+    "monsterName": "Joseph",
+    "lineNumber": 120,
+    "reason": "reference/template garbage item name",
+    "line": "{{DropsLine|name=Fur|quantity=1|rarity=100/512}}"
+  },
+  {
+    "monsterName": "Ksenia",
+    "lineNumber": 121,
+    "reason": "reference/template garbage item name",
+    "line": "{{DropsLine|name=Fur|quantity=1|rarity=100/512}}"
+  },
+  {
+    "monsterName": "Lev",
+    "lineNumber": 126,
+    "reason": "reference/template garbage item name",
+    "line": "{{DropsLine|name=Fur|quantity=1|rarity=100/512}}"
+  },
+  {
+    "monsterName": "Liliya",
+    "lineNumber": 121,
+    "reason": "reference/template garbage item name",
+    "line": "{{DropsLine|name=Fur|quantity=1|rarity=100/512}}"
+  },
+  {
     "monsterName": "Lizardman shaman",
     "lineNumber": 191,
     "reason": "raw wiki markup in rarity",
@@ -94,5 +706,1061 @@
     "lineNumber": 194,
     "reason": "raw wiki markup in rarity",
     "line": "{{DropsLine|name=Grimy lantadyme|quantity=2-3|rarity=1/{{#expr:1/(3*{{#var:uht}}) round 2}}}}"
+  },
+  {
+    "monsterName": "Long-tailed Wyvern",
+    "lineNumber": 133,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy kwuarm|quantity=2|rarity=1/{{#expr:1/(40*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Long-tailed Wyvern",
+    "lineNumber": 134,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy cadantine|quantity=2|rarity=1/{{#expr:1/(32*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Long-tailed Wyvern",
+    "lineNumber": 135,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy dwarf weed|quantity=2|rarity=1/{{#expr:1/(32*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Long-tailed Wyvern",
+    "lineNumber": 136,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy lantadyme|quantity=2|rarity=1/{{#expr:1/(24*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Long-tailed Wyvern",
+    "lineNumber": 146,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Ranarr seed|quantity=1|rarity=1/{{#expr:1/(15*{{#var:seedbase}} + 2/123) round 1}}}}"
+  },
+  {
+    "monsterName": "Long-tailed Wyvern",
+    "lineNumber": 147,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Snapdragon seed|quantity=1|rarity=1/{{#expr:1/(14*{{#var:seedbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Long-tailed Wyvern",
+    "lineNumber": 148,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Torstol seed|quantity=1|rarity=1/{{#expr:1/(11*{{#var:seedbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Long-tailed Wyvern",
+    "lineNumber": 149,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Watermelon seed|quantity=15|rarity=1/{{#expr:1/(10*{{#var:seedbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Long-tailed Wyvern",
+    "lineNumber": 150,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Willow seed|quantity=1|rarity=1/{{#expr:1/(10*{{#var:seedbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Long-tailed Wyvern",
+    "lineNumber": 151,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Mahogany seed|quantity=1|rarity=1/{{#expr:1/(9*{{#var:seedbase}} + (1/123 * 1/3)) round 1}}}}"
+  },
+  {
+    "monsterName": "Long-tailed Wyvern",
+    "lineNumber": 152,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Maple seed|quantity=1|rarity=1/{{#expr:1/(9*{{#var:seedbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Long-tailed Wyvern",
+    "lineNumber": 153,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Teak seed|quantity=1|rarity=1/{{#expr:1/(9*{{#var:seedbase}} + (1/123 * 2/3)) round 1}}}}"
+  },
+  {
+    "monsterName": "Long-tailed Wyvern",
+    "lineNumber": 154,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Yew seed|quantity=1|rarity=1/{{#expr:1/(9*{{#var:seedbase}} + 1/123) round 1}}}}"
+  },
+  {
+    "monsterName": "Long-tailed Wyvern",
+    "lineNumber": 155,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Papaya tree seed|quantity=1|rarity=1/{{#expr:1/(7*{{#var:seedbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Long-tailed Wyvern",
+    "lineNumber": 156,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Magic seed|quantity=1|rarity=1/{{#expr:1/(6*{{#var:seedbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Long-tailed Wyvern",
+    "lineNumber": 157,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Palm tree seed|quantity=1|rarity=1/{{#expr:1/(5*{{#var:seedbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Long-tailed Wyvern",
+    "lineNumber": 158,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Spirit seed|quantity=1|rarity=1/{{#expr:1/(4*{{#var:seedbase}}) round 1}}|gemw=No}}"
+  },
+  {
+    "monsterName": "Long-tailed Wyvern",
+    "lineNumber": 159,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Dragonfruit tree seed|quantity=1|rarity=1/{{#expr:1/(3*{{#var:seedbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Long-tailed Wyvern",
+    "lineNumber": 160,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Celastrus seed|quantity=1|rarity=1/{{#expr:1/(2*{{#var:seedbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Long-tailed Wyvern",
+    "lineNumber": 161,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Redwood tree seed|quantity=1|rarity=1/{{#expr:1/(2*{{#var:seedbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 120,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Toadflax seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*216) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 121,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Irit seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*148) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 122,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Belladonna seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*143) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 123,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Avantoe seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*103) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 124,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Poison ivy seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*101) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 125,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Cactus seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*96) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 126,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Potato cactus seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*70) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 127,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Kwuarm seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*69) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 128,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Snapdragon seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*46 + {{#var:treeseed}}*28) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 129,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Cadantine seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*32) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 130,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Lantadyme seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*23) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 131,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Snape grass seed|quantity=3|rarity=1/{{#expr:1/({{#var:rareseed}}*20) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 132,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Dwarf weed seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*14) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 133,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Torstol seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*9 + {{#var:treeseed}}*22) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 134,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Ranarr seed|quantity=1|rarity=1/{{#expr:1/({{#var:treeseed}}*30) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 135,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Watermelon seed|quantity=15|rarity=1/{{#expr:1/({{#var:treeseed}}*21) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 136,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Willow seed|quantity=1|rarity=1/{{#expr:1/({{#var:treeseed}}*20) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 137,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Mahogany seed|quantity=1|rarity=1/{{#expr:1/({{#var:treeseed}}*18) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 138,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Maple seed|quantity=1|rarity=1/{{#expr:1/({{#var:treeseed}}*18) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 139,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Teak seed|quantity=1|rarity=1/{{#expr:1/({{#var:treeseed}}*18) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 140,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Yew seed|quantity=1|rarity=1/{{#expr:1/({{#var:treeseed}}*18) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 141,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Papaya tree seed|quantity=1|rarity=1/{{#expr:1/({{#var:treeseed}}*14) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 142,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Magic seed|quantity=1|rarity=1/{{#expr:1/({{#var:treeseed}}*11) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 143,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Palm tree seed|quantity=1|rarity=1/{{#expr:1/({{#var:treeseed}}*10) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 144,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Spirit seed|quantity=1|rarity=1/{{#expr:1/({{#var:treeseed}}*8) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 145,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Dragonfruit tree seed|quantity=1|rarity=1/{{#expr:1/({{#var:treeseed}}*6) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 146,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Celastrus seed|quantity=1|rarity=1/{{#expr:1/({{#var:treeseed}}*4) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 147,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Redwood tree seed|quantity=1|rarity=1/{{#expr:1/({{#var:treeseed}}*4) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 154,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy guam leaf|quantity=2-3|rarity=1/{{#expr:1/({{#var:hdt}}*32) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 155,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy marrentill|quantity=2-3|rarity=1/{{#expr:1/({{#var:hdt}}*24) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 156,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy tarromin|quantity=2-3|rarity=1/{{#expr:1/({{#var:hdt}}*18) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 157,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy harralander|quantity=2-3|rarity=1/{{#expr:1/({{#var:hdt}}*14) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 158,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy ranarr weed|quantity=2-3|rarity=1/{{#expr:1/({{#var:hdt}}*11 + {{#var:usefulHdt}}*4) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 159,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy irit leaf|quantity=2-3|rarity=1/{{#expr:1/({{#var:hdt}}*8) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 160,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy avantoe|quantity=2-3|rarity=1/{{#expr:1/({{#var:hdt}}*6 + {{#var:usefulHdt}}*5) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 161,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy kwuarm|quantity=2-3|rarity=1/{{#expr:1/({{#var:hdt}}*5) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 162,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy cadantine|quantity=2-3|rarity=1/{{#expr:1/({{#var:hdt}}*4) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 163,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy lantadyme|quantity=2-3|rarity=1/{{#expr:1/({{#var:hdt}}*3) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 164,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy dwarf weed|quantity=2-3|rarity=1/{{#expr:1/({{#var:hdt}}*3) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 165,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy snapdragon|quantity=2-3|rarity=1/{{#expr:1/({{#var:usefulHdt}}*4) round 1}}}}"
+  },
+  {
+    "monsterName": "Manta ray (monster)",
+    "lineNumber": 166,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy torstol|quantity=2-3|rarity=1/{{#expr:1/({{#var:usefulHdt}}*3) round 1}}}}"
+  },
+  {
+    "monsterName": "Milla",
+    "lineNumber": 121,
+    "reason": "reference/template garbage item name",
+    "line": "{{DropsLine|name=Fur|quantity=1|rarity=100/512}}"
+  },
+  {
+    "monsterName": "Moss giant",
+    "lineNumber": 332,
+    "reason": "could not extract outer DropsLine template",
+    "line": "{{DropsLine|name=Mossy key|quantity=1|rarity=1/150|raritynotes={{Refn|group=d|While having a moss giant [[Slayer task]], the drop rate is increased to 1/75, even if the kill doesn't progress the task (for example by killing giants on a free-to-play world, [[Krystilia]] tasks do not work for this.){{CiteDiscord|author=Mod Ash|url=https://discord.com/channels/324132423636090880/431834766325841920/1338463532135747584|date=10 February 2025|quote=It was updated in December 2024. Now, for normal moss giants:"
+  },
+  {
+    "monsterName": "Nikita",
+    "lineNumber": 121,
+    "reason": "reference/template garbage item name",
+    "line": "{{DropsLine|name=Fur|quantity=1|rarity=100/512}}"
+  },
+  {
+    "monsterName": "Nikolai",
+    "lineNumber": 121,
+    "reason": "reference/template garbage item name",
+    "line": "{{DropsLine|name=Fur|quantity=1|rarity=100/512}}"
+  },
+  {
+    "monsterName": "Shellbane gryphon",
+    "lineNumber": 132,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Potato seed|quantity=1-4|rarity=1/{{#expr:1/({{#var:allotseed}}*64) round 1}}|rolls=2}}"
+  },
+  {
+    "monsterName": "Shellbane gryphon",
+    "lineNumber": 133,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Onion seed|quantity=1-3|rarity=1/{{#expr:1/({{#var:allotseed}}*32) round 1}}|rolls=2}}"
+  },
+  {
+    "monsterName": "Shellbane gryphon",
+    "lineNumber": 134,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Cabbage seed|quantity=1-3|rarity=1/{{#expr:1/({{#var:allotseed}}*16) round 1}}|rolls=2}}"
+  },
+  {
+    "monsterName": "Shellbane gryphon",
+    "lineNumber": 135,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Tomato seed|quantity=1-2|rarity=1/{{#expr:1/({{#var:allotseed}}*8 + {{#var:allotseedgood}}*8) round 1}}|rolls=2}}"
+  },
+  {
+    "monsterName": "Shellbane gryphon",
+    "lineNumber": 136,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Sweetcorn seed|quantity=1-2|rarity=1/{{#expr:1/({{#var:allotseed}}*4 + {{#var:allotseedgood}}*4) round 1}}|rolls=2}}"
+  },
+  {
+    "monsterName": "Shellbane gryphon",
+    "lineNumber": 139,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Strawberry seed|quantity=1|rarity=1/{{#expr:1/({{#var:allotseed}}*2 + {{#var:allotseedgood}}*2) round 1}}|rolls=2}}"
+  },
+  {
+    "monsterName": "Shellbane gryphon",
+    "lineNumber": 140,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Watermelon seed|quantity=1|rarity=1/{{#expr:1/({{#var:allotseed}}*1 + {{#var:allotseedgood}}*1) round 1}}|rolls=2}}"
+  },
+  {
+    "monsterName": "Shellbane gryphon",
+    "lineNumber": 141,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Snape grass seed|quantity=1|rarity=1/{{#expr:1/({{#var:allotseed}}*1 + {{#var:allotseedgood}}*1) round 1}}|rolls=2}}"
+  },
+  {
+    "monsterName": "Shellbane gryphon",
+    "lineNumber": 148,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy guam leaf|quantity=1|rarity=1/{{#expr:1/({{#var:herb}}*32) round 1}}|rolls=2}}"
+  },
+  {
+    "monsterName": "Shellbane gryphon",
+    "lineNumber": 149,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy marrentill|quantity=1|rarity=1/{{#expr:1/({{#var:herb}}*24) round 1}}|rolls=2}}"
+  },
+  {
+    "monsterName": "Shellbane gryphon",
+    "lineNumber": 150,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy tarromin|quantity=1|rarity=1/{{#expr:1/({{#var:herb}}*18) round 1}}|rolls=2}}"
+  },
+  {
+    "monsterName": "Shellbane gryphon",
+    "lineNumber": 151,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy harralander|quantity=1|rarity=1/{{#expr:1/({{#var:herb}}*14) round 1}}|rolls=2}}"
+  },
+  {
+    "monsterName": "Shellbane gryphon",
+    "lineNumber": 152,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy ranarr weed|quantity=1|rarity=1/{{#expr:1/({{#var:herb}}*11) round 1}}|rolls=2}}"
+  },
+  {
+    "monsterName": "Shellbane gryphon",
+    "lineNumber": 153,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy irit leaf|quantity=1|rarity=1/{{#expr:1/({{#var:herb}}*8) round 1}}|rolls=2}}"
+  },
+  {
+    "monsterName": "Shellbane gryphon",
+    "lineNumber": 154,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy avantoe|quantity=1|rarity=1/{{#expr:1/({{#var:herb}}*6) round 1}}|rolls=2}}"
+  },
+  {
+    "monsterName": "Shellbane gryphon",
+    "lineNumber": 155,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy kwuarm|quantity=1|rarity=1/{{#expr:1/({{#var:herb}}*5 + {{#var:combatherb}}*5) round 1}}|rolls=2}}"
+  },
+  {
+    "monsterName": "Shellbane gryphon",
+    "lineNumber": 156,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy cadantine|quantity=1|rarity=1/{{#expr:1/({{#var:herb}}*4 + {{#var:combatherb}}*4) round 1}}|rolls=2}}"
+  },
+  {
+    "monsterName": "Shellbane gryphon",
+    "lineNumber": 157,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy lantadyme|quantity=1|rarity=1/{{#expr:1/({{#var:herb}}*3 + {{#var:combatherb}}*3) round 1}}|rolls=2}}"
+  },
+  {
+    "monsterName": "Shellbane gryphon",
+    "lineNumber": 158,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy dwarf weed|quantity=1|rarity=1/{{#expr:1/({{#var:herb}}*3 + {{#var:combatherb}}*4) round 1}}|rolls=2}}"
+  },
+  {
+    "monsterName": "Sofiya",
+    "lineNumber": 121,
+    "reason": "reference/template garbage item name",
+    "line": "{{DropsLine|name=Fur|quantity=1|rarity=100/512}}"
+  },
+  {
+    "monsterName": "Spitting Wyvern",
+    "lineNumber": 135,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy kwuarm|quantity=2|rarity=1/{{#expr:1/(40*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Spitting Wyvern",
+    "lineNumber": 136,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy cadantine|quantity=2|rarity=1/{{#expr:1/(32*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Spitting Wyvern",
+    "lineNumber": 137,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy dwarf weed|quantity=2|rarity=1/{{#expr:1/(32*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Spitting Wyvern",
+    "lineNumber": 138,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy lantadyme|quantity=2|rarity=1/{{#expr:1/(24*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Spitting Wyvern",
+    "lineNumber": 148,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Ranarr seed|quantity=1|rarity=1/{{#expr:1/(15*{{#var:seedbase}} + 2/123) round 1}}}}"
+  },
+  {
+    "monsterName": "Spitting Wyvern",
+    "lineNumber": 149,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Snapdragon seed|quantity=1|rarity=1/{{#expr:1/(14*{{#var:seedbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Spitting Wyvern",
+    "lineNumber": 150,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Torstol seed|quantity=1|rarity=1/{{#expr:1/(11*{{#var:seedbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Spitting Wyvern",
+    "lineNumber": 151,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Watermelon seed|quantity=15|rarity=1/{{#expr:1/(10*{{#var:seedbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Spitting Wyvern",
+    "lineNumber": 152,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Willow seed|quantity=1|rarity=1/{{#expr:1/(10*{{#var:seedbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Spitting Wyvern",
+    "lineNumber": 153,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Mahogany seed|quantity=1|rarity=1/{{#expr:1/(9*{{#var:seedbase}} + (1/123 * 1/3)) round 1}}}}"
+  },
+  {
+    "monsterName": "Spitting Wyvern",
+    "lineNumber": 154,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Maple seed|quantity=1|rarity=1/{{#expr:1/(9*{{#var:seedbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Spitting Wyvern",
+    "lineNumber": 155,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Teak seed|quantity=1|rarity=1/{{#expr:1/(9*{{#var:seedbase}} + (1/123 * 2/3)) round 1}}}}"
+  },
+  {
+    "monsterName": "Spitting Wyvern",
+    "lineNumber": 156,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Yew seed|quantity=1|rarity=1/{{#expr:1/(9*{{#var:seedbase}} + 1/123) round 1}}}}"
+  },
+  {
+    "monsterName": "Spitting Wyvern",
+    "lineNumber": 157,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Papaya tree seed|quantity=1|rarity=1/{{#expr:1/(7*{{#var:seedbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Spitting Wyvern",
+    "lineNumber": 158,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Magic seed|quantity=1|rarity=1/{{#expr:1/(6*{{#var:seedbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Spitting Wyvern",
+    "lineNumber": 159,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Palm tree seed|quantity=1|rarity=1/{{#expr:1/(5*{{#var:seedbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Spitting Wyvern",
+    "lineNumber": 160,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Spirit seed|quantity=1|rarity=1/{{#expr:1/(4*{{#var:seedbase}}) round 1}}|gemw=No}}"
+  },
+  {
+    "monsterName": "Spitting Wyvern",
+    "lineNumber": 161,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Dragonfruit tree seed|quantity=1|rarity=1/{{#expr:1/(3*{{#var:seedbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Spitting Wyvern",
+    "lineNumber": 162,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Celastrus seed|quantity=1|rarity=1/{{#expr:1/(2*{{#var:seedbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Spitting Wyvern",
+    "lineNumber": 163,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Redwood tree seed|quantity=1|rarity=1/{{#expr:1/(2*{{#var:seedbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 134,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Limpwurt seed|quantity=1|rarity=1/{{#expr:1/({{#var:uncseed}}*137) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 135,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Strawberry seed|quantity=1|rarity=1/{{#expr:1/({{#var:uncseed}}*131) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 136,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Marrentill seed|quantity=1|rarity=1/{{#expr:1/({{#var:uncseed}}*125) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 137,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Jangerberry seed|quantity=1|rarity=1/{{#expr:1/({{#var:uncseed}}*92) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 138,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Tarromin seed|quantity=1|rarity=1/{{#expr:1/({{#var:uncseed}}*85) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 139,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Wildblood seed|quantity=1|rarity=1/{{#expr:1/({{#var:uncseed}}*83) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 140,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Watermelon seed|quantity=1|rarity=1/{{#expr:1/({{#var:uncseed}}*63) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 141,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Toadflax seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*216 + {{#var:uncseed}}*27) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 142,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Harralander seed|quantity=1|rarity=1/{{#expr:1/({{#var:uncseed}}*56) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 143,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Snape grass seed|quantity=1|rarity=1/{{#expr:1/({{#var:uncseed}}*40) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 144,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Irit seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*148 + {{#var:uncseed}}*18) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 145,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Ranarr seed|quantity=1|rarity=1/{{#expr:1/({{#var:uncseed}}*39) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 146,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Belladonna seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*143 + {{#var:uncseed}}*18) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 147,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Whiteberry seed|quantity=1|rarity=1/{{#expr:1/({{#var:uncseed}}*34) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 148,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Mushroom spore|quantity=1|rarity=1/{{#expr:1/({{#var:uncseed}}*29) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 149,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Poison ivy seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*101 + {{#var:uncseed}}*13) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 150,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Avantoe seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*103 + {{#var:uncseed}}*12) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 151,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Cactus seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*96 + {{#var:uncseed}}*12) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 152,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Kwuarm seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*69 + {{#var:uncseed}}*9) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 153,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Potato cactus seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*70 + {{#var:uncseed}}*8) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 154,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Snapdragon seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*46 + {{#var:uncseed}}*5) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 155,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Cadantine seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*32 + {{#var:uncseed}}*4) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 156,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Lantadyme seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*23 + {{#var:uncseed}}*3) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 157,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Dwarf weed seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*14 + {{#var:uncseed}}*2) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 158,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Snape grass seed|quantity=3|rarity=1/{{#expr:1/({{#var:rareseed}}*20) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 159,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Torstol seed|quantity=1|rarity=1/{{#expr:1/({{#var:rareseed}}*9 + {{#var:uncseed}}*1) round 0}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 166,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy guam leaf|quantity=1-2|rarity=1/{{#expr:1/({{#var:hdt}}*32) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 167,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy marrentill|quantity=1-2|rarity=1/{{#expr:1/({{#var:hdt}}*24) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 168,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy tarromin|quantity=1-2|rarity=1/{{#expr:1/({{#var:hdt}}*18) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 169,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy harralander|quantity=1-2|rarity=1/{{#expr:1/({{#var:hdt}}*14) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 170,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy ranarr weed|quantity=1-2|rarity=1/{{#expr:1/({{#var:hdt}}*11 + {{#var:usefulHdt}}*4) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 171,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy irit leaf|quantity=1-2|rarity=1/{{#expr:1/({{#var:hdt}}*8) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 172,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy avantoe|quantity=1-2|rarity=1/{{#expr:1/({{#var:hdt}}*6 + {{#var:usefulHdt}}*5) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 173,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy kwuarm|quantity=1-2|rarity=1/{{#expr:1/({{#var:hdt}}*5) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 174,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy cadantine|quantity=1-2|rarity=1/{{#expr:1/({{#var:hdt}}*4) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 175,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy lantadyme|quantity=1-2|rarity=1/{{#expr:1/({{#var:hdt}}*3) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 176,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy dwarf weed|quantity=1-2|rarity=1/{{#expr:1/({{#var:hdt}}*3) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 177,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy snapdragon|quantity=1-2|rarity=1/{{#expr:1/({{#var:usefulHdt}}*4) round 1}}}}"
+  },
+  {
+    "monsterName": "Stingray",
+    "lineNumber": 178,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy torstol|quantity=1-2|rarity=1/{{#expr:1/({{#var:usefulHdt}}*3) round 1}}}}"
+  },
+  {
+    "monsterName": "Svetlana",
+    "lineNumber": 121,
+    "reason": "reference/template garbage item name",
+    "line": "{{DropsLine|name=Fur|quantity=1|rarity=100/512}}"
+  },
+  {
+    "monsterName": "Taloned Wyvern",
+    "lineNumber": 135,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy kwuarm|quantity=2|rarity=1/{{#expr:1/(40*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Taloned Wyvern",
+    "lineNumber": 136,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy cadantine|quantity=2|rarity=1/{{#expr:1/(32*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Taloned Wyvern",
+    "lineNumber": 137,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy dwarf weed|quantity=2|rarity=1/{{#expr:1/(32*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Taloned Wyvern",
+    "lineNumber": 138,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy lantadyme|quantity=2|rarity=1/{{#expr:1/(24*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Taloned Wyvern",
+    "lineNumber": 148,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Ranarr seed|quantity=1|rarity=1/{{#expr:1/(15*{{#var:seedbase}} + 2/123) round 1}}}}"
+  },
+  {
+    "monsterName": "Taloned Wyvern",
+    "lineNumber": 149,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Snapdragon seed|quantity=1|rarity=1/{{#expr:1/(14*{{#var:seedbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Taloned Wyvern",
+    "lineNumber": 150,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Torstol seed|quantity=1|rarity=1/{{#expr:1/(11*{{#var:seedbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Taloned Wyvern",
+    "lineNumber": 151,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Watermelon seed|quantity=15|rarity=1/{{#expr:1/(10*{{#var:seedbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Taloned Wyvern",
+    "lineNumber": 152,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Willow seed|quantity=1|rarity=1/{{#expr:1/(10*{{#var:seedbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Taloned Wyvern",
+    "lineNumber": 153,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Mahogany seed|quantity=1|rarity=1/{{#expr:1/(9*{{#var:seedbase}} + (1/123 * 1/3)) round 1}}}}"
+  },
+  {
+    "monsterName": "Taloned Wyvern",
+    "lineNumber": 154,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Maple seed|quantity=1|rarity=1/{{#expr:1/(9*{{#var:seedbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Taloned Wyvern",
+    "lineNumber": 155,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Teak seed|quantity=1|rarity=1/{{#expr:1/(9*{{#var:seedbase}} + (1/123 * 2/3)) round 1}}}}"
+  },
+  {
+    "monsterName": "Taloned Wyvern",
+    "lineNumber": 156,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Yew seed|quantity=1|rarity=1/{{#expr:1/(9*{{#var:seedbase}} + 1/123) round 1}}}}"
+  },
+  {
+    "monsterName": "Taloned Wyvern",
+    "lineNumber": 157,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Papaya tree seed|quantity=1|rarity=1/{{#expr:1/(7*{{#var:seedbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Taloned Wyvern",
+    "lineNumber": 158,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Magic seed|quantity=1|rarity=1/{{#expr:1/(6*{{#var:seedbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Taloned Wyvern",
+    "lineNumber": 159,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Palm tree seed|quantity=1|rarity=1/{{#expr:1/(5*{{#var:seedbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Taloned Wyvern",
+    "lineNumber": 160,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Spirit seed|quantity=1|rarity=1/{{#expr:1/(4*{{#var:seedbase}}) round 1}}|gemw=No}}"
+  },
+  {
+    "monsterName": "Taloned Wyvern",
+    "lineNumber": 161,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Dragonfruit tree seed|quantity=1|rarity=1/{{#expr:1/(3*{{#var:seedbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Taloned Wyvern",
+    "lineNumber": 162,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Celastrus seed|quantity=1|rarity=1/{{#expr:1/(2*{{#var:seedbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Taloned Wyvern",
+    "lineNumber": 163,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Redwood tree seed|quantity=1|rarity=1/{{#expr:1/(2*{{#var:seedbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Tortured gorilla",
+    "lineNumber": 128,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy kwuarm|quantity=1 (noted)|rarity=1/{{#expr:1/(40*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Tortured gorilla",
+    "lineNumber": 129,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy cadantine|quantity=1 (noted)|rarity=1/{{#expr:1/(32*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Tortured gorilla",
+    "lineNumber": 130,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy dwarf weed|quantity=1 (noted)|rarity=1/{{#expr:1/(32*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Tortured gorilla",
+    "lineNumber": 131,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy lantadyme|quantity=1 (noted)|rarity=1/{{#expr:1/(24*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "TzHaar-Hur",
+    "lineNumber": 85,
+    "reason": "reference/template garbage item name",
+    "line": "{{DropsLine|name=Jug|quantity=1|rarity=8/128}}"
+  },
+  {
+    "monsterName": "TzHaar-Hur",
+    "lineNumber": 87,
+    "reason": "reference/template garbage item name",
+    "line": "{{DropsLine|name=Pot|quantity=1|rarity=8/128}}"
+  },
+  {
+    "monsterName": "Vera",
+    "lineNumber": 119,
+    "reason": "reference/template garbage item name",
+    "line": "{{DropsLine|name=Fur|quantity=1|rarity=100/512}}"
+  },
+  {
+    "monsterName": "Werewolf",
+    "lineNumber": 615,
+    "reason": "reference/template garbage item name",
+    "line": "{{DropsLine|name=Fur|quantity=1|rarity=100/512}}"
+  },
+  {
+    "monsterName": "Yadviga",
+    "lineNumber": 121,
+    "reason": "reference/template garbage item name",
+    "line": "{{DropsLine|name=Fur|quantity=1|rarity=100/512}}"
+  },
+  {
+    "monsterName": "Yuri",
+    "lineNumber": 122,
+    "reason": "reference/template garbage item name",
+    "line": "{{DropsLine|name=Fur|quantity=1|rarity=100/512}}"
+  },
+  {
+    "monsterName": "Zoja",
+    "lineNumber": 121,
+    "reason": "reference/template garbage item name",
+    "line": "{{DropsLine|name=Fur|quantity=1|rarity=100/512}}"
   }
 ]
