@@ -6,6 +6,7 @@ import net.runelite.client.ui.PluginPanel;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -20,11 +21,20 @@ public class ItemDropLookupPanel extends PluginPanel
 {
     private static final int MAX_DISPLAYED_DROP_SOURCES = 100;
 
+    private static final String FILTER_ALL = "All";
+    private static final String FILTER_DROPS = "NPC Drops";
+    private static final String FILTER_SOURCES = "Non-NPC Sources";
+
     private final DropLookupService dropLookupService;
     private final ItemSourceLookupService itemSourceLookupService;
 
     private final JTextField searchField = new JTextField();
     private final JButton searchButton = new JButton("Search");
+    private final JComboBox<String> filterDropdown = new JComboBox<>(new String[] {
+            FILTER_ALL,
+            FILTER_DROPS,
+            FILTER_SOURCES
+    });
     private final JPanel resultsPanel = new JPanel();
 
     public ItemDropLookupPanel(DropLookupService dropLookupService, ItemSourceLookupService itemSourceLookupService)
@@ -34,6 +44,10 @@ public class ItemDropLookupPanel extends PluginPanel
 
         setLayout(new BorderLayout());
         setBorder(new EmptyBorder(10, 10, 10, 10));
+
+        JPanel topPanel = new JPanel();
+        topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.Y_AXIS));
+        topPanel.setBackground(ColorScheme.DARK_GRAY_COLOR);
 
         JPanel searchPanel = new JPanel(new BorderLayout(5, 5));
         searchPanel.setBackground(ColorScheme.DARK_GRAY_COLOR);
@@ -45,10 +59,18 @@ public class ItemDropLookupPanel extends PluginPanel
         searchPanel.add(searchField, BorderLayout.CENTER);
         searchPanel.add(searchButton, BorderLayout.EAST);
 
+        filterDropdown.setToolTipText("Choose which source types to show");
+        filterDropdown.addActionListener(e -> performSearch());
+        filterDropdown.setMaximumSize(new Dimension(Integer.MAX_VALUE, filterDropdown.getPreferredSize().height));
+
+        topPanel.add(searchPanel);
+        topPanel.add(makeSmallSpacer());
+        topPanel.add(filterDropdown);
+
         resultsPanel.setLayout(new BoxLayout(resultsPanel, BoxLayout.Y_AXIS));
         resultsPanel.setBackground(ColorScheme.DARK_GRAY_COLOR);
 
-        add(searchPanel, BorderLayout.NORTH);
+        add(topPanel, BorderLayout.NORTH);
         add(resultsPanel, BorderLayout.CENTER);
     }
 
@@ -57,6 +79,7 @@ public class ItemDropLookupPanel extends PluginPanel
         resultsPanel.removeAll();
 
         String itemName = searchField.getText().trim();
+        String selectedFilter = (String) filterDropdown.getSelectedItem();
 
         if (itemName.isEmpty())
         {
@@ -67,17 +90,15 @@ public class ItemDropLookupPanel extends PluginPanel
             java.util.List<DropSource> dropResults = dropLookupService.searchByItemName(itemName);
             java.util.List<ItemSource> itemSources = itemSourceLookupService.searchByItemName(itemName);
 
-            if (dropResults.isEmpty())
-            {
-                resultsPanel.add(makeNoResultHeader("No NPC drop found for: " + itemName));
-                resultsPanel.add(makeLabel("This item may not come from a normal monster drop."));
-            }
-            else
+            boolean showDrops = FILTER_ALL.equals(selectedFilter) || FILTER_DROPS.equals(selectedFilter);
+            boolean showSources = FILTER_ALL.equals(selectedFilter) || FILTER_SOURCES.equals(selectedFilter);
+
+            if (showDrops && !dropResults.isEmpty())
             {
                 displayDropResults(dropResults);
             }
 
-            if (!itemSources.isEmpty())
+            if (showSources && !itemSources.isEmpty())
             {
                 resultsPanel.add(makeSpacer());
                 resultsPanel.add(makeSectionHeader("Non-NPC Sources"));
@@ -87,10 +108,23 @@ public class ItemDropLookupPanel extends PluginPanel
                     resultsPanel.add(makeItemSourceCard(source));
                 }
             }
-            else if (dropResults.isEmpty())
+
+            if ((showDrops && dropResults.isEmpty()) && (showSources && itemSources.isEmpty()))
             {
+                resultsPanel.add(makeNoResultHeader("No source found for: " + itemName));
+                resultsPanel.add(makeLabel("No NPC drop or known non-NPC source is currently in the local data."));
                 resultsPanel.add(makeLabel("Possible sources: clues, shops, skilling, minigames, quests, spawns, or reward chests."));
                 resultsPanel.add(makeLabel("Try a more specific item name, or check the OSRS Wiki."));
+            }
+            else if (FILTER_DROPS.equals(selectedFilter) && dropResults.isEmpty())
+            {
+                resultsPanel.add(makeNoResultHeader("No NPC drop found for: " + itemName));
+                resultsPanel.add(makeLabel("This item may not come from a normal monster drop."));
+            }
+            else if (FILTER_SOURCES.equals(selectedFilter) && itemSources.isEmpty())
+            {
+                resultsPanel.add(makeNoResultHeader("No non-NPC source found for: " + itemName));
+                resultsPanel.add(makeLabel("This item may still exist, but no shop/reward/source entry is currently in the local data."));
             }
         }
 
@@ -259,6 +293,14 @@ public class ItemDropLookupPanel extends PluginPanel
     {
         JLabel label = new JLabel(" ");
         label.setBorder(new EmptyBorder(3, 0, 3, 0));
+        label.setMaximumSize(new Dimension(Integer.MAX_VALUE, label.getPreferredSize().height));
+        return label;
+    }
+
+    private JLabel makeSmallSpacer()
+    {
+        JLabel label = new JLabel(" ");
+        label.setBorder(new EmptyBorder(1, 0, 1, 0));
         label.setMaximumSize(new Dimension(Integer.MAX_VALUE, label.getPreferredSize().height));
         return label;
     }
