@@ -111,8 +111,13 @@ public class ItemDropLookupPanel extends PluginPanel
 
             if (showPriceCheckbox.isSelected())
             {
-                resultsPanel.add(makeSearchPriceSummary(itemName));
-                resultsPanel.add(makeSpacer());
+                Optional<ItemPrice> itemPrice = itemPriceLookupService.searchByItemName(itemName);
+
+                if (itemPrice.isPresent())
+                {
+                    resultsPanel.add(makeSearchPriceSummary(itemPrice.get()));
+                    resultsPanel.add(makeSpacer());
+                }
             }
 
             if (showDrops && !dropResults.isEmpty())
@@ -255,21 +260,10 @@ public class ItemDropLookupPanel extends PluginPanel
         return card;
     }
 
-    private JLabel makeSearchPriceSummary(String itemName)
+    private JLabel makeSearchPriceSummary(ItemPrice itemPrice)
     {
-        Optional<ItemPrice> itemPrice = itemPriceLookupService.searchByItemName(itemName);
-
-        String displayName = formatItemName(itemName);
-        String priceLine;
-
-        if (itemPrice.isPresent())
-        {
-            priceLine = formatPriceLine(itemPrice.get());
-        }
-        else
-        {
-            priceLine = "GE: unavailable";
-        }
+        String displayName = formatItemName(itemPrice.getItemName());
+        String priceLine = formatPriceLine(itemPrice);
 
         JLabel label = new JLabel(
                 "<html><div style='width:180px;'><b>"
