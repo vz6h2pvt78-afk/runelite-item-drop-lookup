@@ -7,6 +7,13 @@
     "notes": ""
   },
   {
+    "itemName": "Abyssal ashes",
+    "monsterName": "Abyssal Sire",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
     "itemName": "Abyssal dagger",
     "monsterName": "Abyssal demon",
     "quantity": "1",
@@ -35,6 +42,188 @@
     "notes": ""
   },
   {
+    "itemName": "Adamant arrow",
+    "monsterName": "Corporeal Beast",
+    "quantity": "750",
+    "dropRate": "17/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamant arrow(p++)",
+    "monsterName": "K'ril Tsutsaroth",
+    "quantity": "295-300",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamant axe",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "1",
+    "dropRate": "7/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamant axe",
+    "monsterName": "Dust devil",
+    "quantity": "1",
+    "dropRate": "3/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamant axe",
+    "monsterName": "Dust devil",
+    "quantity": "1",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamant battleaxe",
+    "monsterName": "Greater Nechryael",
+    "quantity": "1",
+    "dropRate": "5/112",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamant battleaxe",
+    "monsterName": "Greater Nechryael",
+    "quantity": "1",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamant battleaxe",
+    "monsterName": "Smoke devil",
+    "quantity": "1",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamant boots",
+    "monsterName": "Gargoyle",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamant dart",
+    "monsterName": "Dagannoth Supreme",
+    "quantity": "10-25",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamant full helm",
+    "monsterName": "Cave horror",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamant kiteshield",
+    "monsterName": "Basilisk Knight",
+    "quantity": "1",
+    "dropRate": "1/52",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamant kiteshield",
+    "monsterName": "Greater Nechryael",
+    "quantity": "1",
+    "dropRate": "7/112",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamant kiteshield",
+    "monsterName": "Greater Nechryael",
+    "quantity": "1",
+    "dropRate": "7/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamant kiteshield",
+    "monsterName": "King Black Dragon",
+    "quantity": "1",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamant kiteshield",
+    "monsterName": "Nechryael",
+    "quantity": "1",
+    "dropRate": "2/116",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamant longsword",
+    "monsterName": "Giant Mole",
+    "quantity": "1",
+    "dropRate": "10/131",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamant platebody",
+    "monsterName": "Commander Zilyana",
+    "quantity": "1",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamant platebody",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "1",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamant platebody",
+    "monsterName": "K'ril Tsutsaroth",
+    "quantity": "1",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamant platebody",
+    "monsterName": "King Black Dragon",
+    "quantity": "1",
+    "dropRate": "9/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamant platebody",
+    "monsterName": "Vyrewatch Sentinel",
+    "quantity": "1",
+    "dropRate": "4/93",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamant platelegs",
+    "monsterName": "Basilisk Knight",
+    "quantity": "1",
+    "dropRate": "1/52",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamant platelegs",
+    "monsterName": "Gargoyle",
+    "quantity": "1",
+    "dropRate": "4/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamant platelegs",
+    "monsterName": "Nechryael",
+    "quantity": "1",
+    "dropRate": "4/116",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamant platelegs",
+    "monsterName": "Vyrewatch Sentinel",
+    "quantity": "1",
+    "dropRate": "6/93",
+    "notes": ""
+  },
+  {
     "itemName": "Adamantite bar",
     "monsterName": "Abyssal demon",
     "quantity": "1",
@@ -57,9 +246,72 @@
   },
   {
     "itemName": "Adamantite bar",
+    "monsterName": "Chaos Elemental",
+    "quantity": "8-12 (noted)",
+    "dropRate": "4/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamantite bar",
+    "monsterName": "Corporeal Beast",
+    "quantity": "35 (noted)",
+    "dropRate": "18/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamantite bar",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "1",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamantite bar",
+    "monsterName": "Demonic gorilla",
+    "quantity": "6 (noted)",
+    "dropRate": "20/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamantite bar",
+    "monsterName": "Dust devil",
+    "quantity": "4 (noted)",
+    "dropRate": "1/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamantite bar",
+    "monsterName": "Dust devil",
+    "quantity": "4 (noted)",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamantite bar",
+    "monsterName": "King Black Dragon",
+    "quantity": "3",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamantite bar",
+    "monsterName": "Smoke devil",
+    "quantity": "1",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamantite bar",
     "monsterName": "Spiritual mage",
     "quantity": "1-4 (noted)",
     "dropRate": "8/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamantite bar",
+    "monsterName": "Zulrah",
+    "quantity": "20 (noted)",
+    "dropRate": "8/249",
     "notes": ""
   },
   {
@@ -70,10 +322,122 @@
     "notes": ""
   },
   {
+    "itemName": "Adamantite ore",
+    "monsterName": "Araxxor",
+    "quantity": "85 (noted)",
+    "dropRate": "4/115",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamantite ore",
+    "monsterName": "Basilisk Knight",
+    "quantity": "1-2 (noted)",
+    "dropRate": "1/52",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamantite ore",
+    "monsterName": "Corporeal Beast",
+    "quantity": "125 (noted)",
+    "dropRate": "17/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamantite ore",
+    "monsterName": "General Graardor",
+    "quantity": "15-20 (noted)",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamantite ore",
+    "monsterName": "Muspah",
+    "quantity": "22 (noted)",
+    "dropRate": "10/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamantite ore",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "40-95 (noted)",
+    "dropRate": "4/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamantite ore",
+    "monsterName": "Sarachnis",
+    "quantity": "30-40 (noted)",
+    "dropRate": "3/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamantite ore",
+    "monsterName": "Skotizo",
+    "quantity": "75 (noted)",
+    "dropRate": "7/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamantite ore",
+    "monsterName": "The Nightmare",
+    "quantity": "40-95 (noted)",
+    "dropRate": "4/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamantite ore",
+    "monsterName": "Vorkath",
+    "quantity": "10-30 (noted)",
+    "dropRate": "7/150",
+    "notes": ""
+  },
+  {
+    "itemName": "Aether catalyst",
+    "monsterName": "Abyssal Sire",
+    "quantity": "220-270",
+    "dropRate": "2/139",
+    "notes": ""
+  },
+  {
+    "itemName": "Air battlestaff",
+    "monsterName": "Abyssal Sire",
+    "quantity": "6 (noted)",
+    "dropRate": "2/139",
+    "notes": ""
+  },
+  {
     "itemName": "Air battlestaff",
     "monsterName": "Ancient Wyvern",
     "quantity": "2",
     "dropRate": "4/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Air battlestaff",
+    "monsterName": "Dagannoth Prime",
+    "quantity": "1",
+    "dropRate": "4/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Air battlestaff",
+    "monsterName": "Dust devil",
+    "quantity": "1",
+    "dropRate": "2/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Air battlestaff",
+    "monsterName": "Dust devil",
+    "quantity": "1",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Air battlestaff",
+    "monsterName": "Smoke devil",
+    "quantity": "1",
+    "dropRate": "3/128",
     "notes": ""
   },
   {
@@ -88,6 +452,55 @@
     "monsterName": "Abyssal demon",
     "quantity": "50",
     "dropRate": "8/68",
+    "notes": ""
+  },
+  {
+    "itemName": "Air rune",
+    "monsterName": "Dagannoth Prime",
+    "quantity": "100-200",
+    "dropRate": "6/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Air rune",
+    "monsterName": "Giant Mole",
+    "quantity": "105",
+    "dropRate": "20/131",
+    "notes": ""
+  },
+  {
+    "itemName": "Air rune",
+    "monsterName": "Greater Nechryael",
+    "quantity": "150",
+    "dropRate": "6/112",
+    "notes": ""
+  },
+  {
+    "itemName": "Air rune",
+    "monsterName": "Greater Nechryael",
+    "quantity": "150",
+    "dropRate": "6/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Air rune",
+    "monsterName": "King Black Dragon",
+    "quantity": "300",
+    "dropRate": "10/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Air rune",
+    "monsterName": "Lizardman shaman",
+    "quantity": "60-80",
+    "dropRate": "25/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Air rune",
+    "monsterName": "Smoke devil",
+    "quantity": "37",
+    "dropRate": "4/128",
     "notes": ""
   },
   {
@@ -112,10 +525,52 @@
     "notes": ""
   },
   {
+    "itemName": "Air rune",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "300",
+    "dropRate": "8/107",
+    "notes": ""
+  },
+  {
+    "itemName": "Air talisman",
+    "monsterName": "Dagannoth Prime",
+    "quantity": "25-75 (noted)",
+    "dropRate": "7/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Alchemical hydra heads",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "1",
+    "dropRate": "1/256",
+    "notes": ""
+  },
+  {
+    "itemName": "Amulet of power",
+    "monsterName": "King Black Dragon",
+    "quantity": "1",
+    "dropRate": "7/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Amulet of strength",
+    "monsterName": "Giant Mole",
+    "quantity": "1",
+    "dropRate": "7/131",
+    "notes": ""
+  },
+  {
     "itemName": "Ancient brew(2)",
     "monsterName": "Spiritual mage",
     "quantity": "1",
     "dropRate": "11/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Ancient brew(3)",
+    "monsterName": "Muspah",
+    "quantity": "1-2",
+    "dropRate": "1/9",
     "notes": ""
   },
   {
@@ -161,10 +616,234 @@
     "notes": ""
   },
   {
+    "itemName": "Ancient essence",
+    "monsterName": "Muspah",
+    "quantity": "1970-2060",
+    "dropRate": "10/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Ancient essence",
+    "monsterName": "Muspah",
+    "quantity": "885-995",
+    "dropRate": "23/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Ancient essence",
+    "monsterName": "Muspah",
+    "quantity": "540-599",
+    "dropRate": "60/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Ancient icon",
+    "monsterName": "Muspah",
+    "quantity": "1",
+    "dropRate": "2/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Ancient shard",
+    "monsterName": "Skotizo",
+    "quantity": "5",
+    "dropRate": "1/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Ancient shard",
+    "monsterName": "Skotizo",
+    "quantity": "2",
+    "dropRate": "15/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Ancient shard",
+    "monsterName": "Skotizo",
+    "quantity": "4",
+    "dropRate": "4/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Ancient shard",
+    "monsterName": "Skotizo",
+    "quantity": "3",
+    "dropRate": "5/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Ancient shard",
+    "monsterName": "Skotizo",
+    "quantity": "1",
+    "dropRate": "75/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Ancient staff",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "1",
+    "dropRate": "1/107",
+    "notes": ""
+  },
+  {
+    "itemName": "Antidote++(3)",
+    "monsterName": "Araxxor",
+    "quantity": "6 (noted)",
+    "dropRate": "4/115",
+    "notes": ""
+  },
+  {
+    "itemName": "Antidote++(4)",
+    "monsterName": "Corporeal Beast",
+    "quantity": "40 (noted)",
+    "dropRate": "10/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Antidote++(4)",
+    "monsterName": "Kraken",
+    "quantity": "2 (noted)",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Antidote++(4)",
+    "monsterName": "Zulrah",
+    "quantity": "10 (noted)",
+    "dropRate": "9/249",
+    "notes": ""
+  },
+  {
+    "itemName": "Antifire potion(2)",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
     "itemName": "Antipoison(3)",
     "monsterName": "Spiritual mage",
     "quantity": "5 (noted)",
     "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Araxyte fang",
+    "monsterName": "Araxxor",
+    "quantity": "1",
+    "dropRate": "1/600",
+    "notes": ""
+  },
+  {
+    "itemName": "Araxyte head",
+    "monsterName": "Araxxor",
+    "quantity": "1",
+    "dropRate": "1/250",
+    "notes": ""
+  },
+  {
+    "itemName": "Araxyte venom sack",
+    "monsterName": "Araxxor",
+    "quantity": "1",
+    "dropRate": "1/16",
+    "notes": ""
+  },
+  {
+    "itemName": "Araxyte venom sack",
+    "monsterName": "Araxxor",
+    "quantity": "12",
+    "dropRate": "2/115",
+    "notes": ""
+  },
+  {
+    "itemName": "Araxyte venom sack",
+    "monsterName": "Araxxor",
+    "quantity": "6",
+    "dropRate": "5/115",
+    "notes": ""
+  },
+  {
+    "itemName": "Archer helm",
+    "monsterName": "Dagannoth Supreme",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Archers ring",
+    "monsterName": "Dagannoth Supreme",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Armadyl chainskirt",
+    "monsterName": "Kree'arra",
+    "quantity": "1",
+    "dropRate": "1/381",
+    "notes": ""
+  },
+  {
+    "itemName": "Armadyl chestplate",
+    "monsterName": "Kree'arra",
+    "quantity": "1",
+    "dropRate": "1/381",
+    "notes": ""
+  },
+  {
+    "itemName": "Armadyl crossbow",
+    "monsterName": "Commander Zilyana",
+    "quantity": "1",
+    "dropRate": "1/508",
+    "notes": ""
+  },
+  {
+    "itemName": "Armadyl helmet",
+    "monsterName": "Kree'arra",
+    "quantity": "1",
+    "dropRate": "1/381",
+    "notes": ""
+  },
+  {
+    "itemName": "Armadyl hilt",
+    "monsterName": "Kree'arra",
+    "quantity": "1",
+    "dropRate": "1/508",
+    "notes": ""
+  },
+  {
+    "itemName": "Ashes",
+    "monsterName": "Cerberus",
+    "quantity": "50 (noted)",
+    "dropRate": "4/130",
+    "notes": ""
+  },
+  {
+    "itemName": "Ashes",
+    "monsterName": "Smoke devil",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Ashes",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Astral rune",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "150-300",
+    "dropRate": "6/101",
+    "notes": ""
+  },
+  {
+    "itemName": "Astral rune",
+    "monsterName": "Basilisk Knight",
+    "quantity": "15-35",
+    "dropRate": "6/52",
     "notes": ""
   },
   {
@@ -182,10 +861,262 @@
     "notes": ""
   },
   {
+    "itemName": "Baby mole",
+    "monsterName": "Giant Mole",
+    "quantity": "1",
+    "dropRate": "1/3000",
+    "notes": ""
+  },
+  {
+    "itemName": "Ballista limbs",
+    "monsterName": "Demonic gorilla",
+    "quantity": "1",
+    "dropRate": "1/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Ballista spring",
+    "monsterName": "Demonic gorilla",
+    "quantity": "1",
+    "dropRate": "1/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Bandos boots",
+    "monsterName": "General Graardor",
+    "quantity": "1",
+    "dropRate": "1/381",
+    "notes": ""
+  },
+  {
+    "itemName": "Bandos chestplate",
+    "monsterName": "General Graardor",
+    "quantity": "1",
+    "dropRate": "1/381",
+    "notes": ""
+  },
+  {
+    "itemName": "Bandos hilt",
+    "monsterName": "General Graardor",
+    "quantity": "1",
+    "dropRate": "1/508",
+    "notes": ""
+  },
+  {
+    "itemName": "Bandos tassets",
+    "monsterName": "General Graardor",
+    "quantity": "1",
+    "dropRate": "1/381",
+    "notes": ""
+  },
+  {
+    "itemName": "Bark",
+    "monsterName": "Araxxor",
+    "quantity": "15 (noted)",
+    "dropRate": "1/115",
+    "notes": ""
+  },
+  {
+    "itemName": "Bark",
+    "monsterName": "Vyrewatch Sentinel",
+    "quantity": "4-8 (noted)",
+    "dropRate": "4/93",
+    "notes": ""
+  },
+  {
+    "itemName": "Basilisk bone",
+    "monsterName": "Basilisk Knight",
+    "quantity": "1",
+    "dropRate": "1/4",
+    "notes": ""
+  },
+  {
+    "itemName": "Basilisk head",
+    "monsterName": "Basilisk Knight",
+    "quantity": "1",
+    "dropRate": "1/1000",
+    "notes": ""
+  },
+  {
+    "itemName": "Basilisk jaw",
+    "monsterName": "Basilisk Knight",
+    "quantity": "1",
+    "dropRate": "1/5000",
+    "notes": ""
+  },
+  {
+    "itemName": "Bass",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "5",
+    "dropRate": "7/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Bass",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "16-29",
+    "dropRate": "6/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Bass",
+    "monsterName": "The Nightmare",
+    "quantity": "1-18",
+    "dropRate": "6/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Battlestaff",
+    "monsterName": "Abyssal Sire",
+    "quantity": "10 (noted)",
+    "dropRate": "6/139",
+    "notes": ""
+  },
+  {
+    "itemName": "Battlestaff",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "8-12 (noted)",
+    "dropRate": "5/101",
+    "notes": ""
+  },
+  {
     "itemName": "Battlestaff",
     "monsterName": "Ancient Wyvern",
     "quantity": "6 (noted)",
     "dropRate": "4/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Battlestaff",
+    "monsterName": "Cerberus",
+    "quantity": "6 (noted)",
+    "dropRate": "3/130",
+    "notes": ""
+  },
+  {
+    "itemName": "Battlestaff",
+    "monsterName": "Dagannoth Prime",
+    "quantity": "1-10 (noted)",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Battlestaff",
+    "monsterName": "Kalphite Queen",
+    "quantity": "10 (noted)",
+    "dropRate": "5/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Battlestaff",
+    "monsterName": "Kraken",
+    "quantity": "10 (noted)",
+    "dropRate": "4/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Battlestaff",
+    "monsterName": "Sarachnis",
+    "quantity": "8-10 (noted)",
+    "dropRate": "2/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Battlestaff",
+    "monsterName": "Skotizo",
+    "quantity": "25 (noted)",
+    "dropRate": "7/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Battlestaff",
+    "monsterName": "Tormented Demon",
+    "quantity": "1 (noted)",
+    "dropRate": "3/51",
+    "notes": ""
+  },
+  {
+    "itemName": "Battlestaff",
+    "monsterName": "Vorkath",
+    "quantity": "5-15 (noted)",
+    "dropRate": "4/150",
+    "notes": ""
+  },
+  {
+    "itemName": "Battlestaff",
+    "monsterName": "Zulrah",
+    "quantity": "10 (noted)",
+    "dropRate": "10/249",
+    "notes": ""
+  },
+  {
+    "itemName": "Berserker ring",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Big bones",
+    "monsterName": "Basilisk Knight",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Big bones",
+    "monsterName": "Cave horror",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Big bones",
+    "monsterName": "General Graardor",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Big bones",
+    "monsterName": "Giant Mole",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Big bones",
+    "monsterName": "Kree'arra",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Big bones",
+    "monsterName": "Lizardman shaman",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Big bones",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Big bones",
+    "monsterName": "The Nightmare",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Binding necklace",
+    "monsterName": "Abyssal Sire",
+    "quantity": "25 (noted)",
+    "dropRate": "4/139",
     "notes": ""
   },
   {
@@ -203,6 +1134,76 @@
     "notes": ""
   },
   {
+    "itemName": "Black d'hide body",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "1",
+    "dropRate": "5/101",
+    "notes": ""
+  },
+  {
+    "itemName": "Black d'hide body",
+    "monsterName": "Cerberus",
+    "quantity": "1",
+    "dropRate": "3/130",
+    "notes": ""
+  },
+  {
+    "itemName": "Black d'hide body",
+    "monsterName": "Kree'arra",
+    "quantity": "1",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Black d'hide body",
+    "monsterName": "Muspah",
+    "quantity": "1",
+    "dropRate": "5/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Black d'hide vambraces",
+    "monsterName": "Dust devil",
+    "quantity": "1",
+    "dropRate": "1/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Black d'hide vambraces",
+    "monsterName": "Dust devil",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Black d'hide vambraces",
+    "monsterName": "Smoke devil",
+    "quantity": "1",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Black dragonhide",
+    "monsterName": "King Black Dragon",
+    "quantity": "2",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Black dragonhide",
+    "monsterName": "Vorkath",
+    "quantity": "15-25 (noted)",
+    "dropRate": "7/150",
+    "notes": ""
+  },
+  {
+    "itemName": "Black mask (10)",
+    "monsterName": "Cave horror",
+    "quantity": "1",
+    "dropRate": "1/512",
+    "notes": ""
+  },
+  {
     "itemName": "Black sword",
     "monsterName": "Abyssal demon",
     "quantity": "1",
@@ -214,6 +1215,48 @@
     "monsterName": "Abyssal demon",
     "quantity": "1",
     "dropRate": "4/68",
+    "notes": ""
+  },
+  {
+    "itemName": "Blighted ancient ice sack",
+    "monsterName": "Chaos Elemental",
+    "quantity": "20-40",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Blighted anglerfish",
+    "monsterName": "Chaos Elemental",
+    "quantity": "2",
+    "dropRate": "1/5",
+    "notes": ""
+  },
+  {
+    "itemName": "Blighted anglerfish",
+    "monsterName": "Chaos Elemental",
+    "quantity": "10-15 (noted)",
+    "dropRate": "4/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Blighted karambwan",
+    "monsterName": "Chaos Elemental",
+    "quantity": "3",
+    "dropRate": "1/5",
+    "notes": ""
+  },
+  {
+    "itemName": "Blighted karambwan",
+    "monsterName": "Chaos Elemental",
+    "quantity": "15-25 (noted)",
+    "dropRate": "4/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Blighted super restore(4)",
+    "monsterName": "Chaos Elemental",
+    "quantity": "1",
+    "dropRate": "1/5",
     "notes": ""
   },
   {
@@ -239,9 +1282,135 @@
   },
   {
     "itemName": "Blood rune",
+    "monsterName": "Abyssal Sire",
+    "quantity": "190-210",
+    "dropRate": "5/139",
+    "notes": ""
+  },
+  {
+    "itemName": "Blood rune",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "150-300",
+    "dropRate": "6/101",
+    "notes": ""
+  },
+  {
+    "itemName": "Blood rune",
     "monsterName": "Ancient Wyvern",
     "quantity": "27-33",
     "dropRate": "4/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Blood rune",
+    "monsterName": "Araxxor",
+    "quantity": "180",
+    "dropRate": "1/115",
+    "notes": ""
+  },
+  {
+    "itemName": "Blood rune",
+    "monsterName": "Basilisk Knight",
+    "quantity": "8-20",
+    "dropRate": "3/52",
+    "notes": ""
+  },
+  {
+    "itemName": "Blood rune",
+    "monsterName": "Cerberus",
+    "quantity": "60",
+    "dropRate": "4/130",
+    "notes": ""
+  },
+  {
+    "itemName": "Blood rune",
+    "monsterName": "Chaos Elemental",
+    "quantity": "100-250",
+    "dropRate": "8/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Blood rune",
+    "monsterName": "Dagannoth Prime",
+    "quantity": "25-75",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Blood rune",
+    "monsterName": "Giant Mole",
+    "quantity": "15",
+    "dropRate": "19/131",
+    "notes": ""
+  },
+  {
+    "itemName": "Blood rune",
+    "monsterName": "Greater Nechryael",
+    "quantity": "20",
+    "dropRate": "10/112",
+    "notes": ""
+  },
+  {
+    "itemName": "Blood rune",
+    "monsterName": "Greater Nechryael",
+    "quantity": "20",
+    "dropRate": "10/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Blood rune",
+    "monsterName": "K'ril Tsutsaroth",
+    "quantity": "80-85",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Blood rune",
+    "monsterName": "Kalphite Queen",
+    "quantity": "100",
+    "dropRate": "6/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Blood rune",
+    "monsterName": "King Black Dragon",
+    "quantity": "30",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Blood rune",
+    "monsterName": "Kraken",
+    "quantity": "60",
+    "dropRate": "10/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Blood rune",
+    "monsterName": "Nechryael",
+    "quantity": "15-20",
+    "dropRate": "4/116",
+    "notes": ""
+  },
+  {
+    "itemName": "Blood rune",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "343-765",
+    "dropRate": "4/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Blood rune",
+    "monsterName": "Sarachnis",
+    "quantity": "80-100",
+    "dropRate": "5/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Blood rune",
+    "monsterName": "Skotizo",
+    "quantity": "450",
+    "dropRate": "7/100",
     "notes": ""
   },
   {
@@ -259,6 +1428,34 @@
     "notes": ""
   },
   {
+    "itemName": "Blood rune",
+    "monsterName": "The Nightmare",
+    "quantity": "16-440",
+    "dropRate": "4/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Blood rune",
+    "monsterName": "Vyrewatch Sentinel",
+    "quantity": "8-16",
+    "dropRate": "10/93",
+    "notes": ""
+  },
+  {
+    "itemName": "Blue dragonhide",
+    "monsterName": "Vorkath",
+    "quantity": "25-30 (noted)",
+    "dropRate": "8/150",
+    "notes": ""
+  },
+  {
+    "itemName": "Blue dragonhide",
+    "monsterName": "Vorkath",
+    "quantity": "2",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
     "itemName": "Body rune",
     "monsterName": "Spiritual mage",
     "quantity": "25",
@@ -273,17 +1470,290 @@
     "notes": ""
   },
   {
+    "itemName": "Bones",
+    "monsterName": "Commander Zilyana",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Bones",
+    "monsterName": "Dust devil",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Bones",
+    "monsterName": "The Nightmare",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
     "itemName": "Brimstone key",
     "monsterName": "Abyssal demon",
     "quantity": "1",
-    "dropRate": "{{Brimstone rarity",
+    "dropRate": "1/124",
+    "notes": ""
+  },
+  {
+    "itemName": "Brimstone key",
+    "monsterName": "Abyssal Sire",
+    "quantity": "1",
+    "dropRate": "1/350",
+    "notes": ""
+  },
+  {
+    "itemName": "Brimstone key",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "1",
+    "dropRate": "1/426",
     "notes": ""
   },
   {
     "itemName": "Brimstone key",
     "monsterName": "Ancient Wyvern",
     "quantity": "1",
-    "dropRate": "{{Brimstone rarity",
+    "dropRate": "1/210",
+    "notes": ""
+  },
+  {
+    "itemName": "Brimstone key",
+    "monsterName": "Araxxor",
+    "quantity": "1",
+    "dropRate": "1/350",
+    "notes": ""
+  },
+  {
+    "itemName": "Brimstone key",
+    "monsterName": "Basilisk Knight",
+    "quantity": "1",
+    "dropRate": "1/204",
+    "notes": ""
+  },
+  {
+    "itemName": "Brimstone key",
+    "monsterName": "Cerberus",
+    "quantity": "1",
+    "dropRate": "1/318",
+    "notes": ""
+  },
+  {
+    "itemName": "Brimstone key",
+    "monsterName": "Chaos Elemental",
+    "quantity": "1",
+    "dropRate": "1/305",
+    "notes": ""
+  },
+  {
+    "itemName": "Brimstone key",
+    "monsterName": "Commander Zilyana",
+    "quantity": "1",
+    "dropRate": "1/596",
+    "notes": ""
+  },
+  {
+    "itemName": "Brimstone key",
+    "monsterName": "Dagannoth Prime",
+    "quantity": "1",
+    "dropRate": "1/303",
+    "notes": ""
+  },
+  {
+    "itemName": "Brimstone key",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "1",
+    "dropRate": "1/303",
+    "notes": ""
+  },
+  {
+    "itemName": "Brimstone key",
+    "monsterName": "Dagannoth Supreme",
+    "quantity": "1",
+    "dropRate": "1/303",
+    "notes": ""
+  },
+  {
+    "itemName": "Brimstone key",
+    "monsterName": "Dust devil",
+    "quantity": "1",
+    "dropRate": "1/93",
+    "notes": ""
+  },
+  {
+    "itemName": "Brimstone key",
+    "monsterName": "Gargoyle",
+    "quantity": "1",
+    "dropRate": "1/111",
+    "notes": ""
+  },
+  {
+    "itemName": "Brimstone key",
+    "monsterName": "General Graardor",
+    "quantity": "1",
+    "dropRate": "1/624",
+    "notes": ""
+  },
+  {
+    "itemName": "Brimstone key",
+    "monsterName": "Giant Mole",
+    "quantity": "1",
+    "dropRate": "1/230",
+    "notes": ""
+  },
+  {
+    "itemName": "Brimstone key",
+    "monsterName": "Greater Nechryael",
+    "quantity": "1",
+    "dropRate": "1/200",
+    "notes": ""
+  },
+  {
+    "itemName": "Brimstone key",
+    "monsterName": "K'ril Tsutsaroth",
+    "quantity": "1",
+    "dropRate": "1/650",
+    "notes": ""
+  },
+  {
+    "itemName": "Brimstone key",
+    "monsterName": "Kalphite Queen",
+    "quantity": "1",
+    "dropRate": "1/333",
+    "notes": ""
+  },
+  {
+    "itemName": "Brimstone key",
+    "monsterName": "King Black Dragon",
+    "quantity": "1",
+    "dropRate": "1/276",
+    "notes": ""
+  },
+  {
+    "itemName": "Brimstone key",
+    "monsterName": "Kraken",
+    "quantity": "1",
+    "dropRate": "1/291",
+    "notes": ""
+  },
+  {
+    "itemName": "Brimstone key",
+    "monsterName": "Kree'arra",
+    "quantity": "1",
+    "dropRate": "1/580",
+    "notes": ""
+  },
+  {
+    "itemName": "Brimstone key",
+    "monsterName": "Lizardman shaman",
+    "quantity": "1",
+    "dropRate": "1/150",
+    "notes": ""
+  },
+  {
+    "itemName": "Brimstone key",
+    "monsterName": "Muspah",
+    "quantity": "1",
+    "dropRate": "1/741",
+    "notes": ""
+  },
+  {
+    "itemName": "Brimstone key",
+    "monsterName": "Nechryael",
+    "quantity": "1",
+    "dropRate": "1/115",
+    "notes": ""
+  },
+  {
+    "itemName": "Brimstone key",
+    "monsterName": "Sarachnis",
+    "quantity": "1",
+    "dropRate": "1/318",
+    "notes": ""
+  },
+  {
+    "itemName": "Brimstone key",
+    "monsterName": "Skotizo",
+    "quantity": "1",
+    "dropRate": "1/321",
+    "notes": ""
+  },
+  {
+    "itemName": "Brimstone key",
+    "monsterName": "Smoke devil",
+    "quantity": "1",
+    "dropRate": "1/160",
+    "notes": ""
+  },
+  {
+    "itemName": "Brimstone key",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "1",
+    "dropRate": "1/301",
+    "notes": ""
+  },
+  {
+    "itemName": "Brimstone key",
+    "monsterName": "Vorkath",
+    "quantity": "1",
+    "dropRate": "1/732",
+    "notes": ""
+  },
+  {
+    "itemName": "Brimstone key",
+    "monsterName": "Vyrewatch Sentinel",
+    "quantity": "1",
+    "dropRate": "1/151",
+    "notes": ""
+  },
+  {
+    "itemName": "Brimstone key",
+    "monsterName": "Zulrah",
+    "quantity": "1",
+    "dropRate": "1/725",
+    "notes": ""
+  },
+  {
+    "itemName": "Brittle key",
+    "monsterName": "Gargoyle",
+    "quantity": "1",
+    "dropRate": "1/150",
+    "notes": ""
+  },
+  {
+    "itemName": "Bucket",
+    "monsterName": "Kraken",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Bucket of sand",
+    "monsterName": "Kalphite Queen",
+    "quantity": "100 (noted)",
+    "dropRate": "4/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Burning claw",
+    "monsterName": "Tormented Demon",
+    "quantity": "1",
+    "dropRate": "499/250000",
+    "notes": ""
+  },
+  {
+    "itemName": "Cactus spine",
+    "monsterName": "Kalphite Queen",
+    "quantity": "10 (noted)",
+    "dropRate": "3/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Calquat tree seed",
+    "monsterName": "Zulrah",
+    "quantity": "2",
+    "dropRate": "6/249",
     "notes": ""
   },
   {
@@ -302,6 +1772,90 @@
   },
   {
     "itemName": "Chaos rune",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "150-300",
+    "dropRate": "6/101",
+    "notes": ""
+  },
+  {
+    "itemName": "Chaos rune",
+    "monsterName": "Chaos Elemental",
+    "quantity": "300-500",
+    "dropRate": "8/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Chaos rune",
+    "monsterName": "Dust devil",
+    "quantity": "80",
+    "dropRate": "7/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Chaos rune",
+    "monsterName": "Dust devil",
+    "quantity": "65",
+    "dropRate": "7/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Chaos rune",
+    "monsterName": "Gargoyle",
+    "quantity": "30",
+    "dropRate": "8/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Chaos rune",
+    "monsterName": "Greater Nechryael",
+    "quantity": "50",
+    "dropRate": "10/112",
+    "notes": ""
+  },
+  {
+    "itemName": "Chaos rune",
+    "monsterName": "Greater Nechryael",
+    "quantity": "50",
+    "dropRate": "10/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Chaos rune",
+    "monsterName": "Kraken",
+    "quantity": "200",
+    "dropRate": "10/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Chaos rune",
+    "monsterName": "Lizardman shaman",
+    "quantity": "40-60",
+    "dropRate": "25/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Chaos rune",
+    "monsterName": "Muspah",
+    "quantity": "480",
+    "dropRate": "5/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Chaos rune",
+    "monsterName": "Nechryael",
+    "quantity": "37",
+    "dropRate": "8/116",
+    "notes": ""
+  },
+  {
+    "itemName": "Chaos rune",
+    "monsterName": "Sarachnis",
+    "quantity": "175-200",
+    "dropRate": "5/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Chaos rune",
     "monsterName": "Spiritual mage",
     "quantity": "25",
     "dropRate": "1/128",
@@ -312,6 +1866,27 @@
     "monsterName": "Spiritual mage",
     "quantity": "10",
     "dropRate": "18/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Chaos rune",
+    "monsterName": "Tormented Demon",
+    "quantity": "25-100",
+    "dropRate": "4/51",
+    "notes": ""
+  },
+  {
+    "itemName": "Chaos rune",
+    "monsterName": "Vorkath",
+    "quantity": "250-350",
+    "dropRate": "6/150",
+    "notes": ""
+  },
+  {
+    "itemName": "Chaos rune",
+    "monsterName": "Zulrah",
+    "quantity": "400",
+    "dropRate": "12/249",
     "notes": ""
   },
   {
@@ -329,6 +1904,41 @@
     "notes": ""
   },
   {
+    "itemName": "Charged ice",
+    "monsterName": "Muspah",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Chilli potato",
+    "monsterName": "Abyssal Sire",
+    "quantity": "10",
+    "dropRate": "7/139",
+    "notes": ""
+  },
+  {
+    "itemName": "Chilli potato",
+    "monsterName": "Lizardman shaman",
+    "quantity": "2",
+    "dropRate": "30/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Clue scroll (elite)",
+    "monsterName": "Basilisk Knight",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Clue scroll (elite)",
+    "monsterName": "Cerberus",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
     "itemName": "Clue scroll (master)",
     "monsterName": "Spiritual mage",
     "quantity": "1",
@@ -336,10 +1946,115 @@
     "notes": ""
   },
   {
+    "itemName": "Coagulated venom",
+    "monsterName": "Araxxor",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Coal",
+    "monsterName": "Abyssal Sire",
+    "quantity": "380-420 (noted)",
+    "dropRate": "4/139",
+    "notes": ""
+  },
+  {
+    "itemName": "Coal",
+    "monsterName": "Araxxor",
+    "quantity": "120 (noted)",
+    "dropRate": "4/115",
+    "notes": ""
+  },
+  {
+    "itemName": "Coal",
+    "monsterName": "Cerberus",
+    "quantity": "120 (noted)",
+    "dropRate": "6/130",
+    "notes": ""
+  },
+  {
+    "itemName": "Coal",
+    "monsterName": "Chaos Elemental",
+    "quantity": "75-150 (noted)",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Coal",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "100 (noted)",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Coal",
+    "monsterName": "General Graardor",
+    "quantity": "115-120 (noted)",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Coal",
+    "monsterName": "Lizardman shaman",
+    "quantity": "20-25 (noted)",
+    "dropRate": "20/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Coal",
+    "monsterName": "Muspah",
+    "quantity": "163 (noted)",
+    "dropRate": "5/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Coal",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "220-458 (noted)",
+    "dropRate": "4/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Coal",
+    "monsterName": "Smoke devil",
+    "quantity": "15 (noted)",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
     "itemName": "Coal",
     "monsterName": "Spiritual mage",
     "quantity": "1-10 (noted)",
     "dropRate": "8/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Coal",
+    "monsterName": "The Nightmare",
+    "quantity": "15-264 (noted)",
+    "dropRate": "4/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Coal",
+    "monsterName": "Vyrewatch Sentinel",
+    "quantity": "8 (noted)",
+    "dropRate": "4/93",
+    "notes": ""
+  },
+  {
+    "itemName": "Coal",
+    "monsterName": "Zulrah",
+    "quantity": "200 (noted)",
+    "dropRate": "8/249",
+    "notes": ""
+  },
+  {
+    "itemName": "Coconut",
+    "monsterName": "Zulrah",
+    "quantity": "20 (noted)",
+    "dropRate": "6/249",
     "notes": ""
   },
   {
@@ -379,9 +2094,296 @@
   },
   {
     "itemName": "Coins",
+    "monsterName": "Abyssal Sire",
+    "quantity": "48000-52000",
+    "dropRate": "11/139",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "5550-25550",
+    "dropRate": "0.5/101",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "40000-60000",
+    "dropRate": "9.5/101",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
     "monsterName": "Ancient Wyvern",
     "quantity": "2000-6000",
     "dropRate": "7/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Basilisk Knight",
+    "quantity": "500-2500",
+    "dropRate": "7/52",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Cave horror",
+    "quantity": "440",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Cave horror",
+    "quantity": "132",
+    "dropRate": "12/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Cave horror",
+    "quantity": "44",
+    "dropRate": "28/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Cerberus",
+    "quantity": "10000-20000",
+    "dropRate": "5/130",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Chaos Elemental",
+    "quantity": "20005-29995",
+    "dropRate": "7/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Commander Zilyana",
+    "quantity": "19500-20000",
+    "dropRate": "31.2/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Corporeal Beast",
+    "quantity": "20000-50000",
+    "dropRate": "12/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Dagannoth Prime",
+    "quantity": "500-1109",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "100-1209",
+    "dropRate": "10/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Dagannoth Supreme",
+    "quantity": "500-1110",
+    "dropRate": "10/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Demonic gorilla",
+    "quantity": "5000-10000",
+    "dropRate": "25/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Dust devil",
+    "quantity": "2000-4000",
+    "dropRate": "28/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Dust devil",
+    "quantity": "2000-4000",
+    "dropRate": "28/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Gargoyle",
+    "quantity": "500-1000",
+    "dropRate": "20/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Gargoyle",
+    "quantity": "400-800",
+    "dropRate": "28/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Gargoyle",
+    "quantity": "10000",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "General Graardor",
+    "quantity": "20100-20600",
+    "dropRate": "1.25/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "General Graardor",
+    "quantity": "19500-20000",
+    "dropRate": "31.7/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Greater Nechryael",
+    "quantity": "2000-2500",
+    "dropRate": "8/112",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Greater Nechryael",
+    "quantity": "2000-2500",
+    "dropRate": "8/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "K'ril Tsutsaroth",
+    "quantity": "19500-20000",
+    "dropRate": "36.7/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Kalphite Queen",
+    "quantity": "15000-20000",
+    "dropRate": "5/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Kraken",
+    "quantity": "10000-19999",
+    "dropRate": "15/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Kree'arra",
+    "quantity": "20500-21000",
+    "dropRate": "1.25/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Kree'arra",
+    "quantity": "19500-20000",
+    "dropRate": "43.7/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Lizardman shaman",
+    "quantity": "100-6000",
+    "dropRate": "70/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Nechryael",
+    "quantity": "5000",
+    "dropRate": "1/116",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Nechryael",
+    "quantity": "1500-2000",
+    "dropRate": "10.5/116",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Nechryael",
+    "quantity": "1000-1499",
+    "dropRate": "13/116",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Nechryael",
+    "quantity": "500-999",
+    "dropRate": "2.5/116",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Nechryael",
+    "quantity": "3000-3500",
+    "dropRate": "3/116",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Nechryael",
+    "quantity": "2500-2999",
+    "dropRate": "6/116",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "41417-74500",
+    "dropRate": "2/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Sarachnis",
+    "quantity": "17000-25000",
+    "dropRate": "6/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Smoke devil",
+    "quantity": "750",
+    "dropRate": "12/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Smoke devil",
+    "quantity": "300",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Smoke devil",
+    "quantity": "80",
+    "dropRate": "7/128",
     "notes": ""
   },
   {
@@ -399,6 +2401,69 @@
     "notes": ""
   },
   {
+    "itemName": "Coins",
+    "monsterName": "The Nightmare",
+    "quantity": "2291-43958",
+    "dropRate": "2/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "10000-19999",
+    "dropRate": "15/107",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Vorkath",
+    "quantity": "20000-80000",
+    "dropRate": "5/150",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Vyrewatch Sentinel",
+    "quantity": "100-1000",
+    "dropRate": "21/93",
+    "notes": ""
+  },
+  {
+    "itemName": "Cosmic rune",
+    "monsterName": "Abyssal Sire",
+    "quantity": "350",
+    "dropRate": "4/139",
+    "notes": ""
+  },
+  {
+    "itemName": "Cosmic rune",
+    "monsterName": "Corporeal Beast",
+    "quantity": "500",
+    "dropRate": "17/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Cosmic rune",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "247-420",
+    "dropRate": "4/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Cosmic rune",
+    "monsterName": "Sarachnis",
+    "quantity": "125-150",
+    "dropRate": "5/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Cosmic rune",
+    "monsterName": "The Nightmare",
+    "quantity": "11-242",
+    "dropRate": "4/100",
+    "notes": ""
+  },
+  {
     "itemName": "Cosmic talisman",
     "monsterName": "Abyssal demon",
     "quantity": "1",
@@ -413,10 +2478,213 @@
     "notes": ""
   },
   {
-    "itemName": "dagger}}",
-    "monsterName": "Abyssal demon",
+    "itemName": "Crossbow string",
+    "monsterName": "Smoke devil",
     "quantity": "1",
-    "dropRate": "1/32000",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Crystal key",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "1",
+    "dropRate": "1/101",
+    "notes": ""
+  },
+  {
+    "itemName": "Crystal key",
+    "monsterName": "Kraken",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Crystal key",
+    "monsterName": "Kree'arra",
+    "quantity": "1",
+    "dropRate": "1/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Crystal key",
+    "monsterName": "Sarachnis",
+    "quantity": "1",
+    "dropRate": "1/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Crystal key",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "1",
+    "dropRate": "1/107",
+    "notes": ""
+  },
+  {
+    "itemName": "Crystal shard",
+    "monsterName": "Greater Nechryael",
+    "quantity": "3-5",
+    "dropRate": "1/24",
+    "notes": ""
+  },
+  {
+    "itemName": "Curved bone",
+    "monsterName": "Basilisk Knight",
+    "quantity": "1",
+    "dropRate": "1/5012.5",
+    "notes": ""
+  },
+  {
+    "itemName": "Curved bone",
+    "monsterName": "Cave horror",
+    "quantity": "1",
+    "dropRate": "1/5012.5",
+    "notes": ""
+  },
+  {
+    "itemName": "Curved bone",
+    "monsterName": "General Graardor",
+    "quantity": "1",
+    "dropRate": "1/5012.5",
+    "notes": ""
+  },
+  {
+    "itemName": "Curved bone",
+    "monsterName": "Giant Mole",
+    "quantity": "1",
+    "dropRate": "1/5012.5",
+    "notes": ""
+  },
+  {
+    "itemName": "Curved bone",
+    "monsterName": "Kree'arra",
+    "quantity": "1",
+    "dropRate": "1/5012.5",
+    "notes": ""
+  },
+  {
+    "itemName": "Curved bone",
+    "monsterName": "Lizardman shaman",
+    "quantity": "1",
+    "dropRate": "1/5012.5",
+    "notes": ""
+  },
+  {
+    "itemName": "Dagannoth bones",
+    "monsterName": "Dagannoth Prime",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Dagannoth bones",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Dagannoth bones",
+    "monsterName": "Dagannoth Supreme",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Dagannoth hide",
+    "monsterName": "Dagannoth Prime",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Dagannoth hide",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Dagannoth hide",
+    "monsterName": "Dagannoth Supreme",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Dagannoth ribs",
+    "monsterName": "Dagannoth Prime",
+    "quantity": "1",
+    "dropRate": "1/4",
+    "notes": ""
+  },
+  {
+    "itemName": "Dagannoth ribs",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "1",
+    "dropRate": "1/4",
+    "notes": ""
+  },
+  {
+    "itemName": "Dagannoth ribs",
+    "monsterName": "Dagannoth Supreme",
+    "quantity": "1",
+    "dropRate": "1/4",
+    "notes": ""
+  },
+  {
+    "itemName": "Dark claw",
+    "monsterName": "Skotizo",
+    "quantity": "1",
+    "dropRate": "1/25",
+    "notes": ""
+  },
+  {
+    "itemName": "Dark crab",
+    "monsterName": "Kalphite Queen",
+    "quantity": "2",
+    "dropRate": "1/9",
+    "notes": ""
+  },
+  {
+    "itemName": "Dark totem",
+    "monsterName": "Skotizo",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Dark totem base",
+    "monsterName": "Skotizo",
+    "quantity": "1",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Dark totem middle",
+    "monsterName": "Skotizo",
+    "quantity": "1",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Dark totem top",
+    "monsterName": "Skotizo",
+    "quantity": "1",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Death rune",
+    "monsterName": "Abyssal Sire",
+    "quantity": "330-370",
+    "dropRate": "5/139",
+    "notes": ""
+  },
+  {
+    "itemName": "Death rune",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "150-300",
+    "dropRate": "6/101",
     "notes": ""
   },
   {
@@ -424,6 +2692,146 @@
     "monsterName": "Ancient Wyvern",
     "quantity": "47-53",
     "dropRate": "4/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Death rune",
+    "monsterName": "Araxxor",
+    "quantity": "250",
+    "dropRate": "5/115",
+    "notes": ""
+  },
+  {
+    "itemName": "Death rune",
+    "monsterName": "Basilisk Knight",
+    "quantity": "10-25",
+    "dropRate": "3/52",
+    "notes": ""
+  },
+  {
+    "itemName": "Death rune",
+    "monsterName": "Cerberus",
+    "quantity": "100",
+    "dropRate": "3/130",
+    "notes": ""
+  },
+  {
+    "itemName": "Death rune",
+    "monsterName": "Corporeal Beast",
+    "quantity": "300",
+    "dropRate": "22/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Death rune",
+    "monsterName": "Dagannoth Prime",
+    "quantity": "25-85",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Death rune",
+    "monsterName": "Demonic gorilla",
+    "quantity": "50-75",
+    "dropRate": "35/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Death rune",
+    "monsterName": "Gargoyle",
+    "quantity": "15",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Death rune",
+    "monsterName": "Giant Mole",
+    "quantity": "50",
+    "dropRate": "3/131",
+    "notes": ""
+  },
+  {
+    "itemName": "Death rune",
+    "monsterName": "Greater Nechryael",
+    "quantity": "23",
+    "dropRate": "12/112",
+    "notes": ""
+  },
+  {
+    "itemName": "Death rune",
+    "monsterName": "Greater Nechryael",
+    "quantity": "23",
+    "dropRate": "12/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Death rune",
+    "monsterName": "K'ril Tsutsaroth",
+    "quantity": "120-125",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Death rune",
+    "monsterName": "Kalphite Queen",
+    "quantity": "150",
+    "dropRate": "6/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Death rune",
+    "monsterName": "Kraken",
+    "quantity": "150",
+    "dropRate": "10/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Death rune",
+    "monsterName": "Lizardman shaman",
+    "quantity": "20-30",
+    "dropRate": "25/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Death rune",
+    "monsterName": "Muspah",
+    "quantity": "428",
+    "dropRate": "10/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Death rune",
+    "monsterName": "Nechryael",
+    "quantity": "5",
+    "dropRate": "6/116",
+    "notes": ""
+  },
+  {
+    "itemName": "Death rune",
+    "monsterName": "Nechryael",
+    "quantity": "10",
+    "dropRate": "6/116",
+    "notes": ""
+  },
+  {
+    "itemName": "Death rune",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "165-305",
+    "dropRate": "4/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Death rune",
+    "monsterName": "Sarachnis",
+    "quantity": "80-100",
+    "dropRate": "5/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Death rune",
+    "monsterName": "Skotizo",
+    "quantity": "500",
+    "dropRate": "7/100",
     "notes": ""
   },
   {
@@ -441,6 +2849,34 @@
     "notes": ""
   },
   {
+    "itemName": "Death rune",
+    "monsterName": "The Nightmare",
+    "quantity": "7-176",
+    "dropRate": "4/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Death rune",
+    "monsterName": "Vorkath",
+    "quantity": "200-300",
+    "dropRate": "6/150",
+    "notes": ""
+  },
+  {
+    "itemName": "Death rune",
+    "monsterName": "Vyrewatch Sentinel",
+    "quantity": "6-10",
+    "dropRate": "10/93",
+    "notes": ""
+  },
+  {
+    "itemName": "Death rune",
+    "monsterName": "Zulrah",
+    "quantity": "250",
+    "dropRate": "12/249",
+    "notes": ""
+  },
+  {
     "itemName": "Defence potion(3)",
     "monsterName": "Abyssal demon",
     "quantity": "1",
@@ -455,10 +2891,220 @@
     "notes": ""
   },
   {
+    "itemName": "Desert goat horn",
+    "monsterName": "Corporeal Beast",
+    "quantity": "120 (noted)",
+    "dropRate": "17/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Desert goat horn",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "50 (noted)",
+    "dropRate": "2/107",
+    "notes": ""
+  },
+  {
     "itemName": "Diamond",
     "monsterName": "Ancient Wyvern",
     "quantity": "3-5 (noted)",
     "dropRate": "3/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Diamond",
+    "monsterName": "Commander Zilyana",
+    "quantity": "6 (noted)",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Diamond",
+    "monsterName": "Demonic gorilla",
+    "quantity": "4-6 (noted)",
+    "dropRate": "17/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Diamond",
+    "monsterName": "Kraken",
+    "quantity": "8 (noted)",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Diamond",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "10 (noted)",
+    "dropRate": "1/107",
+    "notes": ""
+  },
+  {
+    "itemName": "Diamond",
+    "monsterName": "Vorkath",
+    "quantity": "10-20 (noted)",
+    "dropRate": "4/150",
+    "notes": ""
+  },
+  {
+    "itemName": "Diamond bolt tips",
+    "monsterName": "Vorkath",
+    "quantity": "25-30",
+    "dropRate": "25/2730",
+    "notes": ""
+  },
+  {
+    "itemName": "Diamond bolt tips",
+    "monsterName": "Vyrewatch Sentinel",
+    "quantity": "6-14",
+    "dropRate": "9/5208",
+    "notes": ""
+  },
+  {
+    "itemName": "Draconic visage",
+    "monsterName": "King Black Dragon",
+    "quantity": "1",
+    "dropRate": "1/5000",
+    "notes": ""
+  },
+  {
+    "itemName": "Draconic visage",
+    "monsterName": "Vorkath",
+    "quantity": "1",
+    "dropRate": "1/5000",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon 2h sword",
+    "monsterName": "Chaos Elemental",
+    "quantity": "1",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon 2h sword",
+    "monsterName": "Kalphite Queen",
+    "quantity": "1",
+    "dropRate": "1/256",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon arrowtips",
+    "monsterName": "King Black Dragon",
+    "quantity": "5-14",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon arrowtips",
+    "monsterName": "Tormented Demon",
+    "quantity": "30-40",
+    "dropRate": "1/51",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon arrowtips",
+    "monsterName": "Vorkath",
+    "quantity": "25-50",
+    "dropRate": "3/150",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon axe",
+    "monsterName": "Dagannoth Prime",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon axe",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon axe",
+    "monsterName": "Dagannoth Supreme",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon battleaxe",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "1",
+    "dropRate": "2/101",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon battleaxe",
+    "monsterName": "Vorkath",
+    "quantity": "1",
+    "dropRate": "2/150",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon bolts (unf)",
+    "monsterName": "Muspah",
+    "quantity": "89",
+    "dropRate": "10/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon bolts (unf)",
+    "monsterName": "Vorkath",
+    "quantity": "50-100",
+    "dropRate": "8/150",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon bones",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "30 (noted)",
+    "dropRate": "6/101",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon bones",
+    "monsterName": "Cerberus",
+    "quantity": "20 (noted)",
+    "dropRate": "5/130",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon bones",
+    "monsterName": "Chaos Elemental",
+    "quantity": "1",
+    "dropRate": "1/5",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon bones",
+    "monsterName": "King Black Dragon",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon bones",
+    "monsterName": "Sarachnis",
+    "quantity": "10-15 (noted)",
+    "dropRate": "5/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon bones",
+    "monsterName": "Vorkath",
+    "quantity": "15-20 (noted)",
+    "dropRate": "4/150",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon bones",
+    "monsterName": "Zulrah",
+    "quantity": "12 (noted)",
+    "dropRate": "8/249",
     "notes": ""
   },
   {
@@ -469,10 +3115,486 @@
     "notes": ""
   },
   {
+    "itemName": "Dragon chainbody",
+    "monsterName": "Dust devil",
+    "quantity": "1",
+    "dropRate": "1/32256",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon chainbody",
+    "monsterName": "Dust devil",
+    "quantity": "1",
+    "dropRate": "1/32768",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon chainbody",
+    "monsterName": "Kalphite Queen",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon chainbody",
+    "monsterName": "Smoke devil",
+    "quantity": "1",
+    "dropRate": "1/32768",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon chainbody",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "1",
+    "dropRate": "1/2000",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon dagger",
+    "monsterName": "Chaos Elemental",
+    "quantity": "1",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon dagger",
+    "monsterName": "Dust devil",
+    "quantity": "1",
+    "dropRate": "1/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon dagger",
+    "monsterName": "Dust devil",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon dagger",
+    "monsterName": "Tormented Demon",
+    "quantity": "1",
+    "dropRate": "3/51",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon dagger(p++)",
+    "monsterName": "K'ril Tsutsaroth",
+    "quantity": "1",
+    "dropRate": "2/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon dart tip",
+    "monsterName": "King Black Dragon",
+    "quantity": "5-14",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon dart tip",
+    "monsterName": "Vorkath",
+    "quantity": "10-50",
+    "dropRate": "6/150",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon halberd",
+    "monsterName": "Zulrah",
+    "quantity": "1",
+    "dropRate": "2/249",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon javelin tips",
+    "monsterName": "Demonic gorilla",
+    "quantity": "27-33",
+    "dropRate": "25/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon javelin tips",
+    "monsterName": "King Black Dragon",
+    "quantity": "15",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon knife",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "500-1000",
+    "dropRate": "1/2001",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon longsword",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "1",
+    "dropRate": "3/101",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon longsword",
+    "monsterName": "Vorkath",
+    "quantity": "1",
+    "dropRate": "2/150",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon mace",
+    "monsterName": "Araxxor",
+    "quantity": "2",
+    "dropRate": "6/115",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon med helm",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "1",
+    "dropRate": "3/101",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon med helm",
+    "monsterName": "King Black Dragon",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon med helm",
+    "monsterName": "Sarachnis",
+    "quantity": "1",
+    "dropRate": "2/384",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon med helm",
+    "monsterName": "Zulrah",
+    "quantity": "1",
+    "dropRate": "2/249",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon pickaxe",
+    "monsterName": "Chaos Elemental",
+    "quantity": "1",
+    "dropRate": "1/256",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon pickaxe",
+    "monsterName": "Kalphite Queen",
+    "quantity": "1",
+    "dropRate": "1/400",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon pickaxe",
+    "monsterName": "King Black Dragon",
+    "quantity": "1",
+    "dropRate": "1/1000",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon platelegs",
+    "monsterName": "Araxxor",
+    "quantity": "2",
+    "dropRate": "1/115",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon platelegs",
+    "monsterName": "Chaos Elemental",
+    "quantity": "1",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon platelegs",
+    "monsterName": "Muspah",
+    "quantity": "2",
+    "dropRate": "4/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon platelegs",
+    "monsterName": "Vorkath",
+    "quantity": "1",
+    "dropRate": "2/150",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon plateskirt",
+    "monsterName": "Chaos Elemental",
+    "quantity": "1",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon plateskirt",
+    "monsterName": "Muspah",
+    "quantity": "1",
+    "dropRate": "5/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon plateskirt",
+    "monsterName": "Vorkath",
+    "quantity": "1",
+    "dropRate": "2/150",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon scimitar",
+    "monsterName": "Demonic gorilla",
+    "quantity": "1",
+    "dropRate": "10/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon scimitar",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "1",
+    "dropRate": "1/107",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon thrownaxe",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "500-1000",
+    "dropRate": "1/2000",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragonbone necklace",
+    "monsterName": "Vorkath",
+    "quantity": "1",
+    "dropRate": "1/1000",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragonstone",
+    "monsterName": "Vorkath",
+    "quantity": "2-3 (noted)",
+    "dropRate": "3/150",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragonstone bolt tips",
+    "monsterName": "Vorkath",
+    "quantity": "25-30",
+    "dropRate": "14/2730",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragonstone bolt tips",
+    "monsterName": "Vorkath",
+    "quantity": "11-25",
+    "dropRate": "5/150",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragonstone bolt tips",
+    "monsterName": "Vyrewatch Sentinel",
+    "quantity": "6-14",
+    "dropRate": "6/5208",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragonstone bolt tips",
+    "monsterName": "Zulrah",
+    "quantity": "12",
+    "dropRate": "8/249",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragonstone bolts (e)",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "100-120",
+    "dropRate": "2/101",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragonstone bolts (e)",
+    "monsterName": "Kree'arra",
+    "quantity": "5-10",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragonstone ring",
+    "monsterName": "Kraken",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragonstone ring",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "1",
+    "dropRate": "1/107",
+    "notes": ""
+  },
+  {
+    "itemName": "Dust battlestaff",
+    "monsterName": "Dust devil",
+    "quantity": "1",
+    "dropRate": "1/4000",
+    "notes": ""
+  },
+  {
+    "itemName": "Dust rune",
+    "monsterName": "Dust devil",
+    "quantity": "200",
+    "dropRate": "10/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Dust rune",
+    "monsterName": "Dust devil",
+    "quantity": "200",
+    "dropRate": "10/128",
+    "notes": ""
+  },
+  {
     "itemName": "Dust rune",
     "monsterName": "Spiritual mage",
     "quantity": "15",
     "dropRate": "11/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Dwarf weed",
+    "monsterName": "Zulrah",
+    "quantity": "30 (noted)",
+    "dropRate": "2/249",
+    "notes": ""
+  },
+  {
+    "itemName": "Dwarf weed seed",
+    "monsterName": "Kree'arra",
+    "quantity": "2",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Dwarf weed seed",
+    "monsterName": "Zulrah",
+    "quantity": "2",
+    "dropRate": "2/249",
+    "notes": ""
+  },
+  {
+    "itemName": "Earth battlestaff",
+    "monsterName": "Dagannoth Prime",
+    "quantity": "1",
+    "dropRate": "10/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Earth battlestaff",
+    "monsterName": "Dust devil",
+    "quantity": "1",
+    "dropRate": "2/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Earth battlestaff",
+    "monsterName": "Dust devil",
+    "quantity": "1",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Earth battlestaff",
+    "monsterName": "Lizardman shaman",
+    "quantity": "1",
+    "dropRate": "17/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Earth orb",
+    "monsterName": "Abyssal Sire",
+    "quantity": "47-53 (noted)",
+    "dropRate": "5/139",
+    "notes": ""
+  },
+  {
+    "itemName": "Earth orb",
+    "monsterName": "Araxxor",
+    "quantity": "45 (noted)",
+    "dropRate": "6/115",
+    "notes": ""
+  },
+  {
+    "itemName": "Earth rune",
+    "monsterName": "Dagannoth Prime",
+    "quantity": "50-100",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Earth rune",
+    "monsterName": "Dust devil",
+    "quantity": "300",
+    "dropRate": "10/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Earth rune",
+    "monsterName": "Dust devil",
+    "quantity": "300",
+    "dropRate": "10/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Earth talisman",
+    "monsterName": "Dagannoth Prime",
+    "quantity": "25-75 (noted)",
+    "dropRate": "10/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Edible seaweed",
+    "monsterName": "Kraken",
+    "quantity": "5",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Egg potato",
+    "monsterName": "Sarachnis",
+    "quantity": "5-8",
+    "dropRate": "5/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Eldritch orb",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "1",
+    "dropRate": "1/1600",
+    "notes": ""
+  },
+  {
+    "itemName": "Eldritch orb",
+    "monsterName": "The Nightmare",
+    "quantity": "1",
+    "dropRate": "1/960",
+    "notes": ""
+  },
+  {
+    "itemName": "Emerald bolt tips",
+    "monsterName": "Vorkath",
+    "quantity": "25-30",
+    "dropRate": "20/2730",
+    "notes": ""
+  },
+  {
+    "itemName": "Emerald bolt tips",
+    "monsterName": "Vyrewatch Sentinel",
+    "quantity": "6-14",
+    "dropRate": "5/5208",
     "notes": ""
   },
   {
@@ -483,10 +3605,472 @@
     "notes": ""
   },
   {
+    "itemName": "Ensouled dagannoth head",
+    "monsterName": "Dagannoth Prime",
+    "quantity": "1",
+    "dropRate": "1/20",
+    "notes": ""
+  },
+  {
+    "itemName": "Ensouled dagannoth head",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "1",
+    "dropRate": "1/20",
+    "notes": ""
+  },
+  {
+    "itemName": "Ensouled dagannoth head",
+    "monsterName": "Dagannoth Supreme",
+    "quantity": "1",
+    "dropRate": "1/20",
+    "notes": ""
+  },
+  {
+    "itemName": "Ensouled demon head",
+    "monsterName": "Skotizo",
+    "quantity": "1",
+    "dropRate": "1/10",
+    "notes": ""
+  },
+  {
+    "itemName": "Ensouled hellhound head",
+    "monsterName": "Cerberus",
+    "quantity": "1",
+    "dropRate": "1/15",
+    "notes": ""
+  },
+  {
+    "itemName": "Ensouled horror head",
+    "monsterName": "Cave horror",
+    "quantity": "1",
+    "dropRate": "1/30",
+    "notes": ""
+  },
+  {
+    "itemName": "Ensouled kalphite head",
+    "monsterName": "Kalphite Queen",
+    "quantity": "1",
+    "dropRate": "1/20",
+    "notes": ""
+  },
+  {
+    "itemName": "Eternal crystal",
+    "monsterName": "Cerberus",
+    "quantity": "1",
+    "dropRate": "1/520",
+    "notes": ""
+  },
+  {
+    "itemName": "Farseer helm",
+    "monsterName": "Dagannoth Prime",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Feather",
+    "monsterName": "Dagannoth Supreme",
+    "quantity": "250-500",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Feather",
+    "monsterName": "Kree'arra",
+    "quantity": "1-16",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Fire battlestaff",
+    "monsterName": "Smoke devil",
+    "quantity": "1",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Fire orb",
+    "monsterName": "Cerberus",
+    "quantity": "20 (noted)",
+    "dropRate": "4/130",
+    "notes": ""
+  },
+  {
+    "itemName": "Fire orb",
+    "monsterName": "Tormented Demon",
+    "quantity": "5-7 (noted)",
+    "dropRate": "2/51",
+    "notes": ""
+  },
+  {
+    "itemName": "Fire rune",
+    "monsterName": "Cerberus",
+    "quantity": "300",
+    "dropRate": "6/130",
+    "notes": ""
+  },
+  {
+    "itemName": "Fire rune",
+    "monsterName": "Dust devil",
+    "quantity": "50",
+    "dropRate": "1/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Fire rune",
+    "monsterName": "Dust devil",
+    "quantity": "50",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Fire rune",
+    "monsterName": "Dust devil",
+    "quantity": "300",
+    "dropRate": "10/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Fire rune",
+    "monsterName": "Dust devil",
+    "quantity": "300",
+    "dropRate": "10/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Fire rune",
+    "monsterName": "Gargoyle",
+    "quantity": "75",
+    "dropRate": "10/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Fire rune",
+    "monsterName": "Gargoyle",
+    "quantity": "150",
+    "dropRate": "6/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Fire rune",
+    "monsterName": "Giant Mole",
+    "quantity": "105",
+    "dropRate": "11/131",
+    "notes": ""
+  },
+  {
+    "itemName": "Fire rune",
+    "monsterName": "King Black Dragon",
+    "quantity": "300",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Fire rune",
+    "monsterName": "Lizardman shaman",
+    "quantity": "60-80",
+    "dropRate": "25/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Fire rune",
+    "monsterName": "Muspah",
+    "quantity": "1964",
+    "dropRate": "5/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Fire rune",
+    "monsterName": "Smoke devil",
+    "quantity": "150",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Fire rune",
+    "monsterName": "Smoke devil",
+    "quantity": "37",
+    "dropRate": "4/128",
+    "notes": ""
+  },
+  {
     "itemName": "Fire rune",
     "monsterName": "Spiritual mage",
     "quantity": "65",
     "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Fire talisman",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "1",
+    "dropRate": "1/107",
+    "notes": ""
+  },
+  {
+    "itemName": "Flax",
+    "monsterName": "Zulrah",
+    "quantity": "1000 (noted)",
+    "dropRate": "10/249",
+    "notes": ""
+  },
+  {
+    "itemName": "Fremennik blade",
+    "monsterName": "Dagannoth Prime",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Fremennik blade",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "1",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Fremennik blade",
+    "monsterName": "Dagannoth Supreme",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Fremennik helm",
+    "monsterName": "Dagannoth Prime",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Fremennik helm",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Fremennik helm",
+    "monsterName": "Dagannoth Supreme",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Fremennik shield",
+    "monsterName": "Dagannoth Prime",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Fremennik shield",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Fremennik shield",
+    "monsterName": "Dagannoth Supreme",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Frozen cache",
+    "monsterName": "Muspah",
+    "quantity": "1",
+    "dropRate": "4/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Frozen key piece (armadyl)",
+    "monsterName": "Kree'arra",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Frozen key piece (bandos)",
+    "monsterName": "General Graardor",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Frozen key piece (saradomin)",
+    "monsterName": "Commander Zilyana",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Frozen key piece (zamorak)",
+    "monsterName": "K'ril Tsutsaroth",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Giant egg sac(full)",
+    "monsterName": "Sarachnis",
+    "quantity": "1",
+    "dropRate": "1/20",
+    "notes": ""
+  },
+  {
+    "itemName": "Godsword shard 1",
+    "monsterName": "Commander Zilyana",
+    "quantity": "1",
+    "dropRate": "1/762",
+    "notes": ""
+  },
+  {
+    "itemName": "Godsword shard 1",
+    "monsterName": "General Graardor",
+    "quantity": "1",
+    "dropRate": "1/762",
+    "notes": ""
+  },
+  {
+    "itemName": "Godsword shard 1",
+    "monsterName": "K'ril Tsutsaroth",
+    "quantity": "1",
+    "dropRate": "1/762",
+    "notes": ""
+  },
+  {
+    "itemName": "Godsword shard 1",
+    "monsterName": "Kree'arra",
+    "quantity": "1",
+    "dropRate": "1/762",
+    "notes": ""
+  },
+  {
+    "itemName": "Godsword shard 2",
+    "monsterName": "Commander Zilyana",
+    "quantity": "1",
+    "dropRate": "1/762",
+    "notes": ""
+  },
+  {
+    "itemName": "Godsword shard 2",
+    "monsterName": "General Graardor",
+    "quantity": "1",
+    "dropRate": "1/762",
+    "notes": ""
+  },
+  {
+    "itemName": "Godsword shard 2",
+    "monsterName": "K'ril Tsutsaroth",
+    "quantity": "1",
+    "dropRate": "1/762",
+    "notes": ""
+  },
+  {
+    "itemName": "Godsword shard 2",
+    "monsterName": "Kree'arra",
+    "quantity": "1",
+    "dropRate": "1/762",
+    "notes": ""
+  },
+  {
+    "itemName": "Godsword shard 3",
+    "monsterName": "Commander Zilyana",
+    "quantity": "1",
+    "dropRate": "1/762",
+    "notes": ""
+  },
+  {
+    "itemName": "Godsword shard 3",
+    "monsterName": "General Graardor",
+    "quantity": "1",
+    "dropRate": "1/762",
+    "notes": ""
+  },
+  {
+    "itemName": "Godsword shard 3",
+    "monsterName": "K'ril Tsutsaroth",
+    "quantity": "1",
+    "dropRate": "1/762",
+    "notes": ""
+  },
+  {
+    "itemName": "Godsword shard 3",
+    "monsterName": "Kree'arra",
+    "quantity": "1",
+    "dropRate": "1/762",
+    "notes": ""
+  },
+  {
+    "itemName": "Gold bar",
+    "monsterName": "Gargoyle",
+    "quantity": "10-15 (noted)",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Gold bar",
+    "monsterName": "Greater Nechryael",
+    "quantity": "5 (noted)",
+    "dropRate": "7/112",
+    "notes": ""
+  },
+  {
+    "itemName": "Gold bar",
+    "monsterName": "Greater Nechryael",
+    "quantity": "5 (noted)",
+    "dropRate": "7/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Gold ore",
+    "monsterName": "Gargoyle",
+    "quantity": "10-20 (noted)",
+    "dropRate": "10/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Gold ore",
+    "monsterName": "Kalphite Queen",
+    "quantity": "250 (noted)",
+    "dropRate": "4/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Gold ore",
+    "monsterName": "King Black Dragon",
+    "quantity": "100 (noted)",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Gold ore",
+    "monsterName": "Muspah",
+    "quantity": "180 (noted)",
+    "dropRate": "10/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Gold ore",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "165-305 (noted)",
+    "dropRate": "4/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Gold ore",
+    "monsterName": "The Nightmare",
+    "quantity": "9-176 (noted)",
+    "dropRate": "4/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Gold ore",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "200 (noted)",
+    "dropRate": "2/107",
     "notes": ""
   },
   {
@@ -497,10 +4081,94 @@
     "notes": ""
   },
   {
+    "itemName": "Granite longsword",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "1",
+    "dropRate": "1/600",
+    "notes": ""
+  },
+  {
+    "itemName": "Granite maul",
+    "monsterName": "Gargoyle",
+    "quantity": "1",
+    "dropRate": "1/256",
+    "notes": ""
+  },
+  {
+    "itemName": "Grapes",
+    "monsterName": "Kalphite Queen",
+    "quantity": "100 (noted)",
+    "dropRate": "5/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Grapes",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "100 (noted)",
+    "dropRate": "1/107",
+    "notes": ""
+  },
+  {
+    "itemName": "Grapes",
+    "monsterName": "Vorkath",
+    "quantity": "250-300 (noted)",
+    "dropRate": "5/150",
+    "notes": ""
+  },
+  {
+    "itemName": "Grapes",
+    "monsterName": "Zulrah",
+    "quantity": "250 (noted)",
+    "dropRate": "6/249",
+    "notes": ""
+  },
+  {
+    "itemName": "Green dragonhide",
+    "monsterName": "Corporeal Beast",
+    "quantity": "100 (noted)",
+    "dropRate": "18/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Green dragonhide",
+    "monsterName": "Vorkath",
+    "quantity": "25-30 (noted)",
+    "dropRate": "7/150",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy avantoe",
+    "monsterName": "Chaos Elemental",
+    "quantity": "5-8 (noted)",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy avantoe",
+    "monsterName": "Sarachnis",
+    "quantity": "5-10 (noted)",
+    "dropRate": "10/800",
+    "notes": ""
+  },
+  {
     "itemName": "Grimy avantoe",
     "monsterName": "Spiritual mage",
     "quantity": "1",
     "dropRate": "3.125/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy avantoe",
+    "monsterName": "Tormented Demon",
+    "quantity": "1",
+    "dropRate": "5/408",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy cadantine",
+    "monsterName": "Abyssal Sire",
+    "quantity": "25 (noted)",
+    "dropRate": "20/2224",
     "notes": ""
   },
   {
@@ -511,10 +4179,87 @@
     "notes": ""
   },
   {
+    "itemName": "Grimy cadantine",
+    "monsterName": "Muspah",
+    "quantity": "6 (noted)",
+    "dropRate": "4/752",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy cadantine",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "13-26 (noted)",
+    "dropRate": "4/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy cadantine",
+    "monsterName": "Sarachnis",
+    "quantity": "10-15 (noted)",
+    "dropRate": "12/800",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy cadantine",
+    "monsterName": "The Nightmare",
+    "quantity": "1-16 (noted)",
+    "dropRate": "4/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy cadantine",
+    "monsterName": "Tormented Demon",
+    "quantity": "1",
+    "dropRate": "8/408",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy dwarf weed",
+    "monsterName": "Abyssal Sire",
+    "quantity": "25 (noted)",
+    "dropRate": "20/2224",
+    "notes": ""
+  },
+  {
     "itemName": "Grimy dwarf weed",
     "monsterName": "Ancient Wyvern",
     "quantity": "3 (noted)",
     "dropRate": "2/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy dwarf weed",
+    "monsterName": "Kree'arra",
+    "quantity": "8-13 (noted)",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy dwarf weed",
+    "monsterName": "Muspah",
+    "quantity": "6 (noted)",
+    "dropRate": "4/752",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy dwarf weed",
+    "monsterName": "Sarachnis",
+    "quantity": "10-15 (noted)",
+    "dropRate": "12/800",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy dwarf weed",
+    "monsterName": "Tormented Demon",
+    "quantity": "1",
+    "dropRate": "8/408",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy kwuarm",
+    "monsterName": "Abyssal Sire",
+    "quantity": "25 (noted)",
+    "dropRate": "25/2224",
     "notes": ""
   },
   {
@@ -525,10 +4270,73 @@
     "notes": ""
   },
   {
+    "itemName": "Grimy kwuarm",
+    "monsterName": "Chaos Elemental",
+    "quantity": "5-8 (noted)",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy kwuarm",
+    "monsterName": "Muspah",
+    "quantity": "6 (noted)",
+    "dropRate": "5/752",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy kwuarm",
+    "monsterName": "Sarachnis",
+    "quantity": "10-15 (noted)",
+    "dropRate": "15/800",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy kwuarm",
+    "monsterName": "Tormented Demon",
+    "quantity": "1",
+    "dropRate": "10/408",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy lantadyme",
+    "monsterName": "Abyssal Sire",
+    "quantity": "25 (noted)",
+    "dropRate": "15/2224",
+    "notes": ""
+  },
+  {
     "itemName": "Grimy lantadyme",
     "monsterName": "Ancient Wyvern",
     "quantity": "3 (noted)",
     "dropRate": "3/264",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy lantadyme",
+    "monsterName": "K'ril Tsutsaroth",
+    "quantity": "10 (noted)",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy lantadyme",
+    "monsterName": "Muspah",
+    "quantity": "6 (noted)",
+    "dropRate": "3/752",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy lantadyme",
+    "monsterName": "Sarachnis",
+    "quantity": "10-15 (noted)",
+    "dropRate": "9/800",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy lantadyme",
+    "monsterName": "Tormented Demon",
+    "quantity": "1",
+    "dropRate": "6/408",
     "notes": ""
   },
   {
@@ -540,9 +4348,107 @@
   },
   {
     "itemName": "Grimy ranarr weed",
+    "monsterName": "Chaos Elemental",
+    "quantity": "5-8 (noted)",
+    "dropRate": "4/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy ranarr weed",
+    "monsterName": "Commander Zilyana",
+    "quantity": "5 (noted)",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy ranarr weed",
+    "monsterName": "Dagannoth Prime",
+    "quantity": "1",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy ranarr weed",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "1",
+    "dropRate": "7/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy ranarr weed",
+    "monsterName": "Dagannoth Supreme",
+    "quantity": "1",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy ranarr weed",
+    "monsterName": "Kalphite Queen",
+    "quantity": "25 (noted)",
+    "dropRate": "2/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy ranarr weed",
+    "monsterName": "Sarachnis",
+    "quantity": "5-10 (noted)",
+    "dropRate": "8/800",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy ranarr weed",
     "monsterName": "Spiritual mage",
     "quantity": "1",
     "dropRate": "2.5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy ranarr weed",
+    "monsterName": "Tormented Demon",
+    "quantity": "1",
+    "dropRate": "4/408",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy snapdragon",
+    "monsterName": "Chaos Elemental",
+    "quantity": "5-8 (noted)",
+    "dropRate": "4/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy snapdragon",
+    "monsterName": "General Graardor",
+    "quantity": "3 (noted)",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy snapdragon",
+    "monsterName": "Kalphite Queen",
+    "quantity": "25 (noted)",
+    "dropRate": "2/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy snapdragon",
+    "monsterName": "Kraken",
+    "quantity": "6 (noted)",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy snapdragon",
+    "monsterName": "Sarachnis",
+    "quantity": "5-10 (noted)",
+    "dropRate": "8/800",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy snapdragon",
+    "monsterName": "Skotizo",
+    "quantity": "20 (noted)",
+    "dropRate": "7/100",
     "notes": ""
   },
   {
@@ -550,6 +4456,34 @@
     "monsterName": "Spiritual mage",
     "quantity": "1",
     "dropRate": "2.5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy snapdragon",
+    "monsterName": "Tormented Demon",
+    "quantity": "1",
+    "dropRate": "4/408",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy toadflax",
+    "monsterName": "Kalphite Queen",
+    "quantity": "25 (noted)",
+    "dropRate": "2/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy toadflax",
+    "monsterName": "Muspah",
+    "quantity": "40 (noted)",
+    "dropRate": "3/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy toadflax",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "15 (noted)",
+    "dropRate": "2/107",
     "notes": ""
   },
   {
@@ -561,9 +4495,492 @@
   },
   {
     "itemName": "Grimy torstol",
+    "monsterName": "Cerberus",
+    "quantity": "6 (noted)",
+    "dropRate": "4/130",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy torstol",
+    "monsterName": "Kalphite Queen",
+    "quantity": "25 (noted)",
+    "dropRate": "2/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy torstol",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "13-26 (noted)",
+    "dropRate": "4/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy torstol",
+    "monsterName": "Sarachnis",
+    "quantity": "5-10 (noted)",
+    "dropRate": "6/800",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy torstol",
+    "monsterName": "Skotizo",
+    "quantity": "20 (noted)",
+    "dropRate": "7/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy torstol",
     "monsterName": "Spiritual mage",
     "quantity": "1",
     "dropRate": "8.875/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy torstol",
+    "monsterName": "The Nightmare",
+    "quantity": "1-16 (noted)",
+    "dropRate": "4/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy torstol",
+    "monsterName": "Tormented Demon",
+    "quantity": "1",
+    "dropRate": "3/408",
+    "notes": ""
+  },
+  {
+    "itemName": "Grubby key",
+    "monsterName": "Sarachnis",
+    "quantity": "1",
+    "dropRate": "1/15",
+    "notes": ""
+  },
+  {
+    "itemName": "Guthixian temple teleport",
+    "monsterName": "Tormented Demon",
+    "quantity": "2",
+    "dropRate": "1/12",
+    "notes": ""
+  },
+  {
+    "itemName": "Harmonised orb",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "1",
+    "dropRate": "1/1600",
+    "notes": ""
+  },
+  {
+    "itemName": "Harmonised orb",
+    "monsterName": "The Nightmare",
+    "quantity": "1",
+    "dropRate": "1/960",
+    "notes": ""
+  },
+  {
+    "itemName": "Harpoon",
+    "monsterName": "Kraken",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Heavy frame",
+    "monsterName": "Demonic gorilla",
+    "quantity": "1",
+    "dropRate": "1/1500",
+    "notes": ""
+  },
+  {
+    "itemName": "Hellpuppy",
+    "monsterName": "Cerberus",
+    "quantity": "1",
+    "dropRate": "1/3000",
+    "notes": ""
+  },
+  {
+    "itemName": "Holy elixir",
+    "monsterName": "Corporeal Beast",
+    "quantity": "1",
+    "dropRate": "3/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Hydra bones",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "2",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Hydra leather",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "1",
+    "dropRate": "1/514",
+    "notes": ""
+  },
+  {
+    "itemName": "Hydra tail",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "1",
+    "dropRate": "1/513",
+    "notes": ""
+  },
+  {
+    "itemName": "Hydra's claw",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "1",
+    "dropRate": "1/1001",
+    "notes": ""
+  },
+  {
+    "itemName": "Hydra's eye",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "1",
+    "dropRate": "1/181.1",
+    "notes": ""
+  },
+  {
+    "itemName": "Hydra's fang",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "1",
+    "dropRate": "1/181.1",
+    "notes": ""
+  },
+  {
+    "itemName": "Hydra's heart",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "1",
+    "dropRate": "1/181.1",
+    "notes": ""
+  },
+  {
+    "itemName": "Ikkle hydra",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "1",
+    "dropRate": "1/3000",
+    "notes": ""
+  },
+  {
+    "itemName": "Immaculate mole skin",
+    "monsterName": "Giant Mole",
+    "quantity": "1",
+    "dropRate": "1/50",
+    "notes": ""
+  },
+  {
+    "itemName": "Infernal ashes",
+    "monsterName": "Cerberus",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Infernal ashes",
+    "monsterName": "K'ril Tsutsaroth",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Infernal ashes",
+    "monsterName": "Skotizo",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Infernal ashes",
+    "monsterName": "Tormented Demon",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Inquisitor's great helm",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "1",
+    "dropRate": "1/700",
+    "notes": ""
+  },
+  {
+    "itemName": "Inquisitor's great helm",
+    "monsterName": "The Nightmare",
+    "quantity": "1",
+    "dropRate": "1/420",
+    "notes": ""
+  },
+  {
+    "itemName": "Inquisitor's hauberk",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "1",
+    "dropRate": "1/700",
+    "notes": ""
+  },
+  {
+    "itemName": "Inquisitor's hauberk",
+    "monsterName": "The Nightmare",
+    "quantity": "1",
+    "dropRate": "1/420",
+    "notes": ""
+  },
+  {
+    "itemName": "Inquisitor's mace",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "1",
+    "dropRate": "31/35000",
+    "notes": ""
+  },
+  {
+    "itemName": "Inquisitor's mace",
+    "monsterName": "The Nightmare",
+    "quantity": "1",
+    "dropRate": "1/750",
+    "notes": ""
+  },
+  {
+    "itemName": "Inquisitor's plateskirt",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "1",
+    "dropRate": "1/700",
+    "notes": ""
+  },
+  {
+    "itemName": "Inquisitor's plateskirt",
+    "monsterName": "The Nightmare",
+    "quantity": "1",
+    "dropRate": "1/420",
+    "notes": ""
+  },
+  {
+    "itemName": "Iron arrow",
+    "monsterName": "Dagannoth Supreme",
+    "quantity": "200-700",
+    "dropRate": "4/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Iron arrow",
+    "monsterName": "Giant Mole",
+    "quantity": "690",
+    "dropRate": "10/131",
+    "notes": ""
+  },
+  {
+    "itemName": "Iron arrow",
+    "monsterName": "King Black Dragon",
+    "quantity": "690",
+    "dropRate": "10/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Iron knife",
+    "monsterName": "Dagannoth Supreme",
+    "quantity": "200-500",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Iron ore",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "150 (noted)",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Iron ore",
+    "monsterName": "Giant Mole",
+    "quantity": "100 (noted)",
+    "dropRate": "2/131",
+    "notes": ""
+  },
+  {
+    "itemName": "Iron ore",
+    "monsterName": "Lizardman shaman",
+    "quantity": "30-35 (noted)",
+    "dropRate": "20/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Jade bolt tips",
+    "monsterName": "Vyrewatch Sentinel",
+    "quantity": "6-14",
+    "dropRate": "3/5208",
+    "notes": ""
+  },
+  {
+    "itemName": "Jar of chemicals",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "1",
+    "dropRate": "1/2000",
+    "notes": ""
+  },
+  {
+    "itemName": "Jar of darkness",
+    "monsterName": "Skotizo",
+    "quantity": "1",
+    "dropRate": "1/200",
+    "notes": ""
+  },
+  {
+    "itemName": "Jar of decay",
+    "monsterName": "Vorkath",
+    "quantity": "1",
+    "dropRate": "1/3000",
+    "notes": ""
+  },
+  {
+    "itemName": "Jar of dirt",
+    "monsterName": "Kraken",
+    "quantity": "1",
+    "dropRate": "1/1000",
+    "notes": ""
+  },
+  {
+    "itemName": "Jar of dreams",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "1",
+    "dropRate": "1/4000",
+    "notes": ""
+  },
+  {
+    "itemName": "Jar of dreams",
+    "monsterName": "The Nightmare",
+    "quantity": "1",
+    "dropRate": "1/1900",
+    "notes": ""
+  },
+  {
+    "itemName": "Jar of eyes",
+    "monsterName": "Sarachnis",
+    "quantity": "1",
+    "dropRate": "1/2000",
+    "notes": ""
+  },
+  {
+    "itemName": "Jar of sand",
+    "monsterName": "Kalphite Queen",
+    "quantity": "1",
+    "dropRate": "1/2000",
+    "notes": ""
+  },
+  {
+    "itemName": "Jar of smoke",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "1",
+    "dropRate": "1/2000",
+    "notes": ""
+  },
+  {
+    "itemName": "Jar of souls",
+    "monsterName": "Cerberus",
+    "quantity": "1",
+    "dropRate": "1/2000",
+    "notes": ""
+  },
+  {
+    "itemName": "Jar of spirits",
+    "monsterName": "Corporeal Beast",
+    "quantity": "1",
+    "dropRate": "1/1000",
+    "notes": ""
+  },
+  {
+    "itemName": "Jar of swamp",
+    "monsterName": "Zulrah",
+    "quantity": "1",
+    "dropRate": "1/3000",
+    "notes": ""
+  },
+  {
+    "itemName": "Jar of venom",
+    "monsterName": "Araxxor",
+    "quantity": "1",
+    "dropRate": "1/1500",
+    "notes": ""
+  },
+  {
+    "itemName": "Javelin shaft",
+    "monsterName": "Demonic gorilla",
+    "quantity": "750-1250",
+    "dropRate": "25/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Jug of water",
+    "monsterName": "Abyssal Sire",
+    "quantity": "250-350 (noted)",
+    "dropRate": "2/139",
+    "notes": ""
+  },
+  {
+    "itemName": "Kalphite princess",
+    "monsterName": "Kalphite Queen",
+    "quantity": "1",
+    "dropRate": "1/3000",
+    "notes": ""
+  },
+  {
+    "itemName": "Kbd heads",
+    "monsterName": "King Black Dragon",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Key (elite)",
+    "monsterName": "King Black Dragon",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Key master teleport",
+    "monsterName": "Cerberus",
+    "quantity": "7",
+    "dropRate": "2/130",
+    "notes": ""
+  },
+  {
+    "itemName": "Kq head",
+    "monsterName": "Kalphite Queen",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Kq head (tattered)",
+    "monsterName": "Kalphite Queen",
+    "quantity": "1",
+    "dropRate": "Once",
+    "notes": ""
+  },
+  {
+    "itemName": "Kraken tentacle",
+    "monsterName": "Kraken",
+    "quantity": "1",
+    "dropRate": "1/400",
+    "notes": ""
+  },
+  {
+    "itemName": "Lantadyme seed",
+    "monsterName": "K'ril Tsutsaroth",
+    "quantity": "3",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Lava battlestaff",
+    "monsterName": "Cerberus",
+    "quantity": "1",
+    "dropRate": "2/130",
+    "notes": ""
+  },
+  {
+    "itemName": "Lava battlestaff",
+    "monsterName": "Kalphite Queen",
+    "quantity": "1",
+    "dropRate": "2/126",
     "notes": ""
   },
   {
@@ -589,9 +5006,135 @@
   },
   {
     "itemName": "Law rune",
+    "monsterName": "Abyssal Sire",
+    "quantity": "250",
+    "dropRate": "5/139",
+    "notes": ""
+  },
+  {
+    "itemName": "Law rune",
+    "monsterName": "Basilisk Knight",
+    "quantity": "20-30",
+    "dropRate": "6/52",
+    "notes": ""
+  },
+  {
+    "itemName": "Law rune",
+    "monsterName": "Commander Zilyana",
+    "quantity": "95-100",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Law rune",
+    "monsterName": "Corporeal Beast",
+    "quantity": "250",
+    "dropRate": "17/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Law rune",
+    "monsterName": "Dagannoth Prime",
+    "quantity": "10-75",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Law rune",
+    "monsterName": "Demonic gorilla",
+    "quantity": "50-75",
+    "dropRate": "35/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Law rune",
+    "monsterName": "Giant Mole",
+    "quantity": "15",
+    "dropRate": "5/131",
+    "notes": ""
+  },
+  {
+    "itemName": "Law rune",
+    "monsterName": "King Black Dragon",
+    "quantity": "30",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Law rune",
+    "monsterName": "Muspah",
+    "quantity": "146",
+    "dropRate": "10/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Law rune",
+    "monsterName": "Nechryael",
+    "quantity": "25-35",
+    "dropRate": "5/116",
+    "notes": ""
+  },
+  {
+    "itemName": "Law rune",
     "monsterName": "Spiritual mage",
     "quantity": "15",
     "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Law rune",
+    "monsterName": "Zulrah",
+    "quantity": "200",
+    "dropRate": "12/249",
+    "notes": ""
+  },
+  {
+    "itemName": "Light frame",
+    "monsterName": "Demonic gorilla",
+    "quantity": "1",
+    "dropRate": "1/750",
+    "notes": ""
+  },
+  {
+    "itemName": "Limpwurt root",
+    "monsterName": "Cave horror",
+    "quantity": "1",
+    "dropRate": "7/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Limpwurt root",
+    "monsterName": "Muspah",
+    "quantity": "21 (noted)",
+    "dropRate": "3/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Limpwurt seed",
+    "monsterName": "Nechryael",
+    "quantity": "1",
+    "dropRate": "6/116",
+    "notes": ""
+  },
+  {
+    "itemName": "Little nightmare",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "1",
+    "dropRate": "1/1400",
+    "notes": ""
+  },
+  {
+    "itemName": "Little nightmare",
+    "monsterName": "The Nightmare",
+    "quantity": "1",
+    "dropRate": "1/800",
+    "notes": ""
+  },
+  {
+    "itemName": "Lizardman fang",
+    "monsterName": "Lizardman shaman",
+    "quantity": "10-14",
+    "dropRate": "40/500",
     "notes": ""
   },
   {
@@ -602,8 +5145,78 @@
     "notes": ""
   },
   {
+    "itemName": "Lobster",
+    "monsterName": "Greater Nechryael",
+    "quantity": "1",
+    "dropRate": "10/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Long bone",
+    "monsterName": "Basilisk Knight",
+    "quantity": "1",
+    "dropRate": "1/400",
+    "notes": ""
+  },
+  {
+    "itemName": "Long bone",
+    "monsterName": "Cave horror",
+    "quantity": "1",
+    "dropRate": "1/400",
+    "notes": ""
+  },
+  {
+    "itemName": "Long bone",
+    "monsterName": "General Graardor",
+    "quantity": "1",
+    "dropRate": "1/400",
+    "notes": ""
+  },
+  {
+    "itemName": "Long bone",
+    "monsterName": "Giant Mole",
+    "quantity": "1",
+    "dropRate": "1/400",
+    "notes": ""
+  },
+  {
+    "itemName": "Long bone",
+    "monsterName": "Kree'arra",
+    "quantity": "1",
+    "dropRate": "1/400",
+    "notes": ""
+  },
+  {
+    "itemName": "Long bone",
+    "monsterName": "Lizardman shaman",
+    "quantity": "1",
+    "dropRate": "1/400",
+    "notes": ""
+  },
+  {
     "itemName": "Looting bag",
     "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/3",
+    "notes": ""
+  },
+  {
+    "itemName": "Looting bag",
+    "monsterName": "Chaos Elemental",
+    "quantity": "1",
+    "dropRate": "1/3",
+    "notes": ""
+  },
+  {
+    "itemName": "Looting bag",
+    "monsterName": "Dust devil",
+    "quantity": "1",
+    "dropRate": "1/3",
+    "notes": ""
+  },
+  {
+    "itemName": "Looting bag",
+    "monsterName": "Greater Nechryael",
     "quantity": "1",
     "dropRate": "1/3",
     "notes": ""
@@ -616,10 +5229,150 @@
     "notes": ""
   },
   {
+    "itemName": "Magic fang",
+    "monsterName": "Zulrah",
+    "quantity": "1",
+    "dropRate": "1/1024",
+    "notes": ""
+  },
+  {
+    "itemName": "Magic logs",
+    "monsterName": "Abyssal Sire",
+    "quantity": "50-70 (noted)",
+    "dropRate": "5/139",
+    "notes": ""
+  },
+  {
+    "itemName": "Magic logs",
+    "monsterName": "Corporeal Beast",
+    "quantity": "75 (noted)",
+    "dropRate": "12/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Magic logs",
+    "monsterName": "General Graardor",
+    "quantity": "15-20 (noted)",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Magic logs",
+    "monsterName": "Kalphite Queen",
+    "quantity": "60 (noted)",
+    "dropRate": "4/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Magic logs",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "40-95 (noted)",
+    "dropRate": "4/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Magic logs",
+    "monsterName": "Smoke devil",
+    "quantity": "5 (noted)",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Magic logs",
+    "monsterName": "The Nightmare",
+    "quantity": "1-55 (noted)",
+    "dropRate": "4/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Magic logs",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "20 (noted)",
+    "dropRate": "2/107",
+    "notes": ""
+  },
+  {
+    "itemName": "Magic logs",
+    "monsterName": "Vorkath",
+    "quantity": "50 (noted)",
+    "dropRate": "5/150",
+    "notes": ""
+  },
+  {
+    "itemName": "Magic longbow (u)",
+    "monsterName": "Tormented Demon",
+    "quantity": "1",
+    "dropRate": "1/255",
+    "notes": ""
+  },
+  {
+    "itemName": "Magic potion(3)",
+    "monsterName": "Commander Zilyana",
+    "quantity": "3",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
     "itemName": "Magic seed",
     "monsterName": "Ancient Wyvern",
     "quantity": "1",
     "dropRate": "1/198",
+    "notes": ""
+  },
+  {
+    "itemName": "Magic seed",
+    "monsterName": "Araxxor",
+    "quantity": "2",
+    "dropRate": "1/115",
+    "notes": ""
+  },
+  {
+    "itemName": "Magic seed",
+    "monsterName": "Commander Zilyana",
+    "quantity": "1",
+    "dropRate": "1/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Magic seed",
+    "monsterName": "Kalphite Queen",
+    "quantity": "2",
+    "dropRate": "3/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Magic seed",
+    "monsterName": "Kraken",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Magic seed",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "1",
+    "dropRate": "1/107",
+    "notes": ""
+  },
+  {
+    "itemName": "Magic seed",
+    "monsterName": "Zulrah",
+    "quantity": "1",
+    "dropRate": "4/249",
+    "notes": ""
+  },
+  {
+    "itemName": "Magic shortbow (u)",
+    "monsterName": "Tormented Demon",
+    "quantity": "1 (noted)",
+    "dropRate": "29/255",
+    "notes": ""
+  },
+  {
+    "itemName": "Magma mutagen",
+    "monsterName": "Zulrah",
+    "quantity": "1",
+    "dropRate": "1/13107",
     "notes": ""
   },
   {
@@ -630,10 +5383,122 @@
     "notes": ""
   },
   {
+    "itemName": "Mahogany logs",
+    "monsterName": "Cave horror",
+    "quantity": "2",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Mahogany logs",
+    "monsterName": "Corporeal Beast",
+    "quantity": "150 (noted)",
+    "dropRate": "12/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Mahogany logs",
+    "monsterName": "Zulrah",
+    "quantity": "50 (noted)",
+    "dropRate": "8/249",
+    "notes": ""
+  },
+  {
+    "itemName": "Mahogany plank",
+    "monsterName": "Chaos Elemental",
+    "quantity": "8-16 (noted)",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Mahogany plank",
+    "monsterName": "Skotizo",
+    "quantity": "150 (noted)",
+    "dropRate": "7/100",
+    "notes": ""
+  },
+  {
     "itemName": "Mahogany seed",
     "monsterName": "Ancient Wyvern",
     "quantity": "1",
     "dropRate": "1/99",
+    "notes": ""
+  },
+  {
+    "itemName": "Malicious ashes",
+    "monsterName": "Demonic gorilla",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Malicious ashes",
+    "monsterName": "Greater Nechryael",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Malicious ashes",
+    "monsterName": "Nechryael",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Malicious ashes",
+    "monsterName": "Tormented Demon",
+    "quantity": "2-3",
+    "dropRate": "2/51",
+    "notes": ""
+  },
+  {
+    "itemName": "Manta ray",
+    "monsterName": "Muspah",
+    "quantity": "28 (noted)",
+    "dropRate": "2.5/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Manta ray",
+    "monsterName": "Tormented Demon",
+    "quantity": "1-2",
+    "dropRate": "4/51",
+    "notes": ""
+  },
+  {
+    "itemName": "Manta ray",
+    "monsterName": "Vorkath",
+    "quantity": "35-55 (noted)",
+    "dropRate": "2/300",
+    "notes": ""
+  },
+  {
+    "itemName": "Manta ray",
+    "monsterName": "Zulrah",
+    "quantity": "35 (noted)",
+    "dropRate": "3/249",
+    "notes": ""
+  },
+  {
+    "itemName": "Maple logs",
+    "monsterName": "Dagannoth Supreme",
+    "quantity": "15-65 (noted)",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Maple seed",
+    "monsterName": "Sarachnis",
+    "quantity": "2",
+    "dropRate": "1/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Mind rune",
+    "monsterName": "Kree'arra",
+    "quantity": "586-601",
+    "dropRate": "8/127",
     "notes": ""
   },
   {
@@ -645,9 +5510,100 @@
   },
   {
     "itemName": "Mist rune",
+    "monsterName": "Kraken",
+    "quantity": "100",
+    "dropRate": "4/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Mist rune",
     "monsterName": "Spiritual mage",
     "quantity": "20",
     "dropRate": "6/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Mithril 2h sword",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Mithril arrow",
+    "monsterName": "Kalphite Queen",
+    "quantity": "500",
+    "dropRate": "5/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Mithril arrow",
+    "monsterName": "Sarachnis",
+    "quantity": "450-600",
+    "dropRate": "2/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Mithril axe",
+    "monsterName": "Cave horror",
+    "quantity": "1",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Mithril axe",
+    "monsterName": "Giant Mole",
+    "quantity": "1",
+    "dropRate": "2/131",
+    "notes": ""
+  },
+  {
+    "itemName": "Mithril bar",
+    "monsterName": "Dust devil",
+    "quantity": "10 (noted)",
+    "dropRate": "3/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Mithril bar",
+    "monsterName": "Dust devil",
+    "quantity": "10 (noted)",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Mithril bar",
+    "monsterName": "Gargoyle",
+    "quantity": "15 (noted)",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Mithril bar",
+    "monsterName": "Giant Mole",
+    "quantity": "1",
+    "dropRate": "3/131",
+    "notes": ""
+  },
+  {
+    "itemName": "Mithril bar",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "20 (noted)",
+    "dropRate": "2/107",
+    "notes": ""
+  },
+  {
+    "itemName": "Mithril battleaxe",
+    "monsterName": "Giant Mole",
+    "quantity": "1",
+    "dropRate": "1/131",
+    "notes": ""
+  },
+  {
+    "itemName": "Mithril bolts",
+    "monsterName": "Sarachnis",
+    "quantity": "175-225",
+    "dropRate": "2/100",
     "notes": ""
   },
   {
@@ -665,6 +5621,146 @@
     "notes": ""
   },
   {
+    "itemName": "Mithril kiteshield",
+    "monsterName": "Cave horror",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Mithril knife",
+    "monsterName": "Dagannoth Supreme",
+    "quantity": "25-50",
+    "dropRate": "10/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Mithril ore",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "25 (noted)",
+    "dropRate": "10/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Mithril ore",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "165-305 (noted)",
+    "dropRate": "5/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Mithril ore",
+    "monsterName": "Sarachnis",
+    "quantity": "60-90 (noted)",
+    "dropRate": "6/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Mithril ore",
+    "monsterName": "The Nightmare",
+    "quantity": "11-176 (noted)",
+    "dropRate": "4/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Mithril pickaxe",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "1",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Mithril platebody",
+    "monsterName": "Giant Mole",
+    "quantity": "1",
+    "dropRate": "9/131",
+    "notes": ""
+  },
+  {
+    "itemName": "Mithril plateskirt",
+    "monsterName": "Smoke devil",
+    "quantity": "1",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Mithril warhammer",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "1",
+    "dropRate": "11/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Mole claw",
+    "monsterName": "Giant Mole",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Mole skin",
+    "monsterName": "Giant Mole",
+    "quantity": "1-3",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Molten glass",
+    "monsterName": "Muspah",
+    "quantity": "89 (noted)",
+    "dropRate": "15/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Molten glass",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "100 (noted)",
+    "dropRate": "2/107",
+    "notes": ""
+  },
+  {
+    "itemName": "Monkey tail",
+    "monsterName": "Demonic gorilla",
+    "quantity": "1",
+    "dropRate": "1/1500",
+    "notes": ""
+  },
+  {
+    "itemName": "Monkfish",
+    "monsterName": "Kalphite Queen",
+    "quantity": "3",
+    "dropRate": "1/9",
+    "notes": ""
+  },
+  {
+    "itemName": "Mort myre fungus",
+    "monsterName": "Araxxor",
+    "quantity": "24 (noted)",
+    "dropRate": "4/115",
+    "notes": ""
+  },
+  {
+    "itemName": "Mud battlestaff",
+    "monsterName": "Dagannoth Prime",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Mud rune",
+    "monsterName": "Araxxor",
+    "quantity": "100",
+    "dropRate": "1/115",
+    "notes": ""
+  },
+  {
+    "itemName": "Mud rune",
+    "monsterName": "Dagannoth Prime",
+    "quantity": "25-75",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
     "itemName": "Mud rune",
     "monsterName": "Spiritual mage",
     "quantity": "20",
@@ -679,6 +5775,20 @@
     "notes": ""
   },
   {
+    "itemName": "Muphin",
+    "monsterName": "Muspah",
+    "quantity": "1",
+    "dropRate": "1/2500",
+    "notes": ""
+  },
+  {
+    "itemName": "Mystic air staff",
+    "monsterName": "Abyssal Sire",
+    "quantity": "2 (noted)",
+    "dropRate": "2/139",
+    "notes": ""
+  },
+  {
     "itemName": "Mystic air staff",
     "monsterName": "Ancient Wyvern",
     "quantity": "1",
@@ -686,10 +5796,269 @@
     "notes": ""
   },
   {
+    "itemName": "Mystic air staff",
+    "monsterName": "Chaos Elemental",
+    "quantity": "1",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Mystic air staff",
+    "monsterName": "Corporeal Beast",
+    "quantity": "1",
+    "dropRate": "12/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Mystic air staff",
+    "monsterName": "Dust devil",
+    "quantity": "1",
+    "dropRate": "1/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Mystic air staff",
+    "monsterName": "Dust devil",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Mystic air staff",
+    "monsterName": "Greater Nechryael",
+    "quantity": "1",
+    "dropRate": "2/112",
+    "notes": ""
+  },
+  {
+    "itemName": "Mystic air staff",
+    "monsterName": "Greater Nechryael",
+    "quantity": "1",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Mystic air staff",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "1",
+    "dropRate": "3/107",
+    "notes": ""
+  },
+  {
+    "itemName": "Mystic earth staff",
+    "monsterName": "Chaos Elemental",
+    "quantity": "1",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Mystic earth staff",
+    "monsterName": "Corporeal Beast",
+    "quantity": "1",
+    "dropRate": "12/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Mystic earth staff",
+    "monsterName": "Dust devil",
+    "quantity": "1",
+    "dropRate": "1/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Mystic earth staff",
+    "monsterName": "Dust devil",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Mystic earth staff",
+    "monsterName": "Lizardman shaman",
+    "quantity": "1",
+    "dropRate": "17/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Mystic fire staff",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "1",
+    "dropRate": "8/101",
+    "notes": ""
+  },
+  {
+    "itemName": "Mystic fire staff",
+    "monsterName": "Chaos Elemental",
+    "quantity": "1",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Mystic fire staff",
+    "monsterName": "Corporeal Beast",
+    "quantity": "1",
+    "dropRate": "12/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Mystic fire staff",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "1",
+    "dropRate": "3/107",
+    "notes": ""
+  },
+  {
+    "itemName": "Mystic hat (light)",
+    "monsterName": "Basilisk Knight",
+    "quantity": "1",
+    "dropRate": "1/256",
+    "notes": ""
+  },
+  {
+    "itemName": "Mystic lava staff",
+    "monsterName": "Abyssal Sire",
+    "quantity": "2 (noted)",
+    "dropRate": "4/139",
+    "notes": ""
+  },
+  {
+    "itemName": "Mystic robe bottom",
+    "monsterName": "Corporeal Beast",
+    "quantity": "1",
+    "dropRate": "18/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Mystic robe bottom",
+    "monsterName": "Kraken",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Mystic robe bottom (light)",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "1",
+    "dropRate": "1/101",
+    "notes": ""
+  },
+  {
+    "itemName": "Mystic robe top",
+    "monsterName": "Corporeal Beast",
+    "quantity": "1",
+    "dropRate": "18/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Mystic robe top",
+    "monsterName": "Kraken",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Mystic robe top (dark)",
+    "monsterName": "Gargoyle",
+    "quantity": "1",
+    "dropRate": "1/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Mystic robe top (light)",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "1",
+    "dropRate": "1/101",
+    "notes": ""
+  },
+  {
+    "itemName": "Mystic water staff",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "1",
+    "dropRate": "8/101",
+    "notes": ""
+  },
+  {
+    "itemName": "Mystic water staff",
+    "monsterName": "Chaos Elemental",
+    "quantity": "1",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Mystic water staff",
+    "monsterName": "Corporeal Beast",
+    "quantity": "1",
+    "dropRate": "12/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Mystic water staff",
+    "monsterName": "Kraken",
+    "quantity": "1",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
     "itemName": "Nature rune",
     "monsterName": "Ancient Wyvern",
     "quantity": "37-43",
     "dropRate": "4/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Nature rune",
+    "monsterName": "Araxxor",
+    "quantity": "80",
+    "dropRate": "2/115",
+    "notes": ""
+  },
+  {
+    "itemName": "Nature rune",
+    "monsterName": "Basilisk Knight",
+    "quantity": "15-30",
+    "dropRate": "6/52",
+    "notes": ""
+  },
+  {
+    "itemName": "Nature rune",
+    "monsterName": "Cave horror",
+    "quantity": "3",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Nature rune",
+    "monsterName": "Cave horror",
+    "quantity": "4",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Nature rune",
+    "monsterName": "Cave horror",
+    "quantity": "6",
+    "dropRate": "6/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Nature rune",
+    "monsterName": "Dagannoth Prime",
+    "quantity": "25-75",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Nature rune",
+    "monsterName": "General Graardor",
+    "quantity": "65-70",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Nature rune",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "165-305",
+    "dropRate": "4/100",
     "notes": ""
   },
   {
@@ -707,6 +6076,41 @@
     "notes": ""
   },
   {
+    "itemName": "Nature rune",
+    "monsterName": "The Nightmare",
+    "quantity": "8-176",
+    "dropRate": "4/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Nature rune",
+    "monsterName": "Vyrewatch Sentinel",
+    "quantity": "6-11",
+    "dropRate": "10/93",
+    "notes": ""
+  },
+  {
+    "itemName": "Nid",
+    "monsterName": "Araxxor",
+    "quantity": "1",
+    "dropRate": "1/3000",
+    "notes": ""
+  },
+  {
+    "itemName": "Nightmare staff",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "1",
+    "dropRate": "69/35000",
+    "notes": ""
+  },
+  {
+    "itemName": "Nightmare staff",
+    "monsterName": "The Nightmare",
+    "quantity": "1",
+    "dropRate": "1/300",
+    "notes": ""
+  },
+  {
     "itemName": "Nihil shard",
     "monsterName": "Spiritual mage",
     "quantity": "5-9",
@@ -714,10 +6118,423 @@
     "notes": ""
   },
   {
+    "itemName": "Nothing",
+    "monsterName": "Dust devil",
+    "quantity": "",
+    "dropRate": "255/32256",
+    "notes": ""
+  },
+  {
+    "itemName": "Nothing",
+    "monsterName": "Dust devil",
+    "quantity": "",
+    "dropRate": "255/32768",
+    "notes": ""
+  },
+  {
+    "itemName": "Noxious blade",
+    "monsterName": "Araxxor",
+    "quantity": "1",
+    "dropRate": "1/200",
+    "notes": ""
+  },
+  {
+    "itemName": "Noxious point",
+    "monsterName": "Araxxor",
+    "quantity": "1",
+    "dropRate": "1/200",
+    "notes": ""
+  },
+  {
+    "itemName": "Noxious pommel",
+    "monsterName": "Araxxor",
+    "quantity": "1",
+    "dropRate": "1/200",
+    "notes": ""
+  },
+  {
+    "itemName": "Oak plank",
+    "monsterName": "Kraken",
+    "quantity": "60 (noted)",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Occult necklace",
+    "monsterName": "Smoke devil",
+    "quantity": "1",
+    "dropRate": "1/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Occult necklace",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "1",
+    "dropRate": "1/350",
+    "notes": ""
+  },
+  {
+    "itemName": "Onyx bolt tips",
+    "monsterName": "Abyssal Sire",
+    "quantity": "10",
+    "dropRate": "3/139",
+    "notes": ""
+  },
+  {
     "itemName": "Onyx bolt tips",
     "monsterName": "Ancient Wyvern",
     "quantity": "10-15",
     "dropRate": "4/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Onyx bolt tips",
+    "monsterName": "Sarachnis",
+    "quantity": "8-10",
+    "dropRate": "2/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Onyx bolt tips",
+    "monsterName": "Skotizo",
+    "quantity": "40",
+    "dropRate": "7/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Onyx bolt tips",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "12",
+    "dropRate": "2/107",
+    "notes": ""
+  },
+  {
+    "itemName": "Onyx bolt tips",
+    "monsterName": "Vorkath",
+    "quantity": "5-10",
+    "dropRate": "4/150",
+    "notes": ""
+  },
+  {
+    "itemName": "Onyx bolt tips",
+    "monsterName": "Vorkath",
+    "quantity": "25-30",
+    "dropRate": "7/2730",
+    "notes": ""
+  },
+  {
+    "itemName": "Onyx bolt tips",
+    "monsterName": "Vyrewatch Sentinel",
+    "quantity": "6-14",
+    "dropRate": "3/5208",
+    "notes": ""
+  },
+  {
+    "itemName": "Onyx bolts (e)",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "35-50",
+    "dropRate": "1/101",
+    "notes": ""
+  },
+  {
+    "itemName": "Onyx bolts (e)",
+    "monsterName": "Corporeal Beast",
+    "quantity": "175",
+    "dropRate": "20/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Opal bolt tips",
+    "monsterName": "Dagannoth Supreme",
+    "quantity": "10-30",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Opal bolt tips",
+    "monsterName": "Vyrewatch Sentinel",
+    "quantity": "6-14",
+    "dropRate": "9/5208",
+    "notes": ""
+  },
+  {
+    "itemName": "Oyster pearls",
+    "monsterName": "Dagannoth Prime",
+    "quantity": "1",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Oyster pearls",
+    "monsterName": "Dagannoth Supreme",
+    "quantity": "1",
+    "dropRate": "6/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Oyster pearls",
+    "monsterName": "Giant Mole",
+    "quantity": "1",
+    "dropRate": "1/131",
+    "notes": ""
+  },
+  {
+    "itemName": "Palm tree seed",
+    "monsterName": "Kalphite Queen",
+    "quantity": "2",
+    "dropRate": "3/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Palm tree seed",
+    "monsterName": "Muspah",
+    "quantity": "2",
+    "dropRate": "5/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Palm tree seed",
+    "monsterName": "Zulrah",
+    "quantity": "1",
+    "dropRate": "6/249",
+    "notes": ""
+  },
+  {
+    "itemName": "Papaya tree seed",
+    "monsterName": "Kalphite Queen",
+    "quantity": "2",
+    "dropRate": "3/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Papaya tree seed",
+    "monsterName": "Sarachnis",
+    "quantity": "2",
+    "dropRate": "1/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Papaya tree seed",
+    "monsterName": "Zulrah",
+    "quantity": "3",
+    "dropRate": "6/249",
+    "notes": ""
+  },
+  {
+    "itemName": "Parasitic egg",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "1",
+    "dropRate": "1/200",
+    "notes": ""
+  },
+  {
+    "itemName": "Pearl bolt tips",
+    "monsterName": "Vyrewatch Sentinel",
+    "quantity": "6-14",
+    "dropRate": "9/5208",
+    "notes": ""
+  },
+  {
+    "itemName": "Pegasian crystal",
+    "monsterName": "Cerberus",
+    "quantity": "1",
+    "dropRate": "1/520",
+    "notes": ""
+  },
+  {
+    "itemName": "Pet chaos elemental",
+    "monsterName": "Chaos Elemental",
+    "quantity": "1",
+    "dropRate": "1/300",
+    "notes": ""
+  },
+  {
+    "itemName": "Pet dagannoth prime",
+    "monsterName": "Dagannoth Prime",
+    "quantity": "1",
+    "dropRate": "1/5000",
+    "notes": ""
+  },
+  {
+    "itemName": "Pet dagannoth rex",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "1",
+    "dropRate": "1/5000",
+    "notes": ""
+  },
+  {
+    "itemName": "Pet dagannoth supreme",
+    "monsterName": "Dagannoth Supreme",
+    "quantity": "1",
+    "dropRate": "1/5000",
+    "notes": ""
+  },
+  {
+    "itemName": "Pet dark core",
+    "monsterName": "Corporeal Beast",
+    "quantity": "1",
+    "dropRate": "1/5000",
+    "notes": ""
+  },
+  {
+    "itemName": "Pet general graardor",
+    "monsterName": "General Graardor",
+    "quantity": "1",
+    "dropRate": "1/5000",
+    "notes": ""
+  },
+  {
+    "itemName": "Pet k'ril tsutsaroth",
+    "monsterName": "K'ril Tsutsaroth",
+    "quantity": "1",
+    "dropRate": "1/5000",
+    "notes": ""
+  },
+  {
+    "itemName": "Pet kraken",
+    "monsterName": "Kraken",
+    "quantity": "1",
+    "dropRate": "1/3000",
+    "notes": ""
+  },
+  {
+    "itemName": "Pet kree'arra",
+    "monsterName": "Kree'arra",
+    "quantity": "1",
+    "dropRate": "1/5000",
+    "notes": ""
+  },
+  {
+    "itemName": "Pet smoke devil",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "1",
+    "dropRate": "1/3000",
+    "notes": ""
+  },
+  {
+    "itemName": "Pet snakeling",
+    "monsterName": "Zulrah",
+    "quantity": "1",
+    "dropRate": "1/4000",
+    "notes": ""
+  },
+  {
+    "itemName": "Pet zilyana",
+    "monsterName": "Commander Zilyana",
+    "quantity": "1",
+    "dropRate": "1/5000",
+    "notes": ""
+  },
+  {
+    "itemName": "Pirate boots",
+    "monsterName": "Kraken",
+    "quantity": "1",
+    "dropRate": "4/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Potato cactus",
+    "monsterName": "Kalphite Queen",
+    "quantity": "100 (noted)",
+    "dropRate": "8/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Prayer potion(2)",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Prayer potion(2)",
+    "monsterName": "Tormented Demon",
+    "quantity": "2",
+    "dropRate": "1/51",
+    "notes": ""
+  },
+  {
+    "itemName": "Prayer potion(3)",
+    "monsterName": "Demonic gorilla",
+    "quantity": "2",
+    "dropRate": "40/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Prayer potion(3)",
+    "monsterName": "Muspah",
+    "quantity": "2-3",
+    "dropRate": "1/9",
+    "notes": ""
+  },
+  {
+    "itemName": "Prayer potion(3)",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "8-15",
+    "dropRate": "5/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Prayer potion(3)",
+    "monsterName": "The Nightmare",
+    "quantity": "1-10",
+    "dropRate": "5/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Prayer potion(4)",
+    "monsterName": "Araxxor",
+    "quantity": "1",
+    "dropRate": "1/8",
+    "notes": ""
+  },
+  {
+    "itemName": "Prayer potion(4)",
+    "monsterName": "Commander Zilyana",
+    "quantity": "3",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Prayer potion(4)",
+    "monsterName": "Kalphite Queen",
+    "quantity": "2",
+    "dropRate": "1/9",
+    "notes": ""
+  },
+  {
+    "itemName": "Prayer potion(4)",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "2",
+    "dropRate": "1/107",
+    "notes": ""
+  },
+  {
+    "itemName": "Prayer potion(4)",
+    "monsterName": "Tormented Demon",
+    "quantity": "1",
+    "dropRate": "1/51",
+    "notes": ""
+  },
+  {
+    "itemName": "Primordial crystal",
+    "monsterName": "Cerberus",
+    "quantity": "1",
+    "dropRate": "1/520",
+    "notes": ""
+  },
+  {
+    "itemName": "Prince black dragon",
+    "monsterName": "King Black Dragon",
+    "quantity": "1",
+    "dropRate": "1/3000",
+    "notes": ""
+  },
+  {
+    "itemName": "Pristine spider silk",
+    "monsterName": "Sarachnis",
+    "quantity": "1",
+    "dropRate": "1/50",
     "notes": ""
   },
   {
@@ -736,6 +6553,55 @@
   },
   {
     "itemName": "Pure essence",
+    "monsterName": "Abyssal Sire",
+    "quantity": "600 (noted)",
+    "dropRate": "5/139",
+    "notes": ""
+  },
+  {
+    "itemName": "Pure essence",
+    "monsterName": "Araxxor",
+    "quantity": "1200 (noted)",
+    "dropRate": "1/115",
+    "notes": ""
+  },
+  {
+    "itemName": "Pure essence",
+    "monsterName": "Cerberus",
+    "quantity": "300 (noted)",
+    "dropRate": "5/130",
+    "notes": ""
+  },
+  {
+    "itemName": "Pure essence",
+    "monsterName": "Corporeal Beast",
+    "quantity": "2500 (noted)",
+    "dropRate": "21/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Pure essence",
+    "monsterName": "Dagannoth Prime",
+    "quantity": "150 (noted)",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Pure essence",
+    "monsterName": "Gargoyle",
+    "quantity": "150 (noted)",
+    "dropRate": "6/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Pure essence",
+    "monsterName": "Muspah",
+    "quantity": "2314 (noted)",
+    "dropRate": "5/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Pure essence",
     "monsterName": "Spiritual mage",
     "quantity": "90 (noted)",
     "dropRate": "6/128",
@@ -749,10 +6615,276 @@
     "notes": ""
   },
   {
+    "itemName": "Pure essence",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "300 (noted)",
+    "dropRate": "2/107",
+    "notes": ""
+  },
+  {
+    "itemName": "Pure essence",
+    "monsterName": "Zulrah",
+    "quantity": "1500 (noted)",
+    "dropRate": "10/249",
+    "notes": ""
+  },
+  {
     "itemName": "Ranarr seed",
     "monsterName": "Ancient Wyvern",
     "quantity": "2-3",
     "dropRate": "1/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Ranarr seed",
+    "monsterName": "Araxxor",
+    "quantity": "3",
+    "dropRate": "1/115",
+    "notes": ""
+  },
+  {
+    "itemName": "Ranarr seed",
+    "monsterName": "Cerberus",
+    "quantity": "2",
+    "dropRate": "2/130",
+    "notes": ""
+  },
+  {
+    "itemName": "Ranarr seed",
+    "monsterName": "Commander Zilyana",
+    "quantity": "2",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Ranarr seed",
+    "monsterName": "Corporeal Beast",
+    "quantity": "10",
+    "dropRate": "5/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Ranarr seed",
+    "monsterName": "Giant Mole",
+    "quantity": "1",
+    "dropRate": "3/131",
+    "notes": ""
+  },
+  {
+    "itemName": "Ranarr seed",
+    "monsterName": "Muspah",
+    "quantity": "5",
+    "dropRate": "3/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Ranarr seed",
+    "monsterName": "Muspah",
+    "quantity": "3",
+    "dropRate": "5/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Ranarr seed",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "2",
+    "dropRate": "2/107",
+    "notes": ""
+  },
+  {
+    "itemName": "Ranging potion(3)",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "1",
+    "dropRate": "7/101",
+    "notes": ""
+  },
+  {
+    "itemName": "Ranging potion(3)",
+    "monsterName": "Kalphite Queen",
+    "quantity": "1",
+    "dropRate": "1/9",
+    "notes": ""
+  },
+  {
+    "itemName": "Ranging potion(3)",
+    "monsterName": "Kree'arra",
+    "quantity": "3",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Ranging potion(3)",
+    "monsterName": "Muspah",
+    "quantity": "1-3",
+    "dropRate": "1/9",
+    "notes": ""
+  },
+  {
+    "itemName": "Raw anglerfish",
+    "monsterName": "Skotizo",
+    "quantity": "60 (noted)",
+    "dropRate": "7/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Raw monkfish",
+    "monsterName": "Araxxor",
+    "quantity": "120 (noted)",
+    "dropRate": "1/115",
+    "notes": ""
+  },
+  {
+    "itemName": "Raw monkfish",
+    "monsterName": "Kraken",
+    "quantity": "100 (noted)",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Raw shark",
+    "monsterName": "Araxxor",
+    "quantity": "100 (noted)",
+    "dropRate": "1/115",
+    "notes": ""
+  },
+  {
+    "itemName": "Raw shark",
+    "monsterName": "Araxxor",
+    "quantity": "21 (noted)",
+    "dropRate": "4/115",
+    "notes": ""
+  },
+  {
+    "itemName": "Raw shark",
+    "monsterName": "Corporeal Beast",
+    "quantity": "70 (noted)",
+    "dropRate": "21/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Raw shark",
+    "monsterName": "Kraken",
+    "quantity": "50 (noted)",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Raw shark",
+    "monsterName": "Muspah",
+    "quantity": "28 (noted)",
+    "dropRate": "3.75/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Raw shark",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "30 (noted)",
+    "dropRate": "5/856",
+    "notes": ""
+  },
+  {
+    "itemName": "Raw shark",
+    "monsterName": "Vorkath",
+    "quantity": "35-55 (noted)",
+    "dropRate": "3/300",
+    "notes": ""
+  },
+  {
+    "itemName": "Raw shark",
+    "monsterName": "Zulrah",
+    "quantity": "35 (noted)",
+    "dropRate": "4.5/249",
+    "notes": ""
+  },
+  {
+    "itemName": "Red d'hide body",
+    "monsterName": "Kalphite Queen",
+    "quantity": "1",
+    "dropRate": "4/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Red d'hide body",
+    "monsterName": "Smoke devil",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Red d'hide body",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "1",
+    "dropRate": "3/107",
+    "notes": ""
+  },
+  {
+    "itemName": "Red d'hide vambraces",
+    "monsterName": "Dagannoth Supreme",
+    "quantity": "1",
+    "dropRate": "7/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Red d'hide vambraces",
+    "monsterName": "Dust devil",
+    "quantity": "1",
+    "dropRate": "2/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Red d'hide vambraces",
+    "monsterName": "Dust devil",
+    "quantity": "1",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Red d'hide vambraces",
+    "monsterName": "Lizardman shaman",
+    "quantity": "1",
+    "dropRate": "10/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Red dragonhide",
+    "monsterName": "Sarachnis",
+    "quantity": "15-25 (noted)",
+    "dropRate": "5/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Red dragonhide",
+    "monsterName": "Vorkath",
+    "quantity": "20-25 (noted)",
+    "dropRate": "7/150",
+    "notes": ""
+  },
+  {
+    "itemName": "Red spiders' eggs",
+    "monsterName": "Araxxor",
+    "quantity": "40 (noted)",
+    "dropRate": "2/115",
+    "notes": ""
+  },
+  {
+    "itemName": "Restore potion(2)",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Reward casket (elite)",
+    "monsterName": "Basilisk Knight",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Reward casket (elite)",
+    "monsterName": "Cerberus",
+    "quantity": "1",
+    "dropRate": "Always",
     "notes": ""
   },
   {
@@ -763,10 +6895,206 @@
     "notes": ""
   },
   {
+    "itemName": "Ring of life",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Rock-shell legs",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Rock-shell plate",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Ruby bolt tips",
+    "monsterName": "Vorkath",
+    "quantity": "25-30",
+    "dropRate": "20/2730",
+    "notes": ""
+  },
+  {
+    "itemName": "Ruby bolt tips",
+    "monsterName": "Vyrewatch Sentinel",
+    "quantity": "6-14",
+    "dropRate": "6/5208",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune 2h sword",
+    "monsterName": "Araxxor",
+    "quantity": "5 (noted)",
+    "dropRate": "1/115",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune 2h sword",
+    "monsterName": "Cerberus",
+    "quantity": "1",
+    "dropRate": "4/130",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune 2h sword",
+    "monsterName": "Chaos Elemental",
+    "quantity": "1",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune 2h sword",
+    "monsterName": "Gargoyle",
+    "quantity": "1",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune 2h sword",
+    "monsterName": "General Graardor",
+    "quantity": "1",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune 2h sword",
+    "monsterName": "Nechryael",
+    "quantity": "1",
+    "dropRate": "4/116",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune 2h sword",
+    "monsterName": "Sarachnis",
+    "quantity": "1",
+    "dropRate": "2/100",
+    "notes": ""
+  },
+  {
     "itemName": "Rune arrow",
     "monsterName": "Ancient Wyvern",
     "quantity": "25-50",
     "dropRate": "3/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune arrow",
+    "monsterName": "Chaos Elemental",
+    "quantity": "150",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune arrow",
+    "monsterName": "Dust devil",
+    "quantity": "12",
+    "dropRate": "5/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune arrow",
+    "monsterName": "Dust devil",
+    "quantity": "12",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune arrow",
+    "monsterName": "Kalphite Queen",
+    "quantity": "250",
+    "dropRate": "3/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune arrow",
+    "monsterName": "Kree'arra",
+    "quantity": "100-105",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune arrow",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "412-957",
+    "dropRate": "3/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune arrow",
+    "monsterName": "Smoke devil",
+    "quantity": "24",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune arrow",
+    "monsterName": "The Nightmare",
+    "quantity": "31-547",
+    "dropRate": "3/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune arrow",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "100",
+    "dropRate": "2/107",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune arrow",
+    "monsterName": "Tormented Demon",
+    "quantity": "65-125",
+    "dropRate": "4/51",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune arrow",
+    "monsterName": "Vyrewatch Sentinel",
+    "quantity": "4-10",
+    "dropRate": "4/93",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune axe",
+    "monsterName": "Basilisk Knight",
+    "quantity": "1",
+    "dropRate": "2/52",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune axe",
+    "monsterName": "Cerberus",
+    "quantity": "1",
+    "dropRate": "3/130",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune axe",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune axe",
+    "monsterName": "Greater Nechryael",
+    "quantity": "1",
+    "dropRate": "7/112",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune axe",
+    "monsterName": "Greater Nechryael",
+    "quantity": "1",
+    "dropRate": "7/128",
     "notes": ""
   },
   {
@@ -777,6 +7105,55 @@
     "notes": ""
   },
   {
+    "itemName": "Rune battleaxe",
+    "monsterName": "Basilisk Knight",
+    "quantity": "1",
+    "dropRate": "1/52",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune battleaxe",
+    "monsterName": "Chaos Elemental",
+    "quantity": "1",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune battleaxe",
+    "monsterName": "Gargoyle",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune battleaxe",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "1",
+    "dropRate": "3/107",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune boots",
+    "monsterName": "Greater Nechryael",
+    "quantity": "1",
+    "dropRate": "1/112",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune boots",
+    "monsterName": "Greater Nechryael",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune boots",
+    "monsterName": "Nechryael",
+    "quantity": "1",
+    "dropRate": "1/116",
+    "notes": ""
+  },
+  {
     "itemName": "Rune chainbody",
     "monsterName": "Abyssal demon",
     "quantity": "1",
@@ -788,6 +7165,146 @@
     "monsterName": "Abyssal demon",
     "quantity": "1",
     "dropRate": "1/68",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune chainbody",
+    "monsterName": "Cerberus",
+    "quantity": "1",
+    "dropRate": "4/130",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune chainbody",
+    "monsterName": "Demonic gorilla",
+    "quantity": "1",
+    "dropRate": "20/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune chainbody",
+    "monsterName": "Greater Nechryael",
+    "quantity": "1",
+    "dropRate": "1/112",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune chainbody",
+    "monsterName": "Greater Nechryael",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune chainbody",
+    "monsterName": "Kalphite Queen",
+    "quantity": "1",
+    "dropRate": "4/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune chainbody",
+    "monsterName": "Lizardman shaman",
+    "quantity": "1",
+    "dropRate": "12/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune chainbody",
+    "monsterName": "Smoke devil",
+    "quantity": "1",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune chainbody",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "1",
+    "dropRate": "4/107",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune crossbow",
+    "monsterName": "Kree'arra",
+    "quantity": "1",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune dagger",
+    "monsterName": "Basilisk Knight",
+    "quantity": "1",
+    "dropRate": "1/52",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune dagger",
+    "monsterName": "Cave horror",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune dagger",
+    "monsterName": "Dust devil",
+    "quantity": "1",
+    "dropRate": "2/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune dagger",
+    "monsterName": "Dust devil",
+    "quantity": "1",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune dagger",
+    "monsterName": "Smoke devil",
+    "quantity": "1",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune dagger",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "1",
+    "dropRate": "5/107",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune dagger",
+    "monsterName": "Vyrewatch Sentinel",
+    "quantity": "1",
+    "dropRate": "6/93",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune dart",
+    "monsterName": "Chaos Elemental",
+    "quantity": "100",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune dart",
+    "monsterName": "Commander Zilyana",
+    "quantity": "35-40",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune dart tip",
+    "monsterName": "Vorkath",
+    "quantity": "75-100",
+    "dropRate": "3/150",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune full helm",
+    "monsterName": "Abyssal Sire",
+    "quantity": "3 (noted)",
+    "dropRate": "4/139",
     "notes": ""
   },
   {
@@ -798,10 +7315,185 @@
     "notes": ""
   },
   {
+    "itemName": "Rune full helm",
+    "monsterName": "Cerberus",
+    "quantity": "1",
+    "dropRate": "3/130",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune full helm",
+    "monsterName": "Chaos Elemental",
+    "quantity": "1",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune full helm",
+    "monsterName": "Gargoyle",
+    "quantity": "1",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune full helm",
+    "monsterName": "Greater Nechryael",
+    "quantity": "1",
+    "dropRate": "3/112",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune full helm",
+    "monsterName": "Greater Nechryael",
+    "quantity": "1",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune full helm",
+    "monsterName": "Nechryael",
+    "quantity": "1",
+    "dropRate": "3/116",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune full helm",
+    "monsterName": "Smoke devil",
+    "quantity": "1",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune full helm",
+    "monsterName": "Vyrewatch Sentinel",
+    "quantity": "1",
+    "dropRate": "1/93",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune halberd",
+    "monsterName": "Cerberus",
+    "quantity": "1",
+    "dropRate": "2/130",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune javelin",
+    "monsterName": "Vyrewatch Sentinel",
+    "quantity": "5-15",
+    "dropRate": "2/93",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune javelin tips",
+    "monsterName": "Demonic gorilla",
+    "quantity": "45-55",
+    "dropRate": "25/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune kiteshield",
+    "monsterName": "Abyssal Sire",
+    "quantity": "2 (noted)",
+    "dropRate": "3/139",
+    "notes": ""
+  },
+  {
     "itemName": "Rune kiteshield",
     "monsterName": "Ancient Wyvern",
     "quantity": "1",
     "dropRate": "2/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune kiteshield",
+    "monsterName": "Araxxor",
+    "quantity": "2 (noted)",
+    "dropRate": "8/115",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune kiteshield",
+    "monsterName": "Chaos Elemental",
+    "quantity": "1",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune kiteshield",
+    "monsterName": "Commander Zilyana",
+    "quantity": "1",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune kiteshield",
+    "monsterName": "Muspah",
+    "quantity": "3 (noted)",
+    "dropRate": "10/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune kiteshield",
+    "monsterName": "Tormented Demon",
+    "quantity": "1",
+    "dropRate": "2/51",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune kiteshield",
+    "monsterName": "Vorkath",
+    "quantity": "2-3",
+    "dropRate": "5/150",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune kiteshield",
+    "monsterName": "Vyrewatch Sentinel",
+    "quantity": "1",
+    "dropRate": "1/93",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune knife(p++)",
+    "monsterName": "Kalphite Queen",
+    "quantity": "25",
+    "dropRate": "4/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune knife(p++)",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "50",
+    "dropRate": "1/107",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune longsword",
+    "monsterName": "General Graardor",
+    "quantity": "1",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune longsword",
+    "monsterName": "King Black Dragon",
+    "quantity": "1",
+    "dropRate": "10/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune longsword",
+    "monsterName": "Kraken",
+    "quantity": "1",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune longsword",
+    "monsterName": "Vorkath",
+    "quantity": "2-3",
+    "dropRate": "5/150",
     "notes": ""
   },
   {
@@ -819,10 +7511,339 @@
     "notes": ""
   },
   {
+    "itemName": "Rune med helm",
+    "monsterName": "Basilisk Knight",
+    "quantity": "1",
+    "dropRate": "1/52",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune med helm",
+    "monsterName": "Giant Mole",
+    "quantity": "1",
+    "dropRate": "1/131",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune med helm",
+    "monsterName": "Greater Nechryael",
+    "quantity": "1",
+    "dropRate": "4/112",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune med helm",
+    "monsterName": "Greater Nechryael",
+    "quantity": "1",
+    "dropRate": "4/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune med helm",
+    "monsterName": "Lizardman shaman",
+    "quantity": "1",
+    "dropRate": "18/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune med helm",
+    "monsterName": "Sarachnis",
+    "quantity": "1",
+    "dropRate": "2/100",
+    "notes": ""
+  },
+  {
     "itemName": "Rune pickaxe",
     "monsterName": "Ancient Wyvern",
     "quantity": "1",
     "dropRate": "3/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune pickaxe",
+    "monsterName": "Cerberus",
+    "quantity": "1",
+    "dropRate": "3/130",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune pickaxe",
+    "monsterName": "General Graardor",
+    "quantity": "1",
+    "dropRate": "6/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune platebody",
+    "monsterName": "Abyssal Sire",
+    "quantity": "2 (noted)",
+    "dropRate": "4/139",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune platebody",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "1",
+    "dropRate": "3/101",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune platebody",
+    "monsterName": "Cerberus",
+    "quantity": "1",
+    "dropRate": "5/130",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune platebody",
+    "monsterName": "General Graardor",
+    "quantity": "1",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune platebody",
+    "monsterName": "Sarachnis",
+    "quantity": "1",
+    "dropRate": "2/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune platebody",
+    "monsterName": "Skotizo",
+    "quantity": "3 (noted)",
+    "dropRate": "7/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune platebody",
+    "monsterName": "Tormented Demon",
+    "quantity": "1",
+    "dropRate": "4/51",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune platelegs",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "1",
+    "dropRate": "1.5/101",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune platelegs",
+    "monsterName": "Araxxor",
+    "quantity": "2 (noted)",
+    "dropRate": "8/115",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune platelegs",
+    "monsterName": "Chaos Elemental",
+    "quantity": "1",
+    "dropRate": "4/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune platelegs",
+    "monsterName": "Demonic gorilla",
+    "quantity": "1",
+    "dropRate": "35/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune platelegs",
+    "monsterName": "Gargoyle",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune platelegs",
+    "monsterName": "K'ril Tsutsaroth",
+    "quantity": "1",
+    "dropRate": "7/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune platelegs",
+    "monsterName": "Muspah",
+    "quantity": "3 (noted)",
+    "dropRate": "5/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune platelegs",
+    "monsterName": "Skotizo",
+    "quantity": "3 (noted)",
+    "dropRate": "7/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune plateskirt",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "1",
+    "dropRate": "1.5/101",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune plateskirt",
+    "monsterName": "Chaos Elemental",
+    "quantity": "1",
+    "dropRate": "4/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune plateskirt",
+    "monsterName": "Commander Zilyana",
+    "quantity": "1",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune plateskirt",
+    "monsterName": "Demonic gorilla",
+    "quantity": "1",
+    "dropRate": "35/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune plateskirt",
+    "monsterName": "Skotizo",
+    "quantity": "3 (noted)",
+    "dropRate": "7/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune scimitar",
+    "monsterName": "Basilisk Knight",
+    "quantity": "1",
+    "dropRate": "1/52",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune scimitar",
+    "monsterName": "K'ril Tsutsaroth",
+    "quantity": "1",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune scimitar",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "1",
+    "dropRate": "2/107",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune spear",
+    "monsterName": "Basilisk Knight",
+    "quantity": "1",
+    "dropRate": "1/52",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune sq shield",
+    "monsterName": "Greater Nechryael",
+    "quantity": "1",
+    "dropRate": "7/112",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune sq shield",
+    "monsterName": "Greater Nechryael",
+    "quantity": "1",
+    "dropRate": "7/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune sword",
+    "monsterName": "Abyssal Sire",
+    "quantity": "3 (noted)",
+    "dropRate": "4/139",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune sword",
+    "monsterName": "Muspah",
+    "quantity": "1",
+    "dropRate": "1/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune thrownaxe",
+    "monsterName": "Dagannoth Supreme",
+    "quantity": "5-10",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune warhammer",
+    "monsterName": "Kraken",
+    "quantity": "1",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune warhammer",
+    "monsterName": "Lizardman shaman",
+    "quantity": "1",
+    "dropRate": "16/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Runite bar",
+    "monsterName": "Abyssal Sire",
+    "quantity": "5 (noted)",
+    "dropRate": "2/139",
+    "notes": ""
+  },
+  {
+    "itemName": "Runite bar",
+    "monsterName": "Chaos Elemental",
+    "quantity": "3-5 (noted)",
+    "dropRate": "4/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Runite bar",
+    "monsterName": "Demonic gorilla",
+    "quantity": "3 (noted)",
+    "dropRate": "15/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Runite bar",
+    "monsterName": "Kalphite Queen",
+    "quantity": "3 (noted)",
+    "dropRate": "5/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Runite bar",
+    "monsterName": "King Black Dragon",
+    "quantity": "1",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Runite bar",
+    "monsterName": "Kraken",
+    "quantity": "2",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Runite bar",
+    "monsterName": "Skotizo",
+    "quantity": "20 (noted)",
+    "dropRate": "7/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Runite bar",
+    "monsterName": "Vyrewatch Sentinel",
+    "quantity": "1",
+    "dropRate": "2/93",
     "notes": ""
   },
   {
@@ -833,10 +7854,80 @@
     "notes": ""
   },
   {
+    "itemName": "Runite bolts",
+    "monsterName": "Corporeal Beast",
+    "quantity": "250",
+    "dropRate": "24/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Runite bolts",
+    "monsterName": "Dagannoth Supreme",
+    "quantity": "2-12",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Runite bolts",
+    "monsterName": "Demonic gorilla",
+    "quantity": "100-150",
+    "dropRate": "25/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Runite bolts",
+    "monsterName": "King Black Dragon",
+    "quantity": "10-20",
+    "dropRate": "10/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Runite bolts",
+    "monsterName": "Kree'arra",
+    "quantity": "20-25",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Runite bolts",
+    "monsterName": "Smoke devil",
+    "quantity": "15",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Runite bolts (unf)",
+    "monsterName": "Cerberus",
+    "quantity": "40",
+    "dropRate": "4/130",
+    "notes": ""
+  },
+  {
     "itemName": "Runite crossbow (u)",
     "monsterName": "Ancient Wyvern",
     "quantity": "1",
     "dropRate": "3/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Runite limbs",
+    "monsterName": "Dagannoth Supreme",
+    "quantity": "1",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Runite limbs",
+    "monsterName": "King Black Dragon",
+    "quantity": "1",
+    "dropRate": "4/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Runite ore",
+    "monsterName": "Abyssal Sire",
+    "quantity": "6 (noted)",
+    "dropRate": "4/139",
     "notes": ""
   },
   {
@@ -847,10 +7938,248 @@
     "notes": ""
   },
   {
+    "itemName": "Runite ore",
+    "monsterName": "Araxxor",
+    "quantity": "12 (noted)",
+    "dropRate": "2/115",
+    "notes": ""
+  },
+  {
+    "itemName": "Runite ore",
+    "monsterName": "Cerberus",
+    "quantity": "5 (noted)",
+    "dropRate": "3/130",
+    "notes": ""
+  },
+  {
+    "itemName": "Runite ore",
+    "monsterName": "Corporeal Beast",
+    "quantity": "20 (noted)",
+    "dropRate": "12/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Runite ore",
+    "monsterName": "Gargoyle",
+    "quantity": "1",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Runite ore",
+    "monsterName": "Lizardman shaman",
+    "quantity": "3-5 (noted)",
+    "dropRate": "8/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Runite ore",
+    "monsterName": "Muspah",
+    "quantity": "18 (noted)",
+    "dropRate": "3/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Runite ore",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "11-26 (noted)",
+    "dropRate": "2/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Runite ore",
+    "monsterName": "Sarachnis",
+    "quantity": "4-6 (noted)",
+    "dropRate": "1/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Runite ore",
+    "monsterName": "The Nightmare",
+    "quantity": "1-16 (noted)",
+    "dropRate": "2/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Runite ore",
+    "monsterName": "Vyrewatch Sentinel",
+    "quantity": "1",
+    "dropRate": "2/93",
+    "notes": ""
+  },
+  {
+    "itemName": "Runite ore",
+    "monsterName": "Zulrah",
+    "quantity": "2 (noted)",
+    "dropRate": "11/249",
+    "notes": ""
+  },
+  {
+    "itemName": "Rusty sword",
+    "monsterName": "Kraken",
+    "quantity": "1",
+    "dropRate": "1.75/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Sanfew serum(3)",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "6-12",
+    "dropRate": "5/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Sanfew serum(3)",
+    "monsterName": "The Nightmare",
+    "quantity": "1-8",
+    "dropRate": "5/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Sanfew serum(4)",
+    "monsterName": "Kraken",
+    "quantity": "2",
+    "dropRate": "4/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Sanfew serum(4)",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "2",
+    "dropRate": "3/107",
+    "notes": ""
+  },
+  {
+    "itemName": "Sapphire bolt tips",
+    "monsterName": "Vorkath",
+    "quantity": "25-30",
+    "dropRate": "5/2730",
+    "notes": ""
+  },
+  {
+    "itemName": "Sapphire bolt tips",
+    "monsterName": "Vyrewatch Sentinel",
+    "quantity": "6-14",
+    "dropRate": "3/5208",
+    "notes": ""
+  },
+  {
+    "itemName": "Sarachnis cudgel",
+    "monsterName": "Sarachnis",
+    "quantity": "1",
+    "dropRate": "1/384",
+    "notes": ""
+  },
+  {
+    "itemName": "Saradomin brew(2)",
+    "monsterName": "Demonic gorilla",
+    "quantity": "1",
+    "dropRate": "25/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Saradomin brew(3)",
+    "monsterName": "Abyssal Sire",
+    "quantity": "6",
+    "dropRate": "2/139",
+    "notes": ""
+  },
+  {
+    "itemName": "Saradomin brew(3)",
+    "monsterName": "Commander Zilyana",
+    "quantity": "3",
+    "dropRate": "6/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Saradomin brew(3)",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "8-15",
+    "dropRate": "5/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Saradomin brew(3)",
+    "monsterName": "The Nightmare",
+    "quantity": "1-10",
+    "dropRate": "5/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Saradomin brew(4)",
+    "monsterName": "Kalphite Queen",
+    "quantity": "1",
+    "dropRate": "1/9",
+    "notes": ""
+  },
+  {
+    "itemName": "Saradomin hilt",
+    "monsterName": "Commander Zilyana",
+    "quantity": "1",
+    "dropRate": "1/508",
+    "notes": ""
+  },
+  {
+    "itemName": "Saradomin sword",
+    "monsterName": "Commander Zilyana",
+    "quantity": "1",
+    "dropRate": "1/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Saradomin's light",
+    "monsterName": "Commander Zilyana",
+    "quantity": "1",
+    "dropRate": "1/254",
+    "notes": ""
+  },
+  {
+    "itemName": "Scaly blue dragonhide",
+    "monsterName": "Vorkath",
+    "quantity": "1",
+    "dropRate": "1/10",
+    "notes": ""
+  },
+  {
+    "itemName": "Seaweed",
+    "monsterName": "Kraken",
+    "quantity": "125 (noted)",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
     "itemName": "Seaweed spore",
     "monsterName": "Ancient Wyvern",
     "quantity": "16-24",
     "dropRate": "2/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Seercull",
+    "monsterName": "Dagannoth Supreme",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Seers ring",
+    "monsterName": "Dagannoth Prime",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Serpentine visage",
+    "monsterName": "Zulrah",
+    "quantity": "1",
+    "dropRate": "1/1024",
+    "notes": ""
+  },
+  {
+    "itemName": "Shark",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "2-4",
+    "dropRate": "7/101",
     "notes": ""
   },
   {
@@ -861,6 +8190,202 @@
     "notes": ""
   },
   {
+    "itemName": "Shark",
+    "monsterName": "Araxxor",
+    "quantity": "2-3",
+    "dropRate": "1/16",
+    "notes": ""
+  },
+  {
+    "itemName": "Shark",
+    "monsterName": "Dagannoth Prime",
+    "quantity": "5",
+    "dropRate": "10/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Shark",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "5",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Shark",
+    "monsterName": "Dagannoth Supreme",
+    "quantity": "5",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Shark",
+    "monsterName": "Demonic gorilla",
+    "quantity": "2-3",
+    "dropRate": "35/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Shark",
+    "monsterName": "Giant Mole",
+    "quantity": "4",
+    "dropRate": "4/131",
+    "notes": ""
+  },
+  {
+    "itemName": "Shark",
+    "monsterName": "Kalphite Queen",
+    "quantity": "2",
+    "dropRate": "1/9",
+    "notes": ""
+  },
+  {
+    "itemName": "Shark",
+    "monsterName": "King Black Dragon",
+    "quantity": "4",
+    "dropRate": "4/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Shark",
+    "monsterName": "Kraken",
+    "quantity": "5",
+    "dropRate": "7/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Shark",
+    "monsterName": "Muspah",
+    "quantity": "4-6",
+    "dropRate": "1/9",
+    "notes": ""
+  },
+  {
+    "itemName": "Shark",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "13-26",
+    "dropRate": "6/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Shark",
+    "monsterName": "Smoke devil",
+    "quantity": "1",
+    "dropRate": "6/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Shark",
+    "monsterName": "The Nightmare",
+    "quantity": "1-16",
+    "dropRate": "6/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Shark lure",
+    "monsterName": "Muspah",
+    "quantity": "56",
+    "dropRate": "3.75/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Shark lure",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "60",
+    "dropRate": "3/856",
+    "notes": ""
+  },
+  {
+    "itemName": "Shark lure",
+    "monsterName": "Vorkath",
+    "quantity": "70-110",
+    "dropRate": "3/300",
+    "notes": ""
+  },
+  {
+    "itemName": "Shark lure",
+    "monsterName": "Zulrah",
+    "quantity": "70",
+    "dropRate": "4.5/249",
+    "notes": ""
+  },
+  {
+    "itemName": "Shield left half",
+    "monsterName": "Skotizo",
+    "quantity": "1",
+    "dropRate": "1/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Silver ore",
+    "monsterName": "Muspah",
+    "quantity": "101 (noted)",
+    "dropRate": "2/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Skeletal bottoms",
+    "monsterName": "Dagannoth Prime",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Skeletal top",
+    "monsterName": "Dagannoth Prime",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Skeletal visage",
+    "monsterName": "Vorkath",
+    "quantity": "1",
+    "dropRate": "1/5000",
+    "notes": ""
+  },
+  {
+    "itemName": "Skotos",
+    "monsterName": "Skotizo",
+    "quantity": "1",
+    "dropRate": "1/65",
+    "notes": ""
+  },
+  {
+    "itemName": "Slepey tablet",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "1",
+    "dropRate": "1/25",
+    "notes": ""
+  },
+  {
+    "itemName": "Smoke battlestaff",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "1",
+    "dropRate": "1/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Smoke rune",
+    "monsterName": "Muspah",
+    "quantity": "314",
+    "dropRate": "15/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Smoke rune",
+    "monsterName": "Smoke devil",
+    "quantity": "15",
+    "dropRate": "11/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Smoke rune",
+    "monsterName": "Smoke devil",
+    "quantity": "40",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
     "itemName": "Smoke rune",
     "monsterName": "Spiritual mage",
     "quantity": "100-150",
@@ -868,9 +8393,338 @@
     "notes": ""
   },
   {
+    "itemName": "Smoke rune",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "100",
+    "dropRate": "10/107",
+    "notes": ""
+  },
+  {
+    "itemName": "Smouldering gland",
+    "monsterName": "Tormented Demon",
+    "quantity": "1",
+    "dropRate": "1/25",
+    "notes": ""
+  },
+  {
+    "itemName": "Smouldering heart",
+    "monsterName": "Tormented Demon",
+    "quantity": "1",
+    "dropRate": "1/125",
+    "notes": ""
+  },
+  {
+    "itemName": "Smouldering pile of flesh",
+    "monsterName": "Tormented Demon",
+    "quantity": "1",
+    "dropRate": "1/25",
+    "notes": ""
+  },
+  {
+    "itemName": "Smouldering stone",
+    "monsterName": "Cerberus",
+    "quantity": "1",
+    "dropRate": "1/520",
+    "notes": ""
+  },
+  {
+    "itemName": "Snakeskin",
+    "monsterName": "Zulrah",
+    "quantity": "35 (noted)",
+    "dropRate": "11/249",
+    "notes": ""
+  },
+  {
+    "itemName": "Snapdragon",
+    "monsterName": "Zulrah",
+    "quantity": "10 (noted)",
+    "dropRate": "2/249",
+    "notes": ""
+  },
+  {
+    "itemName": "Snapdragon seed",
+    "monsterName": "Araxxor",
+    "quantity": "3",
+    "dropRate": "1/115",
+    "notes": ""
+  },
+  {
+    "itemName": "Snapdragon seed",
+    "monsterName": "General Graardor",
+    "quantity": "1",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Snapdragon seed",
+    "monsterName": "Muspah",
+    "quantity": "5",
+    "dropRate": "4/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Snapdragon seed",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "5-10",
+    "dropRate": "3/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Snapdragon seed",
+    "monsterName": "The Nightmare",
+    "quantity": "1-7",
+    "dropRate": "3/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Snapdragon seed",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "2",
+    "dropRate": "2/107",
+    "notes": ""
+  },
+  {
+    "itemName": "Snapdragon seed",
+    "monsterName": "Zulrah",
+    "quantity": "1",
+    "dropRate": "2/249",
+    "notes": ""
+  },
+  {
+    "itemName": "Soft clay",
+    "monsterName": "Nechryael",
+    "quantity": "25 (noted)",
+    "dropRate": "4/116",
+    "notes": ""
+  },
+  {
+    "itemName": "Soul rune",
+    "monsterName": "Abyssal Sire",
+    "quantity": "225-275",
+    "dropRate": "5/139",
+    "notes": ""
+  },
+  {
+    "itemName": "Soul rune",
+    "monsterName": "Cerberus",
+    "quantity": "100",
+    "dropRate": "6/130",
+    "notes": ""
+  },
+  {
+    "itemName": "Soul rune",
+    "monsterName": "Corporeal Beast",
+    "quantity": "250",
+    "dropRate": "32/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Soul rune",
+    "monsterName": "Dust devil",
+    "quantity": "50",
+    "dropRate": "1/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Soul rune",
+    "monsterName": "Dust devil",
+    "quantity": "50",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Soul rune",
+    "monsterName": "Dust devil",
+    "quantity": "20",
+    "dropRate": "4/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Soul rune",
+    "monsterName": "Dust devil",
+    "quantity": "15",
+    "dropRate": "4/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Soul rune",
+    "monsterName": "Greater Nechryael",
+    "quantity": "25",
+    "dropRate": "5/112",
+    "notes": ""
+  },
+  {
+    "itemName": "Soul rune",
+    "monsterName": "Greater Nechryael",
+    "quantity": "25",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Soul rune",
+    "monsterName": "Kraken",
+    "quantity": "50",
+    "dropRate": "7/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Soul rune",
+    "monsterName": "Muspah",
+    "quantity": "380",
+    "dropRate": "10/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Soul rune",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "110-228",
+    "dropRate": "4/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Soul rune",
+    "monsterName": "Sarachnis",
+    "quantity": "80-100",
+    "dropRate": "5/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Soul rune",
+    "monsterName": "Skotizo",
+    "quantity": "450",
+    "dropRate": "7/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Soul rune",
+    "monsterName": "Smoke devil",
+    "quantity": "10",
+    "dropRate": "4/128",
+    "notes": ""
+  },
+  {
     "itemName": "Soul rune",
     "monsterName": "Spiritual mage",
     "quantity": "25",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Soul rune",
+    "monsterName": "The Nightmare",
+    "quantity": "8-132",
+    "dropRate": "4/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Soul rune",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "100",
+    "dropRate": "8/107",
+    "notes": ""
+  },
+  {
+    "itemName": "Soul rune",
+    "monsterName": "Tormented Demon",
+    "quantity": "50-75",
+    "dropRate": "2/51",
+    "notes": ""
+  },
+  {
+    "itemName": "Spider carcass",
+    "monsterName": "Sarachnis",
+    "quantity": "10 (noted)",
+    "dropRate": "1/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Spider cave teleport",
+    "monsterName": "Araxxor",
+    "quantity": "3",
+    "dropRate": "8/115",
+    "notes": ""
+  },
+  {
+    "itemName": "Spined body",
+    "monsterName": "Dagannoth Supreme",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Spined chaps",
+    "monsterName": "Dagannoth Supreme",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Spirit seed",
+    "monsterName": "Muspah",
+    "quantity": "1",
+    "dropRate": "2/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Spirit seed",
+    "monsterName": "Zulrah",
+    "quantity": "1",
+    "dropRate": "1/249",
+    "notes": ""
+  },
+  {
+    "itemName": "Spirit shield",
+    "monsterName": "Corporeal Beast",
+    "quantity": "1",
+    "dropRate": "8/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Sraracha",
+    "monsterName": "Sarachnis",
+    "quantity": "1",
+    "dropRate": "1/3000",
+    "notes": ""
+  },
+  {
+    "itemName": "Staff of the dead",
+    "monsterName": "K'ril Tsutsaroth",
+    "quantity": "1",
+    "dropRate": "1/508",
+    "notes": ""
+  },
+  {
+    "itemName": "Steam battlestaff",
+    "monsterName": "K'ril Tsutsaroth",
+    "quantity": "1",
+    "dropRate": "1/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Steel arrow",
+    "monsterName": "Dagannoth Supreme",
+    "quantity": "50-250",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Steel bar",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "15-30 (noted)",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Steel bar",
+    "monsterName": "Gargoyle",
+    "quantity": "15 (noted)",
+    "dropRate": "6/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Steel bar",
+    "monsterName": "Smoke devil",
+    "quantity": "2",
     "dropRate": "3/128",
     "notes": ""
   },
@@ -889,10 +8743,143 @@
     "notes": ""
   },
   {
+    "itemName": "Steel cannonball",
+    "monsterName": "Abyssal Sire",
+    "quantity": "300",
+    "dropRate": "4/139",
+    "notes": ""
+  },
+  {
+    "itemName": "Steel cannonball",
+    "monsterName": "Cerberus",
+    "quantity": "50",
+    "dropRate": "4/130",
+    "notes": ""
+  },
+  {
+    "itemName": "Steel cannonball",
+    "monsterName": "Corporeal Beast",
+    "quantity": "2000",
+    "dropRate": "17/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Steel cannonball",
+    "monsterName": "Muspah",
+    "quantity": "670",
+    "dropRate": "5/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Steel cannonball",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "137-382",
+    "dropRate": "4/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Steel cannonball",
+    "monsterName": "The Nightmare",
+    "quantity": "6-220",
+    "dropRate": "4/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Steel kiteshield",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "1",
+    "dropRate": "17/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Steel knife",
+    "monsterName": "Dagannoth Supreme",
+    "quantity": "50-150",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Steel platebody",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "1",
+    "dropRate": "4/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Summer pie",
+    "monsterName": "Cerberus",
+    "quantity": "3",
+    "dropRate": "6/130",
+    "notes": ""
+  },
+  {
+    "itemName": "Summer pie",
+    "monsterName": "Muspah",
+    "quantity": "4-6",
+    "dropRate": "1/9",
+    "notes": ""
+  },
+  {
+    "itemName": "Super attack(2)",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Super attack(3)",
+    "monsterName": "K'ril Tsutsaroth",
+    "quantity": "3",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Super combat potion(1)",
+    "monsterName": "Araxxor",
+    "quantity": "1",
+    "dropRate": "1/16",
+    "notes": ""
+  },
+  {
+    "itemName": "Super combat potion(1)",
+    "monsterName": "Chaos Elemental",
+    "quantity": "1",
+    "dropRate": "1/5",
+    "notes": ""
+  },
+  {
     "itemName": "Super combat potion(2)",
     "monsterName": "Ancient Wyvern",
     "quantity": "1",
     "dropRate": "5/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Super combat potion(2)",
+    "monsterName": "Kalphite Queen",
+    "quantity": "1",
+    "dropRate": "1/9",
+    "notes": ""
+  },
+  {
+    "itemName": "Super defence(2)",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Super defence(3)",
+    "monsterName": "Commander Zilyana",
+    "quantity": "3",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Super defence(3)",
+    "monsterName": "Kree'arra",
+    "quantity": "3",
+    "dropRate": "8/127",
     "notes": ""
   },
   {
@@ -904,9 +8891,37 @@
   },
   {
     "itemName": "Super restore(3)",
+    "monsterName": "Alchemical Hydra",
+    "quantity": "2",
+    "dropRate": "7/101",
+    "notes": ""
+  },
+  {
+    "itemName": "Super restore(3)",
+    "monsterName": "K'ril Tsutsaroth",
+    "quantity": "3",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Super restore(3)",
+    "monsterName": "Muspah",
+    "quantity": "2-3",
+    "dropRate": "1/9",
+    "notes": ""
+  },
+  {
+    "itemName": "Super restore(3)",
     "monsterName": "Spiritual mage",
     "quantity": "1",
     "dropRate": "9/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Super restore(4)",
+    "monsterName": "Abyssal Sire",
+    "quantity": "4",
+    "dropRate": "5/139",
     "notes": ""
   },
   {
@@ -917,6 +8932,55 @@
     "notes": ""
   },
   {
+    "itemName": "Super restore(4)",
+    "monsterName": "Cerberus",
+    "quantity": "2",
+    "dropRate": "6/130",
+    "notes": ""
+  },
+  {
+    "itemName": "Super restore(4)",
+    "monsterName": "Commander Zilyana",
+    "quantity": "3",
+    "dropRate": "6/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Super restore(4)",
+    "monsterName": "General Graardor",
+    "quantity": "3",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Super restore(4)",
+    "monsterName": "Kalphite Queen",
+    "quantity": "1",
+    "dropRate": "1/9",
+    "notes": ""
+  },
+  {
+    "itemName": "Super strength(2)",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Super strength(3)",
+    "monsterName": "K'ril Tsutsaroth",
+    "quantity": "3",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Superantipoison(2)",
+    "monsterName": "Kalphite Queen",
+    "quantity": "1",
+    "dropRate": "1/9",
+    "notes": ""
+  },
+  {
     "itemName": "Supercompost",
     "monsterName": "Ancient Wyvern",
     "quantity": "7-10 (noted)",
@@ -924,10 +8988,430 @@
     "notes": ""
   },
   {
+    "itemName": "Superior dragon bones",
+    "monsterName": "Vorkath",
+    "quantity": "2",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Swamp tar",
+    "monsterName": "Zulrah",
+    "quantity": "1000",
+    "dropRate": "5/249",
+    "notes": ""
+  },
+  {
+    "itemName": "Swordfish",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "5",
+    "dropRate": "4/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Tanzanite fang",
+    "monsterName": "Zulrah",
+    "quantity": "1",
+    "dropRate": "1/1024",
+    "notes": ""
+  },
+  {
+    "itemName": "Tanzanite mutagen",
+    "monsterName": "Zulrah",
+    "quantity": "1",
+    "dropRate": "1/13107",
+    "notes": ""
+  },
+  {
+    "itemName": "Tattered moon page",
+    "monsterName": "Sarachnis",
+    "quantity": "1",
+    "dropRate": "1/5",
+    "notes": ""
+  },
+  {
+    "itemName": "Tattered sun page",
+    "monsterName": "Sarachnis",
+    "quantity": "1",
+    "dropRate": "1/5",
+    "notes": ""
+  },
+  {
+    "itemName": "Tattered temple page",
+    "monsterName": "Sarachnis",
+    "quantity": "1",
+    "dropRate": "1/5",
+    "notes": ""
+  },
+  {
+    "itemName": "Teak logs",
+    "monsterName": "Cave horror",
+    "quantity": "4 (noted)",
+    "dropRate": "7/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Teak plank",
+    "monsterName": "Corporeal Beast",
+    "quantity": "100 (noted)",
+    "dropRate": "12/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Teak plank",
+    "monsterName": "Muspah",
+    "quantity": "22 (noted)",
+    "dropRate": "10/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Tinderbox",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "1",
+    "dropRate": "1/107",
+    "notes": ""
+  },
+  {
+    "itemName": "Toadflax",
+    "monsterName": "Zulrah",
+    "quantity": "25 (noted)",
+    "dropRate": "2/249",
+    "notes": ""
+  },
+  {
+    "itemName": "Toadflax seed",
+    "monsterName": "Araxxor",
+    "quantity": "4",
+    "dropRate": "3/115",
+    "notes": ""
+  },
+  {
+    "itemName": "Toadflax seed",
+    "monsterName": "Zulrah",
+    "quantity": "2",
+    "dropRate": "2/249",
+    "notes": ""
+  },
+  {
+    "itemName": "Topaz bolt tips",
+    "monsterName": "Vyrewatch Sentinel",
+    "quantity": "6-14",
+    "dropRate": "3/5208",
+    "notes": ""
+  },
+  {
+    "itemName": "Tormented synapse",
+    "monsterName": "Tormented Demon",
+    "quantity": "1",
+    "dropRate": "1/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Torstol",
+    "monsterName": "Zulrah",
+    "quantity": "10 (noted)",
+    "dropRate": "2/249",
+    "notes": ""
+  },
+  {
+    "itemName": "Torstol seed",
+    "monsterName": "Cerberus",
+    "quantity": "3",
+    "dropRate": "2/130",
+    "notes": ""
+  },
+  {
+    "itemName": "Torstol seed",
+    "monsterName": "Kalphite Queen",
+    "quantity": "2",
+    "dropRate": "4/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Torstol seed",
+    "monsterName": "Kraken",
+    "quantity": "2",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Torstol seed",
+    "monsterName": "Muspah",
+    "quantity": "2",
+    "dropRate": "5/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Torstol seed",
+    "monsterName": "Zulrah",
+    "quantity": "1",
+    "dropRate": "2/249",
+    "notes": ""
+  },
+  {
+    "itemName": "Trident of the seas (full)",
+    "monsterName": "Kraken",
+    "quantity": "1",
+    "dropRate": "1/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Tuna",
+    "monsterName": "Greater Nechryael",
+    "quantity": "2",
+    "dropRate": "6/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Tuna",
+    "monsterName": "Nechryael",
+    "quantity": "1",
+    "dropRate": "3/116",
+    "notes": ""
+  },
+  {
+    "itemName": "Tuna potato",
+    "monsterName": "Corporeal Beast",
+    "quantity": "30",
+    "dropRate": "20/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Tuna potato",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "3",
+    "dropRate": "3/107",
+    "notes": ""
+  },
+  {
+    "itemName": "Ugthanki kebab",
+    "monsterName": "Dust devil",
+    "quantity": "4",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Ugthanki kebab",
+    "monsterName": "Smoke devil",
+    "quantity": "3",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Ugthanki kebab",
+    "monsterName": "Thermonuclear smoke devil",
+    "quantity": "3",
+    "dropRate": "1/107",
+    "notes": ""
+  },
+  {
+    "itemName": "Uncut diamond",
+    "monsterName": "Abyssal Sire",
+    "quantity": "15 (noted)",
+    "dropRate": "5/139",
+    "notes": ""
+  },
+  {
+    "itemName": "Uncut diamond",
+    "monsterName": "Cerberus",
+    "quantity": "5 (noted)",
+    "dropRate": "3/130",
+    "notes": ""
+  },
+  {
+    "itemName": "Uncut diamond",
+    "monsterName": "Kalphite Queen",
+    "quantity": "25 (noted)",
+    "dropRate": "3/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Uncut diamond",
+    "monsterName": "Sarachnis",
+    "quantity": "20-30 (noted)",
+    "dropRate": "1/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Uncut dragonstone",
+    "monsterName": "Skotizo",
+    "quantity": "10 (noted)",
+    "dropRate": "9/1000",
+    "notes": ""
+  },
+  {
+    "itemName": "Uncut emerald",
+    "monsterName": "Kalphite Queen",
+    "quantity": "25 (noted)",
+    "dropRate": "3/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Uncut emerald",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "33-75 (noted)",
+    "dropRate": "3/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Uncut emerald",
+    "monsterName": "Sarachnis",
+    "quantity": "20-30 (noted)",
+    "dropRate": "3/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Uncut emerald",
+    "monsterName": "The Nightmare",
+    "quantity": "2-44 (noted)",
+    "dropRate": "3/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Uncut onyx",
+    "monsterName": "Skotizo",
+    "quantity": "1",
+    "dropRate": "1/1000",
+    "notes": ""
+  },
+  {
+    "itemName": "Uncut onyx",
+    "monsterName": "Zulrah",
+    "quantity": "1",
+    "dropRate": "1/1024",
+    "notes": ""
+  },
+  {
+    "itemName": "Uncut ruby",
+    "monsterName": "Kalphite Queen",
+    "quantity": "25 (noted)",
+    "dropRate": "3/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Uncut ruby",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "27-60 (noted)",
+    "dropRate": "3/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Uncut ruby",
+    "monsterName": "Sarachnis",
+    "quantity": "20-30 (noted)",
+    "dropRate": "2/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Uncut ruby",
+    "monsterName": "The Nightmare",
+    "quantity": "27-60 (noted)",
+    "dropRate": "3/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Uncut sapphire",
+    "monsterName": "Sarachnis",
+    "quantity": "20-30 (noted)",
+    "dropRate": "4/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Unholy symbol",
+    "monsterName": "Cerberus",
+    "quantity": "1",
+    "dropRate": "5/130",
+    "notes": ""
+  },
+  {
+    "itemName": "Unpowered orb",
+    "monsterName": "Kraken",
+    "quantity": "50 (noted)",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Unsired",
+    "monsterName": "Abyssal Sire",
+    "quantity": "1",
+    "dropRate": "1/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Vampyre dust",
+    "monsterName": "Vyrewatch Sentinel",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Venator shard",
+    "monsterName": "Muspah",
+    "quantity": "1",
+    "dropRate": "1/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Volatile orb",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "1",
+    "dropRate": "1/1600",
+    "notes": ""
+  },
+  {
+    "itemName": "Volatile orb",
+    "monsterName": "The Nightmare",
+    "quantity": "1",
+    "dropRate": "1/960",
+    "notes": ""
+  },
+  {
     "itemName": "Volcanic ash",
     "monsterName": "Ancient Wyvern",
     "quantity": "80-120",
     "dropRate": "6/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Vorkath's head",
+    "monsterName": "Vorkath",
+    "quantity": "1",
+    "dropRate": "1/50",
+    "notes": ""
+  },
+  {
+    "itemName": "Vorki",
+    "monsterName": "Vorkath",
+    "quantity": "1",
+    "dropRate": "1/3000",
+    "notes": ""
+  },
+  {
+    "itemName": "Warrior ring",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Water battlestaff",
+    "monsterName": "Dagannoth Prime",
+    "quantity": "1",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Water orb",
+    "monsterName": "Muspah",
+    "quantity": "21 (noted)",
+    "dropRate": "15/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Water rune",
+    "monsterName": "Kraken",
+    "quantity": "400",
+    "dropRate": "10/128",
     "notes": ""
   },
   {
@@ -945,17 +9429,129 @@
     "notes": ""
   },
   {
+    "itemName": "Water talisman",
+    "monsterName": "Dagannoth Prime",
+    "quantity": "1-76 (noted)",
+    "dropRate": "7/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Watermelon seed",
+    "monsterName": "Corporeal Beast",
+    "quantity": "24",
+    "dropRate": "15/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Watermelon seed",
+    "monsterName": "Kalphite Queen",
+    "quantity": "25",
+    "dropRate": "3/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Watermelon seed",
+    "monsterName": "Kraken",
+    "quantity": "24",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Weapon poison(++)",
+    "monsterName": "Chaos Elemental",
+    "quantity": "1",
+    "dropRate": "10/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Weapon poison(++)",
+    "monsterName": "Kalphite Queen",
+    "quantity": "5 (noted)",
+    "dropRate": "5/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Weapon poison(++)",
+    "monsterName": "Sarachnis",
+    "quantity": "4-6 (noted)",
+    "dropRate": "2/100",
+    "notes": ""
+  },
+  {
+    "itemName": "White berries",
+    "monsterName": "Corporeal Beast",
+    "quantity": "120 (noted)",
+    "dropRate": "17/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Wild pie",
+    "monsterName": "Araxxor",
+    "quantity": "2-3",
+    "dropRate": "1/16",
+    "notes": ""
+  },
+  {
+    "itemName": "Wilderness crabs teleport",
+    "monsterName": "Chaos Elemental",
+    "quantity": "2",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Wine of zamorak",
+    "monsterName": "Araxxor",
+    "quantity": "8 (noted)",
+    "dropRate": "3/115",
+    "notes": ""
+  },
+  {
+    "itemName": "Wine of zamorak",
+    "monsterName": "Cerberus",
+    "quantity": "15 (noted)",
+    "dropRate": "5/130",
+    "notes": ""
+  },
+  {
+    "itemName": "Wine of zamorak",
+    "monsterName": "Greater Nechryael",
+    "quantity": "3 (noted)",
+    "dropRate": "2/112",
+    "notes": ""
+  },
+  {
+    "itemName": "Wine of zamorak",
+    "monsterName": "Greater Nechryael",
+    "quantity": "3 (noted)",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Wine of zamorak",
+    "monsterName": "Kalphite Queen",
+    "quantity": "60 (noted)",
+    "dropRate": "10/126",
+    "notes": ""
+  },
+  {
+    "itemName": "Wrath rune",
+    "monsterName": "Vorkath",
+    "quantity": "30-60",
+    "dropRate": "3/150",
+    "notes": ""
+  },
+  {
+    "itemName": "Wrath talisman",
+    "monsterName": "Vorkath",
+    "quantity": "1",
+    "dropRate": "3/150",
+    "notes": ""
+  },
+  {
     "itemName": "Wyvern bones",
     "monsterName": "Ancient Wyvern",
     "quantity": "1",
     "dropRate": "Always",
-    "notes": ""
-  },
-  {
-    "itemName": "wyvern uniques2}}",
-    "monsterName": "Ancient Wyvern",
-    "quantity": "1",
-    "dropRate": "1/600",
     "notes": ""
   },
   {
@@ -966,10 +9562,164 @@
     "notes": ""
   },
   {
+    "itemName": "Xeric's talisman (inert)",
+    "monsterName": "Lizardman shaman",
+    "quantity": "1",
+    "dropRate": "2/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Xerician fabric",
+    "monsterName": "Lizardman shaman",
+    "quantity": "2",
+    "dropRate": "40/500",
+    "notes": ""
+  },
+  {
+    "itemName": "Yew logs",
+    "monsterName": "Araxxor",
+    "quantity": "70 (noted)",
+    "dropRate": "3/115",
+    "notes": ""
+  },
+  {
+    "itemName": "Yew logs",
+    "monsterName": "Dagannoth Supreme",
+    "quantity": "50-150 (noted)",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Yew logs",
+    "monsterName": "Giant Mole",
+    "quantity": "100 (noted)",
+    "dropRate": "10/131",
+    "notes": ""
+  },
+  {
+    "itemName": "Yew logs",
+    "monsterName": "King Black Dragon",
+    "quantity": "150 (noted)",
+    "dropRate": "10/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Yew logs",
+    "monsterName": "Vyrewatch Sentinel",
+    "quantity": "6 (noted)",
+    "dropRate": "2/93",
+    "notes": ""
+  },
+  {
+    "itemName": "Yew logs",
+    "monsterName": "Zulrah",
+    "quantity": "35 (noted)",
+    "dropRate": "10/249",
+    "notes": ""
+  },
+  {
     "itemName": "Yew seed",
     "monsterName": "Ancient Wyvern",
     "quantity": "1",
     "dropRate": "3/198",
+    "notes": ""
+  },
+  {
+    "itemName": "Yew seed",
+    "monsterName": "Araxxor",
+    "quantity": "1",
+    "dropRate": "4/115",
+    "notes": ""
+  },
+  {
+    "itemName": "Yew seed",
+    "monsterName": "Kree'arra",
+    "quantity": "1",
+    "dropRate": "1/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Yew seed",
+    "monsterName": "Muspah",
+    "quantity": "2",
+    "dropRate": "5/235",
+    "notes": ""
+  },
+  {
+    "itemName": "Yew seed",
+    "monsterName": "Sarachnis",
+    "quantity": "1",
+    "dropRate": "1/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Zamorak brew(2)",
+    "monsterName": "Dagannoth Rex",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Zamorak brew(3)",
+    "monsterName": "K'ril Tsutsaroth",
+    "quantity": "3",
+    "dropRate": "8/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Zamorak brew(3)",
+    "monsterName": "Phosani's Nightmare",
+    "quantity": "8-15",
+    "dropRate": "5/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Zamorak brew(3)",
+    "monsterName": "The Nightmare",
+    "quantity": "1-10",
+    "dropRate": "5/100",
+    "notes": ""
+  },
+  {
+    "itemName": "Zamorak hilt",
+    "monsterName": "K'ril Tsutsaroth",
+    "quantity": "1",
+    "dropRate": "1/508",
+    "notes": ""
+  },
+  {
+    "itemName": "Zamorakian spear",
+    "monsterName": "K'ril Tsutsaroth",
+    "quantity": "1",
+    "dropRate": "1/127",
+    "notes": ""
+  },
+  {
+    "itemName": "Zenyte shard",
+    "monsterName": "Demonic gorilla",
+    "quantity": "1",
+    "dropRate": "1/300",
+    "notes": ""
+  },
+  {
+    "itemName": "Zul-andra teleport",
+    "monsterName": "Zulrah",
+    "quantity": "4",
+    "dropRate": "15/249",
+    "notes": ""
+  },
+  {
+    "itemName": "Zulrah's scales",
+    "monsterName": "Zulrah",
+    "quantity": "500",
+    "dropRate": "5/249",
+    "notes": ""
+  },
+  {
+    "itemName": "Zulrah's scales",
+    "monsterName": "Zulrah",
+    "quantity": "100-299",
+    "dropRate": "Always",
     "notes": ""
   }
 ]

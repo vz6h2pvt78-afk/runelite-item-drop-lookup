@@ -1,0 +1,98 @@
+[
+  {
+    "monsterName": "Alchemical Hydra",
+    "lineNumber": 179,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy avantoe|rolls=2|quantity=10-15 (noted)|rarity=1/{{#expr:1/(5*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Alchemical Hydra",
+    "lineNumber": 180,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy kwuarm|rolls=2|quantity=25-30 (noted)|rarity=1/{{#expr:1/(5*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Alchemical Hydra",
+    "lineNumber": 181,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy ranarr weed|rolls=2|quantity=10-15 (noted)|rarity=1/{{#expr:1/(4*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Alchemical Hydra",
+    "lineNumber": 182,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy snapdragon|rolls=2|quantity=10-15 (noted)|rarity=1/{{#expr:1/(4*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Alchemical Hydra",
+    "lineNumber": 183,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy cadantine|rolls=2|quantity=25-30 (noted)|rarity=1/{{#expr:1/(4*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Alchemical Hydra",
+    "lineNumber": 184,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy dwarf weed|rolls=2|quantity=25-30 (noted)|rarity=1/{{#expr:1/(4*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Alchemical Hydra",
+    "lineNumber": 185,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy lantadyme|rolls=2|quantity=25-30 (noted)|rarity=1/{{#expr:1/(3*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Alchemical Hydra",
+    "lineNumber": 186,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy torstol|rolls=2|quantity=10-15 (noted)|rarity=1/{{#expr:1/(3*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Demonic gorilla",
+    "lineNumber": 133,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy kwuarm|quantity=7-13 (noted)|rarity=1/{{#expr:1/(40*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Demonic gorilla",
+    "lineNumber": 134,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy cadantine|quantity=7-13 (noted)|rarity=1/{{#expr:1/(32*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Demonic gorilla",
+    "lineNumber": 135,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy lantadyme|quantity=7-13 (noted)|rarity=1/{{#expr:1/(24*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Demonic gorilla",
+    "lineNumber": 136,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy dwarf weed|quantity=7-13 (noted)|rarity=1/{{#expr:1/(32*{{#var:herbbase}}) round 1}}}}"
+  },
+  {
+    "monsterName": "Lizardman shaman",
+    "lineNumber": 191,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy kwuarm|quantity=2-3|rarity=1/{{#expr:1/(5*{{#var:uht}}) round 2}}}}"
+  },
+  {
+    "monsterName": "Lizardman shaman",
+    "lineNumber": 192,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy cadantine|quantity=2-3|rarity=1/{{#expr:1/(4*{{#var:uht}}) round 2}}}}"
+  },
+  {
+    "monsterName": "Lizardman shaman",
+    "lineNumber": 193,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy dwarf weed|quantity=2-3|rarity=1/{{#expr:1/(4*{{#var:uht}}) round 2}}}}"
+  },
+  {
+    "monsterName": "Lizardman shaman",
+    "lineNumber": 194,
+    "reason": "raw wiki markup in rarity",
+    "line": "{{DropsLine|name=Grimy lantadyme|quantity=2-3|rarity=1/{{#expr:1/(3*{{#var:uht}}) round 2}}}}"
+  }
+]
