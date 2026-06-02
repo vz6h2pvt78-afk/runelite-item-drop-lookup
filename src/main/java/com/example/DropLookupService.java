@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 @Singleton
 public class DropLookupService
 {
-    private static final String DROPS_RESOURCE = "/drops.json";
+    private static final String DROPS_RESOURCE = "/wiki_drops_test.json";
 
     private final Gson gson = new Gson();
     private List<DropRecord> dropRecords;
