@@ -1,0 +1,30 @@
+[
+  {
+    "itemName": "dragon boots",
+    "price": "162000",
+    "highAlch": "12000",
+    "tradeable": true,
+    "notes": "Sample GE price data for prototype testing."
+  },
+  {
+    "itemName": "spade",
+    "price": "100",
+    "highAlch": "1",
+    "tradeable": true,
+    "notes": "Sample GE price data for prototype testing."
+  },
+  {
+    "itemName": "rune pouch",
+    "price": "",
+    "highAlch": "",
+    "tradeable": false,
+    "notes": "Untradeable item. No GE price."
+  },
+  {
+    "itemName": "graceful hood",
+    "price": "",
+    "highAlch": "",
+    "tradeable": false,
+    "notes": "Untradeable item. No GE price."
+  }
+]

@@ -25,13 +25,16 @@ public class ExamplePlugin extends Plugin
     @Inject
     private ItemSourceLookupService itemSourceLookupService;
 
+    @Inject
+    private ItemPriceLookupService itemPriceLookupService;
+
     private ItemDropLookupPanel panel;
     private NavigationButton navButton;
 
     @Override
     protected void startUp() throws Exception
     {
-        panel = new ItemDropLookupPanel(dropLookupService, itemSourceLookupService);
+        panel = new ItemDropLookupPanel(dropLookupService, itemSourceLookupService, itemPriceLookupService);
 
         BufferedImage icon = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
         java.awt.Graphics2D graphics = icon.createGraphics();

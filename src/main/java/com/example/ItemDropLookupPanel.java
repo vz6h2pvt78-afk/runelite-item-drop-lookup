@@ -6,6 +6,7 @@ import net.runelite.client.ui.PluginPanel;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -16,6 +17,7 @@ import java.awt.Dimension;
 import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public class ItemDropLookupPanel extends PluginPanel
 {
@@ -27,6 +29,7 @@ public class ItemDropLookupPanel extends PluginPanel
 
     private final DropLookupService dropLookupService;
     private final ItemSourceLookupService itemSourceLookupService;
+    private final ItemPriceLookupService itemPriceLookupService;
 
     private final JTextField searchField = new JTextField();
     private final JButton searchButton = new JButton("Search");
@@ -35,12 +38,18 @@ public class ItemDropLookupPanel extends PluginPanel
             FILTER_DROPS,
             FILTER_SOURCES
     });
+    private final JCheckBox showPriceCheckbox = new JCheckBox("Show GE price", true);
     private final JPanel resultsPanel = new JPanel();
 
-    public ItemDropLookupPanel(DropLookupService dropLookupService, ItemSourceLookupService itemSourceLookupService)
+    public ItemDropLookupPanel(
+            DropLookupService dropLookupService,
+            ItemSourceLookupService itemSourceLookupService,
+            ItemPriceLookupService itemPriceLookupService
+    )
     {
         this.dropLookupService = dropLookupService;
         this.itemSourceLookupService = itemSourceLookupService;
+        this.itemPriceLookupService = itemPriceLookupService;
 
         setLayout(new BorderLayout());
         setBorder(new EmptyBorder(10, 10, 10, 10));
@@ -63,9 +72,16 @@ public class ItemDropLookupPanel extends PluginPanel
         filterDropdown.addActionListener(e -> performSearch());
         filterDropdown.setMaximumSize(new Dimension(Integer.MAX_VALUE, filterDropdown.getPreferredSize().height));
 
+        showPriceCheckbox.setBackground(ColorScheme.DARK_GRAY_COLOR);
+        showPriceCheckbox.setToolTipText("Show Grand Exchange price data when available");
+        showPriceCheckbox.addActionListener(e -> performSearch());
+        showPriceCheckbox.setMaximumSize(new Dimension(Integer.MAX_VALUE, showPriceCheckbox.getPreferredSize().height));
+
         topPanel.add(searchPanel);
         topPanel.add(makeSmallSpacer());
         topPanel.add(filterDropdown);
+        topPanel.add(makeSmallSpacer());
+        topPanel.add(showPriceCheckbox);
 
         resultsPanel.setLayout(new BoxLayout(resultsPanel, BoxLayout.Y_AXIS));
         resultsPanel.setBackground(ColorScheme.DARK_GRAY_COLOR);
@@ -92,6 +108,12 @@ public class ItemDropLookupPanel extends PluginPanel
 
             boolean showDrops = FILTER_ALL.equals(selectedFilter) || FILTER_DROPS.equals(selectedFilter);
             boolean showSources = FILTER_ALL.equals(selectedFilter) || FILTER_SOURCES.equals(selectedFilter);
+
+            if (showPriceCheckbox.isSelected())
+            {
+                resultsPanel.add(makeSearchPriceSummary(itemName));
+                resultsPanel.add(makeSpacer());
+            }
 
             if (showDrops && !dropResults.isEmpty())
             {
@@ -233,6 +255,35 @@ public class ItemDropLookupPanel extends PluginPanel
         return card;
     }
 
+    private JLabel makeSearchPriceSummary(String itemName)
+    {
+        Optional<ItemPrice> itemPrice = itemPriceLookupService.searchByItemName(itemName);
+
+        String displayName = formatItemName(itemName);
+        String priceLine;
+
+        if (itemPrice.isPresent())
+        {
+            priceLine = formatPriceLine(itemPrice.get());
+        }
+        else
+        {
+            priceLine = "GE: unavailable";
+        }
+
+        JLabel label = new JLabel(
+                "<html><div style='width:180px;'><b>"
+                        + escapeHtml(displayName)
+                        + "</b><br>"
+                        + escapeHtml(priceLine)
+                        + "</div></html>"
+        );
+
+        label.setBorder(new EmptyBorder(8, 0, 6, 0));
+        label.setAlignmentX(LEFT_ALIGNMENT);
+        return label;
+    }
+
     private JLabel makeNoResultHeader(String text)
     {
         JLabel label = new JLabel("<html><div style='width:180px;'><b>" + escapeHtml(text) + "</b></div></html>");
@@ -271,6 +322,34 @@ public class ItemDropLookupPanel extends PluginPanel
         label.setBorder(new EmptyBorder(10, 0, 6, 0));
         label.setMaximumSize(new Dimension(Integer.MAX_VALUE, label.getPreferredSize().height));
         return label;
+    }
+
+    private String formatPriceLine(ItemPrice itemPrice)
+    {
+        if (!itemPrice.isTradeable())
+        {
+            return "GE: Untradeable";
+        }
+
+        if (itemPrice.getPrice() == null || itemPrice.getPrice().trim().isEmpty())
+        {
+            return "GE: unavailable";
+        }
+
+        return "GE: " + formatNumber(itemPrice.getPrice()) + " gp";
+    }
+
+    private String formatNumber(String value)
+    {
+        try
+        {
+            long number = Long.parseLong(value.trim());
+            return String.format("%,d", number);
+        }
+        catch (NumberFormatException ex)
+        {
+            return value;
+        }
     }
 
     private JLabel makeCardTitle(String text)
