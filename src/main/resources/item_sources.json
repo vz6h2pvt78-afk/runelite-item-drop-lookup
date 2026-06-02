@@ -1,0 +1,34 @@
+[
+  {
+    "itemName": "rune pouch",
+    "sourceType": "Reward",
+    "sourceName": "Slayer Rewards",
+    "location": "Slayer masters",
+    "cost": "Slayer reward points",
+    "notes": "Untradeable reward source. Exact cost should be verified against current wiki data before release."
+  },
+  {
+    "itemName": "rune pouch",
+    "sourceType": "Reward",
+    "sourceName": "Last Man Standing Reward Shop",
+    "location": "Ferox Enclave",
+    "cost": "LMS points",
+    "notes": "Alternative reward source. Exact cost should be verified against current wiki data before release."
+  },
+  {
+    "itemName": "spade",
+    "sourceType": "Shop",
+    "sourceName": "General stores",
+    "location": "Various towns",
+    "cost": "Coins",
+    "notes": "Common shop item."
+  },
+  {
+    "itemName": "graceful hood",
+    "sourceType": "Reward",
+    "sourceName": "Grace",
+    "location": "Rogues' Den",
+    "cost": "Marks of grace",
+    "notes": "Skilling reward source. Exact cost should be verified against current wiki data before release."
+  }
+]
