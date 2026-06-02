@@ -1,0 +1,975 @@
+[
+  {
+    "itemName": "Abyssal ashes",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Abyssal dagger",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/32000",
+    "notes": ""
+  },
+  {
+    "itemName": "Abyssal head",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/6000",
+    "notes": ""
+  },
+  {
+    "itemName": "Abyssal whip",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/512",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamant arrow",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "50-76",
+    "dropRate": "3/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamantite bar",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamantite bar",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "2/68",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamantite bar",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "3 (noted)",
+    "dropRate": "6/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamantite bar",
+    "monsterName": "Spiritual mage",
+    "quantity": "1-4 (noted)",
+    "dropRate": "8/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Adamantite ore",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "20 (noted)",
+    "dropRate": "5/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Air battlestaff",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "2",
+    "dropRate": "4/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Air rune",
+    "monsterName": "Abyssal demon",
+    "quantity": "50",
+    "dropRate": "8/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Air rune",
+    "monsterName": "Abyssal demon",
+    "quantity": "50",
+    "dropRate": "8/68",
+    "notes": ""
+  },
+  {
+    "itemName": "Air rune",
+    "monsterName": "Spiritual mage",
+    "quantity": "50",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Air rune",
+    "monsterName": "Spiritual mage",
+    "quantity": "250",
+    "dropRate": "7/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Air rune",
+    "monsterName": "Spiritual mage",
+    "quantity": "30",
+    "dropRate": "9/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Ancient brew(2)",
+    "monsterName": "Spiritual mage",
+    "quantity": "1",
+    "dropRate": "11/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Ancient brew(3)",
+    "monsterName": "Spiritual mage",
+    "quantity": "1",
+    "dropRate": "4/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Ancient ceremonial boots",
+    "monsterName": "Spiritual mage",
+    "quantity": "1",
+    "dropRate": "1/640",
+    "notes": ""
+  },
+  {
+    "itemName": "Ancient ceremonial gloves",
+    "monsterName": "Spiritual mage",
+    "quantity": "1",
+    "dropRate": "1/640",
+    "notes": ""
+  },
+  {
+    "itemName": "Ancient ceremonial legs",
+    "monsterName": "Spiritual mage",
+    "quantity": "1",
+    "dropRate": "1/640",
+    "notes": ""
+  },
+  {
+    "itemName": "Ancient ceremonial mask",
+    "monsterName": "Spiritual mage",
+    "quantity": "1",
+    "dropRate": "1/640",
+    "notes": ""
+  },
+  {
+    "itemName": "Ancient ceremonial top",
+    "monsterName": "Spiritual mage",
+    "quantity": "1",
+    "dropRate": "1/640",
+    "notes": ""
+  },
+  {
+    "itemName": "Antipoison(3)",
+    "monsterName": "Spiritual mage",
+    "quantity": "5 (noted)",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Astral rune",
+    "monsterName": "Spiritual mage",
+    "quantity": "38-98",
+    "dropRate": "15/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Astral rune",
+    "monsterName": "Spiritual mage",
+    "quantity": "15",
+    "dropRate": "9/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Battlestaff",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "6 (noted)",
+    "dropRate": "4/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Black axe",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Black axe",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "2/68",
+    "notes": ""
+  },
+  {
+    "itemName": "Black sword",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "4/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Black sword",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "4/68",
+    "notes": ""
+  },
+  {
+    "itemName": "Blood essence",
+    "monsterName": "Spiritual mage",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Blood rune",
+    "monsterName": "Abyssal demon",
+    "quantity": "7",
+    "dropRate": "4/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Blood rune",
+    "monsterName": "Abyssal demon",
+    "quantity": "7",
+    "dropRate": "4/68",
+    "notes": ""
+  },
+  {
+    "itemName": "Blood rune",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "27-33",
+    "dropRate": "4/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Blood rune",
+    "monsterName": "Spiritual mage",
+    "quantity": "10",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Blood rune",
+    "monsterName": "Spiritual mage",
+    "quantity": "25",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Body rune",
+    "monsterName": "Spiritual mage",
+    "quantity": "25",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Body rune",
+    "monsterName": "Spiritual mage",
+    "quantity": "35",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Brimstone key",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "{{Brimstone rarity",
+    "notes": ""
+  },
+  {
+    "itemName": "Brimstone key",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "1",
+    "dropRate": "{{Brimstone rarity",
+    "notes": ""
+  },
+  {
+    "itemName": "Chaos rune",
+    "monsterName": "Abyssal demon",
+    "quantity": "10",
+    "dropRate": "7/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Chaos rune",
+    "monsterName": "Abyssal demon",
+    "quantity": "10",
+    "dropRate": "7/68",
+    "notes": ""
+  },
+  {
+    "itemName": "Chaos rune",
+    "monsterName": "Spiritual mage",
+    "quantity": "25",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Chaos rune",
+    "monsterName": "Spiritual mage",
+    "quantity": "10",
+    "dropRate": "18/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Chaos talisman",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Chaos talisman",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/68",
+    "notes": ""
+  },
+  {
+    "itemName": "Clue scroll (master)",
+    "monsterName": "Spiritual mage",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Coal",
+    "monsterName": "Spiritual mage",
+    "quantity": "1-10 (noted)",
+    "dropRate": "8/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Abyssal demon",
+    "quantity": "460",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Abyssal demon",
+    "quantity": "132",
+    "dropRate": "35/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Abyssal demon",
+    "quantity": "44",
+    "dropRate": "6/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Abyssal demon",
+    "quantity": "30",
+    "dropRate": "7/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Abyssal demon",
+    "quantity": "220",
+    "dropRate": "9/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "2000-6000",
+    "dropRate": "7/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Spiritual mage",
+    "quantity": "6900-6942",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Coins",
+    "monsterName": "Spiritual mage",
+    "quantity": "1300-1337",
+    "dropRate": "6/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Cosmic talisman",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Cosmic talisman",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/68",
+    "notes": ""
+  },
+  {
+    "itemName": "dagger}}",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/32000",
+    "notes": ""
+  },
+  {
+    "itemName": "Death rune",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "47-53",
+    "dropRate": "4/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Death rune",
+    "monsterName": "Spiritual mage",
+    "quantity": "25",
+    "dropRate": "4/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Death rune",
+    "monsterName": "Spiritual mage",
+    "quantity": "15",
+    "dropRate": "8/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Defence potion(3)",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Defence potion(3)",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/68",
+    "notes": ""
+  },
+  {
+    "itemName": "Diamond",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "3-5 (noted)",
+    "dropRate": "3/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Dragon boots",
+    "monsterName": "Spiritual mage",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Dust rune",
+    "monsterName": "Spiritual mage",
+    "quantity": "15",
+    "dropRate": "11/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Ensouled abyssal head",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/25",
+    "notes": ""
+  },
+  {
+    "itemName": "Fire rune",
+    "monsterName": "Spiritual mage",
+    "quantity": "65",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Granite boots",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "1",
+    "dropRate": "1/600",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy avantoe",
+    "monsterName": "Spiritual mage",
+    "quantity": "1",
+    "dropRate": "3.125/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy cadantine",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "3 (noted)",
+    "dropRate": "2/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy dwarf weed",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "3 (noted)",
+    "dropRate": "2/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy kwuarm",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "3 (noted)",
+    "dropRate": "5/264",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy lantadyme",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "3 (noted)",
+    "dropRate": "3/264",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy ranarr weed",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "2-4",
+    "dropRate": "4/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy ranarr weed",
+    "monsterName": "Spiritual mage",
+    "quantity": "1",
+    "dropRate": "2.5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy snapdragon",
+    "monsterName": "Spiritual mage",
+    "quantity": "1",
+    "dropRate": "2.5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy torstol",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "1",
+    "dropRate": "4/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Grimy torstol",
+    "monsterName": "Spiritual mage",
+    "quantity": "1",
+    "dropRate": "8.875/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Lava rune",
+    "monsterName": "Spiritual mage",
+    "quantity": "30-60",
+    "dropRate": "9/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Law rune",
+    "monsterName": "Abyssal demon",
+    "quantity": "3",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Law rune",
+    "monsterName": "Abyssal demon",
+    "quantity": "3",
+    "dropRate": "1/68",
+    "notes": ""
+  },
+  {
+    "itemName": "Law rune",
+    "monsterName": "Spiritual mage",
+    "quantity": "15",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Lobster",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Looting bag",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/3",
+    "notes": ""
+  },
+  {
+    "itemName": "Looting bag",
+    "monsterName": "Spiritual mage",
+    "quantity": "1",
+    "dropRate": "1/3",
+    "notes": ""
+  },
+  {
+    "itemName": "Magic seed",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "1",
+    "dropRate": "1/198",
+    "notes": ""
+  },
+  {
+    "itemName": "Mahogany logs",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "25-30 (noted)",
+    "dropRate": "5/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Mahogany seed",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "1",
+    "dropRate": "1/99",
+    "notes": ""
+  },
+  {
+    "itemName": "Mind rune",
+    "monsterName": "Spiritual mage",
+    "quantity": "50",
+    "dropRate": "4/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Mist rune",
+    "monsterName": "Spiritual mage",
+    "quantity": "20",
+    "dropRate": "6/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Mithril kiteshield",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Mithril kiteshield",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/68",
+    "notes": ""
+  },
+  {
+    "itemName": "Mud rune",
+    "monsterName": "Spiritual mage",
+    "quantity": "20",
+    "dropRate": "7/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Mud rune",
+    "monsterName": "Spiritual mage",
+    "quantity": "40-70",
+    "dropRate": "7/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Mystic air staff",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "1",
+    "dropRate": "3/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Nature rune",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "37-43",
+    "dropRate": "4/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Nature rune",
+    "monsterName": "Spiritual mage",
+    "quantity": "18",
+    "dropRate": "4/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Nature rune",
+    "monsterName": "Spiritual mage",
+    "quantity": "25",
+    "dropRate": "7/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Nihil shard",
+    "monsterName": "Spiritual mage",
+    "quantity": "5-9",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Onyx bolt tips",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "10-15",
+    "dropRate": "4/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Pure essence",
+    "monsterName": "Abyssal demon",
+    "quantity": "60 (noted)",
+    "dropRate": "5/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Pure essence",
+    "monsterName": "Abyssal demon",
+    "quantity": "60 (noted)",
+    "dropRate": "5/68",
+    "notes": ""
+  },
+  {
+    "itemName": "Pure essence",
+    "monsterName": "Spiritual mage",
+    "quantity": "90 (noted)",
+    "dropRate": "6/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Pure essence",
+    "monsterName": "Spiritual mage",
+    "quantity": "46 (noted)",
+    "dropRate": "8/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Ranarr seed",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "2-3",
+    "dropRate": "1/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Reward casket (master)",
+    "monsterName": "Spiritual mage",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune arrow",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "25-50",
+    "dropRate": "3/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune battleaxe",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "1",
+    "dropRate": "2/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune chainbody",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune chainbody",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/68",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune full helm",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "1",
+    "dropRate": "2/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune kiteshield",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "1",
+    "dropRate": "2/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune med helm",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune med helm",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/68",
+    "notes": ""
+  },
+  {
+    "itemName": "Rune pickaxe",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "1",
+    "dropRate": "3/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Runite bolts",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "30-60",
+    "dropRate": "1/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Runite crossbow (u)",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "1",
+    "dropRate": "3/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Runite ore",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "2-3 (noted)",
+    "dropRate": "3/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Seaweed spore",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "16-24",
+    "dropRate": "2/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Shark",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "5",
+    "dropRate": "8/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Smoke rune",
+    "monsterName": "Spiritual mage",
+    "quantity": "100-150",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Soul rune",
+    "monsterName": "Spiritual mage",
+    "quantity": "25",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Steel battleaxe",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "3/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Steel battleaxe",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "3/68",
+    "notes": ""
+  },
+  {
+    "itemName": "Super combat potion(2)",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "1",
+    "dropRate": "5/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Super defence(3)",
+    "monsterName": "Spiritual mage",
+    "quantity": "1",
+    "dropRate": "2/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Super restore(3)",
+    "monsterName": "Spiritual mage",
+    "quantity": "1",
+    "dropRate": "9/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Super restore(4)",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "2",
+    "dropRate": "8/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Supercompost",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "7-10 (noted)",
+    "dropRate": "3/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Volcanic ash",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "80-120",
+    "dropRate": "6/132",
+    "notes": ""
+  },
+  {
+    "itemName": "Water rune",
+    "monsterName": "Spiritual mage",
+    "quantity": "50",
+    "dropRate": "7/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Water rune",
+    "monsterName": "Spiritual mage",
+    "quantity": "15",
+    "dropRate": "8/128",
+    "notes": ""
+  },
+  {
+    "itemName": "Wyvern bones",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "1",
+    "dropRate": "Always",
+    "notes": ""
+  },
+  {
+    "itemName": "wyvern uniques2}}",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "1",
+    "dropRate": "1/600",
+    "notes": ""
+  },
+  {
+    "itemName": "Wyvern visage",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "1",
+    "dropRate": "1/10000",
+    "notes": ""
+  },
+  {
+    "itemName": "Yew seed",
+    "monsterName": "Ancient Wyvern",
+    "quantity": "1",
+    "dropRate": "3/198",
+    "notes": ""
+  }
+]
