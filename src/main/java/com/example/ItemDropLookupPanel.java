@@ -80,7 +80,7 @@ public class ItemDropLookupPanel extends PluginPanel
             if (!itemSources.isEmpty())
             {
                 resultsPanel.add(makeSpacer());
-                resultsPanel.add(makeSectionHeader("Other Item Sources"));
+                resultsPanel.add(makeSectionHeader("Non-NPC Sources"));
 
                 for (ItemSource source : itemSources)
                 {

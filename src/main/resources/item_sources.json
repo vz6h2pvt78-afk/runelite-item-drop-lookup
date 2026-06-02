@@ -5,7 +5,7 @@
     "sourceName": "Slayer Rewards",
     "location": "Slayer masters",
     "cost": "Slayer reward points",
-    "notes": "Untradeable reward source. Exact cost should be verified against current wiki data before release."
+    "notes": "Untradeable reward source."
   },
   {
     "itemName": "rune pouch",
@@ -13,7 +13,7 @@
     "sourceName": "Last Man Standing Reward Shop",
     "location": "Ferox Enclave",
     "cost": "LMS points",
-    "notes": "Alternative reward source. Exact cost should be verified against current wiki data before release."
+    "notes": "Alternative reward source."
   },
   {
     "itemName": "spade",
@@ -29,6 +29,6 @@
     "sourceName": "Grace",
     "location": "Rogues' Den",
     "cost": "Marks of grace",
-    "notes": "Skilling reward source. Exact cost should be verified against current wiki data before release."
+    "notes": "Skilling reward source."
   }
 ]
