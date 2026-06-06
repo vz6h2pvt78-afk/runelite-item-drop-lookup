@@ -89,9 +89,9 @@ Current goals:
 src/main/java/com/example
   DropLookupService.java
   DropSource.java
-  ExampleConfig.java
-  ExamplePlugin.java
+  ItemDropLookupConfig.java
   ItemDropLookupPanel.java
+  ItemDropLookupPlugin.java
   ItemPrice.java
   ItemPriceLookupService.java
   ItemSource.java

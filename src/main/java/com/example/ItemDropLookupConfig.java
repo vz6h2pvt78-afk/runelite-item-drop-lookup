@@ -4,6 +4,6 @@ import net.runelite.client.config.Config;
 import net.runelite.client.config.ConfigGroup;
 
 @ConfigGroup("itemdroplookup")
-public interface ExampleConfig extends Config
+public interface ItemDropLookupConfig extends Config
 {
 }

@@ -14,7 +14,7 @@ import net.runelite.client.ui.NavigationButton;
 @PluginDescriptor(
         name = "Item Drop Lookup"
 )
-public class ExamplePlugin extends Plugin
+public class ItemDropLookupPlugin extends Plugin
 {
     @Inject
     private ClientToolbar clientToolbar;
@@ -65,8 +65,8 @@ public class ExamplePlugin extends Plugin
     }
 
     @Provides
-    ExampleConfig provideConfig(ConfigManager configManager)
+    ItemDropLookupConfig provideConfig(ConfigManager configManager)
     {
-        return configManager.getConfig(ExampleConfig.class);
+        return configManager.getConfig(ItemDropLookupConfig.class);
     }
 }
