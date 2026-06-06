@@ -423,11 +423,23 @@ public class ItemDropLookupPanel extends PluginPanel
         ));
 
         card.add(makeCardTitle(source.getSourceName()));
-        card.add(makeCardLine("Type: " + source.getSourceType()));
-        card.add(makeCardLine("Location: " + source.getLocation()));
-        card.add(makeCardLine("Cost: " + source.getCost()));
 
-        if (source.getNotes() != null && !source.getNotes().isEmpty())
+        if (hasText(source.getSourceType()))
+        {
+            card.add(makeCardLine("Type: " + source.getSourceType()));
+        }
+
+        if (hasText(source.getLocation()))
+        {
+            card.add(makeCardLine("Location: " + source.getLocation()));
+        }
+
+        if (hasText(source.getCost()))
+        {
+            card.add(makeCardLine("Cost: " + source.getCost()));
+        }
+
+        if (hasText(source.getNotes()))
         {
             card.add(makeCardLine("Notes: " + source.getNotes()));
         }
@@ -436,6 +448,11 @@ public class ItemDropLookupPanel extends PluginPanel
         card.setMaximumSize(new Dimension(Integer.MAX_VALUE, card.getPreferredSize().height));
 
         return card;
+    }
+
+    private boolean hasText(String value)
+    {
+        return value != null && !value.trim().isEmpty();
     }
 
     private JLabel makeSearchPriceSummary(ItemPrice itemPrice)

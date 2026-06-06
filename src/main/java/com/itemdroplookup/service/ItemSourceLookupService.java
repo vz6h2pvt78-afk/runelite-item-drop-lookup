@@ -10,6 +10,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
@@ -18,7 +19,10 @@ import java.util.stream.Collectors;
 @Singleton
 public class ItemSourceLookupService
 {
-    private static final String SOURCES_RESOURCE = "/item_sources.json";
+    // Curated, hand-maintained non-NPC sources.
+    private static final String CURATED_RESOURCE = "/item_sources.json";
+    // Generated shop sources (tools/build_shop_sources.py). Optional: absent until generated.
+    private static final String SHOP_RESOURCE = "/wiki_shop_sources.json";
 
     private final Gson gson;
     private List<ItemSourceRecord> itemSourceRecords;
@@ -83,30 +87,35 @@ public class ItemSourceLookupService
             return itemSourceRecords;
         }
 
-        try (InputStream inputStream = ItemSourceLookupService.class.getResourceAsStream(SOURCES_RESOURCE))
+        // Curated sources first, then generated shop sources (if present). Both feed
+        // the same searchable list; a missing generated file is treated as empty.
+        List<ItemSourceRecord> merged = new ArrayList<>();
+        merged.addAll(loadRecords(CURATED_RESOURCE));
+        merged.addAll(loadRecords(SHOP_RESOURCE));
+
+        itemSourceRecords = merged;
+        return itemSourceRecords;
+    }
+
+    private List<ItemSourceRecord> loadRecords(String resource)
+    {
+        try (InputStream inputStream = ItemSourceLookupService.class.getResourceAsStream(resource))
         {
             if (inputStream == null)
             {
-                itemSourceRecords = Collections.emptyList();
-                return itemSourceRecords;
+                return Collections.emptyList();
             }
 
             InputStreamReader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
             Type listType = new TypeToken<List<ItemSourceRecord>>() {}.getType();
 
-            itemSourceRecords = gson.fromJson(reader, listType);
+            List<ItemSourceRecord> records = gson.fromJson(reader, listType);
 
-            if (itemSourceRecords == null)
-            {
-                itemSourceRecords = Collections.emptyList();
-            }
-
-            return itemSourceRecords;
+            return records != null ? records : Collections.emptyList();
         }
         catch (Exception ex)
         {
-            itemSourceRecords = Collections.emptyList();
-            return itemSourceRecords;
+            return Collections.emptyList();
         }
     }
 
