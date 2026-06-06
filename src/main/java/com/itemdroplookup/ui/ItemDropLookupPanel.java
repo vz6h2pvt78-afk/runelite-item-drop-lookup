@@ -1,5 +1,11 @@
-package com.itemdroplookup;
+package com.itemdroplookup.ui;
 
+import com.itemdroplookup.model.DropSource;
+import com.itemdroplookup.model.ItemPrice;
+import com.itemdroplookup.model.ItemSource;
+import com.itemdroplookup.service.DropLookupService;
+import com.itemdroplookup.service.ItemPriceLookupService;
+import com.itemdroplookup.service.ItemSourceLookupService;
 import net.runelite.client.ui.ColorScheme;
 import net.runelite.client.ui.PluginPanel;
 

@@ -1,6 +1,10 @@
 package com.itemdroplookup;
 
 import com.google.inject.Provides;
+import com.itemdroplookup.service.DropLookupService;
+import com.itemdroplookup.service.ItemPriceLookupService;
+import com.itemdroplookup.service.ItemSourceLookupService;
+import com.itemdroplookup.ui.ItemDropLookupPanel;
 import java.awt.image.BufferedImage;
 import javax.inject.Inject;
 import lombok.extern.slf4j.Slf4j;

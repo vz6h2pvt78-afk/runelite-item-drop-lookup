@@ -1,7 +1,8 @@
-package com.itemdroplookup;
+package com.itemdroplookup.service;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.itemdroplookup.model.ItemPrice;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;

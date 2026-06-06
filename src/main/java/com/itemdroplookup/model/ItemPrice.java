@@ -1,4 +1,4 @@
-package com.itemdroplookup;
+package com.itemdroplookup.model;
 
 public class ItemPrice
 {
