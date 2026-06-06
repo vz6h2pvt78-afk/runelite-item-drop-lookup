@@ -30,10 +30,17 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ItemDropLookupPanel extends PluginPanel
 {
     private static final int MAX_DISPLAYED_DROP_SOURCES = 100;
+
+    // Captures the inner text of a trailing parenthetical for the display-only
+    // "Variant" line, e.g. "Skeleton (Tarn's Lair)" -> "Tarn's Lair". Mirrors the
+    // trailing-parenthetical convention used by MonsterFamilyGrouper.
+    private static final Pattern TRAILING_PAREN = Pattern.compile("^.+\\s+\\(([^)]+)\\)$");
 
     private static final String FILTER_ALL = "All";
     private static final String FILTER_DROPS = "NPC Drops";
@@ -317,6 +324,34 @@ public class ItemDropLookupPanel extends PluginPanel
         return container;
     }
 
+    /**
+     * Extracts the trailing-parenthetical context from a raw monster name for display
+     * as a "Variant" line, e.g. "Skeleton (Tarn's Lair)" -> "Tarn's Lair".
+     * Returns empty when there is no trailing parenthetical. The raw monster name is
+     * never modified or hidden; this is a display-only derived value.
+     */
+    private Optional<String> extractVariantLabel(String monsterName)
+    {
+        if (monsterName == null)
+        {
+            return Optional.empty();
+        }
+
+        Matcher matcher = TRAILING_PAREN.matcher(monsterName.trim());
+
+        if (matcher.matches())
+        {
+            String variant = matcher.group(1).trim();
+
+            if (!variant.isEmpty())
+            {
+                return Optional.of(variant);
+            }
+        }
+
+        return Optional.empty();
+    }
+
     private JPanel makeDropCard(DropSource source)
     {
         JPanel card = new JPanel();
@@ -328,6 +363,10 @@ public class ItemDropLookupPanel extends PluginPanel
         ));
 
         card.add(makeCardTitle(source.getMonsterName()));
+
+        Optional<String> variantLabel = extractVariantLabel(source.getMonsterName());
+        variantLabel.ifPresent(label -> card.add(makeCardLine("Variant: " + label)));
+
         card.add(makeCardLine("Rate: " + source.getDropRate()));
         card.add(makeCardLine("Quantity: " + source.getQuantity()));
 
