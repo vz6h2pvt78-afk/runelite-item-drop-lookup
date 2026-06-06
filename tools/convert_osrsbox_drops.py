@@ -1,3 +1,8 @@
+# NOTE: This is an offline OSRSBox converter. Its output, drops.json, is NOT the
+# runtime drop dataset and is not loaded by the plugin. The plugin loads
+# wiki_monster_drops.json (produced by build_wiki_drops.py). Do not use drops.json
+# when debugging plugin search results.
+
 import json
 from fractions import Fraction
 from pathlib import Path

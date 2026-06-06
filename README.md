@@ -28,6 +28,18 @@ Current resource files include:
 
 The monster drop data is currently generated from OSRS Wiki monster pages. The current alpha dataset includes roughly 15,000 cleaned monster drop records.
 
+### Files that are NOT runtime data
+
+* `drops.json` — **not loaded by the plugin.** It is only written by
+  `tools/convert_osrsbox_drops.py` (an offline OSRSBox converter) and is read by
+  nothing at runtime. When debugging plugin search results, ignore `drops.json`
+  and inspect `wiki_monster_drops.json`, which is the actual NPC-drop source
+  (`DropLookupService` loads `/wiki_monster_drops.json`).
+* The `wiki_drops_*.json` files (`wiki_drops_skipped_report.json`,
+  `wiki_drops_failed_pages.json`, `wiki_drops_zero_record_pages.json`,
+  `wiki_drops_monster_pages.json`) are build diagnostics written by
+  `tools/build_wiki_drops.py`, not runtime lookup data.
+
 ## Known Alpha Limitations
 
 This project is still early and some data may be incomplete or imperfect.
