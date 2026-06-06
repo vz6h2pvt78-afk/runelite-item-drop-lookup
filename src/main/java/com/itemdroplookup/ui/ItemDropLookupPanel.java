@@ -1,11 +1,13 @@
 package com.itemdroplookup.ui;
 
 import com.itemdroplookup.model.DropSource;
+import com.itemdroplookup.model.DropSourceGroup;
 import com.itemdroplookup.model.ItemPrice;
 import com.itemdroplookup.model.ItemSource;
 import com.itemdroplookup.service.DropLookupService;
 import com.itemdroplookup.service.ItemPriceLookupService;
 import com.itemdroplookup.service.ItemSourceLookupService;
+import com.itemdroplookup.service.MonsterFamilyGrouper;
 import net.runelite.client.ui.ColorScheme;
 import net.runelite.client.ui.PluginPanel;
 
@@ -19,9 +21,13 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import java.awt.BorderLayout;
+import java.awt.Cursor;
 import java.awt.Dimension;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.Comparator;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -109,8 +115,8 @@ public class ItemDropLookupPanel extends PluginPanel
         }
         else
         {
-            java.util.List<DropSource> dropResults = dropLookupService.searchByItemName(itemName);
-            java.util.List<ItemSource> itemSources = itemSourceLookupService.searchByItemName(itemName);
+            List<DropSource> dropResults = dropLookupService.searchByItemName(itemName);
+            List<ItemSource> itemSources = itemSourceLookupService.searchByItemName(itemName);
 
             boolean showDrops = FILTER_ALL.equals(selectedFilter) || FILTER_DROPS.equals(selectedFilter);
             boolean showSources = FILTER_ALL.equals(selectedFilter) || FILTER_SOURCES.equals(selectedFilter);
@@ -118,6 +124,11 @@ public class ItemDropLookupPanel extends PluginPanel
             if (showPriceCheckbox.isSelected())
             {
                 Optional<ItemPrice> itemPrice = itemPriceLookupService.searchByItemName(itemName);
+
+                if (!itemPrice.isPresent() && !dropResults.isEmpty())
+                {
+                    itemPrice = itemPriceLookupService.searchByItemName(dropResults.get(0).getItemName());
+                }
 
                 if (itemPrice.isPresent())
                 {
@@ -165,9 +176,9 @@ public class ItemDropLookupPanel extends PluginPanel
         resultsPanel.repaint();
     }
 
-    private void displayDropResults(java.util.List<DropSource> results)
+    private void displayDropResults(List<DropSource> results)
     {
-        Map<String, java.util.List<DropSource>> resultsByItem = new LinkedHashMap<>();
+        Map<String, List<DropSource>> resultsByItem = new LinkedHashMap<>();
 
         for (DropSource source : results)
         {
@@ -189,7 +200,7 @@ public class ItemDropLookupPanel extends PluginPanel
 
         int displayedDropSources = 0;
 
-        for (Map.Entry<String, java.util.List<DropSource>> itemEntry : resultsByItem.entrySet())
+        for (Map.Entry<String, List<DropSource>> itemEntry : resultsByItem.entrySet())
         {
             if (displayedDropSources >= MAX_DISPLAYED_DROP_SOURCES)
             {
@@ -198,21 +209,112 @@ public class ItemDropLookupPanel extends PluginPanel
 
             resultsPanel.add(makeItemHeader(formatItemName(itemEntry.getKey())));
 
-            for (DropSource source : itemEntry.getValue().stream()
+            List<DropSource> sortedSources = itemEntry.getValue().stream()
                     .sorted(Comparator.comparingDouble(this::getRateSortValue))
-                    .collect(java.util.stream.Collectors.toList()))
+                    .collect(java.util.stream.Collectors.toList());
+
+            List<DropSourceGroup> groups = MonsterFamilyGrouper.group(sortedSources);
+            groups.sort(Comparator.comparingDouble((DropSourceGroup g) -> getRateSortValue(g.getMembers().get(0))));
+
+            for (DropSourceGroup group : groups)
             {
-                if (displayedDropSources >= MAX_DISPLAYED_DROP_SOURCES)
+                List<DropSource> members = group.getMembers();
+                int memberCount = members.size();
+
+                if (displayedDropSources + memberCount > MAX_DISPLAYED_DROP_SOURCES)
                 {
                     break;
                 }
 
-                resultsPanel.add(makeDropCard(source));
-                displayedDropSources++;
+                if (shouldRenderAsGroup(group))
+                {
+                    resultsPanel.add(makeGroupContainer(group));
+                    displayedDropSources += memberCount;
+                }
+                else
+                {
+                    for (DropSource member : members)
+                    {
+                        resultsPanel.add(makeDropCard(member));
+                    }
+                    displayedDropSources += memberCount;
+                }
             }
 
             resultsPanel.add(makeSpacer());
         }
+    }
+
+    private boolean shouldRenderAsGroup(DropSourceGroup group)
+    {
+        List<DropSource> members = group.getMembers();
+
+        if (members.size() <= 1)
+        {
+            return false;
+        }
+
+        String firstName = members.get(0).getMonsterName();
+
+        for (int i = 1; i < members.size(); i++)
+        {
+            String name = members.get(i).getMonsterName();
+
+            if (firstName == null ? name != null : !firstName.equals(name))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private JPanel makeGroupContainer(DropSourceGroup group)
+    {
+        JPanel container = new JPanel();
+        container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
+        container.setBackground(ColorScheme.DARK_GRAY_COLOR);
+        container.setAlignmentX(LEFT_ALIGNMENT);
+        container.setBorder(new EmptyBorder(0, 0, 8, 0));
+
+        int memberCount = group.getMembers().size();
+        String collapsedText = "▸ " + group.getParentName() + " (" + memberCount + ")";
+        String expandedText  = "▾ " + group.getParentName() + " (" + memberCount + ")";
+
+        JLabel header = new JLabel("<html><b>" + escapeHtml(collapsedText) + "</b></html>");
+        header.setBorder(new EmptyBorder(10, 0, 6, 0));
+        header.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        header.setMaximumSize(new Dimension(Integer.MAX_VALUE, header.getPreferredSize().height));
+
+        JPanel membersPanel = new JPanel();
+        membersPanel.setLayout(new BoxLayout(membersPanel, BoxLayout.Y_AXIS));
+        membersPanel.setBackground(ColorScheme.DARK_GRAY_COLOR);
+        membersPanel.setAlignmentX(LEFT_ALIGNMENT);
+        membersPanel.setBorder(new EmptyBorder(0, 8, 6, 0));
+        membersPanel.setVisible(false);
+
+        for (DropSource member : group.getMembers())
+        {
+            membersPanel.add(makeDropCard(member));
+        }
+
+        header.addMouseListener(new MouseAdapter()
+        {
+            @Override
+            public void mouseClicked(MouseEvent e)
+            {
+                boolean expand = !membersPanel.isVisible();
+                membersPanel.setVisible(expand);
+                header.setText("<html><b>" + escapeHtml(expand ? expandedText : collapsedText) + "</b></html>");
+                resultsPanel.revalidate();
+                resultsPanel.repaint();
+            }
+        });
+
+        container.add(header);
+        container.add(membersPanel);
+
+        return container;
     }
 
     private JPanel makeDropCard(DropSource source)
