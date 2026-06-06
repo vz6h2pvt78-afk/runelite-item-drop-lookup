@@ -50,8 +50,9 @@ REQUEST_DELAY_SECONDS = 0.08
 
 SHOP_CATEGORY = "Category:Shops"
 
-# Spike cap: keep the output small and reviewable. Set to None for a full run.
-MAX_SHOPS = 60
+# Full run: inspect all discovered shop pages. Set to an int (e.g. 60) to cap for a
+# quick reviewable spike.
+MAX_SHOPS = None
 
 SOURCE_TYPE = "Shop"
 
@@ -61,7 +62,19 @@ SOURCE_TYPE = "Shop"
 SHOP_PAGE_BLACKLIST = {
     "unused shops",   # cut/test/unused shop content
     "farming shops",  # plural overview/listing page; real farming shops have own pages
+    "bounty hunter shop (historical)",  # "(historical)" = removed/cut content, not live
 }
+
+# Pages whose title clearly marks them as mode-specific (Deadman / Leagues /
+# seasonal / tournament-only). Excluded from the default generated shop file so it
+# reflects the normal game. Kept narrow to avoid dropping normal-game shops.
+MODE_SPECIFIC_PATTERN = re.compile(r"\b(deadman|leagues?|seasonal|tournament)\b", re.I)
+
+
+def is_blacklisted_title(title: str) -> bool:
+    if title.strip().lower() in SHOP_PAGE_BLACKLIST:
+        return True
+    return MODE_SPECIFIC_PATTERN.search(title) is not None
 
 
 def fetch_json(params: dict) -> dict:
@@ -93,7 +106,7 @@ def fetch_shop_pages(limit) -> list:
         data = fetch_json(params)
         for member in data.get("query", {}).get("categorymembers", []):
             title = member["title"]
-            if title.strip().lower() in SHOP_PAGE_BLACKLIST:
+            if is_blacklisted_title(title):
                 continue
             titles.append(title)
             if limit is not None and len(titles) >= limit:
@@ -341,7 +354,8 @@ def parse_shop_page(title: str, wikitext: str, html: str) -> list:
         cost = ""
         has_coin_price = row["isCoinShop"] and row["soldAt"] is not None
         if has_coin_price:
-            cost = f"{row['soldAt']:,} coins"
+            unit = "coin" if row["soldAt"] == 1 else "coins"
+            cost = f"{row['soldAt']:,} {unit}"
 
         records.append({
             "itemName": item_name,
