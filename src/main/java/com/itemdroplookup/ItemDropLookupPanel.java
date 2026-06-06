@@ -1,4 +1,4 @@
-package com.example;
+package com.itemdroplookup;
 
 import net.runelite.client.ui.ColorScheme;
 import net.runelite.client.ui.PluginPanel;

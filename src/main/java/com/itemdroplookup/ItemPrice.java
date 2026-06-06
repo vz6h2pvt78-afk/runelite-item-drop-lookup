@@ -1,4 +1,4 @@
-package com.example;
+package com.itemdroplookup;
 
 public class ItemPrice
 {

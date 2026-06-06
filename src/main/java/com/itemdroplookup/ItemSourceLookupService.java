@@ -1,4 +1,4 @@
-package com.example;
+package com.itemdroplookup;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -12,33 +12,33 @@ import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
-import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Singleton
-public class ItemPriceLookupService
+public class ItemSourceLookupService
 {
-    private static final String PRICES_RESOURCE = "/ge_prices.json";
+    private static final String SOURCES_RESOURCE = "/item_sources.json";
 
     private final Gson gson;
-    private List<ItemPriceRecord> itemPriceRecords;
+    private List<ItemSourceRecord> itemSourceRecords;
 
     @Inject
-    public ItemPriceLookupService(Gson gson)
+    public ItemSourceLookupService(Gson gson)
     {
         this.gson = gson;
     }
 
-    public Optional<ItemPrice> searchByItemName(String itemName)
+    public List<ItemSource> searchByItemName(String itemName)
     {
         if (itemName == null || itemName.trim().isEmpty())
         {
-            return Optional.empty();
+            return Collections.emptyList();
         }
 
         String query = normalize(itemName);
         String compactQuery = compactNormalize(itemName);
 
-        return getItemPriceRecords().stream()
+        return getItemSourceRecords().stream()
                 .filter(record -> record.itemName != null)
                 .filter(record ->
                 {
@@ -46,16 +46,18 @@ public class ItemPriceLookupService
                     String compactItem = compactNormalize(record.itemName);
 
                     return normalizedItem.equals(query)
-                            || compactItem.equals(compactQuery);
+                            || compactItem.equals(compactQuery)
+                            || normalizedItem.contains(query);
                 })
-                .findFirst()
-                .map(record -> new ItemPrice(
+                .map(record -> new ItemSource(
                         record.itemName,
-                        record.price,
-                        record.highAlch,
-                        record.tradeable,
+                        record.sourceType,
+                        record.sourceName,
+                        record.location,
+                        record.cost,
                         record.notes
-                ));
+                ))
+                .collect(Collectors.toList());
     }
 
     private String normalize(String value)
@@ -73,46 +75,47 @@ public class ItemPriceLookupService
                 .replaceAll("[^a-z0-9]", "");
     }
 
-    private List<ItemPriceRecord> getItemPriceRecords()
+    private List<ItemSourceRecord> getItemSourceRecords()
     {
-        if (itemPriceRecords != null)
+        if (itemSourceRecords != null)
         {
-            return itemPriceRecords;
+            return itemSourceRecords;
         }
 
-        try (InputStream inputStream = ItemPriceLookupService.class.getResourceAsStream(PRICES_RESOURCE))
+        try (InputStream inputStream = ItemSourceLookupService.class.getResourceAsStream(SOURCES_RESOURCE))
         {
             if (inputStream == null)
             {
-                itemPriceRecords = Collections.emptyList();
-                return itemPriceRecords;
+                itemSourceRecords = Collections.emptyList();
+                return itemSourceRecords;
             }
 
             InputStreamReader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
-            Type listType = new TypeToken<List<ItemPriceRecord>>() {}.getType();
+            Type listType = new TypeToken<List<ItemSourceRecord>>() {}.getType();
 
-            itemPriceRecords = gson.fromJson(reader, listType);
+            itemSourceRecords = gson.fromJson(reader, listType);
 
-            if (itemPriceRecords == null)
+            if (itemSourceRecords == null)
             {
-                itemPriceRecords = Collections.emptyList();
+                itemSourceRecords = Collections.emptyList();
             }
 
-            return itemPriceRecords;
+            return itemSourceRecords;
         }
         catch (Exception ex)
         {
-            itemPriceRecords = Collections.emptyList();
-            return itemPriceRecords;
+            itemSourceRecords = Collections.emptyList();
+            return itemSourceRecords;
         }
     }
 
-    private static class ItemPriceRecord
+    private static class ItemSourceRecord
     {
         private String itemName;
-        private String price;
-        private String highAlch;
-        private boolean tradeable;
+        private String sourceType;
+        private String sourceName;
+        private String location;
+        private String cost;
         private String notes;
     }
 }

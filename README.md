@@ -86,7 +86,7 @@ Current goals:
 ## Project Structure
 
 ```text
-src/main/java/com/example
+src/main/java/com/itemdroplookup
   DropLookupService.java
   DropSource.java
   ItemDropLookupConfig.java

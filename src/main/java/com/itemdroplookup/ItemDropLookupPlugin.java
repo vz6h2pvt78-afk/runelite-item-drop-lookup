@@ -1,4 +1,4 @@
-package com.example;
+package com.itemdroplookup;
 
 import com.google.inject.Provides;
 import java.awt.image.BufferedImage;
