@@ -242,7 +242,7 @@ public class ItemDropLookupPanel extends PluginPanel
                 {
                     for (DropSource member : members)
                     {
-                        resultsPanel.add(makeDropCard(member));
+                        resultsPanel.add(makeDropCard(member, false));
                     }
                     displayedDropSources += memberCount;
                 }
@@ -289,7 +289,12 @@ public class ItemDropLookupPanel extends PluginPanel
         String expandedText  = "▾ " + group.getParentName() + " (" + memberCount + ")";
 
         JLabel header = new JLabel("<html><b>" + escapeHtml(collapsedText) + "</b></html>");
-        header.setBorder(new EmptyBorder(10, 0, 6, 0));
+        header.setOpaque(true);
+        header.setBackground(ColorScheme.DARK_GRAY_HOVER_COLOR);
+        header.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createMatteBorder(0, 0, 1, 0, ColorScheme.MEDIUM_GRAY_COLOR),
+                new EmptyBorder(8, 8, 6, 8)
+        ));
         header.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         header.setMaximumSize(new Dimension(Integer.MAX_VALUE, header.getPreferredSize().height));
 
@@ -297,12 +302,15 @@ public class ItemDropLookupPanel extends PluginPanel
         membersPanel.setLayout(new BoxLayout(membersPanel, BoxLayout.Y_AXIS));
         membersPanel.setBackground(ColorScheme.DARK_GRAY_COLOR);
         membersPanel.setAlignmentX(LEFT_ALIGNMENT);
-        membersPanel.setBorder(new EmptyBorder(0, 8, 6, 0));
+        membersPanel.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createMatteBorder(0, 2, 0, 0, ColorScheme.MEDIUM_GRAY_COLOR),
+                new EmptyBorder(0, 8, 6, 0)
+        ));
         membersPanel.setVisible(false);
 
         for (DropSource member : group.getMembers())
         {
-            membersPanel.add(makeDropCard(member));
+            membersPanel.add(makeDropCard(member, true));
         }
 
         header.addMouseListener(new MouseAdapter()
@@ -354,13 +362,36 @@ public class ItemDropLookupPanel extends PluginPanel
 
     private JPanel makeDropCard(DropSource source)
     {
+        return makeDropCard(source, false);
+    }
+
+    private JPanel makeDropCard(DropSource source, boolean nested)
+    {
         JPanel card = new JPanel();
         card.setLayout(new BoxLayout(card, BoxLayout.Y_AXIS));
         card.setBackground(ColorScheme.DARKER_GRAY_COLOR);
-        card.setBorder(BorderFactory.createCompoundBorder(
-                new EmptyBorder(4, 0, 6, 0),
-                new EmptyBorder(8, 8, 8, 8)
-        ));
+
+        if (nested)
+        {
+            // Group children are tighter/compact; the group header bar and left
+            // rail already separate them, so no per-card outline is needed.
+            card.setBorder(BorderFactory.createCompoundBorder(
+                    new EmptyBorder(2, 0, 2, 0),
+                    new EmptyBorder(6, 8, 6, 8)
+            ));
+        }
+        else
+        {
+            // Unrelated top-level cards get a thin outline plus extra bottom
+            // spacing so they read as separate entities, not one continuous list.
+            card.setBorder(BorderFactory.createCompoundBorder(
+                    new EmptyBorder(4, 0, 10, 0),
+                    BorderFactory.createCompoundBorder(
+                            BorderFactory.createMatteBorder(1, 1, 1, 1, ColorScheme.MEDIUM_GRAY_COLOR),
+                            new EmptyBorder(8, 8, 8, 8)
+                    )
+            ));
+        }
 
         card.add(makeCardTitle(source.getMonsterName()));
 
