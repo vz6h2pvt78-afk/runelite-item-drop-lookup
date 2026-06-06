@@ -50,25 +50,55 @@ public class DropLookupService
         // 1. Exact item-name match.
         matches.addAll(getRecordsByItemName().getOrDefault(resolvedQuery, Collections.emptyList()));
 
-        // 2. Partial and compact matching.
-        // This catches:
-        // dragonboots -> dragon boots
-        // gracefulhood -> graceful hood
-        // runepouch -> rune pouch
+        // 2. Compact normalized matching.
+        // Compact matching ignores spaces, apostrophes, and punctuation so common
+        // player input variations resolve to the same item:
+        //   abyssalwhip  -> abyssal whip
+        //   hydrasclaw   -> hydra's claw
+        //   zulrahscales -> zulrah's scales
+        //   brimstonekey -> brimstone key
+        // Results are ranked: exact compact match, then starts-with, then contains.
+        // Only the most specific non-empty tier is used, which keeps precise
+        // matches from being diluted by broad substring hits.
         if (matches.isEmpty())
         {
             String compactQuery = compactNormalize(resolvedQuery);
 
-            for (Map.Entry<String, List<DropRecord>> entry : getRecordsByItemName().entrySet())
+            if (!compactQuery.isEmpty())
             {
-                String item = entry.getKey();
-                String compactItem = compactNormalize(item);
+                List<DropRecord> exactCompact = new ArrayList<>();
+                List<DropRecord> startsWith = new ArrayList<>();
+                List<DropRecord> contains = new ArrayList<>();
 
-                if (item.contains(resolvedQuery)
-                        || compactItem.equals(compactQuery)
-                        || allWordsMatch(item, resolvedQuery))
+                for (Map.Entry<String, List<DropRecord>> entry : getRecordsByItemName().entrySet())
                 {
-                    matches.addAll(entry.getValue());
+                    String compactItem = compactNormalize(entry.getKey());
+
+                    if (compactItem.equals(compactQuery))
+                    {
+                        exactCompact.addAll(entry.getValue());
+                    }
+                    else if (compactItem.startsWith(compactQuery))
+                    {
+                        startsWith.addAll(entry.getValue());
+                    }
+                    else if (compactItem.contains(compactQuery))
+                    {
+                        contains.addAll(entry.getValue());
+                    }
+                }
+
+                if (!exactCompact.isEmpty())
+                {
+                    matches.addAll(exactCompact);
+                }
+                else if (!startsWith.isEmpty())
+                {
+                    matches.addAll(startsWith);
+                }
+                else
+                {
+                    matches.addAll(contains);
                 }
             }
         }
@@ -126,21 +156,6 @@ public class DropLookupService
         aliases.put("r scim", "rune scimitar");
 
         return aliases.getOrDefault(query, query);
-    }
-
-    private boolean allWordsMatch(String itemName, String query)
-    {
-        String[] words = query.split("\\s+");
-
-        for (String word : words)
-        {
-            if (!itemName.contains(word))
-            {
-                return false;
-            }
-        }
-
-        return true;
     }
 
     private boolean roughlyMatches(String itemName, String query)
