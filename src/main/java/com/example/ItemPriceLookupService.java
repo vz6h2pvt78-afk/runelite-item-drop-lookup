@@ -3,6 +3,7 @@ package com.example;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -18,8 +19,14 @@ public class ItemPriceLookupService
 {
     private static final String PRICES_RESOURCE = "/ge_prices.json";
 
-    private final Gson gson = new Gson();
+    private final Gson gson;
     private List<ItemPriceRecord> itemPriceRecords;
+
+    @Inject
+    public ItemPriceLookupService(Gson gson)
+    {
+        this.gson = gson;
+    }
 
     public Optional<ItemPrice> searchByItemName(String itemName)
     {

@@ -3,6 +3,7 @@ package com.example;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -24,9 +25,15 @@ public class DropLookupService
 {
     private static final String DROPS_RESOURCE = "/wiki_drops_test.json";
 
-    private final Gson gson = new Gson();
+    private final Gson gson;
     private List<DropRecord> dropRecords;
     private Map<String, List<DropRecord>> recordsByItemName;
+
+    @Inject
+    public DropLookupService(Gson gson)
+    {
+        this.gson = gson;
+    }
 
     public List<DropSource> searchByItemName(String itemName)
     {

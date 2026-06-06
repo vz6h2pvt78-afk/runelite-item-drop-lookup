@@ -3,6 +3,7 @@ package com.example;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -18,8 +19,14 @@ public class ItemSourceLookupService
 {
     private static final String SOURCES_RESOURCE = "/item_sources.json";
 
-    private final Gson gson = new Gson();
+    private final Gson gson;
     private List<ItemSourceRecord> itemSourceRecords;
+
+    @Inject
+    public ItemSourceLookupService(Gson gson)
+    {
+        this.gson = gson;
+    }
 
     public List<ItemSource> searchByItemName(String itemName)
     {
