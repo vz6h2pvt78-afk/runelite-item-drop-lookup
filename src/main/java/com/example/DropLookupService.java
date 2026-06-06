@@ -73,16 +73,20 @@ public class DropLookupService
                 for (Map.Entry<String, List<DropRecord>> entry : getRecordsByItemName().entrySet())
                 {
                     String compactItem = compactNormalize(entry.getKey());
+                    // Second variant with the possessive "'s" dropped, so the
+                    // possessive s is optional: "Zulrah's scales" matches both
+                    // "zulrahsscales" and "zulrahscales".
+                    String compactItemNoPossessive = compactNormalizePossessive(entry.getKey());
 
-                    if (compactItem.equals(compactQuery))
+                    if (compactItem.equals(compactQuery) || compactItemNoPossessive.equals(compactQuery))
                     {
                         exactCompact.addAll(entry.getValue());
                     }
-                    else if (compactItem.startsWith(compactQuery))
+                    else if (compactItem.startsWith(compactQuery) || compactItemNoPossessive.startsWith(compactQuery))
                     {
                         startsWith.addAll(entry.getValue());
                     }
-                    else if (compactItem.contains(compactQuery))
+                    else if (compactItem.contains(compactQuery) || compactItemNoPossessive.contains(compactQuery))
                     {
                         contains.addAll(entry.getValue());
                     }
@@ -256,6 +260,16 @@ public class DropLookupService
     private String compactNormalize(String value)
     {
         return normalize(value)
+                .replaceAll("[^a-z0-9]", "");
+    }
+
+    private String compactNormalizePossessive(String value)
+    {
+        // Drop a possessive "'s" at a word boundary (e.g. "Zulrah's scales" ->
+        // "zulrah scales") before compacting. Used as an additional match variant
+        // so possessive item names are searchable with or without the possessive s.
+        return normalize(value)
+                .replaceAll("'s\\b", "")
                 .replaceAll("[^a-z0-9]", "");
     }
 
