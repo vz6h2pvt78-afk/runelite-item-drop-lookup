@@ -12,7 +12,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 API_URL = "https://oldschool.runescape.wiki/api.php"
 
-OUTPUT_FILE = PROJECT_ROOT / "src" / "main" / "resources" / "wiki_drops_test.json"
+OUTPUT_FILE = PROJECT_ROOT / "src" / "main" / "resources" / "wiki_monster_drops.json"
 
 HEADERS = {
     "User-Agent": "ItemDropLookupPluginDataBuilder/0.1 local-dev"
