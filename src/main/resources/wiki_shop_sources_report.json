@@ -1,11 +1,11 @@
 {
-  "shopsInspected": 60,
-  "recordsBeforeDedupe": 389,
-  "recordsGenerated": 383,
-  "duplicatesCollapsed": 6,
-  "recordsWithCost": 374,
-  "recordsWithBlankCost": 9,
-  "pagesWithNoStoreTable": 33,
+  "shopsInspected": 492,
+  "recordsBeforeDedupe": 5653,
+  "recordsGenerated": 4988,
+  "duplicatesCollapsed": 665,
+  "recordsWithCost": 4686,
+  "recordsWithBlankCost": 302,
+  "pagesWithNoStoreTable": 44,
   "failedPages": [],
   "sampleNoStoreTablePages": [
     "Shop",
@@ -26,11 +26,67 @@
   ],
   "sampleRecords": [
     {
+      "itemName": "Absorption (1)",
+      "sourceType": "Shop",
+      "sourceName": "Dom Onion's Reward Shop",
+      "location": "Yanille",
+      "cost": "",
+      "notes": "Members shop."
+    },
+    {
+      "itemName": "Abyssal dagger imbue scroll",
+      "sourceType": "Shop",
+      "sourceName": "Bounty Hunter Store",
+      "location": "Daimon's Crater",
+      "cost": "150 coins",
+      "notes": "Members shop. Cost increases as stock depletes."
+    },
+    {
+      "itemName": "Achey tree logs",
+      "sourceType": "Shop",
+      "sourceName": "~ Uglug's stuffsies ~",
+      "location": "Jiggig",
+      "cost": "4 coins",
+      "notes": "Members shop. Default stock: 100. Restock: 1m (100t). Cost increases as stock depletes."
+    },
+    {
       "itemName": "Adamant 2h sword",
       "sourceType": "Shop",
       "sourceName": "Armoury",
       "location": "Combat Training Camp",
       "cost": "9,600 coins",
+      "notes": "Members shop. Default stock: 1. Restock: 2h 30m (15,000t). Cost increases as stock depletes."
+    },
+    {
+      "itemName": "Adamant 2h sword",
+      "sourceType": "Shop",
+      "sourceName": "Briget's Weapons",
+      "location": "Shayzien",
+      "cost": "6,400 coins",
+      "notes": "Members shop. Default stock: 1. Restock: 2h 30m (15,000t). Cost increases as stock depletes."
+    },
+    {
+      "itemName": "Adamant 2h sword",
+      "sourceType": "Shop",
+      "sourceName": "Gaius' Two Handed Shop.",
+      "location": "Taverley",
+      "cost": "6,400 coins",
+      "notes": "Members shop. Default stock: 1. Restock: 2h 30m (15,000t). Cost increases as stock depletes."
+    },
+    {
+      "itemName": "Adamant 2h sword",
+      "sourceType": "Shop",
+      "sourceName": "Gulluck and Sons",
+      "location": "Grand Tree,",
+      "cost": "6,400 coins",
+      "notes": "Members shop. Default stock: 1. Restock: 2h 30m (15,000t). Cost increases as stock depletes."
+    },
+    {
+      "itemName": "Adamant 2h sword",
+      "sourceType": "Shop",
+      "sourceName": "Warrior Guild Armoury",
+      "location": "of Warriors' Guild",
+      "cost": "7,680 coins",
       "notes": "Members shop. Default stock: 1. Restock: 2h 30m (15,000t). Cost increases as stock depletes."
     },
     {
@@ -42,68 +98,12 @@
       "notes": "Members shop. Default stock: 600. Restock: 12s (20t). Cost increases as stock depletes."
     },
     {
-      "itemName": "Adamant chainbody",
+      "itemName": "Adamant arrow",
       "sourceType": "Shop",
-      "sourceName": "Armour store.",
-      "location": "Blast Furnace in Keldagrim",
-      "cost": "4,800 coins",
-      "notes": "Members shop. Default stock: 0. Restock: 5m (500t). Cost increases as stock depletes."
-    },
-    {
-      "itemName": "Adamant full helm",
-      "sourceType": "Shop",
-      "sourceName": "Aneirin's Armour",
-      "location": "Prifddinas",
-      "cost": "3,520 coins",
-      "notes": "Members shop. Default stock: 3. Restock: 4m (400t). Cost increases as stock depletes."
-    },
-    {
-      "itemName": "Adamant full helm",
-      "sourceType": "Shop",
-      "sourceName": "Armour store.",
-      "location": "Blast Furnace in Keldagrim",
-      "cost": "3,520 coins",
-      "notes": "Members shop. Default stock: 0. Restock: 5m (500t). Cost increases as stock depletes."
-    },
-    {
-      "itemName": "Adamant kiteshield",
-      "sourceType": "Shop",
-      "sourceName": "Armour store.",
-      "location": "Blast Furnace in Keldagrim",
-      "cost": "5,440 coins",
-      "notes": "Members shop. Default stock: 0. Restock: 5m (500t). Cost increases as stock depletes."
-    },
-    {
-      "itemName": "Adamant med helm",
-      "sourceType": "Shop",
-      "sourceName": "Armour store.",
-      "location": "Blast Furnace in Keldagrim",
-      "cost": "1,920 coins",
-      "notes": "Members shop. Default stock: 0. Restock: 5m (500t). Cost increases as stock depletes."
-    },
-    {
-      "itemName": "Adamant platebody",
-      "sourceType": "Shop",
-      "sourceName": "Aneirin's Armour",
-      "location": "Prifddinas",
-      "cost": "16,640 coins",
-      "notes": "Members shop. Default stock: 3. Restock: 4m (400t). Cost increases as stock depletes."
-    },
-    {
-      "itemName": "Adamant platebody",
-      "sourceType": "Shop",
-      "sourceName": "Armour store.",
-      "location": "Blast Furnace in Keldagrim",
-      "cost": "16,640 coins",
-      "notes": "Members shop. Default stock: 0. Restock: 5m (500t). Cost increases as stock depletes."
-    },
-    {
-      "itemName": "Adamant platelegs",
-      "sourceType": "Shop",
-      "sourceName": "Aneirin's Armour",
-      "location": "Prifddinas",
-      "cost": "6,400 coins",
-      "notes": "Members shop. Default stock: 3. Restock: 4m (400t). Cost increases as stock depletes."
+      "sourceName": "Brian's Archery Supplies.",
+      "location": "Rimmington",
+      "cost": "80 coins",
+      "notes": "Default stock: 800. Restock: 12s (20t). Cost increases as stock depletes."
     }
   ]
 }
