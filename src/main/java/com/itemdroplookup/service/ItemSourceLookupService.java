@@ -72,17 +72,7 @@ public class ItemSourceLookupService
         String query = normalize(itemName);
         String compactQuery = compactNormalize(itemName);
 
-        return getItemSourceRecords().stream()
-                .filter(record -> record.itemName != null)
-                .filter(record ->
-                {
-                    String normalizedItem = normalize(record.itemName);
-                    String compactItem = compactNormalize(record.itemName);
-
-                    return normalizedItem.equals(query)
-                            || compactItem.equals(compactQuery)
-                            || normalizedItem.contains(query);
-                })
+        return selectMostSpecificMatches(query, compactQuery).stream()
                 .map(record -> new ItemSource(
                         record.itemName,
                         record.sourceType,
@@ -92,6 +82,67 @@ public class ItemSourceLookupService
                         record.notes
                 ))
                 .collect(Collectors.toList());
+    }
+
+    /**
+     * Tiered matching that returns only the most specific non-empty tier, so a precise
+     * query is not diluted by broad substring hits (e.g. "rune pouch" should not also
+     * return "Rune pouch note"). Tiers, in order:
+     *   1. exact normalized item-name match
+     *   2. compact exact match (ignores spaces/punctuation: "runepouch" -> "rune pouch")
+     *   3. starts-with match
+     *   4. contains match
+     * Records are scanned in load order (curated first, then generated and suppression-
+     * filtered), so result order is stable within whichever tier is selected.
+     */
+    private List<ItemSourceRecord> selectMostSpecificMatches(String query, String compactQuery)
+    {
+        List<ItemSourceRecord> exact = new ArrayList<>();
+        List<ItemSourceRecord> compactExact = new ArrayList<>();
+        List<ItemSourceRecord> startsWith = new ArrayList<>();
+        List<ItemSourceRecord> contains = new ArrayList<>();
+
+        for (ItemSourceRecord record : getItemSourceRecords())
+        {
+            if (record.itemName == null)
+            {
+                continue;
+            }
+
+            String normalizedItem = normalize(record.itemName);
+            String compactItem = compactNormalize(record.itemName);
+
+            if (normalizedItem.equals(query))
+            {
+                exact.add(record);
+            }
+            else if (!compactQuery.isEmpty() && compactItem.equals(compactQuery))
+            {
+                compactExact.add(record);
+            }
+            else if (normalizedItem.startsWith(query))
+            {
+                startsWith.add(record);
+            }
+            else if (normalizedItem.contains(query))
+            {
+                contains.add(record);
+            }
+        }
+
+        if (!exact.isEmpty())
+        {
+            return exact;
+        }
+        if (!compactExact.isEmpty())
+        {
+            return compactExact;
+        }
+        if (!startsWith.isEmpty())
+        {
+            return startsWith;
+        }
+        return contains;
     }
 
     private String normalize(String value)
