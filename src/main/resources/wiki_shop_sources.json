@@ -1,7 +1,7 @@
 [
   {
     "itemName": "Absorption (1)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Dom Onion's Reward Shop",
     "location": "Yanille",
     "cost": "",
@@ -417,7 +417,7 @@
   },
   {
     "itemName": "Adamant javelin (x20)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Ranging Guild Ticket Exchange",
     "location": "Ranging Guild",
     "cost": "",
@@ -953,7 +953,7 @@
   },
   {
     "itemName": "Agility XP",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Agility Arena Store",
     "location": "Brimhaven",
     "cost": "",
@@ -1009,7 +1009,7 @@
   },
   {
     "itemName": "Air rune",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Dom Onion's Reward Shop",
     "location": "Yanille",
     "cost": "25 coins",
@@ -1313,7 +1313,7 @@
   },
   {
     "itemName": "Amy's saw",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Mahogany Homes Reward Shop",
     "location": "Falador",
     "cost": "",
@@ -1321,7 +1321,7 @@
   },
   {
     "itemName": "Amylase pack",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Agility Arena Store",
     "location": "Brimhaven",
     "cost": "60 coins",
@@ -1329,7 +1329,7 @@
   },
   {
     "itemName": "Amylase pack",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Grace's Graceful Clothing",
     "location": "Rogues' Den (Burthorpe)",
     "cost": "",
@@ -1353,7 +1353,7 @@
   },
   {
     "itemName": "Angler boots",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Alry the Angler's Angling Accessories",
     "location": "Molch lake",
     "cost": "",
@@ -1361,7 +1361,7 @@
   },
   {
     "itemName": "Angler hat",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Alry the Angler's Angling Accessories",
     "location": "Molch lake",
     "cost": "",
@@ -1369,7 +1369,7 @@
   },
   {
     "itemName": "Angler top",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Alry the Angler's Angling Accessories",
     "location": "Molch lake",
     "cost": "",
@@ -1377,7 +1377,7 @@
   },
   {
     "itemName": "Angler waders",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Alry the Angler's Angling Accessories",
     "location": "Molch lake",
     "cost": "",
@@ -1577,7 +1577,7 @@
   },
   {
     "itemName": "Auto-weed",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Farmer Gricoller's Rewards",
     "location": "Hosidius",
     "cost": "50 coins",
@@ -1625,7 +1625,7 @@
   },
   {
     "itemName": "Bag full of gems",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Dusuri's Star Shop",
     "location": "Falador",
     "cost": "",
@@ -1633,7 +1633,7 @@
   },
   {
     "itemName": "Bag full of gems",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Mining Guild Mineral Exchange",
     "location": "Mining Guild",
     "cost": "",
@@ -1641,7 +1641,7 @@
   },
   {
     "itemName": "Bag full of gems",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Prospector Percy's Nugget Shop",
     "location": "Motherlode Mine",
     "cost": "",
@@ -2097,7 +2097,7 @@
   },
   {
     "itemName": "Barb bolttips (x30)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Ranging Guild Ticket Exchange",
     "location": "Ranging Guild",
     "cost": "",
@@ -3489,7 +3489,7 @@
   },
   {
     "itemName": "Blighted ancient ice sack (x30)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Soul Wars Reward Shop",
     "location": "Isle of Souls",
     "cost": "10 coins",
@@ -3513,7 +3513,7 @@
   },
   {
     "itemName": "Blighted anglerfish (x15)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Soul Wars Reward Shop",
     "location": "Isle of Souls",
     "cost": "10 coins",
@@ -3529,7 +3529,7 @@
   },
   {
     "itemName": "Blighted entangle sack (x70)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Soul Wars Reward Shop",
     "location": "Isle of Souls",
     "cost": "10 coins",
@@ -3545,7 +3545,7 @@
   },
   {
     "itemName": "Blighted karambwan (x12)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Soul Wars Reward Shop",
     "location": "Isle of Souls",
     "cost": "10 coins",
@@ -3577,7 +3577,7 @@
   },
   {
     "itemName": "Blighted manta ray (x15)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Soul Wars Reward Shop",
     "location": "Isle of Souls",
     "cost": "10 coins",
@@ -3601,7 +3601,7 @@
   },
   {
     "itemName": "Blighted super restore(4) (x4)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Soul Wars Reward Shop",
     "location": "Isle of Souls",
     "cost": "10 coins",
@@ -3609,7 +3609,7 @@
   },
   {
     "itemName": "Blighted surge sack (x50)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "PvP Arena Rewards",
     "location": "Emir's Arena",
     "cost": "",
@@ -3625,7 +3625,7 @@
   },
   {
     "itemName": "Blighted teleport spell sack (x50)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Soul Wars Reward Shop",
     "location": "Isle of Souls",
     "cost": "10 coins",
@@ -3641,7 +3641,7 @@
   },
   {
     "itemName": "Blighted vengeance sack (x50)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Soul Wars Reward Shop",
     "location": "Isle of Souls",
     "cost": "10 coins",
@@ -4073,7 +4073,7 @@
   },
   {
     "itemName": "Bologa's blessing (x20)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Farmer Gricoller's Rewards",
     "location": "Hosidius",
     "cost": "1 coin",
@@ -4313,7 +4313,7 @@
   },
   {
     "itemName": "Bow string spool",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Vale Research Exchange",
     "location": "Auburnvale",
     "cost": "250 coins",
@@ -5049,7 +5049,7 @@
   },
   {
     "itemName": "Broad arrows (x250)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Slayer Rewards",
     "location": "",
     "cost": "35 coins",
@@ -5057,7 +5057,7 @@
   },
   {
     "itemName": "Broad bolts (x250)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Slayer Rewards",
     "location": "",
     "cost": "35 coins",
@@ -7001,7 +7001,7 @@
   },
   {
     "itemName": "Bucket of sand",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Dom Onion's Reward Shop",
     "location": "Yanille",
     "cost": "200 coins",
@@ -7761,7 +7761,7 @@
   },
   {
     "itemName": "Cape pouch",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
@@ -7769,7 +7769,7 @@
   },
   {
     "itemName": "Carpenter's boots",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Mahogany Homes Reward Shop",
     "location": "Falador",
     "cost": "",
@@ -7777,7 +7777,7 @@
   },
   {
     "itemName": "Carpenter's helmet",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Mahogany Homes Reward Shop",
     "location": "Falador",
     "cost": "",
@@ -7785,7 +7785,7 @@
   },
   {
     "itemName": "Carpenter's shirt",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Mahogany Homes Reward Shop",
     "location": "Falador",
     "cost": "",
@@ -7793,7 +7793,7 @@
   },
   {
     "itemName": "Carpenter's trousers",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Mahogany Homes Reward Shop",
     "location": "Falador",
     "cost": "",
@@ -7809,7 +7809,7 @@
   },
   {
     "itemName": "Castlewars cloak (Saradomin)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -7817,7 +7817,7 @@
   },
   {
     "itemName": "Castlewars cloak (Zamorak)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -7825,7 +7825,7 @@
   },
   {
     "itemName": "Castlewars hood (Saradomin)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -7833,7 +7833,7 @@
   },
   {
     "itemName": "Castlewars hood (Zamorak)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -7841,7 +7841,7 @@
   },
   {
     "itemName": "Celestial ring (uncharged)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Dusuri's Star Shop",
     "location": "Falador",
     "cost": "",
@@ -9137,7 +9137,7 @@
   },
   {
     "itemName": "Clothes pouch blueprint",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
@@ -9233,7 +9233,7 @@
   },
   {
     "itemName": "Coal bag",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Prospector Percy's Nugget Shop",
     "location": "Motherlode Mine",
     "cost": "",
@@ -9345,7 +9345,7 @@
   },
   {
     "itemName": "Coif",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Ranging Guild Ticket Exchange",
     "location": "Ranging Guild",
     "cost": "",
@@ -9361,7 +9361,7 @@
   },
   {
     "itemName": "Colossal blade",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Giants' Foundry Reward Shop",
     "location": "Giants' Foundry",
     "cost": "5,000 coins",
@@ -9505,7 +9505,7 @@
   },
   {
     "itemName": "Compost",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Farmer Gricoller's Rewards",
     "location": "Hosidius",
     "cost": "1 coin",
@@ -9657,7 +9657,7 @@
   },
   {
     "itemName": "Compost potion(4)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Dom Onion's Reward Shop",
     "location": "Yanille",
     "cost": "5,000 coins",
@@ -10225,7 +10225,7 @@
   },
   {
     "itemName": "Dark acorn",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Mysterious Hallowed Goods",
     "location": "Hallowed Sepulchre lobby",
     "cost": "",
@@ -10241,7 +10241,7 @@
   },
   {
     "itemName": "Dark dye",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Mysterious Hallowed Goods",
     "location": "Hallowed Sepulchre lobby",
     "cost": "",
@@ -10393,7 +10393,7 @@
   },
   {
     "itemName": "Decorative armour (gold platebody)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -10401,7 +10401,7 @@
   },
   {
     "itemName": "Decorative armour (gold platelegs)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -10409,7 +10409,7 @@
   },
   {
     "itemName": "Decorative armour (gold plateskirt)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -10417,7 +10417,7 @@
   },
   {
     "itemName": "Decorative armour (magic hat)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -10425,7 +10425,7 @@
   },
   {
     "itemName": "Decorative armour (magic legs)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -10433,7 +10433,7 @@
   },
   {
     "itemName": "Decorative armour (magic top)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -10441,7 +10441,7 @@
   },
   {
     "itemName": "Decorative armour (quiver)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -10449,7 +10449,7 @@
   },
   {
     "itemName": "Decorative armour (ranged legs)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -10457,7 +10457,7 @@
   },
   {
     "itemName": "Decorative armour (ranged top)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -10465,7 +10465,7 @@
   },
   {
     "itemName": "Decorative armour (red platebody)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -10473,7 +10473,7 @@
   },
   {
     "itemName": "Decorative armour (red platelegs)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -10481,7 +10481,7 @@
   },
   {
     "itemName": "Decorative armour (red plateskirt)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -10489,7 +10489,7 @@
   },
   {
     "itemName": "Decorative armour (white platebody)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -10497,7 +10497,7 @@
   },
   {
     "itemName": "Decorative armour (white platelegs)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -10505,7 +10505,7 @@
   },
   {
     "itemName": "Decorative armour (white plateskirt)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -10513,7 +10513,7 @@
   },
   {
     "itemName": "Decorative boots (gold)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -10521,7 +10521,7 @@
   },
   {
     "itemName": "Decorative boots (red)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -10529,7 +10529,7 @@
   },
   {
     "itemName": "Decorative boots (white)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -10545,7 +10545,7 @@
   },
   {
     "itemName": "Decorative full helm (gold)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -10553,7 +10553,7 @@
   },
   {
     "itemName": "Decorative full helm (red)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -10561,7 +10561,7 @@
   },
   {
     "itemName": "Decorative full helm (white)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -10569,7 +10569,7 @@
   },
   {
     "itemName": "Decorative helm (gold)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -10577,7 +10577,7 @@
   },
   {
     "itemName": "Decorative helm (red)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -10585,7 +10585,7 @@
   },
   {
     "itemName": "Decorative helm (white)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -10593,7 +10593,7 @@
   },
   {
     "itemName": "Decorative shield (gold)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -10601,7 +10601,7 @@
   },
   {
     "itemName": "Decorative shield (red)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -10609,7 +10609,7 @@
   },
   {
     "itemName": "Decorative shield (white)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -10617,7 +10617,7 @@
   },
   {
     "itemName": "Decorative sword (gold)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -10625,7 +10625,7 @@
   },
   {
     "itemName": "Decorative sword (red)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -10633,7 +10633,7 @@
   },
   {
     "itemName": "Decorative sword (white)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -11033,7 +11033,7 @@
   },
   {
     "itemName": "Double ammo mould",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Giants' Foundry Reward Shop",
     "location": "Giants' Foundry",
     "cost": "2,000 coins",
@@ -11409,7 +11409,7 @@
   },
   {
     "itemName": "Earth rune",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Dom Onion's Reward Shop",
     "location": "Yanille",
     "cost": "25 coins",
@@ -11649,7 +11649,7 @@
   },
   {
     "itemName": "Ectoplasmator",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Soul Wars Reward Shop",
     "location": "Isle of Souls",
     "cost": "250 coins",
@@ -13161,7 +13161,7 @@
   },
   {
     "itemName": "Ent branch",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Vale Research Exchange",
     "location": "Auburnvale",
     "cost": "20 coins",
@@ -13417,7 +13417,7 @@
   },
   {
     "itemName": "Farmer's boots",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Farmer Gricoller's Rewards",
     "location": "Hosidius",
     "cost": "50 coins",
@@ -13425,7 +13425,7 @@
   },
   {
     "itemName": "Farmer's boro trousers",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Farmer Gricoller's Rewards",
     "location": "Hosidius",
     "cost": "125 coins",
@@ -13433,7 +13433,7 @@
   },
   {
     "itemName": "Farmer's jacket",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Farmer Gricoller's Rewards",
     "location": "Hosidius",
     "cost": "150 coins",
@@ -13441,7 +13441,7 @@
   },
   {
     "itemName": "Farmer's shirt",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Farmer Gricoller's Rewards",
     "location": "Hosidius",
     "cost": "150 coins",
@@ -13449,7 +13449,7 @@
   },
   {
     "itemName": "Farmer's strawhat",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Farmer Gricoller's Rewards",
     "location": "Hosidius",
     "cost": "75 coins",
@@ -13761,7 +13761,7 @@
   },
   {
     "itemName": "Felling axe handle",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
@@ -13793,7 +13793,7 @@
   },
   {
     "itemName": "Fighter hat",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Barbarian Assault Reward Shop",
     "location": "Barbarian Assault",
     "cost": "",
@@ -13801,7 +13801,7 @@
   },
   {
     "itemName": "Fighter hat",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Commander Connad",
     "location": "",
     "cost": "",
@@ -13809,7 +13809,7 @@
   },
   {
     "itemName": "Fighter torso",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Barbarian Assault Reward Shop",
     "location": "Barbarian Assault",
     "cost": "",
@@ -13817,7 +13817,7 @@
   },
   {
     "itemName": "Fighter torso",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Commander Connad",
     "location": "",
     "cost": "",
@@ -13953,7 +13953,7 @@
   },
   {
     "itemName": "Fire rune",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Dom Onion's Reward Shop",
     "location": "Yanille",
     "cost": "25 coins",
@@ -14169,7 +14169,7 @@
   },
   {
     "itemName": "Fish sack",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Alry the Angler's Angling Accessories",
     "location": "Molch lake",
     "cost": "",
@@ -14465,7 +14465,7 @@
   },
   {
     "itemName": "Flax",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Dom Onion's Reward Shop",
     "location": "Yanille",
     "cost": "75 coins",
@@ -14497,7 +14497,7 @@
   },
   {
     "itemName": "Fletching knife",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Vale Research Exchange",
     "location": "Auburnvale",
     "cost": "350 coins",
@@ -14609,7 +14609,7 @@
   },
   {
     "itemName": "Forestry boots",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
@@ -14617,7 +14617,7 @@
   },
   {
     "itemName": "Forestry hat",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
@@ -14625,7 +14625,7 @@
   },
   {
     "itemName": "Forestry kit",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
@@ -14633,7 +14633,7 @@
   },
   {
     "itemName": "Forestry legs",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
@@ -14641,7 +14641,7 @@
   },
   {
     "itemName": "Forestry top",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
@@ -14681,7 +14681,7 @@
   },
   {
     "itemName": "Fox whistle",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
@@ -14993,7 +14993,7 @@
   },
   {
     "itemName": "Funky shaped log",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
@@ -15193,7 +15193,7 @@
   },
   {
     "itemName": "Gem bag",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Prospector Percy's Nugget Shop",
     "location": "Motherlode Mine",
     "cost": "",
@@ -15273,7 +15273,7 @@
   },
   {
     "itemName": "Giant stopwatch",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Speedrunning Reward Shop",
     "location": "Varrock",
     "cost": "",
@@ -15625,7 +15625,7 @@
   },
   {
     "itemName": "Golden pheasant egg",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
@@ -15713,7 +15713,7 @@
   },
   {
     "itemName": "Graceful boots",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Grace's Graceful Clothing",
     "location": "Rogues' Den (Burthorpe)",
     "cost": "",
@@ -15721,7 +15721,7 @@
   },
   {
     "itemName": "Graceful cape",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Grace's Graceful Clothing",
     "location": "Rogues' Den (Burthorpe)",
     "cost": "",
@@ -15737,7 +15737,7 @@
   },
   {
     "itemName": "Graceful gloves",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Grace's Graceful Clothing",
     "location": "Rogues' Den (Burthorpe)",
     "cost": "",
@@ -15745,7 +15745,7 @@
   },
   {
     "itemName": "Graceful hood",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Grace's Graceful Clothing",
     "location": "Rogues' Den (Burthorpe)",
     "cost": "",
@@ -15753,7 +15753,7 @@
   },
   {
     "itemName": "Graceful legs",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Grace's Graceful Clothing",
     "location": "Rogues' Den (Burthorpe)",
     "cost": "",
@@ -15761,7 +15761,7 @@
   },
   {
     "itemName": "Graceful outfit recolour",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Brimhaven Agility Arena Ticket Exchange",
     "location": "Brimhaven",
     "cost": "250 coins",
@@ -15769,7 +15769,7 @@
   },
   {
     "itemName": "Graceful Recolour",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Agility Arena Store",
     "location": "Brimhaven",
     "cost": "250 coins",
@@ -15777,7 +15777,7 @@
   },
   {
     "itemName": "Graceful top",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Grace's Graceful Clothing",
     "location": "Rogues' Den (Burthorpe)",
     "cost": "",
@@ -15793,7 +15793,7 @@
   },
   {
     "itemName": "Granite body",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Barbarian Assault Reward Shop",
     "location": "Barbarian Assault",
     "cost": "",
@@ -15801,7 +15801,7 @@
   },
   {
     "itemName": "Granite body",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Commander Connad",
     "location": "",
     "cost": "",
@@ -15817,7 +15817,7 @@
   },
   {
     "itemName": "Grape seed",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Farmer Gricoller's Rewards",
     "location": "Hosidius",
     "cost": "2 coins",
@@ -15881,7 +15881,7 @@
   },
   {
     "itemName": "Green d'hide body",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Ranging Guild Ticket Exchange",
     "location": "Ranging Guild",
     "cost": "",
@@ -16001,7 +16001,7 @@
   },
   {
     "itemName": "Greenman mask",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Vale Research Exchange",
     "location": "Auburnvale",
     "cost": "500 coins",
@@ -16193,7 +16193,7 @@
   },
   {
     "itemName": "Gricoller's can",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Farmer Gricoller's Rewards",
     "location": "Hosidius",
     "cost": "200 coins",
@@ -16201,7 +16201,7 @@
   },
   {
     "itemName": "Grid master altar icon scroll",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Events Reward Shop",
     "location": "Varrock Square",
     "cost": "6,000 coins",
@@ -16209,7 +16209,7 @@
   },
   {
     "itemName": "Grid master tabard",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Events Reward Shop",
     "location": "Varrock Square",
     "cost": "750 coins",
@@ -16217,7 +16217,7 @@
   },
   {
     "itemName": "Grid master tabard (b)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Events Reward Shop",
     "location": "Varrock Square",
     "cost": "750 coins",
@@ -16225,7 +16225,7 @@
   },
   {
     "itemName": "Grid master tabard (g)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Events Reward Shop",
     "location": "Varrock Square",
     "cost": "750 coins",
@@ -16233,7 +16233,7 @@
   },
   {
     "itemName": "Grid master tabard (p)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Events Reward Shop",
     "location": "Varrock Square",
     "cost": "750 coins",
@@ -16241,7 +16241,7 @@
   },
   {
     "itemName": "Grid master torch scroll",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Events Reward Shop",
     "location": "Varrock Square",
     "cost": "6,000 coins",
@@ -16305,7 +16305,7 @@
   },
   {
     "itemName": "Guthix halo",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -16337,7 +16337,7 @@
   },
   {
     "itemName": "Hallowed crystal shard",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Mysterious Hallowed Goods",
     "location": "Hallowed Sepulchre lobby",
     "cost": "",
@@ -16345,7 +16345,7 @@
   },
   {
     "itemName": "Hallowed focus",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Mysterious Hallowed Goods",
     "location": "Hallowed Sepulchre lobby",
     "cost": "",
@@ -16353,7 +16353,7 @@
   },
   {
     "itemName": "Hallowed grapple",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Mysterious Hallowed Goods",
     "location": "Hallowed Sepulchre lobby",
     "cost": "",
@@ -16361,7 +16361,7 @@
   },
   {
     "itemName": "Hallowed hammer",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Mysterious Hallowed Goods",
     "location": "Hallowed Sepulchre lobby",
     "cost": "",
@@ -16369,7 +16369,7 @@
   },
   {
     "itemName": "Hallowed ring",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Mysterious Hallowed Goods",
     "location": "Hallowed Sepulchre lobby",
     "cost": "",
@@ -16377,7 +16377,7 @@
   },
   {
     "itemName": "Hallowed sack",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Mysterious Hallowed Goods",
     "location": "Hallowed Sepulchre lobby",
     "cost": "",
@@ -16385,7 +16385,7 @@
   },
   {
     "itemName": "Hallowed symbol",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Mysterious Hallowed Goods",
     "location": "Hallowed Sepulchre lobby",
     "cost": "",
@@ -16393,7 +16393,7 @@
   },
   {
     "itemName": "Hallowed token",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Mysterious Hallowed Goods",
     "location": "Hallowed Sepulchre lobby",
     "cost": "",
@@ -17129,7 +17129,7 @@
   },
   {
     "itemName": "Healer hat",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Barbarian Assault Reward Shop",
     "location": "Barbarian Assault",
     "cost": "",
@@ -17137,7 +17137,7 @@
   },
   {
     "itemName": "Healer hat",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Commander Connad",
     "location": "",
     "cost": "",
@@ -17161,7 +17161,7 @@
   },
   {
     "itemName": "Herb box",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Dom Onion's Reward Shop",
     "location": "Yanille",
     "cost": "9,500 coins",
@@ -17169,7 +17169,7 @@
   },
   {
     "itemName": "Herb box",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Farmer Gricoller's Rewards",
     "location": "Hosidius",
     "cost": "30 coins",
@@ -17177,7 +17177,7 @@
   },
   {
     "itemName": "Herb pack",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Void Knights' Reward Options",
     "location": "Void Knights' Outpost",
     "cost": "",
@@ -17185,7 +17185,7 @@
   },
   {
     "itemName": "Herb sack",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Farmer Gricoller's Rewards",
     "location": "Hosidius",
     "cost": "250 coins",
@@ -17193,7 +17193,7 @@
   },
   {
     "itemName": "Herb sack",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Slayer Rewards",
     "location": "",
     "cost": "750 coins",
@@ -17209,7 +17209,7 @@
   },
   {
     "itemName": "High Gamble",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Barbarian Assault Reward Shop",
     "location": "Barbarian Assault",
     "cost": "",
@@ -17217,7 +17217,7 @@
   },
   {
     "itemName": "High Gamble",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Commander Connad",
     "location": "",
     "cost": "",
@@ -17289,7 +17289,7 @@
   },
   {
     "itemName": "Hosidius blueprints",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Mahogany Homes Reward Shop",
     "location": "Falador",
     "cost": "",
@@ -19801,7 +19801,7 @@
   },
   {
     "itemName": "Kovac's grog",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Giants' Foundry Reward Shop",
     "location": "Giants' Foundry",
     "cost": "300 coins",
@@ -20289,7 +20289,7 @@
   },
   {
     "itemName": "Level up Attacker (2)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Barbarian Assault Reward Shop",
     "location": "Barbarian Assault",
     "cost": "",
@@ -20297,7 +20297,7 @@
   },
   {
     "itemName": "Level up Attacker (2)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Commander Connad",
     "location": "",
     "cost": "",
@@ -20305,7 +20305,7 @@
   },
   {
     "itemName": "Level up Attacker (3)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Barbarian Assault Reward Shop",
     "location": "Barbarian Assault",
     "cost": "",
@@ -20313,7 +20313,7 @@
   },
   {
     "itemName": "Level up Attacker (3)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Commander Connad",
     "location": "",
     "cost": "",
@@ -20321,7 +20321,7 @@
   },
   {
     "itemName": "Level up Attacker (4)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Barbarian Assault Reward Shop",
     "location": "Barbarian Assault",
     "cost": "",
@@ -20329,7 +20329,7 @@
   },
   {
     "itemName": "Level up Attacker (4)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Commander Connad",
     "location": "",
     "cost": "",
@@ -20337,7 +20337,7 @@
   },
   {
     "itemName": "Level up Attacker (5)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Barbarian Assault Reward Shop",
     "location": "Barbarian Assault",
     "cost": "",
@@ -20345,7 +20345,7 @@
   },
   {
     "itemName": "Level up Attacker (5)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Commander Connad",
     "location": "",
     "cost": "",
@@ -20353,7 +20353,7 @@
   },
   {
     "itemName": "Level up Collector (2)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Barbarian Assault Reward Shop",
     "location": "Barbarian Assault",
     "cost": "",
@@ -20361,7 +20361,7 @@
   },
   {
     "itemName": "Level up Collector (2)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Commander Connad",
     "location": "",
     "cost": "",
@@ -20369,7 +20369,7 @@
   },
   {
     "itemName": "Level up Collector (3)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Barbarian Assault Reward Shop",
     "location": "Barbarian Assault",
     "cost": "",
@@ -20377,7 +20377,7 @@
   },
   {
     "itemName": "Level up Collector (3)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Commander Connad",
     "location": "",
     "cost": "",
@@ -20385,7 +20385,7 @@
   },
   {
     "itemName": "Level up Collector (4)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Barbarian Assault Reward Shop",
     "location": "Barbarian Assault",
     "cost": "",
@@ -20393,7 +20393,7 @@
   },
   {
     "itemName": "Level up Collector (4)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Commander Connad",
     "location": "",
     "cost": "",
@@ -20401,7 +20401,7 @@
   },
   {
     "itemName": "Level up Collector (5)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Barbarian Assault Reward Shop",
     "location": "Barbarian Assault",
     "cost": "",
@@ -20409,7 +20409,7 @@
   },
   {
     "itemName": "Level up Collector (5)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Commander Connad",
     "location": "",
     "cost": "",
@@ -20417,7 +20417,7 @@
   },
   {
     "itemName": "Level up Defender (2)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Barbarian Assault Reward Shop",
     "location": "Barbarian Assault",
     "cost": "",
@@ -20425,7 +20425,7 @@
   },
   {
     "itemName": "Level up Defender (2)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Commander Connad",
     "location": "",
     "cost": "",
@@ -20433,7 +20433,7 @@
   },
   {
     "itemName": "Level up Defender (3)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Barbarian Assault Reward Shop",
     "location": "Barbarian Assault",
     "cost": "",
@@ -20441,7 +20441,7 @@
   },
   {
     "itemName": "Level up Defender (3)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Commander Connad",
     "location": "",
     "cost": "",
@@ -20449,7 +20449,7 @@
   },
   {
     "itemName": "Level up Defender (4)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Barbarian Assault Reward Shop",
     "location": "Barbarian Assault",
     "cost": "",
@@ -20457,7 +20457,7 @@
   },
   {
     "itemName": "Level up Defender (4)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Commander Connad",
     "location": "",
     "cost": "",
@@ -20465,7 +20465,7 @@
   },
   {
     "itemName": "Level up Defender (5)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Barbarian Assault Reward Shop",
     "location": "Barbarian Assault",
     "cost": "",
@@ -20473,7 +20473,7 @@
   },
   {
     "itemName": "Level up Defender (5)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Commander Connad",
     "location": "",
     "cost": "",
@@ -20481,7 +20481,7 @@
   },
   {
     "itemName": "Level up Healer (2)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Barbarian Assault Reward Shop",
     "location": "Barbarian Assault",
     "cost": "",
@@ -20489,7 +20489,7 @@
   },
   {
     "itemName": "Level up Healer (2)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Commander Connad",
     "location": "",
     "cost": "",
@@ -20497,7 +20497,7 @@
   },
   {
     "itemName": "Level up Healer (3)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Barbarian Assault Reward Shop",
     "location": "Barbarian Assault",
     "cost": "",
@@ -20505,7 +20505,7 @@
   },
   {
     "itemName": "Level up Healer (3)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Commander Connad",
     "location": "",
     "cost": "",
@@ -20513,7 +20513,7 @@
   },
   {
     "itemName": "Level up Healer (4)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Barbarian Assault Reward Shop",
     "location": "Barbarian Assault",
     "cost": "",
@@ -20521,7 +20521,7 @@
   },
   {
     "itemName": "Level up Healer (4)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Commander Connad",
     "location": "",
     "cost": "",
@@ -20529,7 +20529,7 @@
   },
   {
     "itemName": "Level up Healer (5)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Barbarian Assault Reward Shop",
     "location": "Barbarian Assault",
     "cost": "",
@@ -20537,7 +20537,7 @@
   },
   {
     "itemName": "Level up Healer (5)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Commander Connad",
     "location": "",
     "cost": "",
@@ -20809,7 +20809,7 @@
   },
   {
     "itemName": "Log basket",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
@@ -20817,7 +20817,7 @@
   },
   {
     "itemName": "Log brace",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
@@ -20905,7 +20905,7 @@
   },
   {
     "itemName": "Looting bag",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Slayer Rewards",
     "location": "",
     "cost": "10 coins",
@@ -20921,7 +20921,7 @@
   },
   {
     "itemName": "Low Gamble",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Barbarian Assault Reward Shop",
     "location": "Barbarian Assault",
     "cost": "",
@@ -20929,7 +20929,7 @@
   },
   {
     "itemName": "Low Gamble",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Commander Connad",
     "location": "",
     "cost": "",
@@ -20945,7 +20945,7 @@
   },
   {
     "itemName": "Lumberjack boots",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
@@ -20953,7 +20953,7 @@
   },
   {
     "itemName": "Lumberjack hat",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
@@ -20961,7 +20961,7 @@
   },
   {
     "itemName": "Lumberjack legs",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
@@ -20969,7 +20969,7 @@
   },
   {
     "itemName": "Lumberjack top",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
@@ -21593,7 +21593,7 @@
   },
   {
     "itemName": "Medium Gamble",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Barbarian Assault Reward Shop",
     "location": "Barbarian Assault",
     "cost": "",
@@ -21601,7 +21601,7 @@
   },
   {
     "itemName": "Medium Gamble",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Commander Connad",
     "location": "",
     "cost": "",
@@ -21945,7 +21945,7 @@
   },
   {
     "itemName": "Mineral pack",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Void Knights' Reward Options",
     "location": "Void Knights' Outpost",
     "cost": "",
@@ -21953,7 +21953,7 @@
   },
   {
     "itemName": "Mining gloves",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Mining Guild Mineral Exchange",
     "location": "Mining Guild",
     "cost": "",
@@ -24465,7 +24465,7 @@
   },
   {
     "itemName": "Ore pack",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Giants' Foundry Reward Shop",
     "location": "Giants' Foundry",
     "cost": "200 coins",
@@ -24489,7 +24489,7 @@
   },
   {
     "itemName": "Overload (1)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Dom Onion's Reward Shop",
     "location": "Yanille",
     "cost": "",
@@ -24633,7 +24633,7 @@
   },
   {
     "itemName": "Pearl barbarian rod",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Alry the Angler's Angling Accessories",
     "location": "Molch lake",
     "cost": "",
@@ -24649,7 +24649,7 @@
   },
   {
     "itemName": "Pearl fishing rod",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Alry the Angler's Angling Accessories",
     "location": "Molch lake",
     "cost": "",
@@ -24657,7 +24657,7 @@
   },
   {
     "itemName": "Pearl fly fishing rod",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Alry the Angler's Angling Accessories",
     "location": "Molch lake",
     "cost": "",
@@ -24665,7 +24665,7 @@
   },
   {
     "itemName": "Penance gloves",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Barbarian Assault Reward Shop",
     "location": "Barbarian Assault",
     "cost": "",
@@ -24673,7 +24673,7 @@
   },
   {
     "itemName": "Penance gloves",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Commander Connad",
     "location": "",
     "cost": "",
@@ -24681,7 +24681,7 @@
   },
   {
     "itemName": "Penance skirt",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Barbarian Assault Reward Shop",
     "location": "Barbarian Assault",
     "cost": "",
@@ -24689,7 +24689,7 @@
   },
   {
     "itemName": "Penance skirt",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Commander Connad",
     "location": "",
     "cost": "",
@@ -25153,7 +25153,7 @@
   },
   {
     "itemName": "Pirate's hook",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Agility Arena Store",
     "location": "Brimhaven",
     "cost": "800 coins",
@@ -25161,7 +25161,7 @@
   },
   {
     "itemName": "Pirate's hook",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Brimhaven Agility Arena Ticket Exchange",
     "location": "Brimhaven",
     "cost": "800 coins",
@@ -25201,7 +25201,7 @@
   },
   {
     "itemName": "Plank sack",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Mahogany Homes Reward Shop",
     "location": "Falador",
     "cost": "",
@@ -26561,7 +26561,7 @@
   },
   {
     "itemName": "Prospector boots",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Prospector Percy's Nugget Shop",
     "location": "Motherlode Mine",
     "cost": "",
@@ -26577,7 +26577,7 @@
   },
   {
     "itemName": "Prospector helmet",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Prospector Percy's Nugget Shop",
     "location": "Motherlode Mine",
     "cost": "",
@@ -26593,7 +26593,7 @@
   },
   {
     "itemName": "Prospector jacket",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Prospector Percy's Nugget Shop",
     "location": "Motherlode Mine",
     "cost": "",
@@ -26609,7 +26609,7 @@
   },
   {
     "itemName": "Prospector legs",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Prospector Percy's Nugget Shop",
     "location": "Motherlode Mine",
     "cost": "",
@@ -26617,7 +26617,7 @@
   },
   {
     "itemName": "Pure essence",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Dom Onion's Reward Shop",
     "location": "Yanille",
     "cost": "70 coins",
@@ -26873,7 +26873,7 @@
   },
   {
     "itemName": "Ranger hat",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Barbarian Assault Reward Shop",
     "location": "Barbarian Assault",
     "cost": "",
@@ -26881,7 +26881,7 @@
   },
   {
     "itemName": "Ranger hat",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Commander Connad",
     "location": "",
     "cost": "",
@@ -29001,7 +29001,7 @@
   },
   {
     "itemName": "Ritual mulch",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
@@ -29697,7 +29697,7 @@
   },
   {
     "itemName": "Rune arrow (x50)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Ranging Guild Ticket Exchange",
     "location": "Ranging Guild",
     "cost": "",
@@ -29841,7 +29841,7 @@
   },
   {
     "itemName": "Rune essence",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Dom Onion's Reward Shop",
     "location": "Yanille",
     "cost": "60 coins",
@@ -30105,7 +30105,7 @@
   },
   {
     "itemName": "Rune pouch",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Slayer Rewards",
     "location": "",
     "cost": "750 coins",
@@ -30281,7 +30281,7 @@
   },
   {
     "itemName": "Runner boots",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Barbarian Assault Reward Shop",
     "location": "Barbarian Assault",
     "cost": "",
@@ -30289,7 +30289,7 @@
   },
   {
     "itemName": "Runner boots",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Commander Connad",
     "location": "",
     "cost": "",
@@ -30297,7 +30297,7 @@
   },
   {
     "itemName": "Runner hat",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Barbarian Assault Reward Shop",
     "location": "Barbarian Assault",
     "cost": "",
@@ -30305,7 +30305,7 @@
   },
   {
     "itemName": "Runner hat",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Commander Connad",
     "location": "",
     "cost": "",
@@ -30609,7 +30609,7 @@
   },
   {
     "itemName": "Saradomin banner",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -30633,7 +30633,7 @@
   },
   {
     "itemName": "Saradomin halo",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -30673,7 +30673,7 @@
   },
   {
     "itemName": "Sawmill voucher (x10)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
@@ -30681,7 +30681,7 @@
   },
   {
     "itemName": "Scroll of imbuing",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "PvP Arena Rewards",
     "location": "Emir's Arena",
     "cost": "",
@@ -30689,7 +30689,7 @@
   },
   {
     "itemName": "Scroll of redirection",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Dom Onion's Reward Shop",
     "location": "Yanille",
     "cost": "775 coins",
@@ -30705,7 +30705,7 @@
   },
   {
     "itemName": "Seaweed",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Dom Onion's Reward Shop",
     "location": "Yanille",
     "cost": "200 coins",
@@ -30825,7 +30825,7 @@
   },
   {
     "itemName": "Secateurs blade",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
@@ -30913,7 +30913,7 @@
   },
   {
     "itemName": "Seed box",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Farmer Gricoller's Rewards",
     "location": "Hosidius",
     "cost": "250 coins",
@@ -31017,7 +31017,7 @@
   },
   {
     "itemName": "Seed pack",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Farmer Gricoller's Rewards",
     "location": "Hosidius",
     "cost": "30 coins",
@@ -31025,7 +31025,7 @@
   },
   {
     "itemName": "Seed pack",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Void Knights' Reward Options",
     "location": "Void Knights' Outpost",
     "cost": "",
@@ -31841,7 +31841,7 @@
   },
   {
     "itemName": "Slayer ring (8)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Slayer Rewards",
     "location": "",
     "cost": "75 coins",
@@ -31985,7 +31985,7 @@
   },
   {
     "itemName": "Smithing catalyst",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Giants' Foundry Reward Shop",
     "location": "Giants' Foundry",
     "cost": "15 coins",
@@ -31993,7 +31993,7 @@
   },
   {
     "itemName": "Smiths boots",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Giants' Foundry Reward Shop",
     "location": "Giants' Foundry",
     "cost": "3,500 coins",
@@ -32001,7 +32001,7 @@
   },
   {
     "itemName": "Smiths gloves",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Giants' Foundry Reward Shop",
     "location": "Giants' Foundry",
     "cost": "3,500 coins",
@@ -32009,7 +32009,7 @@
   },
   {
     "itemName": "Smiths trousers",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Giants' Foundry Reward Shop",
     "location": "Giants' Foundry",
     "cost": "4,000 coins",
@@ -32017,7 +32017,7 @@
   },
   {
     "itemName": "Smiths tunic",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Giants' Foundry Reward Shop",
     "location": "Giants' Foundry",
     "cost": "4,000 coins",
@@ -32025,7 +32025,7 @@
   },
   {
     "itemName": "Snapdragon",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Agility Arena Store",
     "location": "Brimhaven",
     "cost": "10 coins",
@@ -32033,7 +32033,7 @@
   },
   {
     "itemName": "Snapdragon",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Brimhaven Agility Arena Ticket Exchange",
     "location": "Brimhaven",
     "cost": "10 coins",
@@ -32057,7 +32057,7 @@
   },
   {
     "itemName": "Soft clay pack",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Dusuri's Star Shop",
     "location": "Falador",
     "cost": "",
@@ -32065,7 +32065,7 @@
   },
   {
     "itemName": "Soft clay pack",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Mining Guild Mineral Exchange",
     "location": "Mining Guild",
     "cost": "",
@@ -32073,7 +32073,7 @@
   },
   {
     "itemName": "Soft clay pack",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Prospector Percy's Nugget Shop",
     "location": "Motherlode Mine",
     "cost": "",
@@ -32081,7 +32081,7 @@
   },
   {
     "itemName": "Soul cape",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Soul Wars Reward Shop",
     "location": "Isle of Souls",
     "cost": "2,500 coins",
@@ -32433,7 +32433,7 @@
   },
   {
     "itemName": "Speedy teleport scroll",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Speedrunning Reward Shop",
     "location": "Varrock",
     "cost": "",
@@ -32537,7 +32537,7 @@
   },
   {
     "itemName": "Spoils of war",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Soul Wars Reward Shop",
     "location": "Isle of Souls",
     "cost": "30 coins",
@@ -32785,7 +32785,7 @@
   },
   {
     "itemName": "Star fragment",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Dusuri's Star Shop",
     "location": "Falador",
     "cost": "",
@@ -34209,7 +34209,7 @@
   },
   {
     "itemName": "Studded body",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Ranging Guild Ticket Exchange",
     "location": "Ranging Guild",
     "cost": "",
@@ -34345,7 +34345,7 @@
   },
   {
     "itemName": "Super magic potion (1)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Dom Onion's Reward Shop",
     "location": "Yanille",
     "cost": "",
@@ -34353,7 +34353,7 @@
   },
   {
     "itemName": "Super ranging (1)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Dom Onion's Reward Shop",
     "location": "Yanille",
     "cost": "",
@@ -34369,7 +34369,7 @@
   },
   {
     "itemName": "Supercompost",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Farmer Gricoller's Rewards",
     "location": "Hosidius",
     "cost": "5 coins",
@@ -34377,7 +34377,7 @@
   },
   {
     "itemName": "Superior mining gloves",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Mining Guild Mineral Exchange",
     "location": "Mining Guild",
     "cost": "",
@@ -34385,7 +34385,7 @@
   },
   {
     "itemName": "Supply crate",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Mahogany Homes Reward Shop",
     "location": "Falador",
     "cost": "",
@@ -34585,7 +34585,7 @@
   },
   {
     "itemName": "Swords and emblem",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Events Reward Shop",
     "location": "Varrock Square",
     "cost": "1,100 coins",
@@ -34593,7 +34593,7 @@
   },
   {
     "itemName": "Swords and emblem (b)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Events Reward Shop",
     "location": "Varrock Square",
     "cost": "1,100 coins",
@@ -34601,7 +34601,7 @@
   },
   {
     "itemName": "Swords and emblem (g)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Events Reward Shop",
     "location": "Varrock Square",
     "cost": "1,100 coins",
@@ -34609,7 +34609,7 @@
   },
   {
     "itemName": "Swords and emblem (p)",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Events Reward Shop",
     "location": "Varrock Square",
     "cost": "1,100 coins",
@@ -35681,7 +35681,7 @@
   },
   {
     "itemName": "Tier 1 Adventurer's Outfit",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Speedrunning Reward Shop",
     "location": "Varrock",
     "cost": "",
@@ -35689,7 +35689,7 @@
   },
   {
     "itemName": "Tier 2 Adventurer's Outfit",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Speedrunning Reward Shop",
     "location": "Varrock",
     "cost": "",
@@ -35697,7 +35697,7 @@
   },
   {
     "itemName": "Tier 3 Adventurer's Outfit",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Speedrunning Reward Shop",
     "location": "Varrock",
     "cost": "",
@@ -36337,7 +36337,7 @@
   },
   {
     "itemName": "Toadflax",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Agility Arena Store",
     "location": "Brimhaven",
     "cost": "3 coins",
@@ -36345,7 +36345,7 @@
   },
   {
     "itemName": "Toadflax",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Brimhaven Agility Arena Ticket Exchange",
     "location": "Brimhaven",
     "cost": "3 coins",
@@ -36785,7 +36785,7 @@
   },
   {
     "itemName": "Twitcher's gloves",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
@@ -37521,7 +37521,7 @@
   },
   {
     "itemName": "Vial of water",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Dom Onion's Reward Shop",
     "location": "Yanille",
     "cost": "145 coins",
@@ -37929,7 +37929,7 @@
   },
   {
     "itemName": "Void knight gloves",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Void Knights' Reward Options",
     "location": "Void Knights' Outpost",
     "cost": "",
@@ -37937,7 +37937,7 @@
   },
   {
     "itemName": "Void knight mace",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Void Knights' Reward Options",
     "location": "Void Knights' Outpost",
     "cost": "",
@@ -37945,7 +37945,7 @@
   },
   {
     "itemName": "Void knight robe",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Void Knights' Reward Options",
     "location": "Void Knights' Outpost",
     "cost": "",
@@ -37953,7 +37953,7 @@
   },
   {
     "itemName": "Void knight top",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Void Knights' Reward Options",
     "location": "Void Knights' Outpost",
     "cost": "",
@@ -37961,7 +37961,7 @@
   },
   {
     "itemName": "Void mage helm",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Void Knights' Reward Options",
     "location": "Void Knights' Outpost",
     "cost": "",
@@ -37969,7 +37969,7 @@
   },
   {
     "itemName": "Void melee helm",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Void Knights' Reward Options",
     "location": "Void Knights' Outpost",
     "cost": "",
@@ -37977,7 +37977,7 @@
   },
   {
     "itemName": "Void ranger helm",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Void Knights' Reward Options",
     "location": "Void Knights' Outpost",
     "cost": "",
@@ -37985,7 +37985,7 @@
   },
   {
     "itemName": "Void seal",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Void Knights' Reward Options",
     "location": "Void Knights' Outpost",
     "cost": "",
@@ -38321,7 +38321,7 @@
   },
   {
     "itemName": "Water rune",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Dom Onion's Reward Shop",
     "location": "Yanille",
     "cost": "25 coins",
@@ -39841,7 +39841,7 @@
   },
   {
     "itemName": "Zamorak banner",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",
@@ -39857,7 +39857,7 @@
   },
   {
     "itemName": "Zamorak halo",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Castle Wars Ticket Exchange",
     "location": "Castle Wars",
     "cost": "",

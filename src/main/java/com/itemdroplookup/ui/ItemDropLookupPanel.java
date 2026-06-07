@@ -45,6 +45,13 @@ public class ItemDropLookupPanel extends PluginPanel
     private static final String FILTER_ALL = "All";
     private static final String FILTER_DROPS = "NPC Drops";
     private static final String FILTER_SOURCES = "Non-NPC Sources";
+    private static final String FILTER_SHOPS = "Shops";
+    private static final String FILTER_REWARD_SHOPS = "Reward Shops";
+
+    // Exact sourceType values matched by the Shops / Reward Shops filters. These
+    // must match the data verbatim — no fuzzy matching.
+    private static final String SOURCE_TYPE_SHOP = "Shop";
+    private static final String SOURCE_TYPE_REWARD_SHOP = "Reward Shop";
 
     private final DropLookupService dropLookupService;
     private final ItemSourceLookupService itemSourceLookupService;
@@ -55,7 +62,9 @@ public class ItemDropLookupPanel extends PluginPanel
     private final JComboBox<String> filterDropdown = new JComboBox<>(new String[] {
             FILTER_ALL,
             FILTER_DROPS,
-            FILTER_SOURCES
+            FILTER_SOURCES,
+            FILTER_SHOPS,
+            FILTER_REWARD_SHOPS
     });
     private final JCheckBox showPriceCheckbox = new JCheckBox("Show GE price", true);
     private final JPanel resultsPanel = new JPanel();
@@ -126,7 +135,27 @@ public class ItemDropLookupPanel extends PluginPanel
             List<ItemSource> itemSources = itemSourceLookupService.searchByItemName(itemName);
 
             boolean showDrops = FILTER_ALL.equals(selectedFilter) || FILTER_DROPS.equals(selectedFilter);
-            boolean showSources = FILTER_ALL.equals(selectedFilter) || FILTER_SOURCES.equals(selectedFilter);
+            boolean showSources = FILTER_ALL.equals(selectedFilter)
+                    || FILTER_SOURCES.equals(selectedFilter)
+                    || FILTER_SHOPS.equals(selectedFilter)
+                    || FILTER_REWARD_SHOPS.equals(selectedFilter);
+
+            // Narrow the non-NPC sources to the selected source type. For All and
+            // Non-NPC Sources this is the full list; the Shops / Reward Shops
+            // filters keep only rows whose sourceType matches exactly.
+            List<ItemSource> displaySources;
+            if (FILTER_SHOPS.equals(selectedFilter))
+            {
+                displaySources = filterBySourceType(itemSources, SOURCE_TYPE_SHOP);
+            }
+            else if (FILTER_REWARD_SHOPS.equals(selectedFilter))
+            {
+                displaySources = filterBySourceType(itemSources, SOURCE_TYPE_REWARD_SHOP);
+            }
+            else
+            {
+                displaySources = itemSources;
+            }
 
             if (showPriceCheckbox.isSelected())
             {
@@ -149,18 +178,19 @@ public class ItemDropLookupPanel extends PluginPanel
                 displayDropResults(dropResults);
             }
 
-            if (showSources && !itemSources.isEmpty())
+            if (showSources && !displaySources.isEmpty())
             {
                 resultsPanel.add(makeSpacer());
-                resultsPanel.add(makeSectionHeader("Non-NPC Sources"));
+                resultsPanel.add(makeSectionHeader(sourceSectionHeading(selectedFilter)));
+                resultsPanel.add(makeSummaryLabel(sourceCountSummary(selectedFilter, displaySources.size())));
 
-                for (ItemSource source : itemSources)
+                for (ItemSource source : displaySources)
                 {
                     resultsPanel.add(makeItemSourceCard(source));
                 }
             }
 
-            if ((showDrops && dropResults.isEmpty()) && (showSources && itemSources.isEmpty()))
+            if ((showDrops && dropResults.isEmpty()) && (showSources && displaySources.isEmpty()))
             {
                 resultsPanel.add(makeNoResultHeader("No source found for: " + itemName));
                 resultsPanel.add(makeLabel("No NPC drop or known non-NPC source is currently in the local data."));
@@ -172,7 +202,17 @@ public class ItemDropLookupPanel extends PluginPanel
                 resultsPanel.add(makeNoResultHeader("No NPC drop found for: " + itemName));
                 resultsPanel.add(makeLabel("This item may not come from a normal monster drop."));
             }
-            else if (FILTER_SOURCES.equals(selectedFilter) && itemSources.isEmpty())
+            else if (FILTER_SHOPS.equals(selectedFilter) && displaySources.isEmpty())
+            {
+                resultsPanel.add(makeNoResultHeader("No shop source found for: " + itemName));
+                resultsPanel.add(makeLabel("This item may still exist, but no shop entry is currently in the local data."));
+            }
+            else if (FILTER_REWARD_SHOPS.equals(selectedFilter) && displaySources.isEmpty())
+            {
+                resultsPanel.add(makeNoResultHeader("No reward shop source found for: " + itemName));
+                resultsPanel.add(makeLabel("This item may still exist, but no reward shop entry is currently in the local data."));
+            }
+            else if (FILTER_SOURCES.equals(selectedFilter) && displaySources.isEmpty())
             {
                 resultsPanel.add(makeNoResultHeader("No non-NPC source found for: " + itemName));
                 resultsPanel.add(makeLabel("This item may still exist, but no shop/reward/source entry is currently in the local data."));
@@ -458,6 +498,63 @@ public class ItemDropLookupPanel extends PluginPanel
     private boolean hasText(String value)
     {
         return value != null && !value.trim().isEmpty();
+    }
+
+    /**
+     * Returns only the sources whose sourceType matches {@code sourceType} exactly.
+     * Used by the Shops / Reward Shops filters — no fuzzy matching is applied.
+     */
+    private List<ItemSource> filterBySourceType(List<ItemSource> sources, String sourceType)
+    {
+        List<ItemSource> filtered = new java.util.ArrayList<>();
+
+        for (ItemSource source : sources)
+        {
+            if (sourceType.equals(source.getSourceType()))
+            {
+                filtered.add(source);
+            }
+        }
+
+        return filtered;
+    }
+
+    /**
+     * Section heading for the non-NPC source block, reflecting the active filter so
+     * the heading matches what is actually being shown.
+     */
+    private String sourceSectionHeading(String selectedFilter)
+    {
+        if (FILTER_SHOPS.equals(selectedFilter))
+        {
+            return "Shops";
+        }
+
+        if (FILTER_REWARD_SHOPS.equals(selectedFilter))
+        {
+            return "Reward Shops";
+        }
+
+        return "Non-NPC Sources";
+    }
+
+    /**
+     * Summary count line for the non-NPC source block, labelled to match the active
+     * filter so the count is not mistaken for a drop-source count.
+     */
+    private String sourceCountSummary(String selectedFilter, int count)
+    {
+        if (FILTER_SHOPS.equals(selectedFilter))
+        {
+            return "Shop sources: " + count;
+        }
+
+        if (FILTER_REWARD_SHOPS.equals(selectedFilter))
+        {
+            return "Reward shop sources: " + count;
+        }
+
+        return "Non-NPC sources: " + count;
     }
 
     private JLabel makeSearchPriceSummary(ItemPrice itemPrice)

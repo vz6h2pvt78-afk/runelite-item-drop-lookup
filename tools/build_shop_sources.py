@@ -12,7 +12,11 @@
 # What it extracts:
 #   - itemName   : the "Item" column of the rendered store table
 #   - sourceName : the shop page title
-#   - sourceType : always exactly "Shop" (per spike scope)
+#   - sourceType : "Reward Shop" when the page title is in the curated
+#                  REWARD_SHOP_SOURCE_NAMES allowlist (reward/minigame/currency
+#                  exchanges), otherwise exactly "Shop". The allowlist is an
+#                  explicit, exact-match set -- no fuzzy/keyword classification --
+#                  so a normal coin shop is never reclassified by accident.
 #   - location   : best-effort from {{Infobox Shop|location=...}}, blank if absent
 #   - cost       : the table's "Price sold at" value, formatted as "16,640 coins",
 #                  but ONLY for coin shops (tables that have a "GE price" column).
@@ -54,7 +58,49 @@ SHOP_CATEGORY = "Category:Shops"
 # quick reviewable spike.
 MAX_SHOPS = None
 
-SOURCE_TYPE = "Shop"
+SOURCE_TYPE_SHOP = "Shop"
+SOURCE_TYPE_REWARD_SHOP = "Reward Shop"
+
+# Curated allowlist of shop *page titles* that are actually reward / minigame /
+# currency exchanges rather than coin shops. Pages whose title is in this set are
+# generated with sourceType "Reward Shop" so the plugin's "Reward Shops" filter
+# surfaces them, and they no longer pollute the "Shops" filter.
+#
+# This is an EXACT, explicit match against the wiki page title (which becomes the
+# record's sourceName). There is deliberately no fuzzy or keyword matching: a name
+# must appear here verbatim to be reclassified, so normal coin shops are never
+# affected. To add a reward shop, add its exact page title below.
+REWARD_SHOP_SOURCE_NAMES = frozenset({
+    "Grace's Graceful Clothing",
+    "Castle Wars Ticket Exchange",
+    "Barbarian Assault Reward Shop",
+    "Commander Connad",
+    "Void Knights' Reward Options",
+    "Prospector Percy's Nugget Shop",
+    "Mahogany Homes Reward Shop",
+    "Mining Guild Mineral Exchange",
+    "Dusuri's Star Shop",
+    "Giants' Foundry Reward Shop",
+    "Soul Wars Reward Shop",
+    "PvP Arena Rewards",
+    "Slayer Rewards",
+    "Alry the Angler's Angling Accessories",
+    "Forestry Shop",
+    "Mysterious Hallowed Goods",
+    "Farmer Gricoller's Rewards",
+    "Ranging Guild Ticket Exchange",
+    "Brimhaven Agility Arena Ticket Exchange",
+    "Agility Arena Store",
+    "Speedrunning Reward Shop",
+    "Events Reward Shop",
+    "Dom Onion's Reward Shop",
+    "Vale Research Exchange",
+})
+
+
+def classify_source_type(title: str) -> str:
+    """Exact-match classification: reward shop allowlist, else a normal shop."""
+    return SOURCE_TYPE_REWARD_SHOP if title in REWARD_SHOP_SOURCE_NAMES else SOURCE_TYPE_SHOP
 
 # Non-live / aggregate / cut-content pages that live in Category:Shops but are not
 # real in-game shops. Matched case-insensitively against the page title. Trailing-
@@ -343,6 +389,7 @@ def parse_shop_page(title: str, wikitext: str, html: str) -> list:
     """Build source rows from the rendered store table; location/members from wikitext."""
     location = extract_location(wikitext)
     members = is_members_shop(wikitext)
+    source_type = classify_source_type(title)
 
     records = []
     for row in parse_store_tables(html):
@@ -359,7 +406,7 @@ def parse_shop_page(title: str, wikitext: str, html: str) -> list:
 
         records.append({
             "itemName": item_name,
-            "sourceType": SOURCE_TYPE,
+            "sourceType": source_type,
             "sourceName": title,
             "location": location,
             "cost": cost,
