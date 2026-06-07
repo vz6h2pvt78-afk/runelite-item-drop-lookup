@@ -422,7 +422,12 @@ public class ItemDropLookupPanel extends PluginPanel
                 new EmptyBorder(8, 8, 8, 8)
         ));
 
-        card.add(makeCardTitle(source.getSourceName()));
+        card.add(makeCardTitle(formatItemName(source.getItemName())));
+
+        if (hasText(source.getSourceName()))
+        {
+            card.add(makeCardLine("Source: " + source.getSourceName()));
+        }
 
         if (hasText(source.getSourceType()))
         {
