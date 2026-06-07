@@ -102,6 +102,59 @@ def classify_source_type(title: str) -> str:
     """Exact-match classification: reward shop allowlist, else a normal shop."""
     return SOURCE_TYPE_REWARD_SHOP if title in REWARD_SHOP_SOURCE_NAMES else SOURCE_TYPE_SHOP
 
+
+# Narrow, explicit per-record corrections, keyed by (sourceName, itemName) exactly as
+# they appear on the wiki. The generic parser reads the rendered store table's coin
+# column, but some reward shops list a NON-coin currency (golden nuggets / Volcanic
+# Mine reward points) that the parser misreads as coins. We hard-correct only those
+# specific rows here -- type, cost, and/or notes -- rather than guessing.
+#
+# Deliberately limited to the Prospector outfit pieces from the two shops below; their
+# other items (e.g. Petrified Pete's ores) are out of scope and left as parsed.
+PROSPECTOR_PETE_NOTE = (
+    "Bought with Volcanic Mine reward points. Pieces bought from Petrified Pete "
+    "cannot be sold back to Prospector Percy for golden nuggets."
+)
+
+RECORD_OVERRIDES = {
+    # Prospector Percy's Nugget Shop -- already Reward Shop; only the (blank) cost is
+    # wrong because the currency is golden nuggets, not coins.
+    ("Prospector Percy's Nugget Shop", "Prospector boots"): {"cost": "30 golden nuggets"},
+    ("Prospector Percy's Nugget Shop", "Prospector helmet"): {"cost": "40 golden nuggets"},
+    ("Prospector Percy's Nugget Shop", "Prospector legs"): {"cost": "50 golden nuggets"},
+    ("Prospector Percy's Nugget Shop", "Prospector jacket"): {"cost": "60 golden nuggets"},
+    # Petrified Pete's Ore Shop -- these pieces cost Volcanic Mine reward points, so the
+    # parsed "N coins" is misleading and the type should be Reward Shop, not Shop.
+    ("Petrified Pete's Ore Shop", "Prospector boots"): {
+        "sourceType": SOURCE_TYPE_REWARD_SHOP,
+        "cost": "21,000 Volcanic Mine reward points",
+        "notes": PROSPECTOR_PETE_NOTE,
+    },
+    ("Petrified Pete's Ore Shop", "Prospector helmet"): {
+        "sourceType": SOURCE_TYPE_REWARD_SHOP,
+        "cost": "26,000 Volcanic Mine reward points",
+        "notes": PROSPECTOR_PETE_NOTE,
+    },
+    ("Petrified Pete's Ore Shop", "Prospector legs"): {
+        "sourceType": SOURCE_TYPE_REWARD_SHOP,
+        "cost": "34,000 Volcanic Mine reward points",
+        "notes": PROSPECTOR_PETE_NOTE,
+    },
+    ("Petrified Pete's Ore Shop", "Prospector jacket"): {
+        "sourceType": SOURCE_TYPE_REWARD_SHOP,
+        "cost": "39,000 Volcanic Mine reward points",
+        "notes": PROSPECTOR_PETE_NOTE,
+    },
+}
+
+
+def apply_record_override(record: dict) -> dict:
+    """Apply a narrow (sourceName, itemName) correction in place, if one exists."""
+    override = RECORD_OVERRIDES.get((record["sourceName"], record["itemName"]))
+    if override:
+        record.update(override)
+    return record
+
 # Non-live / aggregate / cut-content pages that live in Category:Shops but are not
 # real in-game shops. Matched case-insensitively against the page title. Trailing-
 # period titles (e.g. "Armour store.") are genuine canonical pages and are kept.
@@ -404,14 +457,14 @@ def parse_shop_page(title: str, wikitext: str, html: str) -> list:
             unit = "coin" if row["soldAt"] == 1 else "coins"
             cost = f"{row['soldAt']:,} {unit}"
 
-        records.append({
+        records.append(apply_record_override({
             "itemName": item_name,
             "sourceType": source_type,
             "sourceName": title,
             "location": location,
             "cost": cost,
             "notes": build_notes(row["stock"], row["restock"], members, has_coin_price),
-        })
+        }))
 
     return records
 

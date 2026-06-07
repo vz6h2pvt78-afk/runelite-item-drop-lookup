@@ -26553,66 +26553,66 @@
   },
   {
     "itemName": "Prospector boots",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Petrified Pete's Ore Shop",
     "location": "Volcanic Mine",
-    "cost": "21,000 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "21,000 Volcanic Mine reward points",
+    "notes": "Bought with Volcanic Mine reward points. Pieces bought from Petrified Pete cannot be sold back to Prospector Percy for golden nuggets."
   },
   {
     "itemName": "Prospector boots",
     "sourceType": "Reward Shop",
     "sourceName": "Prospector Percy's Nugget Shop",
     "location": "Motherlode Mine",
-    "cost": "",
+    "cost": "30 golden nuggets",
     "notes": "Members shop. Default stock: 100. Restock: 0.6s (1t)."
   },
   {
     "itemName": "Prospector helmet",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Petrified Pete's Ore Shop",
     "location": "Volcanic Mine",
-    "cost": "26,000 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "26,000 Volcanic Mine reward points",
+    "notes": "Bought with Volcanic Mine reward points. Pieces bought from Petrified Pete cannot be sold back to Prospector Percy for golden nuggets."
   },
   {
     "itemName": "Prospector helmet",
     "sourceType": "Reward Shop",
     "sourceName": "Prospector Percy's Nugget Shop",
     "location": "Motherlode Mine",
-    "cost": "",
+    "cost": "40 golden nuggets",
     "notes": "Members shop. Default stock: 100. Restock: 0.6s (1t)."
   },
   {
     "itemName": "Prospector jacket",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Petrified Pete's Ore Shop",
     "location": "Volcanic Mine",
-    "cost": "39,000 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "39,000 Volcanic Mine reward points",
+    "notes": "Bought with Volcanic Mine reward points. Pieces bought from Petrified Pete cannot be sold back to Prospector Percy for golden nuggets."
   },
   {
     "itemName": "Prospector jacket",
     "sourceType": "Reward Shop",
     "sourceName": "Prospector Percy's Nugget Shop",
     "location": "Motherlode Mine",
-    "cost": "",
+    "cost": "60 golden nuggets",
     "notes": "Members shop. Default stock: 100. Restock: 0.6s (1t)."
   },
   {
     "itemName": "Prospector legs",
-    "sourceType": "Shop",
+    "sourceType": "Reward Shop",
     "sourceName": "Petrified Pete's Ore Shop",
     "location": "Volcanic Mine",
-    "cost": "34,000 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "34,000 Volcanic Mine reward points",
+    "notes": "Bought with Volcanic Mine reward points. Pieces bought from Petrified Pete cannot be sold back to Prospector Percy for golden nuggets."
   },
   {
     "itemName": "Prospector legs",
     "sourceType": "Reward Shop",
     "sourceName": "Prospector Percy's Nugget Shop",
     "location": "Motherlode Mine",
-    "cost": "",
+    "cost": "50 golden nuggets",
     "notes": "Members shop. Default stock: 100. Restock: 0.6s (1t)."
   },
   {
