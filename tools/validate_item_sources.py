@@ -54,6 +54,84 @@ def load(path: Path):
     return data, []
 
 
+
+def norm(value) -> str:
+    return str(value or "").strip().lower()
+
+
+def matching_records(data, item_name: str, source_name: str):
+    item_key = norm(item_name)
+    source_key = norm(source_name)
+
+    return [
+        record for record in data
+        if isinstance(record, dict)
+        and norm(record.get("itemName")) == item_key
+        and norm(record.get("sourceName")) == source_key
+    ]
+
+
+def validate_known_expectations(path: Path, data):
+    """Validate narrow, high-value known data expectations.
+
+    These checks intentionally cover only cases we have manually verified as important.
+    They are not meant to model every OSRS edge case.
+    """
+    errors = []
+    warnings = []
+
+    if path.name != "wiki_shop_sources.json":
+        return errors, warnings
+
+    prospector_expectations = [
+        ("Prospector boots", "Prospector Percy's Nugget Shop", "Reward Shop", "30 golden nuggets", None),
+        ("Prospector helmet", "Prospector Percy's Nugget Shop", "Reward Shop", "40 golden nuggets", None),
+        ("Prospector legs", "Prospector Percy's Nugget Shop", "Reward Shop", "50 golden nuggets", None),
+        ("Prospector jacket", "Prospector Percy's Nugget Shop", "Reward Shop", "60 golden nuggets", None),
+        ("Prospector boots", "Petrified Pete's Ore Shop", "Reward Shop", "21,000 Volcanic Mine reward points", "cannot be sold back"),
+        ("Prospector helmet", "Petrified Pete's Ore Shop", "Reward Shop", "26,000 Volcanic Mine reward points", "cannot be sold back"),
+        ("Prospector legs", "Petrified Pete's Ore Shop", "Reward Shop", "34,000 Volcanic Mine reward points", "cannot be sold back"),
+        ("Prospector jacket", "Petrified Pete's Ore Shop", "Reward Shop", "39,000 Volcanic Mine reward points", "cannot be sold back"),
+    ]
+
+    for item_name, source_name, expected_type, expected_cost, expected_note_fragment in prospector_expectations:
+        records = matching_records(data, item_name, source_name)
+        if not records:
+            errors.append(f"known expectation missing: {item_name} / {source_name}")
+            continue
+
+        for record in records:
+            actual_type = str(record.get("sourceType", "") or "").strip()
+            actual_cost = str(record.get("cost", "") or "").strip()
+            actual_notes = str(record.get("notes", "") or "").strip()
+
+            if actual_type != expected_type:
+                errors.append(
+                    f"known expectation failed: {item_name} / {source_name} "
+                    f"sourceType {actual_type!r}, expected {expected_type!r}"
+                )
+
+            if actual_cost != expected_cost:
+                errors.append(
+                    f"known expectation failed: {item_name} / {source_name} "
+                    f"cost {actual_cost!r}, expected {expected_cost!r}"
+                )
+
+            if expected_note_fragment and expected_note_fragment.lower() not in actual_notes.lower():
+                errors.append(
+                    f"known expectation failed: {item_name} / {source_name} "
+                    f"notes should mention {expected_note_fragment!r}"
+                )
+
+    for record in matching_records(data, "Graceful hood", "Grace's Graceful Clothing"):
+        if str(record.get("sourceType", "") or "").strip() == "Shop":
+            errors.append(
+                "known expectation failed: Graceful hood / Grace's Graceful Clothing "
+                "must not be classified as normal Shop"
+            )
+
+    return errors, warnings
+
 def validate_file(path: Path):
     print(f"\n=== {path.name} ===")
     data, load_errors = load(path)
@@ -101,6 +179,10 @@ def validate_file(path: Path):
                             f"-> {item_name} / {source_name} / {source_type}")
         else:
             seen_rows.add(row_key)
+
+    known_errors, known_warnings = validate_known_expectations(path, data)
+    errors.extend(known_errors)
+    warnings.extend(known_warnings)
 
     print(f"  records: {len(data)}")
     print("  counts by sourceType:")
@@ -150,3 +232,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
