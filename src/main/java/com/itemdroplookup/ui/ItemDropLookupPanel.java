@@ -53,6 +53,25 @@ public class ItemDropLookupPanel extends PluginPanel
     private static final String SOURCE_TYPE_SHOP = "Shop";
     private static final String SOURCE_TYPE_REWARD_SHOP = "Reward Shop";
 
+    // Swing HTML labels need an explicit pixel width to wrap, and that width also gives
+    // a deterministic preferred height inside BoxLayout (unlike a JTextArea, whose wrap
+    // height fights the layout). We derive the wrap width from the real panel width so
+    // long Source/Cost/Notes lines wrap instead of clipping. The scrollbar allowance
+    // matters: results usually scroll, and the vertical scrollbar shrinks the usable
+    // width — a fixed 180px div clipped once the scrollbar appeared. Without a scrollbar
+    // there is simply a little extra right margin.
+    private static final int SCROLLBAR_ALLOWANCE = 45;
+    private static final int PANEL_INSETS = 20;   // panel EmptyBorder(10,10,10,10), left+right
+    private static final int CARD_INSETS = 16;    // card EmptyBorder(.,8,.,8), left+right
+    private static final int NESTED_INDENT = 10;  // grouped members' left rail + indent
+
+    // Text added directly to the results panel.
+    private static final int PANEL_TEXT_WIDTH = PluginPanel.PANEL_WIDTH - SCROLLBAR_ALLOWANCE - PANEL_INSETS;
+    // Text inside a top-level card.
+    private static final int CARD_TEXT_WIDTH = PANEL_TEXT_WIDTH - CARD_INSETS;
+    // Text inside a nested (grouped) drop card, which is indented further.
+    private static final int NESTED_CARD_TEXT_WIDTH = CARD_TEXT_WIDTH - NESTED_INDENT - CARD_INSETS;
+
     private final DropLookupService dropLookupService;
     private final ItemSourceLookupService itemSourceLookupService;
     private final ItemPriceLookupService itemPriceLookupService;
@@ -433,17 +452,19 @@ public class ItemDropLookupPanel extends PluginPanel
             ));
         }
 
-        card.add(makeCardTitle(source.getMonsterName()));
+        int wrapWidth = nested ? NESTED_CARD_TEXT_WIDTH : CARD_TEXT_WIDTH;
+
+        card.add(makeCardTitle(source.getMonsterName(), wrapWidth));
 
         Optional<String> variantLabel = extractVariantLabel(source.getMonsterName());
-        variantLabel.ifPresent(label -> card.add(makeCardLine("Variant: " + label)));
+        variantLabel.ifPresent(label -> card.add(makeCardLine("Variant: " + label, wrapWidth)));
 
-        card.add(makeCardLine("Rate: " + source.getDropRate()));
-        card.add(makeCardLine("Quantity: " + source.getQuantity()));
+        card.add(makeCardLine("Rate: " + source.getDropRate(), wrapWidth));
+        card.add(makeCardLine("Quantity: " + source.getQuantity(), wrapWidth));
 
         if (source.getNotes() != null && !source.getNotes().isEmpty())
         {
-            card.add(makeCardLine("Notes: " + source.getNotes()));
+            card.add(makeCardLine("Notes: " + source.getNotes(), wrapWidth));
         }
 
         card.setAlignmentX(LEFT_ALIGNMENT);
@@ -462,31 +483,31 @@ public class ItemDropLookupPanel extends PluginPanel
                 new EmptyBorder(8, 8, 8, 8)
         ));
 
-        card.add(makeCardTitle(formatItemName(source.getItemName())));
+        card.add(makeCardTitle(formatItemName(source.getItemName()), CARD_TEXT_WIDTH));
 
         if (hasText(source.getSourceName()))
         {
-            card.add(makeCardLine("Source: " + source.getSourceName()));
+            card.add(makeCardLine("Source: " + source.getSourceName(), CARD_TEXT_WIDTH));
         }
 
         if (hasText(source.getSourceType()))
         {
-            card.add(makeCardLine("Type: " + source.getSourceType()));
+            card.add(makeCardLine("Type: " + source.getSourceType(), CARD_TEXT_WIDTH));
         }
 
         if (hasText(source.getLocation()))
         {
-            card.add(makeCardLine("Location: " + source.getLocation()));
+            card.add(makeCardLine("Location: " + source.getLocation(), CARD_TEXT_WIDTH));
         }
 
         if (hasText(source.getCost()))
         {
-            card.add(makeCardLine("Cost: " + source.getCost()));
+            card.add(makeCardLine("Cost: " + source.getCost(), CARD_TEXT_WIDTH));
         }
 
         if (hasText(source.getNotes()))
         {
-            card.add(makeCardLine("Notes: " + source.getNotes()));
+            card.add(makeCardLine("Notes: " + source.getNotes(), CARD_TEXT_WIDTH));
         }
 
         card.setAlignmentX(LEFT_ALIGNMENT);
@@ -557,13 +578,33 @@ public class ItemDropLookupPanel extends PluginPanel
         return "Non-NPC sources: " + count;
     }
 
+    /**
+     * Builds a left-aligned label whose text wraps at {@code wrapWidth} pixels. A pixel
+     * width is required because Swing only wraps HTML labels when the enclosing block has
+     * an explicit width; this keeps long lines inside the panel instead of clipping, and
+     * the wrapped preferred height is reported correctly to BoxLayout.
+     */
+    private JLabel makeWrappedLabel(String text, int wrapWidth, boolean bold, EmptyBorder border)
+    {
+        String body = escapeHtml(text);
+        if (bold)
+        {
+            body = "<b>" + body + "</b>";
+        }
+
+        JLabel label = new JLabel("<html><div style='width:" + wrapWidth + "px;'>" + body + "</div></html>");
+        label.setBorder(border);
+        label.setAlignmentX(LEFT_ALIGNMENT);
+        return label;
+    }
+
     private JLabel makeSearchPriceSummary(ItemPrice itemPrice)
     {
         String displayName = formatItemName(itemPrice.getItemName());
         String priceLine = formatPriceLine(itemPrice);
 
         JLabel label = new JLabel(
-                "<html><div style='width:180px;'><b>"
+                "<html><div style='width:" + PANEL_TEXT_WIDTH + "px;'><b>"
                         + escapeHtml(displayName)
                         + "</b><br>"
                         + escapeHtml(priceLine)
@@ -577,42 +618,27 @@ public class ItemDropLookupPanel extends PluginPanel
 
     private JLabel makeNoResultHeader(String text)
     {
-        JLabel label = new JLabel("<html><div style='width:180px;'><b>" + escapeHtml(text) + "</b></div></html>");
-        label.setBorder(new EmptyBorder(8, 0, 6, 0));
-        label.setAlignmentX(LEFT_ALIGNMENT);
-        return label;
+        return makeWrappedLabel(text, PANEL_TEXT_WIDTH, true, new EmptyBorder(8, 0, 6, 0));
     }
 
     private JLabel makeLabel(String text)
     {
-        JLabel label = new JLabel("<html><div style='width:180px;'>" + escapeHtml(text) + "</div></html>");
-        label.setBorder(new EmptyBorder(4, 0, 4, 0));
-        label.setAlignmentX(LEFT_ALIGNMENT);
-        return label;
+        return makeWrappedLabel(text, PANEL_TEXT_WIDTH, false, new EmptyBorder(4, 0, 4, 0));
     }
 
     private JLabel makeSummaryLabel(String text)
     {
-        JLabel label = new JLabel("<html><div style='width:180px;'>" + escapeHtml(text) + "</div></html>");
-        label.setBorder(new EmptyBorder(2, 0, 2, 0));
-        label.setAlignmentX(LEFT_ALIGNMENT);
-        return label;
+        return makeWrappedLabel(text, PANEL_TEXT_WIDTH, false, new EmptyBorder(2, 0, 2, 0));
     }
 
     private JLabel makeSectionHeader(String text)
     {
-        JLabel label = new JLabel("<html><b>" + escapeHtml(text) + "</b></html>");
-        label.setBorder(new EmptyBorder(10, 0, 6, 0));
-        label.setMaximumSize(new Dimension(Integer.MAX_VALUE, label.getPreferredSize().height));
-        return label;
+        return makeWrappedLabel(text, PANEL_TEXT_WIDTH, true, new EmptyBorder(10, 0, 6, 0));
     }
 
     private JLabel makeItemHeader(String text)
     {
-        JLabel label = new JLabel("<html><b>" + escapeHtml(text) + "</b></html>");
-        label.setBorder(new EmptyBorder(10, 0, 6, 0));
-        label.setMaximumSize(new Dimension(Integer.MAX_VALUE, label.getPreferredSize().height));
-        return label;
+        return makeWrappedLabel(text, PANEL_TEXT_WIDTH, true, new EmptyBorder(10, 0, 6, 0));
     }
 
     private String formatPriceLine(ItemPrice itemPrice)
@@ -643,20 +669,14 @@ public class ItemDropLookupPanel extends PluginPanel
         }
     }
 
-    private JLabel makeCardTitle(String text)
+    private JLabel makeCardTitle(String text, int wrapWidth)
     {
-        JLabel label = new JLabel("<html><b>" + escapeHtml(text) + "</b></html>");
-        label.setBorder(new EmptyBorder(0, 0, 5, 0));
-        label.setAlignmentX(LEFT_ALIGNMENT);
-        return label;
+        return makeWrappedLabel(text, wrapWidth, true, new EmptyBorder(0, 0, 5, 0));
     }
 
-    private JLabel makeCardLine(String text)
+    private JLabel makeCardLine(String text, int wrapWidth)
     {
-        JLabel label = new JLabel("<html><div style='width:180px;'>" + escapeHtml(text) + "</div></html>");
-        label.setBorder(new EmptyBorder(2, 0, 2, 0));
-        label.setAlignmentX(LEFT_ALIGNMENT);
-        return label;
+        return makeWrappedLabel(text, wrapWidth, false, new EmptyBorder(2, 0, 2, 0));
     }
 
     private JLabel makeSpacer()
