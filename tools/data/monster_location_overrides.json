@@ -1,0 +1,2006 @@
+{
+  "schemaVersion": 1,
+  "description": "Reviewed exact location labels. Wilderness describes the kill location, not the route. No classification inferred from League regions at generation time. Review notes and source pages when updating.",
+  "locations": [
+    {
+      "location": "Ancient Cavern",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Skeleton_brute",
+      "note": ""
+    },
+    {
+      "location": "Ape Atoll",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Jungle_spider_(Ape_Atoll)",
+      "note": ""
+    },
+    {
+      "location": "Ardougne Sewers",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Zombie",
+      "note": ""
+    },
+    {
+      "location": "Ardougne Zoo",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Cyclops_(Ardougne_Zoo)",
+      "note": ""
+    },
+    {
+      "location": "Avium Savannah",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Jaguar",
+      "note": ""
+    },
+    {
+      "location": "Barbarian Assault",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Penance_Runner",
+      "note": ""
+    },
+    {
+      "location": "Brimhaven",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Pirate",
+      "note": ""
+    },
+    {
+      "location": "Brimhaven Dungeon",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Wild_dog",
+      "note": ""
+    },
+    {
+      "location": "Burthorpe",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Hygd",
+      "note": ""
+    },
+    {
+      "location": "Canifis",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Nikolai",
+      "note": ""
+    },
+    {
+      "location": "Catacombs of Kourend",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Dust_devil",
+      "note": ""
+    },
+    {
+      "location": "Charred Dungeon",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Black_dragon",
+      "note": ""
+    },
+    {
+      "location": "Clock Tower Dungeon",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Thief",
+      "note": ""
+    },
+    {
+      "location": "Combat Ring in the Shayzien Encampment",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Soldier_(tier_2)",
+      "note": ""
+    },
+    {
+      "location": "Corsair Cove Dungeon/Myths' Guild (basement)",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Black_dragon",
+      "note": ""
+    },
+    {
+      "location": "Crandor",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/King_Scorpion",
+      "note": ""
+    },
+    {
+      "location": "Crandor and Karamja Dungeon",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Lesser_demon",
+      "note": ""
+    },
+    {
+      "location": "Custodia Mountains",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Grizzly_bear",
+      "note": ""
+    },
+    {
+      "location": "Darkmeyer",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Vampyre_Juvinate",
+      "note": ""
+    },
+    {
+      "location": "Dwarven Mine",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/King_Scorpion",
+      "note": ""
+    },
+    {
+      "location": "East Ardougne",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Knight_of_Ardougne",
+      "note": ""
+    },
+    {
+      "location": "Elemental Workshop",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Water_elemental",
+      "note": ""
+    },
+    {
+      "location": "Fremennik Isles",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Ice_troll_runt",
+      "note": ""
+    },
+    {
+      "location": "Fremennik Slayer Dungeon (fairy ring AJR)",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Basilisk",
+      "note": ""
+    },
+    {
+      "location": "Goblin Cave",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Goblin",
+      "note": ""
+    },
+    {
+      "location": "God Wars Dungeon",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Cyclops_(God_Wars_Dungeon)",
+      "note": ""
+    },
+    {
+      "location": "God Wars Dungeon (Saradomin boss room)",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Starlight",
+      "note": ""
+    },
+    {
+      "location": "Haunted Woods",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Swamp_Crab",
+      "note": ""
+    },
+    {
+      "location": "Hosidius",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Man",
+      "note": ""
+    },
+    {
+      "location": "Ice Troll Caves",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Ice_troll_runt",
+      "note": ""
+    },
+    {
+      "location": "Iorwerth Dungeon",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Moss_Giant_(Iorwerth_Dungeon)",
+      "note": ""
+    },
+    {
+      "location": "Isle of Souls",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Rabbit",
+      "note": ""
+    },
+    {
+      "location": "Isle of Souls Dungeon",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Baby_blue_dragon",
+      "note": ""
+    },
+    {
+      "location": "Kalphite Lair",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Kalphite_Queen",
+      "note": ""
+    },
+    {
+      "location": "Karuulm Slayer Dungeon",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Hydra",
+      "note": ""
+    },
+    {
+      "location": "Kharazi Jungle",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Tormented_Warrior",
+      "note": ""
+    },
+    {
+      "location": "Lovakengj",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Spider",
+      "note": ""
+    },
+    {
+      "location": "Lumbridge",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Man",
+      "note": ""
+    },
+    {
+      "location": "Lumbridge Swamp",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Goblin",
+      "note": ""
+    },
+    {
+      "location": "Lumbridge Swamp Caves",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Wall_beast",
+      "note": ""
+    },
+    {
+      "location": "Melzar's Maze Basement",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Melzar_the_Mad",
+      "note": ""
+    },
+    {
+      "location": "Miscellania Castle courtyard",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Broddi",
+      "note": ""
+    },
+    {
+      "location": "Molch",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Lizardman",
+      "note": ""
+    },
+    {
+      "location": "Mort Myre Swamp",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Bruise_Blamish_Snail",
+      "note": ""
+    },
+    {
+      "location": "Mos Le'Harmless",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Monkey_(monster)",
+      "note": ""
+    },
+    {
+      "location": "Mynydd",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Black_dragon",
+      "note": ""
+    },
+    {
+      "location": "Ogre Enclave",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Spider",
+      "note": ""
+    },
+    {
+      "location": "Ourania Cave",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Cave_lizard",
+      "note": ""
+    },
+    {
+      "location": "Outer Fortis",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Thief_(Varlamore)",
+      "note": ""
+    },
+    {
+      "location": "Pirates' Cove",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Pirate",
+      "note": ""
+    },
+    {
+      "location": "Port Piscarilius",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Seagull",
+      "note": ""
+    },
+    {
+      "location": "Port Sarim",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Seagull",
+      "note": ""
+    },
+    {
+      "location": "Port Sarim jail",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Guard_(Port_Sarim_jail)",
+      "note": ""
+    },
+    {
+      "location": "Puro Puro",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Young_impling",
+      "note": ""
+    },
+    {
+      "location": "Rellekka",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Market_Guard",
+      "note": ""
+    },
+    {
+      "location": "Ruins of Tapoyauik",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Chilled_jelly",
+      "note": ""
+    },
+    {
+      "location": "Shade Catacombs",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Phrin_Shade",
+      "note": ""
+    },
+    {
+      "location": "Shadow Dungeon",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Giant_skeleton_(Shadow_Dungeon)",
+      "note": ""
+    },
+    {
+      "location": "Sisterhood Sanctuary",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Spider",
+      "note": ""
+    },
+    {
+      "location": "Smoke Dungeon",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Dust_devil",
+      "note": ""
+    },
+    {
+      "location": "South of Falador",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Highwayman",
+      "note": ""
+    },
+    {
+      "location": "South-east of Rellekka",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Bunny",
+      "note": ""
+    },
+    {
+      "location": "Stronghold of Security: Catacomb of Famine",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Flesh_Crawler",
+      "note": ""
+    },
+    {
+      "location": "Tarn's Lair",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Terror_dog",
+      "note": ""
+    },
+    {
+      "location": "Taverley Dungeon",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Black_dragon",
+      "note": ""
+    },
+    {
+      "location": "Temple of Ikov",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Guardian_of_Armadyl",
+      "note": ""
+    },
+    {
+      "location": "The Stranglewood",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Strangled_Lynx",
+      "note": ""
+    },
+    {
+      "location": "Tlati Rainforest",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Gemstone_Crab",
+      "note": ""
+    },
+    {
+      "location": "Tolna's rift",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Fear_reaper",
+      "note": ""
+    },
+    {
+      "location": "Tree Gnome Stronghold",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Terrorbird",
+      "note": ""
+    },
+    {
+      "location": "Varrock",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Man",
+      "note": ""
+    },
+    {
+      "location": "Varrock Sewers",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Spider",
+      "note": ""
+    },
+    {
+      "location": "Waterbirth Island Dungeon",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Dagannoth_Supreme",
+      "note": ""
+    },
+    {
+      "location": "Waterbirth Island Dungeon (Sub Levels)",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Dagannoth_(Waterbirth_Island)",
+      "note": ""
+    },
+    {
+      "location": "Waterfall Dungeon",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Fire_giant",
+      "note": ""
+    },
+    {
+      "location": "West Ardougne",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Knight_of_Ardougne",
+      "note": ""
+    },
+    {
+      "location": "Witchaven Dungeon",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Giant_lobster",
+      "note": ""
+    },
+    {
+      "location": "Wyvern Cave",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Spitting_Wyvern",
+      "note": ""
+    },
+    {
+      "location": "Wyvern Cave (Slayer task only)",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Spitting_Wyvern",
+      "note": ""
+    },
+    {
+      "location": "Abyssal Area (fairy ring ALR)",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Abyssal_demon",
+      "note": "",
+      "monsterName": "Abyssal demon"
+    },
+    {
+      "location": "Catacombs of Kourend",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Abyssal_demon",
+      "note": "",
+      "monsterName": "Abyssal demon"
+    },
+    {
+      "location": "Slayer Tower (basement)",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Abyssal_demon",
+      "note": "",
+      "monsterName": "Abyssal demon"
+    },
+    {
+      "location": "Slayer Tower (floor 2 (UK))",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Abyssal_demon",
+      "note": "",
+      "monsterName": "Abyssal demon"
+    },
+    {
+      "location": "Wilderness Slayer Cave",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Abyssal_demon",
+      "note": "",
+      "monsterName": "Abyssal demon"
+    },
+    {
+      "monsterName": "Abyssal guardian",
+      "location": "Abyss",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Abyssal_guardian",
+      "note": "The Abyss is outside the Wilderness. Its usual entrance requires Wilderness travel."
+    },
+    {
+      "monsterName": "Abyssal leech",
+      "location": "Abyss",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Abyssal_leech",
+      "note": "The Abyss is outside the Wilderness. Its usual entrance requires Wilderness travel."
+    },
+    {
+      "monsterName": "Abyssal walker",
+      "location": "Abyss",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Abyssal_walker",
+      "note": "The Abyss is outside the Wilderness. Its usual entrance requires Wilderness travel."
+    },
+    {
+      "monsterName": "Ankou",
+      "location": "The Forgotten Cemetery",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Ankou",
+      "note": ""
+    },
+    {
+      "monsterName": "Ankou",
+      "location": "Wilderness Slayer Cave",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Ankou",
+      "note": ""
+    },
+    {
+      "monsterName": "Artio",
+      "location": "Hunter's End",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Artio",
+      "note": ""
+    },
+    {
+      "monsterName": "Aviansie",
+      "location": "Wilderness God Wars Dungeon",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Aviansie",
+      "note": ""
+    },
+    {
+      "monsterName": "Bandit",
+      "location": "Bandit Camp (Wilderness)",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Bandit",
+      "note": ""
+    },
+    {
+      "monsterName": "Bandit",
+      "location": "Wilderness Slayer Cave",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Bandit",
+      "note": ""
+    },
+    {
+      "monsterName": "Battle mage",
+      "location": "Mage Arena",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Battle_mage",
+      "note": ""
+    },
+    {
+      "monsterName": "Black Heather",
+      "location": "Bandit Camp (Wilderness)",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Black_Heather",
+      "note": ""
+    },
+    {
+      "monsterName": "Black Knight",
+      "location": "Lava Maze (Wilderness)",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Black_Knight",
+      "note": ""
+    },
+    {
+      "monsterName": "Black Knight",
+      "location": "North-east of Bone Yard (Wilderness)",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Black_Knight",
+      "note": ""
+    },
+    {
+      "monsterName": "Black chinchompa (Hunter)",
+      "location": "Wilderness Hunter area",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Black_chinchompa_(Hunter)",
+      "note": ""
+    },
+    {
+      "monsterName": "Black demon",
+      "location": "Edgeville Dungeon (Wilderness)",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Black_demon",
+      "note": ""
+    },
+    {
+      "monsterName": "Black demon",
+      "location": "Wilderness Slayer Cave",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Black_demon",
+      "note": ""
+    },
+    {
+      "monsterName": "Black dragon",
+      "location": "Lava Maze Dungeon",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Black_dragon",
+      "note": ""
+    },
+    {
+      "monsterName": "Black dragon",
+      "location": "Wilderness Slayer Cave",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Black_dragon",
+      "note": ""
+    },
+    {
+      "monsterName": "Black unicorn",
+      "location": "East of the Graveyard of Shadows",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Black_unicorn",
+      "note": ""
+    },
+    {
+      "monsterName": "Bloodveld",
+      "location": "Wilderness God Wars Dungeon",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Bloodveld",
+      "note": ""
+    },
+    {
+      "monsterName": "Callisto",
+      "location": "Callisto's Den",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Callisto",
+      "note": ""
+    },
+    {
+      "monsterName": "Chaos Elemental",
+      "location": "West of the Rogues' Castle",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Chaos_Elemental",
+      "note": ""
+    },
+    {
+      "monsterName": "Chaos Fanatic",
+      "location": "West of the Lava Maze",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Chaos_Fanatic",
+      "note": ""
+    },
+    {
+      "monsterName": "Chaos druid",
+      "location": "Edgeville Dungeon (Wilderness)",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Chaos_druid",
+      "note": ""
+    },
+    {
+      "monsterName": "Chaos dwarf",
+      "location": "Deep Wilderness Dungeon",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Chaos_dwarf",
+      "note": ""
+    },
+    {
+      "monsterName": "Chaos dwarf",
+      "location": "North of Wilderness Bandit Camp",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Chaos_dwarf",
+      "note": ""
+    },
+    {
+      "monsterName": "Chaos dwarf",
+      "location": "South-east of Lava Dragon Isle",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Chaos_dwarf",
+      "note": ""
+    },
+    {
+      "monsterName": "Chronozon",
+      "location": "Edgeville Dungeon (Wilderness)",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Chronozon",
+      "note": ""
+    },
+    {
+      "location": "Corporeal Beast's Lair (Ironman only)",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Corporeal_Beast",
+      "note": "The lair is outside the Wilderness. Its exterior entrance is in the Wilderness; a games necklace can reach the lair directly.",
+      "monsterName": "Corporeal Beast"
+    },
+    {
+      "location": "Corporeal Beast's Lair (east of the Graveyard of Shadows or games necklace teleport)",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Corporeal_Beast",
+      "note": "The lair is outside the Wilderness. Its exterior entrance is in the Wilderness; a games necklace can reach the lair directly.",
+      "monsterName": "Corporeal Beast"
+    },
+    {
+      "monsterName": "Crazy archaeologist",
+      "location": "Ruins (west)",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Crazy_archaeologist",
+      "note": ""
+    },
+    {
+      "monsterName": "Dark warrior",
+      "location": "Dark Warriors' Fortress",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Dark_warrior",
+      "note": ""
+    },
+    {
+      "monsterName": "Dark warrior",
+      "location": "Dark Warriors' Fortress (floor 1 (UK))",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Dark_warrior",
+      "note": ""
+    },
+    {
+      "monsterName": "Dark wizard",
+      "location": "Level 6 and 7 Wilderness",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Dark_wizard",
+      "note": ""
+    },
+    {
+      "monsterName": "Deadly red spider",
+      "location": "Eastern Ruins",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Deadly_red_spider",
+      "note": ""
+    },
+    {
+      "monsterName": "Deadly red spider",
+      "location": "Edgeville Dungeon",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Deadly_red_spider",
+      "note": ""
+    },
+    {
+      "monsterName": "Deadly red spider",
+      "location": "North of the Lava Maze",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Deadly_red_spider",
+      "note": ""
+    },
+    {
+      "monsterName": "Donny the lad",
+      "location": "Wilderness Bandit Camp",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Donny_the_lad",
+      "note": ""
+    },
+    {
+      "monsterName": "Dust devil",
+      "location": "Wilderness Slayer Cave",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Dust_devil",
+      "note": ""
+    },
+    {
+      "monsterName": "Earth warrior",
+      "location": "Edgeville Dungeon (Wilderness)",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Earth_warrior",
+      "note": ""
+    },
+    {
+      "monsterName": "Elder Chaos druid",
+      "location": "Chaos Temple (Wilderness)",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Elder_Chaos_druid",
+      "note": ""
+    },
+    {
+      "monsterName": "Ent",
+      "location": "East of Chaos Temple (Wilderness)",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Ent",
+      "note": ""
+    },
+    {
+      "monsterName": "Ent",
+      "location": "North of Chaos Temple (Wilderness)",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Ent",
+      "note": ""
+    },
+    {
+      "monsterName": "Feral Vampyre",
+      "location": "Wilderness God Wars Dungeon",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Feral_Vampyre",
+      "note": ""
+    },
+    {
+      "location": "Brimhaven Dungeon",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Fire_giant",
+      "note": "",
+      "monsterName": "Fire giant"
+    },
+    {
+      "location": "Brimhaven Dungeon (floor 1 (UK))",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Fire_giant",
+      "note": "",
+      "monsterName": "Fire giant"
+    },
+    {
+      "location": "Catacombs of Kourend",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Fire_giant",
+      "note": "",
+      "monsterName": "Fire giant"
+    },
+    {
+      "location": "Charred Dungeon",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Fire_giant",
+      "note": "",
+      "monsterName": "Fire giant"
+    },
+    {
+      "location": "Crandor and Karamja Dungeon (Unreachable)",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Fire_giant",
+      "note": "",
+      "monsterName": "Fire giant"
+    },
+    {
+      "location": "Deep Wilderness Dungeon",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Fire_giant",
+      "note": "",
+      "monsterName": "Fire giant"
+    },
+    {
+      "location": "Giants' Den",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Fire_giant",
+      "note": "",
+      "monsterName": "Fire giant"
+    },
+    {
+      "location": "Isle of Souls Dungeon",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Fire_giant",
+      "note": "",
+      "monsterName": "Fire giant"
+    },
+    {
+      "location": "Karuulm Slayer Dungeon",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Fire_giant",
+      "note": "",
+      "monsterName": "Fire giant"
+    },
+    {
+      "location": "Smoke Dungeon",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Fire_giant",
+      "note": "",
+      "monsterName": "Fire giant"
+    },
+    {
+      "location": "Stronghold Slayer Dungeon",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Fire_giant",
+      "note": "",
+      "monsterName": "Fire giant"
+    },
+    {
+      "location": "Waterfall Dungeon",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Fire_giant",
+      "note": "",
+      "monsterName": "Fire giant"
+    },
+    {
+      "monsterName": "Ghost",
+      "location": "North-east of Chaos Temple (Wilderness)",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Ghost",
+      "note": ""
+    },
+    {
+      "monsterName": "Ghost",
+      "location": "North-west of Ferox Enclave",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Ghost",
+      "note": ""
+    },
+    {
+      "monsterName": "Ghost",
+      "location": "The Forgotten Cemetery",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Ghost",
+      "note": ""
+    },
+    {
+      "monsterName": "Giant bat",
+      "location": "West of Mage Arena",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Giant_bat",
+      "note": ""
+    },
+    {
+      "monsterName": "Giant rat",
+      "location": "North of Varrock (Wilderness)",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Giant_rat",
+      "note": ""
+    },
+    {
+      "monsterName": "Giant rat",
+      "location": "West Ruins (Wilderness)",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Giant_rat",
+      "note": ""
+    },
+    {
+      "monsterName": "Giant rat",
+      "location": "Wilderness Bandit Camp",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Giant_rat",
+      "note": ""
+    },
+    {
+      "monsterName": "Giant spider",
+      "location": "North of the Lava Dragon Isle",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Giant_spider",
+      "note": ""
+    },
+    {
+      "monsterName": "Giant spider",
+      "location": "West of the Wilderness Bandit Camp",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Giant_spider",
+      "note": ""
+    },
+    {
+      "location": "Between Lumbridge and Varrock",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Goblin",
+      "note": "",
+      "monsterName": "Goblin"
+    },
+    {
+      "location": "Clock Tower Dungeon",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Goblin",
+      "note": "",
+      "monsterName": "Goblin"
+    },
+    {
+      "location": "Entrance to Arandar",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Goblin",
+      "note": "",
+      "monsterName": "Goblin"
+    },
+    {
+      "location": "Goblin Cave",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Goblin",
+      "note": "",
+      "monsterName": "Goblin"
+    },
+    {
+      "location": "Kebos Lowlands",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Goblin",
+      "note": "",
+      "monsterName": "Goblin"
+    },
+    {
+      "location": "Lumbridge",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Goblin",
+      "note": "",
+      "monsterName": "Goblin"
+    },
+    {
+      "location": "Lumbridge Swamp",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Goblin",
+      "note": "",
+      "monsterName": "Goblin"
+    },
+    {
+      "location": "Observatory Dungeon",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Goblin",
+      "note": "",
+      "monsterName": "Goblin"
+    },
+    {
+      "location": "Outside Fishing Guild",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Goblin",
+      "note": "",
+      "monsterName": "Goblin"
+    },
+    {
+      "location": "Outside Port Sarim",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Goblin",
+      "note": "",
+      "monsterName": "Goblin"
+    },
+    {
+      "location": "South of Draynor Manor",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Goblin",
+      "note": "",
+      "monsterName": "Goblin"
+    },
+    {
+      "location": "South of Hosidius",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Goblin",
+      "note": "",
+      "monsterName": "Goblin"
+    },
+    {
+      "location": "South-east of Draynor Village",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Goblin",
+      "note": "",
+      "monsterName": "Goblin"
+    },
+    {
+      "location": "The Digsite",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Goblin",
+      "note": "",
+      "monsterName": "Goblin"
+    },
+    {
+      "location": "The Hollows cave",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Goblin",
+      "note": "",
+      "monsterName": "Goblin"
+    },
+    {
+      "location": "Tree Gnome Village maze",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Goblin",
+      "note": "",
+      "monsterName": "Goblin"
+    },
+    {
+      "location": "Underground Pass",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Goblin",
+      "note": "",
+      "monsterName": "Goblin"
+    },
+    {
+      "location": "West of Fishing Guild",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Goblin",
+      "note": "",
+      "monsterName": "Goblin"
+    },
+    {
+      "location": "West of Varrock",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Goblin",
+      "note": "",
+      "monsterName": "Goblin"
+    },
+    {
+      "monsterName": "Goblin (God Wars Dungeon)",
+      "location": "Wilderness God Wars Dungeon",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Goblin_(God_Wars_Dungeon)",
+      "note": ""
+    },
+    {
+      "monsterName": "Gorak",
+      "location": "Wilderness God Wars Dungeon",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Gorak",
+      "note": ""
+    },
+    {
+      "monsterName": "Greater Nechryael",
+      "location": "Wilderness Slayer Cave",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Greater_Nechryael",
+      "note": ""
+    },
+    {
+      "monsterName": "Greater demon",
+      "location": "Lava Maze Dungeon",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Greater_demon",
+      "note": ""
+    },
+    {
+      "monsterName": "Greater demon",
+      "location": "Wilderness Slayer Cave",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Greater_demon",
+      "note": ""
+    },
+    {
+      "monsterName": "Greater demon",
+      "location": "Wilderness near Demonic Ruins",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Greater_demon",
+      "note": ""
+    },
+    {
+      "location": "Corsair Cove Dungeon/Myths' Guild (basement)",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Green_dragon",
+      "note": "",
+      "monsterName": "Green dragon"
+    },
+    {
+      "location": "East of the Bone Yard Hunter area",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Green_dragon",
+      "note": "",
+      "monsterName": "Green dragon"
+    },
+    {
+      "location": "North of the Graveyard of Shadows",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Green_dragon",
+      "note": "",
+      "monsterName": "Green dragon"
+    },
+    {
+      "location": "South of the Lava Maze",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Green_dragon",
+      "note": "",
+      "monsterName": "Green dragon"
+    },
+    {
+      "location": "West of the Dark Warriors' Fortress",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Green_dragon",
+      "note": "",
+      "monsterName": "Green dragon"
+    },
+    {
+      "location": "Wilderness Slayer Cave",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Green_dragon",
+      "note": "",
+      "monsterName": "Green dragon"
+    },
+    {
+      "monsterName": "Grizzly bear",
+      "location": "North-west of Dark Warriors' Fortress",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Grizzly_bear",
+      "note": ""
+    },
+    {
+      "monsterName": "Grizzly bear",
+      "location": "North-west of the Ferox Enclave",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Grizzly_bear",
+      "note": ""
+    },
+    {
+      "monsterName": "Grizzly bear (Escape Caves)",
+      "location": "Escape Caves",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Grizzly_bear_(Escape_Caves)",
+      "note": ""
+    },
+    {
+      "monsterName": "Guard Bandit",
+      "location": "Wilderness Bandit Camp",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Guard_Bandit",
+      "note": ""
+    },
+    {
+      "monsterName": "Hellhound",
+      "location": "Outside of the Wilderness Resource Area",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Hellhound",
+      "note": ""
+    },
+    {
+      "monsterName": "Hellhound",
+      "location": "Wilderness Slayer Cave",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Hellhound",
+      "note": ""
+    },
+    {
+      "monsterName": "Hill Giant",
+      "location": "Bone Yard Hunter area",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Hill_Giant",
+      "note": ""
+    },
+    {
+      "monsterName": "Hill Giant",
+      "location": "Deep Wilderness Dungeon",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Hill_Giant",
+      "note": ""
+    },
+    {
+      "monsterName": "Hill Giant",
+      "location": "Lava Maze",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Hill_Giant",
+      "note": ""
+    },
+    {
+      "monsterName": "Hobgoblin",
+      "location": "Bandit Camp mine (Wilderness)",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Hobgoblin",
+      "note": ""
+    },
+    {
+      "monsterName": "Ice giant",
+      "location": "Frozen Waste Plateau (Wilderness)",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Ice_giant",
+      "note": ""
+    },
+    {
+      "monsterName": "Ice giant",
+      "location": "Wilderness Slayer Cave",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Ice_giant",
+      "note": ""
+    },
+    {
+      "monsterName": "Ice spider",
+      "location": "Frozen Waste Plateau",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Ice_spider",
+      "note": ""
+    },
+    {
+      "monsterName": "Ice warrior",
+      "location": "Northern Frozen Waste Plateau",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Ice_warrior",
+      "note": ""
+    },
+    {
+      "monsterName": "Ice warrior",
+      "location": "Southern Frozen Waste Plateau",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Ice_warrior",
+      "note": ""
+    },
+    {
+      "monsterName": "Icefiend",
+      "location": "Wilderness God Wars Dungeon",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Icefiend",
+      "note": ""
+    },
+    {
+      "monsterName": "Imp",
+      "location": "Wilderness God Wars Dungeon",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Imp",
+      "note": ""
+    },
+    {
+      "monsterName": "Jelly",
+      "location": "Wilderness Slayer Cave",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Jelly",
+      "note": ""
+    },
+    {
+      "location": "King Black Dragon Lair (Wilderness)",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/King_Black_Dragon",
+      "note": "The lair is outside the Wilderness; reaching its entrance requires Wilderness travel.",
+      "monsterName": "King Black Dragon"
+    },
+    {
+      "monsterName": "King Scorpion",
+      "location": "Lava Maze",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/King_Scorpion",
+      "note": ""
+    },
+    {
+      "monsterName": "Knight of Saradomin",
+      "location": "Wilderness God Wars Dungeon",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Knight_of_Saradomin",
+      "note": ""
+    },
+    {
+      "monsterName": "Kolodion",
+      "location": "Mage Arena",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Kolodion",
+      "note": ""
+    },
+    {
+      "monsterName": "Lava dragon",
+      "location": "Lava Dragon Isle",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Lava_dragon",
+      "note": ""
+    },
+    {
+      "monsterName": "Lesser demon",
+      "location": "Wilderness - King Black Dragon Lair entrance",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Lesser_demon",
+      "note": ""
+    },
+    {
+      "monsterName": "Lesser demon",
+      "location": "Wilderness - by the muddy chest in the Lava Maze",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Lesser_demon",
+      "note": ""
+    },
+    {
+      "monsterName": "Lesser demon",
+      "location": "Wilderness - south-east of the Demonic Ruins",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Lesser_demon",
+      "note": ""
+    },
+    {
+      "monsterName": "Lesser demon",
+      "location": "Wilderness Slayer Cave",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Lesser_demon",
+      "note": ""
+    },
+    {
+      "monsterName": "Magic axe",
+      "location": "Magic axe hut (23 Thieving and lockpick required)",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Magic_axe",
+      "note": ""
+    },
+    {
+      "monsterName": "Mammoth",
+      "location": "South-east of Ferox Enclave",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Mammoth",
+      "note": ""
+    },
+    {
+      "monsterName": "Man",
+      "location": "The Forgotten Cemetery",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Man",
+      "note": ""
+    },
+    {
+      "monsterName": "Monk of Zamorak",
+      "location": "Deep Wilderness Dungeon",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Monk_of_Zamorak",
+      "note": ""
+    },
+    {
+      "monsterName": "Moss giant",
+      "location": "Wilderness Pond",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Moss_giant",
+      "note": ""
+    },
+    {
+      "monsterName": "Ogre",
+      "location": "Wilderness God Wars Dungeon",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Ogre",
+      "note": ""
+    },
+    {
+      "monsterName": "Ork",
+      "location": "Wilderness God Wars Dungeon",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Ork",
+      "note": ""
+    },
+    {
+      "monsterName": "Pirate",
+      "location": "Pirates' Hideout",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Pirate",
+      "note": ""
+    },
+    {
+      "monsterName": "Poison spider",
+      "location": "Edgeville Dungeon",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Poison_spider",
+      "note": ""
+    },
+    {
+      "monsterName": "Poison spider",
+      "location": "Lava Maze Dungeon",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Poison_spider",
+      "note": ""
+    },
+    {
+      "monsterName": "Poison spider",
+      "location": "Outside the King Black Dragon Lair",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Poison_spider",
+      "note": ""
+    },
+    {
+      "monsterName": "Poison spider",
+      "location": "South of the Demonic Ruins",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Poison_spider",
+      "note": ""
+    },
+    {
+      "monsterName": "Poison spider (Escape Caves)",
+      "location": "Escape Caves",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Poison_spider_(Escape_Caves)",
+      "note": ""
+    },
+    {
+      "monsterName": "Pyrefiend",
+      "location": "Wilderness God Wars Dungeon",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Pyrefiend",
+      "note": ""
+    },
+    {
+      "monsterName": "Rat",
+      "location": "Ferox Enclave",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Rat",
+      "note": "Ferox Enclave is a safe area; leaving it can enter the Wilderness."
+    },
+    {
+      "monsterName": "Rat",
+      "location": "North of the Chaos Temple (Wilderness)",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Rat",
+      "note": ""
+    },
+    {
+      "monsterName": "Rat",
+      "location": "Ruins (east)",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Rat",
+      "note": ""
+    },
+    {
+      "monsterName": "Rat",
+      "location": "West Ruins",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Rat",
+      "note": ""
+    },
+    {
+      "monsterName": "Rat",
+      "location": "Wilderness Slayer Cave",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Rat",
+      "note": ""
+    },
+    {
+      "monsterName": "Revenant cyclops",
+      "location": "Revenant Cave",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Revenant_cyclops",
+      "note": ""
+    },
+    {
+      "monsterName": "Revenant dark beast",
+      "location": "Revenant Cave",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Revenant_dark_beast",
+      "note": ""
+    },
+    {
+      "monsterName": "Revenant demon",
+      "location": "Revenant Caves",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Revenant_demon",
+      "note": ""
+    },
+    {
+      "monsterName": "Revenant dragon",
+      "location": "Revenant Cave",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Revenant_dragon",
+      "note": ""
+    },
+    {
+      "monsterName": "Revenant goblin",
+      "location": "Revenant Cave",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Revenant_goblin",
+      "note": ""
+    },
+    {
+      "monsterName": "Revenant hellhound",
+      "location": "Revenant Cave",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Revenant_hellhound",
+      "note": ""
+    },
+    {
+      "monsterName": "Revenant hobgoblin",
+      "location": "Revenant Cave",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Revenant_hobgoblin",
+      "note": ""
+    },
+    {
+      "monsterName": "Revenant imp",
+      "location": "Revenant Caves",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Revenant_imp",
+      "note": ""
+    },
+    {
+      "monsterName": "Revenant knight",
+      "location": "Revenant Cave",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Revenant_knight",
+      "note": ""
+    },
+    {
+      "monsterName": "Revenant ork",
+      "location": "Revenant Caves",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Revenant_ork",
+      "note": ""
+    },
+    {
+      "monsterName": "Revenant pyrefiend",
+      "location": "Revenant Caves",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Revenant_pyrefiend",
+      "note": ""
+    },
+    {
+      "monsterName": "Rogue",
+      "location": "Rogues' Castle (floor 1 (UK))",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Rogue",
+      "note": ""
+    },
+    {
+      "monsterName": "Rogue",
+      "location": "Rogues' Castle (floor 2 (UK))",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Rogue",
+      "note": ""
+    },
+    {
+      "monsterName": "Rogue",
+      "location": "Rogues' Castle (floor 3 (UK))",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Rogue",
+      "note": ""
+    },
+    {
+      "monsterName": "Rogue",
+      "location": "Rogues' Castle (ground floor)",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Rogue",
+      "note": ""
+    },
+    {
+      "monsterName": "Rogue",
+      "location": "South-west of Mage Arena",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Rogue",
+      "note": ""
+    },
+    {
+      "monsterName": "Runite Golem",
+      "location": "Resource Area",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Runite_Golem",
+      "note": ""
+    },
+    {
+      "monsterName": "Scorpia",
+      "location": "Cave in the Scorpion Pit (north-east Wilderness)",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Scorpia",
+      "note": ""
+    },
+    {
+      "monsterName": "Scorpia's offspring (monster)",
+      "location": "Scorpia's Cave",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Scorpia's_offspring_(monster)",
+      "note": ""
+    },
+    {
+      "monsterName": "Scorpion",
+      "location": "Scorpion Pit",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Scorpion",
+      "note": ""
+    },
+    {
+      "monsterName": "Scorpion",
+      "location": "Wilderness (West of the Air Obelisk)",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Scorpion",
+      "note": ""
+    },
+    {
+      "monsterName": "Shadow spider",
+      "location": "Deep Wilderness Dungeon",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Shadow_spider",
+      "note": ""
+    },
+    {
+      "location": "Bone Yard, in the Wilderness",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Skeleton",
+      "note": "",
+      "monsterName": "Skeleton"
+    },
+    {
+      "location": "Buccaneers' Laboratory",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Skeleton",
+      "note": "",
+      "monsterName": "Skeleton"
+    },
+    {
+      "location": "Crandor",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Skeleton",
+      "note": "",
+      "monsterName": "Skeleton"
+    },
+    {
+      "location": "Crandor and Karamja Dungeon",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Skeleton",
+      "note": "",
+      "monsterName": "Skeleton"
+    },
+    {
+      "location": "Crypt of Tonali",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Skeleton",
+      "note": "",
+      "monsterName": "Skeleton"
+    },
+    {
+      "location": "Digsite Dungeon (After The Dig Site)",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Skeleton",
+      "note": "",
+      "monsterName": "Skeleton"
+    },
+    {
+      "location": "Digsite Dungeon (During The Dig Site)",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Skeleton",
+      "note": "",
+      "monsterName": "Skeleton"
+    },
+    {
+      "location": "Draynor Sewers",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Skeleton",
+      "note": "",
+      "monsterName": "Skeleton"
+    },
+    {
+      "location": "Edgeville Dungeon",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Skeleton",
+      "note": "",
+      "monsterName": "Skeleton"
+    },
+    {
+      "location": "Edgeville Dungeon (Wilderness area)",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Skeleton",
+      "note": "",
+      "monsterName": "Skeleton"
+    },
+    {
+      "location": "Frozen Waste Plateau, in the Wilderness",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Skeleton",
+      "note": "",
+      "monsterName": "Skeleton"
+    },
+    {
+      "location": "Glarial's Tomb",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Skeleton",
+      "note": "",
+      "monsterName": "Skeleton"
+    },
+    {
+      "location": "Isle of Bones",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Skeleton",
+      "note": "",
+      "monsterName": "Skeleton"
+    },
+    {
+      "location": "Isle of Souls Dungeon",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Skeleton",
+      "note": "",
+      "monsterName": "Skeleton"
+    },
+    {
+      "location": "Lovakengj",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Skeleton",
+      "note": "",
+      "monsterName": "Skeleton"
+    },
+    {
+      "location": "Near the Dark Altar",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Skeleton",
+      "note": "",
+      "monsterName": "Skeleton"
+    },
+    {
+      "location": "Ogre Enclave",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Skeleton",
+      "note": "",
+      "monsterName": "Skeleton"
+    },
+    {
+      "location": "Shayzien's Wall",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Skeleton",
+      "note": "",
+      "monsterName": "Skeleton"
+    },
+    {
+      "location": "South-west Wilderness mine, just south of the Dark Warriors' Fortress",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Skeleton",
+      "note": "",
+      "monsterName": "Skeleton"
+    },
+    {
+      "location": "Sunbleak Cave",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Skeleton",
+      "note": "",
+      "monsterName": "Skeleton"
+    },
+    {
+      "location": "Taverley Dungeon",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Skeleton",
+      "note": "",
+      "monsterName": "Skeleton"
+    },
+    {
+      "location": "Temple of Ikov (dungeon)",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Skeleton",
+      "note": "",
+      "monsterName": "Skeleton"
+    },
+    {
+      "location": "The Forgotten Cemetery",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Skeleton",
+      "note": "",
+      "monsterName": "Skeleton"
+    },
+    {
+      "location": "Tonali Cavern - Central Section",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Skeleton",
+      "note": "",
+      "monsterName": "Skeleton"
+    },
+    {
+      "location": "Tonali Cavern - Southern Chamber (ground floor)",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Skeleton",
+      "note": "",
+      "monsterName": "Skeleton"
+    },
+    {
+      "location": "Underground Pass (dungeon)",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Skeleton",
+      "note": "",
+      "monsterName": "Skeleton"
+    },
+    {
+      "location": "Varrock Sewers",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Skeleton",
+      "note": "",
+      "monsterName": "Skeleton"
+    },
+    {
+      "location": "Waterfall Dungeon",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Skeleton",
+      "note": "",
+      "monsterName": "Skeleton"
+    },
+    {
+      "location": "Wilderness Agility Course Dungeon",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Skeleton",
+      "note": "",
+      "monsterName": "Skeleton"
+    },
+    {
+      "location": "Wilderness Pond",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Skeleton",
+      "note": "",
+      "monsterName": "Skeleton"
+    },
+    {
+      "location": "Wilderness, north of Edgeville",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Skeleton",
+      "note": "",
+      "monsterName": "Skeleton"
+    },
+    {
+      "location": "Yanille Dungeon",
+      "wilderness": "NO",
+      "source": "https://oldschool.runescape.wiki/w/Skeleton",
+      "note": "",
+      "monsterName": "Skeleton"
+    },
+    {
+      "monsterName": "Skeleton (Wilderness Agility Course)",
+      "location": "Wilderness Agility Course",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Skeleton_(Wilderness_Agility_Course)",
+      "note": ""
+    },
+    {
+      "monsterName": "Speedy Keith",
+      "location": "Wilderness Bandit Camp",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Speedy_Keith",
+      "note": ""
+    },
+    {
+      "monsterName": "Spider",
+      "location": "Ruins (west), in the Wilderness",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Spider",
+      "note": ""
+    },
+    {
+      "monsterName": "Spider",
+      "location": "Wilderness spider nest holding a Sapphire spawn",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Spider",
+      "note": ""
+    },
+    {
+      "monsterName": "Spiritual mage",
+      "location": "Wilderness God Wars Dungeon",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Spiritual_mage",
+      "note": ""
+    },
+    {
+      "monsterName": "Spiritual ranger",
+      "location": "Wilderness God Wars Dungeon",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Spiritual_ranger",
+      "note": ""
+    },
+    {
+      "monsterName": "Spiritual warrior",
+      "location": "Wilderness God Wars Dungeon",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Spiritual_warrior",
+      "note": ""
+    },
+    {
+      "monsterName": "Thug",
+      "location": "Edgeville Dungeon (level 1-3 Wilderness)",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Thug",
+      "note": ""
+    },
+    {
+      "monsterName": "Thug",
+      "location": "Level 5-10 Wilderness",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Thug",
+      "note": ""
+    },
+    {
+      "monsterName": "Venenatis",
+      "location": "Silk Chasm",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Venenatis",
+      "note": ""
+    },
+    {
+      "monsterName": "Vet'ion",
+      "location": "Vet'ion's Rest",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Vet'ion",
+      "note": ""
+    },
+    {
+      "monsterName": "Werewolf",
+      "location": "Wilderness God Wars Dungeon",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Werewolf",
+      "note": ""
+    },
+    {
+      "monsterName": "White wolf",
+      "location": "South of Wilderness Agility Course",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/White_wolf",
+      "note": ""
+    },
+    {
+      "monsterName": "Wolf",
+      "location": "Wilderness, south-east of the Deserted Keep",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Wolf",
+      "note": ""
+    },
+    {
+      "monsterName": "Zombie (Wilderness)",
+      "location": "Graveyard of Shadows (Wilderness)",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Zombie_(Wilderness)",
+      "note": ""
+    },
+    {
+      "monsterName": "Zombie (Wilderness)",
+      "location": "Ruins (east) (Wilderness)",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Zombie_(Wilderness)",
+      "note": ""
+    },
+    {
+      "monsterName": "Zombie pirate",
+      "location": "Chaos Temple (Wilderness)",
+      "wilderness": "YES",
+      "source": "https://oldschool.runescape.wiki/w/Zombie_pirate",
+      "note": ""
+    }
+  ]
+}

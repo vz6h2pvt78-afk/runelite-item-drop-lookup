@@ -7,6 +7,9 @@ build
 nbactions.xml
 nb-configuration.xml
 nbproject/
+.cache/
+__pycache__/
+*.pyc
 docs/agent-reports/
 
 docs/agent-reports/

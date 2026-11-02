@@ -1,0 +1,11 @@
+Monster locations and access text adapted from Old School RuneScape Wiki contributors.
+Source: https://oldschool.runescape.wiki/
+License reported by the wiki: CC BY-NC-SA 3.0 Unported
+https://creativecommons.org/licenses/by-nc-sa/3.0/
+https://oldschool.runescape.wiki/w/RuneScape:Copyrights
+
+Changes: template extraction, markup normalization, access-note extraction,
+conservative drop associations and separately curated location classifications.
+Each location retains source page and revision ID; the development report contains
+the full revision manifest. Snapshot with coverage gaps, not a live wiki mirror.
+No affiliation or endorsement is implied.
