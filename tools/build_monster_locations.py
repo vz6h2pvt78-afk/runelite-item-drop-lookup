@@ -352,6 +352,7 @@ def bind_drops(monster, text, rows, existing, issues):
         bindings.append({**{k: base.get(k, "") for k in ("monsterName", "itemName", "quantity", "dropRate", "notes")},
             "locationIds": sorted({i for o in occurrences for i in o[1]}),
             "dropVersions": sorted({v for o in occurrences for v in o[2]}),
+            "matchMethods": sorted({"explicit-variant" if o[2] else "common-unversioned-table" for o in occurrences}),
             "evidence": "Exact existing drop tuple matched to wiki table/row versions or common unversioned table"})
     return bindings
 
@@ -510,6 +511,7 @@ def main(argv=None):
                "failedPages": len(failed), "locationRecords": len(rows), "verifiedDropBindings": len(bindings),
                "unboundExistingDrops": len(unbound), "unavailableLocations": sum(not r["available"] for r in rows),
                "wildernessCounts": dict(Counter(r["wilderness"] for r in rows)),
+               "bindingMethodCounts": dict(Counter(method for binding in bindings for method in binding["matchMethods"])),
                "membershipUnknown": sum(r["members"] is None for r in rows),
                **{k: len(issues[k]) for k in ("malformedRecords", "suspectedDuplicates", "variantMatchingIssues", "sharedDropSignatures", "unsupportedTemplates", "unparsedLevels", "templateCountDiscrepancies")}}
     report = {"generatedAt": now, "summary": summary, "missingLocationPages": missing,

@@ -86,6 +86,7 @@ class DropBindingTest(unittest.TestCase):
     def test_specific_table_does_not_leak_into_other_variant(self):
         bindings = self.bind("{{DropsTableHead|dropversion=Standard}}{{DropsLine|name=Item|quantity=1|rarity=1/10}}{{DropsTableBottom}}")
         self.assertEqual(["normal"], bindings[0]["locationIds"])
+        self.assertEqual(["explicit-variant"], bindings[0]["matchMethods"])
 
     def test_identical_signatures_retain_all_verified_associations(self):
         bindings = self.bind("{{DropsTableHead|dropversion=Standard}}{{DropsLine|name=Item|quantity=1|rarity=1/10}}{{DropsTableBottom}}"
@@ -96,6 +97,7 @@ class DropBindingTest(unittest.TestCase):
     def test_common_table_can_match_all_levels(self):
         bindings = self.bind("{{DropsTableHead}}{{DropsLine|name=Item|quantity=1|rarity=1/10}}{{DropsTableBottom}}")
         self.assertEqual(["normal", "wild"], bindings[0]["locationIds"])
+        self.assertEqual(["common-unversioned-table"], bindings[0]["matchMethods"])
 
     def test_unresolved_occurrence_invalidates_entire_signature(self):
         bindings = self.bind("{{DropsTableHead|dropversion=Standard}}{{DropsLine|name=Item|quantity=1|rarity=1/10}}{{DropsTableBottom}}"

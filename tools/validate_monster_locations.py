@@ -45,6 +45,7 @@ def validate(data, drops):
         require(key not in seen, f"Duplicate binding signature, union required: {key}")
         seen.add(key)
         require(bool(binding.get("locationIds")), f"Empty verified binding: {key}")
+        require(bool(binding.get("matchMethods")) and set(binding["matchMethods"]) <= {"explicit-variant", "common-unversioned-table"}, f"Missing association provenance: {key}")
         for identity in binding.get("locationIds", []):
             row = by_id.get(identity)
             require(row is not None, f"Dangling location id: {identity}")

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-02T21:42:22.375049+00:00",
+  "generatedAt": "2026-11-02T21:46:44.399646+00:00",
   "summary": {
     "pagesRequested": 1614,
     "pagesChecked": 1614,
@@ -14,6 +14,10 @@
       "UNKNOWN": 1631,
       "NO": 579,
       "YES": 153
+    },
+    "bindingMethodCounts": {
+      "common-unversioned-table": 8002,
+      "explicit-variant": 1813
     },
     "membershipUnknown": 1,
     "malformedRecords": 0,

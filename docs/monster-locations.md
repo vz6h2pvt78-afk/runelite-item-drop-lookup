@@ -65,6 +65,8 @@ notes. The generator reuses the existing drop parser and joins explicit row/tabl
 `dropversion` to LocLine versions. Common unversioned tables can apply across
 a page's levels when the page has no explicitly versioned drop tables.
 Unversioned occurrences on mixed-table pages remain unresolved.
+Each binding's `matchMethods` distinguishes `explicit-variant` evidence from
+`common-unversioned-table` inference, and the report counts both for future audits.
 
 The key is a signature, not unique variant identity. All occurrences must resolve;
 their location IDs and variants are combined. One unresolved occurrence invalidates
