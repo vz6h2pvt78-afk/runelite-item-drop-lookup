@@ -9,10 +9,13 @@ This plugin is currently in alpha. The core lookup system is working, but data c
 * Search for OSRS items by name
 * View monster drop sources
 * View drop rates and quantities
-* View Grand Exchange prices for tradeable items
-* Shows untradeable status when GE data is unavailable or marked untradeable
+* View a bundled GE price snapshot for a single matched item
+* Show untradeable status when explicitly recorded in the price data
 * Supports non-NPC sources for selected items
-* Source type filtering
+* Source type filtering, with one-click recovery when filters hide every source
+* Find a monster, shop or shop location within item results
+* Search and Back controls stay visible while lists scroll
+* Shop and empty-result Wiki shortcuts
 * Local JSON-based data files for fast lookup
 * Clickable NPC cards with offline monster locations and Back navigation
 * Wilderness filters for NPC results; Wilderness and membership filters in details
@@ -55,6 +58,8 @@ Known limitations:
 * Non-monster sources are handled separately and are still being expanded
 * Search aliases are basic and may not catch every slang or no-space search
 * Wiki data parsing is still being improved
+* GE prices are bundled snapshots, not live quotes
+* Some curated reward entries record only a currency; the UI labels missing amounts explicitly
 
 If an item does not show a source, it does not necessarily mean the item has no source. It may mean the source is not currently covered by the local dataset.
 

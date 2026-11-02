@@ -18,6 +18,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import net.runelite.client.ui.ColorScheme;
 import net.runelite.client.ui.PluginPanel;
@@ -28,12 +29,14 @@ public class MonsterLocationPanel extends JPanel
 {
     private static final int TEXT_WIDTH = PluginPanel.PANEL_WIDTH - 65;
     private final JPanel locationsPanel = column();
+    private final JScrollPane locationScroll = new JScrollPane();
     private final JComboBox<WildernessFilter> wilderness = new JComboBox<>(WildernessFilter.values());
     private final JComboBox<MembershipFilter> membership = new JComboBox<>(MembershipFilter.values());
     private final JCheckBox showAll = new JCheckBox("All monster locations");
     private final JButton clear = new JButton("Clear location filters");
     private final LocationMatch match;
     private final List<MonsterLocation> allLocations;
+    private final String dropNotes;
 
     public MonsterLocationPanel(DropSource source, String searchQuery,
                                 MonsterLocationLookupService service, WildernessFilter initialFilter, Runnable back)
@@ -42,6 +45,7 @@ public class MonsterLocationPanel extends JPanel
         setBackground(ColorScheme.DARK_GRAY_COLOR);
         setName("monsterDetail");
         match = service.lookup(source);
+        dropNotes = source.getNotes();
         allLocations = service.lookupByMonsterName(source.getMonsterName());
         JPanel header = column();
         JButton backButton = new JButton("Back to results");
@@ -55,10 +59,6 @@ public class MonsterLocationPanel extends JPanel
             header.add(text("Searched: " + searchQuery, false, TEXT_WIDTH));
         }
         header.add(text("Rate: " + source.getDropRate() + " | Quantity: " + source.getQuantity(), false, TEXT_WIDTH));
-        if (hasText(source.getNotes()))
-        {
-            header.add(text(source.getNotes(), false, TEXT_WIDTH));
-        }
 
         wilderness.setSelectedItem(initialFilter);
         wilderness.setName("detailWilderness");
@@ -87,13 +87,29 @@ public class MonsterLocationPanel extends JPanel
         }
         showAll.addActionListener(e -> renderLocations());
         add(header, BorderLayout.NORTH);
-        add(locationsPanel, BorderLayout.CENTER);
+        JPanel body = new JPanel(new BorderLayout());
+        body.setBackground(ColorScheme.DARK_GRAY_COLOR);
+        body.add(locationsPanel, BorderLayout.NORTH);
+        locationScroll.setViewportView(body);
+        locationScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        locationScroll.setBorder(null);
+        locationScroll.getVerticalScrollBar().setUnitIncrement(24);
+        add(locationScroll, BorderLayout.CENTER);
         renderLocations();
+    }
+
+    JScrollPane getLocationScrollPane()
+    {
+        return locationScroll;
     }
 
     private void renderLocations()
     {
         locationsPanel.removeAll();
+        if (hasText(dropNotes))
+        {
+            locationsPanel.add(text(dropNotes, false, TEXT_WIDTH));
+        }
         boolean filtering = wilderness.getSelectedItem() != WildernessFilter.ALL
                 || membership.getSelectedItem() != MembershipFilter.ALL;
         clear.setVisible(filtering);
@@ -124,6 +140,7 @@ public class MonsterLocationPanel extends JPanel
         }
         revalidate();
         repaint();
+        javax.swing.SwingUtilities.invokeLater(() -> locationScroll.getVerticalScrollBar().setValue(0));
     }
 
     private JPanel locationCard(MonsterLocation location)

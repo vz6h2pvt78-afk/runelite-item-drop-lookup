@@ -1,7 +1,9 @@
 # Monster locations
 
 NPC cards open an offline location view. Back retains query, source filter, GE
-setting, expanded groups, results and scroll position. The old 100-source display
+setting, Find source text, expanded groups, results and scroll position.
+Item search stays above the scrolling results; Back and location filters stay
+above the scrolling location list. Long drop notes scroll with location content. The old 100-source display
 limit has been removed; filters cleared means every source remains accessible.
 
 ## Regeneration

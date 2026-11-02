@@ -53,6 +53,17 @@ public class SidebarPreview
             renderDetail(new DropSource("Goblin mail", "Goblin", "1", "5/128", ""), locations, directory, "goblin.png");
             renderDetail(new DropSource("Dragon pickaxe", "King Black Dragon", "1", "1/1000", ""), locations, directory, "safe-lair.png");
             renderDetail(new DropSource("Item", "Unknown monster", "1", "1/2", ""), locations, directory, "missing-locations.png");
+            ((JComboBox<?>) find(panel, "npcWildernessFilter")).setSelectedItem(WildernessFilter.ALL);
+            for (String query : new String[] {"graceful hood", "prospector boots", "runepouch", "pouch", "coins", "notanitemxyz"})
+            {
+                ((JTextField) find(panel, "itemSearch")).setText(query);
+                long started = System.nanoTime();
+                ((JButton) find(panel, "searchButton")).doClick();
+                long searchMillis = (System.nanoTime() - started) / 1_000_000;
+                render(panel.getWrappedPanel(), directory, query.replace(' ', '-') + ".png");
+                System.out.println("Search/render scenario: " + query + "; search=" + searchMillis + "ms");
+            }
+
         });
         System.out.println("Offline previews written to " + directory.getAbsolutePath());
     }
@@ -60,7 +71,7 @@ public class SidebarPreview
     private static void renderDetail(DropSource source, MonsterLocationLookupService service, File directory, String name)
     {
         JPanel detail = new MonsterLocationPanel(source, source.getItemName(), service, WildernessFilter.ALL, () -> { });
-        PluginPanel container = new PluginPanel() { };
+        PluginPanel container = new PluginPanel(false) { };
         container.setLayout(new BorderLayout());
         container.setBorder(new EmptyBorder(10, 10, 10, 10));
         container.add(detail, BorderLayout.CENTER);
@@ -101,12 +112,12 @@ public class SidebarPreview
 
     private static void render(JComponent component, File directory, String name)
     {
-        component.setSize(new Dimension(242, 1100));
+        component.setSize(new Dimension(242, 535));
         for (int i = 0; i < 3; i++)
         {
             layout(component);
         }
-        BufferedImage image = new BufferedImage(242, 1100, BufferedImage.TYPE_INT_RGB);
+        BufferedImage image = new BufferedImage(242, 535, BufferedImage.TYPE_INT_RGB);
         Graphics2D graphics = image.createGraphics();
         component.printAll(graphics);
         graphics.dispose();

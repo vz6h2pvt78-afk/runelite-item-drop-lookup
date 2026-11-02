@@ -186,6 +186,160 @@ public class ItemDropLookupPanelTest
         });
     }
 
+    private static boolean textContains(Container panel, String value)
+    {
+        return descendants(panel).stream().anyMatch(c -> c instanceof JLabel && ((JLabel) c).getText().contains(value));
+    }
+
+    private static long sourceCardCount(Container panel)
+    {
+        return descendants(panel).stream().filter(c -> "itemSourceCard".equals(c.getName())).count();
+    }
+
+    private static void search(Container panel, String query)
+    {
+        ((JTextField) named(panel, "itemSearch")).setText(query);
+        ((JButton) named(panel, "searchButton")).doClick();
+    }
+
+    @Test
+    public void findSourceSurvivesBackAndResetsForANewItem() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            ItemDropLookupPanel panel = panel(new DropLookupService(new Gson()));
+            search(panel, "rune scimitar");
+            JTextField find = (JTextField) named(panel, "sourceSearch");
+            find.setText("fire giant");
+            find.postActionEvent();
+            assertEquals(1, descendants(panel).stream().filter(c -> "openLocations".equals(c.getName())).count());
+            ((JButton) named(panel, "openLocations")).doClick();
+            ((JButton) named(panel, "backToResults")).doClick();
+            assertSame(find, named(panel, "sourceSearch"));
+            assertEquals("fire giant", find.getText());
+            search(panel, "prospector boots");
+            assertEquals("", find.getText());
+            assertEquals(2, sourceCardCount(panel));
+            find.setText("motherlode");
+            find.postActionEvent();
+            assertEquals(1, sourceCardCount(panel));
+            assertTrue(textContains(panel, "30 golden nuggets"));
+        });
+    }
+
+    @Test
+    public void oneClickRestoresSourcesHiddenByCombinedFilters() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            ItemDropLookupPanel panel = panel(new DropLookupService(new Gson()));
+            search(panel, "graceful hood");
+            ((JComboBox<?>) named(panel, "npcWildernessFilter")).setSelectedItem(WildernessFilter.ONLY);
+            assertFalse(textContains(panel, "0 of 0"));
+            ((JComboBox<?>) named(panel, "sourceTypeFilter")).setSelectedItem("NPC Drops");
+            JTextField find = (JTextField) named(panel, "sourceSearch");
+            find.setText("missing");
+            find.postActionEvent();
+            assertTrue(textContains(panel, "No sources match these filters"));
+            ((JButton) named(panel, "resetSourceFilters")).doClick();
+            assertEquals("All", ((JComboBox<?>) named(panel, "sourceTypeFilter")).getSelectedItem());
+            assertEquals(WildernessFilter.ALL, ((JComboBox<?>) named(panel, "npcWildernessFilter")).getSelectedItem());
+            assertEquals("", find.getText());
+            assertEquals(1, sourceCardCount(panel));
+        });
+    }
+
+    @Test
+    public void togglingPriceKeepsExpandedMonsterCards() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            ItemDropLookupPanel panel = panel(new DropLookupService(new Gson()));
+            search(panel, "goblin mail");
+            JButton group = (JButton) named(panel, "sourceGroup:Goblin");
+            group.doClick();
+            JButton location = (JButton) named(group.getParent(), "openLocations");
+            ((javax.swing.JCheckBox) named(panel, "showPrice")).doClick();
+            assertSame(group, named(panel, "sourceGroup:Goblin"));
+            assertSame(location, named(group.getParent(), "openLocations"));
+            assertTrue(location.getParent().getParent().isVisible());
+        });
+    }
+
+    @Test
+    public void broadQueryDoesNotBorrowOneItemsPrice() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            DropLookupService drops = new DropLookupService(new Gson())
+            {
+                @Override public List<DropSource> searchByItemName(String query)
+                {
+                    return java.util.Arrays.asList(
+                            new DropSource("Rune scimitar", "One", "1", "1/2", ""),
+                            new DropSource("Dragon dagger", "Two", "1", "1/3", ""));
+                }
+            };
+            ItemDropLookupPanel panel = panel(drops);
+            search(panel, "example weapons");
+            assertFalse(textContains(panel, "GE snapshot:"));
+            assertTrue(textContains(panel, "across 2 items"));
+        });
+    }
+
+    @Test
+    public void searchAndBackStayVisibleWhenListsScroll() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            ScrollTestPanel panel = new ScrollTestPanel();
+            search(panel, "rune scimitar");
+            panel.setSize(242, 535);
+            layout(panel);
+            layout(panel);
+            Component query = named(panel, "itemSearch");
+            int queryY = SwingUtilities.convertPoint(query, 0, 0, panel).y;
+            panel.scrollBar().setValue(400);
+            assertEquals(400, panel.scrollBar().getValue());
+            assertEquals(queryY, SwingUtilities.convertPoint(query, 0, 0, panel).y);
+            assertTrue(queryY < 50);
+
+            MonsterLocationPanel detail = new MonsterLocationPanel(new DropSource("Rune scimitar", "Fire giant", "1", "1/128", ""),
+                    "rune scimitar", new MonsterLocationLookupService(new Gson()), WildernessFilter.ALL, () -> { });
+            detail.setSize(222, 500);
+            layout(detail);
+            layout(detail);
+            Component back = named(detail, "backToResults");
+            int backY = SwingUtilities.convertPoint(back, 0, 0, detail).y;
+            detail.getLocationScrollPane().getVerticalScrollBar().setValue(400);
+            assertEquals(400, detail.getLocationScrollPane().getVerticalScrollBar().getValue());
+            assertEquals(backY, SwingUtilities.convertPoint(back, 0, 0, detail).y);
+            assertTrue(backY < 30);
+        });
+    }
+
+    @Test
+    public void rewardShopCostsAndCompactItemMatchingRemainIntact() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            ItemDropLookupPanel panel = panel(new DropLookupService(new Gson()));
+            search(panel, "prospector boots");
+            ((JComboBox<?>) named(panel, "sourceTypeFilter")).setSelectedItem("Reward Shops");
+            assertEquals(2, sourceCardCount(panel));
+            assertTrue(textContains(panel, "21,000 Volcanic Mine reward points"));
+            assertTrue(textContains(panel, "30 golden nuggets"));
+            assertFalse(named(panel, "npcWildernessFilter").getParent().isVisible());
+            search(panel, "runepouch");
+            assertEquals(2, sourceCardCount(panel));
+            assertFalse(textContains(panel, "Rune Pouch Note"));
+            assertTrue(textContains(panel, "Amount not recorded"));
+            search(panel, "graceful hood");
+            assertEquals(1, sourceCardCount(panel));
+            assertTrue(textContains(panel, "Currency: Marks of grace"));
+            search(panel, "spade");
+            ((JComboBox<?>) named(panel, "sourceTypeFilter")).setSelectedItem("Shops");
+            assertEquals(38, sourceCardCount(panel));
+            assertFalse(descendants(panel).stream().anyMatch(c -> "openLocations".equals(c.getName())));
+            ((JComboBox<?>) named(panel, "sourceTypeFilter")).setSelectedItem("Non-NPC Sources");
+            assertEquals(38, sourceCardCount(panel));
+        });
+    }
+
     private static long locationCardCount(Container detail)
     {
         return descendants(detail).stream().filter(c -> c.getName() != null && c.getName().startsWith("location:")).count();

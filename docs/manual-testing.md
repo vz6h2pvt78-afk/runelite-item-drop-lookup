@@ -11,6 +11,7 @@ offline renders cannot verify in-game behavior.
    instructions. Complete authentication yourself; do not copy credentials into chat.
 3. Enable **Item Drop Lookup** if needed and open its sidebar.
 4. Search **rune scimitar**. Open **Fire giant** by card or Locations button.
+   Use **Find source** with `fire giant` to reach it directly.
    Confirm rate `1/128`, quantity, levels 86 / 104 / 109, Brimhaven floors,
    Catacombs, Waterfall and other locations are readable.
 5. In details choose **Wilderness only**: Deep Wilderness Dungeon should remain.
@@ -46,6 +47,23 @@ offline renders cannot verify in-game behavior.
 14. Confirm there are no League-region controls or labels. Check long notes and
     client resizing, keyboard/mouse Locations and Back, and
     Wiki buttons opening the corresponding page only when clicked.
+
+15. Scroll a long result list: item search and **Find source** must remain visible.
+    Search **coins**, find `fire giant`, then clear Find source: all 1,780 drop
+    records must return. A new item search must clear the previous source text.
+16. Open a monster and scroll its locations: Back and location filters must remain
+    visible. Back must retain both the item query and Find source text.
+17. Expand **Goblin** under **goblin mail**, then toggle GE price off and on. The
+    group must remain expanded. Group buttons should work with Tab and Space.
+18. Search **prospector boots**, select **Reward Shops**, and find `motherlode`.
+    Expect the golden-nugget option. NPC controls should be hidden in shop views.
+    Select NPC Drops: the empty state should offer **Show all sources**, restoring
+    source type, Wilderness and Find source in one click.
+19. **runepouch** must return the pouch, not its note. Currency-only curated entries
+    should say the amount is not recorded. Shop Wiki shortcuts should open an item
+    search on the OSRS Wiki. A made-up item should show a concise no-match message.
+20. A broad query matching multiple items must not show one arbitrary item's GE
+    price. Any shown price must be labelled **GE snapshot**.
 
 For failures, record query, monster/rate, active filters and observed behavior.
 Confirm these checks before considering public-release work. The proposed code

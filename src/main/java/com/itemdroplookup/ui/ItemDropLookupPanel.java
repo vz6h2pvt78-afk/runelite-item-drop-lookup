@@ -20,8 +20,12 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
+import javax.swing.Timer;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.border.EmptyBorder;
 import java.awt.BorderLayout;
 import java.awt.Cursor;
@@ -33,17 +37,16 @@ import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Locale;
+import java.util.stream.Collectors;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import net.runelite.client.util.LinkBrowser;
 
 public class ItemDropLookupPanel extends PluginPanel
 {
-    // Captures the inner text of a trailing parenthetical for the display-only
-    // "Variant" line, e.g. "Skeleton (Tarn's Lair)" -> "Tarn's Lair". Mirrors the
-    // trailing-parenthetical convention used by MonsterFamilyGrouper.
-    private static final Pattern TRAILING_PAREN = Pattern.compile("^.+\\s+\\(([^)]+)\\)$");
-
     private static final String FILTER_ALL = "All";
     private static final String FILTER_DROPS = "NPC Drops";
     private static final String FILTER_SOURCES = "Non-NPC Sources";
@@ -82,6 +85,15 @@ public class ItemDropLookupPanel extends PluginPanel
     private final JComboBox<WildernessFilter> wildernessDropdown = new JComboBox<>(WildernessFilter.values());
     private int searchScrollPosition;
     private String displayedQuery = "";
+    private final JScrollPane resultsScroll = new JScrollPane();
+    private MonsterLocationPanel detail;
+    private final JTextField sourceSearch = new JTextField();
+    private final JPanel sourceSearchRow = new JPanel(new BorderLayout(5, 0));
+    private final JPanel npcFilters = new JPanel(new BorderLayout(5, 0));
+    private final Timer sourceSearchTimer = new Timer(180, e -> renderResults());
+    private List<DropSource> matchingDrops = Collections.emptyList();
+    private List<ItemSource> matchingSources = Collections.emptyList();
+    private final List<Component> priceLabels = new ArrayList<>();
 
     private final JTextField searchField = new JTextField();
     private final JButton searchButton = new JButton("Search");
@@ -102,6 +114,7 @@ public class ItemDropLookupPanel extends PluginPanel
             MonsterLocationLookupService monsterLocationLookupService
     )
     {
+        super(false);
         this.dropLookupService = dropLookupService;
         this.itemSourceLookupService = itemSourceLookupService;
         this.itemPriceLookupService = itemPriceLookupService;
@@ -109,6 +122,7 @@ public class ItemDropLookupPanel extends PluginPanel
 
         setLayout(new BorderLayout());
         setBorder(new EmptyBorder(10, 10, 10, 10));
+        setBackground(ColorScheme.DARK_GRAY_COLOR);
 
         JPanel topPanel = new JPanel();
         topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.Y_AXIS));
@@ -117,7 +131,8 @@ public class ItemDropLookupPanel extends PluginPanel
         JPanel searchPanel = new JPanel(new BorderLayout(5, 5));
         searchPanel.setBackground(ColorScheme.DARK_GRAY_COLOR);
 
-        searchField.setToolTipText("Enter an item name");
+        searchField.setToolTipText("Enter an item name and press Enter");
+        searchField.getAccessibleContext().setAccessibleName("Item name");
         searchField.setName("itemSearch");
         filterDropdown.setName("sourceTypeFilter");
         searchButton.setName("searchButton");
@@ -132,8 +147,15 @@ public class ItemDropLookupPanel extends PluginPanel
         filterDropdown.setMaximumSize(new Dimension(Integer.MAX_VALUE, filterDropdown.getPreferredSize().height));
 
         showPriceCheckbox.setBackground(ColorScheme.DARK_GRAY_COLOR);
-        showPriceCheckbox.setToolTipText("Show Grand Exchange price data when available");
-        showPriceCheckbox.addActionListener(e -> performSearch());
+        showPriceCheckbox.setName("showPrice");
+        showPriceCheckbox.setToolTipText("Show the bundled GE price snapshot; prices are not live");
+        showPriceCheckbox.addActionListener(e -> {
+            int position = resultsScroll.getVerticalScrollBar().getValue();
+            priceLabels.forEach(label -> label.setVisible(showPriceCheckbox.isSelected()));
+            resultsPanel.revalidate();
+            resultsPanel.repaint();
+            SwingUtilities.invokeLater(() -> resultsScroll.getVerticalScrollBar().setValue(position));
+        });
         showPriceCheckbox.setMaximumSize(new Dimension(Integer.MAX_VALUE, showPriceCheckbox.getPreferredSize().height));
 
         topPanel.add(searchPanel);
@@ -144,143 +166,189 @@ public class ItemDropLookupPanel extends PluginPanel
         wildernessDropdown.setToolTipText("Filter NPC drops by verified usable locations. Shops and other sources are unchanged.");
         wildernessDropdown.setMaximumSize(new Dimension(Integer.MAX_VALUE, wildernessDropdown.getPreferredSize().height));
         wildernessDropdown.addActionListener(e -> performSearch());
-        topPanel.add(makeSummaryLabel("NPC locations"));
-        topPanel.add(wildernessDropdown);
+        npcFilters.setBackground(ColorScheme.DARK_GRAY_COLOR);
+        npcFilters.add(new JLabel("NPCs"), BorderLayout.WEST);
+        npcFilters.add(wildernessDropdown, BorderLayout.CENTER);
+        topPanel.add(npcFilters);
         topPanel.add(makeSmallSpacer());
         topPanel.add(showPriceCheckbox);
+        sourceSearchRow.setBackground(ColorScheme.DARK_GRAY_COLOR);
+        sourceSearchRow.add(new JLabel("Find source"), BorderLayout.WEST);
+        sourceSearchRow.add(sourceSearch, BorderLayout.CENTER);
+        sourceSearch.setName("sourceSearch");
+        sourceSearch.setToolTipText("Narrow these results by monster, shop or shop location; clear to show all");
+        sourceSearch.getAccessibleContext().setAccessibleName("Find a monster, shop or shop location in results");
+        sourceSearchTimer.setRepeats(false);
+        sourceSearch.getDocument().addDocumentListener(new DocumentListener()
+        {
+            public void insertUpdate(DocumentEvent e) { sourceSearchTimer.restart(); }
+            public void removeUpdate(DocumentEvent e) { sourceSearchTimer.restart(); }
+            public void changedUpdate(DocumentEvent e) { sourceSearchTimer.restart(); }
+        });
+        sourceSearch.addActionListener(e -> { sourceSearchTimer.stop(); renderResults(); });
+        sourceSearchRow.setVisible(false);
+        topPanel.add(sourceSearchRow);
 
         resultsPanel.setLayout(new BoxLayout(resultsPanel, BoxLayout.Y_AXIS));
         resultsPanel.setBackground(ColorScheme.DARK_GRAY_COLOR);
 
         searchView.setBackground(ColorScheme.DARK_GRAY_COLOR);
         searchView.add(topPanel, BorderLayout.NORTH);
-        searchView.add(resultsPanel, BorderLayout.CENTER);
+        JPanel resultBody = new JPanel(new BorderLayout());
+        resultBody.setBackground(ColorScheme.DARK_GRAY_COLOR);
+        resultBody.add(resultsPanel, BorderLayout.NORTH);
+        resultsScroll.setViewportView(resultBody);
+        resultsScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        resultsScroll.setBorder(null);
+        resultsScroll.getVerticalScrollBar().setUnitIncrement(24);
+        searchView.add(resultsScroll, BorderLayout.CENTER);
         add(searchView, BorderLayout.CENTER);
+        resultsPanel.add(makeLabel("Search an item to find monster drops, shops and rewards."));
     }
+
+    @Override
+    protected JScrollPane getScrollPane()
+    {
+        return detail == null ? resultsScroll : detail.getLocationScrollPane();
+    }
+
+    private boolean adjustingControls;
 
     private void performSearch()
     {
-        resultsPanel.removeAll();
-
-        String itemName = searchField.getText().trim();
-        displayedQuery = itemName;
-        String selectedFilter = (String) filterDropdown.getSelectedItem();
-
-        if (itemName.isEmpty())
+        if (adjustingControls)
         {
-            resultsPanel.add(makeLabel("Enter an item name."));
+            return;
+        }
+        String query = searchField.getText().trim();
+        if (!query.equals(displayedQuery))
+        {
+            displayedQuery = query;
+            matchingDrops = dropLookupService.searchByItemName(query);
+            matchingSources = itemSourceLookupService.searchByItemName(query);
+            sourceSearch.setText("");
+            sourceSearchTimer.stop();
+        }
+        renderResults();
+    }
+
+    private void renderResults()
+    {
+        if (detail != null)
+        {
+            return;
+        }
+        resultsPanel.removeAll();
+        priceLabels.clear();
+        String selectedFilter = (String) filterDropdown.getSelectedItem();
+        boolean showDrops = FILTER_ALL.equals(selectedFilter) || FILTER_DROPS.equals(selectedFilter);
+        boolean showSources = !FILTER_DROPS.equals(selectedFilter);
+        npcFilters.setVisible(showDrops);
+        sourceSearchRow.setVisible(!matchingDrops.isEmpty() || !matchingSources.isEmpty());
+
+        if (displayedQuery.isEmpty())
+        {
+            resultsPanel.add(makeLabel("Enter an item name, then press Enter or Search."));
         }
         else
         {
-            List<DropSource> dropResults = dropLookupService.searchByItemName(itemName);
-            List<DropSource> unfilteredDropResults = dropResults;
-            List<ItemSource> itemSources = itemSourceLookupService.searchByItemName(itemName);
-
             WildernessFilter locationFilter = (WildernessFilter) wildernessDropdown.getSelectedItem();
-            int originalDropCount = dropResults.size();
-            boolean filterNpcLocations = locationFilter != WildernessFilter.ALL
-                    && (FILTER_ALL.equals(selectedFilter) || FILTER_DROPS.equals(selectedFilter));
-            if (filterNpcLocations)
-            {
-                dropResults = dropResults.stream()
-                        .filter(source -> monsterLocationLookupService.hasQualifyingLocation(source, locationFilter))
-                        .collect(java.util.stream.Collectors.toList());
-                resultsPanel.add(makeLabel("NPC location filter: " + dropResults.size() + " of " + originalDropCount
-                        + " sources have a verified qualifying location. Unverified, unknown and unreachable locations do not qualify. Shops and other sources are not filtered."));
-            }
-
-            boolean showDrops = FILTER_ALL.equals(selectedFilter) || FILTER_DROPS.equals(selectedFilter);
-            boolean showSources = FILTER_ALL.equals(selectedFilter)
-                    || FILTER_SOURCES.equals(selectedFilter)
-                    || FILTER_SHOPS.equals(selectedFilter)
-                    || FILTER_REWARD_SHOPS.equals(selectedFilter);
-
-            // Narrow the non-NPC sources to the selected source type. For All and
-            // Non-NPC Sources this is the full list; the Shops / Reward Shops
-            // filters keep only rows whose sourceType matches exactly.
-            List<ItemSource> displaySources;
+            String sourceQuery = sourceSearch.getText().trim().toLowerCase(Locale.ROOT);
+            List<DropSource> dropResults = showDrops ? matchingDrops.stream()
+                    .filter(source -> monsterLocationLookupService.hasQualifyingLocation(source, locationFilter))
+                    .filter(source -> contains(source.getMonsterName(), sourceQuery))
+                    .collect(Collectors.toList()) : Collections.emptyList();
+            List<ItemSource> sources = matchingSources;
             if (FILTER_SHOPS.equals(selectedFilter))
             {
-                displaySources = filterBySourceType(itemSources, SOURCE_TYPE_SHOP);
+                sources = filterBySourceType(sources, SOURCE_TYPE_SHOP);
             }
             else if (FILTER_REWARD_SHOPS.equals(selectedFilter))
             {
-                displaySources = filterBySourceType(itemSources, SOURCE_TYPE_REWARD_SHOP);
+                sources = filterBySourceType(sources, SOURCE_TYPE_REWARD_SHOP);
             }
-            else
+            List<ItemSource> displaySources = showSources ? sources.stream()
+                    .filter(source -> contains(source.getSourceName(), sourceQuery) || contains(source.getLocation(), sourceQuery))
+                    .collect(Collectors.toList()) : Collections.emptyList();
+
+            // A broad item query must not present one arbitrary item's price as its answer.
+            java.util.Set<String> itemNames = new java.util.LinkedHashSet<>();
+            matchingDrops.forEach(source -> itemNames.add(source.getItemName().toLowerCase(Locale.ROOT)));
+            matchingSources.forEach(source -> itemNames.add(source.getItemName().toLowerCase(Locale.ROOT)));
+            if (itemNames.size() == 1)
             {
-                displaySources = itemSources;
+                itemPriceLookupService.searchByItemName(itemNames.iterator().next()).ifPresent(price -> {
+                    JLabel label = makeSearchPriceSummary(price);
+                    label.setVisible(showPriceCheckbox.isSelected());
+                    priceLabels.add(label);
+                    resultsPanel.add(label);
+                });
             }
-
-            if (showPriceCheckbox.isSelected())
+            if (showDrops && locationFilter != WildernessFilter.ALL && !matchingDrops.isEmpty())
             {
-                Optional<ItemPrice> itemPrice = itemPriceLookupService.searchByItemName(itemName);
-
-                if (!itemPrice.isPresent() && !unfilteredDropResults.isEmpty())
-                {
-                    itemPrice = itemPriceLookupService.searchByItemName(unfilteredDropResults.get(0).getItemName());
-                }
-
-                if (itemPrice.isPresent())
-                {
-                    resultsPanel.add(makeSearchPriceSummary(itemPrice.get()));
-                    resultsPanel.add(makeSpacer());
-                }
+                JLabel notice = makeSummaryLabel("NPCs: " + locationFilter + ". Unknown or unverified locations are hidden.");
+                notice.setToolTipText("Requires a usable location associated with this exact drop. Shops and other sources are unchanged.");
+                resultsPanel.add(notice);
             }
-
-            if (showDrops && !dropResults.isEmpty())
+            if (!dropResults.isEmpty())
             {
                 displayDropResults(dropResults);
             }
-
-            if (showSources && !displaySources.isEmpty())
+            if (!displaySources.isEmpty())
             {
-                resultsPanel.add(makeSpacer());
-                resultsPanel.add(makeSectionHeader(sourceSectionHeading(selectedFilter)));
-                resultsPanel.add(makeSummaryLabel(sourceCountSummary(selectedFilter, displaySources.size())));
-
+                resultsPanel.add(makeSectionHeader(sourceSectionHeading(selectedFilter) + " (" + displaySources.size() + ")"));
                 for (ItemSource source : displaySources)
                 {
                     resultsPanel.add(makeItemSourceCard(source));
                 }
             }
-
-            if (filterNpcLocations && originalDropCount > 0 && dropResults.isEmpty())
+            if (dropResults.isEmpty() && displaySources.isEmpty())
             {
-                resultsPanel.add(makeNoResultHeader("No verified NPC location matches this filter."));
-                resultsPanel.add(makeLabel("Choose All locations to restore every NPC source, including those with missing or unverified location data."));
-            }
-            else if ((showDrops && dropResults.isEmpty()) && (showSources && displaySources.isEmpty()))
-            {
-                resultsPanel.add(makeNoResultHeader("No source found for: " + itemName));
-                resultsPanel.add(makeLabel("No NPC drop or known non-NPC source is currently in the local data."));
-                resultsPanel.add(makeLabel("Possible sources: clues, shops, skilling, minigames, quests, spawns, or reward chests."));
-                resultsPanel.add(makeLabel("Try a more specific item name, or check the OSRS Wiki."));
-            }
-            else if (FILTER_DROPS.equals(selectedFilter) && dropResults.isEmpty())
-            {
-                resultsPanel.add(makeNoResultHeader("No NPC drop found for: " + itemName));
-                resultsPanel.add(makeLabel("This item may not come from a normal monster drop."));
-            }
-            else if (FILTER_SHOPS.equals(selectedFilter) && displaySources.isEmpty())
-            {
-                resultsPanel.add(makeNoResultHeader("No shop source found for: " + itemName));
-                resultsPanel.add(makeLabel("This item may still exist, but no shop entry is currently in the local data."));
-            }
-            else if (FILTER_REWARD_SHOPS.equals(selectedFilter) && displaySources.isEmpty())
-            {
-                resultsPanel.add(makeNoResultHeader("No reward shop source found for: " + itemName));
-                resultsPanel.add(makeLabel("This item may still exist, but no reward shop entry is currently in the local data."));
-            }
-            else if (FILTER_SOURCES.equals(selectedFilter) && displaySources.isEmpty())
-            {
-                resultsPanel.add(makeNoResultHeader("No non-NPC source found for: " + itemName));
-                resultsPanel.add(makeLabel("This item may still exist, but no shop/reward/source entry is currently in the local data."));
+                boolean filtersActive = !FILTER_ALL.equals(selectedFilter)
+                        || locationFilter != WildernessFilter.ALL || !sourceQuery.isEmpty();
+                if (filtersActive && (!matchingDrops.isEmpty() || !matchingSources.isEmpty()))
+                {
+                    resultsPanel.add(makeNoResultHeader("No sources match these filters."));
+                    resultsPanel.add(makeLabel("This item has other sources in the local data."));
+                    JButton reset = new JButton("Show all sources");
+                    reset.setName("resetSourceFilters");
+                    reset.addActionListener(e -> {
+                        adjustingControls = true;
+                        filterDropdown.setSelectedItem(FILTER_ALL);
+                        wildernessDropdown.setSelectedItem(WildernessFilter.ALL);
+                        sourceSearch.setText("");
+                        adjustingControls = false;
+                        sourceSearchTimer.stop();
+                        renderResults();
+                    });
+                    resultsPanel.add(reset);
+                }
+                else
+                {
+                    resultsPanel.add(makeNoResultHeader("No source found for: " + displayedQuery));
+                    resultsPanel.add(makeLabel("No match in the local data. Check the spelling or try a shorter item name."));
+                }
+                resultsPanel.add(wikiButton(displayedQuery));
             }
         }
-
         resultsPanel.revalidate();
         resultsPanel.repaint();
+        revalidate();
+        SwingUtilities.invokeLater(() -> resultsScroll.getVerticalScrollBar().setValue(0));
+    }
+
+    private boolean contains(String value, String query)
+    {
+        return query.isEmpty() || value != null && value.toLowerCase(Locale.ROOT).contains(query);
+    }
+
+    private JButton wikiButton(String item)
+    {
+        JButton wiki = new JButton("Search item on Wiki");
+        wiki.setName("itemWiki");
+        wiki.addActionListener(e -> LinkBrowser.browse("https://oldschool.runescape.wiki/w/Special:Search?search="
+                + URLEncoder.encode(item, StandardCharsets.UTF_8)));
+        return wiki;
     }
 
     private void displayDropResults(List<DropSource> results)
@@ -294,10 +362,8 @@ public class ItemDropLookupPanel extends PluginPanel
                     .add(source);
         }
 
-        resultsPanel.add(makeSummaryLabel("Matched items: " + resultsByItem.size()));
-        resultsPanel.add(makeSummaryLabel("Drop sources: " + results.size()));
-
-        resultsPanel.add(makeSpacer());
+        resultsPanel.add(makeSummaryLabel("NPC drops: " + results.size()
+                + (resultsByItem.size() > 1 ? " across " + resultsByItem.size() + " items" : "")));
 
         for (Map.Entry<String, List<DropSource>> itemEntry : resultsByItem.entrySet())
         {
@@ -366,7 +432,10 @@ public class ItemDropLookupPanel extends PluginPanel
         String collapsedText = "▸ " + group.getParentName() + " (" + memberCount + ")";
         String expandedText  = "▾ " + group.getParentName() + " (" + memberCount + ")";
 
-        JLabel header = new JLabel("<html><b>" + escapeHtml(collapsedText) + "</b></html>");
+        JButton header = new JButton("<html><b>" + escapeHtml(collapsedText) + "</b></html>");
+        header.setName("sourceGroup:" + group.getParentName());
+        header.setHorizontalAlignment(JButton.LEFT);
+        header.setAlignmentX(LEFT_ALIGNMENT);
         header.setOpaque(true);
         header.setBackground(ColorScheme.DARK_GRAY_HOVER_COLOR);
         header.setBorder(BorderFactory.createCompoundBorder(
@@ -386,56 +455,22 @@ public class ItemDropLookupPanel extends PluginPanel
         ));
         membersPanel.setVisible(false);
 
-        for (DropSource member : group.getMembers())
-        {
-            membersPanel.add(makeDropCard(member, true));
-        }
-
-        header.addMouseListener(new MouseAdapter()
-        {
-            @Override
-            public void mouseClicked(MouseEvent e)
+        header.addActionListener(e -> {
+            boolean expand = !membersPanel.isVisible();
+            if (expand && membersPanel.getComponentCount() == 0)
             {
-                boolean expand = !membersPanel.isVisible();
-                membersPanel.setVisible(expand);
-                header.setText("<html><b>" + escapeHtml(expand ? expandedText : collapsedText) + "</b></html>");
-                resultsPanel.revalidate();
-                resultsPanel.repaint();
+                group.getMembers().forEach(member -> membersPanel.add(makeDropCard(member, true)));
             }
+            membersPanel.setVisible(expand);
+            header.setText("<html><b>" + escapeHtml(expand ? expandedText : collapsedText) + "</b></html>");
+            resultsPanel.revalidate();
+            resultsPanel.repaint();
         });
 
         container.add(header);
         container.add(membersPanel);
 
         return container;
-    }
-
-    /**
-     * Extracts the trailing-parenthetical context from a raw monster name for display
-     * as a "Variant" line, e.g. "Skeleton (Tarn's Lair)" -> "Tarn's Lair".
-     * Returns empty when there is no trailing parenthetical. The raw monster name is
-     * never modified or hidden; this is a display-only derived value.
-     */
-    private Optional<String> extractVariantLabel(String monsterName)
-    {
-        if (monsterName == null)
-        {
-            return Optional.empty();
-        }
-
-        Matcher matcher = TRAILING_PAREN.matcher(monsterName.trim());
-
-        if (matcher.matches())
-        {
-            String variant = matcher.group(1).trim();
-
-            if (!variant.isEmpty())
-            {
-                return Optional.of(variant);
-            }
-        }
-
-        return Optional.empty();
     }
 
     private JPanel makeDropCard(DropSource source, boolean nested)
@@ -469,9 +504,6 @@ public class ItemDropLookupPanel extends PluginPanel
         int wrapWidth = nested ? NESTED_CARD_TEXT_WIDTH : CARD_TEXT_WIDTH;
 
         card.add(makeCardTitle(source.getMonsterName(), wrapWidth));
-
-        Optional<String> variantLabel = extractVariantLabel(source.getMonsterName());
-        variantLabel.ifPresent(label -> card.add(makeCardLine("Variant: " + label, wrapWidth)));
 
         card.add(makeCardLine("Rate: " + source.getDropRate(), wrapWidth));
         card.add(makeCardLine("Quantity: " + source.getQuantity(), wrapWidth));
@@ -513,10 +545,12 @@ public class ItemDropLookupPanel extends PluginPanel
 
     private void showMonsterDetails(DropSource source)
     {
-        searchScrollPosition = getScrollPane().getVerticalScrollBar().getValue();
+        sourceSearchTimer.stop();
+        searchScrollPosition = resultsScroll.getVerticalScrollBar().getValue();
         remove(searchView);
-        add(new MonsterLocationPanel(source, displayedQuery, monsterLocationLookupService,
-                (WildernessFilter) wildernessDropdown.getSelectedItem(), this::showSearchResults), BorderLayout.CENTER);
+        detail = new MonsterLocationPanel(source, displayedQuery, monsterLocationLookupService,
+                (WildernessFilter) wildernessDropdown.getSelectedItem(), this::showSearchResults);
+        add(detail, BorderLayout.CENTER);
         revalidate();
         repaint();
         SwingUtilities.invokeLater(() -> getScrollPane().getVerticalScrollBar().setValue(0));
@@ -525,6 +559,7 @@ public class ItemDropLookupPanel extends PluginPanel
     private void showSearchResults()
     {
         removeAll();
+        detail = null;
         add(searchView, BorderLayout.CENTER);
         revalidate();
         repaint();
@@ -543,12 +578,9 @@ public class ItemDropLookupPanel extends PluginPanel
                 new EmptyBorder(8, 8, 8, 8)
         ));
 
-        card.add(makeCardTitle(formatItemName(source.getItemName()), CARD_TEXT_WIDTH));
-
-        if (hasText(source.getSourceName()))
-        {
-            card.add(makeCardLine("Source: " + source.getSourceName(), CARD_TEXT_WIDTH));
-        }
+        card.setName("itemSourceCard");
+        card.add(makeCardTitle(hasText(source.getSourceName()) ? source.getSourceName() : source.getSourceType(), CARD_TEXT_WIDTH));
+        card.add(makeCardLine(formatItemName(source.getItemName()), CARD_TEXT_WIDTH));
 
         if (hasText(source.getSourceType()))
         {
@@ -562,7 +594,13 @@ public class ItemDropLookupPanel extends PluginPanel
 
         if (hasText(source.getCost()))
         {
-            card.add(makeCardLine("Cost: " + source.getCost(), CARD_TEXT_WIDTH));
+            boolean missingAmount = source.getCost().equals("Marks of grace")
+                    || source.getCost().equals("Slayer reward points") || source.getCost().equals("LMS points");
+            card.add(makeCardLine((missingAmount ? "Currency: " : "Cost: ") + source.getCost(), CARD_TEXT_WIDTH));
+            if (missingAmount)
+            {
+                card.add(makeCardLine("Amount not recorded; check the Wiki.", CARD_TEXT_WIDTH));
+            }
         }
 
         if (hasText(source.getNotes()))
@@ -570,6 +608,7 @@ public class ItemDropLookupPanel extends PluginPanel
             card.add(makeCardLine("Notes: " + source.getNotes(), CARD_TEXT_WIDTH));
         }
 
+        card.add(wikiButton(source.getItemName()));
         card.setAlignmentX(LEFT_ALIGNMENT);
         card.setMaximumSize(new Dimension(Integer.MAX_VALUE, card.getPreferredSize().height));
 
@@ -617,25 +656,6 @@ public class ItemDropLookupPanel extends PluginPanel
         }
 
         return "Non-NPC Sources";
-    }
-
-    /**
-     * Summary count line for the non-NPC source block, labelled to match the active
-     * filter so the count is not mistaken for a drop-source count.
-     */
-    private String sourceCountSummary(String selectedFilter, int count)
-    {
-        if (FILTER_SHOPS.equals(selectedFilter))
-        {
-            return "Shop sources: " + count;
-        }
-
-        if (FILTER_REWARD_SHOPS.equals(selectedFilter))
-        {
-            return "Reward shop sources: " + count;
-        }
-
-        return "Non-NPC sources: " + count;
     }
 
     /**
@@ -713,7 +733,7 @@ public class ItemDropLookupPanel extends PluginPanel
             return "GE: unavailable";
         }
 
-        return "GE: " + formatNumber(itemPrice.getPrice()) + " gp";
+        return "GE snapshot: " + formatNumber(itemPrice.getPrice()) + " gp";
     }
 
     private String formatNumber(String value)
@@ -741,16 +761,16 @@ public class ItemDropLookupPanel extends PluginPanel
 
     private JLabel makeSpacer()
     {
-        JLabel label = new JLabel(" ");
-        label.setBorder(new EmptyBorder(3, 0, 3, 0));
+        JLabel label = new JLabel();
+        label.setPreferredSize(new Dimension(1, 6));
         label.setMaximumSize(new Dimension(Integer.MAX_VALUE, label.getPreferredSize().height));
         return label;
     }
 
     private JLabel makeSmallSpacer()
     {
-        JLabel label = new JLabel(" ");
-        label.setBorder(new EmptyBorder(1, 0, 1, 0));
+        JLabel label = new JLabel();
+        label.setPreferredSize(new Dimension(1, 5));
         label.setMaximumSize(new Dimension(Integer.MAX_VALUE, label.getPreferredSize().height));
         return label;
     }
