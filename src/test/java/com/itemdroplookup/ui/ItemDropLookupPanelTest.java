@@ -86,7 +86,7 @@ public class ItemDropLookupPanelTest
             long cards = descendants(panel).stream().filter(c -> "dropSourceCard".equals(c.getName())).count();
             cardButton.doClick();
             assertNotNull(named(panel, "monsterDetail"));
-            assertTrue(descendants(panel).stream().anyMatch(c -> c instanceof JLabel && ((JLabel) c).getText().contains("goblin mail")));
+            assertTrue(descendants(panel).stream().anyMatch(c -> c instanceof JLabel && ((JLabel) c).getText().toLowerCase(java.util.Locale.ROOT).contains("goblin mail")));
             ((JButton) named(panel, "backToResults")).doClick();
             assertSame(query, named(panel, "itemSearch"));
             assertSame(cardButton, named(panel, "openLocations"));
@@ -178,10 +178,11 @@ public class ItemDropLookupPanelTest
             ((JComboBox<?>) named(detail, "detailMembership")).setSelectedItem(com.itemdroplookup.service.MonsterLocationFilter.MembershipFilter.F2P);
             assertEquals(0, locationCardCount(detail));
             ((JComboBox<?>) named(detail, "detailMembership")).setSelectedItem(com.itemdroplookup.service.MonsterLocationFilter.MembershipFilter.ALL);
-            ((JComboBox<?>) named(detail, "detailRegion")).setSelectedItem("Kourend");
-            assertEquals(0, locationCardCount(detail));
+            assertEquals(1, locationCardCount(detail));
             ((JComboBox<?>) named(detail, "detailWilderness")).setSelectedItem(WildernessFilter.ALL);
-            assertEquals(3, locationCardCount(detail));
+            assertEquals(12, locationCardCount(detail));
+            ((JComboBox<?>) named(detail, "detailWilderness")).setSelectedItem(WildernessFilter.EXCLUDE);
+            assertEquals(11, locationCardCount(detail));
         });
     }
 

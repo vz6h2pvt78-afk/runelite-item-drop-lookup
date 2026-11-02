@@ -14,8 +14,7 @@ offline renders cannot verify in-game behavior.
    Confirm rate `1/128`, quantity, levels 86 / 104 / 109, Brimhaven floors,
    Catacombs, Waterfall and other locations are readable.
 5. In details choose **Wilderness only**: Deep Wilderness Dungeon should remain.
-   **Exclude Wilderness** should remove it. League region **Kourend** should show
-   appropriate Catacombs / Giants' Den / Karuulm rows. Members should retain Fire
+   **Exclude Wilderness** should remove it. Members should retain Fire
    giants; F2P should show a clear no-matches state. Clear filters to restore all,
    including the explicitly unreachable Crandor/Karamja row near the end.
 6. Press **Back to results**. Confirm query, source filter, GE checkbox, expanded
@@ -31,10 +30,10 @@ offline renders cannot verify in-game behavior.
    qualify in both via different locations. Clearing filters must restore every
    source. Status text should explain unknown/unverified exclusions. Shops and
    other non-NPC sources follow the separate source-type filter.
-10. Search **dragon pickaxe**, open **King Black Dragon**: Wilderness must be **No**,
-    League region can still be Wilderness, and its note must explain the
-    Wilderness journey. Check **Corporeal Beast** via **spirit shield** for its safe
-    lair and direct-teleport note.
+10. Search **dragon pickaxe**, open **King Black Dragon**: the card must say
+    **Outside Wilderness**, and its note must explain the Wilderness journey.
+    Check **Corporeal Beast** via **spirit shield** for its safe lair and
+    direct-teleport note.
 11. Exercise a source with missing location data and an unverified binding.
     Expect an honest empty state or “monster locations only” explanation and a
     working Back button. **Brimstone key / Fire giant** is an intentionally
@@ -44,7 +43,8 @@ offline renders cannot verify in-game behavior.
 13. Regression checks: **runepouch** must match precisely; **spade** must show shops;
     **graceful hood** should appear under Reward Shops; **prospector boots** must
     retain golden-nugget / Volcanic Mine point costs at the appropriate shops.
-14. Check long notes and client resizing, keyboard/mouse Locations and Back, and
+14. Confirm there are no League-region controls or labels. Check long notes and
+    client resizing, keyboard/mouse Locations and Back, and
     Wiki buttons opening the corresponding page only when clicked.
 
 For failures, record query, monster/rate, active filters and observed behavior.

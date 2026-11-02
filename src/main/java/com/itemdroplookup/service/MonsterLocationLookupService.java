@@ -66,7 +66,7 @@ public class MonsterLocationLookupService
         LocationMatch match = lookup(source);
         return match.isVerified() && match.getLocations().stream().anyMatch(location ->
                 location.isAvailable() && MonsterLocationFilter.matches(location, filter,
-                        MonsterLocationFilter.MembershipFilter.ALL, null));
+                        MonsterLocationFilter.MembershipFilter.ALL));
     }
 
     private synchronized void loadOnce()

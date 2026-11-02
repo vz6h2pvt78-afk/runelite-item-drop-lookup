@@ -106,20 +106,19 @@ public class MonsterLocationLookupServiceTest
     public void unknownMembershipAndWildernessFailSpecificFilters()
     {
         MonsterLocation unknown = new Gson().fromJson("{\"location\":\"Unknown\",\"wilderness\":\"UNKNOWN\",\"members\":null}", MonsterLocation.class);
-        assertTrue(MonsterLocationFilter.matches(unknown, WildernessFilter.ALL, MembershipFilter.ALL, null));
-        assertFalse(MonsterLocationFilter.matches(unknown, WildernessFilter.ONLY, MembershipFilter.ALL, null));
-        assertFalse(MonsterLocationFilter.matches(unknown, WildernessFilter.EXCLUDE, MembershipFilter.ALL, null));
-        assertFalse(MonsterLocationFilter.matches(unknown, WildernessFilter.ALL, MembershipFilter.F2P, null));
-        assertFalse(MonsterLocationFilter.matches(unknown, WildernessFilter.ALL, MembershipFilter.MEMBERS, null));
-        assertFalse(MonsterLocationFilter.matches(unknown, WildernessFilter.ALL, MembershipFilter.ALL, "Misthalin"));
+        assertTrue(MonsterLocationFilter.matches(unknown, WildernessFilter.ALL, MembershipFilter.ALL));
+        assertFalse(MonsterLocationFilter.matches(unknown, WildernessFilter.ONLY, MembershipFilter.ALL));
+        assertFalse(MonsterLocationFilter.matches(unknown, WildernessFilter.EXCLUDE, MembershipFilter.ALL));
+        assertFalse(MonsterLocationFilter.matches(unknown, WildernessFilter.ALL, MembershipFilter.F2P));
+        assertFalse(MonsterLocationFilter.matches(unknown, WildernessFilter.ALL, MembershipFilter.MEMBERS));
     }
 
     @Test
-    public void f2pMembersAndRegionFiltersCombineOnOneLocation()
+    public void membershipAndWildernessFiltersCombineOnOneLocation()
     {
         List<MonsterLocation> goblins = service.lookupByMonsterName("Goblin");
-        assertTrue(goblins.stream().anyMatch(r -> MonsterLocationFilter.matches(r, WildernessFilter.EXCLUDE, MembershipFilter.F2P, "Misthalin")));
-        assertTrue(goblins.stream().anyMatch(r -> MonsterLocationFilter.matches(r, WildernessFilter.EXCLUDE, MembershipFilter.MEMBERS, "Kandarin")));
-        assertFalse(goblins.stream().anyMatch(r -> MonsterLocationFilter.matches(r, WildernessFilter.ONLY, MembershipFilter.F2P, "Misthalin")));
+        assertTrue(goblins.stream().anyMatch(r -> MonsterLocationFilter.matches(r, WildernessFilter.EXCLUDE, MembershipFilter.F2P)));
+        assertTrue(goblins.stream().anyMatch(r -> MonsterLocationFilter.matches(r, WildernessFilter.EXCLUDE, MembershipFilter.MEMBERS)));
+        assertFalse(goblins.stream().anyMatch(r -> MonsterLocationFilter.matches(r, WildernessFilter.ONLY, MembershipFilter.F2P)));
     }
 }

@@ -84,7 +84,7 @@ Acceptance examples:
 - Abyssal whip / 1/512 retains both verified table contexts.
 
 Unresolved bindings show labelled **monster-level context**. “All monster
-locations” allows inspecting other tables from a verified view, with an explicit
+locations” appears only when other locations exist and allows inspecting them, with an explicit
 warning that the selected item/rate may not apply at every location.
 
 ## Filters
@@ -101,9 +101,11 @@ its verified drop binding**. Monsters with both kinds of location can appear in
 both filters. Clearing filters restores all sources, including missing data.
 Shops and other non-NPC sources are explicitly outside the NPC location filter.
 
-Details also filter membership and **League region**, labelled as the wiki's
-grouping rather than exact geography. Unknown membership/region cannot pass a
-specific filter. Mixed F2P/members rows retain a note and unknown classification.
+Details also filter membership. Unknown membership cannot pass a specific filter.
+Mixed F2P/members rows retain a note and unknown classification. League regions
+are retained only as source provenance in the dataset; they are not displayed or
+used as a player-facing filter. Compact cards show levels, membership, Wilderness,
+spawn estimates and access notes, without internal drop-table identifiers.
 Wilderness describes the kill location, not the journey or account access.
 
 ## Validation and limits

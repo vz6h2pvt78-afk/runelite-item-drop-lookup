@@ -26,7 +26,7 @@ public final class MonsterLocationFilter
     private MonsterLocationFilter() { }
 
     public static boolean matches(MonsterLocation location, WildernessFilter wilderness,
-                                  MembershipFilter membership, String leagueRegion)
+                                  MembershipFilter membership)
     {
         if (wilderness == WildernessFilter.ONLY && location.getWilderness() != MonsterLocation.Wilderness.YES)
         {
@@ -44,6 +44,6 @@ public final class MonsterLocationFilter
         {
             return false;
         }
-        return leagueRegion == null || location.getLeagueRegions().contains(leagueRegion);
+        return true;
     }
 }

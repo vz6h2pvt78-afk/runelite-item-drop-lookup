@@ -15,7 +15,7 @@ This plugin is currently in alpha. The core lookup system is working, but data c
 * Source type filtering
 * Local JSON-based data files for fast lookup
 * Clickable NPC cards with offline monster locations and Back navigation
-* Wilderness filters for NPC results; Wilderness, membership and League-region filters in details
+* Wilderness filters for NPC results; Wilderness and membership filters in details
 * Wiki-generated monster drop dataset
 
 ## Current Data Sources
