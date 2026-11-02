@@ -340,6 +340,99 @@ public class ItemDropLookupPanelTest
         });
     }
 
+    @Test
+    public void shopsAreDiscoverableBeforeScrollingThroughMonsterDrops() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            ItemDropLookupPanel panel = panel(new DropLookupService(new Gson()));
+            search(panel, "coal");
+            JButton shortcut = (JButton) named(panel, "showOtherSources");
+            assertEquals("View shops (6)", shortcut.getText());
+            shortcut.doClick();
+            assertEquals("Shops", ((JComboBox<?>) named(panel, "sourceTypeFilter")).getSelectedItem());
+            assertEquals("coal", ((JTextField) named(panel, "itemSearch")).getText());
+            assertEquals(6, sourceCardCount(panel));
+            assertFalse(descendants(panel).stream().anyMatch(c -> "openLocations".equals(c.getName())));
+        });
+    }
+
+    @Test
+    public void exactPotionDoesNotIncludeAnotherServicesBlightedFallback() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            ItemDropLookupPanel panel = panel(new DropLookupService(new Gson()));
+            search(panel, "super restore(4)");
+            assertTrue(textContains(panel, "GE snapshot (4-dose): 11,406 gp"));
+            assertFalse(textContains(panel, "Blighted"));
+            assertEquals(0, sourceCardCount(panel));
+            ((JComboBox<?>) named(panel, "sourceTypeFilter")).setSelectedItem("Shops");
+            assertTrue(textContains(panel, "No sources match these filters"));
+            assertEquals(0, sourceCardCount(panel));
+        });
+    }
+
+    @Test
+    public void potionNamesShowAllAvailableDosesAndFourDoseReference() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            ItemDropLookupPanel panel = panel(new DropLookupService(new Gson()));
+            search(panel, "Prayer potion");
+            for (int dose = 1; dose <= 4; dose++)
+            {
+                assertTrue(textContains(panel, "Prayer Potion(" + dose + ")"));
+            }
+            assertTrue(textContains(panel, "GE snapshot (4-dose): 8,650 gp"));
+            assertTrue(textContains(panel, "Showing all available doses"));
+            search(panel, "Super restore");
+            assertTrue(textContains(panel, "Super Restore(1)"));
+            assertTrue(textContains(panel, "Super Restore(3)"));
+            assertTrue(textContains(panel, "Super Restore(4)"));
+            assertFalse(textContains(panel, "Blighted"));
+            assertFalse(textContains(panel, "Super Restore Mix"));
+            assertTrue(textContains(panel, "GE snapshot (4-dose): 11,406 gp"));
+            search(panel, "Prayer potion(1)");
+            assertTrue(textContains(panel, "GE snapshot (4-dose): 8,650 gp"));
+            assertFalse(textContains(panel, "2,388 gp"));
+            search(panel, "Antidote++");
+            assertTrue(textContains(panel, "GE snapshot (4-dose): 7,072 gp"));
+            search(panel, "Prayer mix");
+            assertTrue(textContains(panel, "GE snapshot (4-dose): unavailable"));
+            search(panel, "Waterskin");
+            assertFalse(textContains(panel, "4-dose"));
+        });
+    }
+
+    @Test
+    public void packOptionsShowContentsAndPerPackCostsWithoutChangingTheRunePrice() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            ItemDropLookupPanel panel = panel(new DropLookupService(new Gson()));
+            search(panel, "Air rune");
+            assertTrue(textContains(panel, "GE snapshot: 4 gp"));
+            assertTrue(textContains(panel, "Contains: 100 × Air rune"));
+            assertTrue(textContains(panel, "430 coins per pack"));
+            assertTrue(textContains(panel, "645 Tokkul per pack"));
+            JTextField finder = (JTextField) named(panel, "sourceSearch");
+            finder.setText("pack");
+            finder.postActionEvent();
+            assertEquals(15, sourceCardCount(panel));
+            assertFalse(descendants(panel).stream().anyMatch(c -> "openLocations".equals(c.getName())));
+            search(panel, "Eye of newt");
+            assertTrue(textContains(panel, "Contains: 100 × Eye of newt (noted)"));
+        });
+    }
+
+    @Test
+    public void unverifiedRewardPricesAreNotPresentedAsCoinPrices() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            ItemDropLookupPanel panel = panel(new DropLookupService(new Gson()));
+            search(panel, "Seed pack");
+            assertTrue(textContains(panel, "Cost not verified; check the Wiki"));
+            assertFalse(textContains(panel, "Cost: 30 coins"));
+        });
+    }
+
     private static long locationCardCount(Container detail)
     {
         return descendants(detail).stream().filter(c -> c.getName() != null && c.getName().startsWith("location:")).count();

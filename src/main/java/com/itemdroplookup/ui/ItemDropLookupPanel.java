@@ -224,12 +224,37 @@ public class ItemDropLookupPanel extends PluginPanel
         if (!query.equals(displayedQuery))
         {
             displayedQuery = query;
-            matchingDrops = dropLookupService.searchByItemName(query);
-            matchingSources = itemSourceLookupService.searchByItemName(query);
+            java.util.Optional<String> potionFamily = itemPriceLookupService.findPotionFamily(query);
+            boolean allDoses = potionFamily.isPresent() && !query.matches(".*\\([1-4]\\)$");
+            String lookupQuery = allDoses ? potionFamily.get() : query;
+            matchingDrops = dropLookupService.searchByItemName(lookupQuery);
+            matchingSources = itemSourceLookupService.searchByItemName(lookupQuery);
+            // Services rank independently. If either finds the exact item, do not
+            // mix in another service's broader fallback (e.g. blighted potions).
+            String exactName = compactItemName(query);
+            boolean exactMatch = matchingDrops.stream().anyMatch(source -> compactItemName(source.getItemName()).equals(exactName))
+                    || matchingSources.stream().anyMatch(source -> compactItemName(source.getItemName()).equals(exactName));
+            if (potionFamily.isPresent())
+            {
+                matchingDrops = matchingDrops.stream().filter(source -> itemPriceLookupService.findPotionFamily(source.getItemName()).equals(potionFamily)
+                        && (allDoses || compactItemName(source.getItemName()).equals(exactName))).collect(Collectors.toList());
+                matchingSources = matchingSources.stream().filter(source -> itemPriceLookupService.findPotionFamily(source.getItemName()).equals(potionFamily)
+                        && (allDoses || compactItemName(source.getItemName()).equals(exactName))).collect(Collectors.toList());
+            }
+            else if (exactMatch)
+            {
+                matchingDrops = matchingDrops.stream().filter(source -> compactItemName(source.getItemName()).equals(exactName)).collect(Collectors.toList());
+                matchingSources = matchingSources.stream().filter(source -> compactItemName(source.getItemName()).equals(exactName)).collect(Collectors.toList());
+            }
             sourceSearch.setText("");
             sourceSearchTimer.stop();
         }
         renderResults();
+    }
+
+    private String compactItemName(String name)
+    {
+        return name.toLowerCase(Locale.ROOT).replaceAll("[^a-z0-9]", "");
     }
 
     private void renderResults()
@@ -268,14 +293,38 @@ public class ItemDropLookupPanel extends PluginPanel
                 sources = filterBySourceType(sources, SOURCE_TYPE_REWARD_SHOP);
             }
             List<ItemSource> displaySources = showSources ? sources.stream()
-                    .filter(source -> contains(source.getSourceName(), sourceQuery) || contains(source.getLocation(), sourceQuery))
+                    .filter(source -> contains(source.getSourceName(), sourceQuery) || contains(source.getLocation(), sourceQuery)
+                            || contains(source.getPackName(), sourceQuery))
                     .collect(Collectors.toList()) : Collections.emptyList();
+            boolean hasPacks = displaySources.stream().anyMatch(source -> source.getPackQuantity() > 0);
+            if (hasPacks)
+            {
+                // Keep a shop's loose and packaged purchase options next to each other.
+                displaySources.sort(java.util.Comparator.comparing(ItemSource::getSourceName,
+                        java.util.Comparator.nullsFirst(String.CASE_INSENSITIVE_ORDER)).thenComparingInt(ItemSource::getPackQuantity));
+            }
 
             // A broad item query must not present one arbitrary item's price as its answer.
             java.util.Set<String> itemNames = new java.util.LinkedHashSet<>();
             matchingDrops.forEach(source -> itemNames.add(source.getItemName().toLowerCase(Locale.ROOT)));
             matchingSources.forEach(source -> itemNames.add(source.getItemName().toLowerCase(Locale.ROOT)));
-            if (itemNames.size() == 1)
+            java.util.Optional<String> potionFamily = itemPriceLookupService.findPotionFamily(displayedQuery);
+            if (potionFamily.isPresent())
+            {
+                // All dose variants use the clearly labelled four-dose reference.
+                // Two-dose mixes/untradeable potions may have no four-dose GE item.
+                java.util.Optional<ItemPrice> reference = itemPriceLookupService.searchByItemName(potionFamily.get() + "(4)");
+                JLabel label = reference.map(price -> makeSearchPriceSummary(price, true))
+                        .orElseGet(() -> makeSummaryLabel("GE snapshot (4-dose): unavailable"));
+                label.setVisible(showPriceCheckbox.isSelected());
+                priceLabels.add(label);
+                resultsPanel.add(label);
+                if (!displayedQuery.matches(".*\\([1-4]\\)$"))
+                {
+                    resultsPanel.add(makeSummaryLabel("Showing all available doses"));
+                }
+            }
+            else if (itemNames.size() == 1)
             {
                 itemPriceLookupService.searchByItemName(itemNames.iterator().next()).ifPresent(price -> {
                     JLabel label = makeSearchPriceSummary(price);
@@ -290,13 +339,23 @@ public class ItemDropLookupPanel extends PluginPanel
                 notice.setToolTipText("Requires a usable location associated with this exact drop. Shops and other sources are unchanged.");
                 resultsPanel.add(notice);
             }
+            if (!dropResults.isEmpty() && !displaySources.isEmpty())
+            {
+                boolean shopsOnly = displaySources.stream().allMatch(source -> SOURCE_TYPE_SHOP.equals(source.getSourceType()));
+                JButton otherSources = new JButton((hasPacks ? "View buying options" : shopsOnly ? "View shops" : "View other sources")
+                        + " (" + displaySources.size() + ")");
+                otherSources.setName("showOtherSources");
+                otherSources.setAlignmentX(Component.LEFT_ALIGNMENT);
+                otherSources.addActionListener(e -> filterDropdown.setSelectedItem(shopsOnly ? FILTER_SHOPS : FILTER_SOURCES));
+                resultsPanel.add(otherSources);
+            }
             if (!dropResults.isEmpty())
             {
                 displayDropResults(dropResults);
             }
             if (!displaySources.isEmpty())
             {
-                resultsPanel.add(makeSectionHeader(sourceSectionHeading(selectedFilter) + " (" + displaySources.size() + ")"));
+                resultsPanel.add(makeSectionHeader((hasPacks ? "Buying options" : sourceSectionHeading(selectedFilter)) + " (" + displaySources.size() + ")"));
                 for (ItemSource source : displaySources)
                 {
                     resultsPanel.add(makeItemSourceCard(source));
@@ -580,7 +639,13 @@ public class ItemDropLookupPanel extends PluginPanel
 
         card.setName("itemSourceCard");
         card.add(makeCardTitle(hasText(source.getSourceName()) ? source.getSourceName() : source.getSourceType(), CARD_TEXT_WIDTH));
-        card.add(makeCardLine(formatItemName(source.getItemName()), CARD_TEXT_WIDTH));
+        boolean pack = source.getPackQuantity() > 0;
+        card.add(makeCardLine(formatItemName(pack ? source.getPackName() : source.getItemName()), CARD_TEXT_WIDTH));
+        if (pack)
+        {
+            card.add(makeCardLine("Contains: " + source.getPackQuantity() + " × " + source.getPackItemName()
+                    + (source.isPackNoted() ? " (noted)" : ""), CARD_TEXT_WIDTH));
+        }
 
         if (hasText(source.getSourceType()))
         {
@@ -592,11 +657,18 @@ public class ItemDropLookupPanel extends PluginPanel
             card.add(makeCardLine("Location: " + source.getLocation(), CARD_TEXT_WIDTH));
         }
 
-        if (hasText(source.getCost()))
+        boolean unverifiedCurrency = SOURCE_TYPE_REWARD_SHOP.equals(source.getSourceType())
+                && source.getCost() != null && source.getCost().matches("[0-9,]+ coins?");
+        if (unverifiedCurrency)
+        {
+            card.add(makeCardLine("Cost not verified; check the Wiki.", CARD_TEXT_WIDTH));
+        }
+        else if (hasText(source.getCost()))
         {
             boolean missingAmount = source.getCost().equals("Marks of grace")
                     || source.getCost().equals("Slayer reward points") || source.getCost().equals("LMS points");
-            card.add(makeCardLine((missingAmount ? "Currency: " : "Cost: ") + source.getCost(), CARD_TEXT_WIDTH));
+            card.add(makeCardLine((missingAmount ? "Currency: " : "Cost: ") + source.getCost()
+                    + (pack ? " per pack" : ""), CARD_TEXT_WIDTH));
             if (missingAmount)
             {
                 card.add(makeCardLine("Amount not recorded; check the Wiki.", CARD_TEXT_WIDTH));
@@ -605,10 +677,14 @@ public class ItemDropLookupPanel extends PluginPanel
 
         if (hasText(source.getNotes()))
         {
-            card.add(makeCardLine("Notes: " + source.getNotes(), CARD_TEXT_WIDTH));
+            String notes = unverifiedCurrency ? source.getNotes().replace("Cost increases as stock depletes.", "").trim() : source.getNotes();
+            if (hasText(notes))
+            {
+                card.add(makeCardLine("Notes: " + notes, CARD_TEXT_WIDTH));
+            }
         }
 
-        card.add(wikiButton(source.getItemName()));
+        card.add(wikiButton(pack ? source.getPackName() : source.getItemName()));
         card.setAlignmentX(LEFT_ALIGNMENT);
         card.setMaximumSize(new Dimension(Integer.MAX_VALUE, card.getPreferredSize().height));
 
@@ -680,8 +756,17 @@ public class ItemDropLookupPanel extends PluginPanel
 
     private JLabel makeSearchPriceSummary(ItemPrice itemPrice)
     {
+        return makeSearchPriceSummary(itemPrice, false);
+    }
+
+    private JLabel makeSearchPriceSummary(ItemPrice itemPrice, boolean fourDoseReference)
+    {
         String displayName = formatItemName(itemPrice.getItemName());
         String priceLine = formatPriceLine(itemPrice);
+        if (fourDoseReference)
+        {
+            priceLine = priceLine.replace("GE snapshot:", "GE snapshot (4-dose):");
+        }
 
         JLabel label = new JLabel(
                 "<html><div style='width:" + PANEL_TEXT_WIDTH + "px;'><b>"

@@ -8,8 +8,18 @@ public class ItemSource
     private final String location;
     private final String cost;
     private final String notes;
+    private final String packName;
+    private final String packItemName;
+    private final int packQuantity;
+    private final boolean packNoted;
 
     public ItemSource(String itemName, String sourceType, String sourceName, String location, String cost, String notes)
+    {
+        this(itemName, sourceType, sourceName, location, cost, notes, "", "", 0, false);
+    }
+
+    public ItemSource(String itemName, String sourceType, String sourceName, String location, String cost, String notes,
+            String packName, String packItemName, int packQuantity, boolean packNoted)
     {
         this.itemName = itemName;
         this.sourceType = sourceType;
@@ -17,6 +27,10 @@ public class ItemSource
         this.location = location;
         this.cost = cost;
         this.notes = notes;
+        this.packName = packName;
+        this.packItemName = packItemName;
+        this.packQuantity = packQuantity;
+        this.packNoted = packNoted;
     }
 
     public String getItemName()
@@ -48,4 +62,9 @@ public class ItemSource
     {
         return notes;
     }
+
+    public String getPackName() { return packName; }
+    public String getPackItemName() { return packItemName; }
+    public int getPackQuantity() { return packQuantity; }
+    public boolean isPackNoted() { return packNoted; }
 }

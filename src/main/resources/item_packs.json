@@ -1,0 +1,262 @@
+[
+  {
+    "packName": "Air rune pack",
+    "itemName": "Air rune",
+    "quantity": 100,
+    "noted": false,
+    "wikiRevision": 15215063,
+    "verifiedOn": "2026-11-02"
+  },
+  {
+    "packName": "Amylase pack",
+    "itemName": "Amylase crystal",
+    "quantity": 100,
+    "noted": false,
+    "wikiRevision": 15316439,
+    "verifiedOn": "2026-11-02",
+    "costByShop": {
+      "Grace's Graceful Clothing": "10 marks of grace",
+      "Agility Arena Store": "60 Brimhaven vouchers",
+      "Worm Tongue's Wares": "100 termites"
+    },
+    "notes": "Buying price. Resale gives fewer marks of grace; this is not a currency exchange at the buying rate."
+  },
+  {
+    "packName": "Bait pack",
+    "itemName": "Fishing bait",
+    "quantity": 100,
+    "noted": false,
+    "wikiRevision": 15215039,
+    "verifiedOn": "2026-11-02"
+  },
+  {
+    "packName": "Basket pack",
+    "itemName": "Basket",
+    "quantity": 100,
+    "noted": true,
+    "wikiRevision": 15215048,
+    "verifiedOn": "2026-11-02"
+  },
+  {
+    "packName": "Bird snare pack",
+    "itemName": "Bird snare",
+    "quantity": 100,
+    "noted": false,
+    "wikiRevision": 15215055,
+    "verifiedOn": "2026-11-02"
+  },
+  {
+    "packName": "Bone bolt pack",
+    "itemName": "Bone bolts",
+    "quantity": 100,
+    "noted": false,
+    "wikiRevision": 15186807,
+    "verifiedOn": "2026-11-02"
+  },
+  {
+    "packName": "Box trap pack",
+    "itemName": "Box trap",
+    "quantity": 100,
+    "noted": false,
+    "wikiRevision": 15215054,
+    "verifiedOn": "2026-11-02"
+  },
+  {
+    "packName": "Broad arrowhead pack",
+    "itemName": "Broad arrowheads",
+    "quantity": 100,
+    "noted": false,
+    "wikiRevision": 15215058,
+    "verifiedOn": "2026-11-02"
+  },
+  {
+    "packName": "Chaos rune pack",
+    "itemName": "Chaos rune",
+    "quantity": 100,
+    "noted": false,
+    "wikiRevision": 15215068,
+    "verifiedOn": "2026-11-02"
+  },
+  {
+    "packName": "Compost pack",
+    "itemName": "Compost",
+    "quantity": 100,
+    "noted": true,
+    "wikiRevision": 15215045,
+    "verifiedOn": "2026-11-02"
+  },
+  {
+    "packName": "Earth rune pack",
+    "itemName": "Earth rune",
+    "quantity": 100,
+    "noted": false,
+    "wikiRevision": 15215065,
+    "verifiedOn": "2026-11-02"
+  },
+  {
+    "packName": "Empty bucket pack",
+    "itemName": "Bucket",
+    "quantity": 100,
+    "noted": true,
+    "wikiRevision": 15215062,
+    "verifiedOn": "2026-11-02"
+  },
+  {
+    "packName": "Empty jug pack",
+    "itemName": "Jug",
+    "quantity": 100,
+    "noted": true,
+    "wikiRevision": 15215060,
+    "verifiedOn": "2026-11-02"
+  },
+  {
+    "packName": "Empty vial pack",
+    "itemName": "Vial",
+    "quantity": 100,
+    "noted": true,
+    "wikiRevision": 15215044,
+    "verifiedOn": "2026-11-02"
+  },
+  {
+    "packName": "Eye of newt pack",
+    "itemName": "Eye of newt",
+    "quantity": 100,
+    "noted": true,
+    "wikiRevision": 15215037,
+    "verifiedOn": "2026-11-02"
+  },
+  {
+    "packName": "Feather pack",
+    "itemName": "Feather",
+    "quantity": 100,
+    "noted": false,
+    "wikiRevision": 15215041,
+    "verifiedOn": "2026-11-02"
+  },
+  {
+    "packName": "Fire rune pack",
+    "itemName": "Fire rune",
+    "quantity": 100,
+    "noted": false,
+    "wikiRevision": 15215066,
+    "verifiedOn": "2026-11-02"
+  },
+  {
+    "packName": "Magic imp box pack",
+    "itemName": "Magic box",
+    "quantity": 100,
+    "noted": false,
+    "wikiRevision": 15215056,
+    "verifiedOn": "2026-11-02"
+  },
+  {
+    "packName": "Mind rune pack",
+    "itemName": "Mind rune",
+    "quantity": 100,
+    "noted": false,
+    "wikiRevision": 15215067,
+    "verifiedOn": "2026-11-02"
+  },
+  {
+    "packName": "Olive oil pack",
+    "itemName": "Olive oil(4)",
+    "quantity": 100,
+    "noted": true,
+    "wikiRevision": 15186468,
+    "verifiedOn": "2026-11-02"
+  },
+  {
+    "packName": "Plant pot pack",
+    "itemName": "Filled plant pot",
+    "quantity": 100,
+    "noted": true,
+    "wikiRevision": 15215046,
+    "verifiedOn": "2026-11-02"
+  },
+  {
+    "packName": "Sack pack",
+    "itemName": "Empty sack",
+    "quantity": 100,
+    "noted": true,
+    "wikiRevision": 15215047,
+    "verifiedOn": "2026-11-02"
+  },
+  {
+    "packName": "Sandworms pack",
+    "itemName": "Sandworms",
+    "quantity": 100,
+    "noted": false,
+    "wikiRevision": 15215042,
+    "verifiedOn": "2026-11-02"
+  },
+  {
+    "packName": "Soft clay pack",
+    "itemName": "Soft clay",
+    "quantity": 100,
+    "noted": true,
+    "wikiRevision": 15185599,
+    "verifiedOn": "2026-11-02",
+    "costByShop": {
+      "Prospector Percy's Nugget Shop": "10 golden nuggets",
+      "Mining Guild Mineral Exchange": "10 unidentified minerals",
+      "Dusuri's Star Shop": "150 stardust"
+    },
+    "notes": "Can only be sold back to the shop that supplied the pack."
+  },
+  {
+    "packName": "Tzhaar air rune pack",
+    "itemName": "Air rune",
+    "quantity": 100,
+    "noted": false,
+    "wikiRevision": 15188503,
+    "verifiedOn": "2026-11-02"
+  },
+  {
+    "packName": "Tzhaar earth rune pack",
+    "itemName": "Earth rune",
+    "quantity": 100,
+    "noted": false,
+    "wikiRevision": 15188504,
+    "verifiedOn": "2026-11-02"
+  },
+  {
+    "packName": "Tzhaar fire rune pack",
+    "itemName": "Fire rune",
+    "quantity": 100,
+    "noted": false,
+    "wikiRevision": 15188501,
+    "verifiedOn": "2026-11-02"
+  },
+  {
+    "packName": "Tzhaar water rune pack",
+    "itemName": "Water rune",
+    "quantity": 100,
+    "noted": false,
+    "wikiRevision": 15188502,
+    "verifiedOn": "2026-11-02"
+  },
+  {
+    "packName": "Unfinished broad bolt pack",
+    "itemName": "Unfinished broad bolts",
+    "quantity": 100,
+    "noted": false,
+    "wikiRevision": 15215059,
+    "verifiedOn": "2026-11-02"
+  },
+  {
+    "packName": "Water rune pack",
+    "itemName": "Water rune",
+    "quantity": 100,
+    "noted": false,
+    "wikiRevision": 15215064,
+    "verifiedOn": "2026-11-02"
+  },
+  {
+    "packName": "Water-filled vial pack",
+    "itemName": "Vial of water",
+    "quantity": 100,
+    "noted": true,
+    "wikiRevision": 15215043,
+    "verifiedOn": "2026-11-02"
+  }
+]

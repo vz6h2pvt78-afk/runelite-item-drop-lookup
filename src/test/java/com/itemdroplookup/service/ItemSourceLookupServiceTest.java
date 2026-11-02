@@ -84,4 +84,71 @@ public class ItemSourceLookupServiceTest
         assertFalse("spade should still return shop sources", results.isEmpty());
         assertTrue(containsItem(results, "spade"));
     }
+
+    @Test
+    public void raidResupplyChestIsNotOfferedAsAnOrdinaryShop()
+    {
+        for (String item : new String[] {"Prayer potion(4)", "Saradomin brew(4)", "Super restore(4)",
+                "Stamina potion(4)", "Shark", "Manta ray", "Sea turtle", "Mushroom potato"})
+        {
+            assertFalse(service.searchByItemName(item).stream()
+                    .anyMatch(source -> "Chest (Theatre of Blood)".equals(source.getSourceName())));
+        }
+        assertTrue(service.searchByItemName("raw shark").stream()
+                .anyMatch(source -> "Shop".equals(source.getSourceType())));
+    }
+
+    @Test
+    public void zeroStockShopsAreHiddenWhileStockedShopsRemain()
+    {
+        List<ItemSource> sharks = service.searchByItemName("raw shark");
+        assertTrue(sharks.stream().anyMatch(source -> "Frankie's Fishing Emporium".equals(source.getSourceName())));
+        assertTrue(sharks.stream().anyMatch(source -> "Rufus' Meat Emporium".equals(source.getSourceName())));
+        assertFalse(sharks.stream().anyMatch(source -> "Etceteria Fish".equals(source.getSourceName())));
+        assertFalse(sharks.stream().anyMatch(source -> source.getNotes().contains("Default stock: 0.")));
+        List<ItemSource> coal = service.searchByItemName("coal");
+        assertTrue(coal.stream().anyMatch(source -> "Ore seller.".equals(source.getSourceName())));
+        assertFalse(coal.stream().anyMatch(source -> "Drogo's Mining Emporium.".equals(source.getSourceName())));
+        assertTrue(service.searchByItemName("air rune").stream().anyMatch(source -> source.getPackQuantity() == 100));
+    }
+
+    @Test
+    public void looseItemSearchesIncludeVerifiedPackContentsWithoutChangingItemIdentity()
+    {
+        for (String item : new String[] {"Air rune", "Water rune", "Earth rune", "Fire rune", "Mind rune", "Chaos rune",
+                "Eye of newt", "Vial of water", "Vial", "Feather", "Amylase crystal"})
+        {
+            List<ItemSource> results = service.searchByItemName(item);
+            assertTrue(item, results.stream().allMatch(source -> item.equalsIgnoreCase(source.getItemName())));
+            assertTrue(item, results.stream().anyMatch(source -> source.getPackQuantity() == 100));
+        }
+        List<ItemSource> packs = service.searchByItemName("airrunepack");
+        assertTrue(packs.stream().allMatch(source -> "Air rune pack".equals(source.getItemName())));
+        assertTrue(service.searchByItemName("air rune").stream().anyMatch(source -> source.getPackQuantity() == 0));
+        assertTrue(service.searchByItemName("eye of newt").stream().anyMatch(ItemSource::isPackNoted));
+    }
+
+    @Test
+    public void packPricesKeepTheVerifiedCurrencyAndRandomPacksAreNotGuaranteedSources()
+    {
+        assertTrue(service.searchByItemName("air rune").stream().anyMatch(source ->
+                "Tzhaar air rune pack".equals(source.getPackName()) && "645 Tokkul".equals(source.getCost())));
+        assertTrue(service.searchByItemName("amylase crystal").stream().anyMatch(source ->
+                "Grace's Graceful Clothing".equals(source.getSourceName()) && "10 marks of grace".equals(source.getCost())));
+        assertTrue(service.searchByItemName("soft clay").stream().anyMatch(source ->
+                "Dusuri's Star Shop".equals(source.getSourceName()) && "150 stardust".equals(source.getCost())));
+        assertFalse(service.searchByItemName("ranarr seed").stream().anyMatch(source -> source.getPackQuantity() > 0));
+    }
+
+    @Test
+    public void verifiedRewardCurrenciesAndLegacyRequirementsReplaceMisleadingCoins()
+    {
+        List<ItemSource> sources = service.searchByItemName("toadflax");
+        assertTrue(sources.stream().anyMatch(source -> "3 Brimhaven vouchers".equals(source.getCost())));
+        assertTrue(sources.stream().anyMatch(source -> "3 discontinued Agility arena tickets".equals(source.getCost())
+                && source.getNotes().contains("can no longer be earned")));
+        assertFalse(sources.stream().anyMatch(source -> source.getCost().contains("coins")));
+        assertTrue(service.searchByItemName("Blighted super restore(4)").stream()
+                .anyMatch(source -> "LMS points".equals(source.getCost().replaceAll("^[0-9,]+ ", ""))));
+    }
 }

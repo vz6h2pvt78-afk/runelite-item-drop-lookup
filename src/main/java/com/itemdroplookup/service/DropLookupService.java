@@ -125,6 +125,7 @@ public class DropLookupService
         }
 
         return matches.stream()
+                .filter(record -> AcquisitionSourceRules.isOrdinaryDrop(record.itemName, record.monsterName))
                 .map(record -> new DropSource(
                         record.itemName,
                         record.monsterName,

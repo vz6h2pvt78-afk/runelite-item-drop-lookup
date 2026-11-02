@@ -14,6 +14,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
+import java.util.Map;
+import java.util.HashMap;
 
 @Singleton
 public class ItemPriceLookupService
@@ -22,6 +24,43 @@ public class ItemPriceLookupService
 
     private final Gson gson;
     private List<ItemPriceRecord> itemPriceRecords;
+    private Map<String, String> potionFamilies;
+
+    /** Verified potion families only: charged jewellery and waterskins are not doses. */
+    public Optional<String> findPotionFamily(String itemName)
+    {
+        if (potionFamilies == null)
+        {
+            potionFamilies = new HashMap<>();
+            try (InputStream stream = getClass().getResourceAsStream("/potion_families.json"))
+            {
+                if (stream != null)
+                {
+                    PotionFamilies data = gson.fromJson(new InputStreamReader(stream, StandardCharsets.UTF_8), PotionFamilies.class);
+                    if (data != null && data.families != null)
+                    {
+                        data.families.forEach(name -> potionFamilies.put(potionKey(name), name));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Ordinary exact prices remain available if optional family data is absent.
+            }
+        }
+        return itemName == null ? Optional.empty() : Optional.ofNullable(potionFamilies.get(potionKey(itemName)));
+    }
+
+    private String potionKey(String name)
+    {
+        // Preserve plus signs: Antidote+ and Antidote++ are different potions.
+        return name.trim().replaceAll("\\([1-4]\\)$", "").toLowerCase(Locale.ROOT).replaceAll("[^a-z0-9+]", "");
+    }
+
+    private static class PotionFamilies
+    {
+        private List<String> families;
+    }
 
     @Inject
     public ItemPriceLookupService(Gson gson)
@@ -71,7 +110,7 @@ public class ItemPriceLookupService
     private String compactNormalize(String value)
     {
         return normalize(value)
-                .replaceAll("[^a-z0-9]", "");
+                .replaceAll("[^a-z0-9+]", "");
     }
 
     private List<ItemPriceRecord> getItemPriceRecords()

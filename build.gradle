@@ -50,6 +50,16 @@ tasks.register('previewSidebar', JavaExec) {
 	jvmArgs '-Djava.awt.headless=true'
 }
 
+// Offline data/UI diagnostics; pass -PauditItems=... -PauditOutput=...
+tasks.register('auditSidebar', JavaExec) {
+	classpath = sourceSets.test.runtimeClasspath
+	mainClass = 'com.itemdroplookup.ui.HighVolumeAudit'
+	jvmArgs '-Djava.awt.headless=true'
+	if (project.hasProperty('auditItems') && project.hasProperty('auditOutput')) {
+		args project.property('auditItems'), project.property('auditOutput')
+	}
+}
+
 tasks.register('shadowJar', Jar) {
 	dependsOn configurations.testRuntimeClasspath
 	manifest {

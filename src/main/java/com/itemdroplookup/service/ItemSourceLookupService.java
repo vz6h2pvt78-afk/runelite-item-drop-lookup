@@ -13,9 +13,12 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Set;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 @Singleton
@@ -36,6 +39,21 @@ public class ItemSourceLookupService
     // narrow: it hides only the listed pairs, not every generated record for an item.
     // The generated JSON is left untouched.
     private static final Set<String> SUPPRESSED_GENERATED_SOURCES = buildSuppressedGeneratedSources();
+
+    // This is a mid-raid resupply interaction, not an ordinary acquisition shop.
+    // Its generated rows also misidentify Theatre points as coins. Keep it out
+    // until raid-specific supplies have their own explicit product treatment.
+    private static final String RAID_SUPPLY_CHEST = "Chest (Theatre of Blood)";
+    private static final Pattern ZERO_DEFAULT_STOCK = Pattern.compile(
+            "\\bDefault stock:\\s*0(?:\\.|\\s|$)", Pattern.CASE_INSENSITIVE);
+    // Verified StoreTableHead currencies (Wiki revisions captured in the QA report).
+    // These corrections are exact shop names, not guesses from shop categories.
+    private static final Map<String, String> VERIFIED_CURRENCIES = Map.of(
+            "TzHaar-Mej-Roh's Rune Store", "Tokkul",
+            "Agility Arena Store", "Brimhaven vouchers",
+            "Brimhaven Agility Arena Ticket Exchange", "discontinued Agility arena tickets",
+            "Bounty Hunter Store", "Bounty Hunter points",
+            "Justine's stuff for the Last Shopper Standing", "LMS points");
 
     private static Set<String> buildSuppressedGeneratedSources()
     {
@@ -79,7 +97,8 @@ public class ItemSourceLookupService
                         record.sourceName,
                         record.location,
                         record.cost,
-                        record.notes
+                        record.notes,
+                        record.packName, record.packItemName, record.packQuantity, record.packNoted
                 ))
                 .collect(Collectors.toList());
     }
@@ -174,21 +193,100 @@ public class ItemSourceLookupService
         List<ItemSourceRecord> merged = new ArrayList<>();
         merged.addAll(loadRecords(CURATED_RESOURCE));
         merged.addAll(filterSuppressedGenerated(loadRecords(SHOP_RESOURCE)));
+        // A zero-stock shop relies on player sales; it is not a reliable purchase
+        // option. Filter before expanding packs so derived offers follow this rule.
+        merged.removeIf(record -> record.sourceType != null
+                && record.sourceType.toLowerCase(Locale.ROOT).endsWith("shop")
+                && record.notes != null && ZERO_DEFAULT_STOCK.matcher(record.notes).find());
 
-        itemSourceRecords = merged;
+        itemSourceRecords = addPackOptions(merged);
         return itemSourceRecords;
+    }
+
+    private List<ItemSourceRecord> addPackOptions(List<ItemSourceRecord> records)
+    {
+        Map<String, PackRecord> packs = new HashMap<>();
+        try (InputStream stream = getClass().getResourceAsStream("/item_packs.json"))
+        {
+            if (stream != null)
+            {
+                Type type = new TypeToken<List<PackRecord>>() {}.getType();
+                List<PackRecord> definitions = gson.fromJson(new InputStreamReader(stream, StandardCharsets.UTF_8), type);
+                if (definitions != null)
+                {
+                    definitions.forEach(pack -> packs.put(normalize(pack.packName), pack));
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            // The original source records remain usable if optional pack data is absent.
+            return records;
+        }
+        List<ItemSourceRecord> expanded = new ArrayList<>();
+        for (ItemSourceRecord record : records)
+        {
+            String currency = VERIFIED_CURRENCIES.get(record.sourceName);
+            if (currency != null && record.cost != null)
+            {
+                record.cost = record.cost.replaceAll(" coins?$", " " + currency);
+                if (!"Tokkul".equals(currency))
+                {
+                    record.sourceType = "Reward Shop";
+                    record.notes = record.notes == null ? "" : record.notes.replace("Cost increases as stock depletes.", "").trim();
+                }
+                if (currency.startsWith("discontinued"))
+                {
+                    record.notes = "Requires old tickets that can no longer be earned. " + record.notes;
+                }
+                if ("Tokkul".equals(currency))
+                {
+                    record.notes = (record.notes == null ? "" : record.notes + " ") + "Karamja gloves reduce the price.";
+                }
+            }
+            PackRecord pack = record.itemName == null ? null : packs.get(normalize(record.itemName));
+            if (pack != null)
+            {
+                record.packName = pack.packName;
+                record.packItemName = pack.itemName;
+                record.packQuantity = pack.quantity;
+                record.packNoted = pack.noted;
+                if (pack.costByShop != null && pack.costByShop.containsKey(record.sourceName))
+                {
+                    record.cost = pack.costByShop.get(record.sourceName);
+                    record.sourceType = "Reward Shop";
+                    record.notes = pack.notes;
+                }
+            }
+            expanded.add(record);
+            if (pack != null)
+            {
+                ItemSourceRecord contents = new ItemSourceRecord();
+                contents.itemName = pack.itemName;
+                contents.sourceName = record.sourceName;
+                contents.sourceType = record.sourceType;
+                contents.location = record.location;
+                contents.cost = record.cost;
+                contents.notes = record.notes;
+                contents.packName = record.packName;
+                contents.packItemName = record.packItemName;
+                contents.packQuantity = record.packQuantity;
+                contents.packNoted = record.packNoted;
+                expanded.add(contents);
+            }
+        }
+        return expanded;
     }
 
     private List<ItemSourceRecord> filterSuppressedGenerated(List<ItemSourceRecord> records)
     {
-        if (SUPPRESSED_GENERATED_SOURCES.isEmpty())
-        {
-            return records;
-        }
-
         List<ItemSourceRecord> kept = new ArrayList<>();
         for (ItemSourceRecord record : records)
         {
+            if (RAID_SUPPLY_CHEST.equalsIgnoreCase(record.sourceName))
+            {
+                continue;
+            }
             if (record.itemName == null || record.sourceName == null
                     || !SUPPRESSED_GENERATED_SOURCES.contains(suppressionKey(record.itemName, record.sourceName)))
             {
@@ -227,6 +325,20 @@ public class ItemSourceLookupService
         private String sourceName;
         private String location;
         private String cost;
+        private String notes;
+        private String packName;
+        private String packItemName;
+        private int packQuantity;
+        private boolean packNoted;
+    }
+
+    private static class PackRecord
+    {
+        private String packName;
+        private String itemName;
+        private int quantity;
+        private boolean noted;
+        private Map<String, String> costByShop;
         private String notes;
     }
 }

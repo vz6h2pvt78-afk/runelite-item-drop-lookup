@@ -7,6 +7,7 @@ This plugin is currently in alpha. The core lookup system is working, but data c
 ## Current Features
 
 * Search for OSRS items by name
+* Search a potion name for all available doses, with the 4-dose GE reference labelled explicitly
 * View monster drop sources
 * View drop rates and quantities
 * View a bundled GE price snapshot for a single matched item
@@ -16,6 +17,8 @@ This plugin is currently in alpha. The core lookup system is working, but data c
 * Find a monster, shop or shop location within item results
 * Search and Back controls stay visible while lists scroll
 * Shop and empty-result Wiki shortcuts
+* One-click access to buying options, including verified packs containing the searched item
+* Zero-default-stock shops, returned animated-armour pieces and historical Bloodthirsty NPCs excluded from ordinary acquisition results
 * Local JSON-based data files for fast lookup
 * Clickable NPC cards with offline monster locations and Back navigation
 * Wilderness filters for NPC results; Wilderness and membership filters in details
@@ -31,6 +34,9 @@ Current resource files include:
 * `ge_prices.json`
 * `item_sources.json`
 * `monster_locations.json`
+* `wiki_shop_sources.json`
+* `item_packs.json` — verified fixed-content pack associations, quantities and selected cost corrections
+* `potion_families.json` — Wiki-verified potion names, keeping doses separate from charged equipment
 
 The monster drop data is currently generated from OSRS Wiki monster pages. The current alpha dataset includes roughly 15,000 cleaned monster drop records.
 
@@ -60,6 +66,9 @@ Known limitations:
 * Wiki data parsing is still being improved
 * GE prices are bundled snapshots, not live quotes
 * Some curated reward entries record only a currency; the UI labels missing amounts explicitly
+* Unverified numeric coin claims in reward-shop records are withheld; selected verified currencies are corrected
+* Gathering, production and shared drop-table coverage remain incomplete
+* Two-dose mixes and untradeable potions may have no 4-dose GE reference; these show unavailable
 
 If an item does not show a source, it does not necessarily mean the item has no source. It may mean the source is not currently covered by the local dataset.
 

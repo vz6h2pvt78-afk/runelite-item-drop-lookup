@@ -49,7 +49,7 @@ offline renders cannot verify in-game behavior.
     Wiki buttons opening the corresponding page only when clicked.
 
 15. Scroll a long result list: item search and **Find source** must remain visible.
-    Search **coins**, find `fire giant`, then clear Find source: all 1,780 drop
+    Search **coins**, find `fire giant`, then clear Find source: all 1,689 drop
     records must return. A new item search must clear the previous source text.
 16. Open a monster and scroll its locations: Back and location filters must remain
     visible. Back must retain both the item query and Find source text.
@@ -62,8 +62,27 @@ offline renders cannot verify in-game behavior.
 19. **runepouch** must return the pouch, not its note. Currency-only curated entries
     should say the amount is not recorded. Shop Wiki shortcuts should open an item
     search on the OSRS Wiki. A made-up item should show a concise no-match message.
-20. A broad query matching multiple items must not show one arbitrary item's GE
-    price. Any shown price must be labelled **GE snapshot**.
+20. A broad query matching unrelated items must not show one arbitrary item's GE
+    price. Potion families use the explicitly labelled four-dose reference.
+21. Search **Prayer potion**, **Saradomin brew**, and **Super restore** without a
+    dose. All available dose variants should appear. Super restore must not include
+    Blighted super restore or Super restore mix. **Kamil** must be absent because
+    these are quest-encounter supplies. GE uses the four-dose item and says
+    **GE snapshot (4-dose)**. An explicit one-dose query still uses that reference.
+    **Prayer mix** has no four-dose item, so its reference says unavailable.
+22. Search **Air rune** and **Eye of newt**, then open **View buying options**.
+    Loose items and 100-item packs must both appear. Find source `pack` should
+    narrow to 15 Air rune offers or nine Eye of newt offers. Eye packs contain
+    noted items. All pack costs say **per pack**; GE remains the individual item.
+23. **Air rune pack** must return the actual pack (14 offers), not loose Air runes.
+    **Tzhaar air rune pack** must show 645 Tokkul per pack and the gloves note.
+24. **Raw shark** should show two stocked shops. Etceteria Fish and other shops
+    with default stock zero must be absent. **Coal** has six shop offers.
+25. **Adamant platebody** must not include Animated Adamant Armour. Yew logs must
+    not include historical Bloodthirsty NPCs. Warrior guild token rewards remain.
+26. **Toadflax** shows three Brimhaven vouchers in the current store; the old-ticket
+    exchange explicitly requires discontinued tickets. Theatre of Blood's mid-raid
+    chest is absent from normal item searches.
 
 For failures, record query, monster/rate, active filters and observed behavior.
 Confirm these checks before considering public-release work. The proposed code
