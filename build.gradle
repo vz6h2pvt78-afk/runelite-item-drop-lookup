@@ -42,6 +42,14 @@ tasks.register('run', JavaExec) {
 	args "--developer-mode", "--debug"
 }
 
+// Renders the sidebar alone for layout review; no game client or login required.
+tasks.register('previewSidebar', JavaExec) {
+	classpath = sourceSets.test.runtimeClasspath
+	mainClass = 'com.itemdroplookup.ui.SidebarPreview'
+	workingDir = projectDir
+	jvmArgs '-Djava.awt.headless=true'
+}
+
 tasks.register('shadowJar', Jar) {
 	dependsOn configurations.testRuntimeClasspath
 	manifest {

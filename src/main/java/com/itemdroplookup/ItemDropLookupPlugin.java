@@ -4,6 +4,7 @@ import com.google.inject.Provides;
 import com.itemdroplookup.service.DropLookupService;
 import com.itemdroplookup.service.ItemPriceLookupService;
 import com.itemdroplookup.service.ItemSourceLookupService;
+import com.itemdroplookup.service.MonsterLocationLookupService;
 import com.itemdroplookup.ui.ItemDropLookupPanel;
 import java.awt.image.BufferedImage;
 import javax.inject.Inject;
@@ -32,13 +33,16 @@ public class ItemDropLookupPlugin extends Plugin
     @Inject
     private ItemPriceLookupService itemPriceLookupService;
 
+    @Inject
+    private MonsterLocationLookupService monsterLocationLookupService;
+
     private ItemDropLookupPanel panel;
     private NavigationButton navButton;
 
     @Override
     protected void startUp() throws Exception
     {
-        panel = new ItemDropLookupPanel(dropLookupService, itemSourceLookupService, itemPriceLookupService);
+        panel = new ItemDropLookupPanel(dropLookupService, itemSourceLookupService, itemPriceLookupService, monsterLocationLookupService);
 
         BufferedImage icon = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
         java.awt.Graphics2D graphics = icon.createGraphics();

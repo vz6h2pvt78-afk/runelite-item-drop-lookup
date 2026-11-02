@@ -14,6 +14,8 @@ This plugin is currently in alpha. The core lookup system is working, but data c
 * Supports non-NPC sources for selected items
 * Source type filtering
 * Local JSON-based data files for fast lookup
+* Clickable NPC cards with offline monster locations and Back navigation
+* Wilderness filters for NPC results; Wilderness, membership and League-region filters in details
 * Wiki-generated monster drop dataset
 
 ## Current Data Sources
@@ -25,6 +27,7 @@ Current resource files include:
 * `wiki_monster_drops.json`
 * `ge_prices.json`
 * `item_sources.json`
+* `monster_locations.json`
 
 The monster drop data is currently generated from OSRS Wiki monster pages. The current alpha dataset includes roughly 15,000 cleaned monster drop records.
 
@@ -109,6 +112,12 @@ tools
 ```
 
 ## Building and Running
+
+Monster-location generation and coverage limits are documented in
+[docs/monster-locations.md](docs/monster-locations.md). Follow the
+[manual acceptance checklist](docs/manual-testing.md) before release work.
+The [code license proposal](docs/license-review.md) remains pending owner review;
+wiki-derived data has [separate notices](THIRD_PARTY_NOTICES.md).
 
 From the project root:
 
