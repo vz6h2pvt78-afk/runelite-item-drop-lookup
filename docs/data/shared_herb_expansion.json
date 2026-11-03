@@ -1,0 +1,4395 @@
+{
+  "baseCommit": "943566d5b2514ee80b3c8dbc4b817b5132e6a40f",
+  "addedRecordCount": 44,
+  "addedBindingCount": 44,
+  "records": [
+    {
+      "itemName": "Grimy guam leaf",
+      "monsterName": "Man",
+      "quantity": "1",
+      "dropRate": "1/22.3",
+      "notes": "Members-world drop.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy marrentill",
+      "monsterName": "Man",
+      "quantity": "1",
+      "dropRate": "1/29.7",
+      "notes": "Members-world drop.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy tarromin",
+      "monsterName": "Man",
+      "quantity": "1",
+      "dropRate": "1/39.6",
+      "notes": "Members-world drop.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy harralander",
+      "monsterName": "Man",
+      "quantity": "1",
+      "dropRate": "1/50.9",
+      "notes": "Members-world drop.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy ranarr weed",
+      "monsterName": "Man",
+      "quantity": "1",
+      "dropRate": "1/64.8",
+      "notes": "Members-world drop.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy irit leaf",
+      "monsterName": "Man",
+      "quantity": "1",
+      "dropRate": "1/89",
+      "notes": "Members-world drop.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy avantoe",
+      "monsterName": "Man",
+      "quantity": "1",
+      "dropRate": "1/118.7",
+      "notes": "Members-world drop.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy kwuarm",
+      "monsterName": "Man",
+      "quantity": "1",
+      "dropRate": "1/142.5",
+      "notes": "Members-world drop.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy cadantine",
+      "monsterName": "Man",
+      "quantity": "1",
+      "dropRate": "1/178.1",
+      "notes": "Members-world drop.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy lantadyme",
+      "monsterName": "Man",
+      "quantity": "1",
+      "dropRate": "1/237.4",
+      "notes": "Members-world drop.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy dwarf weed",
+      "monsterName": "Man",
+      "quantity": "1",
+      "dropRate": "1/237.4",
+      "notes": "Members-world drop.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy guam leaf",
+      "monsterName": "Abyssal demon",
+      "quantity": "1",
+      "dropRate": "1/26.9",
+      "notes": "Members-world drop. Standard only.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy marrentill",
+      "monsterName": "Abyssal demon",
+      "quantity": "1",
+      "dropRate": "1/35.9",
+      "notes": "Members-world drop. Standard only.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy tarromin",
+      "monsterName": "Abyssal demon",
+      "quantity": "1",
+      "dropRate": "1/47.9",
+      "notes": "Members-world drop. Standard only.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy harralander",
+      "monsterName": "Abyssal demon",
+      "quantity": "1",
+      "dropRate": "1/61.6",
+      "notes": "Members-world drop. Standard only.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy ranarr weed",
+      "monsterName": "Abyssal demon",
+      "quantity": "1",
+      "dropRate": "1/78.4",
+      "notes": "Members-world drop. Standard only.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy irit leaf",
+      "monsterName": "Abyssal demon",
+      "quantity": "1",
+      "dropRate": "1/107.8",
+      "notes": "Members-world drop. Standard only.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy avantoe",
+      "monsterName": "Abyssal demon",
+      "quantity": "1",
+      "dropRate": "1/143.7",
+      "notes": "Members-world drop. Standard only.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy kwuarm",
+      "monsterName": "Abyssal demon",
+      "quantity": "1",
+      "dropRate": "1/172.5",
+      "notes": "Members-world drop. Standard only.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy cadantine",
+      "monsterName": "Abyssal demon",
+      "quantity": "1",
+      "dropRate": "1/215.6",
+      "notes": "Members-world drop. Standard only.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy lantadyme",
+      "monsterName": "Abyssal demon",
+      "quantity": "1",
+      "dropRate": "1/287.4",
+      "notes": "Members-world drop. Standard only.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy dwarf weed",
+      "monsterName": "Abyssal demon",
+      "quantity": "1",
+      "dropRate": "1/287.4",
+      "notes": "Members-world drop. Standard only.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy guam leaf",
+      "monsterName": "Abyssal demon",
+      "quantity": "1",
+      "dropRate": "1/14.3",
+      "notes": "Members-world drop. Wilderness Slayer Cave only.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy marrentill",
+      "monsterName": "Abyssal demon",
+      "quantity": "1",
+      "dropRate": "1/19.1",
+      "notes": "Members-world drop. Wilderness Slayer Cave only.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy tarromin",
+      "monsterName": "Abyssal demon",
+      "quantity": "1",
+      "dropRate": "1/25.5",
+      "notes": "Members-world drop. Wilderness Slayer Cave only.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy harralander",
+      "monsterName": "Abyssal demon",
+      "quantity": "1",
+      "dropRate": "1/32.7",
+      "notes": "Members-world drop. Wilderness Slayer Cave only.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy ranarr weed",
+      "monsterName": "Abyssal demon",
+      "quantity": "1",
+      "dropRate": "1/41.6",
+      "notes": "Members-world drop. Wilderness Slayer Cave only.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy irit leaf",
+      "monsterName": "Abyssal demon",
+      "quantity": "1",
+      "dropRate": "1/57.3",
+      "notes": "Members-world drop. Wilderness Slayer Cave only.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy avantoe",
+      "monsterName": "Abyssal demon",
+      "quantity": "1",
+      "dropRate": "1/76.4",
+      "notes": "Members-world drop. Wilderness Slayer Cave only.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy kwuarm",
+      "monsterName": "Abyssal demon",
+      "quantity": "1",
+      "dropRate": "1/91.6",
+      "notes": "Members-world drop. Wilderness Slayer Cave only.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy cadantine",
+      "monsterName": "Abyssal demon",
+      "quantity": "1",
+      "dropRate": "1/114.5",
+      "notes": "Members-world drop. Wilderness Slayer Cave only.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy lantadyme",
+      "monsterName": "Abyssal demon",
+      "quantity": "1",
+      "dropRate": "1/152.7",
+      "notes": "Members-world drop. Wilderness Slayer Cave only.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy dwarf weed",
+      "monsterName": "Abyssal demon",
+      "quantity": "1",
+      "dropRate": "1/152.7",
+      "notes": "Members-world drop. Wilderness Slayer Cave only.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy guam leaf",
+      "monsterName": "Goblin",
+      "quantity": "1",
+      "dropRate": "1/256",
+      "notes": "Members-world drop. Drop table 2 only.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy marrentill",
+      "monsterName": "Goblin",
+      "quantity": "1",
+      "dropRate": "1/341.3",
+      "notes": "Members-world drop. Drop table 2 only.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy tarromin",
+      "monsterName": "Goblin",
+      "quantity": "1",
+      "dropRate": "1/455.1",
+      "notes": "Members-world drop. Drop table 2 only.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy harralander",
+      "monsterName": "Goblin",
+      "quantity": "1",
+      "dropRate": "1/585.1",
+      "notes": "Members-world drop. Drop table 2 only.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy ranarr weed",
+      "monsterName": "Goblin",
+      "quantity": "1",
+      "dropRate": "1/744.7",
+      "notes": "Members-world drop. Drop table 2 only.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy irit leaf",
+      "monsterName": "Goblin",
+      "quantity": "1",
+      "dropRate": "1/1024",
+      "notes": "Members-world drop. Drop table 2 only.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy avantoe",
+      "monsterName": "Goblin",
+      "quantity": "1",
+      "dropRate": "1/1365.3",
+      "notes": "Members-world drop. Drop table 2 only.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy kwuarm",
+      "monsterName": "Goblin",
+      "quantity": "1",
+      "dropRate": "1/1638.4",
+      "notes": "Members-world drop. Drop table 2 only.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy cadantine",
+      "monsterName": "Goblin",
+      "quantity": "1",
+      "dropRate": "1/2048",
+      "notes": "Members-world drop. Drop table 2 only.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy lantadyme",
+      "monsterName": "Goblin",
+      "quantity": "1",
+      "dropRate": "1/2730.7",
+      "notes": "Members-world drop. Drop table 2 only.",
+      "membersOnly": true
+    },
+    {
+      "itemName": "Grimy dwarf weed",
+      "monsterName": "Goblin",
+      "quantity": "1",
+      "dropRate": "1/2730.7",
+      "notes": "Members-world drop. Drop table 2 only.",
+      "membersOnly": true
+    }
+  ],
+  "bindings": [
+    {
+      "monsterName": "Man",
+      "itemName": "Grimy guam leaf",
+      "quantity": "1",
+      "dropRate": "1/22.3",
+      "notes": "Members-world drop.",
+      "locationIds": [
+        "044de317f9a6b200acf5",
+        "050ed5d1e8c7f754444d",
+        "157e741182000ebcb131",
+        "22b153f7947d667a21a6",
+        "255dc3e99e4671625ec7",
+        "2cb04c9bda2bd8d1e954",
+        "31ba7fc95a64698739f8",
+        "381bcbbcaf752a86f53f",
+        "533f456e40298e628170",
+        "5ba48573856bee8114e8",
+        "5cfd7aacbaabcc255fb0",
+        "7393b3e4f212e9b2228f",
+        "8249daf3a1bd39826b07",
+        "85b8d591e03dfd7c639d",
+        "91b2fa2a53776d690cb7",
+        "9767b9d753b5e33677f8",
+        "9a8c6dde7336ea88740d",
+        "9ba8743b03526d7f7729",
+        "9e4ef2037458c4dc8035",
+        "ae01acff2c464f68dc97",
+        "b3178df5465d382f2446",
+        "cac9459b302950662419",
+        "cb1c00c36fb6196b5754",
+        "cd0110ea2ee0f8172b30",
+        "da0729db8314e5ab3b3a",
+        "e658b8f7c44d5245c2fe",
+        "ed68fa1473e5ba1dc91b",
+        "fdf802b6900421379085"
+      ],
+      "dropVersions": [],
+      "matchMethods": [
+        "common-unversioned-table"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Man",
+      "itemName": "Grimy marrentill",
+      "quantity": "1",
+      "dropRate": "1/29.7",
+      "notes": "Members-world drop.",
+      "locationIds": [
+        "044de317f9a6b200acf5",
+        "050ed5d1e8c7f754444d",
+        "157e741182000ebcb131",
+        "22b153f7947d667a21a6",
+        "255dc3e99e4671625ec7",
+        "2cb04c9bda2bd8d1e954",
+        "31ba7fc95a64698739f8",
+        "381bcbbcaf752a86f53f",
+        "533f456e40298e628170",
+        "5ba48573856bee8114e8",
+        "5cfd7aacbaabcc255fb0",
+        "7393b3e4f212e9b2228f",
+        "8249daf3a1bd39826b07",
+        "85b8d591e03dfd7c639d",
+        "91b2fa2a53776d690cb7",
+        "9767b9d753b5e33677f8",
+        "9a8c6dde7336ea88740d",
+        "9ba8743b03526d7f7729",
+        "9e4ef2037458c4dc8035",
+        "ae01acff2c464f68dc97",
+        "b3178df5465d382f2446",
+        "cac9459b302950662419",
+        "cb1c00c36fb6196b5754",
+        "cd0110ea2ee0f8172b30",
+        "da0729db8314e5ab3b3a",
+        "e658b8f7c44d5245c2fe",
+        "ed68fa1473e5ba1dc91b",
+        "fdf802b6900421379085"
+      ],
+      "dropVersions": [],
+      "matchMethods": [
+        "common-unversioned-table"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Man",
+      "itemName": "Grimy tarromin",
+      "quantity": "1",
+      "dropRate": "1/39.6",
+      "notes": "Members-world drop.",
+      "locationIds": [
+        "044de317f9a6b200acf5",
+        "050ed5d1e8c7f754444d",
+        "157e741182000ebcb131",
+        "22b153f7947d667a21a6",
+        "255dc3e99e4671625ec7",
+        "2cb04c9bda2bd8d1e954",
+        "31ba7fc95a64698739f8",
+        "381bcbbcaf752a86f53f",
+        "533f456e40298e628170",
+        "5ba48573856bee8114e8",
+        "5cfd7aacbaabcc255fb0",
+        "7393b3e4f212e9b2228f",
+        "8249daf3a1bd39826b07",
+        "85b8d591e03dfd7c639d",
+        "91b2fa2a53776d690cb7",
+        "9767b9d753b5e33677f8",
+        "9a8c6dde7336ea88740d",
+        "9ba8743b03526d7f7729",
+        "9e4ef2037458c4dc8035",
+        "ae01acff2c464f68dc97",
+        "b3178df5465d382f2446",
+        "cac9459b302950662419",
+        "cb1c00c36fb6196b5754",
+        "cd0110ea2ee0f8172b30",
+        "da0729db8314e5ab3b3a",
+        "e658b8f7c44d5245c2fe",
+        "ed68fa1473e5ba1dc91b",
+        "fdf802b6900421379085"
+      ],
+      "dropVersions": [],
+      "matchMethods": [
+        "common-unversioned-table"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Man",
+      "itemName": "Grimy harralander",
+      "quantity": "1",
+      "dropRate": "1/50.9",
+      "notes": "Members-world drop.",
+      "locationIds": [
+        "044de317f9a6b200acf5",
+        "050ed5d1e8c7f754444d",
+        "157e741182000ebcb131",
+        "22b153f7947d667a21a6",
+        "255dc3e99e4671625ec7",
+        "2cb04c9bda2bd8d1e954",
+        "31ba7fc95a64698739f8",
+        "381bcbbcaf752a86f53f",
+        "533f456e40298e628170",
+        "5ba48573856bee8114e8",
+        "5cfd7aacbaabcc255fb0",
+        "7393b3e4f212e9b2228f",
+        "8249daf3a1bd39826b07",
+        "85b8d591e03dfd7c639d",
+        "91b2fa2a53776d690cb7",
+        "9767b9d753b5e33677f8",
+        "9a8c6dde7336ea88740d",
+        "9ba8743b03526d7f7729",
+        "9e4ef2037458c4dc8035",
+        "ae01acff2c464f68dc97",
+        "b3178df5465d382f2446",
+        "cac9459b302950662419",
+        "cb1c00c36fb6196b5754",
+        "cd0110ea2ee0f8172b30",
+        "da0729db8314e5ab3b3a",
+        "e658b8f7c44d5245c2fe",
+        "ed68fa1473e5ba1dc91b",
+        "fdf802b6900421379085"
+      ],
+      "dropVersions": [],
+      "matchMethods": [
+        "common-unversioned-table"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Man",
+      "itemName": "Grimy ranarr weed",
+      "quantity": "1",
+      "dropRate": "1/64.8",
+      "notes": "Members-world drop.",
+      "locationIds": [
+        "044de317f9a6b200acf5",
+        "050ed5d1e8c7f754444d",
+        "157e741182000ebcb131",
+        "22b153f7947d667a21a6",
+        "255dc3e99e4671625ec7",
+        "2cb04c9bda2bd8d1e954",
+        "31ba7fc95a64698739f8",
+        "381bcbbcaf752a86f53f",
+        "533f456e40298e628170",
+        "5ba48573856bee8114e8",
+        "5cfd7aacbaabcc255fb0",
+        "7393b3e4f212e9b2228f",
+        "8249daf3a1bd39826b07",
+        "85b8d591e03dfd7c639d",
+        "91b2fa2a53776d690cb7",
+        "9767b9d753b5e33677f8",
+        "9a8c6dde7336ea88740d",
+        "9ba8743b03526d7f7729",
+        "9e4ef2037458c4dc8035",
+        "ae01acff2c464f68dc97",
+        "b3178df5465d382f2446",
+        "cac9459b302950662419",
+        "cb1c00c36fb6196b5754",
+        "cd0110ea2ee0f8172b30",
+        "da0729db8314e5ab3b3a",
+        "e658b8f7c44d5245c2fe",
+        "ed68fa1473e5ba1dc91b",
+        "fdf802b6900421379085"
+      ],
+      "dropVersions": [],
+      "matchMethods": [
+        "common-unversioned-table"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Man",
+      "itemName": "Grimy irit leaf",
+      "quantity": "1",
+      "dropRate": "1/89",
+      "notes": "Members-world drop.",
+      "locationIds": [
+        "044de317f9a6b200acf5",
+        "050ed5d1e8c7f754444d",
+        "157e741182000ebcb131",
+        "22b153f7947d667a21a6",
+        "255dc3e99e4671625ec7",
+        "2cb04c9bda2bd8d1e954",
+        "31ba7fc95a64698739f8",
+        "381bcbbcaf752a86f53f",
+        "533f456e40298e628170",
+        "5ba48573856bee8114e8",
+        "5cfd7aacbaabcc255fb0",
+        "7393b3e4f212e9b2228f",
+        "8249daf3a1bd39826b07",
+        "85b8d591e03dfd7c639d",
+        "91b2fa2a53776d690cb7",
+        "9767b9d753b5e33677f8",
+        "9a8c6dde7336ea88740d",
+        "9ba8743b03526d7f7729",
+        "9e4ef2037458c4dc8035",
+        "ae01acff2c464f68dc97",
+        "b3178df5465d382f2446",
+        "cac9459b302950662419",
+        "cb1c00c36fb6196b5754",
+        "cd0110ea2ee0f8172b30",
+        "da0729db8314e5ab3b3a",
+        "e658b8f7c44d5245c2fe",
+        "ed68fa1473e5ba1dc91b",
+        "fdf802b6900421379085"
+      ],
+      "dropVersions": [],
+      "matchMethods": [
+        "common-unversioned-table"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Man",
+      "itemName": "Grimy avantoe",
+      "quantity": "1",
+      "dropRate": "1/118.7",
+      "notes": "Members-world drop.",
+      "locationIds": [
+        "044de317f9a6b200acf5",
+        "050ed5d1e8c7f754444d",
+        "157e741182000ebcb131",
+        "22b153f7947d667a21a6",
+        "255dc3e99e4671625ec7",
+        "2cb04c9bda2bd8d1e954",
+        "31ba7fc95a64698739f8",
+        "381bcbbcaf752a86f53f",
+        "533f456e40298e628170",
+        "5ba48573856bee8114e8",
+        "5cfd7aacbaabcc255fb0",
+        "7393b3e4f212e9b2228f",
+        "8249daf3a1bd39826b07",
+        "85b8d591e03dfd7c639d",
+        "91b2fa2a53776d690cb7",
+        "9767b9d753b5e33677f8",
+        "9a8c6dde7336ea88740d",
+        "9ba8743b03526d7f7729",
+        "9e4ef2037458c4dc8035",
+        "ae01acff2c464f68dc97",
+        "b3178df5465d382f2446",
+        "cac9459b302950662419",
+        "cb1c00c36fb6196b5754",
+        "cd0110ea2ee0f8172b30",
+        "da0729db8314e5ab3b3a",
+        "e658b8f7c44d5245c2fe",
+        "ed68fa1473e5ba1dc91b",
+        "fdf802b6900421379085"
+      ],
+      "dropVersions": [],
+      "matchMethods": [
+        "common-unversioned-table"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Man",
+      "itemName": "Grimy kwuarm",
+      "quantity": "1",
+      "dropRate": "1/142.5",
+      "notes": "Members-world drop.",
+      "locationIds": [
+        "044de317f9a6b200acf5",
+        "050ed5d1e8c7f754444d",
+        "157e741182000ebcb131",
+        "22b153f7947d667a21a6",
+        "255dc3e99e4671625ec7",
+        "2cb04c9bda2bd8d1e954",
+        "31ba7fc95a64698739f8",
+        "381bcbbcaf752a86f53f",
+        "533f456e40298e628170",
+        "5ba48573856bee8114e8",
+        "5cfd7aacbaabcc255fb0",
+        "7393b3e4f212e9b2228f",
+        "8249daf3a1bd39826b07",
+        "85b8d591e03dfd7c639d",
+        "91b2fa2a53776d690cb7",
+        "9767b9d753b5e33677f8",
+        "9a8c6dde7336ea88740d",
+        "9ba8743b03526d7f7729",
+        "9e4ef2037458c4dc8035",
+        "ae01acff2c464f68dc97",
+        "b3178df5465d382f2446",
+        "cac9459b302950662419",
+        "cb1c00c36fb6196b5754",
+        "cd0110ea2ee0f8172b30",
+        "da0729db8314e5ab3b3a",
+        "e658b8f7c44d5245c2fe",
+        "ed68fa1473e5ba1dc91b",
+        "fdf802b6900421379085"
+      ],
+      "dropVersions": [],
+      "matchMethods": [
+        "common-unversioned-table"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Man",
+      "itemName": "Grimy cadantine",
+      "quantity": "1",
+      "dropRate": "1/178.1",
+      "notes": "Members-world drop.",
+      "locationIds": [
+        "044de317f9a6b200acf5",
+        "050ed5d1e8c7f754444d",
+        "157e741182000ebcb131",
+        "22b153f7947d667a21a6",
+        "255dc3e99e4671625ec7",
+        "2cb04c9bda2bd8d1e954",
+        "31ba7fc95a64698739f8",
+        "381bcbbcaf752a86f53f",
+        "533f456e40298e628170",
+        "5ba48573856bee8114e8",
+        "5cfd7aacbaabcc255fb0",
+        "7393b3e4f212e9b2228f",
+        "8249daf3a1bd39826b07",
+        "85b8d591e03dfd7c639d",
+        "91b2fa2a53776d690cb7",
+        "9767b9d753b5e33677f8",
+        "9a8c6dde7336ea88740d",
+        "9ba8743b03526d7f7729",
+        "9e4ef2037458c4dc8035",
+        "ae01acff2c464f68dc97",
+        "b3178df5465d382f2446",
+        "cac9459b302950662419",
+        "cb1c00c36fb6196b5754",
+        "cd0110ea2ee0f8172b30",
+        "da0729db8314e5ab3b3a",
+        "e658b8f7c44d5245c2fe",
+        "ed68fa1473e5ba1dc91b",
+        "fdf802b6900421379085"
+      ],
+      "dropVersions": [],
+      "matchMethods": [
+        "common-unversioned-table"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Man",
+      "itemName": "Grimy lantadyme",
+      "quantity": "1",
+      "dropRate": "1/237.4",
+      "notes": "Members-world drop.",
+      "locationIds": [
+        "044de317f9a6b200acf5",
+        "050ed5d1e8c7f754444d",
+        "157e741182000ebcb131",
+        "22b153f7947d667a21a6",
+        "255dc3e99e4671625ec7",
+        "2cb04c9bda2bd8d1e954",
+        "31ba7fc95a64698739f8",
+        "381bcbbcaf752a86f53f",
+        "533f456e40298e628170",
+        "5ba48573856bee8114e8",
+        "5cfd7aacbaabcc255fb0",
+        "7393b3e4f212e9b2228f",
+        "8249daf3a1bd39826b07",
+        "85b8d591e03dfd7c639d",
+        "91b2fa2a53776d690cb7",
+        "9767b9d753b5e33677f8",
+        "9a8c6dde7336ea88740d",
+        "9ba8743b03526d7f7729",
+        "9e4ef2037458c4dc8035",
+        "ae01acff2c464f68dc97",
+        "b3178df5465d382f2446",
+        "cac9459b302950662419",
+        "cb1c00c36fb6196b5754",
+        "cd0110ea2ee0f8172b30",
+        "da0729db8314e5ab3b3a",
+        "e658b8f7c44d5245c2fe",
+        "ed68fa1473e5ba1dc91b",
+        "fdf802b6900421379085"
+      ],
+      "dropVersions": [],
+      "matchMethods": [
+        "common-unversioned-table"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Man",
+      "itemName": "Grimy dwarf weed",
+      "quantity": "1",
+      "dropRate": "1/237.4",
+      "notes": "Members-world drop.",
+      "locationIds": [
+        "044de317f9a6b200acf5",
+        "050ed5d1e8c7f754444d",
+        "157e741182000ebcb131",
+        "22b153f7947d667a21a6",
+        "255dc3e99e4671625ec7",
+        "2cb04c9bda2bd8d1e954",
+        "31ba7fc95a64698739f8",
+        "381bcbbcaf752a86f53f",
+        "533f456e40298e628170",
+        "5ba48573856bee8114e8",
+        "5cfd7aacbaabcc255fb0",
+        "7393b3e4f212e9b2228f",
+        "8249daf3a1bd39826b07",
+        "85b8d591e03dfd7c639d",
+        "91b2fa2a53776d690cb7",
+        "9767b9d753b5e33677f8",
+        "9a8c6dde7336ea88740d",
+        "9ba8743b03526d7f7729",
+        "9e4ef2037458c4dc8035",
+        "ae01acff2c464f68dc97",
+        "b3178df5465d382f2446",
+        "cac9459b302950662419",
+        "cb1c00c36fb6196b5754",
+        "cd0110ea2ee0f8172b30",
+        "da0729db8314e5ab3b3a",
+        "e658b8f7c44d5245c2fe",
+        "ed68fa1473e5ba1dc91b",
+        "fdf802b6900421379085"
+      ],
+      "dropVersions": [],
+      "matchMethods": [
+        "common-unversioned-table"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Abyssal demon",
+      "itemName": "Grimy guam leaf",
+      "quantity": "1",
+      "dropRate": "1/26.9",
+      "notes": "Members-world drop. Standard only.",
+      "locationIds": [
+        "96c382e39f00064ccf4c",
+        "c704a8633ae384a87b88",
+        "c9ea55d9b519a0236b46",
+        "ca4d6a1b9e7a0636ed83"
+      ],
+      "dropVersions": [
+        "Standard"
+      ],
+      "matchMethods": [
+        "explicit-variant"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Abyssal demon",
+      "itemName": "Grimy marrentill",
+      "quantity": "1",
+      "dropRate": "1/35.9",
+      "notes": "Members-world drop. Standard only.",
+      "locationIds": [
+        "96c382e39f00064ccf4c",
+        "c704a8633ae384a87b88",
+        "c9ea55d9b519a0236b46",
+        "ca4d6a1b9e7a0636ed83"
+      ],
+      "dropVersions": [
+        "Standard"
+      ],
+      "matchMethods": [
+        "explicit-variant"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Abyssal demon",
+      "itemName": "Grimy tarromin",
+      "quantity": "1",
+      "dropRate": "1/47.9",
+      "notes": "Members-world drop. Standard only.",
+      "locationIds": [
+        "96c382e39f00064ccf4c",
+        "c704a8633ae384a87b88",
+        "c9ea55d9b519a0236b46",
+        "ca4d6a1b9e7a0636ed83"
+      ],
+      "dropVersions": [
+        "Standard"
+      ],
+      "matchMethods": [
+        "explicit-variant"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Abyssal demon",
+      "itemName": "Grimy harralander",
+      "quantity": "1",
+      "dropRate": "1/61.6",
+      "notes": "Members-world drop. Standard only.",
+      "locationIds": [
+        "96c382e39f00064ccf4c",
+        "c704a8633ae384a87b88",
+        "c9ea55d9b519a0236b46",
+        "ca4d6a1b9e7a0636ed83"
+      ],
+      "dropVersions": [
+        "Standard"
+      ],
+      "matchMethods": [
+        "explicit-variant"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Abyssal demon",
+      "itemName": "Grimy ranarr weed",
+      "quantity": "1",
+      "dropRate": "1/78.4",
+      "notes": "Members-world drop. Standard only.",
+      "locationIds": [
+        "96c382e39f00064ccf4c",
+        "c704a8633ae384a87b88",
+        "c9ea55d9b519a0236b46",
+        "ca4d6a1b9e7a0636ed83"
+      ],
+      "dropVersions": [
+        "Standard"
+      ],
+      "matchMethods": [
+        "explicit-variant"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Abyssal demon",
+      "itemName": "Grimy irit leaf",
+      "quantity": "1",
+      "dropRate": "1/107.8",
+      "notes": "Members-world drop. Standard only.",
+      "locationIds": [
+        "96c382e39f00064ccf4c",
+        "c704a8633ae384a87b88",
+        "c9ea55d9b519a0236b46",
+        "ca4d6a1b9e7a0636ed83"
+      ],
+      "dropVersions": [
+        "Standard"
+      ],
+      "matchMethods": [
+        "explicit-variant"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Abyssal demon",
+      "itemName": "Grimy avantoe",
+      "quantity": "1",
+      "dropRate": "1/143.7",
+      "notes": "Members-world drop. Standard only.",
+      "locationIds": [
+        "96c382e39f00064ccf4c",
+        "c704a8633ae384a87b88",
+        "c9ea55d9b519a0236b46",
+        "ca4d6a1b9e7a0636ed83"
+      ],
+      "dropVersions": [
+        "Standard"
+      ],
+      "matchMethods": [
+        "explicit-variant"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Abyssal demon",
+      "itemName": "Grimy kwuarm",
+      "quantity": "1",
+      "dropRate": "1/172.5",
+      "notes": "Members-world drop. Standard only.",
+      "locationIds": [
+        "96c382e39f00064ccf4c",
+        "c704a8633ae384a87b88",
+        "c9ea55d9b519a0236b46",
+        "ca4d6a1b9e7a0636ed83"
+      ],
+      "dropVersions": [
+        "Standard"
+      ],
+      "matchMethods": [
+        "explicit-variant"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Abyssal demon",
+      "itemName": "Grimy cadantine",
+      "quantity": "1",
+      "dropRate": "1/215.6",
+      "notes": "Members-world drop. Standard only.",
+      "locationIds": [
+        "96c382e39f00064ccf4c",
+        "c704a8633ae384a87b88",
+        "c9ea55d9b519a0236b46",
+        "ca4d6a1b9e7a0636ed83"
+      ],
+      "dropVersions": [
+        "Standard"
+      ],
+      "matchMethods": [
+        "explicit-variant"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Abyssal demon",
+      "itemName": "Grimy lantadyme",
+      "quantity": "1",
+      "dropRate": "1/287.4",
+      "notes": "Members-world drop. Standard only.",
+      "locationIds": [
+        "96c382e39f00064ccf4c",
+        "c704a8633ae384a87b88",
+        "c9ea55d9b519a0236b46",
+        "ca4d6a1b9e7a0636ed83"
+      ],
+      "dropVersions": [
+        "Standard"
+      ],
+      "matchMethods": [
+        "explicit-variant"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Abyssal demon",
+      "itemName": "Grimy dwarf weed",
+      "quantity": "1",
+      "dropRate": "1/287.4",
+      "notes": "Members-world drop. Standard only.",
+      "locationIds": [
+        "96c382e39f00064ccf4c",
+        "c704a8633ae384a87b88",
+        "c9ea55d9b519a0236b46",
+        "ca4d6a1b9e7a0636ed83"
+      ],
+      "dropVersions": [
+        "Standard"
+      ],
+      "matchMethods": [
+        "explicit-variant"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Abyssal demon",
+      "itemName": "Grimy guam leaf",
+      "quantity": "1",
+      "dropRate": "1/14.3",
+      "notes": "Members-world drop. Wilderness Slayer Cave only.",
+      "locationIds": [
+        "ec346dbbf5098d24ef88"
+      ],
+      "dropVersions": [
+        "Wilderness Slayer Cave"
+      ],
+      "matchMethods": [
+        "explicit-variant"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Abyssal demon",
+      "itemName": "Grimy marrentill",
+      "quantity": "1",
+      "dropRate": "1/19.1",
+      "notes": "Members-world drop. Wilderness Slayer Cave only.",
+      "locationIds": [
+        "ec346dbbf5098d24ef88"
+      ],
+      "dropVersions": [
+        "Wilderness Slayer Cave"
+      ],
+      "matchMethods": [
+        "explicit-variant"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Abyssal demon",
+      "itemName": "Grimy tarromin",
+      "quantity": "1",
+      "dropRate": "1/25.5",
+      "notes": "Members-world drop. Wilderness Slayer Cave only.",
+      "locationIds": [
+        "ec346dbbf5098d24ef88"
+      ],
+      "dropVersions": [
+        "Wilderness Slayer Cave"
+      ],
+      "matchMethods": [
+        "explicit-variant"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Abyssal demon",
+      "itemName": "Grimy harralander",
+      "quantity": "1",
+      "dropRate": "1/32.7",
+      "notes": "Members-world drop. Wilderness Slayer Cave only.",
+      "locationIds": [
+        "ec346dbbf5098d24ef88"
+      ],
+      "dropVersions": [
+        "Wilderness Slayer Cave"
+      ],
+      "matchMethods": [
+        "explicit-variant"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Abyssal demon",
+      "itemName": "Grimy ranarr weed",
+      "quantity": "1",
+      "dropRate": "1/41.6",
+      "notes": "Members-world drop. Wilderness Slayer Cave only.",
+      "locationIds": [
+        "ec346dbbf5098d24ef88"
+      ],
+      "dropVersions": [
+        "Wilderness Slayer Cave"
+      ],
+      "matchMethods": [
+        "explicit-variant"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Abyssal demon",
+      "itemName": "Grimy irit leaf",
+      "quantity": "1",
+      "dropRate": "1/57.3",
+      "notes": "Members-world drop. Wilderness Slayer Cave only.",
+      "locationIds": [
+        "ec346dbbf5098d24ef88"
+      ],
+      "dropVersions": [
+        "Wilderness Slayer Cave"
+      ],
+      "matchMethods": [
+        "explicit-variant"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Abyssal demon",
+      "itemName": "Grimy avantoe",
+      "quantity": "1",
+      "dropRate": "1/76.4",
+      "notes": "Members-world drop. Wilderness Slayer Cave only.",
+      "locationIds": [
+        "ec346dbbf5098d24ef88"
+      ],
+      "dropVersions": [
+        "Wilderness Slayer Cave"
+      ],
+      "matchMethods": [
+        "explicit-variant"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Abyssal demon",
+      "itemName": "Grimy kwuarm",
+      "quantity": "1",
+      "dropRate": "1/91.6",
+      "notes": "Members-world drop. Wilderness Slayer Cave only.",
+      "locationIds": [
+        "ec346dbbf5098d24ef88"
+      ],
+      "dropVersions": [
+        "Wilderness Slayer Cave"
+      ],
+      "matchMethods": [
+        "explicit-variant"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Abyssal demon",
+      "itemName": "Grimy cadantine",
+      "quantity": "1",
+      "dropRate": "1/114.5",
+      "notes": "Members-world drop. Wilderness Slayer Cave only.",
+      "locationIds": [
+        "ec346dbbf5098d24ef88"
+      ],
+      "dropVersions": [
+        "Wilderness Slayer Cave"
+      ],
+      "matchMethods": [
+        "explicit-variant"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Abyssal demon",
+      "itemName": "Grimy lantadyme",
+      "quantity": "1",
+      "dropRate": "1/152.7",
+      "notes": "Members-world drop. Wilderness Slayer Cave only.",
+      "locationIds": [
+        "ec346dbbf5098d24ef88"
+      ],
+      "dropVersions": [
+        "Wilderness Slayer Cave"
+      ],
+      "matchMethods": [
+        "explicit-variant"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Abyssal demon",
+      "itemName": "Grimy dwarf weed",
+      "quantity": "1",
+      "dropRate": "1/152.7",
+      "notes": "Members-world drop. Wilderness Slayer Cave only.",
+      "locationIds": [
+        "ec346dbbf5098d24ef88"
+      ],
+      "dropVersions": [
+        "Wilderness Slayer Cave"
+      ],
+      "matchMethods": [
+        "explicit-variant"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Goblin",
+      "itemName": "Grimy guam leaf",
+      "quantity": "1",
+      "dropRate": "1/256",
+      "notes": "Members-world drop. Drop table 2 only.",
+      "locationIds": [
+        "26784fc8ca3848593947",
+        "32da1f2b116508e0d3e6",
+        "3389e8d73143e24f8856",
+        "6d2c6bd9f21103bc5ac9",
+        "7bb346ede1166f6b6e3c",
+        "9769810ac159dbff29dd",
+        "a4df483fb75b3bd77caf",
+        "b11eb677fd37d94c4c32",
+        "b5326d1e9fd984c55d22",
+        "c3587c342c191dab9bb5",
+        "ddce85efe2793dfe2405",
+        "e1575f3f4ce223e9e170",
+        "f3d838092a21da0460af"
+      ],
+      "dropVersions": [
+        "Drop table 2"
+      ],
+      "matchMethods": [
+        "explicit-variant"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Goblin",
+      "itemName": "Grimy marrentill",
+      "quantity": "1",
+      "dropRate": "1/341.3",
+      "notes": "Members-world drop. Drop table 2 only.",
+      "locationIds": [
+        "26784fc8ca3848593947",
+        "32da1f2b116508e0d3e6",
+        "3389e8d73143e24f8856",
+        "6d2c6bd9f21103bc5ac9",
+        "7bb346ede1166f6b6e3c",
+        "9769810ac159dbff29dd",
+        "a4df483fb75b3bd77caf",
+        "b11eb677fd37d94c4c32",
+        "b5326d1e9fd984c55d22",
+        "c3587c342c191dab9bb5",
+        "ddce85efe2793dfe2405",
+        "e1575f3f4ce223e9e170",
+        "f3d838092a21da0460af"
+      ],
+      "dropVersions": [
+        "Drop table 2"
+      ],
+      "matchMethods": [
+        "explicit-variant"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Goblin",
+      "itemName": "Grimy tarromin",
+      "quantity": "1",
+      "dropRate": "1/455.1",
+      "notes": "Members-world drop. Drop table 2 only.",
+      "locationIds": [
+        "26784fc8ca3848593947",
+        "32da1f2b116508e0d3e6",
+        "3389e8d73143e24f8856",
+        "6d2c6bd9f21103bc5ac9",
+        "7bb346ede1166f6b6e3c",
+        "9769810ac159dbff29dd",
+        "a4df483fb75b3bd77caf",
+        "b11eb677fd37d94c4c32",
+        "b5326d1e9fd984c55d22",
+        "c3587c342c191dab9bb5",
+        "ddce85efe2793dfe2405",
+        "e1575f3f4ce223e9e170",
+        "f3d838092a21da0460af"
+      ],
+      "dropVersions": [
+        "Drop table 2"
+      ],
+      "matchMethods": [
+        "explicit-variant"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Goblin",
+      "itemName": "Grimy harralander",
+      "quantity": "1",
+      "dropRate": "1/585.1",
+      "notes": "Members-world drop. Drop table 2 only.",
+      "locationIds": [
+        "26784fc8ca3848593947",
+        "32da1f2b116508e0d3e6",
+        "3389e8d73143e24f8856",
+        "6d2c6bd9f21103bc5ac9",
+        "7bb346ede1166f6b6e3c",
+        "9769810ac159dbff29dd",
+        "a4df483fb75b3bd77caf",
+        "b11eb677fd37d94c4c32",
+        "b5326d1e9fd984c55d22",
+        "c3587c342c191dab9bb5",
+        "ddce85efe2793dfe2405",
+        "e1575f3f4ce223e9e170",
+        "f3d838092a21da0460af"
+      ],
+      "dropVersions": [
+        "Drop table 2"
+      ],
+      "matchMethods": [
+        "explicit-variant"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Goblin",
+      "itemName": "Grimy ranarr weed",
+      "quantity": "1",
+      "dropRate": "1/744.7",
+      "notes": "Members-world drop. Drop table 2 only.",
+      "locationIds": [
+        "26784fc8ca3848593947",
+        "32da1f2b116508e0d3e6",
+        "3389e8d73143e24f8856",
+        "6d2c6bd9f21103bc5ac9",
+        "7bb346ede1166f6b6e3c",
+        "9769810ac159dbff29dd",
+        "a4df483fb75b3bd77caf",
+        "b11eb677fd37d94c4c32",
+        "b5326d1e9fd984c55d22",
+        "c3587c342c191dab9bb5",
+        "ddce85efe2793dfe2405",
+        "e1575f3f4ce223e9e170",
+        "f3d838092a21da0460af"
+      ],
+      "dropVersions": [
+        "Drop table 2"
+      ],
+      "matchMethods": [
+        "explicit-variant"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Goblin",
+      "itemName": "Grimy irit leaf",
+      "quantity": "1",
+      "dropRate": "1/1024",
+      "notes": "Members-world drop. Drop table 2 only.",
+      "locationIds": [
+        "26784fc8ca3848593947",
+        "32da1f2b116508e0d3e6",
+        "3389e8d73143e24f8856",
+        "6d2c6bd9f21103bc5ac9",
+        "7bb346ede1166f6b6e3c",
+        "9769810ac159dbff29dd",
+        "a4df483fb75b3bd77caf",
+        "b11eb677fd37d94c4c32",
+        "b5326d1e9fd984c55d22",
+        "c3587c342c191dab9bb5",
+        "ddce85efe2793dfe2405",
+        "e1575f3f4ce223e9e170",
+        "f3d838092a21da0460af"
+      ],
+      "dropVersions": [
+        "Drop table 2"
+      ],
+      "matchMethods": [
+        "explicit-variant"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Goblin",
+      "itemName": "Grimy avantoe",
+      "quantity": "1",
+      "dropRate": "1/1365.3",
+      "notes": "Members-world drop. Drop table 2 only.",
+      "locationIds": [
+        "26784fc8ca3848593947",
+        "32da1f2b116508e0d3e6",
+        "3389e8d73143e24f8856",
+        "6d2c6bd9f21103bc5ac9",
+        "7bb346ede1166f6b6e3c",
+        "9769810ac159dbff29dd",
+        "a4df483fb75b3bd77caf",
+        "b11eb677fd37d94c4c32",
+        "b5326d1e9fd984c55d22",
+        "c3587c342c191dab9bb5",
+        "ddce85efe2793dfe2405",
+        "e1575f3f4ce223e9e170",
+        "f3d838092a21da0460af"
+      ],
+      "dropVersions": [
+        "Drop table 2"
+      ],
+      "matchMethods": [
+        "explicit-variant"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Goblin",
+      "itemName": "Grimy kwuarm",
+      "quantity": "1",
+      "dropRate": "1/1638.4",
+      "notes": "Members-world drop. Drop table 2 only.",
+      "locationIds": [
+        "26784fc8ca3848593947",
+        "32da1f2b116508e0d3e6",
+        "3389e8d73143e24f8856",
+        "6d2c6bd9f21103bc5ac9",
+        "7bb346ede1166f6b6e3c",
+        "9769810ac159dbff29dd",
+        "a4df483fb75b3bd77caf",
+        "b11eb677fd37d94c4c32",
+        "b5326d1e9fd984c55d22",
+        "c3587c342c191dab9bb5",
+        "ddce85efe2793dfe2405",
+        "e1575f3f4ce223e9e170",
+        "f3d838092a21da0460af"
+      ],
+      "dropVersions": [
+        "Drop table 2"
+      ],
+      "matchMethods": [
+        "explicit-variant"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Goblin",
+      "itemName": "Grimy cadantine",
+      "quantity": "1",
+      "dropRate": "1/2048",
+      "notes": "Members-world drop. Drop table 2 only.",
+      "locationIds": [
+        "26784fc8ca3848593947",
+        "32da1f2b116508e0d3e6",
+        "3389e8d73143e24f8856",
+        "6d2c6bd9f21103bc5ac9",
+        "7bb346ede1166f6b6e3c",
+        "9769810ac159dbff29dd",
+        "a4df483fb75b3bd77caf",
+        "b11eb677fd37d94c4c32",
+        "b5326d1e9fd984c55d22",
+        "c3587c342c191dab9bb5",
+        "ddce85efe2793dfe2405",
+        "e1575f3f4ce223e9e170",
+        "f3d838092a21da0460af"
+      ],
+      "dropVersions": [
+        "Drop table 2"
+      ],
+      "matchMethods": [
+        "explicit-variant"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Goblin",
+      "itemName": "Grimy lantadyme",
+      "quantity": "1",
+      "dropRate": "1/2730.7",
+      "notes": "Members-world drop. Drop table 2 only.",
+      "locationIds": [
+        "26784fc8ca3848593947",
+        "32da1f2b116508e0d3e6",
+        "3389e8d73143e24f8856",
+        "6d2c6bd9f21103bc5ac9",
+        "7bb346ede1166f6b6e3c",
+        "9769810ac159dbff29dd",
+        "a4df483fb75b3bd77caf",
+        "b11eb677fd37d94c4c32",
+        "b5326d1e9fd984c55d22",
+        "c3587c342c191dab9bb5",
+        "ddce85efe2793dfe2405",
+        "e1575f3f4ce223e9e170",
+        "f3d838092a21da0460af"
+      ],
+      "dropVersions": [
+        "Drop table 2"
+      ],
+      "matchMethods": [
+        "explicit-variant"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    },
+    {
+      "monsterName": "Goblin",
+      "itemName": "Grimy dwarf weed",
+      "quantity": "1",
+      "dropRate": "1/2730.7",
+      "notes": "Members-world drop. Drop table 2 only.",
+      "locationIds": [
+        "26784fc8ca3848593947",
+        "32da1f2b116508e0d3e6",
+        "3389e8d73143e24f8856",
+        "6d2c6bd9f21103bc5ac9",
+        "7bb346ede1166f6b6e3c",
+        "9769810ac159dbff29dd",
+        "a4df483fb75b3bd77caf",
+        "b11eb677fd37d94c4c32",
+        "b5326d1e9fd984c55d22",
+        "c3587c342c191dab9bb5",
+        "ddce85efe2793dfe2405",
+        "e1575f3f4ce223e9e170",
+        "f3d838092a21da0460af"
+      ],
+      "dropVersions": [
+        "Drop table 2"
+      ],
+      "matchMethods": [
+        "explicit-variant"
+      ],
+      "evidence": "Pinned shared-herb call and exact current location records; source requires a members world"
+    }
+  ],
+  "provenance": [
+    {
+      "pathId": "364c7f2eaee0bf195781f40b1985258aaf2c448766bfd339abc390e1740f3505",
+      "record": {
+        "itemName": "Grimy guam leaf",
+        "monsterName": "Man",
+        "quantity": "1",
+        "dropRate": "1/22.3",
+        "notes": "Members-world drop.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Man",
+          "Template:Human drop table",
+          "Template:HerbDropLines"
+        ],
+        "offset": 758,
+        "dropVersion": "",
+        "entry": "23/128",
+        "f2pReplacement": true
+      },
+      "sourceChain": [
+        {
+          "title": "Man",
+          "revisionId": 15374703,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15374703",
+          "fixtureSha256": "0f10005db5e9151b96047326ca115e976cb81ab4f718821fbf071376f5e03cc6",
+          "rawSnapshotSha256": "6d93af8f799297876854d99ceb0247024459b051eaf34fe1ca1e94d425f6e302"
+        },
+        {
+          "title": "Template:Human drop table",
+          "revisionId": 15374758,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15374758",
+          "fixtureSha256": "872f3b54aafcea39850eea2399c9d1a7717451d547df6ef33a7ec42862ff5026",
+          "rawSnapshotSha256": "26a8985f5f88a171e5e36e8fa90595149d8b0114243ceefcc947e697319e7f91"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "23/128",
+      "conditionalProbability": "32/128",
+      "effectiveProbability": "23/512",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy guam leaf",
+        "quantity": "1",
+        "dropRate": "1/22.3",
+        "membersMarker": true
+      },
+      "locationIds": [
+        "044de317f9a6b200acf5",
+        "050ed5d1e8c7f754444d",
+        "157e741182000ebcb131",
+        "22b153f7947d667a21a6",
+        "255dc3e99e4671625ec7",
+        "2cb04c9bda2bd8d1e954",
+        "31ba7fc95a64698739f8",
+        "381bcbbcaf752a86f53f",
+        "533f456e40298e628170",
+        "5ba48573856bee8114e8",
+        "5cfd7aacbaabcc255fb0",
+        "7393b3e4f212e9b2228f",
+        "8249daf3a1bd39826b07",
+        "85b8d591e03dfd7c639d",
+        "91b2fa2a53776d690cb7",
+        "9767b9d753b5e33677f8",
+        "9a8c6dde7336ea88740d",
+        "9ba8743b03526d7f7729",
+        "9e4ef2037458c4dc8035",
+        "ae01acff2c464f68dc97",
+        "b3178df5465d382f2446",
+        "cac9459b302950662419",
+        "cb1c00c36fb6196b5754",
+        "cd0110ea2ee0f8172b30",
+        "da0729db8314e5ab3b3a",
+        "e658b8f7c44d5245c2fe",
+        "ed68fa1473e5ba1dc91b",
+        "fdf802b6900421379085"
+      ]
+    },
+    {
+      "pathId": "d234e696262d40c9c25c42e3c41f25ac11a7d97c01558265ff66414150466175",
+      "record": {
+        "itemName": "Grimy marrentill",
+        "monsterName": "Man",
+        "quantity": "1",
+        "dropRate": "1/29.7",
+        "notes": "Members-world drop.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Man",
+          "Template:Human drop table",
+          "Template:HerbDropLines"
+        ],
+        "offset": 758,
+        "dropVersion": "",
+        "entry": "23/128",
+        "f2pReplacement": true
+      },
+      "sourceChain": [
+        {
+          "title": "Man",
+          "revisionId": 15374703,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15374703",
+          "fixtureSha256": "0f10005db5e9151b96047326ca115e976cb81ab4f718821fbf071376f5e03cc6",
+          "rawSnapshotSha256": "6d93af8f799297876854d99ceb0247024459b051eaf34fe1ca1e94d425f6e302"
+        },
+        {
+          "title": "Template:Human drop table",
+          "revisionId": 15374758,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15374758",
+          "fixtureSha256": "872f3b54aafcea39850eea2399c9d1a7717451d547df6ef33a7ec42862ff5026",
+          "rawSnapshotSha256": "26a8985f5f88a171e5e36e8fa90595149d8b0114243ceefcc947e697319e7f91"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "23/128",
+      "conditionalProbability": "24/128",
+      "effectiveProbability": "69/2048",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy marrentill",
+        "quantity": "1",
+        "dropRate": "1/29.7",
+        "membersMarker": true
+      },
+      "locationIds": [
+        "044de317f9a6b200acf5",
+        "050ed5d1e8c7f754444d",
+        "157e741182000ebcb131",
+        "22b153f7947d667a21a6",
+        "255dc3e99e4671625ec7",
+        "2cb04c9bda2bd8d1e954",
+        "31ba7fc95a64698739f8",
+        "381bcbbcaf752a86f53f",
+        "533f456e40298e628170",
+        "5ba48573856bee8114e8",
+        "5cfd7aacbaabcc255fb0",
+        "7393b3e4f212e9b2228f",
+        "8249daf3a1bd39826b07",
+        "85b8d591e03dfd7c639d",
+        "91b2fa2a53776d690cb7",
+        "9767b9d753b5e33677f8",
+        "9a8c6dde7336ea88740d",
+        "9ba8743b03526d7f7729",
+        "9e4ef2037458c4dc8035",
+        "ae01acff2c464f68dc97",
+        "b3178df5465d382f2446",
+        "cac9459b302950662419",
+        "cb1c00c36fb6196b5754",
+        "cd0110ea2ee0f8172b30",
+        "da0729db8314e5ab3b3a",
+        "e658b8f7c44d5245c2fe",
+        "ed68fa1473e5ba1dc91b",
+        "fdf802b6900421379085"
+      ]
+    },
+    {
+      "pathId": "b49a9a8a75c2feb7414b540588719beb414c59fd41463068b3639c452e0e0ca6",
+      "record": {
+        "itemName": "Grimy tarromin",
+        "monsterName": "Man",
+        "quantity": "1",
+        "dropRate": "1/39.6",
+        "notes": "Members-world drop.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Man",
+          "Template:Human drop table",
+          "Template:HerbDropLines"
+        ],
+        "offset": 758,
+        "dropVersion": "",
+        "entry": "23/128",
+        "f2pReplacement": true
+      },
+      "sourceChain": [
+        {
+          "title": "Man",
+          "revisionId": 15374703,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15374703",
+          "fixtureSha256": "0f10005db5e9151b96047326ca115e976cb81ab4f718821fbf071376f5e03cc6",
+          "rawSnapshotSha256": "6d93af8f799297876854d99ceb0247024459b051eaf34fe1ca1e94d425f6e302"
+        },
+        {
+          "title": "Template:Human drop table",
+          "revisionId": 15374758,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15374758",
+          "fixtureSha256": "872f3b54aafcea39850eea2399c9d1a7717451d547df6ef33a7ec42862ff5026",
+          "rawSnapshotSha256": "26a8985f5f88a171e5e36e8fa90595149d8b0114243ceefcc947e697319e7f91"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "23/128",
+      "conditionalProbability": "18/128",
+      "effectiveProbability": "207/8192",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy tarromin",
+        "quantity": "1",
+        "dropRate": "1/39.6",
+        "membersMarker": true
+      },
+      "locationIds": [
+        "044de317f9a6b200acf5",
+        "050ed5d1e8c7f754444d",
+        "157e741182000ebcb131",
+        "22b153f7947d667a21a6",
+        "255dc3e99e4671625ec7",
+        "2cb04c9bda2bd8d1e954",
+        "31ba7fc95a64698739f8",
+        "381bcbbcaf752a86f53f",
+        "533f456e40298e628170",
+        "5ba48573856bee8114e8",
+        "5cfd7aacbaabcc255fb0",
+        "7393b3e4f212e9b2228f",
+        "8249daf3a1bd39826b07",
+        "85b8d591e03dfd7c639d",
+        "91b2fa2a53776d690cb7",
+        "9767b9d753b5e33677f8",
+        "9a8c6dde7336ea88740d",
+        "9ba8743b03526d7f7729",
+        "9e4ef2037458c4dc8035",
+        "ae01acff2c464f68dc97",
+        "b3178df5465d382f2446",
+        "cac9459b302950662419",
+        "cb1c00c36fb6196b5754",
+        "cd0110ea2ee0f8172b30",
+        "da0729db8314e5ab3b3a",
+        "e658b8f7c44d5245c2fe",
+        "ed68fa1473e5ba1dc91b",
+        "fdf802b6900421379085"
+      ]
+    },
+    {
+      "pathId": "e103d9edb5023360dc8c4c60bf701ed354d00e742f230dd0cc664f941a460a3c",
+      "record": {
+        "itemName": "Grimy harralander",
+        "monsterName": "Man",
+        "quantity": "1",
+        "dropRate": "1/50.9",
+        "notes": "Members-world drop.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Man",
+          "Template:Human drop table",
+          "Template:HerbDropLines"
+        ],
+        "offset": 758,
+        "dropVersion": "",
+        "entry": "23/128",
+        "f2pReplacement": true
+      },
+      "sourceChain": [
+        {
+          "title": "Man",
+          "revisionId": 15374703,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15374703",
+          "fixtureSha256": "0f10005db5e9151b96047326ca115e976cb81ab4f718821fbf071376f5e03cc6",
+          "rawSnapshotSha256": "6d93af8f799297876854d99ceb0247024459b051eaf34fe1ca1e94d425f6e302"
+        },
+        {
+          "title": "Template:Human drop table",
+          "revisionId": 15374758,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15374758",
+          "fixtureSha256": "872f3b54aafcea39850eea2399c9d1a7717451d547df6ef33a7ec42862ff5026",
+          "rawSnapshotSha256": "26a8985f5f88a171e5e36e8fa90595149d8b0114243ceefcc947e697319e7f91"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "23/128",
+      "conditionalProbability": "14/128",
+      "effectiveProbability": "161/8192",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy harralander",
+        "quantity": "1",
+        "dropRate": "1/50.9",
+        "membersMarker": true
+      },
+      "locationIds": [
+        "044de317f9a6b200acf5",
+        "050ed5d1e8c7f754444d",
+        "157e741182000ebcb131",
+        "22b153f7947d667a21a6",
+        "255dc3e99e4671625ec7",
+        "2cb04c9bda2bd8d1e954",
+        "31ba7fc95a64698739f8",
+        "381bcbbcaf752a86f53f",
+        "533f456e40298e628170",
+        "5ba48573856bee8114e8",
+        "5cfd7aacbaabcc255fb0",
+        "7393b3e4f212e9b2228f",
+        "8249daf3a1bd39826b07",
+        "85b8d591e03dfd7c639d",
+        "91b2fa2a53776d690cb7",
+        "9767b9d753b5e33677f8",
+        "9a8c6dde7336ea88740d",
+        "9ba8743b03526d7f7729",
+        "9e4ef2037458c4dc8035",
+        "ae01acff2c464f68dc97",
+        "b3178df5465d382f2446",
+        "cac9459b302950662419",
+        "cb1c00c36fb6196b5754",
+        "cd0110ea2ee0f8172b30",
+        "da0729db8314e5ab3b3a",
+        "e658b8f7c44d5245c2fe",
+        "ed68fa1473e5ba1dc91b",
+        "fdf802b6900421379085"
+      ]
+    },
+    {
+      "pathId": "7693c77597439815c2027f0e1556c66594ec347240840bd1064d0845ad33da1f",
+      "record": {
+        "itemName": "Grimy ranarr weed",
+        "monsterName": "Man",
+        "quantity": "1",
+        "dropRate": "1/64.8",
+        "notes": "Members-world drop.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Man",
+          "Template:Human drop table",
+          "Template:HerbDropLines"
+        ],
+        "offset": 758,
+        "dropVersion": "",
+        "entry": "23/128",
+        "f2pReplacement": true
+      },
+      "sourceChain": [
+        {
+          "title": "Man",
+          "revisionId": 15374703,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15374703",
+          "fixtureSha256": "0f10005db5e9151b96047326ca115e976cb81ab4f718821fbf071376f5e03cc6",
+          "rawSnapshotSha256": "6d93af8f799297876854d99ceb0247024459b051eaf34fe1ca1e94d425f6e302"
+        },
+        {
+          "title": "Template:Human drop table",
+          "revisionId": 15374758,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15374758",
+          "fixtureSha256": "872f3b54aafcea39850eea2399c9d1a7717451d547df6ef33a7ec42862ff5026",
+          "rawSnapshotSha256": "26a8985f5f88a171e5e36e8fa90595149d8b0114243ceefcc947e697319e7f91"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "23/128",
+      "conditionalProbability": "11/128",
+      "effectiveProbability": "253/16384",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy ranarr weed",
+        "quantity": "1",
+        "dropRate": "1/64.8",
+        "membersMarker": true
+      },
+      "locationIds": [
+        "044de317f9a6b200acf5",
+        "050ed5d1e8c7f754444d",
+        "157e741182000ebcb131",
+        "22b153f7947d667a21a6",
+        "255dc3e99e4671625ec7",
+        "2cb04c9bda2bd8d1e954",
+        "31ba7fc95a64698739f8",
+        "381bcbbcaf752a86f53f",
+        "533f456e40298e628170",
+        "5ba48573856bee8114e8",
+        "5cfd7aacbaabcc255fb0",
+        "7393b3e4f212e9b2228f",
+        "8249daf3a1bd39826b07",
+        "85b8d591e03dfd7c639d",
+        "91b2fa2a53776d690cb7",
+        "9767b9d753b5e33677f8",
+        "9a8c6dde7336ea88740d",
+        "9ba8743b03526d7f7729",
+        "9e4ef2037458c4dc8035",
+        "ae01acff2c464f68dc97",
+        "b3178df5465d382f2446",
+        "cac9459b302950662419",
+        "cb1c00c36fb6196b5754",
+        "cd0110ea2ee0f8172b30",
+        "da0729db8314e5ab3b3a",
+        "e658b8f7c44d5245c2fe",
+        "ed68fa1473e5ba1dc91b",
+        "fdf802b6900421379085"
+      ]
+    },
+    {
+      "pathId": "a18505efa7336f1f175b051640f83280c3017096f41d001901695ce31ea5df6c",
+      "record": {
+        "itemName": "Grimy irit leaf",
+        "monsterName": "Man",
+        "quantity": "1",
+        "dropRate": "1/89",
+        "notes": "Members-world drop.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Man",
+          "Template:Human drop table",
+          "Template:HerbDropLines"
+        ],
+        "offset": 758,
+        "dropVersion": "",
+        "entry": "23/128",
+        "f2pReplacement": true
+      },
+      "sourceChain": [
+        {
+          "title": "Man",
+          "revisionId": 15374703,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15374703",
+          "fixtureSha256": "0f10005db5e9151b96047326ca115e976cb81ab4f718821fbf071376f5e03cc6",
+          "rawSnapshotSha256": "6d93af8f799297876854d99ceb0247024459b051eaf34fe1ca1e94d425f6e302"
+        },
+        {
+          "title": "Template:Human drop table",
+          "revisionId": 15374758,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15374758",
+          "fixtureSha256": "872f3b54aafcea39850eea2399c9d1a7717451d547df6ef33a7ec42862ff5026",
+          "rawSnapshotSha256": "26a8985f5f88a171e5e36e8fa90595149d8b0114243ceefcc947e697319e7f91"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "23/128",
+      "conditionalProbability": "8/128",
+      "effectiveProbability": "23/2048",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy irit leaf",
+        "quantity": "1",
+        "dropRate": "1/89",
+        "membersMarker": true
+      },
+      "locationIds": [
+        "044de317f9a6b200acf5",
+        "050ed5d1e8c7f754444d",
+        "157e741182000ebcb131",
+        "22b153f7947d667a21a6",
+        "255dc3e99e4671625ec7",
+        "2cb04c9bda2bd8d1e954",
+        "31ba7fc95a64698739f8",
+        "381bcbbcaf752a86f53f",
+        "533f456e40298e628170",
+        "5ba48573856bee8114e8",
+        "5cfd7aacbaabcc255fb0",
+        "7393b3e4f212e9b2228f",
+        "8249daf3a1bd39826b07",
+        "85b8d591e03dfd7c639d",
+        "91b2fa2a53776d690cb7",
+        "9767b9d753b5e33677f8",
+        "9a8c6dde7336ea88740d",
+        "9ba8743b03526d7f7729",
+        "9e4ef2037458c4dc8035",
+        "ae01acff2c464f68dc97",
+        "b3178df5465d382f2446",
+        "cac9459b302950662419",
+        "cb1c00c36fb6196b5754",
+        "cd0110ea2ee0f8172b30",
+        "da0729db8314e5ab3b3a",
+        "e658b8f7c44d5245c2fe",
+        "ed68fa1473e5ba1dc91b",
+        "fdf802b6900421379085"
+      ]
+    },
+    {
+      "pathId": "560017f90a99c6d6d63e89abcbdfc7eb223f7cb5ebc27061cc5124111ed0dea5",
+      "record": {
+        "itemName": "Grimy avantoe",
+        "monsterName": "Man",
+        "quantity": "1",
+        "dropRate": "1/118.7",
+        "notes": "Members-world drop.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Man",
+          "Template:Human drop table",
+          "Template:HerbDropLines"
+        ],
+        "offset": 758,
+        "dropVersion": "",
+        "entry": "23/128",
+        "f2pReplacement": true
+      },
+      "sourceChain": [
+        {
+          "title": "Man",
+          "revisionId": 15374703,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15374703",
+          "fixtureSha256": "0f10005db5e9151b96047326ca115e976cb81ab4f718821fbf071376f5e03cc6",
+          "rawSnapshotSha256": "6d93af8f799297876854d99ceb0247024459b051eaf34fe1ca1e94d425f6e302"
+        },
+        {
+          "title": "Template:Human drop table",
+          "revisionId": 15374758,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15374758",
+          "fixtureSha256": "872f3b54aafcea39850eea2399c9d1a7717451d547df6ef33a7ec42862ff5026",
+          "rawSnapshotSha256": "26a8985f5f88a171e5e36e8fa90595149d8b0114243ceefcc947e697319e7f91"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "23/128",
+      "conditionalProbability": "6/128",
+      "effectiveProbability": "69/8192",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy avantoe",
+        "quantity": "1",
+        "dropRate": "1/118.7",
+        "membersMarker": true
+      },
+      "locationIds": [
+        "044de317f9a6b200acf5",
+        "050ed5d1e8c7f754444d",
+        "157e741182000ebcb131",
+        "22b153f7947d667a21a6",
+        "255dc3e99e4671625ec7",
+        "2cb04c9bda2bd8d1e954",
+        "31ba7fc95a64698739f8",
+        "381bcbbcaf752a86f53f",
+        "533f456e40298e628170",
+        "5ba48573856bee8114e8",
+        "5cfd7aacbaabcc255fb0",
+        "7393b3e4f212e9b2228f",
+        "8249daf3a1bd39826b07",
+        "85b8d591e03dfd7c639d",
+        "91b2fa2a53776d690cb7",
+        "9767b9d753b5e33677f8",
+        "9a8c6dde7336ea88740d",
+        "9ba8743b03526d7f7729",
+        "9e4ef2037458c4dc8035",
+        "ae01acff2c464f68dc97",
+        "b3178df5465d382f2446",
+        "cac9459b302950662419",
+        "cb1c00c36fb6196b5754",
+        "cd0110ea2ee0f8172b30",
+        "da0729db8314e5ab3b3a",
+        "e658b8f7c44d5245c2fe",
+        "ed68fa1473e5ba1dc91b",
+        "fdf802b6900421379085"
+      ]
+    },
+    {
+      "pathId": "55e13ab6709f07fab4610ca2a281b8829fe78315e61455a136e4f1ef9329e4c4",
+      "record": {
+        "itemName": "Grimy kwuarm",
+        "monsterName": "Man",
+        "quantity": "1",
+        "dropRate": "1/142.5",
+        "notes": "Members-world drop.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Man",
+          "Template:Human drop table",
+          "Template:HerbDropLines"
+        ],
+        "offset": 758,
+        "dropVersion": "",
+        "entry": "23/128",
+        "f2pReplacement": true
+      },
+      "sourceChain": [
+        {
+          "title": "Man",
+          "revisionId": 15374703,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15374703",
+          "fixtureSha256": "0f10005db5e9151b96047326ca115e976cb81ab4f718821fbf071376f5e03cc6",
+          "rawSnapshotSha256": "6d93af8f799297876854d99ceb0247024459b051eaf34fe1ca1e94d425f6e302"
+        },
+        {
+          "title": "Template:Human drop table",
+          "revisionId": 15374758,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15374758",
+          "fixtureSha256": "872f3b54aafcea39850eea2399c9d1a7717451d547df6ef33a7ec42862ff5026",
+          "rawSnapshotSha256": "26a8985f5f88a171e5e36e8fa90595149d8b0114243ceefcc947e697319e7f91"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "23/128",
+      "conditionalProbability": "5/128",
+      "effectiveProbability": "115/16384",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy kwuarm",
+        "quantity": "1",
+        "dropRate": "1/142.5",
+        "membersMarker": true
+      },
+      "locationIds": [
+        "044de317f9a6b200acf5",
+        "050ed5d1e8c7f754444d",
+        "157e741182000ebcb131",
+        "22b153f7947d667a21a6",
+        "255dc3e99e4671625ec7",
+        "2cb04c9bda2bd8d1e954",
+        "31ba7fc95a64698739f8",
+        "381bcbbcaf752a86f53f",
+        "533f456e40298e628170",
+        "5ba48573856bee8114e8",
+        "5cfd7aacbaabcc255fb0",
+        "7393b3e4f212e9b2228f",
+        "8249daf3a1bd39826b07",
+        "85b8d591e03dfd7c639d",
+        "91b2fa2a53776d690cb7",
+        "9767b9d753b5e33677f8",
+        "9a8c6dde7336ea88740d",
+        "9ba8743b03526d7f7729",
+        "9e4ef2037458c4dc8035",
+        "ae01acff2c464f68dc97",
+        "b3178df5465d382f2446",
+        "cac9459b302950662419",
+        "cb1c00c36fb6196b5754",
+        "cd0110ea2ee0f8172b30",
+        "da0729db8314e5ab3b3a",
+        "e658b8f7c44d5245c2fe",
+        "ed68fa1473e5ba1dc91b",
+        "fdf802b6900421379085"
+      ]
+    },
+    {
+      "pathId": "9832545d56e25268082d1d0e9655846c7de36d472386eb219c67355b541e4a9f",
+      "record": {
+        "itemName": "Grimy cadantine",
+        "monsterName": "Man",
+        "quantity": "1",
+        "dropRate": "1/178.1",
+        "notes": "Members-world drop.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Man",
+          "Template:Human drop table",
+          "Template:HerbDropLines"
+        ],
+        "offset": 758,
+        "dropVersion": "",
+        "entry": "23/128",
+        "f2pReplacement": true
+      },
+      "sourceChain": [
+        {
+          "title": "Man",
+          "revisionId": 15374703,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15374703",
+          "fixtureSha256": "0f10005db5e9151b96047326ca115e976cb81ab4f718821fbf071376f5e03cc6",
+          "rawSnapshotSha256": "6d93af8f799297876854d99ceb0247024459b051eaf34fe1ca1e94d425f6e302"
+        },
+        {
+          "title": "Template:Human drop table",
+          "revisionId": 15374758,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15374758",
+          "fixtureSha256": "872f3b54aafcea39850eea2399c9d1a7717451d547df6ef33a7ec42862ff5026",
+          "rawSnapshotSha256": "26a8985f5f88a171e5e36e8fa90595149d8b0114243ceefcc947e697319e7f91"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "23/128",
+      "conditionalProbability": "4/128",
+      "effectiveProbability": "23/4096",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy cadantine",
+        "quantity": "1",
+        "dropRate": "1/178.1",
+        "membersMarker": true
+      },
+      "locationIds": [
+        "044de317f9a6b200acf5",
+        "050ed5d1e8c7f754444d",
+        "157e741182000ebcb131",
+        "22b153f7947d667a21a6",
+        "255dc3e99e4671625ec7",
+        "2cb04c9bda2bd8d1e954",
+        "31ba7fc95a64698739f8",
+        "381bcbbcaf752a86f53f",
+        "533f456e40298e628170",
+        "5ba48573856bee8114e8",
+        "5cfd7aacbaabcc255fb0",
+        "7393b3e4f212e9b2228f",
+        "8249daf3a1bd39826b07",
+        "85b8d591e03dfd7c639d",
+        "91b2fa2a53776d690cb7",
+        "9767b9d753b5e33677f8",
+        "9a8c6dde7336ea88740d",
+        "9ba8743b03526d7f7729",
+        "9e4ef2037458c4dc8035",
+        "ae01acff2c464f68dc97",
+        "b3178df5465d382f2446",
+        "cac9459b302950662419",
+        "cb1c00c36fb6196b5754",
+        "cd0110ea2ee0f8172b30",
+        "da0729db8314e5ab3b3a",
+        "e658b8f7c44d5245c2fe",
+        "ed68fa1473e5ba1dc91b",
+        "fdf802b6900421379085"
+      ]
+    },
+    {
+      "pathId": "2d26f12081952de36096eb7b925b3d7ce3519f9721a0c717ecb8abd789f1244a",
+      "record": {
+        "itemName": "Grimy lantadyme",
+        "monsterName": "Man",
+        "quantity": "1",
+        "dropRate": "1/237.4",
+        "notes": "Members-world drop.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Man",
+          "Template:Human drop table",
+          "Template:HerbDropLines"
+        ],
+        "offset": 758,
+        "dropVersion": "",
+        "entry": "23/128",
+        "f2pReplacement": true
+      },
+      "sourceChain": [
+        {
+          "title": "Man",
+          "revisionId": 15374703,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15374703",
+          "fixtureSha256": "0f10005db5e9151b96047326ca115e976cb81ab4f718821fbf071376f5e03cc6",
+          "rawSnapshotSha256": "6d93af8f799297876854d99ceb0247024459b051eaf34fe1ca1e94d425f6e302"
+        },
+        {
+          "title": "Template:Human drop table",
+          "revisionId": 15374758,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15374758",
+          "fixtureSha256": "872f3b54aafcea39850eea2399c9d1a7717451d547df6ef33a7ec42862ff5026",
+          "rawSnapshotSha256": "26a8985f5f88a171e5e36e8fa90595149d8b0114243ceefcc947e697319e7f91"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "23/128",
+      "conditionalProbability": "3/128",
+      "effectiveProbability": "69/16384",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy lantadyme",
+        "quantity": "1",
+        "dropRate": "1/237.4",
+        "membersMarker": true
+      },
+      "locationIds": [
+        "044de317f9a6b200acf5",
+        "050ed5d1e8c7f754444d",
+        "157e741182000ebcb131",
+        "22b153f7947d667a21a6",
+        "255dc3e99e4671625ec7",
+        "2cb04c9bda2bd8d1e954",
+        "31ba7fc95a64698739f8",
+        "381bcbbcaf752a86f53f",
+        "533f456e40298e628170",
+        "5ba48573856bee8114e8",
+        "5cfd7aacbaabcc255fb0",
+        "7393b3e4f212e9b2228f",
+        "8249daf3a1bd39826b07",
+        "85b8d591e03dfd7c639d",
+        "91b2fa2a53776d690cb7",
+        "9767b9d753b5e33677f8",
+        "9a8c6dde7336ea88740d",
+        "9ba8743b03526d7f7729",
+        "9e4ef2037458c4dc8035",
+        "ae01acff2c464f68dc97",
+        "b3178df5465d382f2446",
+        "cac9459b302950662419",
+        "cb1c00c36fb6196b5754",
+        "cd0110ea2ee0f8172b30",
+        "da0729db8314e5ab3b3a",
+        "e658b8f7c44d5245c2fe",
+        "ed68fa1473e5ba1dc91b",
+        "fdf802b6900421379085"
+      ]
+    },
+    {
+      "pathId": "de47461925eb4cc01f48da934714bdc8ebc6b1b149d02de5a6c5233acdef6f81",
+      "record": {
+        "itemName": "Grimy dwarf weed",
+        "monsterName": "Man",
+        "quantity": "1",
+        "dropRate": "1/237.4",
+        "notes": "Members-world drop.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Man",
+          "Template:Human drop table",
+          "Template:HerbDropLines"
+        ],
+        "offset": 758,
+        "dropVersion": "",
+        "entry": "23/128",
+        "f2pReplacement": true
+      },
+      "sourceChain": [
+        {
+          "title": "Man",
+          "revisionId": 15374703,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15374703",
+          "fixtureSha256": "0f10005db5e9151b96047326ca115e976cb81ab4f718821fbf071376f5e03cc6",
+          "rawSnapshotSha256": "6d93af8f799297876854d99ceb0247024459b051eaf34fe1ca1e94d425f6e302"
+        },
+        {
+          "title": "Template:Human drop table",
+          "revisionId": 15374758,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15374758",
+          "fixtureSha256": "872f3b54aafcea39850eea2399c9d1a7717451d547df6ef33a7ec42862ff5026",
+          "rawSnapshotSha256": "26a8985f5f88a171e5e36e8fa90595149d8b0114243ceefcc947e697319e7f91"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "23/128",
+      "conditionalProbability": "3/128",
+      "effectiveProbability": "69/16384",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy dwarf weed",
+        "quantity": "1",
+        "dropRate": "1/237.4",
+        "membersMarker": true
+      },
+      "locationIds": [
+        "044de317f9a6b200acf5",
+        "050ed5d1e8c7f754444d",
+        "157e741182000ebcb131",
+        "22b153f7947d667a21a6",
+        "255dc3e99e4671625ec7",
+        "2cb04c9bda2bd8d1e954",
+        "31ba7fc95a64698739f8",
+        "381bcbbcaf752a86f53f",
+        "533f456e40298e628170",
+        "5ba48573856bee8114e8",
+        "5cfd7aacbaabcc255fb0",
+        "7393b3e4f212e9b2228f",
+        "8249daf3a1bd39826b07",
+        "85b8d591e03dfd7c639d",
+        "91b2fa2a53776d690cb7",
+        "9767b9d753b5e33677f8",
+        "9a8c6dde7336ea88740d",
+        "9ba8743b03526d7f7729",
+        "9e4ef2037458c4dc8035",
+        "ae01acff2c464f68dc97",
+        "b3178df5465d382f2446",
+        "cac9459b302950662419",
+        "cb1c00c36fb6196b5754",
+        "cd0110ea2ee0f8172b30",
+        "da0729db8314e5ab3b3a",
+        "e658b8f7c44d5245c2fe",
+        "ed68fa1473e5ba1dc91b",
+        "fdf802b6900421379085"
+      ]
+    },
+    {
+      "pathId": "6499fd35ff1b94a4504126ba6223574ae0dca5480a0d59cf6e669379177fa6f5",
+      "record": {
+        "itemName": "Grimy guam leaf",
+        "monsterName": "Abyssal demon",
+        "quantity": "1",
+        "dropRate": "1/26.9",
+        "notes": "Members-world drop. Standard only.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Abyssal demon",
+          "Template:HerbDropLines"
+        ],
+        "offset": 7847,
+        "dropVersion": "Standard",
+        "entry": "19/128",
+        "f2pReplacement": false
+      },
+      "sourceChain": [
+        {
+          "title": "Abyssal demon",
+          "revisionId": 15386121,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15386121",
+          "fixtureSha256": "0f6ded68855a8c9e3ca8909415676428a7e32c247685d36b080c61a3eb3425be",
+          "rawSnapshotSha256": "15ccba881bb6282db79a98799eb4aed9ac907d2cc37f0bafbe060ecadcaea15e"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "19/128",
+      "conditionalProbability": "32/128",
+      "effectiveProbability": "19/512",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy guam leaf",
+        "quantity": "1",
+        "dropRate": "1/26.9",
+        "membersMarker": false
+      },
+      "locationIds": [
+        "96c382e39f00064ccf4c",
+        "c704a8633ae384a87b88",
+        "c9ea55d9b519a0236b46",
+        "ca4d6a1b9e7a0636ed83"
+      ]
+    },
+    {
+      "pathId": "b2132913581aeb014ba2593380f31784353ec97f2093af220b6fc0ab5eff2297",
+      "record": {
+        "itemName": "Grimy marrentill",
+        "monsterName": "Abyssal demon",
+        "quantity": "1",
+        "dropRate": "1/35.9",
+        "notes": "Members-world drop. Standard only.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Abyssal demon",
+          "Template:HerbDropLines"
+        ],
+        "offset": 7847,
+        "dropVersion": "Standard",
+        "entry": "19/128",
+        "f2pReplacement": false
+      },
+      "sourceChain": [
+        {
+          "title": "Abyssal demon",
+          "revisionId": 15386121,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15386121",
+          "fixtureSha256": "0f6ded68855a8c9e3ca8909415676428a7e32c247685d36b080c61a3eb3425be",
+          "rawSnapshotSha256": "15ccba881bb6282db79a98799eb4aed9ac907d2cc37f0bafbe060ecadcaea15e"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "19/128",
+      "conditionalProbability": "24/128",
+      "effectiveProbability": "57/2048",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy marrentill",
+        "quantity": "1",
+        "dropRate": "1/35.9",
+        "membersMarker": false
+      },
+      "locationIds": [
+        "96c382e39f00064ccf4c",
+        "c704a8633ae384a87b88",
+        "c9ea55d9b519a0236b46",
+        "ca4d6a1b9e7a0636ed83"
+      ]
+    },
+    {
+      "pathId": "92d2340f955d3a674c5b046356fbab090729576d53a353cb429439186c9f3c71",
+      "record": {
+        "itemName": "Grimy tarromin",
+        "monsterName": "Abyssal demon",
+        "quantity": "1",
+        "dropRate": "1/47.9",
+        "notes": "Members-world drop. Standard only.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Abyssal demon",
+          "Template:HerbDropLines"
+        ],
+        "offset": 7847,
+        "dropVersion": "Standard",
+        "entry": "19/128",
+        "f2pReplacement": false
+      },
+      "sourceChain": [
+        {
+          "title": "Abyssal demon",
+          "revisionId": 15386121,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15386121",
+          "fixtureSha256": "0f6ded68855a8c9e3ca8909415676428a7e32c247685d36b080c61a3eb3425be",
+          "rawSnapshotSha256": "15ccba881bb6282db79a98799eb4aed9ac907d2cc37f0bafbe060ecadcaea15e"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "19/128",
+      "conditionalProbability": "18/128",
+      "effectiveProbability": "171/8192",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy tarromin",
+        "quantity": "1",
+        "dropRate": "1/47.9",
+        "membersMarker": false
+      },
+      "locationIds": [
+        "96c382e39f00064ccf4c",
+        "c704a8633ae384a87b88",
+        "c9ea55d9b519a0236b46",
+        "ca4d6a1b9e7a0636ed83"
+      ]
+    },
+    {
+      "pathId": "3d918b7b943c41f545a31c3620123dc00155af133b8d9f9bbe27e11a85c20178",
+      "record": {
+        "itemName": "Grimy harralander",
+        "monsterName": "Abyssal demon",
+        "quantity": "1",
+        "dropRate": "1/61.6",
+        "notes": "Members-world drop. Standard only.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Abyssal demon",
+          "Template:HerbDropLines"
+        ],
+        "offset": 7847,
+        "dropVersion": "Standard",
+        "entry": "19/128",
+        "f2pReplacement": false
+      },
+      "sourceChain": [
+        {
+          "title": "Abyssal demon",
+          "revisionId": 15386121,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15386121",
+          "fixtureSha256": "0f6ded68855a8c9e3ca8909415676428a7e32c247685d36b080c61a3eb3425be",
+          "rawSnapshotSha256": "15ccba881bb6282db79a98799eb4aed9ac907d2cc37f0bafbe060ecadcaea15e"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "19/128",
+      "conditionalProbability": "14/128",
+      "effectiveProbability": "133/8192",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy harralander",
+        "quantity": "1",
+        "dropRate": "1/61.6",
+        "membersMarker": false
+      },
+      "locationIds": [
+        "96c382e39f00064ccf4c",
+        "c704a8633ae384a87b88",
+        "c9ea55d9b519a0236b46",
+        "ca4d6a1b9e7a0636ed83"
+      ]
+    },
+    {
+      "pathId": "2aa52c9fd4b8f541922a870740a750c89213e55ddcb6ae6132410d7ee9536dc8",
+      "record": {
+        "itemName": "Grimy ranarr weed",
+        "monsterName": "Abyssal demon",
+        "quantity": "1",
+        "dropRate": "1/78.4",
+        "notes": "Members-world drop. Standard only.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Abyssal demon",
+          "Template:HerbDropLines"
+        ],
+        "offset": 7847,
+        "dropVersion": "Standard",
+        "entry": "19/128",
+        "f2pReplacement": false
+      },
+      "sourceChain": [
+        {
+          "title": "Abyssal demon",
+          "revisionId": 15386121,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15386121",
+          "fixtureSha256": "0f6ded68855a8c9e3ca8909415676428a7e32c247685d36b080c61a3eb3425be",
+          "rawSnapshotSha256": "15ccba881bb6282db79a98799eb4aed9ac907d2cc37f0bafbe060ecadcaea15e"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "19/128",
+      "conditionalProbability": "11/128",
+      "effectiveProbability": "209/16384",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy ranarr weed",
+        "quantity": "1",
+        "dropRate": "1/78.4",
+        "membersMarker": false
+      },
+      "locationIds": [
+        "96c382e39f00064ccf4c",
+        "c704a8633ae384a87b88",
+        "c9ea55d9b519a0236b46",
+        "ca4d6a1b9e7a0636ed83"
+      ]
+    },
+    {
+      "pathId": "b0e2c3d14785353e6851bc69678a51d2f4975824691282a7a9c4e1736b254137",
+      "record": {
+        "itemName": "Grimy irit leaf",
+        "monsterName": "Abyssal demon",
+        "quantity": "1",
+        "dropRate": "1/107.8",
+        "notes": "Members-world drop. Standard only.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Abyssal demon",
+          "Template:HerbDropLines"
+        ],
+        "offset": 7847,
+        "dropVersion": "Standard",
+        "entry": "19/128",
+        "f2pReplacement": false
+      },
+      "sourceChain": [
+        {
+          "title": "Abyssal demon",
+          "revisionId": 15386121,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15386121",
+          "fixtureSha256": "0f6ded68855a8c9e3ca8909415676428a7e32c247685d36b080c61a3eb3425be",
+          "rawSnapshotSha256": "15ccba881bb6282db79a98799eb4aed9ac907d2cc37f0bafbe060ecadcaea15e"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "19/128",
+      "conditionalProbability": "8/128",
+      "effectiveProbability": "19/2048",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy irit leaf",
+        "quantity": "1",
+        "dropRate": "1/107.8",
+        "membersMarker": false
+      },
+      "locationIds": [
+        "96c382e39f00064ccf4c",
+        "c704a8633ae384a87b88",
+        "c9ea55d9b519a0236b46",
+        "ca4d6a1b9e7a0636ed83"
+      ]
+    },
+    {
+      "pathId": "b843c38e909deaafb74be49de20be3510f13fdda259a8adb7532896205359c05",
+      "record": {
+        "itemName": "Grimy avantoe",
+        "monsterName": "Abyssal demon",
+        "quantity": "1",
+        "dropRate": "1/143.7",
+        "notes": "Members-world drop. Standard only.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Abyssal demon",
+          "Template:HerbDropLines"
+        ],
+        "offset": 7847,
+        "dropVersion": "Standard",
+        "entry": "19/128",
+        "f2pReplacement": false
+      },
+      "sourceChain": [
+        {
+          "title": "Abyssal demon",
+          "revisionId": 15386121,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15386121",
+          "fixtureSha256": "0f6ded68855a8c9e3ca8909415676428a7e32c247685d36b080c61a3eb3425be",
+          "rawSnapshotSha256": "15ccba881bb6282db79a98799eb4aed9ac907d2cc37f0bafbe060ecadcaea15e"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "19/128",
+      "conditionalProbability": "6/128",
+      "effectiveProbability": "57/8192",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy avantoe",
+        "quantity": "1",
+        "dropRate": "1/143.7",
+        "membersMarker": false
+      },
+      "locationIds": [
+        "96c382e39f00064ccf4c",
+        "c704a8633ae384a87b88",
+        "c9ea55d9b519a0236b46",
+        "ca4d6a1b9e7a0636ed83"
+      ]
+    },
+    {
+      "pathId": "b8619e597a3d7eb923fd83e7742c053980198092c0d3d47ba1623b4bb4432704",
+      "record": {
+        "itemName": "Grimy kwuarm",
+        "monsterName": "Abyssal demon",
+        "quantity": "1",
+        "dropRate": "1/172.5",
+        "notes": "Members-world drop. Standard only.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Abyssal demon",
+          "Template:HerbDropLines"
+        ],
+        "offset": 7847,
+        "dropVersion": "Standard",
+        "entry": "19/128",
+        "f2pReplacement": false
+      },
+      "sourceChain": [
+        {
+          "title": "Abyssal demon",
+          "revisionId": 15386121,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15386121",
+          "fixtureSha256": "0f6ded68855a8c9e3ca8909415676428a7e32c247685d36b080c61a3eb3425be",
+          "rawSnapshotSha256": "15ccba881bb6282db79a98799eb4aed9ac907d2cc37f0bafbe060ecadcaea15e"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "19/128",
+      "conditionalProbability": "5/128",
+      "effectiveProbability": "95/16384",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy kwuarm",
+        "quantity": "1",
+        "dropRate": "1/172.5",
+        "membersMarker": false
+      },
+      "locationIds": [
+        "96c382e39f00064ccf4c",
+        "c704a8633ae384a87b88",
+        "c9ea55d9b519a0236b46",
+        "ca4d6a1b9e7a0636ed83"
+      ]
+    },
+    {
+      "pathId": "e7326be5c2aa6879fc29a90f9927a1c5aaad5a3f6b314242efd9ec4b918b1bec",
+      "record": {
+        "itemName": "Grimy cadantine",
+        "monsterName": "Abyssal demon",
+        "quantity": "1",
+        "dropRate": "1/215.6",
+        "notes": "Members-world drop. Standard only.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Abyssal demon",
+          "Template:HerbDropLines"
+        ],
+        "offset": 7847,
+        "dropVersion": "Standard",
+        "entry": "19/128",
+        "f2pReplacement": false
+      },
+      "sourceChain": [
+        {
+          "title": "Abyssal demon",
+          "revisionId": 15386121,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15386121",
+          "fixtureSha256": "0f6ded68855a8c9e3ca8909415676428a7e32c247685d36b080c61a3eb3425be",
+          "rawSnapshotSha256": "15ccba881bb6282db79a98799eb4aed9ac907d2cc37f0bafbe060ecadcaea15e"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "19/128",
+      "conditionalProbability": "4/128",
+      "effectiveProbability": "19/4096",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy cadantine",
+        "quantity": "1",
+        "dropRate": "1/215.6",
+        "membersMarker": false
+      },
+      "locationIds": [
+        "96c382e39f00064ccf4c",
+        "c704a8633ae384a87b88",
+        "c9ea55d9b519a0236b46",
+        "ca4d6a1b9e7a0636ed83"
+      ]
+    },
+    {
+      "pathId": "1fd2ef3b8d7c740d4aebe39f5026aa42057febd404032aea5bf00143836d96d6",
+      "record": {
+        "itemName": "Grimy lantadyme",
+        "monsterName": "Abyssal demon",
+        "quantity": "1",
+        "dropRate": "1/287.4",
+        "notes": "Members-world drop. Standard only.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Abyssal demon",
+          "Template:HerbDropLines"
+        ],
+        "offset": 7847,
+        "dropVersion": "Standard",
+        "entry": "19/128",
+        "f2pReplacement": false
+      },
+      "sourceChain": [
+        {
+          "title": "Abyssal demon",
+          "revisionId": 15386121,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15386121",
+          "fixtureSha256": "0f6ded68855a8c9e3ca8909415676428a7e32c247685d36b080c61a3eb3425be",
+          "rawSnapshotSha256": "15ccba881bb6282db79a98799eb4aed9ac907d2cc37f0bafbe060ecadcaea15e"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "19/128",
+      "conditionalProbability": "3/128",
+      "effectiveProbability": "57/16384",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy lantadyme",
+        "quantity": "1",
+        "dropRate": "1/287.4",
+        "membersMarker": false
+      },
+      "locationIds": [
+        "96c382e39f00064ccf4c",
+        "c704a8633ae384a87b88",
+        "c9ea55d9b519a0236b46",
+        "ca4d6a1b9e7a0636ed83"
+      ]
+    },
+    {
+      "pathId": "ea521bdc936e19e3e3ec45b86403e10cee87f8b8b7ef9ac95642d4e4e76b7a2c",
+      "record": {
+        "itemName": "Grimy dwarf weed",
+        "monsterName": "Abyssal demon",
+        "quantity": "1",
+        "dropRate": "1/287.4",
+        "notes": "Members-world drop. Standard only.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Abyssal demon",
+          "Template:HerbDropLines"
+        ],
+        "offset": 7847,
+        "dropVersion": "Standard",
+        "entry": "19/128",
+        "f2pReplacement": false
+      },
+      "sourceChain": [
+        {
+          "title": "Abyssal demon",
+          "revisionId": 15386121,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15386121",
+          "fixtureSha256": "0f6ded68855a8c9e3ca8909415676428a7e32c247685d36b080c61a3eb3425be",
+          "rawSnapshotSha256": "15ccba881bb6282db79a98799eb4aed9ac907d2cc37f0bafbe060ecadcaea15e"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "19/128",
+      "conditionalProbability": "3/128",
+      "effectiveProbability": "57/16384",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy dwarf weed",
+        "quantity": "1",
+        "dropRate": "1/287.4",
+        "membersMarker": false
+      },
+      "locationIds": [
+        "96c382e39f00064ccf4c",
+        "c704a8633ae384a87b88",
+        "c9ea55d9b519a0236b46",
+        "ca4d6a1b9e7a0636ed83"
+      ]
+    },
+    {
+      "pathId": "ec0b84064a608e870b325f4a0f7900738097c920d1d86fd1ea2326ebe5ac91a8",
+      "record": {
+        "itemName": "Grimy guam leaf",
+        "monsterName": "Abyssal demon",
+        "quantity": "1",
+        "dropRate": "1/14.3",
+        "notes": "Members-world drop. Wilderness Slayer Cave only.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Abyssal demon",
+          "Template:HerbDropLines"
+        ],
+        "offset": 11111,
+        "dropVersion": "Wilderness Slayer Cave",
+        "entry": "19/68",
+        "f2pReplacement": false
+      },
+      "sourceChain": [
+        {
+          "title": "Abyssal demon",
+          "revisionId": 15386121,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15386121",
+          "fixtureSha256": "0f6ded68855a8c9e3ca8909415676428a7e32c247685d36b080c61a3eb3425be",
+          "rawSnapshotSha256": "15ccba881bb6282db79a98799eb4aed9ac907d2cc37f0bafbe060ecadcaea15e"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "19/68",
+      "conditionalProbability": "32/128",
+      "effectiveProbability": "19/272",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy guam leaf",
+        "quantity": "1",
+        "dropRate": "1/14.3",
+        "membersMarker": false
+      },
+      "locationIds": [
+        "ec346dbbf5098d24ef88"
+      ]
+    },
+    {
+      "pathId": "fe8c6237065efe859d446e76ca873ee81d20470633b45fa6150b93b64f10772b",
+      "record": {
+        "itemName": "Grimy marrentill",
+        "monsterName": "Abyssal demon",
+        "quantity": "1",
+        "dropRate": "1/19.1",
+        "notes": "Members-world drop. Wilderness Slayer Cave only.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Abyssal demon",
+          "Template:HerbDropLines"
+        ],
+        "offset": 11111,
+        "dropVersion": "Wilderness Slayer Cave",
+        "entry": "19/68",
+        "f2pReplacement": false
+      },
+      "sourceChain": [
+        {
+          "title": "Abyssal demon",
+          "revisionId": 15386121,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15386121",
+          "fixtureSha256": "0f6ded68855a8c9e3ca8909415676428a7e32c247685d36b080c61a3eb3425be",
+          "rawSnapshotSha256": "15ccba881bb6282db79a98799eb4aed9ac907d2cc37f0bafbe060ecadcaea15e"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "19/68",
+      "conditionalProbability": "24/128",
+      "effectiveProbability": "57/1088",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy marrentill",
+        "quantity": "1",
+        "dropRate": "1/19.1",
+        "membersMarker": false
+      },
+      "locationIds": [
+        "ec346dbbf5098d24ef88"
+      ]
+    },
+    {
+      "pathId": "d534f998450878a47a856cceb49efd01120b738b6d5857a8891630f2811c3030",
+      "record": {
+        "itemName": "Grimy tarromin",
+        "monsterName": "Abyssal demon",
+        "quantity": "1",
+        "dropRate": "1/25.5",
+        "notes": "Members-world drop. Wilderness Slayer Cave only.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Abyssal demon",
+          "Template:HerbDropLines"
+        ],
+        "offset": 11111,
+        "dropVersion": "Wilderness Slayer Cave",
+        "entry": "19/68",
+        "f2pReplacement": false
+      },
+      "sourceChain": [
+        {
+          "title": "Abyssal demon",
+          "revisionId": 15386121,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15386121",
+          "fixtureSha256": "0f6ded68855a8c9e3ca8909415676428a7e32c247685d36b080c61a3eb3425be",
+          "rawSnapshotSha256": "15ccba881bb6282db79a98799eb4aed9ac907d2cc37f0bafbe060ecadcaea15e"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "19/68",
+      "conditionalProbability": "18/128",
+      "effectiveProbability": "171/4352",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy tarromin",
+        "quantity": "1",
+        "dropRate": "1/25.5",
+        "membersMarker": false
+      },
+      "locationIds": [
+        "ec346dbbf5098d24ef88"
+      ]
+    },
+    {
+      "pathId": "0b4a19191dddfe8bcb75879c667a8ea90c6e77b28eec60bfca1efdf63bbe88c0",
+      "record": {
+        "itemName": "Grimy harralander",
+        "monsterName": "Abyssal demon",
+        "quantity": "1",
+        "dropRate": "1/32.7",
+        "notes": "Members-world drop. Wilderness Slayer Cave only.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Abyssal demon",
+          "Template:HerbDropLines"
+        ],
+        "offset": 11111,
+        "dropVersion": "Wilderness Slayer Cave",
+        "entry": "19/68",
+        "f2pReplacement": false
+      },
+      "sourceChain": [
+        {
+          "title": "Abyssal demon",
+          "revisionId": 15386121,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15386121",
+          "fixtureSha256": "0f6ded68855a8c9e3ca8909415676428a7e32c247685d36b080c61a3eb3425be",
+          "rawSnapshotSha256": "15ccba881bb6282db79a98799eb4aed9ac907d2cc37f0bafbe060ecadcaea15e"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "19/68",
+      "conditionalProbability": "14/128",
+      "effectiveProbability": "133/4352",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy harralander",
+        "quantity": "1",
+        "dropRate": "1/32.7",
+        "membersMarker": false
+      },
+      "locationIds": [
+        "ec346dbbf5098d24ef88"
+      ]
+    },
+    {
+      "pathId": "b7e46d33328159b44fa0998db1682c8b8a56d22b1a7e5f7e422c8f67627774c0",
+      "record": {
+        "itemName": "Grimy ranarr weed",
+        "monsterName": "Abyssal demon",
+        "quantity": "1",
+        "dropRate": "1/41.6",
+        "notes": "Members-world drop. Wilderness Slayer Cave only.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Abyssal demon",
+          "Template:HerbDropLines"
+        ],
+        "offset": 11111,
+        "dropVersion": "Wilderness Slayer Cave",
+        "entry": "19/68",
+        "f2pReplacement": false
+      },
+      "sourceChain": [
+        {
+          "title": "Abyssal demon",
+          "revisionId": 15386121,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15386121",
+          "fixtureSha256": "0f6ded68855a8c9e3ca8909415676428a7e32c247685d36b080c61a3eb3425be",
+          "rawSnapshotSha256": "15ccba881bb6282db79a98799eb4aed9ac907d2cc37f0bafbe060ecadcaea15e"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "19/68",
+      "conditionalProbability": "11/128",
+      "effectiveProbability": "209/8704",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy ranarr weed",
+        "quantity": "1",
+        "dropRate": "1/41.6",
+        "membersMarker": false
+      },
+      "locationIds": [
+        "ec346dbbf5098d24ef88"
+      ]
+    },
+    {
+      "pathId": "64a3f240447d7b38f9bad71f75f3da381ef506cd9dd396a30eadbf8c917f46c6",
+      "record": {
+        "itemName": "Grimy irit leaf",
+        "monsterName": "Abyssal demon",
+        "quantity": "1",
+        "dropRate": "1/57.3",
+        "notes": "Members-world drop. Wilderness Slayer Cave only.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Abyssal demon",
+          "Template:HerbDropLines"
+        ],
+        "offset": 11111,
+        "dropVersion": "Wilderness Slayer Cave",
+        "entry": "19/68",
+        "f2pReplacement": false
+      },
+      "sourceChain": [
+        {
+          "title": "Abyssal demon",
+          "revisionId": 15386121,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15386121",
+          "fixtureSha256": "0f6ded68855a8c9e3ca8909415676428a7e32c247685d36b080c61a3eb3425be",
+          "rawSnapshotSha256": "15ccba881bb6282db79a98799eb4aed9ac907d2cc37f0bafbe060ecadcaea15e"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "19/68",
+      "conditionalProbability": "8/128",
+      "effectiveProbability": "19/1088",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy irit leaf",
+        "quantity": "1",
+        "dropRate": "1/57.3",
+        "membersMarker": false
+      },
+      "locationIds": [
+        "ec346dbbf5098d24ef88"
+      ]
+    },
+    {
+      "pathId": "80e17da1ed40522f32f9b78ee08b80b51903efae53dd6e64ae17c0b590ef3119",
+      "record": {
+        "itemName": "Grimy avantoe",
+        "monsterName": "Abyssal demon",
+        "quantity": "1",
+        "dropRate": "1/76.4",
+        "notes": "Members-world drop. Wilderness Slayer Cave only.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Abyssal demon",
+          "Template:HerbDropLines"
+        ],
+        "offset": 11111,
+        "dropVersion": "Wilderness Slayer Cave",
+        "entry": "19/68",
+        "f2pReplacement": false
+      },
+      "sourceChain": [
+        {
+          "title": "Abyssal demon",
+          "revisionId": 15386121,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15386121",
+          "fixtureSha256": "0f6ded68855a8c9e3ca8909415676428a7e32c247685d36b080c61a3eb3425be",
+          "rawSnapshotSha256": "15ccba881bb6282db79a98799eb4aed9ac907d2cc37f0bafbe060ecadcaea15e"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "19/68",
+      "conditionalProbability": "6/128",
+      "effectiveProbability": "57/4352",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy avantoe",
+        "quantity": "1",
+        "dropRate": "1/76.4",
+        "membersMarker": false
+      },
+      "locationIds": [
+        "ec346dbbf5098d24ef88"
+      ]
+    },
+    {
+      "pathId": "dd7d9c62cb2ce747889382b491f5789d6e4a4157bd83a7707a0ab614a3f54382",
+      "record": {
+        "itemName": "Grimy kwuarm",
+        "monsterName": "Abyssal demon",
+        "quantity": "1",
+        "dropRate": "1/91.6",
+        "notes": "Members-world drop. Wilderness Slayer Cave only.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Abyssal demon",
+          "Template:HerbDropLines"
+        ],
+        "offset": 11111,
+        "dropVersion": "Wilderness Slayer Cave",
+        "entry": "19/68",
+        "f2pReplacement": false
+      },
+      "sourceChain": [
+        {
+          "title": "Abyssal demon",
+          "revisionId": 15386121,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15386121",
+          "fixtureSha256": "0f6ded68855a8c9e3ca8909415676428a7e32c247685d36b080c61a3eb3425be",
+          "rawSnapshotSha256": "15ccba881bb6282db79a98799eb4aed9ac907d2cc37f0bafbe060ecadcaea15e"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "19/68",
+      "conditionalProbability": "5/128",
+      "effectiveProbability": "95/8704",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy kwuarm",
+        "quantity": "1",
+        "dropRate": "1/91.6",
+        "membersMarker": false
+      },
+      "locationIds": [
+        "ec346dbbf5098d24ef88"
+      ]
+    },
+    {
+      "pathId": "45f066456043c901ac39c4f7b0decfe00ce9b5dff6d76d330317ddfa473fe9aa",
+      "record": {
+        "itemName": "Grimy cadantine",
+        "monsterName": "Abyssal demon",
+        "quantity": "1",
+        "dropRate": "1/114.5",
+        "notes": "Members-world drop. Wilderness Slayer Cave only.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Abyssal demon",
+          "Template:HerbDropLines"
+        ],
+        "offset": 11111,
+        "dropVersion": "Wilderness Slayer Cave",
+        "entry": "19/68",
+        "f2pReplacement": false
+      },
+      "sourceChain": [
+        {
+          "title": "Abyssal demon",
+          "revisionId": 15386121,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15386121",
+          "fixtureSha256": "0f6ded68855a8c9e3ca8909415676428a7e32c247685d36b080c61a3eb3425be",
+          "rawSnapshotSha256": "15ccba881bb6282db79a98799eb4aed9ac907d2cc37f0bafbe060ecadcaea15e"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "19/68",
+      "conditionalProbability": "4/128",
+      "effectiveProbability": "19/2176",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy cadantine",
+        "quantity": "1",
+        "dropRate": "1/114.5",
+        "membersMarker": false
+      },
+      "locationIds": [
+        "ec346dbbf5098d24ef88"
+      ]
+    },
+    {
+      "pathId": "2d2871ee9be0d9dac466e1666141a847eef24080b204ad3365fd11a7a02eecf5",
+      "record": {
+        "itemName": "Grimy lantadyme",
+        "monsterName": "Abyssal demon",
+        "quantity": "1",
+        "dropRate": "1/152.7",
+        "notes": "Members-world drop. Wilderness Slayer Cave only.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Abyssal demon",
+          "Template:HerbDropLines"
+        ],
+        "offset": 11111,
+        "dropVersion": "Wilderness Slayer Cave",
+        "entry": "19/68",
+        "f2pReplacement": false
+      },
+      "sourceChain": [
+        {
+          "title": "Abyssal demon",
+          "revisionId": 15386121,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15386121",
+          "fixtureSha256": "0f6ded68855a8c9e3ca8909415676428a7e32c247685d36b080c61a3eb3425be",
+          "rawSnapshotSha256": "15ccba881bb6282db79a98799eb4aed9ac907d2cc37f0bafbe060ecadcaea15e"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "19/68",
+      "conditionalProbability": "3/128",
+      "effectiveProbability": "57/8704",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy lantadyme",
+        "quantity": "1",
+        "dropRate": "1/152.7",
+        "membersMarker": false
+      },
+      "locationIds": [
+        "ec346dbbf5098d24ef88"
+      ]
+    },
+    {
+      "pathId": "56142f59be333e71e472d13301770458a4df6ca4d81e64b7e9152cc9bc4209c5",
+      "record": {
+        "itemName": "Grimy dwarf weed",
+        "monsterName": "Abyssal demon",
+        "quantity": "1",
+        "dropRate": "1/152.7",
+        "notes": "Members-world drop. Wilderness Slayer Cave only.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Abyssal demon",
+          "Template:HerbDropLines"
+        ],
+        "offset": 11111,
+        "dropVersion": "Wilderness Slayer Cave",
+        "entry": "19/68",
+        "f2pReplacement": false
+      },
+      "sourceChain": [
+        {
+          "title": "Abyssal demon",
+          "revisionId": 15386121,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15386121",
+          "fixtureSha256": "0f6ded68855a8c9e3ca8909415676428a7e32c247685d36b080c61a3eb3425be",
+          "rawSnapshotSha256": "15ccba881bb6282db79a98799eb4aed9ac907d2cc37f0bafbe060ecadcaea15e"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "19/68",
+      "conditionalProbability": "3/128",
+      "effectiveProbability": "57/8704",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy dwarf weed",
+        "quantity": "1",
+        "dropRate": "1/152.7",
+        "membersMarker": false
+      },
+      "locationIds": [
+        "ec346dbbf5098d24ef88"
+      ]
+    },
+    {
+      "pathId": "ab5d1d2da928e939c5a9165fd4ffcab32574759079d9ec7da0e2ced3ed34df79",
+      "record": {
+        "itemName": "Grimy guam leaf",
+        "monsterName": "Goblin",
+        "quantity": "1",
+        "dropRate": "1/256",
+        "notes": "Members-world drop. Drop table 2 only.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Goblin",
+          "Template:HerbDropLines"
+        ],
+        "offset": 15610,
+        "dropVersion": "Drop table 2",
+        "entry": "2/128",
+        "f2pReplacement": true
+      },
+      "sourceChain": [
+        {
+          "title": "Goblin",
+          "revisionId": 15374683,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15374683",
+          "fixtureSha256": "8fb8418f7779c41875537ba3df38f15f6d05306f897844fc6bd185234145a327",
+          "rawSnapshotSha256": "0e0ec0d5ba04ddedd59de2d22973541c00f8c145622f235a2e8c4ec987250c85"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "2/128",
+      "conditionalProbability": "32/128",
+      "effectiveProbability": "1/256",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy guam leaf",
+        "quantity": "1",
+        "dropRate": "1/256",
+        "membersMarker": true
+      },
+      "locationIds": [
+        "26784fc8ca3848593947",
+        "32da1f2b116508e0d3e6",
+        "3389e8d73143e24f8856",
+        "6d2c6bd9f21103bc5ac9",
+        "7bb346ede1166f6b6e3c",
+        "9769810ac159dbff29dd",
+        "a4df483fb75b3bd77caf",
+        "b11eb677fd37d94c4c32",
+        "b5326d1e9fd984c55d22",
+        "c3587c342c191dab9bb5",
+        "ddce85efe2793dfe2405",
+        "e1575f3f4ce223e9e170",
+        "f3d838092a21da0460af"
+      ]
+    },
+    {
+      "pathId": "2e7f8cb06c87b2bbc2dad4752396f028c45dec165a8125515108047f3b5142c2",
+      "record": {
+        "itemName": "Grimy marrentill",
+        "monsterName": "Goblin",
+        "quantity": "1",
+        "dropRate": "1/341.3",
+        "notes": "Members-world drop. Drop table 2 only.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Goblin",
+          "Template:HerbDropLines"
+        ],
+        "offset": 15610,
+        "dropVersion": "Drop table 2",
+        "entry": "2/128",
+        "f2pReplacement": true
+      },
+      "sourceChain": [
+        {
+          "title": "Goblin",
+          "revisionId": 15374683,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15374683",
+          "fixtureSha256": "8fb8418f7779c41875537ba3df38f15f6d05306f897844fc6bd185234145a327",
+          "rawSnapshotSha256": "0e0ec0d5ba04ddedd59de2d22973541c00f8c145622f235a2e8c4ec987250c85"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "2/128",
+      "conditionalProbability": "24/128",
+      "effectiveProbability": "3/1024",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy marrentill",
+        "quantity": "1",
+        "dropRate": "1/341.3",
+        "membersMarker": true
+      },
+      "locationIds": [
+        "26784fc8ca3848593947",
+        "32da1f2b116508e0d3e6",
+        "3389e8d73143e24f8856",
+        "6d2c6bd9f21103bc5ac9",
+        "7bb346ede1166f6b6e3c",
+        "9769810ac159dbff29dd",
+        "a4df483fb75b3bd77caf",
+        "b11eb677fd37d94c4c32",
+        "b5326d1e9fd984c55d22",
+        "c3587c342c191dab9bb5",
+        "ddce85efe2793dfe2405",
+        "e1575f3f4ce223e9e170",
+        "f3d838092a21da0460af"
+      ]
+    },
+    {
+      "pathId": "b5c3d94e2f3a167c7c3f35e53df7660a9b4d480fcee99be55bc18116263ee4ea",
+      "record": {
+        "itemName": "Grimy tarromin",
+        "monsterName": "Goblin",
+        "quantity": "1",
+        "dropRate": "1/455.1",
+        "notes": "Members-world drop. Drop table 2 only.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Goblin",
+          "Template:HerbDropLines"
+        ],
+        "offset": 15610,
+        "dropVersion": "Drop table 2",
+        "entry": "2/128",
+        "f2pReplacement": true
+      },
+      "sourceChain": [
+        {
+          "title": "Goblin",
+          "revisionId": 15374683,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15374683",
+          "fixtureSha256": "8fb8418f7779c41875537ba3df38f15f6d05306f897844fc6bd185234145a327",
+          "rawSnapshotSha256": "0e0ec0d5ba04ddedd59de2d22973541c00f8c145622f235a2e8c4ec987250c85"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "2/128",
+      "conditionalProbability": "18/128",
+      "effectiveProbability": "9/4096",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy tarromin",
+        "quantity": "1",
+        "dropRate": "1/455.1",
+        "membersMarker": true
+      },
+      "locationIds": [
+        "26784fc8ca3848593947",
+        "32da1f2b116508e0d3e6",
+        "3389e8d73143e24f8856",
+        "6d2c6bd9f21103bc5ac9",
+        "7bb346ede1166f6b6e3c",
+        "9769810ac159dbff29dd",
+        "a4df483fb75b3bd77caf",
+        "b11eb677fd37d94c4c32",
+        "b5326d1e9fd984c55d22",
+        "c3587c342c191dab9bb5",
+        "ddce85efe2793dfe2405",
+        "e1575f3f4ce223e9e170",
+        "f3d838092a21da0460af"
+      ]
+    },
+    {
+      "pathId": "a2cdbabc1c7370d9da16724b6a7cd6d784ade2df521afa6544350d171e460d30",
+      "record": {
+        "itemName": "Grimy harralander",
+        "monsterName": "Goblin",
+        "quantity": "1",
+        "dropRate": "1/585.1",
+        "notes": "Members-world drop. Drop table 2 only.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Goblin",
+          "Template:HerbDropLines"
+        ],
+        "offset": 15610,
+        "dropVersion": "Drop table 2",
+        "entry": "2/128",
+        "f2pReplacement": true
+      },
+      "sourceChain": [
+        {
+          "title": "Goblin",
+          "revisionId": 15374683,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15374683",
+          "fixtureSha256": "8fb8418f7779c41875537ba3df38f15f6d05306f897844fc6bd185234145a327",
+          "rawSnapshotSha256": "0e0ec0d5ba04ddedd59de2d22973541c00f8c145622f235a2e8c4ec987250c85"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "2/128",
+      "conditionalProbability": "14/128",
+      "effectiveProbability": "7/4096",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy harralander",
+        "quantity": "1",
+        "dropRate": "1/585.1",
+        "membersMarker": true
+      },
+      "locationIds": [
+        "26784fc8ca3848593947",
+        "32da1f2b116508e0d3e6",
+        "3389e8d73143e24f8856",
+        "6d2c6bd9f21103bc5ac9",
+        "7bb346ede1166f6b6e3c",
+        "9769810ac159dbff29dd",
+        "a4df483fb75b3bd77caf",
+        "b11eb677fd37d94c4c32",
+        "b5326d1e9fd984c55d22",
+        "c3587c342c191dab9bb5",
+        "ddce85efe2793dfe2405",
+        "e1575f3f4ce223e9e170",
+        "f3d838092a21da0460af"
+      ]
+    },
+    {
+      "pathId": "06349c77da10ce1dda1e6a774e3dc63cd7d69b1a79bfa8f1b4a9c2ca1f46604b",
+      "record": {
+        "itemName": "Grimy ranarr weed",
+        "monsterName": "Goblin",
+        "quantity": "1",
+        "dropRate": "1/744.7",
+        "notes": "Members-world drop. Drop table 2 only.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Goblin",
+          "Template:HerbDropLines"
+        ],
+        "offset": 15610,
+        "dropVersion": "Drop table 2",
+        "entry": "2/128",
+        "f2pReplacement": true
+      },
+      "sourceChain": [
+        {
+          "title": "Goblin",
+          "revisionId": 15374683,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15374683",
+          "fixtureSha256": "8fb8418f7779c41875537ba3df38f15f6d05306f897844fc6bd185234145a327",
+          "rawSnapshotSha256": "0e0ec0d5ba04ddedd59de2d22973541c00f8c145622f235a2e8c4ec987250c85"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "2/128",
+      "conditionalProbability": "11/128",
+      "effectiveProbability": "11/8192",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy ranarr weed",
+        "quantity": "1",
+        "dropRate": "1/744.7",
+        "membersMarker": true
+      },
+      "locationIds": [
+        "26784fc8ca3848593947",
+        "32da1f2b116508e0d3e6",
+        "3389e8d73143e24f8856",
+        "6d2c6bd9f21103bc5ac9",
+        "7bb346ede1166f6b6e3c",
+        "9769810ac159dbff29dd",
+        "a4df483fb75b3bd77caf",
+        "b11eb677fd37d94c4c32",
+        "b5326d1e9fd984c55d22",
+        "c3587c342c191dab9bb5",
+        "ddce85efe2793dfe2405",
+        "e1575f3f4ce223e9e170",
+        "f3d838092a21da0460af"
+      ]
+    },
+    {
+      "pathId": "7746b15fa9977baf90e12512ffbf3874bd154de5f618686cde8404a9b2b321e6",
+      "record": {
+        "itemName": "Grimy irit leaf",
+        "monsterName": "Goblin",
+        "quantity": "1",
+        "dropRate": "1/1024",
+        "notes": "Members-world drop. Drop table 2 only.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Goblin",
+          "Template:HerbDropLines"
+        ],
+        "offset": 15610,
+        "dropVersion": "Drop table 2",
+        "entry": "2/128",
+        "f2pReplacement": true
+      },
+      "sourceChain": [
+        {
+          "title": "Goblin",
+          "revisionId": 15374683,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15374683",
+          "fixtureSha256": "8fb8418f7779c41875537ba3df38f15f6d05306f897844fc6bd185234145a327",
+          "rawSnapshotSha256": "0e0ec0d5ba04ddedd59de2d22973541c00f8c145622f235a2e8c4ec987250c85"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "2/128",
+      "conditionalProbability": "8/128",
+      "effectiveProbability": "1/1024",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy irit leaf",
+        "quantity": "1",
+        "dropRate": "1/1,024",
+        "membersMarker": true
+      },
+      "locationIds": [
+        "26784fc8ca3848593947",
+        "32da1f2b116508e0d3e6",
+        "3389e8d73143e24f8856",
+        "6d2c6bd9f21103bc5ac9",
+        "7bb346ede1166f6b6e3c",
+        "9769810ac159dbff29dd",
+        "a4df483fb75b3bd77caf",
+        "b11eb677fd37d94c4c32",
+        "b5326d1e9fd984c55d22",
+        "c3587c342c191dab9bb5",
+        "ddce85efe2793dfe2405",
+        "e1575f3f4ce223e9e170",
+        "f3d838092a21da0460af"
+      ]
+    },
+    {
+      "pathId": "380eb3c902d675d3d5af41298f617d393ddac328be0f26055e4c3f9b42e91b9a",
+      "record": {
+        "itemName": "Grimy avantoe",
+        "monsterName": "Goblin",
+        "quantity": "1",
+        "dropRate": "1/1365.3",
+        "notes": "Members-world drop. Drop table 2 only.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Goblin",
+          "Template:HerbDropLines"
+        ],
+        "offset": 15610,
+        "dropVersion": "Drop table 2",
+        "entry": "2/128",
+        "f2pReplacement": true
+      },
+      "sourceChain": [
+        {
+          "title": "Goblin",
+          "revisionId": 15374683,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15374683",
+          "fixtureSha256": "8fb8418f7779c41875537ba3df38f15f6d05306f897844fc6bd185234145a327",
+          "rawSnapshotSha256": "0e0ec0d5ba04ddedd59de2d22973541c00f8c145622f235a2e8c4ec987250c85"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "2/128",
+      "conditionalProbability": "6/128",
+      "effectiveProbability": "3/4096",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy avantoe",
+        "quantity": "1",
+        "dropRate": "1/1,365.3",
+        "membersMarker": true
+      },
+      "locationIds": [
+        "26784fc8ca3848593947",
+        "32da1f2b116508e0d3e6",
+        "3389e8d73143e24f8856",
+        "6d2c6bd9f21103bc5ac9",
+        "7bb346ede1166f6b6e3c",
+        "9769810ac159dbff29dd",
+        "a4df483fb75b3bd77caf",
+        "b11eb677fd37d94c4c32",
+        "b5326d1e9fd984c55d22",
+        "c3587c342c191dab9bb5",
+        "ddce85efe2793dfe2405",
+        "e1575f3f4ce223e9e170",
+        "f3d838092a21da0460af"
+      ]
+    },
+    {
+      "pathId": "d79904e52f466eb9f60c1bd5be289f1e49cddc00b8fc4870f786b711599167e0",
+      "record": {
+        "itemName": "Grimy kwuarm",
+        "monsterName": "Goblin",
+        "quantity": "1",
+        "dropRate": "1/1638.4",
+        "notes": "Members-world drop. Drop table 2 only.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Goblin",
+          "Template:HerbDropLines"
+        ],
+        "offset": 15610,
+        "dropVersion": "Drop table 2",
+        "entry": "2/128",
+        "f2pReplacement": true
+      },
+      "sourceChain": [
+        {
+          "title": "Goblin",
+          "revisionId": 15374683,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15374683",
+          "fixtureSha256": "8fb8418f7779c41875537ba3df38f15f6d05306f897844fc6bd185234145a327",
+          "rawSnapshotSha256": "0e0ec0d5ba04ddedd59de2d22973541c00f8c145622f235a2e8c4ec987250c85"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "2/128",
+      "conditionalProbability": "5/128",
+      "effectiveProbability": "5/8192",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy kwuarm",
+        "quantity": "1",
+        "dropRate": "1/1,638.4",
+        "membersMarker": true
+      },
+      "locationIds": [
+        "26784fc8ca3848593947",
+        "32da1f2b116508e0d3e6",
+        "3389e8d73143e24f8856",
+        "6d2c6bd9f21103bc5ac9",
+        "7bb346ede1166f6b6e3c",
+        "9769810ac159dbff29dd",
+        "a4df483fb75b3bd77caf",
+        "b11eb677fd37d94c4c32",
+        "b5326d1e9fd984c55d22",
+        "c3587c342c191dab9bb5",
+        "ddce85efe2793dfe2405",
+        "e1575f3f4ce223e9e170",
+        "f3d838092a21da0460af"
+      ]
+    },
+    {
+      "pathId": "a5448987a32cd0a54bba64ec38ca0f2ede45d6ad89104d6175dfe8c8f3b5fdfe",
+      "record": {
+        "itemName": "Grimy cadantine",
+        "monsterName": "Goblin",
+        "quantity": "1",
+        "dropRate": "1/2048",
+        "notes": "Members-world drop. Drop table 2 only.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Goblin",
+          "Template:HerbDropLines"
+        ],
+        "offset": 15610,
+        "dropVersion": "Drop table 2",
+        "entry": "2/128",
+        "f2pReplacement": true
+      },
+      "sourceChain": [
+        {
+          "title": "Goblin",
+          "revisionId": 15374683,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15374683",
+          "fixtureSha256": "8fb8418f7779c41875537ba3df38f15f6d05306f897844fc6bd185234145a327",
+          "rawSnapshotSha256": "0e0ec0d5ba04ddedd59de2d22973541c00f8c145622f235a2e8c4ec987250c85"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "2/128",
+      "conditionalProbability": "4/128",
+      "effectiveProbability": "1/2048",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy cadantine",
+        "quantity": "1",
+        "dropRate": "1/2,048",
+        "membersMarker": true
+      },
+      "locationIds": [
+        "26784fc8ca3848593947",
+        "32da1f2b116508e0d3e6",
+        "3389e8d73143e24f8856",
+        "6d2c6bd9f21103bc5ac9",
+        "7bb346ede1166f6b6e3c",
+        "9769810ac159dbff29dd",
+        "a4df483fb75b3bd77caf",
+        "b11eb677fd37d94c4c32",
+        "b5326d1e9fd984c55d22",
+        "c3587c342c191dab9bb5",
+        "ddce85efe2793dfe2405",
+        "e1575f3f4ce223e9e170",
+        "f3d838092a21da0460af"
+      ]
+    },
+    {
+      "pathId": "4a0daa1ad1af4e4eb184238235f92ca4c08887656fb7c7d747fbe0a371a6e9cd",
+      "record": {
+        "itemName": "Grimy lantadyme",
+        "monsterName": "Goblin",
+        "quantity": "1",
+        "dropRate": "1/2730.7",
+        "notes": "Members-world drop. Drop table 2 only.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Goblin",
+          "Template:HerbDropLines"
+        ],
+        "offset": 15610,
+        "dropVersion": "Drop table 2",
+        "entry": "2/128",
+        "f2pReplacement": true
+      },
+      "sourceChain": [
+        {
+          "title": "Goblin",
+          "revisionId": 15374683,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15374683",
+          "fixtureSha256": "8fb8418f7779c41875537ba3df38f15f6d05306f897844fc6bd185234145a327",
+          "rawSnapshotSha256": "0e0ec0d5ba04ddedd59de2d22973541c00f8c145622f235a2e8c4ec987250c85"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "2/128",
+      "conditionalProbability": "3/128",
+      "effectiveProbability": "3/8192",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy lantadyme",
+        "quantity": "1",
+        "dropRate": "1/2,730.7",
+        "membersMarker": true
+      },
+      "locationIds": [
+        "26784fc8ca3848593947",
+        "32da1f2b116508e0d3e6",
+        "3389e8d73143e24f8856",
+        "6d2c6bd9f21103bc5ac9",
+        "7bb346ede1166f6b6e3c",
+        "9769810ac159dbff29dd",
+        "a4df483fb75b3bd77caf",
+        "b11eb677fd37d94c4c32",
+        "b5326d1e9fd984c55d22",
+        "c3587c342c191dab9bb5",
+        "ddce85efe2793dfe2405",
+        "e1575f3f4ce223e9e170",
+        "f3d838092a21da0460af"
+      ]
+    },
+    {
+      "pathId": "a16662912701b80033bcef2c1f36fce32e7e4a848fbab82da560068c83b534c3",
+      "record": {
+        "itemName": "Grimy dwarf weed",
+        "monsterName": "Goblin",
+        "quantity": "1",
+        "dropRate": "1/2730.7",
+        "notes": "Members-world drop. Drop table 2 only.",
+        "membersOnly": true
+      },
+      "call": {
+        "path": [
+          "Goblin",
+          "Template:HerbDropLines"
+        ],
+        "offset": 15610,
+        "dropVersion": "Drop table 2",
+        "entry": "2/128",
+        "f2pReplacement": true
+      },
+      "sourceChain": [
+        {
+          "title": "Goblin",
+          "revisionId": 15374683,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15374683",
+          "fixtureSha256": "8fb8418f7779c41875537ba3df38f15f6d05306f897844fc6bd185234145a327",
+          "rawSnapshotSha256": "0e0ec0d5ba04ddedd59de2d22973541c00f8c145622f235a2e8c4ec987250c85"
+        },
+        {
+          "title": "Template:HerbDropLines",
+          "revisionId": 15325751,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Special:Redirect/revision/15325751",
+          "fixtureSha256": "0c7d83d89b77e7b747e7fc82e82c3243de0c0f45d784ea35722a8c9b3bf67228",
+          "rawSnapshotSha256": "29ce1f39587d1e00414ed1c9f884a4c6a2ed5551d8598a4872ed4a9b1b236fb5"
+        }
+      ],
+      "entryProbability": "2/128",
+      "conditionalProbability": "3/128",
+      "effectiveProbability": "3/8192",
+      "rateMeaning": "One shared-table roll; Wiki-rounded reciprocal",
+      "quantity": "1",
+      "membersOnly": true,
+      "renderedCrossCheck": {
+        "itemName": "Grimy dwarf weed",
+        "quantity": "1",
+        "dropRate": "1/2,730.7",
+        "membersMarker": true
+      },
+      "locationIds": [
+        "26784fc8ca3848593947",
+        "32da1f2b116508e0d3e6",
+        "3389e8d73143e24f8856",
+        "6d2c6bd9f21103bc5ac9",
+        "7bb346ede1166f6b6e3c",
+        "9769810ac159dbff29dd",
+        "a4df483fb75b3bd77caf",
+        "b11eb677fd37d94c4c32",
+        "b5326d1e9fd984c55d22",
+        "c3587c342c191dab9bb5",
+        "ddce85efe2793dfe2405",
+        "e1575f3f4ce223e9e170",
+        "f3d838092a21da0460af"
+      ]
+    }
+  ],
+  "limitations": [
+    "Only Man, Abyssal demon and Goblin herbs are expanded.",
+    "No seed, multi-roll, quantity-range, replacement-coin or other shared-table expansion.",
+    "Existing source world eligibility remains unknown unless explicitly recorded.",
+    "Legacy full regeneration must reapply this separate slice and pass --check."
+  ]
+}

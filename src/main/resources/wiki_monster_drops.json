@@ -104809,5 +104809,357 @@
     "quantity": "100-299",
     "dropRate": "Always",
     "notes": ""
+  },
+  {
+    "itemName": "Grimy guam leaf",
+    "monsterName": "Man",
+    "quantity": "1",
+    "dropRate": "1/22.3",
+    "notes": "Members-world drop.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy marrentill",
+    "monsterName": "Man",
+    "quantity": "1",
+    "dropRate": "1/29.7",
+    "notes": "Members-world drop.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy tarromin",
+    "monsterName": "Man",
+    "quantity": "1",
+    "dropRate": "1/39.6",
+    "notes": "Members-world drop.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy harralander",
+    "monsterName": "Man",
+    "quantity": "1",
+    "dropRate": "1/50.9",
+    "notes": "Members-world drop.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy ranarr weed",
+    "monsterName": "Man",
+    "quantity": "1",
+    "dropRate": "1/64.8",
+    "notes": "Members-world drop.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy irit leaf",
+    "monsterName": "Man",
+    "quantity": "1",
+    "dropRate": "1/89",
+    "notes": "Members-world drop.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy avantoe",
+    "monsterName": "Man",
+    "quantity": "1",
+    "dropRate": "1/118.7",
+    "notes": "Members-world drop.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy kwuarm",
+    "monsterName": "Man",
+    "quantity": "1",
+    "dropRate": "1/142.5",
+    "notes": "Members-world drop.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy cadantine",
+    "monsterName": "Man",
+    "quantity": "1",
+    "dropRate": "1/178.1",
+    "notes": "Members-world drop.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy lantadyme",
+    "monsterName": "Man",
+    "quantity": "1",
+    "dropRate": "1/237.4",
+    "notes": "Members-world drop.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy dwarf weed",
+    "monsterName": "Man",
+    "quantity": "1",
+    "dropRate": "1/237.4",
+    "notes": "Members-world drop.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy guam leaf",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/26.9",
+    "notes": "Members-world drop. Standard only.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy marrentill",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/35.9",
+    "notes": "Members-world drop. Standard only.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy tarromin",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/47.9",
+    "notes": "Members-world drop. Standard only.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy harralander",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/61.6",
+    "notes": "Members-world drop. Standard only.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy ranarr weed",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/78.4",
+    "notes": "Members-world drop. Standard only.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy irit leaf",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/107.8",
+    "notes": "Members-world drop. Standard only.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy avantoe",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/143.7",
+    "notes": "Members-world drop. Standard only.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy kwuarm",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/172.5",
+    "notes": "Members-world drop. Standard only.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy cadantine",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/215.6",
+    "notes": "Members-world drop. Standard only.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy lantadyme",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/287.4",
+    "notes": "Members-world drop. Standard only.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy dwarf weed",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/287.4",
+    "notes": "Members-world drop. Standard only.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy guam leaf",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/14.3",
+    "notes": "Members-world drop. Wilderness Slayer Cave only.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy marrentill",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/19.1",
+    "notes": "Members-world drop. Wilderness Slayer Cave only.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy tarromin",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/25.5",
+    "notes": "Members-world drop. Wilderness Slayer Cave only.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy harralander",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/32.7",
+    "notes": "Members-world drop. Wilderness Slayer Cave only.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy ranarr weed",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/41.6",
+    "notes": "Members-world drop. Wilderness Slayer Cave only.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy irit leaf",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/57.3",
+    "notes": "Members-world drop. Wilderness Slayer Cave only.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy avantoe",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/76.4",
+    "notes": "Members-world drop. Wilderness Slayer Cave only.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy kwuarm",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/91.6",
+    "notes": "Members-world drop. Wilderness Slayer Cave only.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy cadantine",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/114.5",
+    "notes": "Members-world drop. Wilderness Slayer Cave only.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy lantadyme",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/152.7",
+    "notes": "Members-world drop. Wilderness Slayer Cave only.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy dwarf weed",
+    "monsterName": "Abyssal demon",
+    "quantity": "1",
+    "dropRate": "1/152.7",
+    "notes": "Members-world drop. Wilderness Slayer Cave only.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy guam leaf",
+    "monsterName": "Goblin",
+    "quantity": "1",
+    "dropRate": "1/256",
+    "notes": "Members-world drop. Drop table 2 only.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy marrentill",
+    "monsterName": "Goblin",
+    "quantity": "1",
+    "dropRate": "1/341.3",
+    "notes": "Members-world drop. Drop table 2 only.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy tarromin",
+    "monsterName": "Goblin",
+    "quantity": "1",
+    "dropRate": "1/455.1",
+    "notes": "Members-world drop. Drop table 2 only.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy harralander",
+    "monsterName": "Goblin",
+    "quantity": "1",
+    "dropRate": "1/585.1",
+    "notes": "Members-world drop. Drop table 2 only.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy ranarr weed",
+    "monsterName": "Goblin",
+    "quantity": "1",
+    "dropRate": "1/744.7",
+    "notes": "Members-world drop. Drop table 2 only.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy irit leaf",
+    "monsterName": "Goblin",
+    "quantity": "1",
+    "dropRate": "1/1024",
+    "notes": "Members-world drop. Drop table 2 only.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy avantoe",
+    "monsterName": "Goblin",
+    "quantity": "1",
+    "dropRate": "1/1365.3",
+    "notes": "Members-world drop. Drop table 2 only.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy kwuarm",
+    "monsterName": "Goblin",
+    "quantity": "1",
+    "dropRate": "1/1638.4",
+    "notes": "Members-world drop. Drop table 2 only.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy cadantine",
+    "monsterName": "Goblin",
+    "quantity": "1",
+    "dropRate": "1/2048",
+    "notes": "Members-world drop. Drop table 2 only.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy lantadyme",
+    "monsterName": "Goblin",
+    "quantity": "1",
+    "dropRate": "1/2730.7",
+    "notes": "Members-world drop. Drop table 2 only.",
+    "membersOnly": true
+  },
+  {
+    "itemName": "Grimy dwarf weed",
+    "monsterName": "Goblin",
+    "quantity": "1",
+    "dropRate": "1/2730.7",
+    "notes": "Members-world drop. Drop table 2 only.",
+    "membersOnly": true
   }
 ]

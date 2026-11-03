@@ -1,6 +1,7 @@
 package com.itemdroplookup.service;
 
 import com.itemdroplookup.model.MonsterLocation;
+import com.itemdroplookup.model.DropSource;
 
 /** The same location predicates are used in details and item results. */
 public final class MonsterLocationFilter
@@ -24,6 +25,25 @@ public final class MonsterLocationFilter
     }
 
     private MonsterLocationFilter() { }
+
+    public static boolean matchesSource(DropSource source, MonsterLocation location,
+                                        WildernessFilter wilderness, MembershipFilter membership)
+    {
+        if (Boolean.TRUE.equals(source.getMembersOnly()))
+        {
+            if (membership == MembershipFilter.F2P)
+            {
+                return false;
+            }
+            if (membership == MembershipFilter.MEMBERS)
+            {
+                // An F2P-accessible area also exists on members worlds. Unknown
+                // geography remains excluded by a specific membership filter.
+                return location.getMembers() != null && matches(location, wilderness, MembershipFilter.ALL);
+            }
+        }
+        return matches(location, wilderness, membership);
+    }
 
     public static boolean matches(MonsterLocation location, WildernessFilter wilderness,
                                   MembershipFilter membership)

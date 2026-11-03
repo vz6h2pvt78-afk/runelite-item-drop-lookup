@@ -44,6 +44,7 @@ public class MonsterLocationPanel extends JPanel
     private final String monsterWikiUrl;
     private final AccessRequirementLookupService requirements;
     private final List<AccessRequirement> sourceFacts;
+    private final DropSource source;
 
     public MonsterLocationPanel(DropSource source, String searchQuery,
                                 MonsterLocationLookupService service, AccessRequirementLookupService requirements,
@@ -52,6 +53,7 @@ public class MonsterLocationPanel extends JPanel
         super(new BorderLayout());
         setBackground(ColorScheme.DARK_GRAY_COLOR);
         setName("monsterDetail");
+        this.source = source;
         match = service.lookup(source);
         this.requirements = requirements;
         sourceFacts = requirements.forSource(source);
@@ -77,7 +79,7 @@ public class MonsterLocationPanel extends JPanel
         wilderness.setName("detailWilderness");
         membership.setName("detailMembership");
         wilderness.setToolTipText("Wilderness describes the kill location, not the journey. Unknown locations are excluded by specific filters.");
-        membership.setToolTipText("Locations with unknown membership are excluded by specific filters.");
+        membership.setToolTipText("Drop world restrictions also apply. Unknown location membership is excluded by specific filters.");
         header.add(wilderness);
         header.add(membership);
         showAll.setBackground(ColorScheme.DARK_GRAY_COLOR);
@@ -124,6 +126,17 @@ public class MonsterLocationPanel extends JPanel
         {
             locationsPanel.add(text(dropNotes, false, TEXT_WIDTH));
         }
+        boolean membersDrop = Boolean.TRUE.equals(source.getMembersOnly());
+        if (membersDrop)
+        {
+            JLabel world = text("This drop requires a members world, even at locations accessible in F2P.", false, TEXT_WIDTH);
+            world.setName("dropWorldRestriction");
+            locationsPanel.add(world);
+        }
+        else if (source.getMembersOnly() == null && membership.getSelectedItem() == MembershipFilter.F2P)
+        {
+            locationsPanel.add(text("F2P-accessible areas; this drop's world availability has not been verified.", false, TEXT_WIDTH));
+        }
         locationsPanel.add(text("Requirements & context", true, TEXT_WIDTH));
         sourceFacts.forEach(fact -> locationsPanel.add(requirementText(fact, TEXT_WIDTH)));
         if (sourceFacts.isEmpty())
@@ -156,8 +169,8 @@ public class MonsterLocationPanel extends JPanel
             {
                 locationsPanel.add(text("Monster locations only: this item and rate may not apply at every location.", false, TEXT_WIDTH));
             }
-            List<MonsterLocation> filtered = locations.stream().filter(location -> MonsterLocationFilter.matches(
-                    location, (WildernessFilter) wilderness.getSelectedItem(), (MembershipFilter) membership.getSelectedItem()))
+            List<MonsterLocation> filtered = locations.stream().filter(location -> MonsterLocationFilter.matchesSource(
+                    source, location, (WildernessFilter) wilderness.getSelectedItem(), (MembershipFilter) membership.getSelectedItem()))
                     .collect(Collectors.toList());
             locationsPanel.add(text("Locations: " + filtered.size() + " of " + locations.size(), true, TEXT_WIDTH));
             if (filtering)
@@ -166,7 +179,9 @@ public class MonsterLocationPanel extends JPanel
             }
             if (filtered.isEmpty())
             {
-                locationsPanel.add(text("No known locations match these filters. Clear the filters to include unknown classifications.", false, TEXT_WIDTH));
+                locationsPanel.add(text(membersDrop && membership.getSelectedItem() == MembershipFilter.F2P
+                        ? "No F2P acquisition locations for this drop. Choose Any membership to see its locations."
+                        : "No known locations match these filters. Clear the filters to include unknown classifications.", false, TEXT_WIDTH));
             }
             filtered.forEach(location -> locationsPanel.add(locationCard(location)));
         }
@@ -188,7 +203,8 @@ public class MonsterLocationPanel extends JPanel
             card.add(text("Unavailable / unreachable", true, width));
         }
         card.add(text("Combat level " + (hasText(location.getLevelsText()) ? location.getLevelsText() : "unknown")
-                + " · " + (location.getMembers() == null ? "Membership unknown" : location.getMembers() ? "Members" : "F2P"), false, width));
+                + " · " + (location.getMembers() == null ? "Membership unknown" : location.getMembers() ? "Members area"
+                        : Boolean.TRUE.equals(source.getMembersOnly()) ? "F2P-accessible area; use a members world" : "F2P"), false, width));
         card.add(text(location.getWilderness() == MonsterLocation.Wilderness.YES ? "Wilderness"
                 : location.getWilderness() == MonsterLocation.Wilderness.NO ? "Outside Wilderness" : "Wilderness status unknown", false, width));
         if (location.getSpawns() != null)

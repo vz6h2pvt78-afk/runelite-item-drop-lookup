@@ -131,7 +131,8 @@ public class DropLookupService
                         record.monsterName,
                         record.quantity,
                         record.dropRate,
-                        record.notes
+                        record.notes,
+                        record.membersOnly
                 ))
                 .sorted(Comparator.comparing(DropSource::getMonsterName, String.CASE_INSENSITIVE_ORDER))
                 .collect(Collectors.toList());
@@ -339,5 +340,6 @@ public class DropLookupService
         private String quantity;
         private String dropRate;
         private String notes;
+        private Boolean membersOnly;
     }
 }

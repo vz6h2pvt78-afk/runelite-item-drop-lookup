@@ -83,6 +83,16 @@ Changes include paraphrasing and explicit monster, location, item and activity
 scope. It is an incomplete reviewed sample, not a claim of universal coverage.
 See docs/access-requirements.md and the per-fact evidence for provenance.
 
+## Reviewed shared herbs
+
+The 44 shared-herb additions in wiki_monster_drops.json and their appended
+monster_locations.json bindings are adapted from OSRS Wiki contributors under
+CC BY-NC-SA 3.0. tools/fixtures/shared_herbs.json preserves attributed source
+wikitext and extracted rendered rows. docs/data/shared_herb_expansion.json gives
+the exact monster/template revision chain, source URLs and hashes for every row.
+Changes include rational rate calculation, rounded display checks, members-world
+conditions and explicit table/location associations. See docs/shared-herbs.md.
+
 ## Historical OSRSBox files
 
 
