@@ -78,6 +78,7 @@ public class ItemDropLookupPanelTest
     {
         SwingUtilities.invokeAndWait(() -> {
             ItemDropLookupPanel panel = panel(new DropLookupService(new Gson()));
+            search(panel, "goblin mail");
             JTextField query = (JTextField) named(panel, "itemSearch");
             JComboBox<?> filter = (JComboBox<?>) named(panel, "sourceTypeFilter");
             JComboBox<?> wilderness = (JComboBox<?>) named(panel, "npcWildernessFilter");
@@ -119,6 +120,7 @@ public class ItemDropLookupPanelTest
             ItemDropLookupPanel panel = panel(drops);
             ((JTextField) named(panel, "itemSearch")).setText("Example item");
             ((JButton) named(panel, "searchButton")).doClick();
+            PanelTestSupport.openSources(panel);
             assertEquals(125, descendants(panel).stream().filter(c -> "openLocations".equals(c.getName())).count());
             JComboBox<?> filter = (JComboBox<?>) named(panel, "npcWildernessFilter");
             filter.setSelectedItem(WildernessFilter.ONLY);
@@ -146,6 +148,31 @@ public class ItemDropLookupPanelTest
     }
 
     @Test
+    public void largeListsExposeEveryBatchAndKeepLoadedRowsAfterOverviewBack() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            DropLookupService drops = new DropLookupService(new Gson())
+            {
+                @Override public List<DropSource> searchByItemName(String query)
+                {
+                    List<DropSource> rows = new ArrayList<>();
+                    for (int i = 0; i < 301; i++) rows.add(new DropSource("Example item", "Monster " + i, "1", "1/10", ""));
+                    return rows;
+                }
+            };
+            ItemDropLookupPanel panel = panel(drops);
+            search(panel, "Example item");
+            assertEquals(50, descendants(panel).stream().filter(c -> "dropSourceCard".equals(c.getName())).count());
+            for (int batch = 0; batch < 6; batch++) ((JButton)named(panel,"moreSourceRows")).doClick(0);
+            assertEquals(301, descendants(panel).stream().filter(c -> "dropSourceCard".equals(c.getName())).count());
+            assertNull(PanelTestSupport.find(panel,"moreSourceRows"));
+            ((JButton)named(panel,"backToOverview")).doClick(0);
+            PanelTestSupport.openSources(panel);
+            assertEquals(301, descendants(panel).stream().filter(c -> "dropSourceCard".equals(c.getName())).count());
+        });
+    }
+
+    @Test
     public void backRestoresScrollPositionAfterDetailLayout() throws Exception
     {
         ScrollTestPanel[] holder = {null};
@@ -154,6 +181,7 @@ public class ItemDropLookupPanelTest
             holder[0] = panel;
             ((JTextField) named(panel, "itemSearch")).setText("rune scimitar");
             ((JButton) named(panel, "searchButton")).doClick();
+            PanelTestSupport.openSources(panel);
             panel.getWrappedPanel().setSize(242, 650);
             layout(panel.getWrappedPanel());
             layout(panel.getWrappedPanel());
@@ -234,6 +262,7 @@ public class ItemDropLookupPanelTest
     {
         ((JTextField) named(panel, "itemSearch")).setText(query);
         ((JButton) named(panel, "searchButton")).doClick();
+        PanelTestSupport.openSources(panel);
     }
 
     @Test
@@ -294,6 +323,11 @@ public class ItemDropLookupPanelTest
             assertSame(group, named(panel, "sourceGroup:Goblin"));
             assertSame(location, named(group.getParent(), "openLocations"));
             assertTrue(location.getParent().getParent().isVisible());
+            ((JButton) named(panel, "backToOverview")).doClick(0);
+            PanelTestSupport.openSources(panel);
+            JButton restored = (JButton) named(panel, "sourceGroup:Goblin");
+            JButton restoredLocation = (JButton) named(restored.getParent(), "openLocations");
+            assertTrue(restoredLocation.getParent().getParent().isVisible());
         });
     }
 
@@ -313,7 +347,9 @@ public class ItemDropLookupPanelTest
             ItemDropLookupPanel panel = panel(drops);
             search(panel, "example weapons");
             assertFalse(textContains(panel, "GE snapshot:"));
-            assertTrue(textContains(panel, "across 2 items"));
+            assertTrue(textContains(panel, "2 matching items"));
+            assertNotNull(named(panel, "selectItem:Rune scimitar"));
+            assertNotNull(named(panel, "selectItem:Dragon dagger"));
         });
     }
 

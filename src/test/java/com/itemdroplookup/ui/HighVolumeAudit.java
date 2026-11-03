@@ -60,7 +60,23 @@ public final class HighVolumeAudit
                 });
                 JTextField search = (JTextField) named(panel, "itemSearch");
                 search.setText(query);
+                long started = System.nanoTime();
                 search.postActionEvent();
+                row.put("searchMillis", (System.nanoTime() - started) / 1_000_000);
+                row.put("overviewOrSelector", labels(panel));
+                List<String> choices = descendants(panel).stream().map(Component::getName)
+                        .filter(n -> n != null && n.startsWith("selectItem:")).collect(Collectors.toList());
+                row.put("itemChoices", choices);
+                if (!choices.isEmpty())
+                {
+                    row.put("auditedChoice", choices.get(0).substring("selectItem:".length()));
+                    ((JButton) named(panel, choices.get(0))).doClick(0);
+                }
+                Component all = named(panel, "viewAllSources");
+                if (all == null) { report.add(row); continue; }
+                started = System.nanoTime();
+                ((JButton) all).doClick(0);
+                row.put("openAllMillis", (System.nanoTime() - started) / 1_000_000);
                 row.put("allView", labels(panel));
                 row.put("visibleOtherCount", descendants(panel).stream().filter(c -> "itemSourceCard".equals(c.getName())).count());
                 Map<String, Object> filters = new LinkedHashMap<>();

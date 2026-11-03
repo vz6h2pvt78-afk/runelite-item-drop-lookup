@@ -28,6 +28,7 @@ public class GatheringSourcePanelTest
                 new MonsterLocationLookupService(gson), new AccessRequirementLookupService(gson));
         ((JTextField) named(panel, "itemSearch").get(0)).setText(query);
         ((JButton) named(panel, "searchButton").get(0)).doClick();
+        PanelTestSupport.openSources(panel);
         return panel;
     }
 

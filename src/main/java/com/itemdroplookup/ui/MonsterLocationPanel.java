@@ -34,9 +34,9 @@ public class MonsterLocationPanel extends JPanel
     private static final int TEXT_WIDTH = PluginPanel.PANEL_WIDTH - 65;
     private final JPanel locationsPanel = column();
     private final JScrollPane locationScroll = new JScrollPane();
-    private final JComboBox<WildernessFilter> wilderness = new JComboBox<>(WildernessFilter.values());
-    private final JComboBox<MembershipFilter> membership = new JComboBox<>(MembershipFilter.values());
-    private final JCheckBox showAll = new JCheckBox("All monster locations");
+    private final JComboBox<WildernessFilter> wilderness = new IntentionalComboBox<>(WildernessFilter.values());
+    private final JComboBox<MembershipFilter> membership = new IntentionalComboBox<>(MembershipFilter.values());
+    private final JCheckBox showAll = new JCheckBox("Other locations");
     private final JButton clear = new JButton("Clear location filters");
     private final LocationMatch match;
     private final List<MonsterLocation> allLocations;
@@ -45,13 +45,57 @@ public class MonsterLocationPanel extends JPanel
     private final AccessRequirementLookupService requirements;
     private final List<AccessRequirement> sourceFacts;
     private final DropSource source;
+    private final LookupStyle style;
+    private boolean filtersExpanded;
+    private boolean adjusting;
+
+    static final class State
+    {
+        WildernessFilter wilderness;
+        MembershipFilter membership;
+        boolean allLocations;
+        boolean filtersExpanded;
+        int scroll;
+    }
+
+    State saveState()
+    {
+        State state = new State();
+        state.wilderness = (WildernessFilter) wilderness.getSelectedItem();
+        state.membership = (MembershipFilter) membership.getSelectedItem();
+        state.allLocations = showAll.isSelected();
+        state.filtersExpanded = filtersExpanded;
+        state.scroll = locationScroll.getVerticalScrollBar().getValue();
+        return state;
+    }
+
+    void restoreState(State state)
+    {
+        if (state == null) return;
+        adjusting = true;
+        wilderness.setSelectedItem(state.wilderness);
+        membership.setSelectedItem(state.membership);
+        showAll.setSelected(state.allLocations);
+        filtersExpanded = state.filtersExpanded;
+        adjusting = false;
+        renderLocations();
+        javax.swing.SwingUtilities.invokeLater(() -> locationScroll.getVerticalScrollBar().setValue(state.scroll));
+    }
 
     public MonsterLocationPanel(DropSource source, String searchQuery,
                                 MonsterLocationLookupService service, AccessRequirementLookupService requirements,
                                 WildernessFilter initialFilter, Runnable back)
     {
+        this(source, searchQuery, service, requirements, initialFilter, back, new LookupStyle(13));
+    }
+
+    MonsterLocationPanel(DropSource source, String searchQuery,
+                         MonsterLocationLookupService service, AccessRequirementLookupService requirements,
+                         WildernessFilter initialFilter, Runnable back, LookupStyle style)
+    {
         super(new BorderLayout());
-        setBackground(ColorScheme.DARK_GRAY_COLOR);
+        this.style = style;
+        setBackground(LookupStyle.BACK);
         setName("monsterDetail");
         this.source = source;
         match = service.lookup(source);
@@ -62,9 +106,8 @@ public class MonsterLocationPanel extends JPanel
                 + URLEncoder.encode(source.getMonsterName().replace(' ', '_'), StandardCharsets.UTF_8);
         allLocations = service.lookupByMonsterName(source.getMonsterName());
         JPanel header = column();
-        JButton backButton = new JButton("Back to results");
+        JButton backButton = style.button("Back to results", back, false);
         backButton.setName("backToResults");
-        backButton.addActionListener(e -> back.run());
         header.add(backButton);
         header.add(text(source.getMonsterName(), true, TEXT_WIDTH));
         header.add(text(source.getItemName(), true, TEXT_WIDTH));
@@ -72,40 +115,35 @@ public class MonsterLocationPanel extends JPanel
         {
             header.add(text("Searched: " + searchQuery, false, TEXT_WIDTH));
         }
-        header.add(text("Rate: " + (hasText(source.getDropRate()) ? source.getDropRate() : "Not recorded")
-                + " | Quantity: " + source.getQuantity(), false, TEXT_WIDTH));
 
         wilderness.setSelectedItem(initialFilter);
         wilderness.setName("detailWilderness");
         membership.setName("detailMembership");
         wilderness.setToolTipText("Wilderness describes the kill location, not the journey. Unknown locations are excluded by specific filters.");
         membership.setToolTipText("Drop world restrictions also apply. Unknown location membership is excluded by specific filters.");
-        header.add(wilderness);
-        header.add(membership);
-        showAll.setBackground(ColorScheme.DARK_GRAY_COLOR);
+        showAll.setBackground(LookupStyle.BACK);
         showAll.setName("allMonsterLocations");
         showAll.setVisible(match.isVerified() && allLocations.stream().anyMatch(location ->
                 match.getLocations().stream().noneMatch(matched -> matched.getId().equals(location.getId()))));
         showAll.setToolTipText("Include other drop tables; the item and rate above may not apply there");
-        header.add(showAll);
         clear.setName("clearLocationFilters");
         clear.addActionListener(e -> {
             wilderness.setSelectedItem(WildernessFilter.ALL);
             membership.setSelectedItem(MembershipFilter.ALL);
         });
-        header.add(clear);
 
         for (JComboBox<?> combo : new JComboBox<?>[] {wilderness, membership})
         {
+            style.control(combo);
             combo.setMaximumSize(new Dimension(Integer.MAX_VALUE, combo.getPreferredSize().height));
             combo.setAlignmentX(LEFT_ALIGNMENT);
             combo.addActionListener(e -> renderLocations());
         }
+        style.control(showAll);
+        style.control(clear);
         showAll.addActionListener(e -> renderLocations());
         add(header, BorderLayout.NORTH);
-        JPanel body = new JPanel(new BorderLayout());
-        body.setBackground(ColorScheme.DARK_GRAY_COLOR);
-        body.add(locationsPanel, BorderLayout.NORTH);
+        JPanel body = LookupStyle.scrollBody(locationsPanel);
         locationScroll.setViewportView(body);
         locationScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         locationScroll.setBorder(null);
@@ -121,7 +159,30 @@ public class MonsterLocationPanel extends JPanel
 
     private void renderLocations()
     {
+        if (adjusting) return;
         locationsPanel.removeAll();
+        if (!sourceFacts.isEmpty())
+        {
+            locationsPanel.add(text("Requirements & context", true, TEXT_WIDTH));
+            sourceFacts.forEach(fact -> locationsPanel.add(requirementText(fact, TEXT_WIDTH)));
+        }
+        locationsPanel.add(text("Rate: " + (hasText(source.getDropRate()) ? source.getDropRate() : "Not recorded")
+                + " | Quantity: " + source.getQuantity(), false, TEXT_WIDTH));
+        JButton toggle = style.button((filtersExpanded ? "Hide location filters" : "Location filters")
+                + (wilderness.getSelectedItem() != WildernessFilter.ALL ? "\n" + wilderness.getSelectedItem() : "")
+                + (membership.getSelectedItem() != MembershipFilter.ALL ? "\n" + membership.getSelectedItem() : ""), () -> {
+            filtersExpanded = !filtersExpanded;
+            renderLocations();
+        }, false);
+        toggle.setName("toggleLocationFilters");
+        locationsPanel.add(toggle);
+        JPanel filters = column();
+        filters.add(wilderness);
+        filters.add(membership);
+        filters.add(showAll);
+        filters.add(clear);
+        filters.setVisible(filtersExpanded);
+        locationsPanel.add(filters);
         if (hasText(dropNotes))
         {
             locationsPanel.add(text(dropNotes, false, TEXT_WIDTH));
@@ -137,15 +198,6 @@ public class MonsterLocationPanel extends JPanel
         {
             locationsPanel.add(text("F2P-accessible areas; this drop's world availability has not been verified.", false, TEXT_WIDTH));
         }
-        locationsPanel.add(text("Requirements & context", true, TEXT_WIDTH));
-        sourceFacts.forEach(fact -> locationsPanel.add(requirementText(fact, TEXT_WIDTH)));
-        if (sourceFacts.isEmpty())
-        {
-            locationsPanel.add(text("No monster-wide requirements verified here. Check location notes below.", false, TEXT_WIDTH));
-        }
-        JLabel coverage = text("Requirements coverage is incomplete; other conditions may apply.", false, TEXT_WIDTH);
-        coverage.setName("requirementsCoverage");
-        locationsPanel.add(coverage);
         boolean filtering = wilderness.getSelectedItem() != WildernessFilter.ALL
                 || membership.getSelectedItem() != MembershipFilter.ALL;
         boolean verifiedView = match.isVerified() && !showAll.isSelected();
@@ -157,10 +209,9 @@ public class MonsterLocationPanel extends JPanel
         {
             locationsPanel.add(text("No location data available for this monster yet.", true, TEXT_WIDTH));
             locationsPanel.add(text("The item source remains in your search results. Missing location data does not mean the monster is unavailable.", false, TEXT_WIDTH));
-            JButton wiki = new JButton("View on OSRS Wiki");
+            JButton wiki = style.button("View on OSRS Wiki", () -> LinkBrowser.browse(monsterWikiUrl), false);
             wiki.setName("monsterWiki");
             wiki.setToolTipText(monsterWikiUrl);
-            wiki.addActionListener(e -> LinkBrowser.browse(monsterWikiUrl));
             locationsPanel.add(wiki);
         }
         else
@@ -185,6 +236,9 @@ public class MonsterLocationPanel extends JPanel
             }
             filtered.forEach(location -> locationsPanel.add(locationCard(location)));
         }
+        JLabel coverage = text("Requirements coverage is incomplete; other conditions may apply.", false, TEXT_WIDTH);
+        coverage.setName("requirementsCoverage");
+        locationsPanel.add(coverage);
         revalidate();
         repaint();
         javax.swing.SwingUtilities.invokeLater(() -> locationScroll.getVerticalScrollBar().setValue(0));
@@ -194,7 +248,7 @@ public class MonsterLocationPanel extends JPanel
     {
         JPanel card = column();
         card.setName("location:" + location.getId());
-        card.setBackground(ColorScheme.DARKER_GRAY_COLOR);
+        card.setBackground(LookupStyle.CARD);
         card.setBorder(BorderFactory.createCompoundBorder(new EmptyBorder(4, 0, 6, 0), new EmptyBorder(8, 8, 8, 8)));
         int width = TEXT_WIDTH - 16;
         card.add(text(location.getLocation(), true, width));
@@ -227,15 +281,14 @@ public class MonsterLocationPanel extends JPanel
         String url = location.getSourceUrl();
         if (url != null && url.startsWith("https://oldschool.runescape.wiki/w/"))
         {
-            JButton wiki = new JButton("Wiki page & maps");
-            wiki.addActionListener(e -> LinkBrowser.browse(url));
+            JButton wiki = style.button("Wiki page & maps", () -> LinkBrowser.browse(url), false);
             card.add(wiki);
         }
-        card.setMaximumSize(new Dimension(Integer.MAX_VALUE, card.getPreferredSize().height));
+
         return card;
     }
 
-    private static JLabel requirementText(AccessRequirement fact, int width)
+    private JLabel requirementText(AccessRequirement fact, int width)
     {
         JLabel label = text(fact.getLabel() + ": " + fact.getText(), false, width);
         label.setName("requirement:" + fact.getId());
@@ -245,6 +298,22 @@ public class MonsterLocationPanel extends JPanel
         label.setToolTipText("Click to view Wiki evidence. " + sources);
         label.getAccessibleContext().setAccessibleDescription(label.getToolTipText());
         label.setCursor(java.awt.Cursor.getPredefinedCursor(java.awt.Cursor.HAND_CURSOR));
+        label.setFocusable(true);
+        javax.swing.Action openEvidence = new javax.swing.AbstractAction()
+        {
+            @Override public void actionPerformed(java.awt.event.ActionEvent event)
+            {
+                LinkBrowser.browse(fact.getEvidence().get(0).getSourceUrl());
+            }
+        };
+        label.getInputMap().put(javax.swing.KeyStroke.getKeyStroke("ENTER"), "openEvidence");
+        label.getInputMap().put(javax.swing.KeyStroke.getKeyStroke("SPACE"), "openEvidence");
+        label.getActionMap().put("openEvidence", openEvidence);
+        label.addFocusListener(new java.awt.event.FocusAdapter()
+        {
+            @Override public void focusGained(java.awt.event.FocusEvent event) { label.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(LookupStyle.ACCENT), new EmptyBorder(2, 0, 2, 0))); }
+            @Override public void focusLost(java.awt.event.FocusEvent event) { label.setBorder(new EmptyBorder(3, 0, 3, 0)); }
+        });
         label.addMouseListener(new java.awt.event.MouseAdapter()
         {
             @Override
@@ -261,11 +330,7 @@ public class MonsterLocationPanel extends JPanel
 
     private static JPanel column()
     {
-        JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-        panel.setBackground(ColorScheme.DARK_GRAY_COLOR);
-        panel.setAlignmentX(LEFT_ALIGNMENT);
-        return panel;
+        return LookupStyle.column();
     }
 
     private static boolean hasText(String text)
@@ -273,13 +338,10 @@ public class MonsterLocationPanel extends JPanel
         return text != null && !text.trim().isEmpty();
     }
 
-    private static JLabel text(String value, boolean bold, int width)
+    private JLabel text(String value, boolean bold, int width)
     {
-        String escaped = value.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;");
-        JLabel label = new JLabel("<html><div style='width:" + width + "px;'>"
-                + (bold ? "<b>" + escaped + "</b>" : escaped) + "</div></html>");
+        JLabel label = style.text(value, bold);
         label.setBorder(new EmptyBorder(3, 0, 3, 0));
-        label.setAlignmentX(LEFT_ALIGNMENT);
         return label;
     }
 }

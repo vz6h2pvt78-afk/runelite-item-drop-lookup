@@ -67,6 +67,7 @@ public class AccessRequirementPanelTest
             JTextField query = (JTextField) named(panel, "itemSearch").get(0);
             query.setText("Kraken tentacle");
             ((JButton) named(panel, "searchButton").get(0)).doClick();
+            PanelTestSupport.openSources(panel);
             assertEquals(1, named(panel, "requirement:kraken-slayer").size());
             assertTrue(named(panel, "requirement:kraken-task-magic").isEmpty());
             Component fact = named(panel, "requirement:kraken-slayer").get(0);

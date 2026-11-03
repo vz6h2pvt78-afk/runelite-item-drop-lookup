@@ -100,3 +100,10 @@ tasks.register('runDesignConcepts', JavaExec) {
 	jvmArgs '-ea'
 	args '--developer-mode'
 }
+
+tasks.register('runImplementedReview', JavaExec) {
+	classpath = sourceSets.test.runtimeClasspath
+	mainClass = 'com.itemdroplookup.ui.ImplementedDesignReview'
+	jvmArgs '-ea'
+	args '--developer-mode'
+}

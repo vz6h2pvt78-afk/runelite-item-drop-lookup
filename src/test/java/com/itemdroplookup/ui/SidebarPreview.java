@@ -47,21 +47,30 @@ public class SidebarPreview
             ItemDropLookupPanel panel = new ItemDropLookupPanel(new DropLookupService(gson),
                     new ItemSourceLookupService(gson), new ItemPriceLookupService(gson), locations, new AccessRequirementLookupService(gson));
             ((JTextField) find(panel, "itemSearch")).setText("rune scimitar");
-            ((JComboBox<?>) find(panel, "npcWildernessFilter")).setSelectedItem(WildernessFilter.ONLY);
             ((JButton) find(panel, "searchButton")).doClick();
+            PanelTestSupport.openSources(panel);
+            ((JComboBox<?>) find(panel, "npcWildernessFilter")).setSelectedItem(WildernessFilter.ONLY);
             render(panel.getWrappedPanel(), directory, "search-wilderness.png");
             renderDetail(new DropSource("Rune scimitar", "Fire giant", "1", "1/128", ""), locations, directory, "fire-giant.png");
             renderDetail(new DropSource("Goblin mail", "Goblin", "1", "5/128", ""), locations, directory, "goblin.png");
             renderDetail(new DropSource("Dragon pickaxe", "King Black Dragon", "1", "1/1000", ""), locations, directory, "safe-lair.png");
             renderDetail(new DropSource("Item", "Unknown monster", "1", "1/2", ""), locations, directory, "missing-locations.png");
             ((JComboBox<?>) find(panel, "npcWildernessFilter")).setSelectedItem(WildernessFilter.ALL);
-            for (String query : new String[] {"graceful hood", "prospector boots", "runepouch", "pouch", "coins", "notanitemxyz"})
+            for (String query : new String[] {"Lyre", "Raw bear meat", "Spade", "Iron ore", "uncut", "runepouch", "prayer potion", "coins", "notanitemxyz"})
             {
                 ((JTextField) find(panel, "itemSearch")).setText(query);
                 long started = System.nanoTime();
                 ((JButton) find(panel, "searchButton")).doClick();
                 long searchMillis = (System.nanoTime() - started) / 1_000_000;
                 render(panel.getWrappedPanel(), directory, query.replace(' ', '-') + ".png");
+                if (find(panel, "viewAllSources") != null)
+                {
+                    PanelTestSupport.openSources(panel);
+                    render(panel.getWrappedPanel(), directory, query.replace(' ', '-') + "-sources.png");
+                    ((JComboBox<?>) find(panel, "textSize")).setSelectedItem("Larger text");
+                    render(panel.getWrappedPanel(), directory, query.replace(' ', '-') + "-large.png");
+                    ((JComboBox<?>) find(panel, "textSize")).setSelectedItem("Standard text");
+                }
                 System.out.println("Search/render scenario: " + query + "; search=" + searchMillis + "ms");
             }
 
@@ -114,12 +123,13 @@ public class SidebarPreview
     private static void render(JComponent component, File directory, String name)
     {
         component.setSize(new Dimension(242, 535));
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 8; i++)
         {
             layout(component);
         }
         BufferedImage image = new BufferedImage(242, 535, BufferedImage.TYPE_INT_RGB);
         Graphics2D graphics = image.createGraphics();
+        graphics.setRenderingHint(java.awt.RenderingHints.KEY_TEXT_ANTIALIASING, java.awt.RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         component.printAll(graphics);
         graphics.dispose();
         try
