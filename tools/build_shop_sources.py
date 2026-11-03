@@ -6,7 +6,7 @@
 # item_sources.json.
 #
 # Item rows come from each shop page's RENDERED store table (action=parse), which
-# is the only place the listed GP price appears. Location/members come from the
+# supplies the listed purchase price. Location/members come from the
 # {{Infobox Shop}} in the page wikitext.
 #
 # What it extracts:
@@ -19,18 +19,19 @@
 #                  so a normal coin shop is never reclassified by accident.
 #   - location   : best-effort from {{Infobox Shop|location=...}}, blank if absent
 #   - cost       : the table's "Price sold at" value, formatted as "16,640 coins",
-#                  but ONLY for coin shops (tables that have a "GE price" column).
-#                  This is the listed price directly present in the parsed wiki
-#                  table -- it is NOT computed from base value x multiplier. If the
-#                  price is missing / zero / a non-coin currency, cost is left BLANK.
-#                  We never fabricate a price.
+#                  with explicit currency from the price cell or matching table
+#                  metadata. GE value never identifies the purchase currency.
+#                  Unknown/conflicting currency, composite price or additional
+#                  purchase costs leave cost BLANK; no partial total is invented.
 #   - notes      : "Members shop." / "Default stock: X." / "Restock: Y." and, only
-#                  when a coin price was set, "Cost increases as stock depletes."
+#                  when an explicit positive table delta supports it,
+#                  "Cost increases as stock depletes."
 #
 # If shops cannot be parsed (e.g. network failure, or no store tables found), the
 # script writes NOTHING and exits non-zero, rather than fabricating.
 
 import json
+import html as html_lib
 import re
 import sys
 import time
@@ -219,62 +220,130 @@ def fetch_shop_pages(limit) -> list:
     return titles
 
 
-def fetch_wikitext(page_title: str):
-    params = {
-        "action": "query",
-        "prop": "revisions",
-        "rvprop": "content",
-        "rvslots": "main",
-        "titles": page_title,
-    }
-    data = fetch_json(params)
-    for page in data.get("query", {}).get("pages", {}).values():
-        try:
-            return page["revisions"][0]["slots"]["main"]["*"]
-        except (KeyError, IndexError, TypeError):
-            return None
-    return None
-
-
-def fetch_rendered_html(page_title: str):
-    """Rendered HTML of the page (action=parse), where the store table shows prices."""
-    data = fetch_json({"action": "parse", "page": page_title, "prop": "text"})
-    try:
-        return data["parse"]["text"]["*"]
-    except (KeyError, TypeError):
-        return None
+def fetch_shop_snapshot(page_title: str):
+    """Fetch rendered prices and metadata together, retaining the source revision."""
+    data = fetch_json({"action": "parse", "page": page_title,
+                       "prop": "text|wikitext|revid", "redirects": 1})["parse"]
+    return {"title": data["title"], "revisionId": data["revid"],
+            "wikitext": data["wikitext"]["*"], "html": data["text"]["*"]}
 
 
 # ---- rendered store-table parsing ------------------------------------------
 
 def _strip_tags(cell: str) -> str:
-    return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", cell)).strip()
+    cell = re.sub(r"<br\s*/?>", " ", cell, flags=re.I)
+    return re.sub(r"\s+", " ", html_lib.unescape(re.sub(r"<[^>]+>", "", cell))).strip()
 
 
-def _parse_coin_amount(text: str):
-    """Return a positive int from a price cell like '16,640', else None."""
-    digits = re.sub(r"[^0-9]", "", text or "")
-    if not digits:
+def _parse_amount(text: str):
+    """A single positive integer only; ranges, notes and composite costs are unknown."""
+    if not re.fullmatch(r"(?:[1-9]\d*|[1-9]\d{0,2}(?:,\d{3})+)", text or ""):
         return None
-    value = int(digits)
-    return value if value > 0 else None
+    return int(text.replace(",", ""))
 
 
-def parse_store_tables(html: str) -> list:
+def _currency(value: str, title: str = "") -> str:
+    value = html_lib.unescape(strip_wiki_markup(value or "")).strip()
+    # Unexpanded templates, lists and choices are not one verified currency.
+    if not re.fullmatch(r"[A-Za-z][A-Za-z '\-()]{0,79}", value) or " or " in value.lower():
+        return ""
+    key = value.casefold()
+    if key in {"coin", "coins"}:
+        return "Coins"
+    if key in {"point", "points"}:
+        # Reviewed alias, not a shop-name heuristic: Slayer Rewards rev15373095
+        # explicitly links its rewards to Slayer reward points; its table says Points.
+        return "Slayer points" if title == "Slayer Rewards" else ""
+    known = {"tokkul": "Tokkul", "golden nugget": "Golden nugget",
+             "brimhaven voucher": "Brimhaven voucher", "agility arena ticket": "Agility arena ticket",
+             "agility arena ticket (discontinued)": "Agility arena ticket (discontinued)",
+             "slayer reward point": "Slayer points", "slayer points": "Slayer points"}
+    return known.get(key, value)
+
+
+def _store_metadata(wikitext: str) -> list:
+    """Ordered direct StoreTable blocks, retaining exact displayed row identities."""
+    text = re.sub(r"<!--.*?-->", "", wikitext or "", flags=re.S)
+    blocks, current = [], None
+    pattern = re.compile(r"\{\{\s*(StoreTableHead|StoreTableBottom|StoreLine|Tzhaar shop row)\s*(?=[|}])", re.I)
+    position = 0
+    while True:
+        match = pattern.search(text, position)
+        if not match:
+            break
+        depth, end = 1, match.start() + 2
+        while end < len(text) and depth:
+            pair = text[end:end + 2]
+            if pair == "{{":
+                depth += 1
+                end += 2
+            elif pair == "}}":
+                depth -= 1
+                end += 2
+            else:
+                end += 1
+        if depth:
+            return []
+        params = parse_template_params(text[match.start() + 2:end - 2])
+        name = match.group(1).lower()
+        if name == "storetablehead":
+            current = {"params": params, "rows": []}
+            blocks.append(current)
+        elif name == "storetablebottom":
+            current = None
+        elif current is not None:
+            current["rows"].append(params)
+        position = end
+    return blocks
+
+
+def _row_name(params):
+    return _strip_tags(strip_wiki_markup(params.get("displayname", params.get("name", ""))))
+
+
+def _cell_currency(cell, title):
+    # Only currency icon links in the PURCHASE cell, never GE/buyback columns.
+    links = re.findall(r'<a\b[^>]*href="/w/([^"#?]+)"[^>]*>\s*<img\b', cell, re.I)
+    currencies = {_currency(urllib.parse.unquote(link).replace("_", " "), title) for link in links}
+    if not links:
+        return ""
+    return next(iter(currencies)) if len(currencies) == 1 and "" not in currencies else None
+
+
+def _format_cost(amount, currency):
+    if currency == "Coins":
+        unit = "coin" if amount == 1 else "coins"
+    elif currency in {"Golden nugget", "Brimhaven voucher", "Agility arena ticket"}:
+        unit = currency.lower() if currency == "Golden nugget" else currency
+        unit += "" if amount == 1 else "s"
+    elif currency == "Agility arena ticket (discontinued)":
+        unit = "historical Agility arena ticket" + ("" if amount == 1 else "s")
+    elif currency == "Slayer points":
+        unit = "Slayer point" + ("" if amount == 1 else "s")
+    else:
+        unit = currency
+    return f"{amount:,} {unit}"
+
+
+def parse_store_tables(html: str, wikitext: str = "", title: str = "") -> list:
     """Extract item rows from a page's rendered store table(s).
 
-    Returns dicts: {itemName, stock, restock, soldAt (int|None), isCoinShop (bool)}.
-    A table is treated as a coin shop only if it has a 'GE price' column.
+    A price needs explicit, non-conflicting currency evidence. Metadata is paired
+    only when all direct tables and their ordered row identities match rendering.
+    Unsupported/transcluded layouts may still expose explicit per-cell currency.
     """
     rows = []
     if not html:
         return rows
 
-    for table_match in re.finditer(r"<table.*?</table>", html, re.S):
-        table = table_match.group(0)
+    tables = []
+    for table in re.findall(r"<table\b.*?</table>", html, re.S | re.I):
         headers = [_strip_tags(h).lower() for h in re.findall(r"<th[^>]*>(.*?)</th>", table, re.S)]
-        if not headers or not any("sold at" in h for h in headers):
-            continue
+        if headers and any("sold at" in h for h in headers):
+            tables.append((headers, table))
+    metadata = _store_metadata(wikitext)
+    parsed_tables = []
+    for headers, table in tables:
 
         def header_index(*needles):
             for i, h in enumerate(headers):
@@ -286,10 +355,11 @@ def parse_store_tables(html: str) -> list:
         idx_stock = header_index("in stock", "stock")
         idx_restock = header_index("restock")
         idx_sold = header_index("sold at")
-        is_coin_shop = header_index("ge price") is not None
+        idx_extra = header_index("logs required", "additional cost", "items required")
+        table_rows = []
 
         for row_html in re.findall(r"<tr[^>]*>(.*?)</tr>", table, re.S):
-            cells = [_strip_tags(c) for c in re.findall(r"<td[^>]*>(.*?)</td>", row_html, re.S)]
+            cells = re.findall(r"<td[^>]*>(.*?)</td>", row_html, re.S)
             if not cells:
                 continue
             # Body rows carry a leading icon cell not present in the header row;
@@ -304,17 +374,40 @@ def parse_store_tables(html: str) -> list:
                 j = i + offset
                 return cells[j] if 0 <= j < len(cells) else ""
 
-            item_name = cell(idx_item)
+            item_name = _strip_tags(cell(idx_item))
             if not item_name:
                 continue
 
-            rows.append({
+            table_rows.append({
                 "itemName": item_name,
-                "stock": cell(idx_stock),
-                "restock": cell(idx_restock),
-                "soldAt": _parse_coin_amount(cell(idx_sold)),
-                "isCoinShop": is_coin_shop,
+                "stock": _strip_tags(cell(idx_stock)),
+                "restock": _strip_tags(cell(idx_restock)),
+                "soldAt": _parse_amount(_strip_tags(cell(idx_sold))),
+                "isFree": _strip_tags(cell(idx_sold)).casefold() == "free",
+                "currency": _cell_currency(cell(idx_sold), title),
+                "extraCost": _strip_tags(cell(idx_extra)),
             })
+        parsed_tables.append(table_rows)
+
+    aligned = len(metadata) == len(parsed_tables) and all(
+        [row["itemName"] for row in parsed] == [_row_name(row) for row in block["rows"]]
+        for parsed, block in zip(parsed_tables, metadata))
+    for table_index, parsed in enumerate(parsed_tables):
+        block = metadata[table_index] if aligned else {"params": {}, "rows": []}
+        for row_index, row in enumerate(parsed):
+            params = block["rows"][row_index] if aligned else {}
+            raw_currency = params.get("currency", block["params"].get("currency", ""))
+            declared = _currency(raw_currency, title)
+            observed = row["currency"] or ""
+            conflict = row["currency"] is None or bool(raw_currency and
+                    (not declared or (observed and observed.casefold() != declared.casefold())))
+            row["currency"] = "" if conflict else observed or declared
+            row["hasExtraCost"] = row["extraCost"].lower() not in {"", "none", "n/a", "—", "-"}
+            row["priceVaries"] = (bool(row["currency"]) and
+                    _parse_amount(block["params"].get("delta", "")) is not None)
+            row["tableNote"] = strip_wiki_markup(block["params"].get("namenotes", ""))
+            row["currencyStatus"] = "conflict" if conflict else "explicit" if row["currency"] else "unknown"
+            rows.append(row)
 
     return rows
 
@@ -445,17 +538,22 @@ def parse_shop_page(title: str, wikitext: str, html: str) -> list:
     source_type = classify_source_type(title)
 
     records = []
-    for row in parse_store_tables(html):
+    for row in parse_store_tables(html, wikitext, title):
         item_name = row["itemName"]
         if not item_name:
             continue
 
-        # cost: only a confidently-listed coin price; otherwise blank (no fabrication).
+        # Never present a known component as the total price of a composite purchase.
         cost = ""
-        has_coin_price = row["isCoinShop"] and row["soldAt"] is not None
-        if has_coin_price:
-            unit = "coin" if row["soldAt"] == 1 else "coins"
-            cost = f"{row['soldAt']:,} {unit}"
+        if row["currency"] and row["soldAt"] is not None and not row["hasExtraCost"]:
+            cost = _format_cost(row["soldAt"], row["currency"])
+        elif row["isFree"] and not row["hasExtraCost"]:
+            cost = "Free"
+        notes = build_notes(row["stock"], row["restock"], members, bool(cost) and row["priceVaries"])
+        if row["tableNote"]:
+            notes += " " + row["tableNote"]
+        if row["hasExtraCost"]:
+            notes += " Additional purchase costs apply; see the Wiki."
 
         records.append(apply_record_override({
             "itemName": item_name,
@@ -463,7 +561,7 @@ def parse_shop_page(title: str, wikitext: str, html: str) -> list:
             "sourceName": title,
             "location": location,
             "cost": cost,
-            "notes": build_notes(row["stock"], row["restock"], members, has_coin_price),
+            "notes": notes.strip(),
         }))
 
     return records
@@ -483,13 +581,14 @@ def main() -> None:
     inspected = 0
     failed = []
     no_store_line = []
+    revisions = []
 
     for title in shop_pages:
         inspected += 1
         try:
-            wikitext = fetch_wikitext(title)
-            time.sleep(REQUEST_DELAY_SECONDS)
-            html = fetch_rendered_html(title)
+            snapshot = fetch_shop_snapshot(title)
+            wikitext, html = snapshot["wikitext"], snapshot["html"]
+            revisions.append({"requestedPage": title, "page": snapshot["title"], "revisionId": snapshot["revisionId"]})
         except Exception as exc:
             failed.append({"page": title, "reason": f"{type(exc).__name__}: {exc}"})
             continue
@@ -540,6 +639,7 @@ def main() -> None:
         "recordsWithBlankCost": cost_blank,
         "pagesWithNoStoreTable": len(no_store_line),
         "failedPages": failed,
+        "sourceRevisions": revisions,
         "sampleNoStoreTablePages": no_store_line[:15],
         "sampleRecords": deduped[:10],
     }
@@ -553,7 +653,7 @@ def main() -> None:
     print(f"Records before dedupe     : {len(all_records)}")
     print(f"Records generated         : {len(deduped)}")
     print(f"Duplicates collapsed      : {duplicate_count}")
-    print(f"Records with cost (coins) : {cost_nonblank}")
+    print(f"Records with known cost   : {cost_nonblank}")
     print(f"Records with blank cost   : {cost_blank}")
     print(f"Pages with no store table : {len(no_store_line)}")
     print(f"Failed pages              : {len(failed)}")
