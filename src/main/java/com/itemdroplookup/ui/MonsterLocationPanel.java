@@ -9,6 +9,8 @@ import com.itemdroplookup.service.MonsterLocationLookupService;
 import com.itemdroplookup.service.MonsterLocationLookupService.LocationMatch;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.swing.BorderFactory;
@@ -37,6 +39,7 @@ public class MonsterLocationPanel extends JPanel
     private final LocationMatch match;
     private final List<MonsterLocation> allLocations;
     private final String dropNotes;
+    private final String monsterWikiUrl;
 
     public MonsterLocationPanel(DropSource source, String searchQuery,
                                 MonsterLocationLookupService service, WildernessFilter initialFilter, Runnable back)
@@ -46,6 +49,8 @@ public class MonsterLocationPanel extends JPanel
         setName("monsterDetail");
         match = service.lookup(source);
         dropNotes = source.getNotes();
+        monsterWikiUrl = "https://oldschool.runescape.wiki/w/"
+                + URLEncoder.encode(source.getMonsterName().replace(' ', '_'), StandardCharsets.UTF_8);
         allLocations = service.lookupByMonsterName(source.getMonsterName());
         JPanel header = column();
         JButton backButton = new JButton("Back to results");
@@ -58,7 +63,8 @@ public class MonsterLocationPanel extends JPanel
         {
             header.add(text("Searched: " + searchQuery, false, TEXT_WIDTH));
         }
-        header.add(text("Rate: " + source.getDropRate() + " | Quantity: " + source.getQuantity(), false, TEXT_WIDTH));
+        header.add(text("Rate: " + (hasText(source.getDropRate()) ? source.getDropRate() : "Not recorded")
+                + " | Quantity: " + source.getQuantity(), false, TEXT_WIDTH));
 
         wilderness.setSelectedItem(initialFilter);
         wilderness.setName("detailWilderness");
@@ -73,6 +79,7 @@ public class MonsterLocationPanel extends JPanel
                 match.getLocations().stream().noneMatch(matched -> matched.getId().equals(location.getId()))));
         showAll.setToolTipText("Include other drop tables; the item and rate above may not apply there");
         header.add(showAll);
+        clear.setName("clearLocationFilters");
         clear.addActionListener(e -> {
             wilderness.setSelectedItem(WildernessFilter.ALL);
             membership.setSelectedItem(MembershipFilter.ALL);
@@ -112,13 +119,20 @@ public class MonsterLocationPanel extends JPanel
         }
         boolean filtering = wilderness.getSelectedItem() != WildernessFilter.ALL
                 || membership.getSelectedItem() != MembershipFilter.ALL;
-        clear.setVisible(filtering);
         boolean verifiedView = match.isVerified() && !showAll.isSelected();
         List<MonsterLocation> locations = verifiedView ? match.getLocations() : allLocations;
+        wilderness.setVisible(!locations.isEmpty());
+        membership.setVisible(!locations.isEmpty());
+        clear.setVisible(filtering && !locations.isEmpty());
         if (locations.isEmpty())
         {
             locationsPanel.add(text("No location data available for this monster yet.", true, TEXT_WIDTH));
             locationsPanel.add(text("The item source remains in your search results. Missing location data does not mean the monster is unavailable.", false, TEXT_WIDTH));
+            JButton wiki = new JButton("View on OSRS Wiki");
+            wiki.setName("monsterWiki");
+            wiki.setToolTipText(monsterWikiUrl);
+            wiki.addActionListener(e -> LinkBrowser.browse(monsterWikiUrl));
+            locationsPanel.add(wiki);
         }
         else
         {
@@ -155,7 +169,7 @@ public class MonsterLocationPanel extends JPanel
         {
             card.add(text("Unavailable / unreachable", true, width));
         }
-        card.add(text("Level " + (hasText(location.getLevelsText()) ? location.getLevelsText() : "unknown")
+        card.add(text("Combat level " + (hasText(location.getLevelsText()) ? location.getLevelsText() : "unknown")
                 + " · " + (location.getMembers() == null ? "Membership unknown" : location.getMembers() ? "Members" : "F2P"), false, width));
         card.add(text(location.getWilderness() == MonsterLocation.Wilderness.YES ? "Wilderness"
                 : location.getWilderness() == MonsterLocation.Wilderness.NO ? "Outside Wilderness" : "Wilderness status unknown", false, width));

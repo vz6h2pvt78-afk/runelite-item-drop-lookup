@@ -564,7 +564,7 @@ public class ItemDropLookupPanel extends PluginPanel
 
         card.add(makeCardTitle(source.getMonsterName(), wrapWidth));
 
-        card.add(makeCardLine("Rate: " + source.getDropRate(), wrapWidth));
+        card.add(makeCardLine("Rate: " + (hasText(source.getDropRate()) ? source.getDropRate() : "Not recorded"), wrapWidth));
         card.add(makeCardLine("Quantity: " + source.getQuantity(), wrapWidth));
 
         if (source.getNotes() != null && !source.getNotes().isEmpty())

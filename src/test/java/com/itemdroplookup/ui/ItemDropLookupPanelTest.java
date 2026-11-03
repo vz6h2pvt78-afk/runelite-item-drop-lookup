@@ -131,9 +131,13 @@ public class ItemDropLookupPanelTest
     {
         SwingUtilities.invokeAndWait(() -> {
             boolean[] returned = {false};
-            MonsterLocationPanel detail = new MonsterLocationPanel(new DropSource("Item", "Unknown monster", "1", "1/2", ""),
+            MonsterLocationPanel detail = new MonsterLocationPanel(new DropSource("Toadflax", "Zulrah", "25", "2/249", "noted"),
                     "item", new MonsterLocationLookupService(new Gson()), WildernessFilter.ALL, () -> returned[0] = true);
             assertTrue(descendants(detail).stream().anyMatch(c -> c instanceof JLabel && ((JLabel) c).getText().contains("No location data available")));
+            assertEquals("https://oldschool.runescape.wiki/w/Zulrah", ((JButton) named(detail, "monsterWiki")).getToolTipText());
+            assertFalse(named(detail, "detailWilderness").isVisible());
+            assertFalse(named(detail, "detailMembership").isVisible());
+            assertFalse(named(detail, "clearLocationFilters").isVisible());
             ((JButton) named(detail, "backToResults")).doClick();
             assertTrue(returned[0]);
         });
@@ -177,6 +181,12 @@ public class ItemDropLookupPanelTest
             assertEquals(1, locationCardCount(detail));
             ((JComboBox<?>) named(detail, "detailMembership")).setSelectedItem(com.itemdroplookup.service.MonsterLocationFilter.MembershipFilter.F2P);
             assertEquals(0, locationCardCount(detail));
+            assertTrue(named(detail, "detailWilderness").isVisible());
+            assertTrue(named(detail, "detailMembership").isVisible());
+            assertTrue(named(detail, "clearLocationFilters").isVisible());
+            ((JButton) named(detail, "clearLocationFilters")).doClick();
+            assertEquals(12, locationCardCount(detail));
+            ((JComboBox<?>) named(detail, "detailWilderness")).setSelectedItem(WildernessFilter.ONLY);
             ((JComboBox<?>) named(detail, "detailMembership")).setSelectedItem(com.itemdroplookup.service.MonsterLocationFilter.MembershipFilter.ALL);
             assertEquals(1, locationCardCount(detail));
             ((JComboBox<?>) named(detail, "detailWilderness")).setSelectedItem(WildernessFilter.ALL);
@@ -189,6 +199,28 @@ public class ItemDropLookupPanelTest
     private static boolean textContains(Container panel, String value)
     {
         return descendants(panel).stream().anyMatch(c -> c instanceof JLabel && ((JLabel) c).getText().contains(value));
+    }
+
+    @Test
+    public void missingRateIsExplicitInResultsAndDetailsWithoutChangingTheSource() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            DropSource source = new DropSource("Coins", "Shark (Sailing)", "1095-2296", "", "");
+            ItemDropLookupPanel panel = panel(new DropLookupService(new Gson())
+            {
+                @Override
+                public List<DropSource> searchByItemName(String query)
+                {
+                    return java.util.Collections.singletonList(source);
+                }
+            });
+            search(panel, "Coins");
+            assertTrue(textContains(panel, "Rate: Not recorded"));
+            assertFalse(textContains(panel, "Rate: Always"));
+            ((JButton) named(panel, "openLocations")).doClick();
+            assertTrue(textContains(panel, "Rate: Not recorded"));
+            assertEquals("", source.getDropRate());
+        });
     }
 
     private static long sourceCardCount(Container panel)
@@ -325,9 +357,12 @@ public class ItemDropLookupPanelTest
             assertTrue(textContains(panel, "30 golden nuggets"));
             assertFalse(named(panel, "npcWildernessFilter").getParent().isVisible());
             search(panel, "runepouch");
-            assertEquals(2, sourceCardCount(panel));
+            assertEquals(3, sourceCardCount(panel));
             assertFalse(textContains(panel, "Rune Pouch Note"));
-            assertTrue(textContains(panel, "Amount not recorded"));
+            assertFalse(textContains(panel, "Amount not recorded"));
+            assertTrue(textContains(panel, "750 Slayer reward points"));
+            assertTrue(textContains(panel, "75 LMS points"));
+            assertTrue(textContains(panel, "150 telekinetic + 150 graveyard + 1,500 enchantment + 200 alchemist pizazz points"));
             search(panel, "graceful hood");
             assertEquals(1, sourceCardCount(panel));
             assertTrue(textContains(panel, "Currency: Marks of grace"));

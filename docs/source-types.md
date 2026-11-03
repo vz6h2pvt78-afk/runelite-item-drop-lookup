@@ -31,7 +31,7 @@ the validator (`tools/validate_item_sources.py`) can enforce it.
 
 ## Current state (informational)
 
-- `item_sources.json` is **hand-curated**, with three `Reward Shop` records.
+- `item_sources.json` is **hand-curated**, with four `Reward Shop` records.
 - `wiki_shop_sources.json` is **generated** by `tools/build_shop_sources.py`.
   Do not hand-edit it. Lookup excludes Theatre of Blood resupply and zero-default-
   stock shops before pack expansion; the raw evidence is retained.
@@ -39,3 +39,17 @@ the validator (`tools/validate_item_sources.py`) can enforce it.
   Derived `itemName` is the contained item; `packName`, `packItemName`, `packQuantity`
   and `packNoted` preserve purchase identity and quantity. Cost is the whole pack.
   Counts represent purchase options, not distinct shops. Random packs are excluded.
+
+### Rune pouch verification (2026-11-02)
+
+The three direct rewards are 750 Slayer reward points, 75 LMS points, and Mage
+Training Arena's four-part cost: 150 telekinetic, 150 graveyard, 1,500 enchantment,
+and 200 alchemist pizazz points. All four Arena amounts are required together.
+
+Evidence: [Slayer Rewards revision 15373095](https://oldschool.runescape.wiki/w/Special:PermanentLink/15373095),
+[Justine's shop revision 15367074](https://oldschool.runescape.wiki/w/Special:PermanentLink/15367074),
+and [Rune pouch revision 15384874](https://oldschool.runescape.wiki/w/Special:PermanentLink/15384874).
+Justine's store table lists both the direct pouch and the distinct tradeable note
+at 75 points. Do not remove the direct source based only on the item's prose
+description of exchanging notes at a bank. Exact pouch searches preserve the
+untradeable item identity and must not use the note's GE price.

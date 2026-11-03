@@ -4,16 +4,24 @@
         "sourceType":  "Reward Shop",
         "sourceName":  "Slayer Rewards",
         "location":  "Slayer masters",
-        "cost":  "Slayer reward points",
-        "notes":  "Untradeable reward source."
+        "cost":  "750 Slayer reward points",
+        "notes":  "Direct Rune pouch purchase. Only one can be owned."
     },
     {
         "itemName":  "rune pouch",
         "sourceType":  "Reward Shop",
-        "sourceName":  "Last Man Standing Reward Shop",
+        "sourceName":  "Justine's stuff for the Last Shopper Standing",
         "location":  "Ferox Enclave",
-        "cost":  "LMS points",
-        "notes":  "Alternative reward source."
+        "cost":  "75 LMS points",
+        "notes":  "Direct Rune pouch purchase. The tradeable Rune pouch note is a separate item."
+    },
+    {
+        "itemName":  "rune pouch",
+        "sourceType":  "Reward Shop",
+        "sourceName":  "Mage Training Arena Rewards",
+        "location":  "Mage Training Arena",
+        "cost":  "150 telekinetic + 150 graveyard + 1,500 enchantment + 200 alchemist pizazz points",
+        "notes":  "All four point amounts are required. Only available if you do not already own a Rune pouch."
     },
     {
         "itemName":  "graceful hood",

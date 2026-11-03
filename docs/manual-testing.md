@@ -59,9 +59,13 @@ offline renders cannot verify in-game behavior.
     Expect the golden-nugget option. NPC controls should be hidden in shop views.
     Select NPC Drops: the empty state should offer **Show all sources**, restoring
     source type, Wilderness and Find source in one click.
-19. **runepouch** must return the pouch, not its note. Currency-only curated entries
-    should say the amount is not recorded. Shop Wiki shortcuts should open an item
-    search on the OSRS Wiki. A made-up item should show a concise no-match message.
+19. **Rune pouch** and **runepouch** must return three direct rewards: 750 Slayer
+    reward points, 75 LMS points at Justine's shop, and all four Mage Training Arena
+    point amounts. The Arena cost must read as a combined cost, not alternatives.
+    **Rune pouch note** remains distinct with its own GE price. Broad **pouch**
+    still includes related items. Currency-only entries such as Grace's hood still
+    say the amount is not recorded. Shop Wiki shortcuts open an item search on
+    the OSRS Wiki. A made-up item should show a concise no-match message.
 20. A broad query matching unrelated items must not show one arbitrary item's GE
     price. Potion families use the explicitly labelled four-dose reference.
 21. Search **Prayer potion**, **Saradomin brew**, and **Super restore** without a
@@ -83,6 +87,14 @@ offline renders cannot verify in-game behavior.
 26. **Toadflax** shows three Brimhaven vouchers in the current store; the old-ticket
     exchange explicitly requires discontinued tickets. Theatre of Blood's mid-raid
     chest is absent from normal item searches.
+27. Open **Toadflax -> Zulrah**. Missing location data should be explained, irrelevant
+    location filters hidden, and **View on OSRS Wiki** should lead to the Zulrah page.
+    By contrast, Fire giant filtered to Wilderness and F2P has existing records but
+    no matches: filters and **Clear location filters** must remain usable.
+28. **Coins -> Shark (Sailing)** must say **Rate: Not recorded** in both results and
+    detail. Unknown rates must not become guaranteed drops. Location cards should
+    say **Combat level**, without implying that Slayer or Sailing requirements are
+    represented by that number.
 
 For failures, record query, monster/rate, active filters and observed behavior.
 Confirm these checks before considering public-release work. The proposed code

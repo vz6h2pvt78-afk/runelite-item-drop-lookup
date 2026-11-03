@@ -54,6 +54,26 @@ public class ItemSourceLookupServiceTest
     }
 
     @Test
+    public void runePouchDirectRewardsHaveVerifiedCostsWithoutDuplicatingGeneratedRows()
+    {
+        for (String query : new String[] {"rune pouch", "runepouch"})
+        {
+            List<ItemSource> results = service.searchByItemName(query);
+            org.junit.Assert.assertEquals(3, results.size());
+            assertTrue(results.stream().anyMatch(r -> "Slayer Rewards".equals(r.getSourceName())
+                    && "750 Slayer reward points".equals(r.getCost())));
+            assertTrue(results.stream().anyMatch(r -> "Justine's stuff for the Last Shopper Standing".equals(r.getSourceName())
+                    && "75 LMS points".equals(r.getCost())));
+            assertTrue(results.stream().anyMatch(r -> "Mage Training Arena Rewards".equals(r.getSourceName())
+                    && "150 telekinetic + 150 graveyard + 1,500 enchantment + 200 alchemist pizazz points".equals(r.getCost())));
+        }
+        List<ItemSource> notes = service.searchByItemName("rune pouch note");
+        org.junit.Assert.assertEquals(1, notes.size());
+        assertTrue(notes.stream().allMatch(r -> "rune pouch note".equals(norm(r.getItemName()))
+                && "75 LMS points".equals(r.getCost())));
+    }
+
+    @Test
     public void broadPouchQueryMayReturnRelatedItems()
     {
         List<ItemSource> pouch = service.searchByItemName("pouch");
