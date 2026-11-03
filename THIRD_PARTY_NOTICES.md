@@ -100,8 +100,19 @@ obligations associated with redistribution of historical copies.
 RuneScape and Old School RuneScape are Jagex trademarks. Game names, item names
 and game facts remain subject to applicable third-party rights. This project
 does not claim ownership of them and is not affiliated with Jagex, RuneLite,
-Weird Gloop or the OSRS Wiki. No external art, screenshots, fonts or sound assets
+Weird Gloop or the OSRS Wiki. No external art, screenshots or sound assets
 are shipped in the plugin; its toolbar icon is drawn by the plugin.
+
+## OpenDyslexic
+
+The unmodified OpenDyslexic Regular font is by Abbie Gonzalez, copyright
+2012–2019, with Reserved Font Name OpenDyslexic. It is distributed under the
+SIL Open Font License 1.1, retained in `src/main/resources/fonts/OFL.txt`.
+Source: https://github.com/antijingoist/opendyslexic/releases/tag/v0.91.12
+(0.910.12-rc2, 2019-10-17). Its license was verified from the same upstream tag:
+https://github.com/antijingoist/opendyslexic/blob/v0.91.12/OFL.txt
+Regular OTF SHA-256: `c1a0cbf814a75a61abdf0f18143d347222b85e51209f47f8b685a1e0ca594b88`.
+The font remains under its own license, not this project's BSD license.
 
 ## Gathering evidence
 
