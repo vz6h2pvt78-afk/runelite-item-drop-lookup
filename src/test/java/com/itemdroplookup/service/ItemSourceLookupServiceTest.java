@@ -165,10 +165,51 @@ public class ItemSourceLookupServiceTest
     {
         List<ItemSource> sources = service.searchByItemName("toadflax");
         assertTrue(sources.stream().anyMatch(source -> "3 Brimhaven vouchers".equals(source.getCost())));
-        assertTrue(sources.stream().anyMatch(source -> "3 discontinued Agility arena tickets".equals(source.getCost())
+        assertTrue(sources.stream().anyMatch(source -> "3 historical Agility arena tickets".equals(source.getCost())
                 && source.getNotes().contains("can no longer be earned")));
         assertFalse(sources.stream().anyMatch(source -> source.getCost().contains("coins")));
         assertTrue(service.searchByItemName("Blighted super restore(4)").stream()
                 .anyMatch(source -> "LMS points".equals(source.getCost().replaceAll("^[0-9,]+ ", ""))));
+    }
+
+    @Test
+    public void correctedShopCurrenciesReachPlayersWithoutDiscountOrStockConfusion()
+    {
+        assertTrue(service.searchByItemName("Herb sack").stream().anyMatch(source ->
+                "Slayer Rewards".equals(source.getSourceName()) && "750 Slayer points".equals(source.getCost())));
+        List<ItemSource> onyx = service.searchByItemName("Uncut onyx");
+        org.junit.Assert.assertEquals(1, onyx.stream().filter(source ->
+                "TzHaar-Hur-Lek's Ore and Gem Store".equals(source.getSourceName())).count());
+        assertTrue(onyx.stream().anyMatch(source -> "TzHaar-Hur-Lek's Ore and Gem Store".equals(source.getSourceName())
+                && "300,000 Tokkul".equals(source.getCost())));
+        assertFalse(service.searchByItemName("Coal").stream().anyMatch(source ->
+                "TzHaar-Hur-Lek's Ore and Gem Store".equals(source.getSourceName())));
+    }
+
+    @Test
+    public void modernTicketsAndFreeOrCompoundForestryPricesRemainDistinct()
+    {
+        assertTrue(service.searchByItemName("Agility XP").stream().anyMatch(source ->
+                "Agility Arena Store".equals(source.getSourceName()) && "1 Agility arena ticket".equals(source.getCost())
+                        && !source.getNotes().contains("can no longer be earned")));
+        assertTrue(service.searchByItemName("Forestry kit").stream().anyMatch(source ->
+                "Forestry Shop".equals(source.getSourceName()) && "Free".equals(source.getCost())));
+        assertTrue(service.searchByItemName("Log basket").stream().anyMatch(source ->
+                "Forestry Shop".equals(source.getSourceName()) && source.getCost().isEmpty()
+                        && source.getNotes().contains("Additional purchase costs")));
+    }
+
+    @Test
+    public void currencyPatchKeepsOneOptionPerVerifiedBettyPack()
+    {
+        for (String item : new String[] {"Air rune", "Eye of newt"})
+        {
+            List<ItemSource> sources = service.searchByItemName(item);
+            org.junit.Assert.assertEquals(1, sources.stream().filter(source ->
+                    "Betty's Magic Emporium.".equals(source.getSourceName()) && source.getPackQuantity() == 100).count());
+            String cost = "Air rune".equals(item) ? "430 coins" : "300 coins";
+            assertTrue(sources.stream().anyMatch(source -> "Betty's Magic Emporium.".equals(source.getSourceName())
+                    && source.getPackQuantity() == 100 && cost.equals(source.getCost())));
+        }
     }
 }

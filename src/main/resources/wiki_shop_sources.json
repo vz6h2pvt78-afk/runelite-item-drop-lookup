@@ -932,7 +932,7 @@
     "sourceType": "Shop",
     "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
     "location": "Mor Ul Rek",
-    "cost": "600 coins",
+    "cost": "600 Tokkul",
     "notes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes."
   },
   {
@@ -956,7 +956,7 @@
     "sourceType": "Reward Shop",
     "sourceName": "Agility Arena Store",
     "location": "Brimhaven",
-    "cost": "",
+    "cost": "1 Agility arena ticket",
     "notes": "Members shop."
   },
   {
@@ -1324,8 +1324,8 @@
     "sourceType": "Reward Shop",
     "sourceName": "Agility Arena Store",
     "location": "Brimhaven",
-    "cost": "60 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "60 Brimhaven vouchers",
+    "notes": "Members shop."
   },
   {
     "itemName": "Amylase pack",
@@ -1644,7 +1644,7 @@
     "sourceType": "Reward Shop",
     "sourceName": "Prospector Percy's Nugget Shop",
     "location": "Motherlode Mine",
-    "cost": "",
+    "cost": "40 golden nuggets",
     "notes": "Members shop. Default stock: 100. Restock: 0.6s (1t)."
   },
   {
@@ -5052,16 +5052,16 @@
     "sourceType": "Reward Shop",
     "sourceName": "Slayer Rewards",
     "location": "",
-    "cost": "35 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "35 Slayer points",
+    "notes": "Members shop."
   },
   {
     "itemName": "Broad bolts (x250)",
     "sourceType": "Reward Shop",
     "sourceName": "Slayer Rewards",
     "location": "",
-    "cost": "35 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "35 Slayer points",
+    "notes": "Members shop."
   },
   {
     "itemName": "Bronze 2h sword",
@@ -7764,7 +7764,7 @@
     "sourceType": "Reward Shop",
     "sourceName": "Forestry Shop",
     "location": "",
-    "cost": "",
+    "cost": "2,500 Anima-infused bark",
     "notes": "Stock: unlimited."
   },
   {
@@ -9141,7 +9141,7 @@
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
-    "notes": "Stock: unlimited."
+    "notes": "Stock: unlimited. Additional purchase costs apply; see the Wiki."
   },
   {
     "itemName": "Clue box",
@@ -9220,7 +9220,7 @@
     "sourceType": "Shop",
     "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
     "location": "Mor Ul Rek",
-    "cost": "67 coins",
+    "cost": "67 Tokkul",
     "notes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes."
   },
   {
@@ -9236,7 +9236,7 @@
     "sourceType": "Reward Shop",
     "sourceName": "Prospector Percy's Nugget Shop",
     "location": "Motherlode Mine",
-    "cost": "",
+    "cost": "100 golden nuggets",
     "notes": "Members shop. Default stock: 1. Restock: 0.6s (1t)."
   },
   {
@@ -9860,7 +9860,7 @@
     "sourceType": "Shop",
     "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
     "location": "Mor Ul Rek",
-    "cost": "4 coins",
+    "cost": "4 Tokkul",
     "notes": "Members shop. Default stock: 5. Restock: 1m (100t). Cost increases as stock depletes."
   },
   {
@@ -13765,7 +13765,7 @@
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
-    "notes": "Stock: unlimited."
+    "notes": "Stock: unlimited. Additional purchase costs apply; see the Wiki."
   },
   {
     "itemName": "Fez",
@@ -14613,7 +14613,7 @@
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
-    "notes": "Stock: unlimited."
+    "notes": "Stock: unlimited. Additional purchase costs apply; see the Wiki."
   },
   {
     "itemName": "Forestry hat",
@@ -14621,14 +14621,14 @@
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
-    "notes": "Stock: unlimited."
+    "notes": "Stock: unlimited. Additional purchase costs apply; see the Wiki."
   },
   {
     "itemName": "Forestry kit",
     "sourceType": "Reward Shop",
     "sourceName": "Forestry Shop",
     "location": "",
-    "cost": "",
+    "cost": "Free",
     "notes": "Stock: unlimited."
   },
   {
@@ -14637,7 +14637,7 @@
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
-    "notes": "Stock: unlimited."
+    "notes": "Stock: unlimited. Additional purchase costs apply; see the Wiki."
   },
   {
     "itemName": "Forestry top",
@@ -14645,7 +14645,7 @@
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
-    "notes": "Stock: unlimited."
+    "notes": "Stock: unlimited. Additional purchase costs apply; see the Wiki."
   },
   {
     "itemName": "Fox fur",
@@ -14684,7 +14684,7 @@
     "sourceType": "Reward Shop",
     "sourceName": "Forestry Shop",
     "location": "",
-    "cost": "",
+    "cost": "75,000 Anima-infused bark",
     "notes": "Stock: unlimited."
   },
   {
@@ -14997,7 +14997,7 @@
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
-    "notes": "Stock: unlimited."
+    "notes": "Stock: unlimited. Additional purchase costs apply; see the Wiki."
   },
   {
     "itemName": "Fur",
@@ -15196,7 +15196,7 @@
     "sourceType": "Reward Shop",
     "sourceName": "Prospector Percy's Nugget Shop",
     "location": "Motherlode Mine",
-    "cost": "",
+    "cost": "100 golden nuggets",
     "notes": "Members shop. Default stock: 1. Restock: 0.6s (1t)."
   },
   {
@@ -15580,7 +15580,7 @@
     "sourceType": "Shop",
     "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
     "location": "Mor Ul Rek",
-    "cost": "225 coins",
+    "cost": "225 Tokkul",
     "notes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes."
   },
   {
@@ -15628,7 +15628,7 @@
     "sourceType": "Reward Shop",
     "sourceName": "Forestry Shop",
     "location": "",
-    "cost": "",
+    "cost": "75,000 Anima-infused bark",
     "notes": "Stock: unlimited."
   },
   {
@@ -15764,16 +15764,16 @@
     "sourceType": "Reward Shop",
     "sourceName": "Brimhaven Agility Arena Ticket Exchange",
     "location": "Brimhaven",
-    "cost": "250 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "250 historical Agility arena tickets",
+    "notes": "Members shop."
   },
   {
     "itemName": "Graceful Recolour",
     "sourceType": "Reward Shop",
     "sourceName": "Agility Arena Store",
     "location": "Brimhaven",
-    "cost": "250 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "250 Brimhaven vouchers",
+    "notes": "Members shop."
   },
   {
     "itemName": "Graceful top",
@@ -17196,8 +17196,8 @@
     "sourceType": "Reward Shop",
     "sourceName": "Slayer Rewards",
     "location": "",
-    "cost": "750 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "750 Slayer points",
+    "notes": "Members shop."
   },
   {
     "itemName": "Herring",
@@ -18188,7 +18188,7 @@
     "sourceType": "Shop",
     "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
     "location": "Mor Ul Rek",
-    "cost": "25 coins",
+    "cost": "25 Tokkul",
     "notes": "Members shop. Default stock: 2. Restock: 1m (100t). Cost increases as stock depletes."
   },
   {
@@ -20813,7 +20813,7 @@
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
-    "notes": "Stock: unlimited."
+    "notes": "Stock: unlimited. Additional purchase costs apply; see the Wiki."
   },
   {
     "itemName": "Log brace",
@@ -20821,7 +20821,7 @@
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
-    "notes": "Stock: unlimited."
+    "notes": "Stock: unlimited. Additional purchase costs apply; see the Wiki."
   },
   {
     "itemName": "Long rope",
@@ -20908,8 +20908,8 @@
     "sourceType": "Reward Shop",
     "sourceName": "Slayer Rewards",
     "location": "",
-    "cost": "10 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "10 Slayer points",
+    "notes": "Members shop."
   },
   {
     "itemName": "Looting bag note",
@@ -20949,7 +20949,7 @@
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
-    "notes": "Stock: unlimited."
+    "notes": "Stock: unlimited. Additional purchase costs apply; see the Wiki."
   },
   {
     "itemName": "Lumberjack hat",
@@ -20957,7 +20957,7 @@
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
-    "notes": "Stock: unlimited."
+    "notes": "Stock: unlimited. Additional purchase costs apply; see the Wiki."
   },
   {
     "itemName": "Lumberjack legs",
@@ -20965,7 +20965,7 @@
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
-    "notes": "Stock: unlimited."
+    "notes": "Stock: unlimited. Additional purchase costs apply; see the Wiki."
   },
   {
     "itemName": "Lumberjack top",
@@ -20973,7 +20973,7 @@
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
-    "notes": "Stock: unlimited."
+    "notes": "Stock: unlimited. Additional purchase costs apply; see the Wiki."
   },
   {
     "itemName": "Lunar amulet",
@@ -22692,7 +22692,7 @@
     "sourceType": "Shop",
     "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
     "location": "Mor Ul Rek",
-    "cost": "243 coins",
+    "cost": "243 Tokkul",
     "notes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes."
   },
   {
@@ -24340,7 +24340,7 @@
     "sourceType": "Shop",
     "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
     "location": "Mor Ul Rek",
-    "cost": "1,500 coins",
+    "cost": "1,500 Tokkul",
     "notes": "Members shop. Default stock: 50. Restock: 1m (100t). Cost increases as stock depletes."
   },
   {
@@ -25156,16 +25156,16 @@
     "sourceType": "Reward Shop",
     "sourceName": "Agility Arena Store",
     "location": "Brimhaven",
-    "cost": "800 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "800 Brimhaven vouchers",
+    "notes": "Members shop."
   },
   {
     "itemName": "Pirate's hook",
     "sourceType": "Reward Shop",
     "sourceName": "Brimhaven Agility Arena Ticket Exchange",
     "location": "Brimhaven",
-    "cost": "800 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "800 historical Agility arena tickets",
+    "notes": "Members shop."
   },
   {
     "itemName": "Pizza base",
@@ -29005,7 +29005,7 @@
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
-    "notes": "Stock: unlimited."
+    "notes": "Stock: unlimited. Additional purchase costs apply; see the Wiki."
   },
   {
     "itemName": "Robe bottoms of the eye",
@@ -30108,8 +30108,8 @@
     "sourceType": "Reward Shop",
     "sourceName": "Slayer Rewards",
     "location": "",
-    "cost": "750 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "750 Slayer points",
+    "notes": "Members shop."
   },
   {
     "itemName": "Rune pouch note",
@@ -30268,7 +30268,7 @@
     "sourceType": "Shop",
     "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
     "location": "Mor Ul Rek",
-    "cost": "4,800 coins",
+    "cost": "4,800 Tokkul",
     "notes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes."
   },
   {
@@ -30676,7 +30676,7 @@
     "sourceType": "Reward Shop",
     "sourceName": "Forestry Shop",
     "location": "",
-    "cost": "",
+    "cost": "150 Anima-infused bark",
     "notes": "Stock: unlimited."
   },
   {
@@ -30829,7 +30829,7 @@
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
-    "notes": "Stock: unlimited."
+    "notes": "Stock: unlimited. Additional purchase costs apply; see the Wiki."
   },
   {
     "itemName": "Security book",
@@ -31724,7 +31724,7 @@
     "sourceType": "Shop",
     "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
     "location": "Mor Ul Rek",
-    "cost": "112 coins",
+    "cost": "112 Tokkul",
     "notes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes."
   },
   {
@@ -31844,8 +31844,8 @@
     "sourceType": "Reward Shop",
     "sourceName": "Slayer Rewards",
     "location": "",
-    "cost": "75 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "75 Slayer points",
+    "notes": "Members shop."
   },
   {
     "itemName": "Slayer's staff",
@@ -32028,16 +32028,16 @@
     "sourceType": "Reward Shop",
     "sourceName": "Agility Arena Store",
     "location": "Brimhaven",
-    "cost": "10 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "10 Brimhaven vouchers",
+    "notes": "Members shop."
   },
   {
     "itemName": "Snapdragon",
     "sourceType": "Reward Shop",
     "sourceName": "Brimhaven Agility Arena Ticket Exchange",
     "location": "Brimhaven",
-    "cost": "10 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "10 historical Agility arena tickets",
+    "notes": "Members shop."
   },
   {
     "itemName": "Snow leopard toy",
@@ -32076,7 +32076,7 @@
     "sourceType": "Reward Shop",
     "sourceName": "Prospector Percy's Nugget Shop",
     "location": "Motherlode Mine",
-    "cost": "",
+    "cost": "10 golden nuggets",
     "notes": "Members shop. Default stock: 1000. Restock: 0.6s (1t)."
   },
   {
@@ -35780,7 +35780,7 @@
     "sourceType": "Shop",
     "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
     "location": "Mor Ul Rek",
-    "cost": "4 coins",
+    "cost": "4 Tokkul",
     "notes": "Members shop. Default stock: 5. Restock: 1m (100t). Cost increases as stock depletes."
   },
   {
@@ -36340,16 +36340,16 @@
     "sourceType": "Reward Shop",
     "sourceName": "Agility Arena Store",
     "location": "Brimhaven",
-    "cost": "3 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "3 Brimhaven vouchers",
+    "notes": "Members shop."
   },
   {
     "itemName": "Toadflax",
     "sourceType": "Reward Shop",
     "sourceName": "Brimhaven Agility Arena Ticket Exchange",
     "location": "Brimhaven",
-    "cost": "3 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "3 historical Agility arena tickets",
+    "notes": "Members shop."
   },
   {
     "itemName": "Toktz-ket-xil",
@@ -36789,7 +36789,7 @@
     "sourceName": "Forestry Shop",
     "location": "",
     "cost": "",
-    "notes": "Stock: unlimited."
+    "notes": "Stock: unlimited. Additional purchase costs apply; see the Wiki."
   },
   {
     "itemName": "Tyras helm",
@@ -36892,7 +36892,7 @@
     "sourceType": "Shop",
     "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
     "location": "Mor Ul Rek",
-    "cost": "300 coins",
+    "cost": "300 Tokkul",
     "notes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes."
   },
   {
@@ -36908,7 +36908,7 @@
     "sourceType": "Shop",
     "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
     "location": "Mor Ul Rek",
-    "cost": "1,500 coins",
+    "cost": "1,500 Tokkul",
     "notes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes."
   },
   {
@@ -36948,7 +36948,7 @@
     "sourceType": "Shop",
     "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
     "location": "Mor Ul Rek",
-    "cost": "75 coins",
+    "cost": "75 Tokkul",
     "notes": "Members shop. Default stock: 1. Restock: 1m (100t). Cost increases as stock depletes."
   },
   {
@@ -36972,7 +36972,7 @@
     "sourceType": "Shop",
     "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
     "location": "Mor Ul Rek",
-    "cost": "300,000 coins",
+    "cost": "300,000 Tokkul",
     "notes": "Members shop. Default stock: 1. Restock: 1m (100t). Cost increases as stock depletes."
   },
   {
@@ -37028,7 +37028,7 @@
     "sourceType": "Shop",
     "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
     "location": "Mor Ul Rek",
-    "cost": "150 coins",
+    "cost": "150 Tokkul",
     "notes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes."
   },
   {
@@ -37068,7 +37068,7 @@
     "sourceType": "Shop",
     "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
     "location": "Mor Ul Rek",
-    "cost": "37 coins",
+    "cost": "37 Tokkul",
     "notes": "Members shop. Default stock: 1. Restock: 1m (100t). Cost increases as stock depletes."
   },
   {

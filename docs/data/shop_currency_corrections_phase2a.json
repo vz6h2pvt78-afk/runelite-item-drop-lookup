@@ -1,0 +1,916 @@
+{
+  "startCommit": "6fd2943b36fa03f26fa24e40599f46aacd196f53",
+  "status": "Applied exact approved proposal",
+  "beforeSha256": "5cda64a471c04e1a65bafe806881b1ba8f1e7b9a70609e571861721df2a82389",
+  "afterSha256": "54527d8c892e844d0f281319fce1e88328e617c4fcb3511891456022e9ed565d",
+  "rows": 4988,
+  "changedRecords": 57,
+  "costEdits": 41,
+  "notesEdits": 31,
+  "sourcePages": [
+    {
+      "page": "Agility Arena Store",
+      "revisionId": 15318453,
+      "renderedRows": 6,
+      "sourceUrl": "https://oldschool.runescape.wiki/w/Agility_Arena_Store?oldid=15318453"
+    },
+    {
+      "page": "Betty's Magic Emporium",
+      "revisionId": 15271103,
+      "renderedRows": 18,
+      "sourceUrl": "https://oldschool.runescape.wiki/w/Betty's_Magic_Emporium?oldid=15271103"
+    },
+    {
+      "page": "Brimhaven Agility Arena Ticket Exchange",
+      "revisionId": 15297382,
+      "renderedRows": 4,
+      "sourceUrl": "https://oldschool.runescape.wiki/w/Brimhaven_Agility_Arena_Ticket_Exchange?oldid=15297382"
+    },
+    {
+      "page": "Forestry Shop",
+      "revisionId": 15374369,
+      "renderedRows": 21,
+      "sourceUrl": "https://oldschool.runescape.wiki/w/Forestry_Shop?oldid=15374369"
+    },
+    {
+      "page": "Prospector Percy's Nugget Shop",
+      "revisionId": 15318743,
+      "renderedRows": 8,
+      "sourceUrl": "https://oldschool.runescape.wiki/w/Prospector_Percy's_Nugget_Shop?oldid=15318743"
+    },
+    {
+      "page": "Slayer Rewards",
+      "revisionId": 15373095,
+      "renderedRows": 6,
+      "sourceUrl": "https://oldschool.runescape.wiki/w/Slayer_Rewards?oldid=15373095"
+    },
+    {
+      "page": "TzHaar-Hur-Lek's Ore and Gem Store",
+      "revisionId": 15361629,
+      "renderedRows": 32,
+      "sourceUrl": "https://oldschool.runescape.wiki/w/TzHaar-Hur-Lek's_Ore_and_Gem_Store?oldid=15361629"
+    }
+  ],
+  "changes": [
+    {
+      "sourceName": "Agility Arena Store",
+      "itemName": "Toadflax",
+      "sourceRevisionId": 15318453,
+      "fields": {
+        "cost": {
+          "before": "3 coins",
+          "after": "3 Brimhaven vouchers"
+        },
+        "notes": {
+          "before": "Members shop. Cost increases as stock depletes.",
+          "after": "Members shop."
+        }
+      },
+      "rowIndex": 4542,
+      "expectedCost": "3 coins",
+      "expectedNotes": "Members shop. Cost increases as stock depletes."
+    },
+    {
+      "sourceName": "Agility Arena Store",
+      "itemName": "Snapdragon",
+      "sourceRevisionId": 15318453,
+      "fields": {
+        "cost": {
+          "before": "10 coins",
+          "after": "10 Brimhaven vouchers"
+        },
+        "notes": {
+          "before": "Members shop. Cost increases as stock depletes.",
+          "after": "Members shop."
+        }
+      },
+      "rowIndex": 4003,
+      "expectedCost": "10 coins",
+      "expectedNotes": "Members shop. Cost increases as stock depletes."
+    },
+    {
+      "sourceName": "Agility Arena Store",
+      "itemName": "Graceful Recolour",
+      "sourceRevisionId": 15318453,
+      "fields": {
+        "cost": {
+          "before": "250 coins",
+          "after": "250 Brimhaven vouchers"
+        },
+        "notes": {
+          "before": "Members shop. Cost increases as stock depletes.",
+          "after": "Members shop."
+        }
+      },
+      "rowIndex": 1971,
+      "expectedCost": "250 coins",
+      "expectedNotes": "Members shop. Cost increases as stock depletes."
+    },
+    {
+      "sourceName": "Agility Arena Store",
+      "itemName": "Pirate's hook",
+      "sourceRevisionId": 15318453,
+      "fields": {
+        "cost": {
+          "before": "800 coins",
+          "after": "800 Brimhaven vouchers"
+        },
+        "notes": {
+          "before": "Members shop. Cost increases as stock depletes.",
+          "after": "Members shop."
+        }
+      },
+      "rowIndex": 3144,
+      "expectedCost": "800 coins",
+      "expectedNotes": "Members shop. Cost increases as stock depletes."
+    },
+    {
+      "sourceName": "Agility Arena Store",
+      "itemName": "Amylase pack",
+      "sourceRevisionId": 15318453,
+      "fields": {
+        "cost": {
+          "before": "60 coins",
+          "after": "60 Brimhaven vouchers"
+        },
+        "notes": {
+          "before": "Members shop. Cost increases as stock depletes.",
+          "after": "Members shop."
+        }
+      },
+      "rowIndex": 165,
+      "expectedCost": "60 coins",
+      "expectedNotes": "Members shop. Cost increases as stock depletes."
+    },
+    {
+      "sourceName": "Agility Arena Store",
+      "itemName": "Agility XP",
+      "sourceRevisionId": 15318453,
+      "fields": {
+        "cost": {
+          "before": "",
+          "after": "1 Agility arena ticket"
+        }
+      },
+      "rowIndex": 119,
+      "expectedCost": "",
+      "expectedNotes": "Members shop."
+    },
+    {
+      "sourceName": "Brimhaven Agility Arena Ticket Exchange",
+      "itemName": "Toadflax",
+      "sourceRevisionId": 15297382,
+      "fields": {
+        "cost": {
+          "before": "3 coins",
+          "after": "3 historical Agility arena tickets"
+        },
+        "notes": {
+          "before": "Members shop. Cost increases as stock depletes.",
+          "after": "Members shop."
+        }
+      },
+      "rowIndex": 4543,
+      "expectedCost": "3 coins",
+      "expectedNotes": "Members shop. Cost increases as stock depletes."
+    },
+    {
+      "sourceName": "Brimhaven Agility Arena Ticket Exchange",
+      "itemName": "Snapdragon",
+      "sourceRevisionId": 15297382,
+      "fields": {
+        "cost": {
+          "before": "10 coins",
+          "after": "10 historical Agility arena tickets"
+        },
+        "notes": {
+          "before": "Members shop. Cost increases as stock depletes.",
+          "after": "Members shop."
+        }
+      },
+      "rowIndex": 4004,
+      "expectedCost": "10 coins",
+      "expectedNotes": "Members shop. Cost increases as stock depletes."
+    },
+    {
+      "sourceName": "Brimhaven Agility Arena Ticket Exchange",
+      "itemName": "Graceful outfit recolour",
+      "sourceRevisionId": 15297382,
+      "fields": {
+        "cost": {
+          "before": "250 coins",
+          "after": "250 historical Agility arena tickets"
+        },
+        "notes": {
+          "before": "Members shop. Cost increases as stock depletes.",
+          "after": "Members shop."
+        }
+      },
+      "rowIndex": 1970,
+      "expectedCost": "250 coins",
+      "expectedNotes": "Members shop. Cost increases as stock depletes."
+    },
+    {
+      "sourceName": "Brimhaven Agility Arena Ticket Exchange",
+      "itemName": "Pirate's hook",
+      "sourceRevisionId": 15297382,
+      "fields": {
+        "cost": {
+          "before": "800 coins",
+          "after": "800 historical Agility arena tickets"
+        },
+        "notes": {
+          "before": "Members shop. Cost increases as stock depletes.",
+          "after": "Members shop."
+        }
+      },
+      "rowIndex": 3145,
+      "expectedCost": "800 coins",
+      "expectedNotes": "Members shop. Cost increases as stock depletes."
+    },
+    {
+      "sourceName": "Forestry Shop",
+      "itemName": "Forestry kit",
+      "sourceRevisionId": 15374369,
+      "fields": {
+        "cost": {
+          "before": "",
+          "after": "Free"
+        }
+      },
+      "rowIndex": 1828,
+      "expectedCost": "",
+      "expectedNotes": "Stock: unlimited."
+    },
+    {
+      "sourceName": "Forestry Shop",
+      "itemName": "Secateurs blade",
+      "sourceRevisionId": 15374369,
+      "fields": {
+        "notes": {
+          "before": "Stock: unlimited.",
+          "after": "Stock: unlimited. Additional purchase costs apply; see the Wiki."
+        }
+      },
+      "rowIndex": 3853,
+      "expectedCost": "",
+      "expectedNotes": "Stock: unlimited."
+    },
+    {
+      "sourceName": "Forestry Shop",
+      "itemName": "Ritual mulch",
+      "sourceRevisionId": 15374369,
+      "fields": {
+        "notes": {
+          "before": "Stock: unlimited.",
+          "after": "Stock: unlimited. Additional purchase costs apply; see the Wiki."
+        }
+      },
+      "rowIndex": 3625,
+      "expectedCost": "",
+      "expectedNotes": "Stock: unlimited."
+    },
+    {
+      "sourceName": "Forestry Shop",
+      "itemName": "Log brace",
+      "sourceRevisionId": 15374369,
+      "fields": {
+        "notes": {
+          "before": "Stock: unlimited.",
+          "after": "Stock: unlimited. Additional purchase costs apply; see the Wiki."
+        }
+      },
+      "rowIndex": 2602,
+      "expectedCost": "",
+      "expectedNotes": "Stock: unlimited."
+    },
+    {
+      "sourceName": "Forestry Shop",
+      "itemName": "Clothes pouch blueprint",
+      "sourceRevisionId": 15374369,
+      "fields": {
+        "notes": {
+          "before": "Stock: unlimited.",
+          "after": "Stock: unlimited. Additional purchase costs apply; see the Wiki."
+        }
+      },
+      "rowIndex": 1142,
+      "expectedCost": "",
+      "expectedNotes": "Stock: unlimited."
+    },
+    {
+      "sourceName": "Forestry Shop",
+      "itemName": "Cape pouch",
+      "sourceRevisionId": 15374369,
+      "fields": {
+        "cost": {
+          "before": "",
+          "after": "2,500 Anima-infused bark"
+        }
+      },
+      "rowIndex": 970,
+      "expectedCost": "",
+      "expectedNotes": "Stock: unlimited."
+    },
+    {
+      "sourceName": "Forestry Shop",
+      "itemName": "Log basket",
+      "sourceRevisionId": 15374369,
+      "fields": {
+        "notes": {
+          "before": "Stock: unlimited.",
+          "after": "Stock: unlimited. Additional purchase costs apply; see the Wiki."
+        }
+      },
+      "rowIndex": 2601,
+      "expectedCost": "",
+      "expectedNotes": "Stock: unlimited."
+    },
+    {
+      "sourceName": "Forestry Shop",
+      "itemName": "Felling axe handle",
+      "sourceRevisionId": 15374369,
+      "fields": {
+        "notes": {
+          "before": "Stock: unlimited.",
+          "after": "Stock: unlimited. Additional purchase costs apply; see the Wiki."
+        }
+      },
+      "rowIndex": 1720,
+      "expectedCost": "",
+      "expectedNotes": "Stock: unlimited."
+    },
+    {
+      "sourceName": "Forestry Shop",
+      "itemName": "Twitcher's gloves",
+      "sourceRevisionId": 15374369,
+      "fields": {
+        "notes": {
+          "before": "Stock: unlimited.",
+          "after": "Stock: unlimited. Additional purchase costs apply; see the Wiki."
+        }
+      },
+      "rowIndex": 4598,
+      "expectedCost": "",
+      "expectedNotes": "Stock: unlimited."
+    },
+    {
+      "sourceName": "Forestry Shop",
+      "itemName": "Funky shaped log",
+      "sourceRevisionId": 15374369,
+      "fields": {
+        "notes": {
+          "before": "Stock: unlimited.",
+          "after": "Stock: unlimited. Additional purchase costs apply; see the Wiki."
+        }
+      },
+      "rowIndex": 1874,
+      "expectedCost": "",
+      "expectedNotes": "Stock: unlimited."
+    },
+    {
+      "sourceName": "Forestry Shop",
+      "itemName": "Sawmill voucher (x10)",
+      "sourceRevisionId": 15374369,
+      "fields": {
+        "cost": {
+          "before": "",
+          "after": "150 Anima-infused bark"
+        }
+      },
+      "rowIndex": 3834,
+      "expectedCost": "",
+      "expectedNotes": "Stock: unlimited."
+    },
+    {
+      "sourceName": "Forestry Shop",
+      "itemName": "Lumberjack boots",
+      "sourceRevisionId": 15374369,
+      "fields": {
+        "notes": {
+          "before": "Stock: unlimited.",
+          "after": "Stock: unlimited. Additional purchase costs apply; see the Wiki."
+        }
+      },
+      "rowIndex": 2618,
+      "expectedCost": "",
+      "expectedNotes": "Stock: unlimited."
+    },
+    {
+      "sourceName": "Forestry Shop",
+      "itemName": "Lumberjack hat",
+      "sourceRevisionId": 15374369,
+      "fields": {
+        "notes": {
+          "before": "Stock: unlimited.",
+          "after": "Stock: unlimited. Additional purchase costs apply; see the Wiki."
+        }
+      },
+      "rowIndex": 2619,
+      "expectedCost": "",
+      "expectedNotes": "Stock: unlimited."
+    },
+    {
+      "sourceName": "Forestry Shop",
+      "itemName": "Lumberjack legs",
+      "sourceRevisionId": 15374369,
+      "fields": {
+        "notes": {
+          "before": "Stock: unlimited.",
+          "after": "Stock: unlimited. Additional purchase costs apply; see the Wiki."
+        }
+      },
+      "rowIndex": 2620,
+      "expectedCost": "",
+      "expectedNotes": "Stock: unlimited."
+    },
+    {
+      "sourceName": "Forestry Shop",
+      "itemName": "Lumberjack top",
+      "sourceRevisionId": 15374369,
+      "fields": {
+        "notes": {
+          "before": "Stock: unlimited.",
+          "after": "Stock: unlimited. Additional purchase costs apply; see the Wiki."
+        }
+      },
+      "rowIndex": 2621,
+      "expectedCost": "",
+      "expectedNotes": "Stock: unlimited."
+    },
+    {
+      "sourceName": "Forestry Shop",
+      "itemName": "Forestry boots",
+      "sourceRevisionId": 15374369,
+      "fields": {
+        "notes": {
+          "before": "Stock: unlimited.",
+          "after": "Stock: unlimited. Additional purchase costs apply; see the Wiki."
+        }
+      },
+      "rowIndex": 1826,
+      "expectedCost": "",
+      "expectedNotes": "Stock: unlimited."
+    },
+    {
+      "sourceName": "Forestry Shop",
+      "itemName": "Forestry hat",
+      "sourceRevisionId": 15374369,
+      "fields": {
+        "notes": {
+          "before": "Stock: unlimited.",
+          "after": "Stock: unlimited. Additional purchase costs apply; see the Wiki."
+        }
+      },
+      "rowIndex": 1827,
+      "expectedCost": "",
+      "expectedNotes": "Stock: unlimited."
+    },
+    {
+      "sourceName": "Forestry Shop",
+      "itemName": "Forestry legs",
+      "sourceRevisionId": 15374369,
+      "fields": {
+        "notes": {
+          "before": "Stock: unlimited.",
+          "after": "Stock: unlimited. Additional purchase costs apply; see the Wiki."
+        }
+      },
+      "rowIndex": 1829,
+      "expectedCost": "",
+      "expectedNotes": "Stock: unlimited."
+    },
+    {
+      "sourceName": "Forestry Shop",
+      "itemName": "Forestry top",
+      "sourceRevisionId": 15374369,
+      "fields": {
+        "notes": {
+          "before": "Stock: unlimited.",
+          "after": "Stock: unlimited. Additional purchase costs apply; see the Wiki."
+        }
+      },
+      "rowIndex": 1830,
+      "expectedCost": "",
+      "expectedNotes": "Stock: unlimited."
+    },
+    {
+      "sourceName": "Forestry Shop",
+      "itemName": "Golden pheasant egg",
+      "sourceRevisionId": 15374369,
+      "fields": {
+        "cost": {
+          "before": "",
+          "after": "75,000 Anima-infused bark"
+        }
+      },
+      "rowIndex": 1953,
+      "expectedCost": "",
+      "expectedNotes": "Stock: unlimited."
+    },
+    {
+      "sourceName": "Forestry Shop",
+      "itemName": "Fox whistle",
+      "sourceRevisionId": 15374369,
+      "fields": {
+        "cost": {
+          "before": "",
+          "after": "75,000 Anima-infused bark"
+        }
+      },
+      "rowIndex": 1835,
+      "expectedCost": "",
+      "expectedNotes": "Stock: unlimited."
+    },
+    {
+      "sourceName": "Prospector Percy's Nugget Shop",
+      "itemName": "Coal bag",
+      "sourceRevisionId": 15318743,
+      "fields": {
+        "cost": {
+          "before": "",
+          "after": "100 golden nuggets"
+        }
+      },
+      "rowIndex": 1154,
+      "expectedCost": "",
+      "expectedNotes": "Members shop. Default stock: 1. Restock: 0.6s (1t)."
+    },
+    {
+      "sourceName": "Prospector Percy's Nugget Shop",
+      "itemName": "Gem bag",
+      "sourceRevisionId": 15318743,
+      "fields": {
+        "cost": {
+          "before": "",
+          "after": "100 golden nuggets"
+        }
+      },
+      "rowIndex": 1899,
+      "expectedCost": "",
+      "expectedNotes": "Members shop. Default stock: 1. Restock: 0.6s (1t)."
+    },
+    {
+      "sourceName": "Prospector Percy's Nugget Shop",
+      "itemName": "Soft clay pack",
+      "sourceRevisionId": 15318743,
+      "fields": {
+        "cost": {
+          "before": "",
+          "after": "10 golden nuggets"
+        }
+      },
+      "rowIndex": 4009,
+      "expectedCost": "",
+      "expectedNotes": "Members shop. Default stock: 1000. Restock: 0.6s (1t)."
+    },
+    {
+      "sourceName": "Prospector Percy's Nugget Shop",
+      "itemName": "Bag full of gems",
+      "sourceRevisionId": 15318743,
+      "fields": {
+        "cost": {
+          "before": "",
+          "after": "40 golden nuggets"
+        }
+      },
+      "rowIndex": 205,
+      "expectedCost": "",
+      "expectedNotes": "Members shop. Default stock: 100. Restock: 0.6s (1t)."
+    },
+    {
+      "sourceName": "Slayer Rewards",
+      "itemName": "Slayer ring (8)",
+      "sourceRevisionId": 15373095,
+      "fields": {
+        "cost": {
+          "before": "75 coins",
+          "after": "75 Slayer points"
+        },
+        "notes": {
+          "before": "Members shop. Cost increases as stock depletes.",
+          "after": "Members shop."
+        }
+      },
+      "rowIndex": 3980,
+      "expectedCost": "75 coins",
+      "expectedNotes": "Members shop. Cost increases as stock depletes."
+    },
+    {
+      "sourceName": "Slayer Rewards",
+      "itemName": "Broad bolts (x250)",
+      "sourceRevisionId": 15373095,
+      "fields": {
+        "cost": {
+          "before": "35 coins",
+          "after": "35 Slayer points"
+        },
+        "notes": {
+          "before": "Members shop. Cost increases as stock depletes.",
+          "after": "Members shop."
+        }
+      },
+      "rowIndex": 632,
+      "expectedCost": "35 coins",
+      "expectedNotes": "Members shop. Cost increases as stock depletes."
+    },
+    {
+      "sourceName": "Slayer Rewards",
+      "itemName": "Broad arrows (x250)",
+      "sourceRevisionId": 15373095,
+      "fields": {
+        "cost": {
+          "before": "35 coins",
+          "after": "35 Slayer points"
+        },
+        "notes": {
+          "before": "Members shop. Cost increases as stock depletes.",
+          "after": "Members shop."
+        }
+      },
+      "rowIndex": 631,
+      "expectedCost": "35 coins",
+      "expectedNotes": "Members shop. Cost increases as stock depletes."
+    },
+    {
+      "sourceName": "Slayer Rewards",
+      "itemName": "Herb sack",
+      "sourceRevisionId": 15373095,
+      "fields": {
+        "cost": {
+          "before": "750 coins",
+          "after": "750 Slayer points"
+        },
+        "notes": {
+          "before": "Members shop. Cost increases as stock depletes.",
+          "after": "Members shop."
+        }
+      },
+      "rowIndex": 2149,
+      "expectedCost": "750 coins",
+      "expectedNotes": "Members shop. Cost increases as stock depletes."
+    },
+    {
+      "sourceName": "Slayer Rewards",
+      "itemName": "Rune pouch",
+      "sourceRevisionId": 15373095,
+      "fields": {
+        "cost": {
+          "before": "750 coins",
+          "after": "750 Slayer points"
+        },
+        "notes": {
+          "before": "Members shop. Cost increases as stock depletes.",
+          "after": "Members shop."
+        }
+      },
+      "rowIndex": 3763,
+      "expectedCost": "750 coins",
+      "expectedNotes": "Members shop. Cost increases as stock depletes."
+    },
+    {
+      "sourceName": "Slayer Rewards",
+      "itemName": "Looting bag",
+      "sourceRevisionId": 15373095,
+      "fields": {
+        "cost": {
+          "before": "10 coins",
+          "after": "10 Slayer points"
+        },
+        "notes": {
+          "before": "Members shop. Cost increases as stock depletes.",
+          "after": "Members shop."
+        }
+      },
+      "rowIndex": 2613,
+      "expectedCost": "10 coins",
+      "expectedNotes": "Members shop. Cost increases as stock depletes."
+    },
+    {
+      "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+      "itemName": "Tin ore",
+      "sourceRevisionId": 15361629,
+      "fields": {
+        "cost": {
+          "before": "4 coins",
+          "after": "4 Tokkul"
+        }
+      },
+      "rowIndex": 4472,
+      "expectedCost": "4 coins",
+      "expectedNotes": "Members shop. Default stock: 5. Restock: 1m (100t). Cost increases as stock depletes."
+    },
+    {
+      "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+      "itemName": "Copper ore",
+      "sourceRevisionId": 15361629,
+      "fields": {
+        "cost": {
+          "before": "4 coins",
+          "after": "4 Tokkul"
+        }
+      },
+      "rowIndex": 1232,
+      "expectedCost": "4 coins",
+      "expectedNotes": "Members shop. Default stock: 5. Restock: 1m (100t). Cost increases as stock depletes."
+    },
+    {
+      "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+      "itemName": "Iron ore",
+      "sourceRevisionId": 15361629,
+      "fields": {
+        "cost": {
+          "before": "25 coins",
+          "after": "25 Tokkul"
+        }
+      },
+      "rowIndex": 2273,
+      "expectedCost": "25 coins",
+      "expectedNotes": "Members shop. Default stock: 2. Restock: 1m (100t). Cost increases as stock depletes."
+    },
+    {
+      "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+      "itemName": "Silver ore",
+      "sourceRevisionId": 15361629,
+      "fields": {
+        "cost": {
+          "before": "112 coins",
+          "after": "112 Tokkul"
+        }
+      },
+      "rowIndex": 3965,
+      "expectedCost": "112 coins",
+      "expectedNotes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes."
+    },
+    {
+      "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+      "itemName": "Coal",
+      "sourceRevisionId": 15361629,
+      "fields": {
+        "cost": {
+          "before": "67 coins",
+          "after": "67 Tokkul"
+        }
+      },
+      "rowIndex": 1152,
+      "expectedCost": "67 coins",
+      "expectedNotes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes."
+    },
+    {
+      "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+      "itemName": "Gold ore",
+      "sourceRevisionId": 15361629,
+      "fields": {
+        "cost": {
+          "before": "225 coins",
+          "after": "225 Tokkul"
+        }
+      },
+      "rowIndex": 1947,
+      "expectedCost": "225 coins",
+      "expectedNotes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes."
+    },
+    {
+      "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+      "itemName": "Mithril ore",
+      "sourceRevisionId": 15361629,
+      "fields": {
+        "cost": {
+          "before": "243 coins",
+          "after": "243 Tokkul"
+        }
+      },
+      "rowIndex": 2836,
+      "expectedCost": "243 coins",
+      "expectedNotes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes."
+    },
+    {
+      "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+      "itemName": "Adamantite ore",
+      "sourceRevisionId": 15361629,
+      "fields": {
+        "cost": {
+          "before": "600 coins",
+          "after": "600 Tokkul"
+        }
+      },
+      "rowIndex": 116,
+      "expectedCost": "600 coins",
+      "expectedNotes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes."
+    },
+    {
+      "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+      "itemName": "Runite ore",
+      "sourceRevisionId": 15361629,
+      "fields": {
+        "cost": {
+          "before": "4,800 coins",
+          "after": "4,800 Tokkul"
+        }
+      },
+      "rowIndex": 3783,
+      "expectedCost": "4,800 coins",
+      "expectedNotes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes."
+    },
+    {
+      "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+      "itemName": "Uncut sapphire",
+      "sourceRevisionId": 15361629,
+      "fields": {
+        "cost": {
+          "before": "37 coins",
+          "after": "37 Tokkul"
+        }
+      },
+      "rowIndex": 4633,
+      "expectedCost": "37 coins",
+      "expectedNotes": "Members shop. Default stock: 1. Restock: 1m (100t). Cost increases as stock depletes."
+    },
+    {
+      "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+      "itemName": "Uncut emerald",
+      "sourceRevisionId": 15361629,
+      "fields": {
+        "cost": {
+          "before": "75 coins",
+          "after": "75 Tokkul"
+        }
+      },
+      "rowIndex": 4618,
+      "expectedCost": "75 coins",
+      "expectedNotes": "Members shop. Default stock: 1. Restock: 1m (100t). Cost increases as stock depletes."
+    },
+    {
+      "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+      "itemName": "Uncut ruby",
+      "sourceRevisionId": 15361629,
+      "fields": {
+        "cost": {
+          "before": "150 coins",
+          "after": "150 Tokkul"
+        }
+      },
+      "rowIndex": 4628,
+      "expectedCost": "150 coins",
+      "expectedNotes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes."
+    },
+    {
+      "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+      "itemName": "Uncut diamond",
+      "sourceRevisionId": 15361629,
+      "fields": {
+        "cost": {
+          "before": "300 coins",
+          "after": "300 Tokkul"
+        }
+      },
+      "rowIndex": 4611,
+      "expectedCost": "300 coins",
+      "expectedNotes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes."
+    },
+    {
+      "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+      "itemName": "Uncut dragonstone",
+      "sourceRevisionId": 15361629,
+      "fields": {
+        "cost": {
+          "before": "1,500 coins",
+          "after": "1,500 Tokkul"
+        }
+      },
+      "rowIndex": 4613,
+      "expectedCost": "1,500 coins",
+      "expectedNotes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes."
+    },
+    {
+      "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+      "itemName": "Uncut onyx",
+      "sourceRevisionId": 15361629,
+      "fields": {
+        "cost": {
+          "before": "300,000 coins",
+          "after": "300,000 Tokkul"
+        }
+      },
+      "rowIndex": 4621,
+      "expectedCost": "300,000 coins",
+      "expectedNotes": "Members shop. Default stock: 1. Restock: 1m (100t). Cost increases as stock depletes."
+    },
+    {
+      "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+      "itemName": "Onyx bolt tips",
+      "sourceRevisionId": 15361629,
+      "fields": {
+        "cost": {
+          "before": "1,500 coins",
+          "after": "1,500 Tokkul"
+        }
+      },
+      "rowIndex": 3042,
+      "expectedCost": "1,500 coins",
+      "expectedNotes": "Members shop. Default stock: 50. Restock: 1m (100t). Cost increases as stock depletes."
+    }
+  ],
+  "heldConditionalRows": 16,
+  "unknownCompleteForestryPrices": 16
+}
