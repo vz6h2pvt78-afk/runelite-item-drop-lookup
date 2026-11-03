@@ -102,3 +102,12 @@ and game facts remain subject to applicable third-party rights. This project
 does not claim ownership of them and is not affiliated with Jagex, RuneLite,
 Weird Gloop or the OSRS Wiki. No external art, screenshots, fonts or sound assets
 are shipped in the plugin; its toolbar icon is drawn by the plugin.
+
+## Gathering evidence
+
+The reviewed Iron ore gathering projection uses OSRS Wiki contributors' Iron ore,
+Iron rocks and South-west Varrock mine pages (revisions 15182636, 15372456, 15127886).
+Logs revision 15322883 is a negative generator fixture. These adapted texts/data
+are CC BY-NC-SA 3.0; see https://oldschool.runescape.wiki/w/RuneScape:Copyrights.
+Permanent links and exact revision evidence are retained in
+`docs/data/gathering_sources.json` and `tools/fixtures/gathering_sources.json`.

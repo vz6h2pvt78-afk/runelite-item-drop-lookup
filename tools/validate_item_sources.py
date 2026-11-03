@@ -26,6 +26,7 @@ RESOURCES = PROJECT_ROOT / "src" / "main" / "resources"
 CURATED_FILE = RESOURCES / "item_sources.json"
 GENERATED_FILE = RESOURCES / "wiki_shop_sources.json"
 GROUND_FILE = RESOURCES / "wiki_ground_sources.json"
+GATHERING_FILE = RESOURCES / "wiki_gathering_sources.json"
 
 ALLOWED_SOURCE_TYPES = {
     "Shop",
@@ -36,6 +37,7 @@ ALLOWED_SOURCE_TYPES = {
     "Quest",
     "Spawn",
     "Ground pickup",
+    "Gathering",
     "Reward Chest",
     "Other",
 }
@@ -156,7 +158,8 @@ def validate_file(path: Path):
 
         missing = EXPECTED_KEYS - set(record.keys())
         ground_keys = {"id", "itemId", "membersOnly", "spawnPointCount", "pickupQuantity"} if path == GROUND_FILE else set()
-        extra = set(record.keys()) - EXPECTED_KEYS - ground_keys
+        gathering_keys = {"id", "itemId"} if path == GATHERING_FILE else set()
+        extra = set(record.keys()) - EXPECTED_KEYS - ground_keys - gathering_keys
         if missing:
             errors.append(f"{where}: missing keys {sorted(missing)}")
         if extra:
@@ -220,7 +223,7 @@ def main() -> None:
     total_errors = 0
     total_warnings = 0
 
-    for path in (CURATED_FILE, GENERATED_FILE, GROUND_FILE):
+    for path in (CURATED_FILE, GENERATED_FILE, GROUND_FILE, GATHERING_FILE):
         if path is GENERATED_FILE and not path.exists():
             print(f"\n=== {path.name} ===")
             print("  [skip] generated file not present (run tools/build_shop_sources.py first)")

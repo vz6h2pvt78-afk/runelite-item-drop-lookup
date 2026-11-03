@@ -1,0 +1,114 @@
+{
+  "baseCommit": "c771dfdae69b30ae410c21dbd2caae19ecf86f91",
+  "records": [
+    {
+      "id": "54625a4632aef4d30369",
+      "itemId": 440,
+      "itemName": "Iron ore",
+      "sourceType": "Gathering",
+      "sourceName": "Mine iron rocks",
+      "location": "South-west Varrock mine",
+      "cost": "",
+      "notes": "Mining level 15 · Pickaxe required\n3 iron rocks · F2P\nCaution: aggressive mugger nearby."
+    }
+  ],
+  "method": {
+    "outputItemId": 440,
+    "kind": "GATHERING",
+    "skill": "Mining",
+    "resourcePage": "Iron rocks",
+    "interactionVariant": "Standard",
+    "methodId": "a176f47a6a9bbd883e7e",
+    "actionLabel": "Mine iron rocks",
+    "output": {
+      "itemId": 440,
+      "itemName": "Iron ore",
+      "quantity": null,
+      "quantityBasis": "not asserted"
+    },
+    "skills": [
+      {
+        "skill": "Mining",
+        "level": 15,
+        "boostable": null
+      }
+    ],
+    "tools": [
+      {
+        "kind": "CATEGORY",
+        "name": "Pickaxe",
+        "itemId": null
+      }
+    ],
+    "membersOnly": null,
+    "accessCoverage": "incomplete",
+    "verifiedConditions": []
+  },
+  "occurrence": {
+    "methodId": "a176f47a6a9bbd883e7e",
+    "location": "South-west Varrock mine",
+    "coordinates": [
+      {
+        "x": 3181,
+        "y": 3373
+      },
+      {
+        "x": 3175,
+        "y": 3368
+      },
+      {
+        "x": 3175,
+        "y": 3366
+      }
+    ],
+    "plane": null,
+    "rawMapId": "-1",
+    "occurrenceId": "54625a4632aef4d30369",
+    "membersOnly": false,
+    "resourceCount": 3,
+    "resourceCountBasis": "Wiki points corroborated by mine page",
+    "accessCoverage": "incomplete",
+    "verifiedConditions": [],
+    "contextNotes": [
+      {
+        "kind": "HAZARD",
+        "text": "Caution: aggressive mugger nearby.",
+        "eligibilityGate": false
+      }
+    ]
+  },
+  "provenance": [
+    {
+      "title": "Iron ore",
+      "revisionId": 15182636,
+      "sourceUrl": "https://oldschool.runescape.wiki/w/Iron_ore",
+      "historyUrl": "https://oldschool.runescape.wiki/w/Special:PermanentLink/15182636",
+      "rawSnapshotSha256": "2992380f03db26da28145bb0c762eb364b3e23db4f53bfc1fefd859d038a4aa4",
+      "wikitextSha256": "f1a01dc0e7d8e62bdf67f6628f4cdbc8222074c6d8713ce3392307b209dab608"
+    },
+    {
+      "title": "Iron rocks",
+      "revisionId": 15372456,
+      "sourceUrl": "https://oldschool.runescape.wiki/w/Iron_rocks",
+      "historyUrl": "https://oldschool.runescape.wiki/w/Special:PermanentLink/15372456",
+      "rawSnapshotSha256": "d045dfb831d9d52ced1e96843aeba1b4a6f30acdaf9290a7c994cf799be9795b",
+      "wikitextSha256": "131e0d6fd1dad720c5bd2986af155523394e407458f16ab7cf5e3e41ec78052e"
+    },
+    {
+      "title": "South-west Varrock mine",
+      "revisionId": 15127886,
+      "sourceUrl": "https://oldschool.runescape.wiki/w/South-west_Varrock_mine",
+      "historyUrl": "https://oldschool.runescape.wiki/w/Special:PermanentLink/15127886",
+      "rawSnapshotSha256": "de3a8d942a9c691f095003952a285b9e76723eaf9b1dbe1099496df8c4f7df79",
+      "wikitextSha256": "e98861891403569216ec4745774806796740ab9763a2807a5cbb953fc44d99ab"
+    }
+  ],
+  "rawSkillTemplate": "{{Mining info\n|name = Iron rocks\n|level = 15\n|xp = 35\n|rock = [[Iron rocks]]\n|tool = [[Pickaxe]]\n|time = 5.4 seconds\n}}",
+  "rawLocationTemplate": "{{ObjectLocLine\n|name = Iron rocks\n|location = [[South-west Varrock mine]]\n|members = No\n|mapID = -1\n|x:3181,y:3373|x:3175,y:3368|x:3175,y:3366\n|mtype = pin\n|leagueRegion = Misthalin\n}}",
+  "limitations": [
+    "One item, method and named mine only; other locations exist.",
+    "Access requirements not fully checked; no account eligibility inference.",
+    "No output quantity, rates, timers, ranking, navigation or ingredient expansion.",
+    "Logs fixture is a negative acquisition-direction test, not generated coverage."
+  ]
+}

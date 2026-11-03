@@ -15,6 +15,7 @@ the validator (`tools/validate_item_sources.py`) can enforce it.
 | `Quest` | Quest reward. | One-off quest item rewards |
 | `Spawn` | Spawns on the ground / respawns at a fixed location. | Item spawns |
 | `Ground pickup` | Reviewed ordinary ground item; excludes scenery interactions. | Twelve verified rows in `wiki_ground_sources.json` |
+| `Gathering` | Direct resource interaction yielding an item; distinct from ingredient-based production and NPC combat. | Iron ore at South-west Varrock mine |
 | `Reward Chest` | Boss or raid reward chest. Catalogued **without drop rates** for now. | Barrows chest, raid loot chests |
 | `Other` | Anything not yet classified. Use sparingly. | — |
 
@@ -29,8 +30,15 @@ the validator (`tools/validate_item_sources.py`) can enforce it.
   cover verified cases; unverified numeric coin claims in Reward Shop cards are
   withheld. Do not infer currency from the presence of a GE price column.
 - **notes** — caveats only: stock/restock, members requirement, uncertainty. Blank if none.
+  The reviewed Gathering projection also derives separate skill/tool, resource-count,
+  and caution lines from its structured manifest; these are not manually edited.
 
 ## Current state (informational)
+
+- `wiki_gathering_sources.json` adds exactly one reviewed Mining method and location.
+  Its action label and requirement lines are generated from structured evidence in
+  `docs/data/gathering_sources.json`. See `docs/gathering.md`. The older `Skilling`
+  vocabulary remains reserved; no existing records are reclassified.
 
 - `wiki_ground_sources.json` is a separate twelve-row generated slice. `Ground pickup`
   is its runtime type; the older reserved `Spawn` type is not used by this slice.

@@ -2218,3 +2218,6 @@ https://oldschool.runescape.wiki/w/Knife
 https://oldschool.runescape.wiki/w/Bucket
 https://oldschool.runescape.wiki/w/Snape_grass
 https://oldschool.runescape.wiki/w/Red_spiders%27_eggs
+https://oldschool.runescape.wiki/w/Iron_ore
+https://oldschool.runescape.wiki/w/Iron_rocks
+https://oldschool.runescape.wiki/w/South-west_Varrock_mine

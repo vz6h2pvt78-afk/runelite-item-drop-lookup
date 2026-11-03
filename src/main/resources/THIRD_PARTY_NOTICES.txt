@@ -122,3 +122,10 @@ and game facts remain subject to applicable third-party rights. This project
 does not claim ownership of them and is not affiliated with Jagex, RuneLite,
 Weird Gloop or the OSRS Wiki. No external art, screenshots, fonts or sound assets
 are shipped in the plugin; its toolbar icon is drawn by the plugin.
+Gathering evidence: OSRS Wiki contributors, CC BY-NC-SA 3.0.
+Iron ore revision 15182636; Iron rocks 15372456; South-west Varrock mine 15127886.
+Derived action, requirement, resource count and hazard descriptions.
+https://oldschool.runescape.wiki/w/Special:PermanentLink/15182636
+https://oldschool.runescape.wiki/w/Special:PermanentLink/15372456
+https://oldschool.runescape.wiki/w/Special:PermanentLink/15127886
+https://oldschool.runescape.wiki/w/RuneScape:Copyrights

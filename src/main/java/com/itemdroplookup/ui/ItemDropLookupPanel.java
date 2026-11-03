@@ -55,12 +55,14 @@ public class ItemDropLookupPanel extends PluginPanel
     private static final String FILTER_SHOPS = "Shops";
     private static final String FILTER_REWARD_SHOPS = "Reward Shops";
     private static final String FILTER_GROUND = "Ground pickups";
+    private static final String FILTER_GATHERING = "Gathering";
 
     // Exact sourceType values matched by the Shops / Reward Shops filters. These
     // must match the data verbatim — no fuzzy matching.
     private static final String SOURCE_TYPE_SHOP = "Shop";
     private static final String SOURCE_TYPE_REWARD_SHOP = "Reward Shop";
     private static final String SOURCE_TYPE_GROUND = "Ground pickup";
+    private static final String SOURCE_TYPE_GATHERING = "Gathering";
 
     // Swing HTML labels need an explicit pixel width to wrap, and that width also gives
     // a deterministic preferred height inside BoxLayout (unlike a JTextArea, whose wrap
@@ -108,7 +110,8 @@ public class ItemDropLookupPanel extends PluginPanel
             FILTER_SOURCES,
             FILTER_SHOPS,
             FILTER_REWARD_SHOPS,
-            FILTER_GROUND
+            FILTER_GROUND,
+            FILTER_GATHERING
     });
     private final JCheckBox showPriceCheckbox = new JCheckBox("Show GE price", true);
     private final JPanel resultsPanel = new JPanel();
@@ -211,7 +214,7 @@ public class ItemDropLookupPanel extends PluginPanel
         resultsScroll.getVerticalScrollBar().setUnitIncrement(24);
         searchView.add(resultsScroll, BorderLayout.CENTER);
         add(searchView, BorderLayout.CENTER);
-        resultsPanel.add(makeLabel("Search an item to find drops, shops, rewards and ground pickups."));
+        resultsPanel.add(makeLabel("Search an item to find drops, shops, rewards, pickups and gathering methods."));
     }
 
     @Override
@@ -304,12 +307,17 @@ public class ItemDropLookupPanel extends PluginPanel
             {
                 sources = filterBySourceType(sources, SOURCE_TYPE_GROUND);
             }
+            else if (FILTER_GATHERING.equals(selectedFilter))
+            {
+                sources = filterBySourceType(sources, SOURCE_TYPE_GATHERING);
+            }
             List<ItemSource> displaySources = showSources ? sources.stream()
                     .filter(source -> contains(source.getSourceName(), sourceQuery) || contains(source.getLocation(), sourceQuery)
                             || contains(source.getPackName(), sourceQuery))
                     .collect(Collectors.toList()) : Collections.emptyList();
             boolean hasPacks = displaySources.stream().anyMatch(source -> source.getPackQuantity() > 0);
             long groundCount = displaySources.stream().filter(source -> SOURCE_TYPE_GROUND.equals(source.getSourceType())).count();
+            long gatheringCount = displaySources.stream().filter(source -> SOURCE_TYPE_GATHERING.equals(source.getSourceType())).count();
             if (hasPacks)
             {
                 // Keep a shop's loose and packaged purchase options next to each other.
@@ -366,6 +374,20 @@ public class ItemDropLookupPanel extends PluginPanel
                 groundSources.addActionListener(e -> filterDropdown.setSelectedItem(FILTER_GROUND));
                 resultsPanel.add(groundSources);
             }
+            if (gatheringCount > 0 || FILTER_GATHERING.equals(selectedFilter))
+            {
+                JLabel coverage = makeSummaryLabel("Gathering: limited location coverage. Access requirements not fully checked.");
+                coverage.setName("gatheringCoverage");
+                resultsPanel.add(coverage);
+            }
+            if (gatheringCount > 0 && !FILTER_GATHERING.equals(selectedFilter))
+            {
+                JButton gatheringSources = new JButton("View gathering (" + gatheringCount + ")");
+                gatheringSources.setName("showGatheringSources");
+                gatheringSources.setAlignmentX(Component.LEFT_ALIGNMENT);
+                gatheringSources.addActionListener(e -> filterDropdown.setSelectedItem(FILTER_GATHERING));
+                resultsPanel.add(gatheringSources);
+            }
             if (!dropResults.isEmpty() && !displaySources.isEmpty())
             {
                 boolean shopsOnly = displaySources.stream().allMatch(source -> SOURCE_TYPE_SHOP.equals(source.getSourceType()));
@@ -402,6 +424,13 @@ public class ItemDropLookupPanel extends PluginPanel
                         emptyMessage = hasGroundData ? "No verified ground pickups match these filters."
                                 : "No verified ground pickups in the current data.";
                     }
+                    else if (FILTER_GATHERING.equals(selectedFilter))
+                    {
+                        boolean hasGatheringData = matchingSources.stream()
+                                .anyMatch(source -> SOURCE_TYPE_GATHERING.equals(source.getSourceType()));
+                        emptyMessage = hasGatheringData ? "No verified gathering methods match these filters."
+                                : "No verified gathering methods in the current data.";
+                    }
                     resultsPanel.add(makeNoResultHeader(emptyMessage));
                     resultsPanel.add(makeLabel("This item has other sources in the local data."));
                     JButton reset = new JButton("Show all sources");
@@ -420,9 +449,11 @@ public class ItemDropLookupPanel extends PluginPanel
                 else
                 {
                     resultsPanel.add(makeNoResultHeader(FILTER_GROUND.equals(selectedFilter)
-                            ? "No verified ground pickups in the current data." : "No source found for: " + displayedQuery));
+                            ? "No verified ground pickups in the current data." : FILTER_GATHERING.equals(selectedFilter)
+                            ? "No verified gathering methods in the current data." : "No source found for: " + displayedQuery));
                     resultsPanel.add(makeLabel(FILTER_GROUND.equals(selectedFilter)
                             ? "Check the Wiki for other pickup locations."
+                            : FILTER_GATHERING.equals(selectedFilter) ? "Check the Wiki for other gathering methods."
                             : "No match in the local data. Check the spelling or try a shorter item name."));
                 }
                 resultsPanel.add(wikiButton(displayedQuery));
@@ -688,6 +719,7 @@ public class ItemDropLookupPanel extends PluginPanel
 
         card.setName("itemSourceCard");
         boolean ground = SOURCE_TYPE_GROUND.equals(source.getSourceType());
+        boolean gathering = SOURCE_TYPE_GATHERING.equals(source.getSourceType());
         card.add(makeCardTitle(hasText(source.getSourceName()) ? source.getSourceName() : source.getSourceType(), CARD_TEXT_WIDTH));
         boolean pack = source.getPackQuantity() > 0;
         card.add(makeCardLine(formatItemName(pack ? source.getPackName() : source.getItemName()), CARD_TEXT_WIDTH));
@@ -730,7 +762,17 @@ public class ItemDropLookupPanel extends PluginPanel
             String notes = unverifiedCurrency ? source.getNotes().replace("Cost increases as stock depletes.", "").trim() : source.getNotes();
             if (hasText(notes))
             {
-                card.add(makeCardLine((ground ? "" : "Notes: ") + notes, CARD_TEXT_WIDTH));
+                if (gathering)
+                {
+                    for (String line : notes.split("\n"))
+                    {
+                        card.add(makeCardLine(line, CARD_TEXT_WIDTH));
+                    }
+                }
+                else
+                {
+                    card.add(makeCardLine((ground ? "" : "Notes: ") + notes, CARD_TEXT_WIDTH));
+                }
             }
         }
 
@@ -771,6 +813,10 @@ public class ItemDropLookupPanel extends PluginPanel
      */
     private String sourceSectionHeading(String selectedFilter)
     {
+        if (FILTER_GATHERING.equals(selectedFilter))
+        {
+            return "Gathering";
+        }
         if (FILTER_GROUND.equals(selectedFilter))
         {
             return "Ground pickups";
