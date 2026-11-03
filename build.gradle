@@ -97,5 +97,6 @@ tasks.register('previewDesignConcepts', JavaExec) {
 tasks.register('runDesignConcepts', JavaExec) {
 	classpath = sourceSets.test.runtimeClasspath
 	mainClass = 'com.itemdroplookup.ui.DesignConceptPlugin'
+	jvmArgs '-ea'
 	args '--developer-mode'
 }
