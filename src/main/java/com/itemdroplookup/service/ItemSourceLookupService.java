@@ -28,6 +28,8 @@ public class ItemSourceLookupService
     private static final String CURATED_RESOURCE = "/item_sources.json";
     // Generated shop sources (tools/build_shop_sources.py). Optional: absent until generated.
     private static final String SHOP_RESOURCE = "/wiki_shop_sources.json";
+    // Separate, reviewed ground-only slice; never apply shop suppression to it.
+    private static final String GROUND_RESOURCE = "/wiki_ground_sources.json";
 
     // Generated (wiki_shop_sources.json) records hidden at lookup time because a
     // higher-quality curated record supersedes them, or the generated cost/label is
@@ -193,6 +195,7 @@ public class ItemSourceLookupService
         List<ItemSourceRecord> merged = new ArrayList<>();
         merged.addAll(loadRecords(CURATED_RESOURCE));
         merged.addAll(filterSuppressedGenerated(loadRecords(SHOP_RESOURCE)));
+        merged.addAll(loadRecords(GROUND_RESOURCE));
         // A zero-stock shop relies on player sales; it is not a reliable purchase
         // option. Filter before expanding packs so derived offers follow this rule.
         merged.removeIf(record -> record.sourceType != null

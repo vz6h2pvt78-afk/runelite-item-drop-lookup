@@ -54,11 +54,13 @@ public class ItemDropLookupPanel extends PluginPanel
     private static final String FILTER_SOURCES = "Non-NPC Sources";
     private static final String FILTER_SHOPS = "Shops";
     private static final String FILTER_REWARD_SHOPS = "Reward Shops";
+    private static final String FILTER_GROUND = "Ground pickups";
 
     // Exact sourceType values matched by the Shops / Reward Shops filters. These
     // must match the data verbatim — no fuzzy matching.
     private static final String SOURCE_TYPE_SHOP = "Shop";
     private static final String SOURCE_TYPE_REWARD_SHOP = "Reward Shop";
+    private static final String SOURCE_TYPE_GROUND = "Ground pickup";
 
     // Swing HTML labels need an explicit pixel width to wrap, and that width also gives
     // a deterministic preferred height inside BoxLayout (unlike a JTextArea, whose wrap
@@ -105,7 +107,8 @@ public class ItemDropLookupPanel extends PluginPanel
             FILTER_DROPS,
             FILTER_SOURCES,
             FILTER_SHOPS,
-            FILTER_REWARD_SHOPS
+            FILTER_REWARD_SHOPS,
+            FILTER_GROUND
     });
     private final JCheckBox showPriceCheckbox = new JCheckBox("Show GE price", true);
     private final JPanel resultsPanel = new JPanel();
@@ -208,7 +211,7 @@ public class ItemDropLookupPanel extends PluginPanel
         resultsScroll.getVerticalScrollBar().setUnitIncrement(24);
         searchView.add(resultsScroll, BorderLayout.CENTER);
         add(searchView, BorderLayout.CENTER);
-        resultsPanel.add(makeLabel("Search an item to find monster drops, shops and rewards."));
+        resultsPanel.add(makeLabel("Search an item to find drops, shops, rewards and ground pickups."));
     }
 
     @Override
@@ -297,11 +300,16 @@ public class ItemDropLookupPanel extends PluginPanel
             {
                 sources = filterBySourceType(sources, SOURCE_TYPE_REWARD_SHOP);
             }
+            else if (FILTER_GROUND.equals(selectedFilter))
+            {
+                sources = filterBySourceType(sources, SOURCE_TYPE_GROUND);
+            }
             List<ItemSource> displaySources = showSources ? sources.stream()
                     .filter(source -> contains(source.getSourceName(), sourceQuery) || contains(source.getLocation(), sourceQuery)
                             || contains(source.getPackName(), sourceQuery))
                     .collect(Collectors.toList()) : Collections.emptyList();
             boolean hasPacks = displaySources.stream().anyMatch(source -> source.getPackQuantity() > 0);
+            long groundCount = displaySources.stream().filter(source -> SOURCE_TYPE_GROUND.equals(source.getSourceType())).count();
             if (hasPacks)
             {
                 // Keep a shop's loose and packaged purchase options next to each other.
@@ -344,6 +352,20 @@ public class ItemDropLookupPanel extends PluginPanel
                 notice.setToolTipText("Requires a usable location associated with this exact drop. Shops and other sources are unchanged.");
                 resultsPanel.add(notice);
             }
+            if (groundCount > 0 || FILTER_GROUND.equals(selectedFilter))
+            {
+                JLabel coverage = makeSummaryLabel("Ground pickups: limited coverage. Access requirements not fully checked.");
+                coverage.setName("groundCoverage");
+                resultsPanel.add(coverage);
+            }
+            if (groundCount > 0 && !FILTER_GROUND.equals(selectedFilter))
+            {
+                JButton groundSources = new JButton("View ground pickups (" + groundCount + ")");
+                groundSources.setName("showGroundSources");
+                groundSources.setAlignmentX(Component.LEFT_ALIGNMENT);
+                groundSources.addActionListener(e -> filterDropdown.setSelectedItem(FILTER_GROUND));
+                resultsPanel.add(groundSources);
+            }
             if (!dropResults.isEmpty() && !displaySources.isEmpty())
             {
                 boolean shopsOnly = displaySources.stream().allMatch(source -> SOURCE_TYPE_SHOP.equals(source.getSourceType()));
@@ -372,7 +394,15 @@ public class ItemDropLookupPanel extends PluginPanel
                         || locationFilter != WildernessFilter.ALL || !sourceQuery.isEmpty();
                 if (filtersActive && (!matchingDrops.isEmpty() || !matchingSources.isEmpty()))
                 {
-                    resultsPanel.add(makeNoResultHeader("No sources match these filters."));
+                    String emptyMessage = "No sources match these filters.";
+                    if (FILTER_GROUND.equals(selectedFilter))
+                    {
+                        boolean hasGroundData = matchingSources.stream()
+                                .anyMatch(source -> SOURCE_TYPE_GROUND.equals(source.getSourceType()));
+                        emptyMessage = hasGroundData ? "No verified ground pickups match these filters."
+                                : "No verified ground pickups in the current data.";
+                    }
+                    resultsPanel.add(makeNoResultHeader(emptyMessage));
                     resultsPanel.add(makeLabel("This item has other sources in the local data."));
                     JButton reset = new JButton("Show all sources");
                     reset.setName("resetSourceFilters");
@@ -389,8 +419,11 @@ public class ItemDropLookupPanel extends PluginPanel
                 }
                 else
                 {
-                    resultsPanel.add(makeNoResultHeader("No source found for: " + displayedQuery));
-                    resultsPanel.add(makeLabel("No match in the local data. Check the spelling or try a shorter item name."));
+                    resultsPanel.add(makeNoResultHeader(FILTER_GROUND.equals(selectedFilter)
+                            ? "No verified ground pickups in the current data." : "No source found for: " + displayedQuery));
+                    resultsPanel.add(makeLabel(FILTER_GROUND.equals(selectedFilter)
+                            ? "Check the Wiki for other pickup locations."
+                            : "No match in the local data. Check the spelling or try a shorter item name."));
                 }
                 resultsPanel.add(wikiButton(displayedQuery));
             }
@@ -654,6 +687,7 @@ public class ItemDropLookupPanel extends PluginPanel
         ));
 
         card.setName("itemSourceCard");
+        boolean ground = SOURCE_TYPE_GROUND.equals(source.getSourceType());
         card.add(makeCardTitle(hasText(source.getSourceName()) ? source.getSourceName() : source.getSourceType(), CARD_TEXT_WIDTH));
         boolean pack = source.getPackQuantity() > 0;
         card.add(makeCardLine(formatItemName(pack ? source.getPackName() : source.getItemName()), CARD_TEXT_WIDTH));
@@ -668,7 +702,7 @@ public class ItemDropLookupPanel extends PluginPanel
             card.add(makeCardLine("Type: " + source.getSourceType(), CARD_TEXT_WIDTH));
         }
 
-        if (hasText(source.getLocation()))
+        if (hasText(source.getLocation()) && !ground)
         {
             card.add(makeCardLine("Location: " + source.getLocation(), CARD_TEXT_WIDTH));
         }
@@ -696,7 +730,7 @@ public class ItemDropLookupPanel extends PluginPanel
             String notes = unverifiedCurrency ? source.getNotes().replace("Cost increases as stock depletes.", "").trim() : source.getNotes();
             if (hasText(notes))
             {
-                card.add(makeCardLine("Notes: " + notes, CARD_TEXT_WIDTH));
+                card.add(makeCardLine((ground ? "" : "Notes: ") + notes, CARD_TEXT_WIDTH));
             }
         }
 
@@ -737,6 +771,10 @@ public class ItemDropLookupPanel extends PluginPanel
      */
     private String sourceSectionHeading(String selectedFilter)
     {
+        if (FILTER_GROUND.equals(selectedFilter))
+        {
+            return "Ground pickups";
+        }
         if (FILTER_SHOPS.equals(selectedFilter))
         {
             return "Shops";

@@ -21,6 +21,14 @@ nor their conversion to JSON is used to remove source credits or restrictions.
 
 Runtime resources under src/main/resources/:
 
+- wiki_ground_sources.json: twelve reviewed ground-pickup rows adapted from
+  Spade (revision 15387831), Knife (15350068), Bucket (15390041), Snape grass
+  (15225056), and Red spiders' eggs (15183987). docs/data/ground_sources.json
+  preserves page/history URLs, revisions, exact templates and adaptation evidence.
+  tools/fixtures/ground_spawns.json preserves source wikitext and Small fishing
+  net (15384438) as an excluded-method regression fixture. These Wiki-derived
+  fixtures, manifest and data retain the attribution and Wiki license above.
+
 - wiki_monster_drops.json: extracted monster drop tables. The monsterName field
   records the source Wiki page title. Exact original revisions were not retained.
 - wiki_shop_sources.json: extracted shop tables and shop infobox text. sourceName

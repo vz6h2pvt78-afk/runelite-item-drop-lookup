@@ -1,0 +1,583 @@
+{
+  "baseCommit": "df5d99962213de801883f96789bd64862e2b0684",
+  "recordCount": 12,
+  "pointCount": 16,
+  "records": [
+    {
+      "id": "07ef8a7eedfaadaa9877",
+      "itemId": 952,
+      "itemName": "Spade",
+      "sourceType": "Ground pickup",
+      "sourceName": "Draynor Manor",
+      "location": "Draynor Manor",
+      "cost": "",
+      "notes": "F2P · 1 spawn point",
+      "membersOnly": false,
+      "spawnPointCount": 1,
+      "pickupQuantity": null
+    },
+    {
+      "id": "5578e77aba978914adea",
+      "itemId": 952,
+      "itemName": "Spade",
+      "sourceType": "Ground pickup",
+      "sourceName": "Falador - estate agent",
+      "location": "Falador - estate agent",
+      "cost": "",
+      "notes": "F2P · 1 spawn point",
+      "membersOnly": false,
+      "spawnPointCount": 1,
+      "pickupQuantity": null
+    },
+    {
+      "id": "e0ac317d8c33b71c2d20",
+      "itemId": 952,
+      "itemName": "Spade",
+      "sourceType": "Ground pickup",
+      "sourceName": "Varrock General Store (floor 1 (UK))",
+      "location": "Varrock General Store (floor 1 (UK))",
+      "cost": "",
+      "notes": "F2P · 1 spawn point",
+      "membersOnly": false,
+      "spawnPointCount": 1,
+      "pickupQuantity": null
+    },
+    {
+      "id": "432f1fd0f331bcfc211b",
+      "itemId": 946,
+      "itemName": "Knife",
+      "sourceType": "Ground pickup",
+      "sourceName": "Lumbridge - behind Bob's Brilliant Axes",
+      "location": "Lumbridge - behind Bob's Brilliant Axes",
+      "cost": "",
+      "notes": "F2P · 1 spawn point",
+      "membersOnly": false,
+      "spawnPointCount": 1,
+      "pickupQuantity": null
+    },
+    {
+      "id": "8bc47469d5949ce096e2",
+      "itemId": 946,
+      "itemName": "Knife",
+      "sourceType": "Ground pickup",
+      "sourceName": "Lumbridge Castle cellar",
+      "location": "Lumbridge Castle cellar",
+      "cost": "",
+      "notes": "F2P · 1 spawn point",
+      "membersOnly": false,
+      "spawnPointCount": 1,
+      "pickupQuantity": null
+    },
+    {
+      "id": "8cc362d834cc3e781de5",
+      "itemId": 946,
+      "itemName": "Knife",
+      "sourceType": "Ground pickup",
+      "sourceName": "Lumbridge Castle kitchen",
+      "location": "Lumbridge Castle kitchen",
+      "cost": "",
+      "notes": "F2P · 1 spawn point",
+      "membersOnly": false,
+      "spawnPointCount": 1,
+      "pickupQuantity": null
+    },
+    {
+      "id": "8f54695efa2ceadd7adf",
+      "itemId": 1925,
+      "itemName": "Bucket",
+      "sourceType": "Ground pickup",
+      "sourceName": "Falador farm",
+      "location": "Falador farm",
+      "cost": "",
+      "notes": "F2P · 2 spawn points",
+      "membersOnly": false,
+      "spawnPointCount": 2,
+      "pickupQuantity": null
+    },
+    {
+      "id": "0269116f1f3040ddf317",
+      "itemId": 1925,
+      "itemName": "Bucket",
+      "sourceType": "Ground pickup",
+      "sourceName": "Draynor Manor",
+      "location": "Draynor Manor",
+      "cost": "",
+      "notes": "F2P · 1 spawn point",
+      "membersOnly": false,
+      "spawnPointCount": 1,
+      "pickupQuantity": null
+    },
+    {
+      "id": "d7fac0fda0e321cebe50",
+      "itemId": 1925,
+      "itemName": "Bucket",
+      "sourceType": "Ground pickup",
+      "sourceName": "Lumbridge - farm house south of the hops patch",
+      "location": "Lumbridge - farm house south of the hops patch",
+      "cost": "",
+      "notes": "F2P · 1 spawn point",
+      "membersOnly": false,
+      "spawnPointCount": 1,
+      "pickupQuantity": null
+    },
+    {
+      "id": "e1cb6535d4ffa92cfc8d",
+      "itemId": 231,
+      "itemName": "Snape grass",
+      "sourceType": "Ground pickup",
+      "sourceName": "Hobgoblin Peninsula west of the Crafting Guild",
+      "location": "Hobgoblin Peninsula west of the Crafting Guild",
+      "cost": "",
+      "notes": "Members · 3 spawn points",
+      "membersOnly": true,
+      "spawnPointCount": 3,
+      "pickupQuantity": null
+    },
+    {
+      "id": "e81c31562b910c59975f",
+      "itemId": 223,
+      "itemName": "Red spiders' eggs",
+      "sourceType": "Ground pickup",
+      "sourceName": "Crandor and Karamja Dungeon",
+      "location": "Crandor and Karamja Dungeon",
+      "cost": "",
+      "notes": "F2P · 1 spawn point",
+      "membersOnly": false,
+      "spawnPointCount": 1,
+      "pickupQuantity": null
+    },
+    {
+      "id": "666fec1f5b5c340f822d",
+      "itemId": 223,
+      "itemName": "Red spiders' eggs",
+      "sourceType": "Ground pickup",
+      "sourceName": "Varrock Sewers",
+      "location": "Varrock Sewers",
+      "cost": "",
+      "notes": "F2P · 2 spawn points",
+      "membersOnly": false,
+      "spawnPointCount": 2,
+      "pickupQuantity": null
+    }
+  ],
+  "provenance": [
+    {
+      "itemId": 952,
+      "method": "GROUND",
+      "location": "Draynor Manor",
+      "coordinates": [
+        {
+          "x": 3120,
+          "y": 3359
+        }
+      ],
+      "plane": null,
+      "mapId": null,
+      "id": "07ef8a7eedfaadaa9877",
+      "itemName": "Spade",
+      "membersOnly": false,
+      "spawnPointCount": 1,
+      "pickupQuantity": null,
+      "accessCoverage": "incomplete",
+      "verifiedRestrictions": [],
+      "sourcePage": "Spade",
+      "revisionId": 15387831,
+      "sourceUrl": "https://oldschool.runescape.wiki/w/Spade",
+      "historyUrl": "https://oldschool.runescape.wiki/w/Special:History/Spade",
+      "section": [
+        "Item sources",
+        "Item spawns"
+      ],
+      "template": "itemspawnline",
+      "templateSha256": "d98c853a1a83f2c159f57161f7a323cb6140d885c6b62975d51de17f456e964e",
+      "rawTemplate": "{{ItemSpawnLine|name=Spade|location=[[Draynor Manor]]|members=No|3120,3359|leagueRegion = Misthalin}}",
+      "sourceWikitextSha256": "ba2630f05d94eb77555809d22ffece0ed8adf672aedc435b77bf304b978ad90e",
+      "rawSnapshotSha256": "63ae27904a5acca1bcebe64c90cd5abbd0587c340f699a1522acb9a8a1b7db6e"
+    },
+    {
+      "itemId": 952,
+      "method": "GROUND",
+      "location": "Falador - estate agent",
+      "coordinates": [
+        {
+          "x": 2981,
+          "y": 3370
+        }
+      ],
+      "plane": null,
+      "mapId": null,
+      "id": "5578e77aba978914adea",
+      "itemName": "Spade",
+      "membersOnly": false,
+      "spawnPointCount": 1,
+      "pickupQuantity": null,
+      "accessCoverage": "incomplete",
+      "verifiedRestrictions": [],
+      "sourcePage": "Spade",
+      "revisionId": 15387831,
+      "sourceUrl": "https://oldschool.runescape.wiki/w/Spade",
+      "historyUrl": "https://oldschool.runescape.wiki/w/Special:History/Spade",
+      "section": [
+        "Item sources",
+        "Item spawns"
+      ],
+      "template": "itemspawnline",
+      "templateSha256": "cdb600731e871ad3fbe873b3cd2d3ba5e0540ef7cc69de4ddb51b4fa02feca6a",
+      "rawTemplate": "{{ItemSpawnLine|name=Spade|location=[[Falador]] - [[estate agent]]|members=No|2981,3370|leagueRegion = Asgarnia}}",
+      "sourceWikitextSha256": "ba2630f05d94eb77555809d22ffece0ed8adf672aedc435b77bf304b978ad90e",
+      "rawSnapshotSha256": "63ae27904a5acca1bcebe64c90cd5abbd0587c340f699a1522acb9a8a1b7db6e"
+    },
+    {
+      "itemId": 952,
+      "method": "GROUND",
+      "location": "Varrock General Store (floor 1 (UK))",
+      "coordinates": [
+        {
+          "x": 3218,
+          "y": 3412
+        }
+      ],
+      "plane": 1,
+      "mapId": null,
+      "id": "e0ac317d8c33b71c2d20",
+      "itemName": "Spade",
+      "membersOnly": false,
+      "spawnPointCount": 1,
+      "pickupQuantity": null,
+      "accessCoverage": "incomplete",
+      "verifiedRestrictions": [],
+      "sourcePage": "Spade",
+      "revisionId": 15387831,
+      "sourceUrl": "https://oldschool.runescape.wiki/w/Spade",
+      "historyUrl": "https://oldschool.runescape.wiki/w/Special:History/Spade",
+      "section": [
+        "Item sources",
+        "Item spawns"
+      ],
+      "template": "itemspawnline",
+      "templateSha256": "b7ccd054a2cd94607a0e846871203858c3ffa0c110b777a29e70969b775c2334",
+      "rawTemplate": "{{ItemSpawnLine|name=Spade|location=[[Varrock General Store]] ({{FloorNumber|uk=1}})|members=No|plane=1|3218,3412|leagueRegion = Misthalin}}",
+      "sourceWikitextSha256": "ba2630f05d94eb77555809d22ffece0ed8adf672aedc435b77bf304b978ad90e",
+      "rawSnapshotSha256": "63ae27904a5acca1bcebe64c90cd5abbd0587c340f699a1522acb9a8a1b7db6e"
+    },
+    {
+      "itemId": 946,
+      "method": "GROUND",
+      "location": "Lumbridge - behind Bob's Brilliant Axes",
+      "coordinates": [
+        {
+          "x": 3224,
+          "y": 3202
+        }
+      ],
+      "plane": null,
+      "mapId": null,
+      "id": "432f1fd0f331bcfc211b",
+      "itemName": "Knife",
+      "membersOnly": false,
+      "spawnPointCount": 1,
+      "pickupQuantity": null,
+      "accessCoverage": "incomplete",
+      "verifiedRestrictions": [],
+      "sourcePage": "Knife",
+      "revisionId": 15350068,
+      "sourceUrl": "https://oldschool.runescape.wiki/w/Knife",
+      "historyUrl": "https://oldschool.runescape.wiki/w/Special:History/Knife",
+      "section": [
+        "Item sources",
+        "Spawns"
+      ],
+      "template": "itemspawnline",
+      "templateSha256": "75cecb8951746396316ade596fdffa258057b8f4410999963cd62b00874464bf",
+      "rawTemplate": "{{ItemSpawnLine|name=Knife|location=[[Lumbridge]] - behind [[Bob's Brilliant Axes]]|members=No|3224,3202|leagueRegion = Misthalin}}",
+      "sourceWikitextSha256": "8d6c25d605093cb6cb84b7c5afb1a578cbe223582f9ce748c6a84c6f25f68194",
+      "rawSnapshotSha256": "d00be9d341783e56757abd06f6a4831bd261692b71e4db7d562d279d88bee9ce"
+    },
+    {
+      "itemId": 946,
+      "method": "GROUND",
+      "location": "Lumbridge Castle cellar",
+      "coordinates": [
+        {
+          "x": 3215,
+          "y": 9625
+        }
+      ],
+      "plane": null,
+      "mapId": 12,
+      "id": "8bc47469d5949ce096e2",
+      "itemName": "Knife",
+      "membersOnly": false,
+      "spawnPointCount": 1,
+      "pickupQuantity": null,
+      "accessCoverage": "incomplete",
+      "verifiedRestrictions": [],
+      "sourcePage": "Knife",
+      "revisionId": 15350068,
+      "sourceUrl": "https://oldschool.runescape.wiki/w/Knife",
+      "historyUrl": "https://oldschool.runescape.wiki/w/Special:History/Knife",
+      "section": [
+        "Item sources",
+        "Spawns"
+      ],
+      "template": "itemspawnline",
+      "templateSha256": "7f491c0aac32ef433f1dcada1fa2c0467c43b14b879a3ea29fcff6feeae831a3",
+      "rawTemplate": "{{ItemSpawnLine|name=Knife|location=[[Lumbridge Castle]] cellar|members=No|mapID=12|3215,9625|leagueRegion = Misthalin}}",
+      "sourceWikitextSha256": "8d6c25d605093cb6cb84b7c5afb1a578cbe223582f9ce748c6a84c6f25f68194",
+      "rawSnapshotSha256": "d00be9d341783e56757abd06f6a4831bd261692b71e4db7d562d279d88bee9ce"
+    },
+    {
+      "itemId": 946,
+      "method": "GROUND",
+      "location": "Lumbridge Castle kitchen",
+      "coordinates": [
+        {
+          "x": 3205,
+          "y": 3212
+        }
+      ],
+      "plane": null,
+      "mapId": null,
+      "id": "8cc362d834cc3e781de5",
+      "itemName": "Knife",
+      "membersOnly": false,
+      "spawnPointCount": 1,
+      "pickupQuantity": null,
+      "accessCoverage": "incomplete",
+      "verifiedRestrictions": [],
+      "sourcePage": "Knife",
+      "revisionId": 15350068,
+      "sourceUrl": "https://oldschool.runescape.wiki/w/Knife",
+      "historyUrl": "https://oldschool.runescape.wiki/w/Special:History/Knife",
+      "section": [
+        "Item sources",
+        "Spawns"
+      ],
+      "template": "itemspawnline",
+      "templateSha256": "ac716d2048e138e1d7ade359c9cd1e4d63db656468c95cbc0228498c3dd1f133",
+      "rawTemplate": "{{ItemSpawnLine|name=Knife|location=[[Lumbridge Castle]] kitchen|members=No|3205,3212|leagueRegion = Misthalin}}",
+      "sourceWikitextSha256": "8d6c25d605093cb6cb84b7c5afb1a578cbe223582f9ce748c6a84c6f25f68194",
+      "rawSnapshotSha256": "d00be9d341783e56757abd06f6a4831bd261692b71e4db7d562d279d88bee9ce"
+    },
+    {
+      "itemId": 1925,
+      "method": "GROUND",
+      "location": "Falador farm",
+      "coordinates": [
+        {
+          "x": 3026,
+          "y": 3289
+        },
+        {
+          "x": 3020,
+          "y": 3291
+        }
+      ],
+      "plane": null,
+      "mapId": null,
+      "id": "8f54695efa2ceadd7adf",
+      "itemName": "Bucket",
+      "membersOnly": false,
+      "spawnPointCount": 2,
+      "pickupQuantity": null,
+      "accessCoverage": "incomplete",
+      "verifiedRestrictions": [],
+      "sourcePage": "Bucket",
+      "revisionId": 15390041,
+      "sourceUrl": "https://oldschool.runescape.wiki/w/Bucket",
+      "historyUrl": "https://oldschool.runescape.wiki/w/Special:History/Bucket",
+      "section": [
+        "Item sources",
+        "Spawns"
+      ],
+      "template": "itemspawnline",
+      "templateSha256": "a585446c50d201b9f87135ef64646e795ecba7c01336be61e97e570111e2c636",
+      "rawTemplate": "{{ItemSpawnLine|name=Bucket|location=[[Falador farm]]|members=No|3026,3289|3020,3291|leagueRegion=Asgarnia}}",
+      "sourceWikitextSha256": "0b593bf8e017b26e5789bc6ec89da5af9c1f3de8cf3c8ffa51789036a1d2fe46",
+      "rawSnapshotSha256": "ad6a74614b0a8da7797949e6e792632e3c88ba808aa6929c7761ad016b5429b3"
+    },
+    {
+      "itemId": 1925,
+      "method": "GROUND",
+      "location": "Draynor Manor",
+      "coordinates": [
+        {
+          "x": 3121,
+          "y": 3359
+        }
+      ],
+      "plane": null,
+      "mapId": null,
+      "id": "0269116f1f3040ddf317",
+      "itemName": "Bucket",
+      "membersOnly": false,
+      "spawnPointCount": 1,
+      "pickupQuantity": null,
+      "accessCoverage": "incomplete",
+      "verifiedRestrictions": [],
+      "sourcePage": "Bucket",
+      "revisionId": 15390041,
+      "sourceUrl": "https://oldschool.runescape.wiki/w/Bucket",
+      "historyUrl": "https://oldschool.runescape.wiki/w/Special:History/Bucket",
+      "section": [
+        "Item sources",
+        "Spawns"
+      ],
+      "template": "itemspawnline",
+      "templateSha256": "54b3377f66de9fd6776a29a2b95a2471f481c863aae7a31d4913011e2daad867",
+      "rawTemplate": "{{ItemSpawnLine|name=Bucket|location=[[Draynor Manor]]|members=No|3121,3359|leagueRegion=Misthalin}}",
+      "sourceWikitextSha256": "0b593bf8e017b26e5789bc6ec89da5af9c1f3de8cf3c8ffa51789036a1d2fe46",
+      "rawSnapshotSha256": "ad6a74614b0a8da7797949e6e792632e3c88ba808aa6929c7761ad016b5429b3"
+    },
+    {
+      "itemId": 1925,
+      "method": "GROUND",
+      "location": "Lumbridge - farm house south of the hops patch",
+      "coordinates": [
+        {
+          "x": 3225,
+          "y": 3294
+        }
+      ],
+      "plane": null,
+      "mapId": null,
+      "id": "d7fac0fda0e321cebe50",
+      "itemName": "Bucket",
+      "membersOnly": false,
+      "spawnPointCount": 1,
+      "pickupQuantity": null,
+      "accessCoverage": "incomplete",
+      "verifiedRestrictions": [],
+      "sourcePage": "Bucket",
+      "revisionId": 15390041,
+      "sourceUrl": "https://oldschool.runescape.wiki/w/Bucket",
+      "historyUrl": "https://oldschool.runescape.wiki/w/Special:History/Bucket",
+      "section": [
+        "Item sources",
+        "Spawns"
+      ],
+      "template": "itemspawnline",
+      "templateSha256": "90e4adf16d894d70b47df8cae540700c0862e113fd301ece5100457de44fe61b",
+      "rawTemplate": "{{ItemSpawnLine|name=Bucket|location=[[Lumbridge]] - farm house south of the hops patch|members=No|3225,3294|leagueRegion=Misthalin}}",
+      "sourceWikitextSha256": "0b593bf8e017b26e5789bc6ec89da5af9c1f3de8cf3c8ffa51789036a1d2fe46",
+      "rawSnapshotSha256": "ad6a74614b0a8da7797949e6e792632e3c88ba808aa6929c7761ad016b5429b3"
+    },
+    {
+      "itemId": 231,
+      "method": "GROUND",
+      "location": "Hobgoblin Peninsula west of the Crafting Guild",
+      "coordinates": [
+        {
+          "x": 2906,
+          "y": 3297
+        },
+        {
+          "x": 2907,
+          "y": 3295
+        },
+        {
+          "x": 2917,
+          "y": 3274
+        }
+      ],
+      "plane": null,
+      "mapId": null,
+      "id": "e1cb6535d4ffa92cfc8d",
+      "itemName": "Snape grass",
+      "membersOnly": true,
+      "spawnPointCount": 3,
+      "pickupQuantity": null,
+      "accessCoverage": "incomplete",
+      "verifiedRestrictions": [],
+      "sourcePage": "Snape grass",
+      "revisionId": 15225056,
+      "sourceUrl": "https://oldschool.runescape.wiki/w/Snape_grass",
+      "historyUrl": "https://oldschool.runescape.wiki/w/Special:History/Snape_grass",
+      "section": [
+        "Item sources",
+        "Spawns"
+      ],
+      "template": "itemspawnline",
+      "templateSha256": "359c9679b90441f992a14ac27fd65391be5c61934735ea1d1d283894fc6cb287",
+      "rawTemplate": "{{ItemSpawnLine|name=Snape grass|location=[[Hobgoblin Peninsula]] west of the [[Crafting Guild]]|members=Yes|2906,3297|2907,3295|2917,3274|leagueRegion = Asgarnia}}",
+      "sourceWikitextSha256": "09fcbf35e95a49bd7245ff65c638bc38630d549671c1233686f96bb4fc1c2024",
+      "rawSnapshotSha256": "f3efbcb9e117a446ce13236c8a2fcfdcc5ba70c230db312258cf1f00e6ee4ebe"
+    },
+    {
+      "itemId": 223,
+      "method": "GROUND",
+      "location": "Crandor and Karamja Dungeon",
+      "coordinates": [
+        {
+          "x": 2832,
+          "y": 9586
+        }
+      ],
+      "plane": null,
+      "mapId": -1,
+      "id": "e81c31562b910c59975f",
+      "itemName": "Red spiders' eggs",
+      "membersOnly": false,
+      "spawnPointCount": 1,
+      "pickupQuantity": null,
+      "accessCoverage": "incomplete",
+      "verifiedRestrictions": [],
+      "sourcePage": "Red spiders' eggs",
+      "revisionId": 15183987,
+      "sourceUrl": "https://oldschool.runescape.wiki/w/Red_spiders'_eggs",
+      "historyUrl": "https://oldschool.runescape.wiki/w/Special:History/Red_spiders'_eggs",
+      "section": [
+        "Item sources",
+        "Spawns"
+      ],
+      "template": "itemspawnline",
+      "templateSha256": "ff830a2f4171cc3c1d821187661ba21d7b9ef4fd5116122b928e87e21726b42e",
+      "rawTemplate": "{{ItemSpawnLine|name=Red spiders' eggs|location=[[Crandor and Karamja Dungeon]]|members=No|mapID=-1\n|2832,9586|leagueRegion = Karamja}}",
+      "sourceWikitextSha256": "f2e4c29d27700b1c0acc25804ecee6618c61cf60bed43d7a8a076c1dc4e6bb00",
+      "rawSnapshotSha256": "dcb7a429765600509ef8188f64358b7ff143d513eefe9b72a98e98acabdaa141"
+    },
+    {
+      "itemId": 223,
+      "method": "GROUND",
+      "location": "Varrock Sewers",
+      "coordinates": [
+        {
+          "x": 3177,
+          "y": 9880
+        },
+        {
+          "x": 3179,
+          "y": 9881
+        }
+      ],
+      "plane": null,
+      "mapId": -1,
+      "id": "666fec1f5b5c340f822d",
+      "itemName": "Red spiders' eggs",
+      "membersOnly": false,
+      "spawnPointCount": 2,
+      "pickupQuantity": null,
+      "accessCoverage": "incomplete",
+      "verifiedRestrictions": [],
+      "sourcePage": "Red spiders' eggs",
+      "revisionId": 15183987,
+      "sourceUrl": "https://oldschool.runescape.wiki/w/Red_spiders'_eggs",
+      "historyUrl": "https://oldschool.runescape.wiki/w/Special:History/Red_spiders'_eggs",
+      "section": [
+        "Item sources",
+        "Spawns"
+      ],
+      "template": "itemspawnline",
+      "templateSha256": "9313e6ab7bc2078b007bae95bc4d6ee3aefcd512a55ed4d6fb18522f6af3552a",
+      "rawTemplate": "{{ItemSpawnLine|name=Red spiders' eggs|location=[[Varrock Sewers]]|members=No|mapID=-1\n|3177,9880|3179,9881|leagueRegion = Misthalin}}",
+      "sourceWikitextSha256": "f2e4c29d27700b1c0acc25804ecee6618c61cf60bed43d7a8a076c1dc4e6bb00",
+      "rawSnapshotSha256": "dcb7a429765600509ef8188f64358b7ff143d513eefe9b72a98e98acabdaa141"
+    }
+  ],
+  "limitations": [
+    "Only twelve reviewed ground rows; coverage incomplete.",
+    "Access requirements not fully checked; no eligibility inference.",
+    "Pickup quantities and respawn times not supplied.",
+    "Scenery, Small fishing net, conditional and Telekinetic Grab pickups excluded."
+  ]
+}

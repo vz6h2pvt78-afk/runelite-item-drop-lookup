@@ -373,7 +373,7 @@ public class ItemDropLookupPanelTest
             assertEquals(38, sourceCardCount(panel));
             assertFalse(descendants(panel).stream().anyMatch(c -> "openLocations".equals(c.getName())));
             ((JComboBox<?>) named(panel, "sourceTypeFilter")).setSelectedItem("Non-NPC Sources");
-            assertEquals(38, sourceCardCount(panel));
+            assertEquals(41, sourceCardCount(panel)); // Same 38 shops plus three reviewed ground pickups.
         });
     }
 

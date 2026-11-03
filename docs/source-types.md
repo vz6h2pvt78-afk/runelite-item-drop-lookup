@@ -14,6 +14,7 @@ the validator (`tools/validate_item_sources.py`) can enforce it.
 | `Clue` | Treasure Trail / clue scroll reward. | Reward casket items |
 | `Quest` | Quest reward. | One-off quest item rewards |
 | `Spawn` | Spawns on the ground / respawns at a fixed location. | Item spawns |
+| `Ground pickup` | Reviewed ordinary ground item; excludes scenery interactions. | Twelve verified rows in `wiki_ground_sources.json` |
 | `Reward Chest` | Boss or raid reward chest. Catalogued **without drop rates** for now. | Barrows chest, raid loot chests |
 | `Other` | Anything not yet classified. Use sparingly. | — |
 
@@ -30,6 +31,12 @@ the validator (`tools/validate_item_sources.py`) can enforce it.
 - **notes** — caveats only: stock/restock, members requirement, uncertainty. Blank if none.
 
 ## Current state (informational)
+
+- `wiki_ground_sources.json` is a separate twelve-row generated slice. `Ground pickup`
+  is its runtime type; the older reserved `Spawn` type is not used by this slice.
+  IDs, membership and point counts are checked by `tools/build_ground_sources.py --check`.
+  Unknown pickup quantity remains null. Coordinates and revision evidence are in
+  `docs/data/ground_sources.json`. See `docs/ground-pickups.md` for scope and limitations.
 
 - `item_sources.json` is **hand-curated**, with four `Reward Shop` records.
 - `wiki_shop_sources.json` is **generated** by `tools/build_shop_sources.py`.
