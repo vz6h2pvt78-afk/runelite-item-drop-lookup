@@ -714,10 +714,10 @@ def write_reports(
         zero_record_pages: list[dict],
         monster_pages: list[str],
 ) -> None:
-    skipped_file = OUTPUT_FILE.with_name("wiki_drops_skipped_report.json")
-    failed_file = OUTPUT_FILE.with_name("wiki_drops_failed_pages.json")
-    zero_file = OUTPUT_FILE.with_name("wiki_drops_zero_record_pages.json")
-    pages_file = OUTPUT_FILE.with_name("wiki_drops_monster_pages.json")
+    skipped_file = PROJECT_ROOT / "tools" / "data" / "wiki_drops_skipped_report.json"
+    failed_file = PROJECT_ROOT / "tools" / "data" / "wiki_drops_failed_pages.json"
+    zero_file = PROJECT_ROOT / "tools" / "data" / "wiki_drops_zero_record_pages.json"
+    pages_file = PROJECT_ROOT / "tools" / "data" / "wiki_drops_monster_pages.json"
 
     write_json_file(skipped_file, skipped_records)
     write_json_file(failed_file, failed_pages)

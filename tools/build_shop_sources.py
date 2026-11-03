@@ -44,7 +44,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 API_URL = "https://oldschool.runescape.wiki/api.php"
 
 OUTPUT_FILE = PROJECT_ROOT / "src" / "main" / "resources" / "wiki_shop_sources.json"
-REPORT_FILE = PROJECT_ROOT / "src" / "main" / "resources" / "wiki_shop_sources_report.json"
+REPORT_FILE = PROJECT_ROOT / "tools" / "data" / "wiki_shop_sources_report.json"
 
 HEADERS = {
     "User-Agent": "ItemDropLookupPluginDataBuilder/0.1 local-dev"
@@ -543,6 +543,7 @@ def main() -> None:
         "sampleNoStoreTablePages": no_store_line[:15],
         "sampleRecords": deduped[:10],
     }
+    REPORT_FILE.parent.mkdir(parents=True, exist_ok=True)
     with REPORT_FILE.open("w", encoding="utf-8") as file:
         json.dump(report, file, indent=2, ensure_ascii=False)
 

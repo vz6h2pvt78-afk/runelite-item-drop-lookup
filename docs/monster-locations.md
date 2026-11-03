@@ -19,7 +19,7 @@ py -3 -m unittest discover -s tools -p test_monster_locations.py
 
 Individual runs write `.cache/monster_locations_sample.json`, so debugging cannot
 replace the full resource by accident. `--output` and `--report` choose other paths.
-Full runs use `wiki_drops_monster_pages.json`; `--worklist` accepts another JSON
+Full runs use `tools/data/wiki_drops_monster_pages.json`; `--worklist` accepts another JSON
 array of exact wiki titles. The API is queried in batches of 20 titles, at most one
 request every 0.5 seconds, with a descriptive User-Agent, `maxlag=5`, 45-second
 timeouts and at most four attempts. HTTP 429 / transient server errors use bounded

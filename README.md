@@ -1,170 +1,80 @@
-# RuneLite Item Drop Lookup
+# Item Drop Lookup
 
-A RuneLite plugin for looking up Old School RuneScape item drop sources directly inside the RuneLite sidebar.
+Find OSRS item drops, shops and selected rewards from the RuneLite sidebar.
 
-This plugin is currently in alpha. The core lookup system is working, but data coverage and polish are still being improved.
+**Beta submission candidate.** This build has not been approved or released on
+the RuneLite Plugin Hub. Source coverage is incomplete, and a missing result
+does not mean that an item is unobtainable.
 
-## Current Features
+## Using the plugin
 
-* Search for OSRS items by name
-* Search a potion name for all available doses, with the 4-dose GE reference labelled explicitly
-* View monster drop sources
-* View drop rates and quantities
-* View a bundled GE price snapshot for a single matched item
-* Show untradeable status when explicitly recorded in the price data
-* Supports non-NPC sources for selected items
-* Source type filtering, with one-click recovery when filters hide every source
-* Find a monster, shop or shop location within item results
-* Search and Back controls stay visible while lists scroll
-* Shop and empty-result Wiki shortcuts
-* One-click access to buying options, including verified packs containing the searched item
-* Zero-default-stock shops, returned animated-armour pieces and historical Bloodthirsty NPCs excluded from ordinary acquisition results
-* Local JSON-based data files for fast lookup
-* Clickable NPC cards with offline monster locations and Back navigation
-* Wilderness filters for NPC results; Wilderness and membership filters in details
-* Wiki-generated monster drop dataset
+1. Open **Item Drop Lookup** in the sidebar and enter an item name.
+2. Use the source filter to switch between NPC drops, shops and rewards. Buying
+   options include verified packs, such as air rune packs and eye of newt packs.
+3. Open an NPC card for known locations, combat levels and available access notes.
+   **Back** keeps your search, filters and scroll position.
+4. Use the Wiki links for missing details or to check a source before travelling.
 
-## Current Data Sources
+Search potions by their ordinary name, such as `prayer potion`, to include all
+available doses. Entering a specific dose still restricts that search. Potion
+GE references use the four-dose item when one exists.
 
-The plugin currently uses local JSON resources generated from OSRS Wiki data and supporting local data files.
+You can search within results for a monster, shop or shop location. NPC
+Wilderness filters and detail membership filters retain an explicit unknown
+state. League regions are not exposed as a filter. Shops with zero default
+stock and known returned-item/resupply sources are excluded from acquisition
+results.
 
-Current resource files include:
+## Data and limits
 
-* `wiki_monster_drops.json`
-* `ge_prices.json`
-* `item_sources.json`
-* `monster_locations.json`
-* `wiki_shop_sources.json`
-* `item_packs.json` — verified fixed-content pack associations, quantities and selected cost corrections
-* `potion_families.json` — Wiki-verified potion names, keeping doses separate from charged equipment
+Lookups use bundled local snapshots. The plugin does not read account progress,
+send player data, make background network requests, or perform game actions.
+Wiki buttons open a page in your browser only when clicked.
 
-The monster drop data is currently generated from OSRS Wiki monster pages. The current alpha dataset includes roughly 15,000 cleaned monster drop records.
+- GE values are **snapshots, not live prices**. The current price file was added
+  to this repository on 2 June 2026; its original fetch timestamp was not retained.
+  Verify current prices before buying or selling.
+- Slayer, Sailing, quest and task requirements are not comprehensively recorded.
+  A listed source is not a guarantee that your character can access it.
+- Fishing, other gathering, production, clues and shared drop tables have gaps.
+- Monster locations are matched conservatively to drop variants. Unmatched rows
+  link to the Wiki instead of borrowing another variant's locations.
+- Some shop currencies and reward amounts remain unknown. Unverified reward-shop
+  coin amounts are withheld. Curated corrections do not make all shops verified.
+- Potion mixes and untradeable potions may have no four-dose GE reference.
 
-### Files that are NOT runtime data
+The datasets and transformations are listed in [data provenance](docs/data-provenance.md).
+OSRS Wiki-derived text and data have [separate attribution and terms](THIRD_PARTY_NOTICES.md).
 
-* `drops.json` — **not loaded by the plugin.** It is only written by
-  `tools/convert_osrsbox_drops.py` (an offline OSRSBox converter) and is read by
-  nothing at runtime. When debugging plugin search results, ignore `drops.json`
-  and inspect `wiki_monster_drops.json`, which is the actual NPC-drop source
-  (`DropLookupService` loads `/wiki_monster_drops.json`).
-* The `wiki_drops_*.json` files (`wiki_drops_skipped_report.json`,
-  `wiki_drops_failed_pages.json`, `wiki_drops_zero_record_pages.json`,
-  `wiki_drops_monster_pages.json`) are build diagnostics written by
-  `tools/build_wiki_drops.py`, not runtime lookup data.
+## Development
 
-## Known Alpha Limitations
-
-This project is still early and some data may be incomplete or imperfect.
-
-Known limitations:
-
-* Clue scroll drop source coverage may be incomplete
-* Some human NPCs, animal NPCs, or unusual NPC variants may be missing
-* Some boss minion drop relationships may not be complete
-* Non-monster sources are handled separately and are still being expanded
-* Search aliases are basic and may not catch every slang or no-space search
-* Wiki data parsing is still being improved
-* GE prices are bundled snapshots, not live quotes
-* Some curated reward entries record only a currency; the UI labels missing amounts explicitly
-* Unverified numeric coin claims in reward-shop records are withheld; selected verified currencies are corrected
-* Gathering, production and shared drop-table coverage remain incomplete
-* Two-dose mixes and untradeable potions may have no 4-dose GE reference; these show unavailable
-
-If an item does not show a source, it does not necessarily mean the item has no source. It may mean the source is not currently covered by the local dataset.
-
-## Example Searches
-
-Examples of working searches during alpha testing:
-
-* `abyssal whip`
-* `dragon boots`
-* `bandos tassets`
-* `zenyte shard`
-* `brimstone key`
-* `hydra's claw`
-* `rune pouch`
-* `graceful hood`
-* `cowhide`
-* `raw chicken`
-
-## Development Status
-
-This project is in alpha development.
-
-Current goals:
-
-1. Replace the old limited drop dataset with cleaned OSRS Wiki monster drop data
-2. Preserve and expand non-NPC source lookup
-3. Improve search matching and aliases
-4. Improve clue scroll and unusual source coverage
-5. Add better documentation for data generation tools
-6. Continue improving generated data quality before public release
-
-## Project Structure
-
-```text
-src/main/java/com/itemdroplookup
-  DropLookupService.java
-  DropSource.java
-  ItemDropLookupConfig.java
-  ItemDropLookupPanel.java
-  ItemDropLookupPlugin.java
-  ItemPrice.java
-  ItemPriceLookupService.java
-  ItemSource.java
-  ItemSourceLookupService.java
-
-src/main/resources
-  wiki_monster_drops.json
-  ge_prices.json
-  item_sources.json
-
-tools
-  build_ge_prices.py
-  build_wiki_drops.py
-  convert_osrsbox_drops.py
-```
-
-## Building and Running
-
-Monster-location generation and coverage limits are documented in
-[docs/monster-locations.md](docs/monster-locations.md). Follow the
-[manual acceptance checklist](docs/manual-testing.md) before release work.
-The [code license proposal](docs/license-review.md) remains pending owner review;
-wiki-derived data has [separate notices](THIRD_PARTY_NOTICES.md).
-
-From the project root:
+Use JDK 11. From the repository root on Windows:
 
 ```powershell
-.\gradlew clean run
+.\gradlew.bat clean test build
+.\gradlew.bat run
 ```
 
-The plugin can then be tested through RuneLite’s development client.
+The development client is for manual testing; logging in and gameplay remain
+under the player's control. Follow the [acceptance checklist](docs/manual-testing.md).
 
-## Data Generation
+Plugin Hub uses `build=standard`, replacing this repository's Gradle build files.
+Only `src/main/java` and `src/main/resources` are used by that standard build.
+The development `shadowJar` is not the Plugin Hub distribution.
 
-GE price data can be generated with:
+Offline Python generators are in `tools/`. Diagnostics and generation inputs
+are in `tools/data/`; only the seven lookup JSON files and attribution notices
+belong in runtime resources. Review generated changes and curated corrections
+before replacing an existing snapshot. See [monster location generation](docs/monster-locations.md).
 
-```powershell
-py tools/build_ge_prices.py
-```
+## License and credits
 
-Wiki monster drop data can be generated with:
+The proposed license for original plugin code is BSD 2-Clause; owner approval
+of the attribution is still pending in this local submission candidate. See
+[license review](docs/license-review.md). Third-party data and build tooling
+retain their own terms; the code proposal does not relicense them.
 
-```powershell
-py tools/build_wiki_drops.py
-```
-
-Generated monster drop output is written to:
-
-```text
-src/main/resources/wiki_monster_drops.json
-```
-
-## Disclaimer
-
-This is an unofficial RuneLite plugin project and is not affiliated with Jagex or the official Old School RuneScape team.
-
-Old School RuneScape and OSRS are trademarks of Jagex Ltd.
-
-Drop data and item information are based on OSRS Wiki data and local generated resources. Accuracy may vary during alpha development.
+Development and review used OpenAI Codex/ChatGPT assistance. The maintainer is
+responsible for the submitted code and data. This project is not affiliated
+with Jagex, RuneLite, Weird Gloop or the OSRS Wiki. RuneScape and Old School
+RuneScape are Jagex trademarks.

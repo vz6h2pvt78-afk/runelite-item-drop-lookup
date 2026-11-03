@@ -60,13 +60,14 @@ plugin root  ──wires──▶  ui  ──calls──▶  service  ──retu
 Keep arrows pointing one way. If a `model` class ever needs a service, or a
 service starts building Swing components, the layering has been crossed.
 
-## Data warning
+## Data notes
 
-- **Do not hand-edit generated JSON.** The drop data is produced by the tools in
-  `tools/` (e.g. `build_wiki_drops.py`); regenerate it instead of editing by hand.
-- The runtime NPC-drop source is **`wiki_monster_drops.json`**, not `drops.json`.
-  `drops.json` is an unused converter output and is not loaded by the plugin.
-  When debugging search results, inspect `wiki_monster_drops.json`.
-- **Combat level and structured monster location are not available** in the
-  current runtime drop data. Variant/context is only inferable from the trailing
-  parenthetical inside `monsterName`.
+- The runtime NPC-drop source is `src/main/resources/wiki_monster_drops.json`.
+  The unused OSRSBox database and converter were removed from the Beta candidate.
+- Generator diagnostics and the monster worklist live in `tools/data/` and are
+  not packaged. Update generators and reviewed corrections together when refreshing
+  data; a fresh shop scrape alone does not reproduce all curated price corrections.
+- `monster_locations.json` supplies combat levels, locations and conservative
+  links to exact drop rows. Missing bindings remain unknown; never infer a
+  location or level from an unrelated variant.
+- See [data provenance](data-provenance.md) for source attribution and limitations.

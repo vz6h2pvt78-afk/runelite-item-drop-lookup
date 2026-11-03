@@ -448,7 +448,7 @@ def main(argv=None):
     scope = parser.add_mutually_exclusive_group(required=True)
     scope.add_argument("--monster", action="append", help="Exact wiki title; repeat for a sample")
     scope.add_argument("--all", action="store_true", help="Use the existing monster-page worklist")
-    parser.add_argument("--worklist", type=Path, default=ROOT / "src/main/resources/wiki_drops_monster_pages.json")
+    parser.add_argument("--worklist", type=Path, default=ROOT / "tools/data/wiki_drops_monster_pages.json")
     parser.add_argument("--output", type=Path)
     parser.add_argument("--report", type=Path)
     parser.add_argument("--cache", type=Path, default=ROOT / ".cache/monster-locations")
