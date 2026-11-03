@@ -69,10 +69,11 @@ before replacing an existing snapshot. See [monster location generation](docs/mo
 
 ## License and credits
 
-The proposed license for original plugin code is BSD 2-Clause; owner approval
-of the attribution is still pending in this local submission candidate. See
-[license review](docs/license-review.md). Third-party data and build tooling
-retain their own terms; the code proposal does not relicense them.
+Original plugin code is available under the [BSD 2-Clause license](LICENSE).
+Third-party data and build tooling retain their own terms; the code license does
+not relicense Wiki content, historical OSRSBox data or public-domain scaffolding.
+See [license scope and source review](docs/license-review.md), including the
+documented distinction between Wiki text licensing and numerical price API data.
 
 Development and review used OpenAI Codex/ChatGPT assistance. The maintainer is
 responsible for the submitted code and data. This project is not affiliated

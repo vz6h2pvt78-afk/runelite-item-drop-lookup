@@ -3,7 +3,7 @@
 All paths below are relative to the repository root. The seven active lookup
 JSON files remain byte-for-byte unchanged from `09c6eb6`. See
 [third-party notices](../THIRD_PARTY_NOTICES.md) for source rights and adaptation
-terms, and [license review](license-review.md) for unresolved publication decisions.
+terms, and [license review](license-review.md) for license scope and the disclosed price API terms distinction.
 
 | File | Origin and transformation | Evidence and limitation |
 |---|---|---|
@@ -22,6 +22,7 @@ terms, and [license review](license-review.md) for unresolved publication decisi
 | tools/data/monster_location_overrides.json | Reviewed location classifications and adapted access notes | Source links in each override |
 | docs/data/monster_locations_report.json | Wiki location generator diagnostic and revision manifest | Generated alongside locations, with coverage gaps explicitly counted |
 | src/main/resources/data_sources.txt | Generated page URLs for attribution, not fresh data validation | Original records/worklist, locations, packs, potion and curated reward sources |
+| src/main/resources/LICENSE.txt | Copy of the original-code BSD 2-Clause license | Third-party resources retain separate terms |
 | src/main/resources/THIRD_PARTY_NOTICES.txt | Plain-text copy of root third-party notices | Ships in standard Hub artifact without a custom build step |
 | src/main/resources/monster_locations_notice.txt | Location-specific credit pointing to complete notices | Retained for existing location documentation |
 
