@@ -85,3 +85,17 @@ tasks.register('shadowJar', Jar) {
 	archiveClassifier.set('shadow')
 	archiveFileName.set("${rootProject.name}-${project.version}-all.jar")
 }
+
+// C1 review tools use test classes/resources and are excluded from the production JAR.
+tasks.register('previewDesignConcepts', JavaExec) {
+	classpath = sourceSets.test.runtimeClasspath
+	mainClass = 'com.itemdroplookup.ui.DesignConceptPreview'
+	jvmArgs '-Djava.awt.headless=true'
+	if (project.hasProperty('previewOutput')) args project.property('previewOutput')
+}
+
+tasks.register('runDesignConcepts', JavaExec) {
+	classpath = sourceSets.test.runtimeClasspath
+	mainClass = 'com.itemdroplookup.ui.DesignConceptPlugin'
+	args '--developer-mode'
+}
