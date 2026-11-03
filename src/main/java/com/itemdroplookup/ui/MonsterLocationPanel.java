@@ -1,7 +1,9 @@
 package com.itemdroplookup.ui;
 
 import com.itemdroplookup.model.DropSource;
+import com.itemdroplookup.model.AccessRequirement;
 import com.itemdroplookup.model.MonsterLocation;
+import com.itemdroplookup.service.AccessRequirementLookupService;
 import com.itemdroplookup.service.MonsterLocationFilter;
 import com.itemdroplookup.service.MonsterLocationFilter.MembershipFilter;
 import com.itemdroplookup.service.MonsterLocationFilter.WildernessFilter;
@@ -40,14 +42,19 @@ public class MonsterLocationPanel extends JPanel
     private final List<MonsterLocation> allLocations;
     private final String dropNotes;
     private final String monsterWikiUrl;
+    private final AccessRequirementLookupService requirements;
+    private final List<AccessRequirement> sourceFacts;
 
     public MonsterLocationPanel(DropSource source, String searchQuery,
-                                MonsterLocationLookupService service, WildernessFilter initialFilter, Runnable back)
+                                MonsterLocationLookupService service, AccessRequirementLookupService requirements,
+                                WildernessFilter initialFilter, Runnable back)
     {
         super(new BorderLayout());
         setBackground(ColorScheme.DARK_GRAY_COLOR);
         setName("monsterDetail");
         match = service.lookup(source);
+        this.requirements = requirements;
+        sourceFacts = requirements.forSource(source);
         dropNotes = source.getNotes();
         monsterWikiUrl = "https://oldschool.runescape.wiki/w/"
                 + URLEncoder.encode(source.getMonsterName().replace(' ', '_'), StandardCharsets.UTF_8);
@@ -117,6 +124,15 @@ public class MonsterLocationPanel extends JPanel
         {
             locationsPanel.add(text(dropNotes, false, TEXT_WIDTH));
         }
+        locationsPanel.add(text("Requirements & context", true, TEXT_WIDTH));
+        sourceFacts.forEach(fact -> locationsPanel.add(requirementText(fact, TEXT_WIDTH)));
+        if (sourceFacts.isEmpty())
+        {
+            locationsPanel.add(text("No monster-wide requirements verified here. Check location notes below.", false, TEXT_WIDTH));
+        }
+        JLabel coverage = text("Requirements coverage is incomplete; other conditions may apply.", false, TEXT_WIDTH);
+        coverage.setName("requirementsCoverage");
+        locationsPanel.add(coverage);
         boolean filtering = wilderness.getSelectedItem() != WildernessFilter.ALL
                 || membership.getSelectedItem() != MembershipFilter.ALL;
         boolean verifiedView = match.isVerified() && !showAll.isSelected();
@@ -144,8 +160,10 @@ public class MonsterLocationPanel extends JPanel
                     location, (WildernessFilter) wilderness.getSelectedItem(), (MembershipFilter) membership.getSelectedItem()))
                     .collect(Collectors.toList());
             locationsPanel.add(text("Locations: " + filtered.size() + " of " + locations.size(), true, TEXT_WIDTH));
-            locationsPanel.add(text(filtering ? "Unknown locations excluded. Access requirements may apply."
-                    : "Access requirements may apply.", false, TEXT_WIDTH));
+            if (filtering)
+            {
+                locationsPanel.add(text("Unknown locations excluded.", false, TEXT_WIDTH));
+            }
             if (filtered.isEmpty())
             {
                 locationsPanel.add(text("No known locations match these filters. Clear the filters to include unknown classifications.", false, TEXT_WIDTH));
@@ -185,6 +203,7 @@ public class MonsterLocationPanel extends JPanel
         {
             card.add(text("Requirements: " + location.getRequirements(), false, width));
         }
+        requirements.forLocation(location).forEach(fact -> card.add(requirementText(fact, width)));
         if (hasText(location.getNotes()))
         {
             card.add(text(location.getNotes(), false, width));
@@ -198,6 +217,30 @@ public class MonsterLocationPanel extends JPanel
         }
         card.setMaximumSize(new Dimension(Integer.MAX_VALUE, card.getPreferredSize().height));
         return card;
+    }
+
+    private static JLabel requirementText(AccessRequirement fact, int width)
+    {
+        JLabel label = text(fact.getLabel() + ": " + fact.getText(), false, width);
+        label.setName("requirement:" + fact.getId());
+        String sources = fact.getEvidence().stream().map(evidence -> evidence.getPage()
+                + " (revision " + evidence.getRevisionId() + "): " + evidence.getSourceUrl())
+                .collect(Collectors.joining(" | "));
+        label.setToolTipText("Click to view Wiki evidence. " + sources);
+        label.getAccessibleContext().setAccessibleDescription(label.getToolTipText());
+        label.setCursor(java.awt.Cursor.getPredefinedCursor(java.awt.Cursor.HAND_CURSOR));
+        label.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent event)
+            {
+                if (javax.swing.SwingUtilities.isLeftMouseButton(event))
+                {
+                    LinkBrowser.browse(fact.getEvidence().get(0).getSourceUrl());
+                }
+            }
+        });
+        return label;
     }
 
     private static JPanel column()

@@ -1,0 +1,216 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-03T02:10:35.074Z",
+  "coverage": "Small reviewed sample; missing facts do not mean unrestricted access.",
+  "attribution": "OSRS Wiki contributors; adapted factual summaries, scoped by Item Drop Lookup. CC BY-NC-SA 3.0. See THIRD_PARTY_NOTICES.txt.",
+  "facts": [
+    {
+      "id": "abyssal-demon-slayer",
+      "monsterName": "Abyssal demon",
+      "scope": "MONSTER",
+      "appliesTo": "COMBAT",
+      "type": "SKILL",
+      "text": "85 Slayer to damage.",
+      "skill": "Slayer",
+      "level": 85,
+      "evidence": [
+        {
+          "page": "Abyssal demon",
+          "revisionId": 15386121,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Abyssal_demon?oldid=15386121"
+        }
+      ]
+    },
+    {
+      "id": "abyssal-demon-wilderness-task",
+      "monsterName": "Abyssal demon",
+      "scope": "LOCATION",
+      "appliesTo": "COMBAT",
+      "type": "ACTIVE_TASK",
+      "text": "A matching Slayer task is required to fight these Abyssal demons.",
+      "locationId": "ec346dbbf5098d24ef88",
+      "evidence": [
+        {
+          "page": "Wilderness Slayer Cave",
+          "revisionId": 15351480,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Wilderness_Slayer_Cave?oldid=15351480"
+        }
+      ]
+    },
+    {
+      "id": "waterfall-fire-giant-amulet",
+      "monsterName": "Fire giant",
+      "scope": "LOCATION",
+      "appliesTo": "ACCESS",
+      "type": "EQUIPMENT",
+      "text": "During Waterfall Quest, bring Glarial's amulet to enter. The amulet is not needed after completing the quest.",
+      "locationId": "02b1c44aab82f974bcde",
+      "evidence": [
+        {
+          "page": "Waterfall Dungeon",
+          "revisionId": 15372021,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Waterfall_Dungeon?oldid=15372021"
+        }
+      ]
+    },
+    {
+      "id": "waterfall-fire-giant-rope",
+      "monsterName": "Fire giant",
+      "scope": "LOCATION",
+      "appliesTo": "ACCESS",
+      "type": "EQUIPMENT",
+      "text": "Bring a rope unless you have completed both Waterfall Quest and the medium Kandarin Diary.",
+      "locationId": "02b1c44aab82f974bcde",
+      "evidence": [
+        {
+          "page": "Waterfall Dungeon",
+          "revisionId": 15372021,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Waterfall_Dungeon?oldid=15372021"
+        },
+        {
+          "page": "Kandarin Diary",
+          "revisionId": 15360468,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Kandarin_Diary?oldid=15360468"
+        }
+      ]
+    },
+    {
+      "id": "kraken-slayer",
+      "monsterName": "Kraken",
+      "scope": "MONSTER",
+      "appliesTo": "COMBAT",
+      "type": "SKILL",
+      "text": "87 Slayer; cannot be boosted.",
+      "skill": "Slayer",
+      "level": 87,
+      "evidence": [
+        {
+          "page": "Kraken",
+          "revisionId": 15383981,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Kraken?oldid=15383981"
+        }
+      ]
+    },
+    {
+      "id": "kraken-active-task",
+      "monsterName": "Kraken",
+      "scope": "MONSTER",
+      "appliesTo": "COMBAT",
+      "type": "ACTIVE_TASK",
+      "text": "An active Kraken or cave kraken Slayer task.",
+      "evidence": [
+        {
+          "page": "Kraken",
+          "revisionId": 15383981,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Kraken?oldid=15383981"
+        }
+      ]
+    },
+    {
+      "id": "kraken-task-magic",
+      "monsterName": "Kraken",
+      "scope": "MONSTER",
+      "appliesTo": "TASK_ELIGIBILITY",
+      "type": "SKILL",
+      "text": "50 Magic for task assignment. This is an assignment condition, not a separate combat restriction.",
+      "skill": "Magic",
+      "level": 50,
+      "evidence": [
+        {
+          "page": "Kraken",
+          "revisionId": 15383981,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Kraken?oldid=15383981"
+        }
+      ]
+    },
+    {
+      "id": "vorkath-repeatable-encounter",
+      "monsterName": "Vorkath",
+      "scope": "MONSTER",
+      "appliesTo": "ENCOUNTER_CONTEXT",
+      "type": "QUEST",
+      "text": "Repeatable post-quest fights require Dragon Slayer II completion. The quest encounter is separate; this source is not yet matched to an encounter version.",
+      "evidence": [
+        {
+          "page": "Vorkath",
+          "revisionId": 15364808,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Vorkath?oldid=15364808"
+        }
+      ]
+    },
+    {
+      "id": "great-white-shark-boat-context",
+      "monsterName": "Great white shark",
+      "scope": "MONSTER",
+      "appliesTo": "ACTIVITY_CONTEXT",
+      "type": "CONTEXT",
+      "text": "Ocean creatures can be fought from a boat using cannons or ranged/magic. Route-specific boat and Sailing requirements have not been verified here.",
+      "evidence": [
+        {
+          "page": "Boat combat",
+          "revisionId": 15389563,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Boat_combat?oldid=15389563"
+        },
+        {
+          "page": "Great white shark",
+          "revisionId": 15374843,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Great_white_shark?oldid=15374843"
+        }
+      ]
+    },
+    {
+      "id": "great-white-shark-bounty-eligibility",
+      "monsterName": "Great white shark",
+      "scope": "MONSTER",
+      "appliesTo": "TASK_ELIGIBILITY",
+      "type": "SKILL",
+      "text": "75 Sailing to receive great white shark bounty tasks. This is not a general requirement to kill the shark.",
+      "skill": "Sailing",
+      "level": 75,
+      "evidence": [
+        {
+          "page": "Bounty tasks/Great white sharks",
+          "revisionId": 15240479,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Bounty_tasks/Great_white_sharks?oldid=15240479"
+        },
+        {
+          "page": "Great white shark",
+          "revisionId": 15374843,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Great_white_shark?oldid=15374843"
+        }
+      ]
+    },
+    {
+      "id": "great-white-shark-jaw-task",
+      "monsterName": "Great white shark",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "ACTIVE_TASK",
+      "text": "An applicable great white shark bounty task is required for this item to drop.",
+      "itemName": "Great white shark jaw",
+      "evidence": [
+        {
+          "page": "Great white shark",
+          "revisionId": 15374843,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Great_white_shark?oldid=15374843"
+        }
+      ]
+    },
+    {
+      "id": "great-white-shark-liver-task",
+      "monsterName": "Great white shark",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "ACTIVE_TASK",
+      "text": "An applicable great white shark bounty task is required for this item to drop.",
+      "itemName": "Great white shark liver",
+      "evidence": [
+        {
+          "page": "Great white shark",
+          "revisionId": 15374843,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Great_white_shark?oldid=15374843"
+        }
+      ]
+    }
+  ]
+}

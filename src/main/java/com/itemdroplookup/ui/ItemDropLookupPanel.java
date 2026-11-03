@@ -4,6 +4,8 @@ import com.itemdroplookup.model.DropSource;
 import com.itemdroplookup.model.DropSourceGroup;
 import com.itemdroplookup.model.ItemPrice;
 import com.itemdroplookup.model.ItemSource;
+import com.itemdroplookup.model.AccessRequirement;
+import com.itemdroplookup.service.AccessRequirementLookupService;
 import com.itemdroplookup.service.DropLookupService;
 import com.itemdroplookup.service.ItemPriceLookupService;
 import com.itemdroplookup.service.ItemSourceLookupService;
@@ -81,6 +83,7 @@ public class ItemDropLookupPanel extends PluginPanel
     private final ItemSourceLookupService itemSourceLookupService;
     private final ItemPriceLookupService itemPriceLookupService;
     private final MonsterLocationLookupService monsterLocationLookupService;
+    private final AccessRequirementLookupService accessRequirementLookupService;
     private final JPanel searchView = new JPanel(new BorderLayout());
     private final JComboBox<WildernessFilter> wildernessDropdown = new JComboBox<>(WildernessFilter.values());
     private int searchScrollPosition;
@@ -111,7 +114,8 @@ public class ItemDropLookupPanel extends PluginPanel
             DropLookupService dropLookupService,
             ItemSourceLookupService itemSourceLookupService,
             ItemPriceLookupService itemPriceLookupService,
-            MonsterLocationLookupService monsterLocationLookupService
+            MonsterLocationLookupService monsterLocationLookupService,
+            AccessRequirementLookupService accessRequirementLookupService
     )
     {
         super(false);
@@ -119,6 +123,7 @@ public class ItemDropLookupPanel extends PluginPanel
         this.itemSourceLookupService = itemSourceLookupService;
         this.itemPriceLookupService = itemPriceLookupService;
         this.monsterLocationLookupService = monsterLocationLookupService;
+        this.accessRequirementLookupService = accessRequirementLookupService;
 
         setLayout(new BorderLayout());
         setBorder(new EmptyBorder(10, 10, 10, 10));
@@ -572,6 +577,16 @@ public class ItemDropLookupPanel extends PluginPanel
             card.add(makeCardLine("Notes: " + source.getNotes(), wrapWidth));
         }
 
+        for (AccessRequirement fact : accessRequirementLookupService.forSource(source))
+        {
+            if (fact.isSourceCardRequirement())
+            {
+                JLabel requirement = makeCardLine(fact.getLabel() + ": " + fact.getText(), wrapWidth);
+                requirement.setName("requirement:" + fact.getId());
+                card.add(requirement);
+            }
+        }
+
         card.setName("dropSourceCard");
         MouseAdapter openDetail = new MouseAdapter()
         {
@@ -590,9 +605,10 @@ public class ItemDropLookupPanel extends PluginPanel
         {
             component.addMouseListener(openDetail);
         }
-        JButton locations = new JButton("Locations");
+        JButton locations = new JButton("Locations & requirements");
+        locations.setMargin(new java.awt.Insets(3, 4, 3, 4));
         locations.setName("openLocations");
-        locations.getAccessibleContext().setAccessibleName("Locations for " + source.getMonsterName());
+        locations.getAccessibleContext().setAccessibleName("Locations and requirements for " + source.getMonsterName());
         locations.addActionListener(e -> showMonsterDetails(source));
         card.add(locations);
 
@@ -607,7 +623,7 @@ public class ItemDropLookupPanel extends PluginPanel
         sourceSearchTimer.stop();
         searchScrollPosition = resultsScroll.getVerticalScrollBar().getValue();
         remove(searchView);
-        detail = new MonsterLocationPanel(source, displayedQuery, monsterLocationLookupService,
+        detail = new MonsterLocationPanel(source, displayedQuery, monsterLocationLookupService, accessRequirementLookupService,
                 (WildernessFilter) wildernessDropdown.getSelectedItem(), this::showSearchResults);
         add(detail, BorderLayout.CENTER);
         revalidate();

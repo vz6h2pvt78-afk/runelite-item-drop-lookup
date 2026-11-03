@@ -3,6 +3,7 @@ package com.itemdroplookup.ui;
 import com.google.gson.Gson;
 import com.itemdroplookup.model.DropSource;
 import com.itemdroplookup.service.DropLookupService;
+import com.itemdroplookup.service.AccessRequirementLookupService;
 import com.itemdroplookup.service.ItemPriceLookupService;
 import com.itemdroplookup.service.ItemSourceLookupService;
 import com.itemdroplookup.service.MonsterLocationFilter.WildernessFilter;
@@ -27,7 +28,8 @@ public class ItemDropLookupPanelTest
         ScrollTestPanel()
         {
             super(new DropLookupService(new Gson()), new ItemSourceLookupService(new Gson()),
-                    new ItemPriceLookupService(new Gson()), new MonsterLocationLookupService(new Gson()));
+                    new ItemPriceLookupService(new Gson()), new MonsterLocationLookupService(new Gson()),
+                    new AccessRequirementLookupService(new Gson()));
         }
 
         JScrollBar scrollBar() { return getScrollPane().getVerticalScrollBar(); }
@@ -49,7 +51,7 @@ public class ItemDropLookupPanelTest
     {
         Gson gson = new Gson();
         return new ItemDropLookupPanel(drops, new ItemSourceLookupService(gson),
-                new ItemPriceLookupService(gson), new MonsterLocationLookupService(gson));
+                new ItemPriceLookupService(gson), new MonsterLocationLookupService(gson), new AccessRequirementLookupService(gson));
     }
 
     private static List<Component> descendants(Container root)
@@ -132,7 +134,7 @@ public class ItemDropLookupPanelTest
         SwingUtilities.invokeAndWait(() -> {
             boolean[] returned = {false};
             MonsterLocationPanel detail = new MonsterLocationPanel(new DropSource("Toadflax", "Zulrah", "25", "2/249", "noted"),
-                    "item", new MonsterLocationLookupService(new Gson()), WildernessFilter.ALL, () -> returned[0] = true);
+                    "item", new MonsterLocationLookupService(new Gson()), new AccessRequirementLookupService(new Gson()), WildernessFilter.ALL, () -> returned[0] = true);
             assertTrue(descendants(detail).stream().anyMatch(c -> c instanceof JLabel && ((JLabel) c).getText().contains("No location data available")));
             assertEquals("https://oldschool.runescape.wiki/w/Zulrah", ((JButton) named(detail, "monsterWiki")).getToolTipText());
             assertFalse(named(detail, "detailWilderness").isVisible());
@@ -175,7 +177,7 @@ public class ItemDropLookupPanelTest
     {
         SwingUtilities.invokeAndWait(() -> {
             MonsterLocationPanel detail = new MonsterLocationPanel(new DropSource("Rune scimitar", "Fire giant", "1", "1/128", ""),
-                    "rune scimitar", new MonsterLocationLookupService(new Gson()), WildernessFilter.ALL, () -> { });
+                    "rune scimitar", new MonsterLocationLookupService(new Gson()), new AccessRequirementLookupService(new Gson()), WildernessFilter.ALL, () -> { });
             assertEquals(12, locationCardCount(detail));
             ((JComboBox<?>) named(detail, "detailWilderness")).setSelectedItem(WildernessFilter.ONLY);
             assertEquals(1, locationCardCount(detail));
@@ -332,7 +334,7 @@ public class ItemDropLookupPanelTest
             assertTrue(queryY < 50);
 
             MonsterLocationPanel detail = new MonsterLocationPanel(new DropSource("Rune scimitar", "Fire giant", "1", "1/128", ""),
-                    "rune scimitar", new MonsterLocationLookupService(new Gson()), WildernessFilter.ALL, () -> { });
+                    "rune scimitar", new MonsterLocationLookupService(new Gson()), new AccessRequirementLookupService(new Gson()), WildernessFilter.ALL, () -> { });
             detail.setSize(222, 500);
             layout(detail);
             layout(detail);

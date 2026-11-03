@@ -7,6 +7,7 @@ import com.itemdroplookup.service.ItemPriceLookupService;
 import com.itemdroplookup.service.ItemSourceLookupService;
 import com.itemdroplookup.service.MonsterLocationFilter.WildernessFilter;
 import com.itemdroplookup.service.MonsterLocationLookupService;
+import com.itemdroplookup.service.AccessRequirementLookupService;
 import java.awt.Color;
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -44,7 +45,7 @@ public class SidebarPreview
             Gson gson = new Gson();
             MonsterLocationLookupService locations = new MonsterLocationLookupService(gson);
             ItemDropLookupPanel panel = new ItemDropLookupPanel(new DropLookupService(gson),
-                    new ItemSourceLookupService(gson), new ItemPriceLookupService(gson), locations);
+                    new ItemSourceLookupService(gson), new ItemPriceLookupService(gson), locations, new AccessRequirementLookupService(gson));
             ((JTextField) find(panel, "itemSearch")).setText("rune scimitar");
             ((JComboBox<?>) find(panel, "npcWildernessFilter")).setSelectedItem(WildernessFilter.ONLY);
             ((JButton) find(panel, "searchButton")).doClick();
@@ -70,7 +71,7 @@ public class SidebarPreview
 
     private static void renderDetail(DropSource source, MonsterLocationLookupService service, File directory, String name)
     {
-        JPanel detail = new MonsterLocationPanel(source, source.getItemName(), service, WildernessFilter.ALL, () -> { });
+        JPanel detail = new MonsterLocationPanel(source, source.getItemName(), service, new AccessRequirementLookupService(new Gson()), WildernessFilter.ALL, () -> { });
         PluginPanel container = new PluginPanel(false) { };
         container.setLayout(new BorderLayout());
         container.setBorder(new EmptyBorder(10, 10, 10, 10));

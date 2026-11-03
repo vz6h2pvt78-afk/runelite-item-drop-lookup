@@ -8,6 +8,7 @@ import com.itemdroplookup.service.DropLookupService;
 import com.itemdroplookup.service.ItemPriceLookupService;
 import com.itemdroplookup.service.ItemSourceLookupService;
 import com.itemdroplookup.service.MonsterLocationLookupService;
+import com.itemdroplookup.service.AccessRequirementLookupService;
 import java.awt.Component;
 import java.awt.Container;
 import java.nio.charset.StandardCharsets;
@@ -41,7 +42,7 @@ public final class HighVolumeAudit
             ItemSourceLookupService sources = new ItemSourceLookupService(gson);
             ItemPriceLookupService prices = new ItemPriceLookupService(gson);
             MonsterLocationLookupService locations = new MonsterLocationLookupService(gson);
-            ItemDropLookupPanel panel = new ItemDropLookupPanel(drops, sources, prices, locations);
+            ItemDropLookupPanel panel = new ItemDropLookupPanel(drops, sources, prices, locations, new AccessRequirementLookupService(gson));
             for (String query : queries)
             {
                 Map<String, Object> row = new LinkedHashMap<>();

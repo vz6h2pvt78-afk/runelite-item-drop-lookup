@@ -74,7 +74,17 @@ They retain their original notices and Apache-2.0 terms; see
 licenses/Apache-2.0.txt and https://github.com/gradle/gradle/blob/v8.10.0/LICENSE .
 They are not bundled in the standard plugin artifact.
 
+## Reviewed access requirements
+
+The overnight development access_requirements.json sidecar contains adapted
+factual summaries by Item Drop Lookup from OSRS Wiki contributors, under
+CC BY-NC-SA 3.0. Each fact includes its exact source page and revision URL.
+Changes include paraphrasing and explicit monster, location, item and activity
+scope. It is an incomplete reviewed sample, not a claim of universal coverage.
+See docs/access-requirements.md and the per-fact evidence for provenance.
+
 ## Historical OSRSBox files
+
 
 Older commits included tools/monsters-complete.json and its converted
 src/main/resources/drops.json. These unused files and their obsolete converter
