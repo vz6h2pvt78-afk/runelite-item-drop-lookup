@@ -1,0 +1,771 @@
+{
+  "startCommit": "e63e4a7b9ce6ffbb473cb49e987f315c6bbfa9a2",
+  "attribution": "OSRS Wiki contributors, CC BY-NC-SA 3.0; verified prices and conditions adapted from the cited revisions.",
+  "rows": 4988,
+  "changedRecords": 32,
+  "costEdits": 16,
+  "notesEdits": 32,
+  "beforeSha256": "54527d8c892e844d0f281319fce1e88328e617c4fcb3511891456022e9ed565d",
+  "afterSha256": "87b81229080e3f40ae08da404dc9b68cbb8ccb2a97ee7ea9cfbc2619aed062d7",
+  "sources": [
+    {
+      "page": "TzHaar-Hur-Lek's Ore and Gem Store",
+      "revisionId": 15361629,
+      "url": "https://oldschool.runescape.wiki/w/TzHaar-Hur-Lek's_Ore_and_Gem_Store?oldid=15361629",
+      "normalPrices": [
+        {
+          "item": "Tin ore",
+          "cost": "4 Tokkul"
+        },
+        {
+          "item": "Copper ore",
+          "cost": "4 Tokkul"
+        },
+        {
+          "item": "Iron ore",
+          "cost": "25 Tokkul"
+        },
+        {
+          "item": "Silver ore",
+          "cost": "112 Tokkul"
+        },
+        {
+          "item": "Coal",
+          "cost": "67 Tokkul"
+        },
+        {
+          "item": "Gold ore",
+          "cost": "225 Tokkul"
+        },
+        {
+          "item": "Mithril ore",
+          "cost": "243 Tokkul"
+        },
+        {
+          "item": "Adamantite ore",
+          "cost": "600 Tokkul"
+        },
+        {
+          "item": "Runite ore",
+          "cost": "4,800 Tokkul"
+        },
+        {
+          "item": "Uncut sapphire",
+          "cost": "37 Tokkul"
+        },
+        {
+          "item": "Uncut emerald",
+          "cost": "75 Tokkul"
+        },
+        {
+          "item": "Uncut ruby",
+          "cost": "150 Tokkul"
+        },
+        {
+          "item": "Uncut diamond",
+          "cost": "300 Tokkul"
+        },
+        {
+          "item": "Uncut dragonstone",
+          "cost": "1,500 Tokkul"
+        },
+        {
+          "item": "Uncut onyx",
+          "cost": "300,000 Tokkul"
+        },
+        {
+          "item": "Onyx bolt tips",
+          "cost": "1,500 Tokkul"
+        }
+      ],
+      "discountedOnyx": "260,000 Tokkul",
+      "normalOnyx": "300,000 Tokkul",
+      "fireCapeRequired": false
+    },
+    {
+      "page": "TzHaar-Hur-Rin's Ore and Gem Store",
+      "revisionId": 15318828,
+      "url": "https://oldschool.runescape.wiki/w/TzHaar-Hur-Rin's_Ore_and_Gem_Store?oldid=15318828",
+      "normalPrices": [
+        {
+          "item": "Tin ore",
+          "cost": "4 Tokkul"
+        },
+        {
+          "item": "Copper ore",
+          "cost": "4 Tokkul"
+        },
+        {
+          "item": "Iron ore",
+          "cost": "25 Tokkul"
+        },
+        {
+          "item": "Silver ore",
+          "cost": "112 Tokkul"
+        },
+        {
+          "item": "Coal",
+          "cost": "67 Tokkul"
+        },
+        {
+          "item": "Gold ore",
+          "cost": "225 Tokkul"
+        },
+        {
+          "item": "Mithril ore",
+          "cost": "243 Tokkul"
+        },
+        {
+          "item": "Adamantite ore",
+          "cost": "600 Tokkul"
+        },
+        {
+          "item": "Runite ore",
+          "cost": "4,800 Tokkul"
+        },
+        {
+          "item": "Uncut sapphire",
+          "cost": "37 Tokkul"
+        },
+        {
+          "item": "Uncut emerald",
+          "cost": "75 Tokkul"
+        },
+        {
+          "item": "Uncut ruby",
+          "cost": "150 Tokkul"
+        },
+        {
+          "item": "Uncut diamond",
+          "cost": "300 Tokkul"
+        },
+        {
+          "item": "Uncut dragonstone",
+          "cost": "1,500 Tokkul"
+        },
+        {
+          "item": "Uncut onyx",
+          "cost": "300,000 Tokkul"
+        },
+        {
+          "item": "Onyx bolt tips",
+          "cost": "1,500 Tokkul"
+        }
+      ],
+      "discountedOnyx": "260,000 Tokkul",
+      "normalOnyx": "300,000 Tokkul",
+      "fireCapeRequired": true
+    }
+  ],
+  "changes": [
+    {
+      "rowIndex": 116,
+      "before": {
+        "itemName": "Adamantite ore",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "600 Tokkul",
+        "notes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes."
+      },
+      "after": {
+        "itemName": "Adamantite ore",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "600 Tokkul",
+        "notes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes. Normal price; Karamja gloves 1+ reduce shop prices when equipped."
+      }
+    },
+    {
+      "rowIndex": 1152,
+      "before": {
+        "itemName": "Coal",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "67 Tokkul",
+        "notes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes."
+      },
+      "after": {
+        "itemName": "Coal",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "67 Tokkul",
+        "notes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes. Normal price; Karamja gloves 1+ reduce shop prices when equipped."
+      }
+    },
+    {
+      "rowIndex": 1232,
+      "before": {
+        "itemName": "Copper ore",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "4 Tokkul",
+        "notes": "Members shop. Default stock: 5. Restock: 1m (100t). Cost increases as stock depletes."
+      },
+      "after": {
+        "itemName": "Copper ore",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "4 Tokkul",
+        "notes": "Members shop. Default stock: 5. Restock: 1m (100t). Cost increases as stock depletes. Normal price; Karamja gloves 1+ reduce shop prices when equipped."
+      }
+    },
+    {
+      "rowIndex": 1947,
+      "before": {
+        "itemName": "Gold ore",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "225 Tokkul",
+        "notes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes."
+      },
+      "after": {
+        "itemName": "Gold ore",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "225 Tokkul",
+        "notes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes. Normal price; Karamja gloves 1+ reduce shop prices when equipped."
+      }
+    },
+    {
+      "rowIndex": 2273,
+      "before": {
+        "itemName": "Iron ore",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "25 Tokkul",
+        "notes": "Members shop. Default stock: 2. Restock: 1m (100t). Cost increases as stock depletes."
+      },
+      "after": {
+        "itemName": "Iron ore",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "25 Tokkul",
+        "notes": "Members shop. Default stock: 2. Restock: 1m (100t). Cost increases as stock depletes. Normal price; Karamja gloves 1+ reduce shop prices when equipped."
+      }
+    },
+    {
+      "rowIndex": 2836,
+      "before": {
+        "itemName": "Mithril ore",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "243 Tokkul",
+        "notes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes."
+      },
+      "after": {
+        "itemName": "Mithril ore",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "243 Tokkul",
+        "notes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes. Normal price; Karamja gloves 1+ reduce shop prices when equipped."
+      }
+    },
+    {
+      "rowIndex": 3042,
+      "before": {
+        "itemName": "Onyx bolt tips",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "1,500 Tokkul",
+        "notes": "Members shop. Default stock: 50. Restock: 1m (100t). Cost increases as stock depletes."
+      },
+      "after": {
+        "itemName": "Onyx bolt tips",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "1,500 Tokkul",
+        "notes": "Members shop. Default stock: 50. Restock: 1m (100t). Cost increases as stock depletes. Normal price; Karamja gloves 1+ reduce shop prices when equipped."
+      }
+    },
+    {
+      "rowIndex": 3783,
+      "before": {
+        "itemName": "Runite ore",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "4,800 Tokkul",
+        "notes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes."
+      },
+      "after": {
+        "itemName": "Runite ore",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "4,800 Tokkul",
+        "notes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes. Normal price; Karamja gloves 1+ reduce shop prices when equipped."
+      }
+    },
+    {
+      "rowIndex": 3965,
+      "before": {
+        "itemName": "Silver ore",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "112 Tokkul",
+        "notes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes."
+      },
+      "after": {
+        "itemName": "Silver ore",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "112 Tokkul",
+        "notes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes. Normal price; Karamja gloves 1+ reduce shop prices when equipped."
+      }
+    },
+    {
+      "rowIndex": 4472,
+      "before": {
+        "itemName": "Tin ore",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "4 Tokkul",
+        "notes": "Members shop. Default stock: 5. Restock: 1m (100t). Cost increases as stock depletes."
+      },
+      "after": {
+        "itemName": "Tin ore",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "4 Tokkul",
+        "notes": "Members shop. Default stock: 5. Restock: 1m (100t). Cost increases as stock depletes. Normal price; Karamja gloves 1+ reduce shop prices when equipped."
+      }
+    },
+    {
+      "rowIndex": 4611,
+      "before": {
+        "itemName": "Uncut diamond",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "300 Tokkul",
+        "notes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes."
+      },
+      "after": {
+        "itemName": "Uncut diamond",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "300 Tokkul",
+        "notes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes. Normal price; Karamja gloves 1+ reduce shop prices when equipped."
+      }
+    },
+    {
+      "rowIndex": 4613,
+      "before": {
+        "itemName": "Uncut dragonstone",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "1,500 Tokkul",
+        "notes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes."
+      },
+      "after": {
+        "itemName": "Uncut dragonstone",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "1,500 Tokkul",
+        "notes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes. Normal price; Karamja gloves 1+ reduce shop prices when equipped."
+      }
+    },
+    {
+      "rowIndex": 4618,
+      "before": {
+        "itemName": "Uncut emerald",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "75 Tokkul",
+        "notes": "Members shop. Default stock: 1. Restock: 1m (100t). Cost increases as stock depletes."
+      },
+      "after": {
+        "itemName": "Uncut emerald",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "75 Tokkul",
+        "notes": "Members shop. Default stock: 1. Restock: 1m (100t). Cost increases as stock depletes. Normal price; Karamja gloves 1+ reduce shop prices when equipped."
+      }
+    },
+    {
+      "rowIndex": 4621,
+      "before": {
+        "itemName": "Uncut onyx",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "300,000 Tokkul",
+        "notes": "Members shop. Default stock: 1. Restock: 1m (100t). Cost increases as stock depletes."
+      },
+      "after": {
+        "itemName": "Uncut onyx",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "300,000 Tokkul",
+        "notes": "Members shop. Default stock: 1. Restock: 1m (100t). Cost increases as stock depletes. Normal price; 260,000 Tokkul with Karamja gloves 1+ equipped."
+      }
+    },
+    {
+      "rowIndex": 4628,
+      "before": {
+        "itemName": "Uncut ruby",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "150 Tokkul",
+        "notes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes."
+      },
+      "after": {
+        "itemName": "Uncut ruby",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "150 Tokkul",
+        "notes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes. Normal price; Karamja gloves 1+ reduce shop prices when equipped."
+      }
+    },
+    {
+      "rowIndex": 4633,
+      "before": {
+        "itemName": "Uncut sapphire",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "37 Tokkul",
+        "notes": "Members shop. Default stock: 1. Restock: 1m (100t). Cost increases as stock depletes."
+      },
+      "after": {
+        "itemName": "Uncut sapphire",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Lek's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "37 Tokkul",
+        "notes": "Members shop. Default stock: 1. Restock: 1m (100t). Cost increases as stock depletes. Normal price; Karamja gloves 1+ reduce shop prices when equipped."
+      }
+    },
+    {
+      "rowIndex": 117,
+      "before": {
+        "itemName": "Adamantite ore",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Rin's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "600 coins",
+        "notes": "Members shop. Default stock: 2. Restock: 1m (100t). Cost increases as stock depletes."
+      },
+      "after": {
+        "itemName": "Adamantite ore",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Rin's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "600 Tokkul",
+        "notes": "Members shop. Default stock: 2. Restock: 1m (100t). Cost increases as stock depletes. Fire cape required to access the inner-city shop. Normal price; Karamja gloves 1+ reduce shop prices when equipped."
+      }
+    },
+    {
+      "rowIndex": 1153,
+      "before": {
+        "itemName": "Coal",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Rin's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "67 coins",
+        "notes": "Members shop. Default stock: 20. Restock: 1m (100t). Cost increases as stock depletes."
+      },
+      "after": {
+        "itemName": "Coal",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Rin's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "67 Tokkul",
+        "notes": "Members shop. Default stock: 20. Restock: 1m (100t). Cost increases as stock depletes. Fire cape required to access the inner-city shop. Normal price; Karamja gloves 1+ reduce shop prices when equipped."
+      }
+    },
+    {
+      "rowIndex": 1233,
+      "before": {
+        "itemName": "Copper ore",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Rin's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "4 coins",
+        "notes": "Members shop. Default stock: 25. Restock: 1m (100t). Cost increases as stock depletes."
+      },
+      "after": {
+        "itemName": "Copper ore",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Rin's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "4 Tokkul",
+        "notes": "Members shop. Default stock: 25. Restock: 1m (100t). Cost increases as stock depletes. Fire cape required to access the inner-city shop. Normal price; Karamja gloves 1+ reduce shop prices when equipped."
+      }
+    },
+    {
+      "rowIndex": 1948,
+      "before": {
+        "itemName": "Gold ore",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Rin's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "225 coins",
+        "notes": "Members shop. Default stock: 12. Restock: 1m (100t). Cost increases as stock depletes."
+      },
+      "after": {
+        "itemName": "Gold ore",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Rin's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "225 Tokkul",
+        "notes": "Members shop. Default stock: 12. Restock: 1m (100t). Cost increases as stock depletes. Fire cape required to access the inner-city shop. Normal price; Karamja gloves 1+ reduce shop prices when equipped."
+      }
+    },
+    {
+      "rowIndex": 2274,
+      "before": {
+        "itemName": "Iron ore",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Rin's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "25 coins",
+        "notes": "Members shop. Default stock: 15. Restock: 1m (100t). Cost increases as stock depletes."
+      },
+      "after": {
+        "itemName": "Iron ore",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Rin's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "25 Tokkul",
+        "notes": "Members shop. Default stock: 15. Restock: 1m (100t). Cost increases as stock depletes. Fire cape required to access the inner-city shop. Normal price; Karamja gloves 1+ reduce shop prices when equipped."
+      }
+    },
+    {
+      "rowIndex": 2837,
+      "before": {
+        "itemName": "Mithril ore",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Rin's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "243 coins",
+        "notes": "Members shop. Default stock: 4. Restock: 1m (100t). Cost increases as stock depletes."
+      },
+      "after": {
+        "itemName": "Mithril ore",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Rin's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "243 Tokkul",
+        "notes": "Members shop. Default stock: 4. Restock: 1m (100t). Cost increases as stock depletes. Fire cape required to access the inner-city shop. Normal price; Karamja gloves 1+ reduce shop prices when equipped."
+      }
+    },
+    {
+      "rowIndex": 3043,
+      "before": {
+        "itemName": "Onyx bolt tips",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Rin's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "1,500 coins",
+        "notes": "Members shop. Default stock: 50. Restock: 1m (100t). Cost increases as stock depletes."
+      },
+      "after": {
+        "itemName": "Onyx bolt tips",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Rin's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "1,500 Tokkul",
+        "notes": "Members shop. Default stock: 50. Restock: 1m (100t). Cost increases as stock depletes. Fire cape required to access the inner-city shop. Normal price; Karamja gloves 1+ reduce shop prices when equipped."
+      }
+    },
+    {
+      "rowIndex": 3784,
+      "before": {
+        "itemName": "Runite ore",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Rin's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "4,800 coins",
+        "notes": "Members shop. Default stock: 1. Restock: 1m (100t). Cost increases as stock depletes."
+      },
+      "after": {
+        "itemName": "Runite ore",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Rin's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "4,800 Tokkul",
+        "notes": "Members shop. Default stock: 1. Restock: 1m (100t). Cost increases as stock depletes. Fire cape required to access the inner-city shop. Normal price; Karamja gloves 1+ reduce shop prices when equipped."
+      }
+    },
+    {
+      "rowIndex": 3966,
+      "before": {
+        "itemName": "Silver ore",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Rin's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "112 coins",
+        "notes": "Members shop. Default stock: 12. Restock: 1m (100t). Cost increases as stock depletes."
+      },
+      "after": {
+        "itemName": "Silver ore",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Rin's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "112 Tokkul",
+        "notes": "Members shop. Default stock: 12. Restock: 1m (100t). Cost increases as stock depletes. Fire cape required to access the inner-city shop. Normal price; Karamja gloves 1+ reduce shop prices when equipped."
+      }
+    },
+    {
+      "rowIndex": 4473,
+      "before": {
+        "itemName": "Tin ore",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Rin's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "4 coins",
+        "notes": "Members shop. Default stock: 25. Restock: 1m (100t). Cost increases as stock depletes."
+      },
+      "after": {
+        "itemName": "Tin ore",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Rin's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "4 Tokkul",
+        "notes": "Members shop. Default stock: 25. Restock: 1m (100t). Cost increases as stock depletes. Fire cape required to access the inner-city shop. Normal price; Karamja gloves 1+ reduce shop prices when equipped."
+      }
+    },
+    {
+      "rowIndex": 4612,
+      "before": {
+        "itemName": "Uncut diamond",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Rin's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "300 coins",
+        "notes": "Members shop. Default stock: 6. Restock: 10m (1,000t). Cost increases as stock depletes."
+      },
+      "after": {
+        "itemName": "Uncut diamond",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Rin's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "300 Tokkul",
+        "notes": "Members shop. Default stock: 6. Restock: 10m (1,000t). Cost increases as stock depletes. Fire cape required to access the inner-city shop. Normal price; Karamja gloves 1+ reduce shop prices when equipped."
+      }
+    },
+    {
+      "rowIndex": 4614,
+      "before": {
+        "itemName": "Uncut dragonstone",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Rin's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "1,500 coins",
+        "notes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes."
+      },
+      "after": {
+        "itemName": "Uncut dragonstone",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Rin's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "1,500 Tokkul",
+        "notes": "Members shop. Default stock: 0. Restock: 1m (100t). Cost increases as stock depletes. Fire cape required to access the inner-city shop. Normal price; Karamja gloves 1+ reduce shop prices when equipped."
+      }
+    },
+    {
+      "rowIndex": 4619,
+      "before": {
+        "itemName": "Uncut emerald",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Rin's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "75 coins",
+        "notes": "Members shop. Default stock: 12. Restock: 3m (300t). Cost increases as stock depletes."
+      },
+      "after": {
+        "itemName": "Uncut emerald",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Rin's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "75 Tokkul",
+        "notes": "Members shop. Default stock: 12. Restock: 3m (300t). Cost increases as stock depletes. Fire cape required to access the inner-city shop. Normal price; Karamja gloves 1+ reduce shop prices when equipped."
+      }
+    },
+    {
+      "rowIndex": 4622,
+      "before": {
+        "itemName": "Uncut onyx",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Rin's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "300,000 coins",
+        "notes": "Members shop. Default stock: 1. Restock: 1m (100t). Cost increases as stock depletes."
+      },
+      "after": {
+        "itemName": "Uncut onyx",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Rin's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "300,000 Tokkul",
+        "notes": "Members shop. Default stock: 1. Restock: 1m (100t). Cost increases as stock depletes. Fire cape required to access the inner-city shop. Normal price; 260,000 Tokkul with Karamja gloves 1+ equipped."
+      }
+    },
+    {
+      "rowIndex": 4629,
+      "before": {
+        "itemName": "Uncut ruby",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Rin's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "150 coins",
+        "notes": "Members shop. Default stock: 8. Restock: 5m (500t). Cost increases as stock depletes."
+      },
+      "after": {
+        "itemName": "Uncut ruby",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Rin's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "150 Tokkul",
+        "notes": "Members shop. Default stock: 8. Restock: 5m (500t). Cost increases as stock depletes. Fire cape required to access the inner-city shop. Normal price; Karamja gloves 1+ reduce shop prices when equipped."
+      }
+    },
+    {
+      "rowIndex": 4634,
+      "before": {
+        "itemName": "Uncut sapphire",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Rin's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "37 coins",
+        "notes": "Members shop. Default stock: 16. Restock: 1m (100t). Cost increases as stock depletes."
+      },
+      "after": {
+        "itemName": "Uncut sapphire",
+        "sourceType": "Shop",
+        "sourceName": "TzHaar-Hur-Rin's Ore and Gem Store",
+        "location": "Mor Ul Rek",
+        "cost": "37 Tokkul",
+        "notes": "Members shop. Default stock: 16. Restock: 1m (100t). Cost increases as stock depletes. Fire cape required to access the inner-city shop. Normal price; Karamja gloves 1+ reduce shop prices when equipped."
+      }
+    }
+  ],
+  "scope": "Only two named shops; base-price costs and notes; no row additions, stock, identities or classification changes."
+}

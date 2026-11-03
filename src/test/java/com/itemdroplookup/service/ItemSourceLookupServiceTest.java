@@ -200,6 +200,24 @@ public class ItemSourceLookupServiceTest
     }
 
     @Test
+    public void bothOnyxShopsUseNormalTokkulPricesWithScopedConditions()
+    {
+        List<ItemSource> onyx = service.searchByItemName("Uncut onyx");
+        org.junit.Assert.assertEquals(2, onyx.size());
+        for (ItemSource source : onyx)
+        {
+            org.junit.Assert.assertEquals("300,000 Tokkul", source.getCost());
+            assertTrue(source.getNotes().contains("Normal price; 260,000 Tokkul with Karamja gloves 1+ equipped."));
+            org.junit.Assert.assertEquals(source.getSourceName().contains("Hur-Rin"),
+                    source.getNotes().contains("Fire cape required to access the inner-city shop."));
+        }
+        assertTrue(service.searchByItemName("Coal").stream().anyMatch(source ->
+                source.getSourceName().contains("Hur-Rin") && "67 Tokkul".equals(source.getCost())));
+        assertFalse(service.searchByItemName("Uncut dragonstone").stream().anyMatch(source ->
+                source.getSourceName().contains("Hur-Rin") || source.getSourceName().contains("Hur-Lek")));
+    }
+
+    @Test
     public void currencyPatchKeepsOneOptionPerVerifiedBettyPack()
     {
         for (String item : new String[] {"Air rune", "Eye of newt"})
