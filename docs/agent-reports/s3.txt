@@ -1,0 +1,8 @@
+S3 - Bronze pickup locations
+
+Bronze bar now has three Ground pickup locations alongside its single furnace recipe. Brimhaven Dungeon retains the task-only area label. Salius' Armour Shop and Cam Torum have separate location records. The fixture and provenance preserve membership, exact spawn coordinates and one recorded spawn point per place. Pickup stack size and respawn timing are unverified. Both Java runs passed 172 tests and Python passed 126. Package/API/resource and independent recovery checks passed.
+
+Starting commit a8fefe7df33ec60a3868e0efe4404b1e0b9c9c25
+Build development-2026-11-04-s3-bronze-pickups
+Official package SHA256 7f025e9b617fe406935232857e3966dbcf954bc6e87b26222398a9cb8e88b842
+Human acceptance pending.

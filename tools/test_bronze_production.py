@@ -15,6 +15,15 @@ class BronzeEvidenceTest(unittest.TestCase):
         self.assertEqual({'itemName':'Bronze bar','quantity':1},row['output'])
         self.assertTrue('Blast Furnace' not in row['facility'])
 
+    def test_bronze_ground_rows_reproduce_without_quantity_or_respawn_assumptions(self):
+        import build_bronze_ground as ground
+        rows, provenance = ground.build(self.pin)
+        self.assertEqual(json.loads(ground.OUT.read_text(encoding='utf8')), rows)
+        self.assertEqual(json.loads(ground.EVIDENCE.read_text(encoding='utf8')), provenance)
+        self.assertTrue(all(row['pickupQuantity'] is None for row in rows))
+        self.assertEqual(['Task-only area'], provenance[0]['verifiedRestrictions'])
+        self.assertTrue(all(not p['verifiedRestrictions'] for p in provenance[1:]))
+
     def test_unavailable_expanded_template_evidence_blocks_guessed_defaults(self):
         self.pin['standardRenderedHtml'] = ''
         import hashlib

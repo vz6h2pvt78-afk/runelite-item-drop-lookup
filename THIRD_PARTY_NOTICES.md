@@ -21,6 +21,7 @@ nor their conversion to JSON is used to remove source credits or restrictions.
 
 Runtime resources under src/main/resources/:
 
+- `wiki_ground_additions.json` selects three Bronze bar spawn locations from the same pinned article. `docs/data/bronze_ground.json` records the individual templates, locations and restrictions.
 - `production_recipes.json` uses the Standard normal-furnace recipe in Bronze bar revision 15315107. The offline fixture records its raw text and the saved rendered recipe table.
 - `impling_loot.json` adapts the ordinary loot tables and capture routes from the OSRS Wiki impling articles. The exact revisions, source links and offline inputs are preserved in `tools/fixtures/implings/`. The adaptation selects searchable outputs and keeps the listed quantities and chances for each outcome.
 

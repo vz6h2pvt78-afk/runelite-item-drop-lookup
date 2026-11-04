@@ -29,6 +29,17 @@ public class ProductionTest
         assertTrue(method.getSearchText().contains("1 × Tin ore"));
     }
 
+    @Test public void groundSpawnsRetainTheirOwnTaskScopeAndDoNotCountAsRecipes()
+    {
+        ItemSourceLookupService service = new ItemSourceLookupService(gson);
+        List<com.itemdroplookup.model.ItemSource> ground = service.searchByItemName("Bronze bar").stream()
+                .filter(s -> "Ground pickup".equals(s.getSourceType())).collect(java.util.stream.Collectors.toList());
+        assertEquals(3, ground.size());
+        assertEquals(1, ground.stream().filter(s -> s.getLocation().contains("task-only")).count());
+        assertTrue(ground.stream().anyMatch(s -> s.getLocation().equals("Brimhaven Dungeon (task-only area)")));
+        assertTrue(ground.stream().allMatch(s -> s.getNotes().contains("Members") && s.getCost().isEmpty()));
+    }
+
     @Test public void malformedRecipeCannotSilentlyCreateAProductionSource() throws Exception
     {
         try(InputStreamReader reader = new InputStreamReader(getClass().getResourceAsStream("/production_recipes.json"), StandardCharsets.UTF_8))

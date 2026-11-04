@@ -1,0 +1,103 @@
+[
+  {
+    "itemId": 2349,
+    "method": "GROUND",
+    "location": "Brimhaven Dungeon (task-only area)",
+    "coordinates": [
+      {
+        "x": 2636,
+        "y": 9463
+      }
+    ],
+    "plane": null,
+    "mapId": -1,
+    "id": "34176b31e860e69b799e",
+    "itemName": "Bronze bar",
+    "membersOnly": true,
+    "spawnPointCount": 1,
+    "pickupQuantity": null,
+    "accessCoverage": "incomplete",
+    "verifiedRestrictions": [
+      "Task-only area"
+    ],
+    "sourcePage": "Bronze bar",
+    "revisionId": 15315107,
+    "sourceUrl": "https://oldschool.runescape.wiki/w/Bronze_bar",
+    "historyUrl": "https://oldschool.runescape.wiki/w/Special:PermanentLink/15315107",
+    "section": [
+      "Item sources",
+      "Spawns"
+    ],
+    "template": "itemspawnline",
+    "templateSha256": "d4177b84abcf863faecec57a55f464b13b4cc814e130d3928481e210bd7f8633",
+    "rawTemplate": "{{ItemSpawnLine|name=Bronze bar|location=[[Brimhaven Dungeon]] (task-only area)|members=Yes|mapID=-1|2636,9463|leagueRegion=Karamja}}",
+    "sourceWikitextSha256": "722c1841621c30fc066dc6c66c354e5e0734761bb683e2b36046b6063392174e",
+    "rawSnapshotSha256": "4055a32bd3d93a591b62c2a77c22b4bbebddeb6e1d6692298e855599e9ebb185"
+  },
+  {
+    "itemId": 2349,
+    "method": "GROUND",
+    "location": "Salius' Armour Shop",
+    "coordinates": [
+      {
+        "x": 1620,
+        "y": 3292
+      }
+    ],
+    "plane": null,
+    "mapId": null,
+    "id": "29ad35eb6fb3a8ce001c",
+    "itemName": "Bronze bar",
+    "membersOnly": true,
+    "spawnPointCount": 1,
+    "pickupQuantity": null,
+    "accessCoverage": "incomplete",
+    "verifiedRestrictions": [],
+    "sourcePage": "Bronze bar",
+    "revisionId": 15315107,
+    "sourceUrl": "https://oldschool.runescape.wiki/w/Bronze_bar",
+    "historyUrl": "https://oldschool.runescape.wiki/w/Special:PermanentLink/15315107",
+    "section": [
+      "Item sources",
+      "Spawns"
+    ],
+    "template": "itemspawnline",
+    "templateSha256": "073cbfe6d672650c9e7016fd6e8deece659654b8e6b0f8e8175cb4d19352367f",
+    "rawTemplate": "{{ItemSpawnLine|name=Bronze bar|location=[[Salius' Armour Shop]]|members=Yes|1620,3292|leagueRegion=Varlamore}}",
+    "sourceWikitextSha256": "722c1841621c30fc066dc6c66c354e5e0734761bb683e2b36046b6063392174e",
+    "rawSnapshotSha256": "4055a32bd3d93a591b62c2a77c22b4bbebddeb6e1d6692298e855599e9ebb185"
+  },
+  {
+    "itemId": 2349,
+    "method": "GROUND",
+    "location": "Cam Torum",
+    "coordinates": [
+      {
+        "x": 1466,
+        "y": 9573
+      }
+    ],
+    "plane": null,
+    "mapId": -1,
+    "id": "47d366acc1e188e8d4db",
+    "itemName": "Bronze bar",
+    "membersOnly": true,
+    "spawnPointCount": 1,
+    "pickupQuantity": null,
+    "accessCoverage": "incomplete",
+    "verifiedRestrictions": [],
+    "sourcePage": "Bronze bar",
+    "revisionId": 15315107,
+    "sourceUrl": "https://oldschool.runescape.wiki/w/Bronze_bar",
+    "historyUrl": "https://oldschool.runescape.wiki/w/Special:PermanentLink/15315107",
+    "section": [
+      "Item sources",
+      "Spawns"
+    ],
+    "template": "itemspawnline",
+    "templateSha256": "903219760bc7a0114d3948be05f719e5cbe597d639b2751eb3be85d1a3129a34",
+    "rawTemplate": "{{ItemSpawnLine|name=Bronze bar|location=[[Cam Torum]]|members=Yes|mapID=-1|1466,9573|leagueRegion=Varlamore}}",
+    "sourceWikitextSha256": "722c1841621c30fc066dc6c66c354e5e0734761bb683e2b36046b6063392174e",
+    "rawSnapshotSha256": "4055a32bd3d93a591b62c2a77c22b4bbebddeb6e1d6692298e855599e9ebb185"
+  }
+]

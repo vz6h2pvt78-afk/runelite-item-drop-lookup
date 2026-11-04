@@ -48,13 +48,13 @@ def section_at(source, offset):
     return [entry[1] for entry in ancestry]
 
 
-def extract_row(source, review):
+def extract_row(source, review, reviewed_items=ITEMS):
     title, wikitext = source['title'], source['wikitext']
-    require(title in ITEMS, 'Item is outside approved ground slice')
+    require(title in reviewed_items, 'Item is outside approved ground slice')
     boxes = [p for _, _, name, p, _ in templates(wikitext) if name == 'infobox item']
     require(len(boxes) == 1, 'Expected one item infobox, not scenery/object identity')
-    require(boxes[0].get('name') == title and boxes[0].get('id') == str(ITEMS[title][0]), 'Unexpected canonical item identity')
-    require(review['itemId'] == ITEMS[title][0], 'Reviewed item ID changed')
+    require(boxes[0].get('name') == title and boxes[0].get('id') == str(reviewed_items[title][0]), 'Unexpected canonical item identity')
+    require(review['itemId'] == reviewed_items[title][0], 'Reviewed item ID changed')
     candidates = [t for t in templates(wikitext) if t[2] in ('itemspawnline', 'objectlocline')
                   and clean(t[3].get('location', '')) == review['location']]
     require(len(candidates) == 1, 'Expected one exact reviewed location')
@@ -86,10 +86,10 @@ def extract_row(source, review):
     raw_plane, raw_map = params.get('plane'), params.get('mapid')
     require(raw_plane is None or re.fullmatch(r'[0-3]', raw_plane), 'Unrecognized plane')
     require(raw_map is None or re.fullmatch(r'-?\d+', raw_map), 'Unrecognized map ID')
-    identity = {'itemId': ITEMS[title][0], 'method': 'GROUND', 'location': location,
+    identity = {'itemId': reviewed_items[title][0], 'method': 'GROUND', 'location': location,
                 'coordinates': points, 'plane': int(raw_plane) if raw_plane is not None else None,
                 'mapId': int(raw_map) if raw_map is not None else None}
-    record = {'id': digest(identity)[:20], 'itemId': ITEMS[title][0], 'itemName': title,
+    record = {'id': digest(identity)[:20], 'itemId': reviewed_items[title][0], 'itemName': title,
               'sourceType': 'Ground pickup', 'sourceName': location, 'location': location,
               'cost': '', 'notes': ('Members' if members else 'F2P') + ' · '
               + str(len(points)) + (' spawn point' if len(points) == 1 else ' spawn points'),

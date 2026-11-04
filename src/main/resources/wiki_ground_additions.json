@@ -1,0 +1,41 @@
+[
+  {
+    "id": "34176b31e860e69b799e",
+    "itemId": 2349,
+    "itemName": "Bronze bar",
+    "sourceType": "Ground pickup",
+    "sourceName": "Brimhaven Dungeon (task-only area)",
+    "location": "Brimhaven Dungeon (task-only area)",
+    "cost": "",
+    "notes": "Members · 1 spawn point",
+    "membersOnly": true,
+    "spawnPointCount": 1,
+    "pickupQuantity": null
+  },
+  {
+    "id": "29ad35eb6fb3a8ce001c",
+    "itemId": 2349,
+    "itemName": "Bronze bar",
+    "sourceType": "Ground pickup",
+    "sourceName": "Salius' Armour Shop",
+    "location": "Salius' Armour Shop",
+    "cost": "",
+    "notes": "Members · 1 spawn point",
+    "membersOnly": true,
+    "spawnPointCount": 1,
+    "pickupQuantity": null
+  },
+  {
+    "id": "47d366acc1e188e8d4db",
+    "itemId": 2349,
+    "itemName": "Bronze bar",
+    "sourceType": "Ground pickup",
+    "sourceName": "Cam Torum",
+    "location": "Cam Torum",
+    "cost": "",
+    "notes": "Members · 1 spawn point",
+    "membersOnly": true,
+    "spawnPointCount": 1,
+    "pickupQuantity": null
+  }
+]
