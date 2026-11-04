@@ -107,6 +107,31 @@ public class ItemSourceLookupServiceTest
     }
 
     @Test
+    public void templeSuppliesUsesPearlsAndKeepsEachTalismanUnlockLocal()
+    {
+        String[][] cases = {{"Fire talisman", "10 Abyssal pearls", ""},
+                {"Law talisman", "50 Abyssal pearls", "Troll Stronghold"},
+                {"Blood talisman", "100 Abyssal pearls", "Sins of the Father"},
+                {"Guardian's eye", "3,000 Abyssal pearls", ""}};
+        for (String[] expected : cases)
+        {
+            ItemSource offer = service.searchByItemName(expected[0]).stream()
+                    .filter(s -> "Temple Supplies".equals(s.getSourceName())).findFirst().get();
+            org.junit.Assert.assertEquals(expected[1], offer.getCost());
+            assertFalse(offer.getNotes().contains("stock depletes"));
+            assertFalse(offer.getNotes().contains("Mourning's End Part II"));
+            if (expected[2].isEmpty())
+            {
+                assertFalse(offer.getNotes().contains("completion"));
+            }
+            else
+            {
+                assertTrue(offer.getNotes().contains(expected[2] + " completion"));
+            }
+        }
+    }
+
+    @Test
     public void gracefulHoodStillReturnsSources()
     {
         List<ItemSource> results = service.searchByItemName("graceful hood");

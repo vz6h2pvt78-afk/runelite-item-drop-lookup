@@ -1,0 +1,171 @@
+{
+  "title": "Temple Supplies",
+  "revisionId": 15318800,
+  "wikitext": "{{Infobox Shop\n|name = Temple Supplies\n|image = [[File:Temple Supplies.png|300px]]\n|release = [[23 March]] [[2022]]\n|update = Guardians of the Rift Launch\n|members = Yes\n|icon = [[File:Magic shop icon.png]]\n|location = [[Temple of the Eye (location)|Temple of the Eye]]\n|owner = [[Apprentice Felix]]\n|special = [[Guardians of the Rift]] rewards\n|map = {{Map|name=Temple Supplies|x=3619|y=9475|plane=0|mapID=-1|mtype=pin|bucket=yes}}\n|leagueRegion = Desert\n}}\n'''Temple Supplies''' is the rewards shop for the [[Guardians of the Rift]] minigame, accessed by talking to [[Apprentice Felix]] at the minigame's entrance. At the rewards shop, players can use the [[abyssal pearls]] earned in the minigame to purchase helpful items for training [[Runecraft]].\n\n[[Talisman]]s whose altars require quests to access do not appear in the shop if the respective quest has not been completed.\n\n==Stock==\n{{StoreTableHead|currency=Abyssal pearls|column1=GP per pearl|hidebuy=y|hidestock=y|hiderestock=y|hidecaption=y}}\n{{StoreLine|name=Hat of the Eye|stock=100|restock=N/A|buy=N/A|sell=400|gemw=no|column1=N/A}}\n{{StoreLine|name=Robe top of the Eye|stock=100|restock=N/A|buy=N/A|sell=350|gemw=no|column1=N/A}}\n{{StoreLine|name=Robe bottoms of the Eye|stock=100|restock=N/A|buy=N/A|sell=350|gemw=no|column1=N/A}}\n{{StoreLine|name=Boots of the Eye|stock=100|restock=N/A|buy=N/A|sell=250|gemw=no|column1=N/A}}\n{{StoreLine|name=Ring of the elements|stock=100|restock=N/A|buy=N/A|sell=400|image=Ring of the elements (uncharged).png|column1={{Coins|{{GEP|Ring of the elements}}/400}}}}\n{{StoreLine|name=Guardian's eye|stock=100|restock=N/A|buy=N/A|sell=3000|gemw=no|column1=N/A}}\n{{StoreLine|name=Abyssal lantern|stock=100|restock=N/A|buy=N/A|sell=1500|gemw=no|column1=N/A}}\n{{StoreLine|name=Abyssal needle|stock=100|restock=N/A|buy=N/A|sell=750|gemw=no|column1=N/A}}\n{{StoreLine|name=Air talisman|stock=100|restock=N/A|buy=N/A|sell=10|column1={{Coins|{{GEP|Air talisman}}/10}}}}\n{{StoreLine|name=Water talisman|stock=100|restock=N/A|buy=N/A|sell=10|column1={{Coins|{{GEP|Water talisman}}/10}}}}\n{{StoreLine|name=Earth talisman|stock=100|restock=N/A|buy=N/A|sell=10|column1={{Coins|{{GEP|Earth talisman}}/10}}}}\n{{StoreLine|name=Fire talisman|stock=100|restock=N/A|buy=N/A|sell=10|column1={{Coins|{{GEP|Fire talisman}}/10}}}}\n{{StoreLine|name=Mind talisman|stock=100|restock=N/A|buy=N/A|sell=10|column1={{Coins|{{GEP|Mind talisman}}/10}}}}\n{{StoreLine|name=Body talisman|stock=100|restock=N/A|buy=N/A|sell=10|column1={{Coins|{{GEP|Body talisman}}/10}}}}\n{{StoreLine|name=Chaos talisman|stock=100|restock=N/A|buy=N/A|sell=30|column1={{Coins|{{GEP|Chaos talisman}}/30}}}}\n{{StoreLine|name=Cosmic talisman|stock=100|restock=N/A|buy=N/A|sell=30|column1={{Coins|{{GEP|Cosmic talisman}}/30}}}}\n{{StoreLine|name=Nature talisman|stock=100|restock=N/A|buy=N/A|sell=50|column1={{Coins|{{GEP|Nature talisman}}/50}}}}\n{{StoreLine|name=Law talisman|stock=100|restock=N/A|buy=N/A|sell=50|column1=N/A<ref group=d>Only available after completing [[Troll Stronghold]]</ref>}}\n{{StoreLine|name=Death talisman|stock=100|restock=N/A|buy=N/A|sell=80|column1={{Coins|{{GEP|Death talisman}}/80}}<ref group=d>Only available after completing [[Mourning's End Part II]]</ref>}}\n{{StoreLine|name=Blood talisman|stock=100|restock=N/A|buy=N/A|sell=100|column1={{Coins|{{GEP|Blood talisman}}/100}}<ref group=d>Only available after completing [[Sins of the Father]]</ref>}}\n{{StoreTableBottom}}\n{{Reflist|group=d}}\n\n==Changes==\n{{Subject changes header}}\n{{Subject changes\n|date = 19 August 2026\n|update = Summer Sweep Up - Hunter & Skilling\n|change = * The shop interface was updated. \n* The [[abyssal needle]] can now be purchased from the shop for 750 [[abyssal pearls]].\n* The [[abyssal lantern]] can now be purchased from the shop for 1,500 abyssal pearls.\n}}\n{{Subject changes\n|date = 30 March 2022\n|update = Guardians of the Rift Improvements\n|change = The amount of Abyssal pearls required to purchase pieces of the Raiments of the Eye outfit has been reduced:\n* [[Hat of the Eye]] (reduced to 400 from 500)\n* [[Robe top of the Eye]] (reduced to 350 from 400)\n* [[Robe bottoms of the Eye]] (reduced to 350 from 400)\n* [[Boots of the Eye]] (reduced to 250 from 300)\n}}\n{{Subject changes footer}}\n\n{{Guardians of the Rift}}\n{{Shops}}",
+  "wikitextSha256": "13f70bdebf13262a76bc5c8231c29a8fdc41c4154f6d631747efade002619d3e",
+  "sourceUrl": "https://oldschool.runescape.wiki/w/Temple_Supplies?oldid=15318800",
+  "patchEntries": [
+    {
+      "itemName": "Air talisman",
+      "amount": 10,
+      "quest": null,
+      "expectedBefore": {
+        "cost": "10 coins",
+        "notes": "Members shop. Cost increases as stock depletes."
+      }
+    },
+    {
+      "itemName": "Blood talisman",
+      "amount": 100,
+      "quest": "Sins of the Father",
+      "expectedBefore": {
+        "cost": "100 coins",
+        "notes": "Members shop. Cost increases as stock depletes."
+      }
+    },
+    {
+      "itemName": "Body talisman",
+      "amount": 10,
+      "quest": null,
+      "expectedBefore": {
+        "cost": "10 coins",
+        "notes": "Members shop. Cost increases as stock depletes."
+      }
+    },
+    {
+      "itemName": "Boots of the eye",
+      "amount": 250,
+      "quest": null,
+      "expectedBefore": {
+        "cost": "250 coins",
+        "notes": "Members shop. Cost increases as stock depletes."
+      }
+    },
+    {
+      "itemName": "Chaos talisman",
+      "amount": 30,
+      "quest": null,
+      "expectedBefore": {
+        "cost": "30 coins",
+        "notes": "Members shop. Cost increases as stock depletes."
+      }
+    },
+    {
+      "itemName": "Cosmic talisman",
+      "amount": 30,
+      "quest": null,
+      "expectedBefore": {
+        "cost": "30 coins",
+        "notes": "Members shop. Cost increases as stock depletes."
+      }
+    },
+    {
+      "itemName": "Death talisman",
+      "amount": 80,
+      "quest": "Mourning's End Part II",
+      "expectedBefore": {
+        "cost": "80 coins",
+        "notes": "Members shop. Cost increases as stock depletes."
+      }
+    },
+    {
+      "itemName": "Earth talisman",
+      "amount": 10,
+      "quest": null,
+      "expectedBefore": {
+        "cost": "10 coins",
+        "notes": "Members shop. Cost increases as stock depletes."
+      }
+    },
+    {
+      "itemName": "Fire talisman",
+      "amount": 10,
+      "quest": null,
+      "expectedBefore": {
+        "cost": "10 coins",
+        "notes": "Members shop. Cost increases as stock depletes."
+      }
+    },
+    {
+      "itemName": "Guardian's eye",
+      "amount": 3000,
+      "quest": null,
+      "expectedBefore": {
+        "cost": "3,000 coins",
+        "notes": "Members shop. Cost increases as stock depletes."
+      }
+    },
+    {
+      "itemName": "Hat of the eye",
+      "amount": 400,
+      "quest": null,
+      "expectedBefore": {
+        "cost": "400 coins",
+        "notes": "Members shop. Cost increases as stock depletes."
+      }
+    },
+    {
+      "itemName": "Law talisman",
+      "amount": 50,
+      "quest": "Troll Stronghold",
+      "expectedBefore": {
+        "cost": "50 coins",
+        "notes": "Members shop. Cost increases as stock depletes."
+      }
+    },
+    {
+      "itemName": "Mind talisman",
+      "amount": 10,
+      "quest": null,
+      "expectedBefore": {
+        "cost": "10 coins",
+        "notes": "Members shop. Cost increases as stock depletes."
+      }
+    },
+    {
+      "itemName": "Nature talisman",
+      "amount": 50,
+      "quest": null,
+      "expectedBefore": {
+        "cost": "50 coins",
+        "notes": "Members shop. Cost increases as stock depletes."
+      }
+    },
+    {
+      "itemName": "Ring of the elements",
+      "amount": 400,
+      "quest": null,
+      "expectedBefore": {
+        "cost": "400 coins",
+        "notes": "Members shop. Cost increases as stock depletes."
+      }
+    },
+    {
+      "itemName": "Robe bottoms of the eye",
+      "amount": 350,
+      "quest": null,
+      "expectedBefore": {
+        "cost": "350 coins",
+        "notes": "Members shop. Cost increases as stock depletes."
+      }
+    },
+    {
+      "itemName": "Robe top of the eye",
+      "amount": 350,
+      "quest": null,
+      "expectedBefore": {
+        "cost": "350 coins",
+        "notes": "Members shop. Cost increases as stock depletes."
+      }
+    },
+    {
+      "itemName": "Water talisman",
+      "amount": 10,
+      "quest": null,
+      "expectedBefore": {
+        "cost": "10 coins",
+        "notes": "Members shop. Cost increases as stock depletes."
+      }
+    }
+  ]
+}

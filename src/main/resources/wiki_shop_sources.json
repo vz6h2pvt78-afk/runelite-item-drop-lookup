@@ -1204,8 +1204,8 @@
     "sourceType": "Shop",
     "sourceName": "Temple Supplies",
     "location": "Temple of the Eye",
-    "cost": "10 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "10 Abyssal pearls",
+    "notes": "Members shop."
   },
   {
     "itemName": "Ale yeast",
@@ -3732,8 +3732,8 @@
     "sourceType": "Shop",
     "sourceName": "Temple Supplies",
     "location": "Temple of the Eye",
-    "cost": "100 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "100 Abyssal pearls",
+    "notes": "Members shop. Requires Sins of the Father completion."
   },
   {
     "itemName": "Bloody bracer",
@@ -4068,8 +4068,8 @@
     "sourceType": "Shop",
     "sourceName": "Temple Supplies",
     "location": "Temple of the Eye",
-    "cost": "10 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "10 Abyssal pearls",
+    "notes": "Members shop."
   },
   {
     "itemName": "Bologa's blessing (x20)",
@@ -4236,8 +4236,8 @@
     "sourceType": "Shop",
     "sourceName": "Temple Supplies",
     "location": "Temple of the Eye",
-    "cost": "250 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "250 Abyssal pearls",
+    "notes": "Members shop."
   },
   {
     "itemName": "Bottle of wine",
@@ -8052,8 +8052,8 @@
     "sourceType": "Shop",
     "sourceName": "Temple Supplies",
     "location": "Temple of the Eye",
-    "cost": "30 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "30 Abyssal pearls",
+    "notes": "Members shop."
   },
   {
     "itemName": "Chaotic handegg",
@@ -9916,8 +9916,8 @@
     "sourceType": "Shop",
     "sourceName": "Temple Supplies",
     "location": "Temple of the Eye",
-    "cost": "30 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "30 Abyssal pearls",
+    "notes": "Members shop."
   },
   {
     "itemName": "Cream boots",
@@ -10388,8 +10388,8 @@
     "sourceType": "Shop",
     "sourceName": "Temple Supplies",
     "location": "Temple of the Eye",
-    "cost": "80 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "80 Abyssal pearls",
+    "notes": "Members shop. Requires Mourning's End Part II completion."
   },
   {
     "itemName": "Decorative armour (gold platebody)",
@@ -11604,8 +11604,8 @@
     "sourceType": "Shop",
     "sourceName": "Temple Supplies",
     "location": "Temple of the Eye",
-    "cost": "10 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "10 Abyssal pearls",
+    "notes": "Members shop."
   },
   {
     "itemName": "Eclipse red",
@@ -14148,8 +14148,8 @@
     "sourceType": "Shop",
     "sourceName": "Temple Supplies",
     "location": "Temple of the Eye",
-    "cost": "10 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "10 Abyssal pearls",
+    "notes": "Members shop."
   },
   {
     "itemName": "Fish pie",
@@ -16292,8 +16292,8 @@
     "sourceType": "Shop",
     "sourceName": "Temple Supplies",
     "location": "Temple of the Eye",
-    "cost": "3,000 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "3,000 Abyssal pearls",
+    "notes": "Members shop."
   },
   {
     "itemName": "Guthix cape",
@@ -17124,8 +17124,8 @@
     "sourceType": "Shop",
     "sourceName": "Temple Supplies",
     "location": "Temple of the Eye",
-    "cost": "400 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "400 Abyssal pearls",
+    "notes": "Members shop."
   },
   {
     "itemName": "Healer hat",
@@ -20060,8 +20060,8 @@
     "sourceType": "Shop",
     "sourceName": "Temple Supplies",
     "location": "Temple of the Eye",
-    "cost": "50 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "50 Abyssal pearls",
+    "notes": "Members shop. Requires Troll Stronghold completion."
   },
   {
     "itemName": "Lead ore",
@@ -21940,8 +21940,8 @@
     "sourceType": "Shop",
     "sourceName": "Temple Supplies",
     "location": "Temple of the Eye",
-    "cost": "10 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "10 Abyssal pearls",
+    "notes": "Members shop."
   },
   {
     "itemName": "Mineral pack",
@@ -23468,8 +23468,8 @@
     "sourceType": "Shop",
     "sourceName": "Temple Supplies",
     "location": "Temple of the Eye",
-    "cost": "50 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "50 Abyssal pearls",
+    "notes": "Members shop."
   },
   {
     "itemName": "Necklace mould",
@@ -28988,8 +28988,8 @@
     "sourceType": "Shop",
     "sourceName": "Temple Supplies",
     "location": "Temple of the Eye",
-    "cost": "400 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "400 Abyssal pearls",
+    "notes": "Members shop."
   },
   {
     "itemName": "Ring of wealth scroll",
@@ -29012,16 +29012,16 @@
     "sourceType": "Shop",
     "sourceName": "Temple Supplies",
     "location": "Temple of the Eye",
-    "cost": "350 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "350 Abyssal pearls",
+    "notes": "Members shop."
   },
   {
     "itemName": "Robe top of the eye",
     "sourceType": "Shop",
     "sourceName": "Temple Supplies",
     "location": "Temple of the Eye",
-    "cost": "350 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "350 Abyssal pearls",
+    "notes": "Members shop."
   },
   {
     "itemName": "Rock (elemental)",
@@ -38516,8 +38516,8 @@
     "sourceType": "Shop",
     "sourceName": "Temple Supplies",
     "location": "Temple of the Eye",
-    "cost": "10 coins",
-    "notes": "Members shop. Cost increases as stock depletes."
+    "cost": "10 Abyssal pearls",
+    "notes": "Members shop."
   },
   {
     "itemName": "Water-filled vial pack",

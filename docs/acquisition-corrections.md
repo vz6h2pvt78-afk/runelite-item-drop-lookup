@@ -26,6 +26,18 @@ These summaries adapt OSRS Wiki contributors' material under CC BY-NC-SA 3.0;
 see THIRD_PARTY_NOTICES.txt. Full revision snapshots are preserved in the local
 November 3 evidence archive.
 
-Known separate review item: other generated Temple Supplies offers still carry
-old coin labels. This exact-item correction does not claim shop-wide currency or
-unlock completeness; a bounded reviewed shop patch is needed before that claim.
+## Bounded Temple Supplies patch
+
+The separately reviewed offline patch covers all eighteen existing generated
+Temple Supplies records. It changes only cost and scoped notes, asserting the
+previous values and preserving record order, identity, type and count. The same
+pinned page explicitly establishes Abyssal pearls for its one store table; the
+Law, Death and Blood talisman unlocks remain attached to their individual rows.
+The existing curated Death talisman offer still supersedes its generated record.
+
+Run `python tools/patch_temple_supplies.py --check` to verify the reviewed state;
+`--apply` permits only the pinned before/after values. Evidence, amount mapping
+and original values are in `tools/fixtures/temple_supplies_patch.json`. This is
+not a full shop regeneration. Abyssal needle and Abyssal lantern are absent from
+the existing dataset and are not silently added. Generated source categories
+remain unchanged in this cost/condition-only patch.
