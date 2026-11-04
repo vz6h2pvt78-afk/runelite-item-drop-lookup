@@ -21,6 +21,7 @@ nor their conversion to JSON is used to remove source credits or restrictions.
 
 Runtime resources under src/main/resources/:
 
+- `shop_locations.json` binds existing offers to the named shop versions in Forestry Shop revision 15374369 and Slayer Rewards revision 15373095. The reviewed inputs and their source links are in `tools/fixtures/shop_sites/`.
 - `wiki_ground_additions.json` selects three Bronze bar spawn locations from the same pinned article. `docs/data/bronze_ground.json` records the individual templates, locations and restrictions.
 - `production_recipes.json` uses the Standard normal-furnace recipe in Bronze bar revision 15315107. The offline fixture records its raw text and the saved rendered recipe table.
 - `impling_loot.json` adapts the ordinary loot tables and capture routes from the OSRS Wiki impling articles. The exact revisions, source links and offline inputs are preserved in `tools/fixtures/implings/`. The adaptation selects searchable outputs and keeps the listed quantities and chances for each outcome.

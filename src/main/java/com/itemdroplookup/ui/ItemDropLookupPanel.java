@@ -1295,7 +1295,8 @@ public class ItemDropLookupPanel extends PluginPanel
             }
         }
 
-        if (hasText(source.getLocation()) && !ground)
+        if (source.getShopLocations() != null) addShopSites(card,source.getShopLocations());
+        else if (hasText(source.getLocation()) && !ground)
         {
             card.add(makeCardLine("Location: " + source.getLocation(), CARD_TEXT_WIDTH));
         }
@@ -1324,6 +1325,33 @@ public class ItemDropLookupPanel extends PluginPanel
 
 
         return card;
+    }
+
+    private void addShopSites(JPanel card, com.itemdroplookup.model.ShopLocations sites)
+    {
+        if (sites.getMembersOffer() != null)
+            card.add(makeCardLine(sites.getMembersOffer() ? "Members offer" : "F2P offer", CARD_TEXT_WIDTH));
+        List<String> all = sites.getSites();
+        card.add(makeCardTitle("Shop locations (" + all.size() + ")", CARD_TEXT_WIDTH));
+        JPanel places = LookupStyle.column();
+        places.setBackground(LookupStyle.CARD);
+        String find = sourceSearch.getText().trim().toLowerCase(Locale.ROOT);
+        List<String> visible = find.isEmpty() ? Collections.emptyList()
+                : all.stream().filter(site -> contains(site, find)).collect(Collectors.toList());
+        if (visible.isEmpty()) visible = all.subList(0, Math.min(2, all.size()));
+        for (String place : visible) places.add(makeCardLine(place,CARD_TEXT_WIDTH));
+        if (visible.size() < all.size())
+        {
+            JButton more = style.button("Show all " + all.size() + " locations", () -> {
+                places.removeAll();
+                for (String place : all) places.add(makeCardLine(place,CARD_TEXT_WIDTH));
+                places.revalidate();
+                places.repaint();
+            }, false);
+            more.setName("allShopSites");
+            places.add(more);
+        }
+        card.add(places);
     }
 
     private boolean hasText(String value)

@@ -13,6 +13,7 @@ public class ItemSource
     private final int packQuantity;
     private final boolean packNoted;
     private final AcquisitionMethod acquisitionMethod;
+    private final ShopLocations shopLocations;
 
     public ItemSource(String itemName, String sourceType, String sourceName, String location, String cost, String notes)
     {
@@ -28,6 +29,14 @@ public class ItemSource
     public ItemSource(String itemName, String sourceType, String sourceName, String location, String cost, String notes,
             String packName, String packItemName, int packQuantity, boolean packNoted, AcquisitionMethod acquisitionMethod)
     {
+        this(itemName,sourceType,sourceName,location,cost,notes,packName,packItemName,packQuantity,packNoted,acquisitionMethod,null);
+    }
+
+    public ItemSource(String itemName, String sourceType, String sourceName, String location, String cost, String notes,
+            String packName, String packItemName, int packQuantity, boolean packNoted, AcquisitionMethod acquisitionMethod,
+            ShopLocations shopLocations)
+    {
+        this.shopLocations = shopLocations;
         this.itemName = itemName;
         this.sourceType = sourceType;
         this.sourceName = sourceName;
@@ -40,6 +49,8 @@ public class ItemSource
         this.packNoted = packNoted;
         this.acquisitionMethod = acquisitionMethod;
     }
+
+    public ShopLocations getShopLocations() { return shopLocations; }
 
     public String getItemName()
     {

@@ -1,0 +1,281 @@
+{
+  "schemaVersion": 1,
+  "shops": [
+    {
+      "sourceName": "Forestry Shop",
+      "sourceType": "Reward Shop",
+      "sites": [
+        {
+          "version": "(1)",
+          "place": "Draynor Village",
+          "branch": "Draynor Village",
+          "membersShop": false
+        },
+        {
+          "version": "(2)",
+          "place": "Seers' Village",
+          "branch": "Seers' Village",
+          "membersShop": true
+        },
+        {
+          "version": "(3)",
+          "place": "Prifddinas",
+          "branch": "Prifddinas",
+          "membersShop": true
+        },
+        {
+          "version": "(4)",
+          "place": "Nemus Retreat",
+          "branch": "Nemus Retreat",
+          "membersShop": true
+        }
+      ],
+      "offers": [
+        {
+          "itemName": "Cape pouch",
+          "cost": "2,500 Anima-infused bark",
+          "notes": "Stock: unlimited.",
+          "itemMembers": true
+        },
+        {
+          "itemName": "Clothes pouch blueprint",
+          "cost": "",
+          "notes": "Stock: unlimited. Additional purchase costs apply; see the Wiki.",
+          "itemMembers": true
+        },
+        {
+          "itemName": "Felling axe handle",
+          "cost": "",
+          "notes": "Stock: unlimited. Additional purchase costs apply; see the Wiki.",
+          "itemMembers": false
+        },
+        {
+          "itemName": "Forestry boots",
+          "cost": "",
+          "notes": "Stock: unlimited. Additional purchase costs apply; see the Wiki.",
+          "itemMembers": true
+        },
+        {
+          "itemName": "Forestry hat",
+          "cost": "",
+          "notes": "Stock: unlimited. Additional purchase costs apply; see the Wiki.",
+          "itemMembers": true
+        },
+        {
+          "itemName": "Forestry kit",
+          "cost": "Free",
+          "notes": "Stock: unlimited.",
+          "itemMembers": false
+        },
+        {
+          "itemName": "Forestry legs",
+          "cost": "",
+          "notes": "Stock: unlimited. Additional purchase costs apply; see the Wiki.",
+          "itemMembers": true
+        },
+        {
+          "itemName": "Forestry top",
+          "cost": "",
+          "notes": "Stock: unlimited. Additional purchase costs apply; see the Wiki.",
+          "itemMembers": true
+        },
+        {
+          "itemName": "Fox whistle",
+          "cost": "75,000 Anima-infused bark",
+          "notes": "Stock: unlimited.",
+          "itemMembers": true
+        },
+        {
+          "itemName": "Funky shaped log",
+          "cost": "",
+          "notes": "Stock: unlimited. Additional purchase costs apply; see the Wiki.",
+          "itemMembers": true
+        },
+        {
+          "itemName": "Golden pheasant egg",
+          "cost": "75,000 Anima-infused bark",
+          "notes": "Stock: unlimited.",
+          "itemMembers": true
+        },
+        {
+          "itemName": "Log basket",
+          "cost": "",
+          "notes": "Stock: unlimited. Additional purchase costs apply; see the Wiki.",
+          "itemMembers": true
+        },
+        {
+          "itemName": "Log brace",
+          "cost": "",
+          "notes": "Stock: unlimited. Additional purchase costs apply; see the Wiki.",
+          "itemMembers": true
+        },
+        {
+          "itemName": "Lumberjack boots",
+          "cost": "",
+          "notes": "Stock: unlimited. Additional purchase costs apply; see the Wiki.",
+          "itemMembers": true
+        },
+        {
+          "itemName": "Lumberjack hat",
+          "cost": "",
+          "notes": "Stock: unlimited. Additional purchase costs apply; see the Wiki.",
+          "itemMembers": true
+        },
+        {
+          "itemName": "Lumberjack legs",
+          "cost": "",
+          "notes": "Stock: unlimited. Additional purchase costs apply; see the Wiki.",
+          "itemMembers": true
+        },
+        {
+          "itemName": "Lumberjack top",
+          "cost": "",
+          "notes": "Stock: unlimited. Additional purchase costs apply; see the Wiki.",
+          "itemMembers": true
+        },
+        {
+          "itemName": "Ritual mulch",
+          "cost": "",
+          "notes": "Stock: unlimited. Additional purchase costs apply; see the Wiki.",
+          "itemMembers": true
+        },
+        {
+          "itemName": "Sawmill voucher (x10)",
+          "cost": "150 Anima-infused bark",
+          "notes": "Stock: unlimited.",
+          "itemMembers": true
+        },
+        {
+          "itemName": "Secateurs blade",
+          "cost": "",
+          "notes": "Stock: unlimited. Additional purchase costs apply; see the Wiki.",
+          "itemMembers": true
+        },
+        {
+          "itemName": "Twitcher's gloves",
+          "cost": "",
+          "notes": "Stock: unlimited. Additional purchase costs apply; see the Wiki.",
+          "itemMembers": true
+        }
+      ],
+      "evidence": [
+        {
+          "page": "Forestry Shop",
+          "revisionId": 15374369,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Forestry_Shop?oldid=15374369"
+        }
+      ]
+    },
+    {
+      "sourceName": "Slayer Rewards",
+      "sourceType": "Reward Shop",
+      "sites": [
+        {
+          "version": "(1)",
+          "place": "Burthorpe",
+          "branch": "Turael/Aya",
+          "membersShop": true
+        },
+        {
+          "version": "(2)",
+          "place": "Draynor Village",
+          "branch": "Spria",
+          "membersShop": true
+        },
+        {
+          "version": "(3)",
+          "place": "Edgeville",
+          "branch": "Krystilia",
+          "membersShop": true
+        },
+        {
+          "version": "(4)",
+          "place": "Canifis",
+          "branch": "Mazchna/Achtryn",
+          "membersShop": true
+        },
+        {
+          "version": "(5)",
+          "place": "Edgeville Dungeon",
+          "branch": "Vannaka",
+          "membersShop": true
+        },
+        {
+          "version": "(6)",
+          "place": "Zanaris",
+          "branch": "Chaeldar",
+          "membersShop": true
+        },
+        {
+          "version": "(7)",
+          "place": "Mount Karuulm",
+          "branch": "Konar quo Maten",
+          "membersShop": true
+        },
+        {
+          "version": "(8)",
+          "place": "Tree Gnome Stronghold",
+          "branch": "Nieve/Steve",
+          "membersShop": true
+        },
+        {
+          "version": "(9)",
+          "place": "Shilo Village",
+          "branch": "Duradel/Kuradal",
+          "membersShop": true
+        },
+        {
+          "version": "(10)",
+          "place": "Wyrmscraig Cavern",
+          "branch": "Mortimer",
+          "membersShop": true
+        }
+      ],
+      "offers": [
+        {
+          "itemName": "Broad arrows (x250)",
+          "cost": "35 Slayer points",
+          "notes": "Members shop.",
+          "itemMembers": null
+        },
+        {
+          "itemName": "Broad bolts (x250)",
+          "cost": "35 Slayer points",
+          "notes": "Members shop.",
+          "itemMembers": null
+        },
+        {
+          "itemName": "Herb sack",
+          "cost": "750 Slayer points",
+          "notes": "Members shop.",
+          "itemMembers": null
+        },
+        {
+          "itemName": "Looting bag",
+          "cost": "10 Slayer points",
+          "notes": "Members shop.",
+          "itemMembers": null
+        },
+        {
+          "itemName": "Rune pouch",
+          "cost": "750 Slayer points",
+          "notes": "Members shop.",
+          "itemMembers": null
+        },
+        {
+          "itemName": "Slayer ring (8)",
+          "cost": "75 Slayer points",
+          "notes": "Members shop.",
+          "itemMembers": null
+        }
+      ],
+      "evidence": [
+        {
+          "page": "Slayer Rewards",
+          "revisionId": 15373095,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Slayer_Rewards?oldid=15373095"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+S5 - Verified reward shop sites
+
+Twenty-one Forestry offers and five generated Slayer Rewards offers now have verified location choices on their existing cards. Each offer's exact price, notes, item identity, type and count match its original record. Finder reveals the matching location, including a master alias where recorded. The curated Rune pouch source remains separate. The 5,664-query comparison accounted for all 26 location enrichments and the previous 202 source additions, with no lost records. Both Java runs passed 174 tests and Python passed 128. Package/API checks, visual inspection of Standard/Larger renders, offline generation and recovery passed.
+
+Starting commit a696cc0e3ef8230bea0b37dbb9e653012f7291c0
+Build development-2026-11-04-s5-shop-locations
+Official package SHA256 8e53d627ebdaf800d7964e74efa625ae7ee34288f18e7373988d33a4d76c2a74
+Human acceptance pending.

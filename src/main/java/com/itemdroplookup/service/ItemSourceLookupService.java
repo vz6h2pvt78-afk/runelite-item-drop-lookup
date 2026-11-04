@@ -5,6 +5,7 @@ import com.itemdroplookup.model.AcquisitionMethod;
 import com.itemdroplookup.model.DropSource;
 import com.google.gson.reflect.TypeToken;
 import com.itemdroplookup.model.ItemSource;
+import com.itemdroplookup.model.ShopLocations;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -124,7 +125,7 @@ public class ItemSourceLookupService
                         record.location,
                         record.cost,
                         record.notes,
-                        record.packName, record.packItemName, record.packQuantity, record.packNoted, record.acquisitionMethod
+                        record.packName, record.packItemName, record.packQuantity, record.packNoted, record.acquisitionMethod, record.shopLocations
                 ))
                 .collect(Collectors.toList());
     }
@@ -142,7 +143,9 @@ public class ItemSourceLookupService
         // ones sharing an (itemName, sourceName) pair — are always kept.
         List<ItemSourceRecord> merged = new ArrayList<>();
         merged.addAll(loadRecords(CURATED_RESOURCE));
-        merged.addAll(filterSuppressedGenerated(loadRecords(SHOP_RESOURCE)));
+        List<ItemSourceRecord> generated = filterSuppressedGenerated(loadRecords(SHOP_RESOURCE));
+        applyShopLocations(generated);
+        merged.addAll(generated);
         merged.addAll(loadRecords(GROUND_RESOURCE));
         merged.addAll(loadRecords("/wiki_ground_additions.json"));
         merged.addAll(loadRecords(GATHERING_RESOURCE));
@@ -169,6 +172,24 @@ public class ItemSourceLookupService
 
         itemSourceRecords = addPackOptions(merged);
         return itemSourceRecords;
+    }
+
+    private void applyShopLocations(List<ItemSourceRecord> generated)
+    {
+        Map<List<String>,ShopLocations> sites = ShopLocationCoverage.read(gson);
+        Map<List<String>,ItemSourceRecord> matches = new HashMap<>();
+        Set<List<String>> duplicates = new HashSet<>();
+        for (ItemSourceRecord record : generated)
+        {
+            if (!"Reward Shop".equals(record.sourceType) || !"".equals(record.location)) continue;
+            List<String> key = java.util.Arrays.asList(record.sourceName,record.itemName,record.cost,record.notes);
+            if (sites.containsKey(key) && matches.putIfAbsent(key,record) != null) duplicates.add(key);
+        }
+        matches.forEach((key, record) -> {
+            if (duplicates.contains(key)) return;
+            record.shopLocations = sites.get(key);
+            record.location = String.join("\n",record.shopLocations.getSites());
+        });
     }
 
     private List<ItemSourceRecord> addPackOptions(List<ItemSourceRecord> records)
@@ -303,6 +324,7 @@ public class ItemSourceLookupService
         private int packQuantity;
         private boolean packNoted;
         private transient AcquisitionMethod acquisitionMethod;
+        private transient ShopLocations shopLocations;
     }
 
     private static class PackRecord

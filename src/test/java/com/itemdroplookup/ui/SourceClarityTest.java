@@ -190,6 +190,41 @@ public class SourceClarityTest
         assertEquals(305,back.detailStates.get(wild).scroll);
     }
 
+    @Test public void findingAnyReviewedShopSiteKeepsOneOfferAndItsExactCost() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            Gson g = new Gson();
+            ItemSourceLookupService service = new ItemSourceLookupService(g);
+            List<String> reports = new ArrayList<>();
+            ItemDropLookupPanel p = new ItemDropLookupPanel(new DropLookupService(g),service,new ItemPriceLookupService(g),
+                    new MonsterLocationLookupService(g),new AccessRequirementLookupService(g),reports::add);
+            for (String[] query : new String[][] {{"Cape pouch","Forestry Shop","4","2,500 Anima-infused bark"},
+                    {"Broad bolts (x250)","Slayer Rewards","10","35 Slayer points"}})
+            {
+                com.itemdroplookup.model.ItemSource offer = service.searchByItemName(query[0]).stream()
+                        .filter(s -> query[1].equals(s.getSourceName())).findFirst().get();
+                assertEquals(query[3],offer.getCost());
+                List<String> sites = offer.getShopLocations().getSites();
+                assertEquals(Integer.parseInt(query[2]),sites.size());
+                MorningFeedbackTest.search(p,query[0]);
+                MorningFeedbackTest.click(p,"showRewardSources");
+                JTextField find = (JTextField)PanelTestSupport.find(p,"sourceSearch");
+                for (String place : sites)
+                {
+                    find.setText(place); find.postActionEvent();
+                    assertEquals(1,named(p,"itemSourceCard").size());
+                    assertTrue(MorningFeedbackTest.labels(p).contains(place));
+                }
+                MorningFeedbackTest.click(p,"copyReport");
+                assertTrue(reports.get(reports.size()-1).contains("Find source: "+sites.get(sites.size()-1)));
+                MorningFeedbackTest.click(p,"allShopSites");
+                for (String place : sites) assertTrue(MorningFeedbackTest.labels(p).contains(place));
+                MorningFeedbackTest.click(p,"backToOverview");
+            }
+            p.dispose();
+        });
+    }
+
     @Test public void discreteQuantitiesKeepTheirMeaningAndUnreviewedCommasArePreserved()
     {
         for (String item : List.of("Iron ore", "Bronze bar"))
