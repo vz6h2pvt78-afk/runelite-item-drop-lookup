@@ -101,6 +101,29 @@ public class AccessRequirementLookupServiceTest
     }
 
     @Test
+    public void lyreNeedsTheTrialStartedOnlyForTheFourVerifiedSources()
+    {
+        for (String monster : new String[] {"Borrokar", "Freidir", "Lanzig", "Lensa"})
+        {
+            List<AccessRequirement> lyre = facts(monster, "Lyre");
+            assertEquals(1, lyre.size());
+            assertTrue(lyre.get(0).isSourceCardRequirement());
+            assertEquals(AppliesTo.ITEM_DROP, lyre.get(0).getAppliesTo());
+            assertTrue(lyre.get(0).getText().contains("Speak to Olaf the Bard"));
+            assertTrue(lyre.get(0).getText().contains("start his trial"));
+            assertFalse(lyre.get(0).getText().contains("completion"));
+            assertTrue(facts(monster, "Fremennik blade").isEmpty());
+            assertTrue(facts(monster, "Enchanted lyre").isEmpty());
+        }
+        // The fifth raw source has not been verified by the scoped quest evidence.
+        assertTrue(facts("Jennella", "Lyre").isEmpty());
+        List<DropSource> drops = new DropLookupService(new Gson()).searchByItemName("Lyre");
+        assertEquals(5, drops.size());
+        assertTrue(drops.stream().allMatch(d -> "30/512".equals(d.getDropRate())
+                && "1".equals(d.getQuantity()) && d.getNotes().isEmpty()));
+    }
+
+    @Test
     public void missingFactsDoNotRemoveExistingSources()
     {
         assertTrue(facts("Goblin", "Goblin mail").isEmpty());

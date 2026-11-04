@@ -88,6 +88,25 @@ public class ItemSourceLookupServiceTest
     }
 
     @Test
+    public void deathTalismanRetainsOneConditionalPearlOfferWithoutLeakingItsUnlock()
+    {
+        List<ItemSource> offers = service.searchByItemName("Death talisman");
+        org.junit.Assert.assertEquals(1, offers.stream()
+                .filter(s -> "Temple Supplies".equals(s.getSourceName())).count());
+        ItemSource offer = offers.stream().filter(s -> "Temple Supplies".equals(s.getSourceName()))
+                .findFirst().get();
+        org.junit.Assert.assertEquals("Reward Shop", offer.getSourceType());
+        org.junit.Assert.assertEquals("80 Abyssal pearls", offer.getCost());
+        assertTrue(offer.getNotes().contains("Requires Mourning's End Part II completion"));
+        assertFalse(offer.getNotes().contains("stock depletes"));
+        assertFalse(offer.getCost().contains("coins"));
+        assertTrue(service.searchByItemName("Fire talisman").stream()
+                .anyMatch(s -> "Temple Supplies".equals(s.getSourceName())));
+        assertFalse(service.searchByItemName("Fire talisman").stream()
+                .anyMatch(s -> s.getNotes().contains("Mourning's End Part II")));
+    }
+
+    @Test
     public void gracefulHoodStillReturnsSources()
     {
         List<ItemSource> results = service.searchByItemName("graceful hood");

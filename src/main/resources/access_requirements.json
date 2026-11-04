@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-03T02:10:35.074Z",
+  "checkedAt": "2026-11-04T02:30:00Z",
   "coverage": "Small reviewed sample; missing facts do not mean unrestricted access.",
   "attribution": "OSRS Wiki contributors; adapted factual summaries, scoped by Item Drop Lookup. CC BY-NC-SA 3.0. See THIRD_PARTY_NOTICES.txt.",
   "facts": [
@@ -209,6 +209,70 @@
           "page": "Great white shark",
           "revisionId": 15374843,
           "sourceUrl": "https://oldschool.runescape.wiki/w/Great_white_shark?oldid=15374843"
+        }
+      ]
+    },
+    {
+      "id": "lyre-borrokar-olaf-trial",
+      "monsterName": "Borrokar",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "QUEST",
+      "text": "Speak to Olaf the Bard to start his trial in The Fremennik Trials before this Lyre can drop.",
+      "itemName": "Lyre",
+      "evidence": [
+        {
+          "page": "The Fremennik Trials",
+          "revisionId": 15374585,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/The_Fremennik_Trials?oldid=15374585"
+        }
+      ]
+    },
+    {
+      "id": "lyre-freidir-olaf-trial",
+      "monsterName": "Freidir",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "QUEST",
+      "text": "Speak to Olaf the Bard to start his trial in The Fremennik Trials before this Lyre can drop.",
+      "itemName": "Lyre",
+      "evidence": [
+        {
+          "page": "The Fremennik Trials",
+          "revisionId": 15374585,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/The_Fremennik_Trials?oldid=15374585"
+        }
+      ]
+    },
+    {
+      "id": "lyre-lanzig-olaf-trial",
+      "monsterName": "Lanzig",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "QUEST",
+      "text": "Speak to Olaf the Bard to start his trial in The Fremennik Trials before this Lyre can drop.",
+      "itemName": "Lyre",
+      "evidence": [
+        {
+          "page": "The Fremennik Trials",
+          "revisionId": 15374585,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/The_Fremennik_Trials?oldid=15374585"
+        }
+      ]
+    },
+    {
+      "id": "lyre-lensa-olaf-trial",
+      "monsterName": "Lensa",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "QUEST",
+      "text": "Speak to Olaf the Bard to start his trial in The Fremennik Trials before this Lyre can drop.",
+      "itemName": "Lyre",
+      "evidence": [
+        {
+          "page": "The Fremennik Trials",
+          "revisionId": 15374585,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/The_Fremennik_Trials?oldid=15374585"
         }
       ]
     }

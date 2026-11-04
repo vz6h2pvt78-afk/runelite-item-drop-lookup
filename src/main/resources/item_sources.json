@@ -1,5 +1,13 @@
 [
     {
+        "itemName": "Death talisman",
+        "sourceType": "Reward Shop",
+        "sourceName": "Temple Supplies",
+        "location": "Temple of the Eye",
+        "cost": "80 Abyssal pearls",
+        "notes": "Requires Mourning's End Part II completion. Speak to Apprentice Felix at the Guardians of the Rift entrance. Members only."
+    },
+    {
         "itemName":  "rune pouch",
         "sourceType":  "Reward Shop",
         "sourceName":  "Slayer Rewards",

@@ -64,6 +64,7 @@ public class ItemSourceLookupService
         suppressed.add(suppressionKey("Graceful hood", "Grace's Graceful Clothing"));
         suppressed.add(suppressionKey("Rune pouch", "Slayer Rewards"));
         suppressed.add(suppressionKey("Rune pouch", "Justine's stuff for the Last Shopper Standing"));
+        suppressed.add(suppressionKey("Death talisman", "Temple Supplies"));
         return suppressed;
     }
 
