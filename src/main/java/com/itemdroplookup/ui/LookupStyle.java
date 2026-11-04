@@ -6,6 +6,10 @@ import java.awt.Container;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.BasicStroke;
+import java.awt.RenderingHints;
 import java.awt.GraphicsEnvironment;
 import java.awt.Insets;
 import java.io.InputStream;
@@ -26,11 +30,27 @@ final class LookupStyle
     static final int STANDARD_SIZE = 15;
     static final int LARGER_SIZE = 18;
     private static final Font REGULAR = loadFont();
+    private static final Icon BACK_ARROW = new Icon()
+    {
+        public int getIconWidth() { return 16; }
+        public int getIconHeight() { return 16; }
+        public void paintIcon(Component component, Graphics graphics, int x, int y)
+        {
+            Graphics2D g = (Graphics2D) graphics.create();
+            g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            g.setColor(component.getForeground());
+            g.setStroke(new BasicStroke(2, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
+            g.drawLine(x + 3, y + 8, x + 14, y + 8);
+            g.drawLine(x + 3, y + 8, x + 8, y + 3);
+            g.drawLine(x + 3, y + 8, x + 8, y + 13);
+            g.dispose();
+        }
+    };
     private final int size;
 
     LookupStyle(int size) { this.size = size; }
     Font font() { return REGULAR.deriveFont((float) size); }
-    Font heading() { return REGULAR.deriveFont((float) size + 2); }
+    Font heading() { return REGULAR.deriveFont(Font.BOLD, (float) size + 2); }
     static String fontName() { return REGULAR.getFontName(); }
 
     JLabel text(String value, boolean heading)
@@ -56,6 +76,14 @@ final class LookupStyle
         button.setHorizontalAlignment(SwingConstants.LEFT);
         button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         button.addActionListener(e -> action.run());
+        return button;
+    }
+
+    JButton backButton(String title, Runnable action)
+    {
+        JButton button = button(title, action, false);
+        button.setIcon(BACK_ARROW);
+        button.setIconTextGap(8);
         return button;
     }
 
@@ -158,8 +186,11 @@ final class LookupStyle
         if (view == null) return fallback;
         Insets insets = component.getInsets();
         int width = availableWidth(component);
-        view.setSize(Math.max(1, width - insets.left - insets.right), 0);
-        return new Dimension(width, (int) Math.ceil(view.getPreferredSpan(View.Y_AXIS)) + insets.top + insets.bottom);
+        Icon icon = component instanceof AbstractButton ? ((AbstractButton) component).getIcon() : null;
+        int iconSpace = icon == null ? 0 : icon.getIconWidth() + ((AbstractButton) component).getIconTextGap();
+        view.setSize(Math.max(1, width - insets.left - insets.right - iconSpace), 0);
+        int height = Math.max((int) Math.ceil(view.getPreferredSpan(View.Y_AXIS)), icon == null ? 0 : icon.getIconHeight());
+        return new Dimension(width, height + insets.top + insets.bottom);
     }
 
     private static final class WrappedLabel extends JLabel

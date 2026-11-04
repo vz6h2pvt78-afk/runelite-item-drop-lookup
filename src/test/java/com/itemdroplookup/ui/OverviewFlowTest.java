@@ -59,6 +59,46 @@ public class OverviewFlowTest
         });
     }
 
+    @Test public void methodsStayAvailableAndClearFiltersPreservesItemAndDisplay() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            ItemDropLookupPanel p = panel();
+            search(p, "Spade");
+            ((JButton) PanelTestSupport.find(p, "showOtherSources")).doClick(0);
+            JComboBox<?> method = (JComboBox<?>) PanelTestSupport.find(p, "sourceTypeFilter");
+            for (Component c = method; c != null; c = c.getParent()) assertTrue(c.isVisible());
+            assertNull(PanelTestSupport.find(p, "toggleFilters"));
+            method.setSelectedItem("Ground pickups");
+            assertNotNull(PanelTestSupport.find(p, "itemSourceCard"));
+            method.setSelectedItem("NPC Drops");
+            assertNotNull(PanelTestSupport.find(p, "dropSourceCard"));
+            method.setSelectedItem("Shops");
+            assertNotNull(PanelTestSupport.find(p, "itemSourceCard"));
+
+            JComboBox<?> area = (JComboBox<?>) PanelTestSupport.find(p, "npcWildernessFilter");
+            area.setSelectedItem(MonsterLocationFilter.WildernessFilter.ONLY);
+            JTextField finder = (JTextField) PanelTestSupport.find(p, "sourceSearch");
+            finder.setText("no matching source");
+            finder.postActionEvent();
+            JComboBox<?> size = (JComboBox<?>) PanelTestSupport.find(p, "textSize");
+            size.setSelectedIndex(1);
+            JCheckBox price = (JCheckBox) PanelTestSupport.find(p, "showPrice");
+            price.setSelected(false);
+            ((JButton) PanelTestSupport.find(p, "clearSourceFilters")).doClick(0);
+            assertEquals("All", method.getSelectedItem());
+            assertEquals(MonsterLocationFilter.WildernessFilter.ALL, area.getSelectedItem());
+            assertEquals("", finder.getText());
+            assertEquals("Spade", ((JTextField) PanelTestSupport.find(p, "itemSearch")).getText());
+            assertEquals(1, size.getSelectedIndex());
+            assertFalse(price.isSelected());
+            assertNotNull(PanelTestSupport.find(p, "dropSourceCard"));
+            assertNotNull(PanelTestSupport.find(p, "itemSourceCard"));
+            assertFalse(PanelTestSupport.find(p, "clearSourceFilters").isEnabled());
+            ((JButton) PanelTestSupport.find(p, "backToOverview")).doClick(0);
+            assertNotNull(PanelTestSupport.find(p, "viewAllSources"));
+        });
+    }
+
     @Test public void wrappedContentGrowsForLargerTextAndNarrowerSpace() throws Exception
     {
         SwingUtilities.invokeAndWait(() -> {
@@ -174,6 +214,41 @@ public class OverviewFlowTest
     {
         root.doLayout();
         for (Component child : root.getComponents()) if (child instanceof Container) layout((Container)child);
+    }
+
+    @Test public void immediateClearCancelsPendingFinderAndPreservesTheChosenItem() throws Exception
+    {
+        ItemDropLookupPanel[] current = new ItemDropLookupPanel[1];
+        JButton[] originalResult = new JButton[1];
+        java.util.concurrent.CompletableFuture<Void> settled = new java.util.concurrent.CompletableFuture<>();
+        SwingUtilities.invokeAndWait(() -> {
+            ItemDropLookupPanel p = current[0] = panel();
+            search(p, "uncut");
+            ((JButton) PanelTestSupport.find(p, "selectItem:Uncut emerald")).doClick(0);
+            PanelTestSupport.openSources(p);
+            JButton clear = (JButton) PanelTestSupport.find(p, "clearSourceFilters");
+            assertFalse(clear.isEnabled());
+            JTextField finder = (JTextField) PanelTestSupport.find(p, "sourceSearch");
+            finder.setText("no matching source");
+            assertTrue("Clear must work before the debounce fires", clear.isEnabled());
+            clear.doClick(0);
+            assertEquals("", finder.getText());
+            originalResult[0] = (JButton) PanelTestSupport.find(p, "openLocations");
+            assertNotNull(originalResult[0]);
+            Timer settle = new Timer(300, e -> settled.complete(null));
+            settle.setRepeats(false); settle.start();
+        });
+        settled.get(5, java.util.concurrent.TimeUnit.SECONDS);
+        SwingUtilities.invokeAndWait(() -> {
+            ItemDropLookupPanel p = current[0];
+            assertSame("A cancelled finder must not redraw restored results", originalResult[0], PanelTestSupport.find(p, "openLocations"));
+            assertEquals("uncut", ((JTextField) PanelTestSupport.find(p, "itemSearch")).getText());
+            ((JButton) PanelTestSupport.find(p, "backToOverview")).doClick(0);
+            assertNotNull(PanelTestSupport.find(p, "backToItems"));
+            assertNull(PanelTestSupport.find(p, "selectItem:Uncut ruby"));
+            ((JButton) PanelTestSupport.find(p, "backToItems")).doClick(0);
+            assertNotNull(PanelTestSupport.find(p, "selectItem:Uncut ruby"));
+        });
     }
 
     @Test public void pendingSourceFinderCannotReplaceANewerItemOverview() throws Exception

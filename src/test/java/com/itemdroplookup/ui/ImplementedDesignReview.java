@@ -13,7 +13,7 @@ import net.runelite.client.ui.ClientToolbar;
 import net.runelite.client.ui.NavigationButton;
 import net.runelite.client.ui.PluginPanel;
 
-/** C2d review only. The selected production font is used without comparison controls. */
+/** C2e review only. The selected production font is used without comparison controls. */
 @PluginDescriptor(name = "Item Lookup C2 Review", enabledByDefault = true)
 public class ImplementedDesignReview extends Plugin
 {
@@ -30,7 +30,7 @@ public class ImplementedDesignReview extends Plugin
         PluginPanel review = new PluginPanel(false) { };
         review.setLayout(new BorderLayout());
         ItemDropLookupPanel panel = new ItemDropLookupPanel(drops, sources, prices, locations, requirements);
-        JLabel identifier = new JLabel("Review C2d");
+        JLabel identifier = new JLabel("Review C2e");
         identifier.setFont(new LookupStyle(LookupStyle.STANDARD_SIZE).font());
         identifier.setForeground(LookupStyle.ACCENT);
         identifier.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -42,7 +42,7 @@ public class ImplementedDesignReview extends Plugin
         Graphics2D graphics = icon.createGraphics();
         graphics.setColor(LookupStyle.ACCENT); graphics.fillRoundRect(1, 1, 14, 14, 4, 4);
         graphics.setColor(Color.BLACK); graphics.drawString("B", 4, 12); graphics.dispose();
-        navigation = NavigationButton.builder().tooltip("C2d B review — selected Atkinson font")
+        navigation = NavigationButton.builder().tooltip("C2e B review — direct filters and Back arrows")
                 .icon(icon).priority(4).panel(review).build();
         toolbar.addNavigation(navigation);
     }

@@ -118,8 +118,8 @@ public class ItemDropLookupPanel extends PluginPanel
     private LookupStyle style = new LookupStyle(LookupStyle.STANDARD_SIZE);
     private final JComboBox<String> textSize = new IntentionalComboBox<>(new String[] {"Standard text", "Larger text"});
     private final JPanel controlsPanel = LookupStyle.column();
-    private final JButton overviewBack = style.button("Back to item", this::showOverview, false);
-    private boolean filtersExpanded;
+    private final JButton overviewBack = style.backButton("Back to item", this::showOverview);
+    private final JButton clearFilters = style.button("Clear filters", this::clearSourceFilters, false);
     private final java.util.Set<String> expandedGroups = new java.util.HashSet<>();
     private final Map<String, Integer> savedSourceScroll = new java.util.HashMap<>();
     private final Map<DropSource, MonsterLocationPanel.State> detailStates = new java.util.IdentityHashMap<>();
@@ -190,13 +190,18 @@ public class ItemDropLookupPanel extends PluginPanel
         sourceSearchTimer.setRepeats(false);
         sourceSearch.getDocument().addDocumentListener(new DocumentListener()
         {
-            public void insertUpdate(DocumentEvent e) { if (!adjustingControls) sourceSearchTimer.restart(); }
-            public void removeUpdate(DocumentEvent e) { if (!adjustingControls) sourceSearchTimer.restart(); }
-            public void changedUpdate(DocumentEvent e) { if (!adjustingControls) sourceSearchTimer.restart(); }
+            public void insertUpdate(DocumentEvent e) { sourceSearchChanged(); }
+            public void removeUpdate(DocumentEvent e) { sourceSearchChanged(); }
+            public void changedUpdate(DocumentEvent e) { sourceSearchChanged(); }
         });
         sourceSearch.addActionListener(e -> { sourceSearchTimer.stop(); renderResults(); });
+        controlsPanel.add(style.text("Method", false));
         controlsPanel.add(filterDropdown);
         controlsPanel.add(npcFilters);
+        controlsPanel.add(sourceSearchRow);
+        clearFilters.setName("clearSourceFilters");
+        clearFilters.setToolTipText("Show all methods and NPC areas, and clear Find source for this item");
+        controlsPanel.add(clearFilters);
 
         showPriceCheckbox.setName("showPrice");
         style.control(showPriceCheckbox);
@@ -331,6 +336,7 @@ public class ItemDropLookupPanel extends PluginPanel
         if (count == 0) return;
         if (count == 1) unit = unit.equals("drop entries") ? "drop entry" : unit.substring(0, unit.length() - 1);
         JButton open = style.button(title + "\n" + count + " " + unit, () -> openMethod(filter), false);
+        open.setText("<html><b>" + LookupStyle.escape(title) + "</b><br>" + count + " " + LookupStyle.escape(unit) + "</html>");
         open.setName(name);
         resultsPanel.add(open);
         resultsPanel.add(makeSpacer());
@@ -395,22 +401,15 @@ public class ItemDropLookupPanel extends PluginPanel
         {
             return;
         }
-        resultsPanel.removeAll();
+        // Keep the live dropdowns and source field attached while refreshing
+        // results, so changing a selection does not dismiss their popup/focus.
+        for (Component child : resultsPanel.getComponents())
+            if (child != controlsPanel) resultsPanel.remove(child);
         priceLabels.clear();
         overviewBack.setVisible(true);
-        resultsPanel.add(makeItemHeader(viewState.selectedItem));
-        JButton filters = style.button((filtersExpanded ? "Hide filters" : "Filters") + ": " + filterDropdown.getSelectedItem()
-                + (wildernessDropdown.getSelectedItem() != WildernessFilter.ALL ? "; NPCs " + wildernessDropdown.getSelectedItem() : ""), () -> {
-            int position = resultsScroll.getVerticalScrollBar().getValue();
-            filtersExpanded = !filtersExpanded;
-            renderResults();
-            SwingUtilities.invokeLater(() -> resultsScroll.getVerticalScrollBar().setValue(position));
-        }, false);
-        filters.setName("toggleFilters");
-        resultsPanel.add(filters);
-        controlsPanel.setVisible(filtersExpanded);
-        resultsPanel.add(controlsPanel);
-        resultsPanel.add(sourceSearchRow);
+        resultsPanel.add(makeItemHeader(viewState.selectedItem), 0);
+        if (controlsPanel.getParent() != resultsPanel) resultsPanel.add(controlsPanel);
+        clearFilters.setEnabled(hasSourceFilters());
         String selectedFilter = (String) filterDropdown.getSelectedItem();
         boolean showDrops = FILTER_ALL.equals(selectedFilter) || FILTER_DROPS.equals(selectedFilter);
         boolean showSources = !FILTER_DROPS.equals(selectedFilter);
@@ -570,15 +569,7 @@ public class ItemDropLookupPanel extends PluginPanel
                     resultsPanel.add(makeLabel("This item has other sources in the local data."));
                     JButton reset = new JButton("Show all sources");
                     reset.setName("resetSourceFilters");
-                    reset.addActionListener(e -> {
-                        adjustingControls = true;
-                        filterDropdown.setSelectedItem(FILTER_ALL);
-                        wildernessDropdown.setSelectedItem(WildernessFilter.ALL);
-                        sourceSearch.setText("");
-                        adjustingControls = false;
-                        sourceSearchTimer.stop();
-                        renderResults();
-                    });
+                    reset.addActionListener(e -> clearSourceFilters());
                     resultsPanel.add(reset);
                 }
                 else
@@ -605,6 +596,30 @@ public class ItemDropLookupPanel extends PluginPanel
     private boolean contains(String value, String query)
     {
         return query.isEmpty() || value != null && value.toLowerCase(Locale.ROOT).contains(query);
+    }
+
+    private boolean hasSourceFilters()
+    {
+        return !FILTER_ALL.equals(filterDropdown.getSelectedItem())
+                || wildernessDropdown.getSelectedItem() != WildernessFilter.ALL || !sourceSearch.getText().isEmpty();
+    }
+
+    private void sourceSearchChanged()
+    {
+        if (adjustingControls) return;
+        clearFilters.setEnabled(hasSourceFilters());
+        sourceSearchTimer.restart();
+    }
+
+    private void clearSourceFilters()
+    {
+        sourceSearchTimer.stop();
+        adjustingControls = true;
+        filterDropdown.setSelectedItem(FILTER_ALL);
+        wildernessDropdown.setSelectedItem(WildernessFilter.ALL);
+        sourceSearch.setText("");
+        adjustingControls = false;
+        renderResults();
     }
 
     private JButton wikiButton(String item)

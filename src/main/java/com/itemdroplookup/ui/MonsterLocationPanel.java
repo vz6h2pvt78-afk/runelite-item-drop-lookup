@@ -105,7 +105,7 @@ public class MonsterLocationPanel extends JPanel
                 + URLEncoder.encode(source.getMonsterName().replace(' ', '_'), StandardCharsets.UTF_8);
         allLocations = service.lookupByMonsterName(source.getMonsterName());
         JPanel header = column();
-        JButton backButton = style.button("Back to results", back, false);
+        JButton backButton = style.backButton("Back to results", back);
         backButton.setName("backToResults");
         header.add(backButton);
         header.add(text(source.getMonsterName(), true, TEXT_WIDTH));
