@@ -6,6 +6,7 @@ import com.itemdroplookup.service.ItemPriceLookupService;
 import com.itemdroplookup.service.ItemSourceLookupService;
 import com.itemdroplookup.service.MonsterLocationLookupService;
 import com.itemdroplookup.service.AccessRequirementLookupService;
+import com.itemdroplookup.service.ItemIconService;
 import com.itemdroplookup.ui.ItemDropLookupPanel;
 import java.awt.image.BufferedImage;
 import javax.inject.Inject;
@@ -40,6 +41,9 @@ public class ItemDropLookupPlugin extends Plugin
     @Inject
     private AccessRequirementLookupService accessRequirementLookupService;
 
+    @Inject
+    private ItemIconService itemIconService;
+
     private ItemDropLookupPanel panel;
     private NavigationButton navButton;
 
@@ -47,7 +51,7 @@ public class ItemDropLookupPlugin extends Plugin
     protected void startUp() throws Exception
     {
         panel = new ItemDropLookupPanel(dropLookupService, itemSourceLookupService, itemPriceLookupService,
-                monsterLocationLookupService, accessRequirementLookupService);
+                monsterLocationLookupService, accessRequirementLookupService, itemIconService);
 
         BufferedImage icon = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
         java.awt.Graphics2D graphics = icon.createGraphics();
@@ -69,6 +73,11 @@ public class ItemDropLookupPlugin extends Plugin
     @Override
     protected void shutDown() throws Exception
     {
+        if (panel != null)
+        {
+            panel.dispose();
+            panel = null;
+        }
         if (navButton != null)
         {
             clientToolbar.removeNavigation(navButton);

@@ -10,6 +10,7 @@ import com.itemdroplookup.service.AccessRequirementLookupService;
 import com.itemdroplookup.service.DropLookupService;
 import com.itemdroplookup.service.ItemPriceLookupService;
 import com.itemdroplookup.service.ItemSourceLookupService;
+import com.itemdroplookup.service.ItemIconProvider;
 import com.itemdroplookup.service.MonsterFamilyGrouper;
 import com.itemdroplookup.service.MonsterLocationLookupService;
 import com.itemdroplookup.service.MonsterLocationFilter.WildernessFilter;
@@ -97,6 +98,7 @@ public class ItemDropLookupPanel extends PluginPanel
     private int searchScrollPosition;
     private String displayedQuery = "";
     private final JScrollPane resultsScroll = new JScrollPane();
+    private final ChooserIcons chooserIcons;
     private MonsterLocationPanel detail;
     private final JTextField sourceSearch = new JTextField();
     private final JPanel sourceSearchRow = new JPanel(new BorderLayout(5, 0));
@@ -151,6 +153,24 @@ public class ItemDropLookupPanel extends PluginPanel
                         AccessRequirementLookupService accessRequirementLookupService,
                         java.util.function.Consumer<String> clipboardWriter)
     {
+        this(dropLookupService, itemSourceLookupService, itemPriceLookupService, monsterLocationLookupService,
+                accessRequirementLookupService, clipboardWriter, ItemIconProvider.NONE);
+    }
+
+    public ItemDropLookupPanel(DropLookupService dropLookupService, ItemSourceLookupService itemSourceLookupService,
+                              ItemPriceLookupService itemPriceLookupService, MonsterLocationLookupService monsterLocationLookupService,
+                              AccessRequirementLookupService accessRequirementLookupService, ItemIconProvider iconProvider)
+    {
+        this(dropLookupService, itemSourceLookupService, itemPriceLookupService, monsterLocationLookupService,
+                accessRequirementLookupService, text -> java.awt.Toolkit.getDefaultToolkit().getSystemClipboard()
+                        .setContents(new java.awt.datatransfer.StringSelection(text), null), iconProvider);
+    }
+
+    ItemDropLookupPanel(DropLookupService dropLookupService, ItemSourceLookupService itemSourceLookupService,
+                        ItemPriceLookupService itemPriceLookupService, MonsterLocationLookupService monsterLocationLookupService,
+                        AccessRequirementLookupService accessRequirementLookupService,
+                        java.util.function.Consumer<String> clipboardWriter, ItemIconProvider iconProvider)
+    {
         super(false);
         this.dropLookupService = dropLookupService;
         this.itemSourceLookupService = itemSourceLookupService;
@@ -158,6 +178,7 @@ public class ItemDropLookupPanel extends PluginPanel
         this.monsterLocationLookupService = monsterLocationLookupService;
         this.accessRequirementLookupService = accessRequirementLookupService;
         this.clipboardWriter = clipboardWriter;
+        chooserIcons = new ChooserIcons(resultsScroll, iconProvider);
 
         setLayout(new BorderLayout());
         setBorder(new EmptyBorder(8, 8, 8, 8));
@@ -254,6 +275,13 @@ public class ItemDropLookupPanel extends PluginPanel
         return detail == null ? resultsScroll : detail.getLocationScrollPane();
     }
 
+    public void dispose()
+    {
+        chooserIcons.dispose();
+        if (SwingUtilities.isEventDispatchThread()) sourceSearchTimer.stop();
+        else SwingUtilities.invokeLater(sourceSearchTimer::stop);
+    }
+
     private boolean adjustingControls;
 
     /** A real last-valid navigation entry; never inferred from a failed search. */
@@ -343,6 +371,7 @@ public class ItemDropLookupPanel extends PluginPanel
 
     private void showNoSources()
     {
+        chooserIcons.clear();
         viewState.page = LookupViewState.Page.NO_SOURCES;
         overviewBack.setVisible(false);
         resultsPanel.removeAll();
@@ -364,6 +393,7 @@ public class ItemDropLookupPanel extends PluginPanel
 
     private void showItemChoices()
     {
+        chooserIcons.clear();
         viewState.page = LookupViewState.Page.ITEMS;
         overviewBack.setVisible(false);
         resultsPanel.removeAll();
@@ -382,6 +412,7 @@ public class ItemDropLookupPanel extends PluginPanel
         {
             JButton choose = style.button(item, () -> selectItem(item), false);
             choose.setName("selectItem:" + item);
+            chooserIcons.add(item, choose);
             resultsPanel.add(choose);
             resultsPanel.add(makeSmallSpacer());
         }
@@ -392,6 +423,7 @@ public class ItemDropLookupPanel extends PluginPanel
 
     private void showOverview()
     {
+        chooserIcons.clear();
         if (viewState.page == LookupViewState.Page.SOURCES)
             savedSourceScroll.put(sourceViewKey(), resultsScroll.getVerticalScrollBar().getValue());
         viewState.page = LookupViewState.Page.OVERVIEW;
@@ -534,7 +566,10 @@ public class ItemDropLookupPanel extends PluginPanel
     {
         style.refreshTree(searchView);
         resultsPanel.revalidate(); resultsPanel.repaint(); revalidate();
-        SwingUtilities.invokeLater(() -> resultsScroll.getVerticalScrollBar().setValue(position));
+        SwingUtilities.invokeLater(() -> {
+            resultsScroll.getVerticalScrollBar().setValue(position);
+            chooserIcons.requestVisible();
+        });
     }
 
     private void renderResults()
@@ -543,6 +578,7 @@ public class ItemDropLookupPanel extends PluginPanel
         {
             return;
         }
+        chooserIcons.clear();
         // Keep the live dropdowns and source field attached while refreshing
         // results, so changing a selection does not dismiss their popup/focus.
         for (Component child : resultsPanel.getComponents())
