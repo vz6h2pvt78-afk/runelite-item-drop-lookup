@@ -185,6 +185,41 @@ public class AcquisitionEventLookupServiceTest
         return result;
     }
 
+    @Test public void entSummaryGroupsOnlyTheTwoReviewedEquivalentWildernessLocations()
+    {
+        AcquisitionMethod method=magic(service(data()));
+        assertEquals(1,method.getSummarySections().stream().filter(s->s.isWilderness()).count());
+        assertTrue(method.getSummarySections().stream().anyMatch(s->s.getHeading().equals("East and north of Chaos Temple")));
+        assertTrue(method.getSearchText().contains("East of Chaos Temple"));
+        assertTrue(method.getSearchText().contains("North of Chaos Temple"));
+        assertEquals(3,method.getSections().stream().filter(s->s.getHeading().equals("Where and yield")).findFirst().get().getLines().size());
+        for (String field : new String[]{"members","wilderness","requirements","notes","sourceUrl"})
+        {
+            MonsterLocationLookupService altered=new MonsterLocationLookupService(gson)
+            {
+                @Override public synchronized List<MonsterLocation> lookupByMonsterName(String monster)
+                {
+                    List<MonsterLocation> result=new ArrayList<>();
+                    for(MonsterLocation location:super.lookupByMonsterName(monster))
+                    {
+                        JsonObject row=gson.toJsonTree(location).getAsJsonObject();
+                        if(location.getId().equals("a68fdb7c45298260aeff"))
+                        {
+                            if(field.equals("members"))row.addProperty(field,false);
+                            else row.addProperty(field,field.equals("wilderness")?"UNKNOWN":"Distinct condition or destination");
+                        }
+                        result.add(gson.fromJson(row,MonsterLocation.class));
+                    }
+                    return result;
+                }
+            };
+            AcquisitionMethod separate=magic(new AcquisitionEventLookupService(gson,altered,drops,()->new StringReader(data().toString())));
+            assertFalse(field,separate.getSummarySections().stream().anyMatch(s->s.getHeading().equals("East and north of Chaos Temple")));
+            if(field.equals("requirements")||field.equals("notes"))
+                assertTrue(separate.getSummarySections().stream().flatMap(s->s.getLines().stream()).anyMatch(l->l.contains("Distinct condition")));
+        }
+    }
+
     @Test
     public void gloryIsOneLootEventWithThreeAlternativeRoutesAndAFullTable()
     {

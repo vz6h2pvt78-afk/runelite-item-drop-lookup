@@ -162,13 +162,13 @@ public class MonsterLocationPanel extends JPanel
     {
         if (adjusting) return;
         locationsPanel.removeAll();
+        locationsPanel.add(text(DropRatePresentation.detailRateLine(source), false, TEXT_WIDTH));
+        locationsPanel.add(text("Quantity: " + source.getQuantity(), false, TEXT_WIDTH));
         if (!sourceFacts.isEmpty())
         {
             locationsPanel.add(text("Requirements & context", true, TEXT_WIDTH));
             sourceFacts.forEach(fact -> locationsPanel.add(requirementText(fact, TEXT_WIDTH)));
         }
-        locationsPanel.add(text(DropRatePresentation.detailRateLine(source), false, TEXT_WIDTH));
-        locationsPanel.add(text("Quantity: " + source.getQuantity(), false, TEXT_WIDTH));
         JButton toggle = style.button((filtersExpanded ? "Hide location filters" : "Location filters")
                 + (wilderness.getSelectedItem() != WildernessFilter.ALL ? "\n" + wilderness.getSelectedItem() : "")
                 + (membership.getSelectedItem() != MembershipFilter.ALL ? "\n" + membership.getSelectedItem() : ""), () -> {
@@ -249,7 +249,7 @@ public class MonsterLocationPanel extends JPanel
         JPanel card = column();
         card.setName("location:" + location.getId());
         card.setBackground(LookupStyle.CARD);
-        card.setBorder(BorderFactory.createCompoundBorder(new EmptyBorder(4, 0, 6, 0), new EmptyBorder(8, 8, 8, 8)));
+        card.setBorder(LookupStyle.cardBorder());
         int width = TEXT_WIDTH - 16;
         card.add(text(location.getLocation(), true, width));
         if (location.getWilderness() == MonsterLocation.Wilderness.YES) card.add(style.wildernessWarning());

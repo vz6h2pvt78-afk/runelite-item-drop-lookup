@@ -170,6 +170,8 @@ public class AcquisitionEventLookupService
         sections.add(new Section("Required for this log", Arrays.asList(string(tool, "text"), string(condition, "text"))));
         List<String> locationLines = new ArrayList<>();
         List<String> locationNames = new ArrayList<>();
+        Map<String, Section> locationSummaries = new LinkedHashMap<>();
+        Map<String, MonsterLocation> summaryLocations = new LinkedHashMap<>();
         Set<String> locationIds = new HashSet<>();
         for (JsonElement element : array(row, "locations"))
         {
@@ -190,21 +192,54 @@ public class AcquisitionEventLookupService
             locationNames.add(location.getLocation());
             locationLines.add(location.getLocation() + ": defeat level " + level + " Ent. If this log type is rolled: " + quantity
                     + " noted " + (quantity == 1 ? "log" : "logs") + ".");
+            List<String> summaryLines = new ArrayList<>(Arrays.asList(
+                    "Defeat level " + level + " Ent.",
+                    "If this log type is rolled: " + quantity + " noted " + (quantity == 1 ? "log." : "logs.")));
+            if (location.getRequirements() != null && !location.getRequirements().isEmpty()) summaryLines.add(location.getRequirements());
+            if (location.getNotes() != null && !location.getNotes().isEmpty()) summaryLines.add(location.getNotes());
+            locationSummaries.put(locationId, new Section(location.getLocation(), summaryLines,
+                    location.getWilderness() == MonsterLocation.Wilderness.YES));
+            summaryLocations.put(locationId, location);
         }
         require(!locationLines.isEmpty(), "No reviewed harvest locations");
         sections.add(new Section("Where and yield", locationLines));
         sections.add(new Section("Chance varies", Arrays.asList(string(row, "chanceContext"),
                 "The selected log is not guaranteed.")));
+        // Only these two reviewed variants share the same encounter and yield.
+        // Keep the full individual associations in sections/search and the manifest.
+        Section east = locationSummaries.get("96e8b6f8e85241dc9c51");
+        Section north = locationSummaries.get("a68fdb7c45298260aeff");
+        if (east != null && north != null && east.isWilderness() && north.isWilderness()
+                && east.getLines().equals(north.getLines())
+                && sameLocationContext(summaryLocations.get("96e8b6f8e85241dc9c51"), summaryLocations.get("a68fdb7c45298260aeff")))
+        {
+            locationSummaries.put("96e8b6f8e85241dc9c51", new Section("East and north of Chaos Temple", east.getLines(), true));
+            locationSummaries.remove("a68fdb7c45298260aeff");
+        }
+        List<Section> summary = new ArrayList<>(sections.subList(0, 2));
+        summary.addAll(locationSummaries.values());
+        summary.add(sections.get(sections.size() - 1));
         return new AcquisitionMethod(id, item, string(row, "sourceName"), "Gathering", "Ent",
-                String.join("; ", locationNames), sections, true);
+                String.join("; ", locationNames), sections, summary, true);
+    }
+
+    private static boolean sameLocationContext(MonsterLocation first, MonsterLocation second)
+    {
+        return java.util.Objects.equals(first.getMembers(), second.getMembers())
+                && java.util.Objects.equals(first.getRequirements(), second.getRequirements())
+                && java.util.Objects.equals(first.getNotes(), second.getNotes())
+                && java.util.Objects.equals(first.getSourceUrl(), second.getSourceUrl());
     }
 
     private AcquisitionMethod unavailable(String item)
     {
-        return new AcquisitionMethod("ent-unavailable-" + item, item, "Ent: harvesting details unavailable",
-                "Gathering", "Ent", "", Arrays.asList(new Section("Kill, then chop", Arrays.asList(
-                        "Logs come from chopping the defeated Ent's trunk.",
-                        "Reviewed requirements, locations and yield are unavailable for this entry. Check the method Wiki."))), false);
+        List<Section> sections = new ArrayList<>();
+        sections.add(new Section("Kill, then chop", Collections.singletonList("Logs come from chopping the defeated Ent's trunk.")));
+        boolean axeDependent = Arrays.asList("Oak logs", "Willow logs", "Maple logs").contains(item);
+        sections.add(new Section("Details unavailable", Collections.singletonList(axeDependent
+                ? "Availability depends on base Woodcutting and the axe used. An exact level requirement for this log is not verified; check the Wiki calculator."
+                : "Reviewed requirements, locations and yield are unavailable for this entry. Check the method Wiki.")));
+        return new AcquisitionMethod("ent-unavailable-" + item, item, "Ent trunk", "Gathering", "Ent", "", sections, false);
     }
 
     private static boolean sameLegacy(DropSource source, JsonObject old)

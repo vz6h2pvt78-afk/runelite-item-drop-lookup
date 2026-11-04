@@ -24,7 +24,9 @@ public final class AcquisitionPreview
                     {"Mystic robe bottom", "Loot & containers", ""}, {"Snapdragon seed", "Loot & containers", ""},
                     {"Dragon arrow", "Loot & containers", ""}, {"Dragon dagger(p++)", "Loot & containers", ""},
                     {"Adamant axe", "NPC Drops", "Dust devil"}, {"Adamant boots", "NPC Drops", "Gargoyle"},
-                    {"Adamant sq shield", "NPC Drops", "Night beast"}, {"Dragonstone", "NPC Drops", "Zulrah"}})
+                    {"Adamant sq shield", "NPC Drops", "Night beast"}, {"Dragonstone", "NPC Drops", "Zulrah"},
+                    {"Air rune", "Shops", "pack"}, {"Death talisman", "Reward Shops", "Temple Supplies"},
+                    {"Spade", "Ground pickups", ""}, {"Iron ore", "Gathering", ""}, {"Oak logs", "Gathering", ""}})
             {
                 JTextField search = (JTextField) PanelTestSupport.find(panel, "itemSearch");
                 search.setText(scenario[0]);

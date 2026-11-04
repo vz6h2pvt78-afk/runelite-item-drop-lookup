@@ -117,6 +117,12 @@ final class LookupStyle
         return label;
     }
 
+    static javax.swing.border.Border cardBorder()
+    {
+        return BorderFactory.createCompoundBorder(new EmptyBorder(4, 0, 8, 0),
+                BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(BORDER), new EmptyBorder(8, 8, 8, 8)));
+    }
+
     void control(JComponent component)
     {
         component.setFont(font());

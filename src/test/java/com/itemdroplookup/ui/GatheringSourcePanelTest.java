@@ -90,7 +90,7 @@ public class GatheringSourcePanelTest
             ItemDropLookupPanel panel = search("oak logs");
             ((JComboBox<?>) named(panel, "sourceTypeFilter").get(0)).setSelectedItem("Gathering");
             assertEquals(1, named(panel, "itemSourceCard").size());
-            assertTrue(labels(panel).contains("harvesting details unavailable"));
+            assertTrue(labels(panel).contains("Details unavailable"));
             assertEquals(1, named(panel, "gatheringCoverage").size());
             ((JComboBox<?>) named(panel, "sourceTypeFilter").get(0)).setSelectedItem("All");
             assertFalse(named(panel, "openLocations").isEmpty());

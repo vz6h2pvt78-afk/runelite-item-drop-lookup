@@ -525,8 +525,8 @@ public class ItemDropLookupPanelTest
             filter.setSelectedItem("Gathering");
             assertEquals(1, sourceCardCount(panel));
             assertTrue(textContains(panel, "75 base Woodcutting"));
-            assertTrue(textContains(panel, "level 101 Ent. If this log type is rolled: 2 noted logs"));
-            assertTrue(textContains(panel, "level 86 Ent. If this log type is rolled: 1 noted log"));
+            assertTrue(textContains(panel, "If this log type is rolled: 2 noted logs"));
+            assertTrue(textContains(panel, "If this log type is rolled: 1 noted log"));
             assertFalse(descendants(panel).stream().anyMatch(c -> "openLocations".equals(c.getName())));
             assertEquals("https://oldschool.runescape.wiki/w/Ent", ((JButton) named(panel, "methodWiki")).getToolTipText());
             filter.setSelectedItem("NPC Drops");
@@ -536,7 +536,7 @@ public class ItemDropLookupPanelTest
             assertEquals(0, descendants(panel).stream().filter(c -> "methodWiki".equals(c.getName())).count());
             search(panel, "Oak logs");
             filter.setSelectedItem("Gathering");
-            assertTrue(textContains(panel, "harvesting details unavailable"));
+            assertTrue(textContains(panel, "Details unavailable"));
         });
     }
 

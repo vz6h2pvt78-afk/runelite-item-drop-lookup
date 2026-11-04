@@ -939,7 +939,7 @@ public class ItemDropLookupPanel extends PluginPanel
 
         int wrapWidth = nested ? NESTED_CARD_TEXT_WIDTH : CARD_TEXT_WIDTH;
 
-        card.add(makeCardTitle(source.getMonsterName(), wrapWidth));
+        card.add(makeCardTitle(source.getMonsterName() + " → " + source.getItemName(), wrapWidth));
 
         card.add(makeCardLine(DropRatePresentation.sourceRateLine(source), wrapWidth));
         card.add(makeCardLine("Quantity: " + source.getQuantity(), wrapWidth));
@@ -1022,21 +1022,19 @@ public class ItemDropLookupPanel extends PluginPanel
     {
         JPanel card = LookupStyle.column();
         card.setBackground(LookupStyle.CARD);
-        card.setBorder(BorderFactory.createCompoundBorder(
-                new EmptyBorder(4, 0, 6, 0),
-                new EmptyBorder(8, 8, 8, 8)
-        ));
+        card.setBorder(LookupStyle.cardBorder());
 
         card.setName("itemSourceCard");
         if (source.getAcquisitionMethod() != null)
         {
             AcquisitionMethod method = source.getAcquisitionMethod();
             card.putClientProperty("acquisitionMethodId", method.getId());
-            card.add(makeCardTitle(method.getSourceName() + " → " + formatItemName(source.getItemName()), CARD_TEXT_WIDTH));
+            card.add(makeCardTitle(method.getSourceName() + " → " + source.getItemName(), CARD_TEXT_WIDTH));
             for (AcquisitionMethod.Section section : method.getSummarySections())
             {
                 card.add(Box.createVerticalStrut(6));
                 card.add(makeCardTitle(section.getHeading(), CARD_TEXT_WIDTH));
+                if (section.isWilderness()) card.add(style.wildernessWarning());
                 for (String line : section.getLines()) card.add(makeCardLine(line, CARD_TEXT_WIDTH));
             }
             JButton wiki = wikiButton(method.getWikiPage());
@@ -1049,23 +1047,19 @@ public class ItemDropLookupPanel extends PluginPanel
         }
         boolean ground = SOURCE_TYPE_GROUND.equals(source.getSourceType());
         boolean gathering = SOURCE_TYPE_GATHERING.equals(source.getSourceType());
-        card.add(makeCardTitle(hasText(source.getSourceName()) ? source.getSourceName() : source.getSourceType(), CARD_TEXT_WIDTH));
+        card.add(makeCardTitle((hasText(source.getSourceName()) ? source.getSourceName() : source.getSourceType())
+                + " → " + source.getItemName(), CARD_TEXT_WIDTH));
         boolean pack = source.getPackQuantity() > 0;
-        card.add(makeCardLine(formatItemName(pack ? source.getPackName() : source.getItemName()), CARD_TEXT_WIDTH));
         if (pack)
         {
+            card.add(makeCardLine("Buy: " + source.getPackName(), CARD_TEXT_WIDTH));
             card.add(makeCardLine("Contains: " + source.getPackQuantity() + " × " + source.getPackItemName()
                     + (source.isPackNoted() ? " (noted)" : ""), CARD_TEXT_WIDTH));
         }
 
         if (hasText(source.getSourceType()))
         {
-            card.add(makeCardLine("Type: " + source.getSourceType(), CARD_TEXT_WIDTH));
-        }
-
-        if (hasText(source.getLocation()) && !ground)
-        {
-            card.add(makeCardLine("Location: " + source.getLocation(), CARD_TEXT_WIDTH));
+            card.add(makeCardLine(source.getSourceType(), CARD_TEXT_WIDTH));
         }
 
         boolean unverifiedCurrency = SOURCE_TYPE_REWARD_SHOP.equals(source.getSourceType())
@@ -1084,6 +1078,11 @@ public class ItemDropLookupPanel extends PluginPanel
             {
                 card.add(makeCardLine("Amount not recorded; check the Wiki.", CARD_TEXT_WIDTH));
             }
+        }
+
+        if (hasText(source.getLocation()) && !ground)
+        {
+            card.add(makeCardLine("Location: " + source.getLocation(), CARD_TEXT_WIDTH));
         }
 
         if (hasText(source.getNotes()))

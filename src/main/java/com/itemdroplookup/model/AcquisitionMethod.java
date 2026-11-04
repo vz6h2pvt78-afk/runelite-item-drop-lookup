@@ -62,14 +62,22 @@ public final class AcquisitionMethod
     {
         private final String heading;
         private final List<String> lines;
+        private final boolean wilderness;
 
         public Section(String heading, List<String> lines)
         {
+            this(heading, lines, false);
+        }
+
+        public Section(String heading, List<String> lines, boolean wilderness)
+        {
             this.heading = heading;
             this.lines = Collections.unmodifiableList(new ArrayList<>(lines));
+            this.wilderness = wilderness;
         }
 
         public String getHeading() { return heading; }
         public List<String> getLines() { return lines; }
+        public boolean isWilderness() { return wilderness; }
     }
 }

@@ -50,11 +50,11 @@ public class GroundSourcePanelTest
             assertEquals(1, named(panel, "groundCoverage").size());
             filter.setSelectedItem("Shops");
             assertEquals(allCards - 3, named(panel, "itemSourceCard").size());
-            assertFalse(labels(panel).contains("Type: Ground pickup"));
+            assertFalse(labels(panel).contains("Ground pickup</html>"));
             assertTrue(named(panel, "showGroundSources").isEmpty());
             filter.setSelectedItem("Non-NPC Sources");
             assertEquals(allCards, named(panel, "itemSourceCard").size());
-            assertTrue(labels(panel).contains("Type: Ground pickup"));
+            assertTrue(labels(panel).contains("Ground pickup</html>"));
         });
     }
 
@@ -87,7 +87,7 @@ public class GroundSourcePanelTest
             assertTrue(labels(panel).contains("limited coverage"));
             ((JComboBox<?>) named(panel, "sourceTypeFilter").get(0)).setSelectedItem("Shops");
             assertFalse(named(panel, "itemSourceCard").isEmpty());
-            assertFalse(labels(panel).contains("Type: Ground pickup"));
+            assertFalse(labels(panel).contains("Ground pickup</html>"));
         });
     }
 
