@@ -48,7 +48,7 @@ public class MorningFeedbackTest
             finder.setText("Goblin"); finder.postActionEvent();
             click(p,"copyReport");
             String before = reports.get(0);
-            for (String query : new String[]{"not-a-real-item-zzzz", "uncut", "another-invalid-item-zzzz"})
+            for (String query : new String[]{"not-a-real-item-zzzz", "uncut", "Prayer potion(5)", "another-invalid-item-zzzz"})
             {
                 search(p,query);
                 JButton back = (JButton)PanelTestSupport.find(p,"backToPreviousItem");

@@ -16,7 +16,6 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -43,75 +42,15 @@ public class DropLookupService
             return Collections.emptyList();
         }
 
-        String query = normalize(itemName);
-        String resolvedQuery = resolveAlias(query);
-
-        Set<DropRecord> matches = new LinkedHashSet<>();
-
-        // 1. Exact item-name match.
-        matches.addAll(getRecordsByItemName().getOrDefault(resolvedQuery, Collections.emptyList()));
-
-        // 2. Compact normalized matching.
-        // Compact matching ignores spaces, apostrophes, and punctuation so common
-        // player input variations resolve to the same item:
-        //   abyssalwhip  -> abyssal whip
-        //   hydrasclaw   -> hydra's claw
-        //   zulrahscales -> zulrah's scales
-        //   brimstonekey -> brimstone key
-        // Results are ranked: exact compact match, then starts-with, then contains.
-        // Only the most specific non-empty tier is used, which keeps precise
-        // matches from being diluted by broad substring hits.
-        if (matches.isEmpty())
-        {
-            String compactQuery = compactNormalize(resolvedQuery);
-
-            if (!compactQuery.isEmpty())
-            {
-                List<DropRecord> exactCompact = new ArrayList<>();
-                List<DropRecord> startsWith = new ArrayList<>();
-                List<DropRecord> contains = new ArrayList<>();
-
-                for (Map.Entry<String, List<DropRecord>> entry : getRecordsByItemName().entrySet())
-                {
-                    String compactItem = compactNormalize(entry.getKey());
-                    // Second variant with the possessive "'s" dropped, so the
-                    // possessive s is optional: "Zulrah's scales" matches both
-                    // "zulrahsscales" and "zulrahscales".
-                    String compactItemNoPossessive = compactNormalizePossessive(entry.getKey());
-
-                    if (compactItem.equals(compactQuery) || compactItemNoPossessive.equals(compactQuery))
-                    {
-                        exactCompact.addAll(entry.getValue());
-                    }
-                    else if (compactItem.startsWith(compactQuery) || compactItemNoPossessive.startsWith(compactQuery))
-                    {
-                        startsWith.addAll(entry.getValue());
-                    }
-                    else if (compactItem.contains(compactQuery) || compactItemNoPossessive.contains(compactQuery))
-                    {
-                        contains.addAll(entry.getValue());
-                    }
-                }
-
-                if (!exactCompact.isEmpty())
-                {
-                    matches.addAll(exactCompact);
-                }
-                else if (!startsWith.isEmpty())
-                {
-                    matches.addAll(startsWith);
-                }
-                else
-                {
-                    matches.addAll(contains);
-                }
-            }
-        }
+        String resolvedQuery = ItemNameMatching.resolveAlias(itemName);
+        Set<DropRecord> matches = new LinkedHashSet<>(ItemNameMatching.bestMatches(
+                resolvedQuery, getDropRecords(), record -> record.itemName));
 
         // 3. Strict typo fallback.
         // This runs only if exact/partial/compact matching found nothing.
         // It avoids broad false matches like runepouch -> rune javelin.
-        if (matches.isEmpty() && resolvedQuery.length() >= 4)
+        if (matches.isEmpty() && resolvedQuery.length() >= 4
+                && !ItemNameMatching.hasExplicitQualifier(resolvedQuery))
         {
             for (Map.Entry<String, List<DropRecord>> entry : getRecordsByItemName().entrySet())
             {
@@ -136,33 +75,6 @@ public class DropLookupService
                 ))
                 .sorted(Comparator.comparing(DropSource::getMonsterName, String.CASE_INSENSITIVE_ORDER))
                 .collect(Collectors.toList());
-    }
-
-    private String resolveAlias(String query)
-    {
-        Map<String, String> aliases = new HashMap<>();
-
-        // Keep this list for narrow/common slang only.
-        // Avoid broad aliases like "whip" because they can mean multiple items.
-        aliases.put("dboots", "dragon boots");
-        aliases.put("d boots", "dragon boots");
-        aliases.put("dragon boot", "dragon boots");
-
-        aliases.put("tassets", "bandos tassets");
-        aliases.put("tassies", "bandos tassets");
-        aliases.put("bandos tass", "bandos tassets");
-        aliases.put("bcp", "bandos chestplate");
-
-        aliases.put("dchain", "dragon chainbody");
-        aliases.put("d chain", "dragon chainbody");
-
-        aliases.put("d med", "dragon med helm");
-        aliases.put("dmed", "dragon med helm");
-
-        aliases.put("rune scim", "rune scimitar");
-        aliases.put("r scim", "rune scimitar");
-
-        return aliases.getOrDefault(query, query);
     }
 
     private boolean roughlyMatches(String itemName, String query)
@@ -251,31 +163,6 @@ public class DropLookupService
         return dp[first.length()][second.length()];
     }
 
-    private String normalize(String value)
-    {
-        return value.trim()
-                .toLowerCase(Locale.ROOT)
-                .replace("-", " ")
-                .replace("_", " ")
-                .replaceAll("\\s+", " ");
-    }
-
-    private String compactNormalize(String value)
-    {
-        return normalize(value)
-                .replaceAll("[^a-z0-9]", "");
-    }
-
-    private String compactNormalizePossessive(String value)
-    {
-        // Drop a possessive "'s" at a word boundary (e.g. "Zulrah's scales" ->
-        // "zulrah scales") before compacting. Used as an additional match variant
-        // so possessive item names are searchable with or without the possessive s.
-        return normalize(value)
-                .replaceAll("'s\\b", "")
-                .replaceAll("[^a-z0-9]", "");
-    }
-
     private Map<String, List<DropRecord>> getRecordsByItemName()
     {
         if (recordsByItemName != null)
@@ -292,7 +179,7 @@ public class DropLookupService
                 continue;
             }
 
-            String itemName = normalize(record.itemName);
+            String itemName = ItemNameMatching.normalize(record.itemName);
             recordsByItemName.computeIfAbsent(itemName, key -> new ArrayList<>()).add(record);
         }
 

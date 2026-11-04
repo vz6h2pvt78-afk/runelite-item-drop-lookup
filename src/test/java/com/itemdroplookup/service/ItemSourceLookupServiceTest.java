@@ -212,7 +212,9 @@ public class ItemSourceLookupServiceTest
         assertTrue(sources.stream().anyMatch(source -> "3 historical Agility arena tickets".equals(source.getCost())
                 && source.getNotes().contains("can no longer be earned")));
         assertFalse(sources.stream().anyMatch(source -> source.getCost().contains("coins")));
-        assertTrue(service.searchByItemName("Blighted super restore(4)").stream()
+        // This generated row records a four-item reward bundle as its own name.
+        // Currency validation must not require collapsing that distinct identity.
+        assertTrue(service.searchByItemName("Blighted super restore(4) (x4)").stream()
                 .anyMatch(source -> "LMS points".equals(source.getCost().replaceAll("^[0-9,]+ ", ""))));
     }
 

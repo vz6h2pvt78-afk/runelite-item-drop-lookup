@@ -5,10 +5,10 @@ import com.itemdroplookup.model.ItemSource;
 import com.itemdroplookup.service.DropLookupService;
 import com.itemdroplookup.service.ItemPriceLookupService;
 import com.itemdroplookup.service.ItemSourceLookupService;
+import com.itemdroplookup.service.ItemNameMatching;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Locale;
 import java.util.Optional;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
@@ -26,29 +26,34 @@ final class ItemSearchSelection
     {
         this.query = query;
         this.prices = prices;
-        // One reviewed player term, not generic parenthesis or charge stripping.
-        if ("Amulet of glory (uncharged)".equalsIgnoreCase(query.trim())) query = "Amulet of glory";
+        query = ItemNameMatching.resolveAlias(query);
         Optional<String> family = prices.findPotionFamily(query);
-        explicitDose = family.isPresent() && query.matches(".*\\([1-4]\\)$");
+        // Numeric compact queries also retain their selected dose (prayerpotion4).
+        explicitDose = query.matches(".*[0-9].*");
         String lookup = family.isPresent() && !explicitDose ? family.get() : query;
         List<DropSource> foundDrops = dropsService.searchByItemName(lookup);
         List<ItemSource> foundSources = sourceService.searchByItemName(lookup);
-        String exactName = compact(query);
-        boolean exact = foundDrops.stream().anyMatch(d -> compact(d.getItemName()).equals(exactName))
-                || foundSources.stream().anyMatch(s -> compact(s.getItemName()).equals(exactName));
+        String exactName = ItemNameMatching.compact(query);
         if (family.isPresent())
         {
             foundDrops = foundDrops.stream().filter(d -> prices.findPotionFamily(d.getItemName()).equals(family)
-                    && (!explicitDose || compact(d.getItemName()).equals(exactName))).collect(Collectors.toList());
+                    && (!explicitDose || ItemNameMatching.compact(d.getItemName()).equals(exactName))).collect(Collectors.toList());
             foundSources = foundSources.stream().filter(s -> prices.findPotionFamily(s.getItemName()).equals(family)
-                    && (!explicitDose || compact(s.getItemName()).equals(exactName))).collect(Collectors.toList());
+                    && (!explicitDose || ItemNameMatching.compact(s.getItemName()).equals(exactName))).collect(Collectors.toList());
         }
-        else if (exact)
+        else
         {
-            // Verified pack expansions expose the requested contents as itemName;
-            // packName remains the separate purchased item. Do not compare packName.
-            foundDrops = foundDrops.stream().filter(d -> compact(d.getItemName()).equals(exactName)).collect(Collectors.toList());
-            foundSources = foundSources.stream().filter(s -> compact(s.getItemName()).equals(exactName)).collect(Collectors.toList());
+            // Choose the same most-specific tier across every source type. Tied
+            // canonical names remain separate choices; packs use contents identity.
+            List<String> names = new ArrayList<>();
+            foundDrops.forEach(d -> names.add(d.getItemName()));
+            foundSources.forEach(s -> names.add(s.getItemName()));
+            List<String> best = ItemNameMatching.bestMatches(query, names, name -> name);
+            if (!best.isEmpty())
+            {
+                foundDrops = foundDrops.stream().filter(d -> best.contains(d.getItemName())).collect(Collectors.toList());
+                foundSources = foundSources.stream().filter(s -> best.contains(s.getItemName())).collect(Collectors.toList());
+            }
         }
         // Known kill-then-harvest pairs have a Gathering projection, including an
         // honest fallback when reviewed event details cannot be loaded.
@@ -80,8 +85,4 @@ final class ItemSearchSelection
         return explicitDose ? name : prices.findPotionFamily(name).orElse(name);
     }
 
-    private static String compact(String text)
-    {
-        return text.toLowerCase(Locale.ROOT).replaceAll("[^a-z0-9]", "");
-    }
 }

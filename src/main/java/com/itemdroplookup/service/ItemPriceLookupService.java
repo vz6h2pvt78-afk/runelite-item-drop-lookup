@@ -12,7 +12,6 @@ import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.List;
-import java.util.Locale;
 import java.util.Optional;
 import java.util.Map;
 import java.util.HashMap;
@@ -54,7 +53,7 @@ public class ItemPriceLookupService
     private String potionKey(String name)
     {
         // Preserve plus signs: Antidote+ and Antidote++ are different potions.
-        return name.trim().replaceAll("\\([1-4]\\)$", "").toLowerCase(Locale.ROOT).replaceAll("[^a-z0-9+]", "");
+        return ItemNameMatching.compact(name.trim().replaceAll("\\([1-4]\\)$", ""));
     }
 
     private static class PotionFamilies
@@ -75,42 +74,15 @@ public class ItemPriceLookupService
             return Optional.empty();
         }
 
-        String query = normalize(itemName);
-        String compactQuery = compactNormalize(itemName);
-
-        return getItemPriceRecords().stream()
-                .filter(record -> record.itemName != null)
-                .filter(record ->
-                {
-                    String normalizedItem = normalize(record.itemName);
-                    String compactItem = compactNormalize(record.itemName);
-
-                    return normalizedItem.equals(query)
-                            || compactItem.equals(compactQuery);
-                })
-                .findFirst()
-                .map(record -> new ItemPrice(
-                        record.itemName,
-                        record.price,
-                        record.highAlch,
-                        record.tradeable,
-                        record.notes
-                ));
-    }
-
-    private String normalize(String value)
-    {
-        return value.trim()
-                .toLowerCase(Locale.ROOT)
-                .replace("-", " ")
-                .replace("_", " ")
-                .replaceAll("\\s+", " ");
-    }
-
-    private String compactNormalize(String value)
-    {
-        return normalize(value)
-                .replaceAll("[^a-z0-9+]", "");
+        String query = ItemNameMatching.resolveAlias(itemName);
+        List<ItemPriceRecord> matches = ItemNameMatching.bestMatches(query, getItemPriceRecords(), record -> record.itemName);
+        if (matches.isEmpty() || ItemNameMatching.rank(query, matches.get(0).itemName) > 1
+                || matches.stream().map(record -> ItemNameMatching.normalize(record.itemName)).distinct().count() != 1)
+        {
+            return Optional.empty();
+        }
+        ItemPriceRecord record = matches.get(0);
+        return Optional.of(new ItemPrice(record.itemName, record.price, record.highAlch, record.tradeable, record.notes));
     }
 
     private List<ItemPriceRecord> getItemPriceRecords()
