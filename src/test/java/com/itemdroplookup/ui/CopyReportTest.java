@@ -51,7 +51,7 @@ public class CopyReportTest
             assertFalse(report.contains("UNSUBMITTED"));
             assertFalse(report.contains("NPC area:"));
             assertFalse(report.contains("Detail source:"));
-            assertTrue(report.contains("Build: development-2026-11-03-"));
+            assertTrue(report.contains("Build: development-"));
             assertTrue(report.contains("Data schemas: access=1; acquisition=1; locations=1"));
             assertTrue(report.matches("(?s).*Dataset: [a-f0-9]{16}\\n"));
             assertEquals("Shops", method.getSelectedItem());

@@ -26,6 +26,8 @@ final class ItemSearchSelection
     {
         this.query = query;
         this.prices = prices;
+        // One reviewed player term, not generic parenthesis or charge stripping.
+        if ("Amulet of glory (uncharged)".equalsIgnoreCase(query.trim())) query = "Amulet of glory";
         Optional<String> family = prices.findPotionFamily(query);
         explicitDose = family.isPresent() && query.matches(".*\\([1-4]\\)$");
         String lookup = family.isPresent() && !explicitDose ? family.get() : query;

@@ -87,6 +87,36 @@ final class LookupStyle
         return button;
     }
 
+    JLabel wildernessWarning()
+    {
+        JLabel label = text("WILDERNESS\nPvP danger", true);
+        label.setName("wildernessWarning");
+        label.setForeground(new Color(255, 192, 155));
+        label.setIcon(new Icon()
+        {
+            public int getIconWidth() { return 20; }
+            public int getIconHeight() { return 22; }
+            public void paintIcon(Component c, Graphics graphics, int x, int y)
+            {
+                // Original vector skull: no external asset or font-glyph dependency.
+                Graphics2D g = (Graphics2D) graphics.create();
+                g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+                g.setColor(c.getForeground());
+                g.fillOval(x + 1, y + 2, 18, 15);
+                g.fillRect(x + 5, y + 13, 10, 7);
+                g.setColor(CARD);
+                g.fillOval(x + 4, y + 7, 4, 5);
+                g.fillOval(x + 12, y + 7, 4, 5);
+                g.drawLine(x + 8, y + 16, x + 8, y + 20);
+                g.drawLine(x + 12, y + 16, x + 12, y + 20);
+                g.dispose();
+            }
+        });
+        label.setIconTextGap(8);
+        label.getAccessibleContext().setAccessibleName("Wilderness: PvP danger");
+        return label;
+    }
+
     void control(JComponent component)
     {
         component.setFont(font());
@@ -186,8 +216,10 @@ final class LookupStyle
         if (view == null) return fallback;
         Insets insets = component.getInsets();
         int width = availableWidth(component);
-        Icon icon = component instanceof AbstractButton ? ((AbstractButton) component).getIcon() : null;
-        int iconSpace = icon == null ? 0 : icon.getIconWidth() + ((AbstractButton) component).getIconTextGap();
+        Icon icon = component instanceof AbstractButton ? ((AbstractButton) component).getIcon()
+                : component instanceof JLabel ? ((JLabel) component).getIcon() : null;
+        int iconSpace = icon == null ? 0 : icon.getIconWidth() + (component instanceof AbstractButton
+                ? ((AbstractButton) component).getIconTextGap() : ((JLabel) component).getIconTextGap());
         view.setSize(Math.max(1, width - insets.left - insets.right - iconSpace), 0);
         int height = Math.max((int) Math.ceil(view.getPreferredSpan(View.Y_AXIS)), icon == null ? 0 : icon.getIconHeight());
         return new Dimension(width, height + insets.top + insets.bottom);

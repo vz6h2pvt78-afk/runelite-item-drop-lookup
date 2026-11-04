@@ -9,4 +9,15 @@ final class LookupViewState
     String query = "";
     int overviewScroll;
     ItemSearchSelection selection;
+
+    LookupViewState copy()
+    {
+        LookupViewState saved = new LookupViewState();
+        saved.page = page;
+        saved.selectedItem = selectedItem;
+        saved.query = query;
+        saved.overviewScroll = overviewScroll;
+        saved.selection = selection;
+        return saved;
+    }
 }

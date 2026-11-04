@@ -525,8 +525,8 @@ public class ItemDropLookupPanelTest
             filter.setSelectedItem("Gathering");
             assertEquals(1, sourceCardCount(panel));
             assertTrue(textContains(panel, "75 base Woodcutting"));
-            assertTrue(textContains(panel, "level 101 Ent; 2 noted logs per successful chop"));
-            assertTrue(textContains(panel, "level 86 Ent; 1 noted log per successful chop"));
+            assertTrue(textContains(panel, "level 101 Ent. If this log type is rolled: 2 noted logs"));
+            assertTrue(textContains(panel, "level 86 Ent. If this log type is rolled: 1 noted log"));
             assertFalse(descendants(panel).stream().anyMatch(c -> "openLocations".equals(c.getName())));
             assertEquals("https://oldschool.runescape.wiki/w/Ent", ((JButton) named(panel, "methodWiki")).getToolTipText());
             filter.setSelectedItem("NPC Drops");
@@ -593,9 +593,9 @@ public class ItemDropLookupPanelTest
             assertEquals(1, sourceCardCount(panel));
             assertTrue(textContains(panel, "3 (noted)"));
             assertTrue(textContains(panel, "Wiki-listed rate: 1/19"));
-            assertTrue(textContains(panel, "No Hunter level is needed"));
+            assertTrue(textContains(panel, "no Hunter level is required"));
             assertTrue(textContains(panel, "83 Hunter"));
-            assertTrue(textContains(panel, "93 Hunter"));
+            assertTrue(textContains(panel, "93 bare-handed"));
             assertFalse(descendants(panel).stream().anyMatch(c -> "openLocations".equals(c.getName())));
             JComboBox<?> filter = (JComboBox<?>) named(panel, "sourceTypeFilter");
             filter.setSelectedItem("Non-NPC Sources");

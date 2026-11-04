@@ -51,8 +51,8 @@ public class AcquisitionEventLookupServiceTest
         List<String> lines = method.getSections().stream().filter(s -> s.getHeading().equals("Where and yield"))
                 .findFirst().get().getLines();
         assertEquals(3, lines.size());
-        assertEquals(2, lines.stream().filter(l -> l.contains("level 101 Ent; 2 noted logs per successful chop")).count());
-        assertEquals(1, lines.stream().filter(l -> l.contains("level 86 Ent; 1 noted log per successful chop")).count());
+        assertEquals(2, lines.stream().filter(l -> l.contains("level 101 Ent. If this log type is rolled: 2 noted logs")).count());
+        assertEquals(1, lines.stream().filter(l -> l.contains("level 86 Ent. If this log type is rolled: 1 noted log")).count());
         assertTrue(text.contains("not guaranteed"));
         assertEquals(6, service.getMethods().stream().filter(m -> m.getSourceType().equals("Gathering")).count());
         assertEquals(3, service.getMethods().stream().filter(m -> m.getSourceType().equals("Gathering") && m.isVerified()).count());
@@ -69,8 +69,8 @@ public class AcquisitionEventLookupServiceTest
         assertTrue(yew.getSearchText().contains("61 base Woodcutting"));
         assertFalse(yew.getSearchText().contains("60 base Woodcutting"));
         assertTrue(yew.getSearchText().contains("Kill an Ent, then chop its trunk"));
-        assertTrue(yew.getSearchText().contains("level 101 Ent; 2 noted logs per successful chop"));
-        assertTrue(yew.getSearchText().contains("level 86 Ent; 1 noted log per successful chop"));
+        assertTrue(yew.getSearchText().contains("level 101 Ent. If this log type is rolled: 2 noted logs"));
+        assertTrue(yew.getSearchText().contains("level 86 Ent. If this log type is rolled: 1 noted log"));
         assertTrue(yew.getSearchText().contains("not guaranteed"));
         assertFalse(yew.getSearchText().contains("Slayer"));
         for (String item : new String[]{"Oak logs", "Willow logs", "Maple logs"})
@@ -145,9 +145,9 @@ public class AcquisitionEventLookupServiceTest
         AcquisitionMethod logs = service(data()).getMethods().stream()
                 .filter(m -> m.getItemName().equals("Logs")).findFirst().get();
         assertTrue(logs.isVerified());
-        assertTrue(logs.getSearchText().contains("below 45 base Woodcutting"));
-        assertTrue(logs.getSearchText().contains("At 45, availability is uncertain"));
-        assertTrue(logs.getSearchText().contains("Unavailable above 45"));
+        assertTrue(logs.getSearchText().contains("Below 45: available"));
+        assertTrue(logs.getSearchText().contains("Level 45: uncertain"));
+        assertTrue(logs.getSearchText().contains("46+: unavailable"));
         assertFalse(logs.getSearchText().contains("Requires 1"));
         assertFalse(logs.getLocationText().contains("Guild"));
         assertEquals(2, logs.getSections().stream().filter(s -> s.getHeading().equals("Where and yield"))

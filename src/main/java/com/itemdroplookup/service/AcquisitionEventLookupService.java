@@ -188,8 +188,8 @@ public class AcquisitionEventLookupService
                     "Wrong harvest quantity basis");
             evidence(array(variant, "evidence"));
             locationNames.add(location.getLocation());
-            locationLines.add(location.getLocation() + ": defeat level " + level + " Ent; " + quantity
-                    + " noted " + (quantity == 1 ? "log" : "logs") + " per successful chop.");
+            locationLines.add(location.getLocation() + ": defeat level " + level + " Ent. If this log type is rolled: " + quantity
+                    + " noted " + (quantity == 1 ? "log" : "logs") + ".");
         }
         require(!locationLines.isEmpty(), "No reviewed harvest locations");
         sections.add(new Section("Where and yield", locationLines));

@@ -72,7 +72,7 @@ def validate_harvest(harvest, evidence, by_id, drops):
                                           "scope": "HARVEST", "text": "An axe usable at your Woodcutting level."}, "Wrong tool requirement")
     if item == "Logs":
         require(harvest["outputCondition"] == {"kind": "SCOPED_STATEMENT", "scope": "OUTPUT",
-                "text": "Output range: below 45 base Woodcutting. At 45, availability is uncertain because Wiki sources disagree. Unavailable above 45."},
+                "text": "Base Woodcutting:\nBelow 45: available.\nLevel 45: uncertain — Wiki article and calculator disagree.\n46+: unavailable."},
                 "Logs level-45 conflict must remain explicit; no hard upper bound")
         conflict = json.loads((ROOT / "tools/fixtures/ent_boundary_conflict.json").read_text())
         require(conflict["supportedOutputRangeBelow"] == 45 and conflict["unresolvedLevels"] == [45]

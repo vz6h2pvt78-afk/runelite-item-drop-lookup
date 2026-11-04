@@ -14,10 +14,17 @@ public final class AcquisitionMethod
     private final String wikiPage;
     private final String locationText;
     private final List<Section> sections;
+    private final List<Section> summarySections;
     private final boolean verified;
 
     public AcquisitionMethod(String id, String itemName, String sourceName, String sourceType,
             String wikiPage, String locationText, List<Section> sections, boolean verified)
+    {
+        this(id, itemName, sourceName, sourceType, wikiPage, locationText, sections, sections, verified);
+    }
+
+    public AcquisitionMethod(String id, String itemName, String sourceName, String sourceType,
+            String wikiPage, String locationText, List<Section> sections, List<Section> summarySections, boolean verified)
     {
         this.id = id;
         this.itemName = itemName;
@@ -26,6 +33,7 @@ public final class AcquisitionMethod
         this.wikiPage = wikiPage;
         this.locationText = locationText;
         this.sections = Collections.unmodifiableList(new ArrayList<>(sections));
+        this.summarySections = Collections.unmodifiableList(new ArrayList<>(summarySections));
         this.verified = verified;
     }
 
@@ -36,6 +44,7 @@ public final class AcquisitionMethod
     public String getWikiPage() { return wikiPage; }
     public String getLocationText() { return locationText; }
     public List<Section> getSections() { return sections; }
+    public List<Section> getSummarySections() { return summarySections; }
     public boolean isVerified() { return verified; }
 
     public String getSearchText()

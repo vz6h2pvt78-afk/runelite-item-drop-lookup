@@ -114,8 +114,9 @@ public class MonsterLocationPanel extends JPanel
         JButton backButton = style.backButton("Back to results", back);
         backButton.setName("backToResults");
         header.add(backButton);
-        header.add(text(source.getMonsterName(), true, TEXT_WIDTH));
-        header.add(text(source.getItemName(), true, TEXT_WIDTH));
+        JLabel identity = text(source.getMonsterName() + " → " + source.getItemName(), true, TEXT_WIDTH);
+        identity.setName("sourceItemHeading");
+        header.add(identity);
         if (!source.getItemName().equalsIgnoreCase(searchQuery.trim()))
         {
             header.add(text("Searched: " + searchQuery, false, TEXT_WIDTH));
@@ -251,6 +252,7 @@ public class MonsterLocationPanel extends JPanel
         card.setBorder(BorderFactory.createCompoundBorder(new EmptyBorder(4, 0, 6, 0), new EmptyBorder(8, 8, 8, 8)));
         int width = TEXT_WIDTH - 16;
         card.add(text(location.getLocation(), true, width));
+        if (location.getWilderness() == MonsterLocation.Wilderness.YES) card.add(style.wildernessWarning());
         if (!location.isAvailable())
         {
             card.add(text("Unavailable / unreachable", true, width));
@@ -262,8 +264,6 @@ public class MonsterLocationPanel extends JPanel
         requirements.forLocation(location).forEach(fact -> card.add(requirementText(fact, width)));
         card.add(text(location.getMembers() == null ? "Membership unknown" : location.getMembers() ? "Members area"
                 : Boolean.TRUE.equals(source.getMembersOnly()) ? "F2P-accessible area; use a members world" : "F2P", false, width));
-        card.add(text(location.getWilderness() == MonsterLocation.Wilderness.YES ? "Wilderness"
-                : location.getWilderness() == MonsterLocation.Wilderness.NO ? "Outside Wilderness" : "Wilderness status unknown", false, width));
         if (hasText(location.getNotes()))
         {
             card.add(text(location.getNotes(), false, width));

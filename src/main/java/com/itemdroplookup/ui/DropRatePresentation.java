@@ -47,8 +47,7 @@ final class DropRatePresentation
 
     static String detailRateLine(DropSource source)
     {
-        String reviewed = reviewedRateLine(source);
-        return reviewed != null ? reviewed : "Rate: " + rawRate(source);
+        return sourceRateLine(source);
     }
 
     private static String rawRate(DropSource source)

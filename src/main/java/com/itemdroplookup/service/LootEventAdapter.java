@@ -74,8 +74,15 @@ final class LootEventAdapter
                 sections.add(new Section("One loot event", Arrays.asList(
                         "Each route gives one loot event. Catching into a jar adds no extra chance.",
                         string(event, "otherRewardsNotice"))));
+                List<Section> summary = Arrays.asList(sections.get(0),
+                        new Section("Catch and loot", Arrays.asList(
+                                "Puro-Puro or rare encounters around Gielinor.",
+                                "83 Hunter with a butterfly or magic butterfly net; 93 bare-handed.",
+                                "Take an empty impling jar in Puro-Puro.")),
+                        new Section("Already have a filled jar?", Collections.singletonList(
+                                "Open the Dragon impling jar directly; no Hunter level is required.")));
                 methods.add(new AcquisitionMethod(id + ":" + outcomeId, item, string(event, "sourceName"),
-                        "Loot & containers", JAR, "Gielinor; Puro-Puro", sections, true));
+                        "Loot & containers", JAR, "Gielinor; Puro-Puro", sections, summary, true));
             }
         }
         return methods;
