@@ -3633,5 +3633,734 @@
         "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
       }
     ]
-  }
+  },
+  "jarCaptures": [
+    {
+      "eventId": "baby-impling-ordinary-loot",
+      "itemName": "Baby impling jar",
+      "quantity": 1,
+      "routeKind": "CATCH_INTO_CONTAINER",
+      "jarState": "EMPTY_JAR_PRESENT",
+      "area": "Gielinor or Puro-Puro",
+      "captureOptions": [
+        {
+          "kind": "NET",
+          "hunterLevel": 17,
+          "skill": "Hunter",
+          "scope": "CAPTURE",
+          "equipment": "Butterfly net or magic butterfly net",
+          "equipmentAlternatives": [
+            "BUTTERFLY_NET",
+            "MAGIC_BUTTERFLY_NET"
+          ],
+          "evidence": [
+            {
+              "page": "Baby impling",
+              "revisionId": 15358220,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Baby_impling?oldid=15358220"
+            },
+            {
+              "page": "Impling",
+              "revisionId": 15360701,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+            }
+          ]
+        },
+        {
+          "kind": "BAREHANDED",
+          "hunterLevel": 27,
+          "skill": "Hunter",
+          "scope": "CAPTURE",
+          "equipment": "Bare hands",
+          "equipmentAlternatives": [],
+          "evidence": [
+            {
+              "page": "Baby impling",
+              "revisionId": 15358220,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Baby_impling?oldid=15358220"
+            },
+            {
+              "page": "Impling",
+              "revisionId": 15360701,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "page": "Baby impling",
+          "revisionId": 15358220,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Baby_impling?oldid=15358220"
+        },
+        {
+          "page": "Impling",
+          "revisionId": 15360701,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+        }
+      ]
+    },
+    {
+      "eventId": "crystal-impling-ordinary-loot",
+      "itemName": "Crystal impling jar",
+      "quantity": 1,
+      "routeKind": "CATCH_INTO_CONTAINER",
+      "jarState": "EMPTY_JAR_PRESENT",
+      "area": "Prifddinas",
+      "captureOptions": [
+        {
+          "kind": "NET",
+          "hunterLevel": 80,
+          "skill": "Hunter",
+          "scope": "CAPTURE",
+          "equipment": "Butterfly net or magic butterfly net",
+          "equipmentAlternatives": [
+            "BUTTERFLY_NET",
+            "MAGIC_BUTTERFLY_NET"
+          ],
+          "evidence": [
+            {
+              "page": "Crystal impling",
+              "revisionId": 15358229,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Crystal_impling?oldid=15358229"
+            },
+            {
+              "page": "Impling",
+              "revisionId": 15360701,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+            }
+          ]
+        },
+        {
+          "kind": "BAREHANDED",
+          "hunterLevel": 90,
+          "skill": "Hunter",
+          "scope": "CAPTURE",
+          "equipment": "Bare hands",
+          "equipmentAlternatives": [],
+          "evidence": [
+            {
+              "page": "Crystal impling",
+              "revisionId": 15358229,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Crystal_impling?oldid=15358229"
+            },
+            {
+              "page": "Impling",
+              "revisionId": 15360701,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "page": "Crystal impling",
+          "revisionId": 15358229,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Crystal_impling?oldid=15358229"
+        },
+        {
+          "page": "Impling",
+          "revisionId": 15360701,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+        }
+      ],
+      "captureAccess": {
+        "scope": "LOCATION_ENTRY",
+        "area": "Prifddinas",
+        "quest": "Song of the Elves",
+        "evidence": [
+          {
+            "page": "Prifddinas",
+            "revisionId": 15374558,
+            "sourceUrl": "https://oldschool.runescape.wiki/w/Prifddinas?oldid=15374558"
+          }
+        ]
+      }
+    },
+    {
+      "eventId": "earth-impling-ordinary-loot",
+      "itemName": "Earth impling jar",
+      "quantity": 1,
+      "routeKind": "CATCH_INTO_CONTAINER",
+      "jarState": "EMPTY_JAR_PRESENT",
+      "area": "Gielinor or Puro-Puro",
+      "captureOptions": [
+        {
+          "kind": "NET",
+          "hunterLevel": 36,
+          "skill": "Hunter",
+          "scope": "CAPTURE",
+          "equipment": "Butterfly net or magic butterfly net",
+          "equipmentAlternatives": [
+            "BUTTERFLY_NET",
+            "MAGIC_BUTTERFLY_NET"
+          ],
+          "evidence": [
+            {
+              "page": "Earth impling",
+              "revisionId": 15297396,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Earth_impling?oldid=15297396"
+            },
+            {
+              "page": "Impling",
+              "revisionId": 15360701,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+            }
+          ]
+        },
+        {
+          "kind": "BAREHANDED",
+          "hunterLevel": 46,
+          "skill": "Hunter",
+          "scope": "CAPTURE",
+          "equipment": "Bare hands",
+          "equipmentAlternatives": [],
+          "evidence": [
+            {
+              "page": "Earth impling",
+              "revisionId": 15297396,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Earth_impling?oldid=15297396"
+            },
+            {
+              "page": "Impling",
+              "revisionId": 15360701,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "page": "Earth impling",
+          "revisionId": 15297396,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Earth_impling?oldid=15297396"
+        },
+        {
+          "page": "Impling",
+          "revisionId": 15360701,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+        }
+      ]
+    },
+    {
+      "eventId": "eclectic-impling-ordinary-loot",
+      "itemName": "Eclectic impling jar",
+      "quantity": 1,
+      "routeKind": "CATCH_INTO_CONTAINER",
+      "jarState": "EMPTY_JAR_PRESENT",
+      "area": "Gielinor or Puro-Puro",
+      "captureOptions": [
+        {
+          "kind": "NET",
+          "hunterLevel": 50,
+          "skill": "Hunter",
+          "scope": "CAPTURE",
+          "equipment": "Butterfly net or magic butterfly net",
+          "equipmentAlternatives": [
+            "BUTTERFLY_NET",
+            "MAGIC_BUTTERFLY_NET"
+          ],
+          "evidence": [
+            {
+              "page": "Eclectic impling",
+              "revisionId": 15297390,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Eclectic_impling?oldid=15297390"
+            },
+            {
+              "page": "Impling",
+              "revisionId": 15360701,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+            }
+          ]
+        },
+        {
+          "kind": "BAREHANDED",
+          "hunterLevel": 60,
+          "skill": "Hunter",
+          "scope": "CAPTURE",
+          "equipment": "Bare hands",
+          "equipmentAlternatives": [],
+          "evidence": [
+            {
+              "page": "Eclectic impling",
+              "revisionId": 15297390,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Eclectic_impling?oldid=15297390"
+            },
+            {
+              "page": "Impling",
+              "revisionId": 15360701,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "page": "Eclectic impling",
+          "revisionId": 15297390,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Eclectic_impling?oldid=15297390"
+        },
+        {
+          "page": "Impling",
+          "revisionId": 15360701,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+        }
+      ]
+    },
+    {
+      "eventId": "essence-impling-ordinary-loot",
+      "itemName": "Essence impling jar",
+      "quantity": 1,
+      "routeKind": "CATCH_INTO_CONTAINER",
+      "jarState": "EMPTY_JAR_PRESENT",
+      "area": "Gielinor or Puro-Puro",
+      "captureOptions": [
+        {
+          "kind": "NET",
+          "hunterLevel": 42,
+          "skill": "Hunter",
+          "scope": "CAPTURE",
+          "equipment": "Butterfly net or magic butterfly net",
+          "equipmentAlternatives": [
+            "BUTTERFLY_NET",
+            "MAGIC_BUTTERFLY_NET"
+          ],
+          "evidence": [
+            {
+              "page": "Essence impling",
+              "revisionId": 15367384,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Essence_impling?oldid=15367384"
+            },
+            {
+              "page": "Impling",
+              "revisionId": 15360701,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+            }
+          ]
+        },
+        {
+          "kind": "BAREHANDED",
+          "hunterLevel": 52,
+          "skill": "Hunter",
+          "scope": "CAPTURE",
+          "equipment": "Bare hands",
+          "equipmentAlternatives": [],
+          "evidence": [
+            {
+              "page": "Essence impling",
+              "revisionId": 15367384,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Essence_impling?oldid=15367384"
+            },
+            {
+              "page": "Impling",
+              "revisionId": 15360701,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "page": "Essence impling",
+          "revisionId": 15367384,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Essence_impling?oldid=15367384"
+        },
+        {
+          "page": "Impling",
+          "revisionId": 15360701,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+        }
+      ]
+    },
+    {
+      "eventId": "gourmet-impling-ordinary-loot",
+      "itemName": "Gourmet impling jar",
+      "quantity": 1,
+      "routeKind": "CATCH_INTO_CONTAINER",
+      "jarState": "EMPTY_JAR_PRESENT",
+      "area": "Gielinor or Puro-Puro",
+      "captureOptions": [
+        {
+          "kind": "NET",
+          "hunterLevel": 28,
+          "skill": "Hunter",
+          "scope": "CAPTURE",
+          "equipment": "Butterfly net or magic butterfly net",
+          "equipmentAlternatives": [
+            "BUTTERFLY_NET",
+            "MAGIC_BUTTERFLY_NET"
+          ],
+          "evidence": [
+            {
+              "page": "Gourmet impling",
+              "revisionId": 15297393,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Gourmet_impling?oldid=15297393"
+            },
+            {
+              "page": "Impling",
+              "revisionId": 15360701,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+            }
+          ]
+        },
+        {
+          "kind": "BAREHANDED",
+          "hunterLevel": 38,
+          "skill": "Hunter",
+          "scope": "CAPTURE",
+          "equipment": "Bare hands",
+          "equipmentAlternatives": [],
+          "evidence": [
+            {
+              "page": "Gourmet impling",
+              "revisionId": 15297393,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Gourmet_impling?oldid=15297393"
+            },
+            {
+              "page": "Impling",
+              "revisionId": 15360701,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "page": "Gourmet impling",
+          "revisionId": 15297393,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Gourmet_impling?oldid=15297393"
+        },
+        {
+          "page": "Impling",
+          "revisionId": 15360701,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+        }
+      ]
+    },
+    {
+      "eventId": "magpie-impling-ordinary-loot",
+      "itemName": "Magpie impling jar",
+      "quantity": 1,
+      "routeKind": "CATCH_INTO_CONTAINER",
+      "jarState": "EMPTY_JAR_PRESENT",
+      "area": "Gielinor or Puro-Puro",
+      "captureOptions": [
+        {
+          "kind": "NET",
+          "hunterLevel": 65,
+          "skill": "Hunter",
+          "scope": "CAPTURE",
+          "equipment": "Butterfly net or magic butterfly net",
+          "equipmentAlternatives": [
+            "BUTTERFLY_NET",
+            "MAGIC_BUTTERFLY_NET"
+          ],
+          "evidence": [
+            {
+              "page": "Magpie impling",
+              "revisionId": 15297395,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Magpie_impling?oldid=15297395"
+            },
+            {
+              "page": "Impling",
+              "revisionId": 15360701,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+            }
+          ]
+        },
+        {
+          "kind": "BAREHANDED",
+          "hunterLevel": 75,
+          "skill": "Hunter",
+          "scope": "CAPTURE",
+          "equipment": "Bare hands",
+          "equipmentAlternatives": [],
+          "evidence": [
+            {
+              "page": "Magpie impling",
+              "revisionId": 15297395,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Magpie_impling?oldid=15297395"
+            },
+            {
+              "page": "Impling",
+              "revisionId": 15360701,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "page": "Magpie impling",
+          "revisionId": 15297395,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Magpie_impling?oldid=15297395"
+        },
+        {
+          "page": "Impling",
+          "revisionId": 15360701,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+        }
+      ]
+    },
+    {
+      "eventId": "nature-impling-ordinary-loot",
+      "itemName": "Nature impling jar",
+      "quantity": 1,
+      "routeKind": "CATCH_INTO_CONTAINER",
+      "jarState": "EMPTY_JAR_PRESENT",
+      "area": "Gielinor or Puro-Puro",
+      "captureOptions": [
+        {
+          "kind": "NET",
+          "hunterLevel": 58,
+          "skill": "Hunter",
+          "scope": "CAPTURE",
+          "equipment": "Butterfly net or magic butterfly net",
+          "equipmentAlternatives": [
+            "BUTTERFLY_NET",
+            "MAGIC_BUTTERFLY_NET"
+          ],
+          "evidence": [
+            {
+              "page": "Nature impling",
+              "revisionId": 15297392,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Nature_impling?oldid=15297392"
+            },
+            {
+              "page": "Impling",
+              "revisionId": 15360701,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+            }
+          ]
+        },
+        {
+          "kind": "BAREHANDED",
+          "hunterLevel": 68,
+          "skill": "Hunter",
+          "scope": "CAPTURE",
+          "equipment": "Bare hands",
+          "equipmentAlternatives": [],
+          "evidence": [
+            {
+              "page": "Nature impling",
+              "revisionId": 15297392,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Nature_impling?oldid=15297392"
+            },
+            {
+              "page": "Impling",
+              "revisionId": 15360701,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "page": "Nature impling",
+          "revisionId": 15297392,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Nature_impling?oldid=15297392"
+        },
+        {
+          "page": "Impling",
+          "revisionId": 15360701,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+        }
+      ]
+    },
+    {
+      "eventId": "ninja-impling-ordinary-loot",
+      "itemName": "Ninja impling jar",
+      "quantity": 1,
+      "routeKind": "CATCH_INTO_CONTAINER",
+      "jarState": "EMPTY_JAR_PRESENT",
+      "area": "Gielinor or Puro-Puro",
+      "captureOptions": [
+        {
+          "kind": "NET",
+          "hunterLevel": 74,
+          "skill": "Hunter",
+          "scope": "CAPTURE",
+          "equipment": "Butterfly net or magic butterfly net",
+          "equipmentAlternatives": [
+            "BUTTERFLY_NET",
+            "MAGIC_BUTTERFLY_NET"
+          ],
+          "evidence": [
+            {
+              "page": "Ninja impling",
+              "revisionId": 15351489,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Ninja_impling?oldid=15351489"
+            },
+            {
+              "page": "Impling",
+              "revisionId": 15360701,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+            }
+          ]
+        },
+        {
+          "kind": "BAREHANDED",
+          "hunterLevel": 84,
+          "skill": "Hunter",
+          "scope": "CAPTURE",
+          "equipment": "Bare hands",
+          "equipmentAlternatives": [],
+          "evidence": [
+            {
+              "page": "Ninja impling",
+              "revisionId": 15351489,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Ninja_impling?oldid=15351489"
+            },
+            {
+              "page": "Impling",
+              "revisionId": 15360701,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "page": "Ninja impling",
+          "revisionId": 15351489,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Ninja_impling?oldid=15351489"
+        },
+        {
+          "page": "Impling",
+          "revisionId": 15360701,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+        }
+      ]
+    },
+    {
+      "eventId": "young-impling-ordinary-loot",
+      "itemName": "Young impling jar",
+      "quantity": 1,
+      "routeKind": "CATCH_INTO_CONTAINER",
+      "jarState": "EMPTY_JAR_PRESENT",
+      "area": "Gielinor or Puro-Puro",
+      "captureOptions": [
+        {
+          "kind": "NET",
+          "hunterLevel": 22,
+          "skill": "Hunter",
+          "scope": "CAPTURE",
+          "equipment": "Butterfly net or magic butterfly net",
+          "equipmentAlternatives": [
+            "BUTTERFLY_NET",
+            "MAGIC_BUTTERFLY_NET"
+          ],
+          "evidence": [
+            {
+              "page": "Young impling",
+              "revisionId": 15360603,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Young_impling?oldid=15360603"
+            },
+            {
+              "page": "Impling",
+              "revisionId": 15360701,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+            }
+          ]
+        },
+        {
+          "kind": "BAREHANDED",
+          "hunterLevel": 32,
+          "skill": "Hunter",
+          "scope": "CAPTURE",
+          "equipment": "Bare hands",
+          "equipmentAlternatives": [],
+          "evidence": [
+            {
+              "page": "Young impling",
+              "revisionId": 15360603,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Young_impling?oldid=15360603"
+            },
+            {
+              "page": "Impling",
+              "revisionId": 15360701,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "page": "Young impling",
+          "revisionId": 15360603,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Young_impling?oldid=15360603"
+        },
+        {
+          "page": "Impling",
+          "revisionId": 15360701,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+        }
+      ]
+    },
+    {
+      "eventId": "dragon-impling-ordinary-loot",
+      "itemName": "Dragon impling jar",
+      "quantity": 1,
+      "routeKind": "CATCH_INTO_CONTAINER",
+      "jarState": "EMPTY_JAR_PRESENT",
+      "area": "Gielinor or Puro-Puro",
+      "captureOptions": [
+        {
+          "hunterLevel": 83,
+          "equipment": "Butterfly net or magic butterfly net",
+          "evidence": [
+            {
+              "page": "Dragon impling",
+              "revisionId": 15371528,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Dragon_impling?oldid=15371528"
+            },
+            {
+              "page": "Impling",
+              "revisionId": 15360701,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+            }
+          ],
+          "kind": "NET",
+          "skill": "Hunter",
+          "equipmentAlternatives": [
+            "BUTTERFLY_NET",
+            "MAGIC_BUTTERFLY_NET"
+          ],
+          "scope": "CAPTURE"
+        },
+        {
+          "hunterLevel": 93,
+          "equipment": "Bare hands",
+          "evidence": [
+            {
+              "page": "Dragon impling",
+              "revisionId": 15371528,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Dragon_impling?oldid=15371528"
+            },
+            {
+              "page": "Impling",
+              "revisionId": 15360701,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+            }
+          ],
+          "kind": "BAREHANDED",
+          "skill": "Hunter",
+          "equipmentAlternatives": [],
+          "scope": "CAPTURE"
+        }
+      ],
+      "evidence": [
+        {
+          "page": "Impling",
+          "revisionId": 15360701,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+        },
+        {
+          "page": "Dragon impling",
+          "revisionId": 15371528,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Dragon_impling?oldid=15371528"
+        }
+      ]
+    }
+  ]
 }

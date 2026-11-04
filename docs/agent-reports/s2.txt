@@ -1,0 +1,8 @@
+S2 - Filled impling jars
+
+All twelve exact filled jar queries have one capture method apiece, including the existing Lucky method. The eleven additions bind each named jar to its own primary Hunter info, reviewed event and empty-jar capture route. Both capture options share a single method. Crystal retains its city-entry scope. The exhaustive baseline comparison found 199 additions cumulatively, zero prior objects removed and no unexplained count changes. Both Java runs passed 171 tests, Python passed 125, and package/API/recovery and generator reproduction passed.
+
+Starting commit 29fa7166ae32dd17b6f74bf637d0dadacabbced9
+Build development-2026-11-04-s2-filled-jars
+Official package SHA256 a5daa6bd489b14f02c65da7abd8132f5df64e42fd6f9ba2bbaac64e161107e7c
+Human acceptance pending.

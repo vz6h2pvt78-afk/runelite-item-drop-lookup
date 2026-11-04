@@ -64,7 +64,7 @@ final class LootEventAdapter
 
     static List<AcquisitionMethod> readFamily(JsonObject root)
     {
-        fields(root, "schemaVersion,tables", "luckyCapture");
+        fields(root, "schemaVersion,tables", "luckyCapture,jarCaptures");
         integer(root, "schemaVersion", 1, 1);
         Map<String, JsonObject> unique = new LinkedHashMap<>();
         Set<String> ambiguous = new HashSet<>();
@@ -92,12 +92,59 @@ final class LootEventAdapter
             }
             catch (RuntimeException ex) { log.debug("Impling table {} unavailable", id, ex); }
         });
+        if (root.has("jarCaptures")) appendJarCaptures(root, result);
         if (root.has("luckyCapture"))
         {
             try { result.add(LuckyImplingCapture.project(object(root.get("luckyCapture")))); }
             catch (RuntimeException ex) { log.debug("Lucky capture data unavailable", ex); }
         }
         return result;
+    }
+
+    private static void appendJarCaptures(JsonObject root, List<AcquisitionMethod> result)
+    {
+        Map<String, AcquisitionMethod> captures = new LinkedHashMap<>();
+        Set<String> duplicates = new HashSet<>();
+        if (!root.get("jarCaptures").isJsonArray()) return;
+        for (JsonElement value : array(root, "jarCaptures"))
+        {
+            try
+            {
+                JsonObject row = object(value);
+                fields(row, "eventId,itemName,quantity,routeKind,jarState,area,captureOptions,evidence", "captureAccess");
+                Tier tier = Arrays.stream(Tier.values()).filter(t -> t.eventId.equals(string(row, "eventId"))).findFirst()
+                        .orElseThrow(() -> new IllegalArgumentException("Unknown capture event"));
+                require(tier.jar.equals(string(row, "itemName")), "Wrong filled jar");
+                integer(row, "quantity", 1, 1);
+                require("CATCH_INTO_CONTAINER".equals(string(row,"routeKind"))
+                        && "EMPTY_JAR_PRESENT".equals(string(row,"jarState")), "Route does not produce a filled jar");
+                String area = string(row,"area");
+                require(area.equals(tier == Tier.CRYSTAL ? "Prifddinas" : "Gielinor or Puro-Puro"), "Wrong catch area");
+                evidence(array(row,"evidence"));
+                String hunter = captureOptions(array(row, "captureOptions"), tier);
+                List<String> where = new ArrayList<>();
+                where.add(area + ".");
+                require(row.has("captureAccess") == (tier == Tier.CRYSTAL), "Wrong capture access");
+                if (tier == Tier.CRYSTAL) where.add(cityEntry(row));
+                List<Section> sections = Arrays.asList(new Section("Catch into a jar", Arrays.asList(
+                        "Take an empty impling jar.", hunter)), new Section("Where", where));
+                AcquisitionMethod method = new AcquisitionMethod("capture:" + tier.eventId, tier.jar, tier.creature,
+                        "Gathering", tier.creature, area, sections, true);
+                if (captures.putIfAbsent(tier.jar, method) != null) duplicates.add(tier.jar);
+            }
+            catch (RuntimeException ex) { log.debug("Invalid filled impling jar route",ex); }
+        }
+        captures.forEach((jar, method) -> { if (!duplicates.contains(jar)) result.add(method); });
+    }
+
+    private static String cityEntry(JsonObject row)
+    {
+        JsonObject access = object(row.get("captureAccess"));
+        fields(access, "scope,area,quest,evidence", "");
+        require("LOCATION_ENTRY".equals(string(access,"scope")) && "Prifddinas".equals(string(access,"area"))
+                && "Song of the Elves".equals(string(access,"quest")), "Invalid Crystal access");
+        evidence(array(access,"evidence"));
+        return "Complete Song of the Elves to enter the city.";
     }
 
     static List<AcquisitionMethod> read(JsonArray events, JsonArray coverage)
@@ -171,12 +218,7 @@ final class LootEventAdapter
                 capture.add(tier.net + " Hunter with a butterfly or magic butterfly net; " + tier.bare + " bare-handed.");
                 if (tier == Tier.CRYSTAL)
                 {
-                    JsonObject access = object(event.get("captureAccess"));
-                    fields(access, "scope,area,quest,evidence", "");
-                    require("LOCATION_ENTRY".equals(string(access,"scope")) && "Prifddinas".equals(string(access,"area"))
-                            && "Song of the Elves".equals(string(access,"quest")), "Invalid Crystal access");
-                    evidence(array(access,"evidence"));
-                    capture.add("Complete Song of the Elves to enter the city.");
+                    capture.add(cityEntry(event));
                     sections.add(new Section("Where to catch", Collections.singletonList(capture.get(2))));
                 }
                 else capture.add("Take an empty impling jar in Puro-Puro.");

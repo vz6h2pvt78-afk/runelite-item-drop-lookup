@@ -73,6 +73,23 @@ def build_event(pin):
     coverage = {"eventId":event_id, "includedOutcomeIds":[o["id"] for o in outcomes if o["itemName"] != "Nothing"]}
     return {"event": event, "coverage": coverage}
 
+def jar_capture(event, primary):
+    raw = primary["wikitext"]
+    jar = event["containerName"]
+    if jar.casefold() not in raw.casefold() or not re.search(r"^\|container\s*=.*[Ii]mpling jar", raw, re.M):
+        raise ValueError("Missing tier-specific jar evidence for " + jar)
+    routes = [r for r in event["routes"] if r["kind"] == "CATCH_INTO_CONTAINER"]
+    if len(routes) != 1 or routes[0]["jarState"] != "EMPTY_JAR_PRESENT":
+        raise ValueError("Expected one filled-jar capture route")
+    route = routes[0]
+    if not re.search(r"^\|level\s*=\s*" + str(next(o["hunterLevel"] for o in route["captureOptions"] if o["kind"] == "NET")) + r"\s*$", raw, re.M):
+        raise ValueError("Capture level differs from primary Hunter info for " + jar)
+    result = {"eventId":event["id"], "itemName":jar, "quantity":1, "routeKind":route["kind"],
+              "jarState":route["jarState"], "area":route["area"], "captureOptions":route["captureOptions"], "evidence":route["evidence"]}
+    if "captureAccess" in event:
+        result["captureAccess"] = event["captureAccess"]
+    return result
+
 def build():
     pin = json.loads((FIXTURES.parent/"lucky_impling.json").read_text(encoding="utf-8"))
     raw = pin["wikitext"]
@@ -85,8 +102,14 @@ def build():
              "netHunter":89,"bareHunter":99,"emptyJar":True,"areas":["Gielinor","Puro-Puro"],
              "opening":{"rolls":1,"tiers":tiers,"chancePerTier":"1/5","excluded":["Bloodhound","Clue scroll (master)"]},
              "evidence":[{"page":"Lucky impling","revisionId":15297402,"sourceUrl":"https://oldschool.runescape.wiki/w/Lucky_impling?oldid=15297402"},GENERAL]}
-    return {"schemaVersion":1, "tables":[build_event(json.loads(p.read_text(encoding="utf-8"))) for p in sorted(FIXTURES.glob("*.json"))],
-            "luckyCapture":lucky}
+    pins = [json.loads(p.read_text(encoding="utf-8")) for p in sorted(FIXTURES.glob("*.json"))]
+    tables = [build_event(p) for p in pins]
+    captures = [jar_capture(t["event"],p) for t,p in zip(tables,pins)]
+    dragon = json.loads((ROOT/"src/main/resources/acquisition_events.json").read_text(encoding="utf-8"))["lootEvents"][0]
+    old_pins = json.loads((FIXTURES.parent/"acquisition_event_evidence.json").read_text(encoding="utf-8"))
+    dragon_pin = next(p for p in old_pins if p["title"] == "Dragon impling")
+    captures.append(jar_capture(dragon, dragon_pin))
+    return {"schemaVersion":1, "tables":tables, "luckyCapture":lucky, "jarCaptures":captures}
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

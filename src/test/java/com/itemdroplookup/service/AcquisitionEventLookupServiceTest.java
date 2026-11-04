@@ -289,7 +289,9 @@ public class AcquisitionEventLookupServiceTest
         assertEquals(2, methods.size());
         for (AcquisitionMethod method : methods) assertTrue(method.getSearchText().contains("1/19"));
         ItemSourceLookupService sources = new ItemSourceLookupService(gson, service(data()));
-        assertTrue(sources.searchByItemName("Dragon impling jar").stream().noneMatch(s -> s.getAcquisitionMethod() != null));
+        assertEquals(1, sources.searchByItemName("Dragon impling jar").stream()
+                .filter(s -> "Dragon impling".equals(s.getSourceName()) && "Gathering".equals(s.getSourceType())).count());
+        assertTrue(sources.searchByItemName("Dragon impling jar").stream().noneMatch(s -> "Loot & containers".equals(s.getSourceType())));
         assertTrue(sources.searchByItemName("Amulet of glory(4)").stream().noneMatch(s -> s.getAcquisitionMethod() != null));
         input.getAsJsonArray("lootCoverage").get(0).getAsJsonObject().getAsJsonArray("includedOutcomeIds")
                 .add("dragon-dragon-javelin-tips");

@@ -83,6 +83,24 @@ public class ImplingFamilyTest
         }
     }
 
+    @Test public void everyFilledJarHasOneCaptureMethodWithItsOwnScope()
+    {
+        ItemSourceLookupService service = new ItemSourceLookupService(new Gson());
+        for (String tier : List.of("Baby","Young","Gourmet","Earth","Essence","Eclectic","Nature","Magpie","Ninja","Dragon","Crystal","Lucky"))
+        {
+            String jar = tier + " impling jar";
+            List<com.itemdroplookup.model.ItemSource> captures = service.searchByItemName(jar).stream().filter(s ->
+                    "Gathering".equals(s.getSourceType()) && jar.equals(s.getItemName())).collect(Collectors.toList());
+            assertEquals(jar,1,captures.size());
+            AcquisitionMethod method = captures.get(0).getAcquisitionMethod();
+            assertEquals(tier+" impling",method.getSourceName());
+            String text = method.getSearchText();
+            assertTrue(text.contains("empty impling jar"));
+            if (!tier.equals("Lucky")) assertFalse(text.contains("immediate loot"));
+            assertEquals(tier.equals("Crystal"),text.contains("Song of the Elves"));
+        }
+    }
+
     @Test public void searchableItemGetsOnlyItsOwnReviewedLoot()
     {
         ItemSourceLookupService service = new ItemSourceLookupService(new Gson());
