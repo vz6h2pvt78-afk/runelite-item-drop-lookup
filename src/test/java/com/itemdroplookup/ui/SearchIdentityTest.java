@@ -16,8 +16,14 @@ public class SearchIdentityTest
 
     @Test public void unavailableQualifiedItemsNeverBorrowAnotherVariantsSources()
     {
-        for(String q:Arrays.asList("Dragon dagger (p+)","dragon dagger p+",
-                "Prayer potion(5)","Super restore(9)","Amulet of glory(5)","Rune platebody (noted)"))
+        for(String q:Arrays.asList("Dragon dagger (p+)","dragon dagger p+"))
+        {
+            ItemSearchSelection exact = search(q);
+            assertEquals(Collections.singletonList("Dragon dagger(p+)"), exact.choices());
+            assertEquals(1, exact.sources.size());
+            assertEquals("Ninja impling loot", exact.sources.get(0).getSourceName());
+        }
+        for(String q:Arrays.asList("Prayer potion(5)","Super restore(9)","Amulet of glory(5)","Rune platebody (noted)"))
         {
             assertTrue(q,search(q).choices().isEmpty());
             assertTrue(q,drops.searchByItemName(q).isEmpty());

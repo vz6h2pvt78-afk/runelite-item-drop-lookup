@@ -40,6 +40,17 @@ public class ImplingFamilyTest
         assertFalse(methods.stream().anyMatch(m -> m.getItemName().equals("Nothing") || m.getItemName().equals("Grubby key")));
     }
 
+    @Test public void higherTiersPreserveUnequalWeightsAndExactItems()
+    {
+        String hide = find("Magpie", "Black dragonhide").getSearchText();
+        assertTrue(hide.contains("6 (noted)") && hide.contains("2/21") && hide.contains("75 Hunter"));
+        assertTrue(find("Magpie", "Runite bar").getSearchText().contains("1/21"));
+        assertTrue(find("Ninja", "Dragon dagger(p+)").getSearchText().contains("84 Hunter"));
+        assertTrue(find("Nature", "Torstol").getSearchText().contains("58 Hunter"));
+        assertFalse(methods.stream().anyMatch(m -> m.getSourceName().equals("Ninja impling loot")
+                && m.getItemName().equals("Dragon dagger(p++)")));
+    }
+
     @Test public void searchableItemGetsOnlyItsOwnReviewedLoot()
     {
         ItemSourceLookupService service = new ItemSourceLookupService(new Gson());

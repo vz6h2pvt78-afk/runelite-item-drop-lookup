@@ -8,7 +8,6 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURES = ROOT / "tools/fixtures/implings"
 OUTPUT = ROOT / "src/main/resources/impling_loot.json"
-BASE = ROOT / "src/main/resources/acquisition_events.json"
 GENERAL = {"page": "Impling", "revisionId": 15360701, "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"}
 
 def build_event(pin):

@@ -1788,6 +1788,1092 @@
     },
     {
       "event": {
+        "id": "magpie-impling-ordinary-loot",
+        "sourceName": "Magpie impling loot",
+        "containerName": "Magpie impling jar",
+        "probabilityBasis": "WIKI_LISTED_TABLE",
+        "probabilityContext": "Listed on the ordinary loot table.",
+        "quantityBasis": "SUCCESSFUL_OUTCOME",
+        "otherRewardsNotice": "Additional clue rewards and jar returns are separate.",
+        "outcomes": [
+          {
+            "id": "magpie-black-dragonhide-1",
+            "itemName": "Black dragonhide",
+            "quantityMin": 6,
+            "quantityMax": 6,
+            "noted": true,
+            "listedChance": "2/21"
+          },
+          {
+            "id": "magpie-runite-bar-2",
+            "itemName": "Runite bar",
+            "quantityMin": 2,
+            "quantityMax": 2,
+            "noted": true,
+            "listedChance": "1/21"
+          },
+          {
+            "id": "magpie-diamond-3",
+            "itemName": "Diamond",
+            "quantityMin": 4,
+            "quantityMax": 4,
+            "noted": true,
+            "listedChance": "1/21"
+          },
+          {
+            "id": "magpie-diamond-amulet-4",
+            "itemName": "Diamond amulet",
+            "quantityMin": 3,
+            "quantityMax": 3,
+            "noted": true,
+            "listedChance": "1/21"
+          },
+          {
+            "id": "magpie-amulet-of-power-5",
+            "itemName": "Amulet of power",
+            "quantityMin": 3,
+            "quantityMax": 3,
+            "noted": true,
+            "listedChance": "1/21"
+          },
+          {
+            "id": "magpie-ring-of-life-6",
+            "itemName": "Ring of life",
+            "quantityMin": 4,
+            "quantityMax": 4,
+            "noted": true,
+            "listedChance": "1/21"
+          },
+          {
+            "id": "magpie-ring-of-forging-7",
+            "itemName": "Ring of forging",
+            "quantityMin": 3,
+            "quantityMax": 3,
+            "noted": true,
+            "listedChance": "1/21"
+          },
+          {
+            "id": "magpie-ring-of-recoil-8",
+            "itemName": "Ring of recoil",
+            "quantityMin": 3,
+            "quantityMax": 3,
+            "noted": true,
+            "listedChance": "1/21"
+          },
+          {
+            "id": "magpie-nature-tiara-9",
+            "itemName": "Nature tiara",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/21"
+          },
+          {
+            "id": "magpie-splitbark-gauntlets-10",
+            "itemName": "Splitbark gauntlets",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/21"
+          },
+          {
+            "id": "magpie-mystic-gloves-11",
+            "itemName": "Mystic gloves",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/21"
+          },
+          {
+            "id": "magpie-mystic-boots-12",
+            "itemName": "Mystic boots",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/21"
+          },
+          {
+            "id": "magpie-rune-sq-shield-13",
+            "itemName": "Rune sq shield",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/21"
+          },
+          {
+            "id": "magpie-rune-warhammer-14",
+            "itemName": "Rune warhammer",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/21"
+          },
+          {
+            "id": "magpie-dragon-dagger-15",
+            "itemName": "Dragon dagger",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/21"
+          },
+          {
+            "id": "magpie-pineapple-seed-16",
+            "itemName": "Pineapple seed",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/21"
+          },
+          {
+            "id": "magpie-snapdragon-seed-17",
+            "itemName": "Snapdragon seed",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/21"
+          },
+          {
+            "id": "magpie-loop-half-of-key-18",
+            "itemName": "Loop half of key",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/21"
+          },
+          {
+            "id": "magpie-tooth-half-of-key-19",
+            "itemName": "Tooth half of key",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/21"
+          },
+          {
+            "id": "magpie-sinister-key-20",
+            "itemName": "Sinister key",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/21"
+          }
+        ],
+        "routes": [
+          {
+            "id": "open-obtained-jar",
+            "kind": "OPEN_EXISTING",
+            "inputItem": "Magpie impling jar",
+            "steps": [
+              "Obtain a filled Magpie impling jar",
+              "Open the jar"
+            ],
+            "captureOptions": [],
+            "evidence": [
+              {
+                "page": "Magpie impling",
+                "revisionId": 15297395,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Magpie_impling?oldid=15297395"
+              },
+              {
+                "page": "Impling",
+                "revisionId": 15360701,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+              }
+            ]
+          },
+          {
+            "id": "catch-into-jar",
+            "kind": "CATCH_INTO_CONTAINER",
+            "area": "Gielinor or Puro-Puro",
+            "jarState": "EMPTY_JAR_PRESENT",
+            "steps": [
+              "Catch the impling in an empty jar",
+              "Open the filled jar"
+            ],
+            "captureOptions": [
+              {
+                "kind": "NET",
+                "hunterLevel": 65,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Butterfly net or magic butterfly net",
+                "equipmentAlternatives": [
+                  "BUTTERFLY_NET",
+                  "MAGIC_BUTTERFLY_NET"
+                ],
+                "evidence": [
+                  {
+                    "page": "Magpie impling",
+                    "revisionId": 15297395,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Magpie_impling?oldid=15297395"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              },
+              {
+                "kind": "BAREHANDED",
+                "hunterLevel": 75,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Bare hands",
+                "equipmentAlternatives": [],
+                "evidence": [
+                  {
+                    "page": "Magpie impling",
+                    "revisionId": 15297395,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Magpie_impling?oldid=15297395"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              }
+            ],
+            "evidence": [
+              {
+                "page": "Magpie impling",
+                "revisionId": 15297395,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Magpie_impling?oldid=15297395"
+              },
+              {
+                "page": "Impling",
+                "revisionId": 15360701,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+              }
+            ]
+          },
+          {
+            "id": "catch-and-loot",
+            "kind": "CATCH_AND_LOOT",
+            "area": "Outside Puro-Puro",
+            "jarState": "EMPTY_JAR_ABSENT",
+            "steps": [
+              "Catch the impling without an empty jar",
+              "Receive loot immediately"
+            ],
+            "captureOptions": [
+              {
+                "kind": "NET",
+                "hunterLevel": 65,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Butterfly net or magic butterfly net",
+                "equipmentAlternatives": [
+                  "BUTTERFLY_NET",
+                  "MAGIC_BUTTERFLY_NET"
+                ],
+                "evidence": [
+                  {
+                    "page": "Magpie impling",
+                    "revisionId": 15297395,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Magpie_impling?oldid=15297395"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              },
+              {
+                "kind": "BAREHANDED",
+                "hunterLevel": 75,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Bare hands",
+                "equipmentAlternatives": [],
+                "evidence": [
+                  {
+                    "page": "Magpie impling",
+                    "revisionId": 15297395,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Magpie_impling?oldid=15297395"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              }
+            ],
+            "evidence": [
+              {
+                "page": "Magpie impling",
+                "revisionId": 15297395,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Magpie_impling?oldid=15297395"
+              },
+              {
+                "page": "Impling",
+                "revisionId": 15360701,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "page": "Magpie impling",
+            "revisionId": 15297395,
+            "sourceUrl": "https://oldschool.runescape.wiki/w/Magpie_impling?oldid=15297395"
+          },
+          {
+            "page": "Impling",
+            "revisionId": 15360701,
+            "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+          }
+        ]
+      },
+      "coverage": {
+        "eventId": "magpie-impling-ordinary-loot",
+        "includedOutcomeIds": [
+          "magpie-black-dragonhide-1",
+          "magpie-runite-bar-2",
+          "magpie-diamond-3",
+          "magpie-diamond-amulet-4",
+          "magpie-amulet-of-power-5",
+          "magpie-ring-of-life-6",
+          "magpie-ring-of-forging-7",
+          "magpie-ring-of-recoil-8",
+          "magpie-nature-tiara-9",
+          "magpie-splitbark-gauntlets-10",
+          "magpie-mystic-gloves-11",
+          "magpie-mystic-boots-12",
+          "magpie-rune-sq-shield-13",
+          "magpie-rune-warhammer-14",
+          "magpie-dragon-dagger-15",
+          "magpie-pineapple-seed-16",
+          "magpie-snapdragon-seed-17",
+          "magpie-loop-half-of-key-18",
+          "magpie-tooth-half-of-key-19",
+          "magpie-sinister-key-20"
+        ]
+      }
+    },
+    {
+      "event": {
+        "id": "nature-impling-ordinary-loot",
+        "sourceName": "Nature impling loot",
+        "containerName": "Nature impling jar",
+        "probabilityBasis": "WIKI_LISTED_TABLE",
+        "probabilityContext": "Listed on the ordinary loot table.",
+        "quantityBasis": "SUCCESSFUL_OUTCOME",
+        "otherRewardsNotice": "Additional clue rewards and jar returns are separate.",
+        "outcomes": [
+          {
+            "id": "nature-limpwurt-seed-1",
+            "itemName": "Limpwurt seed",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "nature-jangerberry-seed-2",
+            "itemName": "Jangerberry seed",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "nature-belladonna-seed-3",
+            "itemName": "Belladonna seed",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "nature-harralander-seed-4",
+            "itemName": "Harralander seed",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "nature-cactus-spine-5",
+            "itemName": "Cactus spine",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "nature-magic-logs-6",
+            "itemName": "Magic logs",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "nature-tarromin-7",
+            "itemName": "Tarromin",
+            "quantityMin": 4,
+            "quantityMax": 4,
+            "noted": true,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "nature-coconut-8",
+            "itemName": "Coconut",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "nature-irit-seed-9",
+            "itemName": "Irit seed",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "nature-curry-tree-seed-10",
+            "itemName": "Curry tree seed",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "nature-orange-tree-seed-11",
+            "itemName": "Orange tree seed",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "nature-snapdragon-12",
+            "itemName": "Snapdragon",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "nature-kwuarm-seed-13",
+            "itemName": "Kwuarm seed",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "nature-avantoe-seed-14",
+            "itemName": "Avantoe seed",
+            "quantityMin": 5,
+            "quantityMax": 5,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "nature-willow-seed-15",
+            "itemName": "Willow seed",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "nature-torstol-seed-16",
+            "itemName": "Torstol seed",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "nature-ranarr-seed-17",
+            "itemName": "Ranarr seed",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "nature-torstol-18",
+            "itemName": "Torstol",
+            "quantityMin": 2,
+            "quantityMax": 2,
+            "noted": true,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "nature-dwarf-weed-seed-19",
+            "itemName": "Dwarf weed seed",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          }
+        ],
+        "routes": [
+          {
+            "id": "open-obtained-jar",
+            "kind": "OPEN_EXISTING",
+            "inputItem": "Nature impling jar",
+            "steps": [
+              "Obtain a filled Nature impling jar",
+              "Open the jar"
+            ],
+            "captureOptions": [],
+            "evidence": [
+              {
+                "page": "Nature impling",
+                "revisionId": 15297392,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Nature_impling?oldid=15297392"
+              },
+              {
+                "page": "Impling",
+                "revisionId": 15360701,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+              }
+            ]
+          },
+          {
+            "id": "catch-into-jar",
+            "kind": "CATCH_INTO_CONTAINER",
+            "area": "Gielinor or Puro-Puro",
+            "jarState": "EMPTY_JAR_PRESENT",
+            "steps": [
+              "Catch the impling in an empty jar",
+              "Open the filled jar"
+            ],
+            "captureOptions": [
+              {
+                "kind": "NET",
+                "hunterLevel": 58,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Butterfly net or magic butterfly net",
+                "equipmentAlternatives": [
+                  "BUTTERFLY_NET",
+                  "MAGIC_BUTTERFLY_NET"
+                ],
+                "evidence": [
+                  {
+                    "page": "Nature impling",
+                    "revisionId": 15297392,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Nature_impling?oldid=15297392"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              },
+              {
+                "kind": "BAREHANDED",
+                "hunterLevel": 68,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Bare hands",
+                "equipmentAlternatives": [],
+                "evidence": [
+                  {
+                    "page": "Nature impling",
+                    "revisionId": 15297392,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Nature_impling?oldid=15297392"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              }
+            ],
+            "evidence": [
+              {
+                "page": "Nature impling",
+                "revisionId": 15297392,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Nature_impling?oldid=15297392"
+              },
+              {
+                "page": "Impling",
+                "revisionId": 15360701,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+              }
+            ]
+          },
+          {
+            "id": "catch-and-loot",
+            "kind": "CATCH_AND_LOOT",
+            "area": "Outside Puro-Puro",
+            "jarState": "EMPTY_JAR_ABSENT",
+            "steps": [
+              "Catch the impling without an empty jar",
+              "Receive loot immediately"
+            ],
+            "captureOptions": [
+              {
+                "kind": "NET",
+                "hunterLevel": 58,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Butterfly net or magic butterfly net",
+                "equipmentAlternatives": [
+                  "BUTTERFLY_NET",
+                  "MAGIC_BUTTERFLY_NET"
+                ],
+                "evidence": [
+                  {
+                    "page": "Nature impling",
+                    "revisionId": 15297392,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Nature_impling?oldid=15297392"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              },
+              {
+                "kind": "BAREHANDED",
+                "hunterLevel": 68,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Bare hands",
+                "equipmentAlternatives": [],
+                "evidence": [
+                  {
+                    "page": "Nature impling",
+                    "revisionId": 15297392,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Nature_impling?oldid=15297392"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              }
+            ],
+            "evidence": [
+              {
+                "page": "Nature impling",
+                "revisionId": 15297392,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Nature_impling?oldid=15297392"
+              },
+              {
+                "page": "Impling",
+                "revisionId": 15360701,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "page": "Nature impling",
+            "revisionId": 15297392,
+            "sourceUrl": "https://oldschool.runescape.wiki/w/Nature_impling?oldid=15297392"
+          },
+          {
+            "page": "Impling",
+            "revisionId": 15360701,
+            "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+          }
+        ]
+      },
+      "coverage": {
+        "eventId": "nature-impling-ordinary-loot",
+        "includedOutcomeIds": [
+          "nature-limpwurt-seed-1",
+          "nature-jangerberry-seed-2",
+          "nature-belladonna-seed-3",
+          "nature-harralander-seed-4",
+          "nature-cactus-spine-5",
+          "nature-magic-logs-6",
+          "nature-tarromin-7",
+          "nature-coconut-8",
+          "nature-irit-seed-9",
+          "nature-curry-tree-seed-10",
+          "nature-orange-tree-seed-11",
+          "nature-snapdragon-12",
+          "nature-kwuarm-seed-13",
+          "nature-avantoe-seed-14",
+          "nature-willow-seed-15",
+          "nature-torstol-seed-16",
+          "nature-ranarr-seed-17",
+          "nature-torstol-18",
+          "nature-dwarf-weed-seed-19"
+        ]
+      }
+    },
+    {
+      "event": {
+        "id": "ninja-impling-ordinary-loot",
+        "sourceName": "Ninja impling loot",
+        "containerName": "Ninja impling jar",
+        "probabilityBasis": "WIKI_LISTED_TABLE",
+        "probabilityContext": "Listed on the ordinary loot table.",
+        "quantityBasis": "SUCCESSFUL_OUTCOME",
+        "otherRewardsNotice": "Additional clue rewards and jar returns are separate.",
+        "outcomes": [
+          {
+            "id": "ninja-snakeskin-boots-1",
+            "itemName": "Snakeskin boots",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/19"
+          },
+          {
+            "id": "ninja-splitbark-helm-2",
+            "itemName": "Splitbark helm",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/19"
+          },
+          {
+            "id": "ninja-mystic-boots-3",
+            "itemName": "Mystic boots",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/19"
+          },
+          {
+            "id": "ninja-rune-chainbody-4",
+            "itemName": "Rune chainbody",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/19"
+          },
+          {
+            "id": "ninja-mystic-gloves-5",
+            "itemName": "Mystic gloves",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/19"
+          },
+          {
+            "id": "ninja-opal-machete-6",
+            "itemName": "Opal machete",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/19"
+          },
+          {
+            "id": "ninja-rune-claws-7",
+            "itemName": "Rune claws",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/19"
+          },
+          {
+            "id": "ninja-rune-scimitar-8",
+            "itemName": "Rune scimitar",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/19"
+          },
+          {
+            "id": "ninja-dragon-dagger(p+)-9",
+            "itemName": "Dragon dagger(p+)",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/19"
+          },
+          {
+            "id": "ninja-rune-arrow-10",
+            "itemName": "Rune arrow",
+            "quantityMin": 70,
+            "quantityMax": 70,
+            "noted": false,
+            "listedChance": "1/19"
+          },
+          {
+            "id": "ninja-rune-dart-11",
+            "itemName": "Rune dart",
+            "quantityMin": 70,
+            "quantityMax": 70,
+            "noted": false,
+            "listedChance": "1/19"
+          },
+          {
+            "id": "ninja-rune-knife-12",
+            "itemName": "Rune knife",
+            "quantityMin": 40,
+            "quantityMax": 40,
+            "noted": false,
+            "listedChance": "1/19"
+          },
+          {
+            "id": "ninja-rune-thrownaxe-13",
+            "itemName": "Rune thrownaxe",
+            "quantityMin": 50,
+            "quantityMax": 50,
+            "noted": false,
+            "listedChance": "1/19"
+          },
+          {
+            "id": "ninja-onyx-bolts-14",
+            "itemName": "Onyx bolts",
+            "quantityMin": 2,
+            "quantityMax": 2,
+            "noted": false,
+            "listedChance": "1/19"
+          },
+          {
+            "id": "ninja-onyx-bolt-tips-15",
+            "itemName": "Onyx bolt tips",
+            "quantityMin": 4,
+            "quantityMax": 4,
+            "noted": false,
+            "listedChance": "1/19"
+          },
+          {
+            "id": "ninja-black-dragonhide-16",
+            "itemName": "Black dragonhide",
+            "quantityMin": 10,
+            "quantityMax": 10,
+            "noted": true,
+            "listedChance": "1/19"
+          },
+          {
+            "id": "ninja-prayer-potion(3)-17",
+            "itemName": "Prayer potion(3)",
+            "quantityMin": 4,
+            "quantityMax": 4,
+            "noted": true,
+            "listedChance": "1/19"
+          },
+          {
+            "id": "ninja-weapon-poison(+)-18",
+            "itemName": "Weapon poison(+)",
+            "quantityMin": 4,
+            "quantityMax": 4,
+            "noted": true,
+            "listedChance": "1/19"
+          },
+          {
+            "id": "ninja-dagannoth-hide-19",
+            "itemName": "Dagannoth hide",
+            "quantityMin": 3,
+            "quantityMax": 3,
+            "noted": true,
+            "listedChance": "1/19"
+          }
+        ],
+        "routes": [
+          {
+            "id": "open-obtained-jar",
+            "kind": "OPEN_EXISTING",
+            "inputItem": "Ninja impling jar",
+            "steps": [
+              "Obtain a filled Ninja impling jar",
+              "Open the jar"
+            ],
+            "captureOptions": [],
+            "evidence": [
+              {
+                "page": "Ninja impling",
+                "revisionId": 15351489,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Ninja_impling?oldid=15351489"
+              },
+              {
+                "page": "Impling",
+                "revisionId": 15360701,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+              }
+            ]
+          },
+          {
+            "id": "catch-into-jar",
+            "kind": "CATCH_INTO_CONTAINER",
+            "area": "Gielinor or Puro-Puro",
+            "jarState": "EMPTY_JAR_PRESENT",
+            "steps": [
+              "Catch the impling in an empty jar",
+              "Open the filled jar"
+            ],
+            "captureOptions": [
+              {
+                "kind": "NET",
+                "hunterLevel": 74,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Butterfly net or magic butterfly net",
+                "equipmentAlternatives": [
+                  "BUTTERFLY_NET",
+                  "MAGIC_BUTTERFLY_NET"
+                ],
+                "evidence": [
+                  {
+                    "page": "Ninja impling",
+                    "revisionId": 15351489,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Ninja_impling?oldid=15351489"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              },
+              {
+                "kind": "BAREHANDED",
+                "hunterLevel": 84,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Bare hands",
+                "equipmentAlternatives": [],
+                "evidence": [
+                  {
+                    "page": "Ninja impling",
+                    "revisionId": 15351489,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Ninja_impling?oldid=15351489"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              }
+            ],
+            "evidence": [
+              {
+                "page": "Ninja impling",
+                "revisionId": 15351489,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Ninja_impling?oldid=15351489"
+              },
+              {
+                "page": "Impling",
+                "revisionId": 15360701,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+              }
+            ]
+          },
+          {
+            "id": "catch-and-loot",
+            "kind": "CATCH_AND_LOOT",
+            "area": "Outside Puro-Puro",
+            "jarState": "EMPTY_JAR_ABSENT",
+            "steps": [
+              "Catch the impling without an empty jar",
+              "Receive loot immediately"
+            ],
+            "captureOptions": [
+              {
+                "kind": "NET",
+                "hunterLevel": 74,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Butterfly net or magic butterfly net",
+                "equipmentAlternatives": [
+                  "BUTTERFLY_NET",
+                  "MAGIC_BUTTERFLY_NET"
+                ],
+                "evidence": [
+                  {
+                    "page": "Ninja impling",
+                    "revisionId": 15351489,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Ninja_impling?oldid=15351489"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              },
+              {
+                "kind": "BAREHANDED",
+                "hunterLevel": 84,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Bare hands",
+                "equipmentAlternatives": [],
+                "evidence": [
+                  {
+                    "page": "Ninja impling",
+                    "revisionId": 15351489,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Ninja_impling?oldid=15351489"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              }
+            ],
+            "evidence": [
+              {
+                "page": "Ninja impling",
+                "revisionId": 15351489,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Ninja_impling?oldid=15351489"
+              },
+              {
+                "page": "Impling",
+                "revisionId": 15360701,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "page": "Ninja impling",
+            "revisionId": 15351489,
+            "sourceUrl": "https://oldschool.runescape.wiki/w/Ninja_impling?oldid=15351489"
+          },
+          {
+            "page": "Impling",
+            "revisionId": 15360701,
+            "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+          }
+        ]
+      },
+      "coverage": {
+        "eventId": "ninja-impling-ordinary-loot",
+        "includedOutcomeIds": [
+          "ninja-snakeskin-boots-1",
+          "ninja-splitbark-helm-2",
+          "ninja-mystic-boots-3",
+          "ninja-rune-chainbody-4",
+          "ninja-mystic-gloves-5",
+          "ninja-opal-machete-6",
+          "ninja-rune-claws-7",
+          "ninja-rune-scimitar-8",
+          "ninja-dragon-dagger(p+)-9",
+          "ninja-rune-arrow-10",
+          "ninja-rune-dart-11",
+          "ninja-rune-knife-12",
+          "ninja-rune-thrownaxe-13",
+          "ninja-onyx-bolts-14",
+          "ninja-onyx-bolt-tips-15",
+          "ninja-black-dragonhide-16",
+          "ninja-prayer-potion(3)-17",
+          "ninja-weapon-poison(+)-18",
+          "ninja-dagannoth-hide-19"
+        ]
+      }
+    },
+    {
+      "event": {
         "id": "young-impling-ordinary-loot",
         "sourceName": "Young impling loot",
         "containerName": "Young impling jar",

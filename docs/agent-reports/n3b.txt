@@ -1,0 +1,8 @@
+N3B - Nature Magpie and Ninja
+
+Nine additional ordinary implings now join Dragon. Nature, Magpie and Ninja add 58 ordinary outcomes. Magpie retains its unequal weights. Ninja's poisoned dagger and three-dose Prayer potion preserve their exact identities. Tests now distinguish sources legitimately introduced by these tables from protected Dragon and Ent methods. Both Java suites passed 164 tests, Python passed 123, package/API and recovery verification passed. Compare Ninja and Dragon daggers, and inspect Earth/Mithril ore in the live client.
+
+Starting commit e032b1c9a8da4395ac37eb5a2a52ae397345618d
+Build development-2026-11-04-n3b-higher-implings
+Official package SHA256 ffcf14afd1351193686b0618f83162c0e122e70816be70fe976e17e3a43852c0
+Human acceptance pending.

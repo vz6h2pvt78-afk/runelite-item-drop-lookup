@@ -311,7 +311,7 @@ public class AcquisitionEventLookupServiceTest
         {
             List<com.itemdroplookup.model.ItemSource> matches = new ArrayList<>();
             sources.searchByItemName(row[0]).stream()
-                    .filter(s -> s.getItemName().equals(row[0]) && s.getAcquisitionMethod() != null).forEach(matches::add);
+                    .filter(s -> s.getItemName().equals(row[0]) && "Dragon impling loot".equals(s.getSourceName())).forEach(matches::add);
             assertEquals(row[0], 1, matches.size());
             AcquisitionMethod method = matches.get(0).getAcquisitionMethod();
             assertTrue(row[0], method.getSearchText().contains("Quantity: " + row[1] + " on this outcome."));
@@ -322,6 +322,6 @@ public class AcquisitionEventLookupServiceTest
         for (String excluded : new String[]{"Dragonstone bolt tips", "Dragon javelin tips", "Dragon impling jar",
                 "Uncut dragonstone", "Dragon dagger", "Amulet of glory(4)"})
             assertTrue(excluded, sources.searchByItemName(excluded).stream()
-                    .filter(s -> s.getItemName().equals(excluded)).noneMatch(s -> s.getAcquisitionMethod() != null));
+                    .filter(s -> s.getItemName().equals(excluded)).noneMatch(s -> "Dragon impling loot".equals(s.getSourceName())));
     }
 }

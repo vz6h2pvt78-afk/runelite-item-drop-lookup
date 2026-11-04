@@ -24,7 +24,8 @@ final class LootEventAdapter
     {
         DRAGON("Dragon", 83, 93, 19), BABY("Baby", 17, 27, 19), YOUNG("Young", 22, 32, 19),
         GOURMET("Gourmet", 28, 38, 18), EARTH("Earth", 36, 46, 19),
-        ESSENCE("Essence", 42, 52, 19), ECLECTIC("Eclectic", 50, 60, 19);
+        ESSENCE("Essence", 42, 52, 19), ECLECTIC("Eclectic", 50, 60, 19),
+        NATURE("Nature", 58, 68, 19), MAGPIE("Magpie", 65, 75, 20), NINJA("Ninja", 74, 84, 19);
 
         final String creature, jar, eventId;
         final int net, bare, ordinaryRows;

@@ -525,7 +525,8 @@ public class ItemDropLookupPanelTest
             ItemSearchSelection selection = new ItemSearchSelection("Magic logs", drops, sources, new ItemPriceLookupService(gson));
             assertEquals(drops.searchByItemName("Magic logs").size() - 1, selection.drops.size());
             assertFalse(selection.drops.stream().anyMatch(d -> d.getMonsterName().equals("Ent")));
-            assertEquals(1, selection.sources.stream().filter(s -> s.getAcquisitionMethod() != null).count());
+            assertEquals(1, selection.sources.stream().filter(s -> "Ent trunk".equals(s.getSourceName())).count());
+            assertTrue(selection.sources.stream().anyMatch(s -> "Nature impling loot".equals(s.getSourceName())));
             ItemDropLookupPanel panel = panel(drops);
             search(panel, "Magic logs");
             JComboBox<?> filter = (JComboBox<?>) named(panel, "sourceTypeFilter");
