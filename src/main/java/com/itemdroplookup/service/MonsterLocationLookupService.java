@@ -32,6 +32,7 @@ public class MonsterLocationLookupService
             .thenComparing(location -> String.valueOf(location.getLevelsText()));
     private final Map<String, List<MonsterLocation>> byMonster = new HashMap<>();
     private final Map<List<String>, List<MonsterLocation>> byDrop = new HashMap<>();
+    private final Set<List<String>> commonDrops = new LinkedHashSet<>();
     private boolean loaded;
 
     @Inject
@@ -54,6 +55,14 @@ public class MonsterLocationLookupService
         return verified == null
                 ? new LocationMatch(lookupByMonsterName(source.getMonsterName()), false)
                 : new LocationMatch(verified, true);
+    }
+
+    /** Dose outputs may share a source card only where their exact unversioned tables are known. */
+    public boolean isCommonDrop(DropSource source)
+    {
+        loadOnce();
+        return commonDrops.contains(key(source.getMonsterName(), source.getItemName(),
+                source.getQuantity(), source.getDropRate(), source.getNotes()));
     }
 
     public boolean hasQualifyingLocation(DropSource source, MonsterLocationFilter.WildernessFilter filter)
@@ -103,9 +112,13 @@ public class MonsterLocationLookupService
             // associations, never arbitrarily choose the first one.
             Map<List<String>, Set<MonsterLocation>> associations = new HashMap<>();
             Set<List<String>> invalid = new LinkedHashSet<>();
+            Set<List<String>> variantTables = new LinkedHashSet<>();
             for (Binding binding : dataset.dropBindings)
             {
                 List<String> signature = key(binding.monsterName, binding.itemName, binding.quantity, binding.dropRate, binding.notes);
+                if (binding.dropVersions == null || !binding.dropVersions.isEmpty()
+                        || !Collections.singletonList("common-unversioned-table").equals(binding.matchMethods))
+                    variantTables.add(signature);
                 if (binding.locationIds == null || binding.locationIds.isEmpty())
                 {
                     invalid.add(signature);
@@ -131,6 +144,7 @@ public class MonsterLocationLookupService
                     List<MonsterLocation> ordered = new ArrayList<>(locations);
                     ordered.sort(LOCATION_ORDER);
                     byDrop.put(signature, Collections.unmodifiableList(ordered));
+                    if (!variantTables.contains(signature)) commonDrops.add(signature);
                 }
             });
             byMonster.replaceAll((name, locations) -> {
@@ -142,6 +156,7 @@ public class MonsterLocationLookupService
         {
             byMonster.clear();
             byDrop.clear();
+            commonDrops.clear();
             log.debug("Unable to load bundled monster locations", ex);
         }
         finally
@@ -191,5 +206,7 @@ public class MonsterLocationLookupService
         private String dropRate;
         private String notes;
         private List<String> locationIds;
+        private List<String> dropVersions;
+        private List<String> matchMethods;
     }
 }

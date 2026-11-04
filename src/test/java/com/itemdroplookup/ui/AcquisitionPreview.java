@@ -25,6 +25,7 @@ public final class AcquisitionPreview
                     {"Dragon arrow", "Loot & containers", ""}, {"Dragon dagger(p++)", "Loot & containers", ""},
                     {"Adamant axe", "NPC Drops", "Dust devil"}, {"Adamant boots", "NPC Drops", "Gargoyle"},
                     {"Adamant sq shield", "NPC Drops", "Night beast"}, {"Dragonstone", "NPC Drops", "Zulrah"},
+                    {"Prayer potion", "NPC Drops", "Tormented Demon"}, {"Earth rune", "Shops", "Ali\u0027s Discount Wares"},
                     {"Air rune", "Shops", "pack"}, {"Death talisman", "Reward Shops", "Temple Supplies"},
                     {"Spade", "Ground pickups", ""}, {"Iron ore", "Gathering", ""}, {"Oak logs", "Gathering", ""},
                     {"Blighted super restore(4) (x4)", "Reward Shops", "Soul Wars"}, {"Soul cape", "Reward Shops", "Soul Wars"}})

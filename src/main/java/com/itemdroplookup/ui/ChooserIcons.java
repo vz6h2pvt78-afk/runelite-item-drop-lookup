@@ -12,11 +12,14 @@ import java.util.function.BooleanSupplier;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
+import java.util.function.Consumer;
 import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
 import javax.swing.event.ChangeListener;
 
-/** One chooser's visible rows. Never performs lookup work while painting. */
+/** Visible item artwork for the current results page. Never performs lookup work while painting. */
 final class ChooserIcons
 {
     private static final Icon EMPTY = new Icon()
@@ -33,6 +36,7 @@ final class ChooserIcons
         if ((e.getChangeFlags() & HierarchyEvent.SHOWING_CHANGED) != 0) requestVisible();
     };
     private volatile long generation;
+    private volatile long pinnedGeneration;
     private volatile boolean disposed;
 
     ChooserIcons(JScrollPane scroll, ItemIconProvider provider)
@@ -53,7 +57,27 @@ final class ChooserIcons
     {
         button.setIcon(EMPTY);
         button.setIconTextGap(8);
-        rows.add(new Row(canonicalName, button));
+        rows.add(new Row(canonicalName, button, button::setIcon));
+    }
+
+    void add(String canonicalName, JLabel label)
+    {
+        label.setIcon(EMPTY);
+        label.setIconTextGap(6);
+        rows.add(new Row(canonicalName, label, label::setIcon));
+    }
+
+    void showPinned(String canonicalName, JLabel label)
+    {
+        long token = ++pinnedGeneration;
+        label.setIcon(EMPTY);
+        label.setIconTextGap(6);
+        request(canonicalName, () -> !disposed && pinnedGeneration == token, label::setIcon);
+    }
+
+    void closePinned()
+    {
+        pinnedGeneration++;
     }
 
     void requestVisible()
@@ -64,17 +88,21 @@ final class ChooserIcons
         BooleanSupplier current = () -> !disposed && generation == token;
         for (Row row : rows)
         {
-            if (row.requested || row.button.getParent() == null) continue;
-            Rectangle bounds = SwingUtilities.convertRectangle(row.button.getParent(), row.button.getBounds(),
+            if (row.requested || row.component.getParent() == null) continue;
+            Rectangle bounds = SwingUtilities.convertRectangle(row.component.getParent(), row.component.getBounds(),
                     scroll.getViewport().getView());
-            if (!visible.intersects(bounds)) continue;
+            if (!visible.intersects(bounds) || !SwingUtilities.isDescendingFrom(row.component, scroll.getViewport().getView())) continue;
             row.requested = true;
-            provider.request(row.name, current, image -> SwingUtilities.invokeLater(() -> {
-                if (!current.getAsBoolean() || image == null || image.getWidth() != 36 || image.getHeight() != 32) return;
-                row.button.setIcon(new ImageIcon(image));
-                row.button.repaint();
-            }));
+            request(row.name, current, row.setIcon);
         }
+    }
+
+    private void request(String name, BooleanSupplier current, Consumer<Icon> setIcon)
+    {
+        provider.request(name, current, image -> SwingUtilities.invokeLater(() -> {
+            if (current.getAsBoolean() && image != null && image.getWidth() == 36 && image.getHeight() == 32)
+                setIcon.accept(new ImageIcon(image));
+        }));
     }
 
     void dispose()
@@ -92,8 +120,14 @@ final class ChooserIcons
     private static final class Row
     {
         private final String name;
-        private final JButton button;
+        private final JComponent component;
+        private final Consumer<Icon> setIcon;
         private boolean requested;
-        private Row(String name, JButton button) { this.name = name; this.button = button; }
+        private Row(String name, JComponent component, Consumer<Icon> setIcon)
+        {
+            this.name = name;
+            this.component = component;
+            this.setIcon = setIcon;
+        }
     }
 }

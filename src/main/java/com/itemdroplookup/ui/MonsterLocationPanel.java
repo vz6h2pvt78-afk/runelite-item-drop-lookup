@@ -43,6 +43,9 @@ public class MonsterLocationPanel extends JPanel
     private final AccessRequirementLookupService requirements;
     private final List<AccessRequirement> sourceFacts;
     private final DropSource source;
+    private final JLabel identity;
+
+    JLabel getIdentityHeading() { return identity; }
     private final LookupStyle style;
     private boolean filtersExpanded;
     private boolean adjusting;
@@ -114,7 +117,7 @@ public class MonsterLocationPanel extends JPanel
         JButton backButton = style.backButton("Back to results", back);
         backButton.setName("backToResults");
         header.add(backButton);
-        JLabel identity = text(source.getMonsterName() + " → " + source.getItemName(), true, TEXT_WIDTH);
+        identity = text(source.getMonsterName() + " → " + source.getItemName(), true, TEXT_WIDTH);
         identity.setName("sourceItemHeading");
         header.add(identity);
         if (!source.getItemName().equalsIgnoreCase(searchQuery.trim()))
@@ -163,7 +166,7 @@ public class MonsterLocationPanel extends JPanel
         if (adjusting) return;
         locationsPanel.removeAll();
         locationsPanel.add(text(DropRatePresentation.detailRateLine(source), false, TEXT_WIDTH));
-        locationsPanel.add(text("Quantity: " + source.getQuantity(), false, TEXT_WIDTH));
+        locationsPanel.add(text("Quantity: " + DropQuantity.display(source), false, TEXT_WIDTH));
         if (!sourceFacts.isEmpty())
         {
             locationsPanel.add(text("Requirements & context", true, TEXT_WIDTH));

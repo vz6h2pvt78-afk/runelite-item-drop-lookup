@@ -530,6 +530,7 @@ public class ItemDropLookupPanel extends PluginPanel
                         viewState.query, hasSourceContext ? sourceSearch.getText() : null, method, area, view,
                         detail == null ? null : detailSource.getMonsterName(), detail == null ? null : detail.saveState());
                 if (viewState.page == LookupViewState.Page.NO_SOURCES) report += "Recorded sources: 0\n";
+                if (detail != null && showingPotionFamily()) report += "Dose item: " + detailSource.getItemName() + "\n";
                 clipboardWriter.accept(report);
                 status.setText("<html>Report copied</html>");
             }
@@ -788,7 +789,10 @@ public class ItemDropLookupPanel extends PluginPanel
         resultsPanel.revalidate();
         resultsPanel.repaint();
         revalidate();
-        SwingUtilities.invokeLater(() -> resultsScroll.getVerticalScrollBar().setValue(0));
+        SwingUtilities.invokeLater(() -> {
+            resultsScroll.getVerticalScrollBar().setValue(0);
+            chooserIcons.requestVisible();
+        });
     }
 
     private boolean contains(String value, String query)
@@ -822,8 +826,64 @@ public class ItemDropLookupPanel extends PluginPanel
         return wiki;
     }
 
+    private boolean showingPotionFamily()
+    {
+        return itemPriceLookupService.findPotionFamily(viewState.selectedItem)
+                .filter(viewState.selectedItem::equalsIgnoreCase).isPresent();
+    }
+
+    private static String doseLabel(String item)
+    {
+        java.util.regex.Matcher dose = DOSE_SUFFIX.matcher(item);
+        return dose.find() ? dose.group(1) + "-dose" : item;
+    }
+
+    private static final java.util.regex.Pattern DOSE_SUFFIX = java.util.regex.Pattern.compile("\\(([1-4])\\)$");
+
+    private void displayPotionSources(List<DropSource> results)
+    {
+        Map<Object, List<DropSource>> groups = new LinkedHashMap<>();
+        results.stream().sorted(Comparator.comparingDouble(this::getRateSortValue)
+                .thenComparing(DropSource::getMonsterName)).forEach(source -> {
+            Object key = source;
+            if (monsterLocationLookupService.isCommonDrop(source))
+                key = java.util.Arrays.asList(source.getMonsterName(), source.getMembersOnly(), source.getNotes(),
+                        monsterLocationLookupService.lookup(source).getLocations(), accessRequirementLookupService.forSource(source));
+            groups.computeIfAbsent(key, unused -> new ArrayList<>()).add(source);
+        });
+        resultsPanel.add(makeSectionHeader("NPC drops (" + results.size() + ")"));
+        for (List<DropSource> offers : groups.values())
+        {
+            DropSource first = offers.get(0);
+            JPanel card = LookupStyle.column();
+            card.setName("dropSourceCard");
+            card.setBackground(LookupStyle.CARD);
+            card.setBorder(LookupStyle.cardBorder());
+            card.add(makeCardTitle(first.getMonsterName(), CARD_TEXT_WIDTH));
+            if (hasText(first.getNotes())) card.add(makeCardLine(first.getNotes(), CARD_TEXT_WIDTH));
+            addSourceRequirements(card, first, CARD_TEXT_WIDTH);
+            for (DropSource offer : offers)
+            {
+                String title = doseLabel(offer.getItemName()) + " × " + DropQuantity.display(offer)
+                        + "\n" + DropRatePresentation.sourceRateLine(offer);
+                JButton row = style.button(title, () -> showMonsterDetails(offer), false);
+                row.setName("openLocations");
+                row.getAccessibleContext().setAccessibleName(first.getMonsterName() + " → " + offer.getItemName() + ", " + title + ", view details");
+                row.setToolTipText("View " + offer.getItemName() + " drop details");
+                chooserIcons.add(offer.getItemName(), row);
+                card.add(row);
+            }
+            resultsPanel.add(card);
+        }
+    }
+
     private void displayDropResults(List<DropSource> results)
     {
+        if (showingPotionFamily())
+        {
+            displayPotionSources(results);
+            return;
+        }
         Map<String, List<DropSource>> resultsByItem = new LinkedHashMap<>();
 
         for (DropSource source : results)
@@ -1007,25 +1067,17 @@ public class ItemDropLookupPanel extends PluginPanel
 
         int wrapWidth = nested ? NESTED_CARD_TEXT_WIDTH : CARD_TEXT_WIDTH;
 
-        card.add(makeCardTitle(source.getMonsterName() + " → " + source.getItemName(), wrapWidth));
+        card.add(itemTitle(source.getItemName(), source.getMonsterName() + " → " + source.getItemName(), wrapWidth));
 
         card.add(makeCardLine(DropRatePresentation.sourceRateLine(source), wrapWidth));
-        card.add(makeCardLine("Quantity: " + source.getQuantity(), wrapWidth));
+        card.add(makeCardLine("Quantity: " + DropQuantity.display(source), wrapWidth));
 
         if (source.getNotes() != null && !source.getNotes().isEmpty())
         {
             card.add(makeCardLine("Notes: " + source.getNotes(), wrapWidth));
         }
 
-        for (AccessRequirement fact : accessRequirementLookupService.forSource(source))
-        {
-            if (fact.isSourceCardFact())
-            {
-                JLabel requirement = makeCardLine(fact.getLabel() + ": " + fact.getText(), wrapWidth);
-                requirement.setName("requirement:" + fact.getId());
-                card.add(requirement);
-            }
-        }
+        addSourceRequirements(card, source, wrapWidth);
 
         card.setName("dropSourceCard");
         MouseAdapter openDetail = new MouseAdapter()
@@ -1058,6 +1110,19 @@ public class ItemDropLookupPanel extends PluginPanel
         return card;
     }
 
+    private void addSourceRequirements(JPanel card, DropSource source, int wrapWidth)
+    {
+        for (AccessRequirement fact : accessRequirementLookupService.forSource(source))
+        {
+            if (fact.isSourceCardFact())
+            {
+                JLabel requirement = makeCardLine(fact.getLabel() + ": " + fact.getText(), wrapWidth);
+                requirement.setName("requirement:" + fact.getId());
+                card.add(requirement);
+            }
+        }
+    }
+
     private void showMonsterDetails(DropSource source)
     {
         sourceSearchTimer.stop();
@@ -1066,6 +1131,7 @@ public class ItemDropLookupPanel extends PluginPanel
         detail = new MonsterLocationPanel(source, displayedQuery, monsterLocationLookupService, accessRequirementLookupService,
                 (WildernessFilter) wildernessDropdown.getSelectedItem(), this::showSearchResults, style);
         detailSource = source;
+        chooserIcons.showPinned(source.getItemName(), detail.getIdentityHeading());
         detail.setReportControls(reportControls());
         add(detail, BorderLayout.CENTER);
         revalidate();
@@ -1075,6 +1141,7 @@ public class ItemDropLookupPanel extends PluginPanel
 
     private void showSearchResults()
     {
+        chooserIcons.closePinned();
         if (detail != null) detailStates.put(detailSource, detail.saveState());
         removeAll();
         detail = null;
@@ -1097,7 +1164,7 @@ public class ItemDropLookupPanel extends PluginPanel
         {
             AcquisitionMethod method = source.getAcquisitionMethod();
             card.putClientProperty("acquisitionMethodId", method.getId());
-            card.add(makeCardTitle(method.getSourceName() + " → " + source.getItemName(), CARD_TEXT_WIDTH));
+            card.add(itemTitle(source.getItemName(), method.getSourceName() + " → " + source.getItemName(), CARD_TEXT_WIDTH));
             for (AcquisitionMethod.Section section : method.getSummarySections())
             {
                 card.add(Box.createVerticalStrut(6));
@@ -1115,19 +1182,25 @@ public class ItemDropLookupPanel extends PluginPanel
         }
         boolean ground = SOURCE_TYPE_GROUND.equals(source.getSourceType());
         boolean gathering = SOURCE_TYPE_GATHERING.equals(source.getSourceType());
-        card.add(makeCardTitle((hasText(source.getSourceName()) ? source.getSourceName() : source.getSourceType())
-                + " → " + source.getItemName(), CARD_TEXT_WIDTH));
+        String shop = hasText(source.getSourceName()) ? source.getSourceName() : source.getSourceType();
+        if (showingPotionFamily())
+        {
+            card.add(itemTitle(source.getItemName(), shop, CARD_TEXT_WIDTH));
+            card.add(makeCardLine(doseLabel(source.getItemName()), CARD_TEXT_WIDTH));
+        }
+        else card.add(itemTitle(source.getItemName(), shop + " → " + source.getItemName(), CARD_TEXT_WIDTH));
         boolean pack = source.getPackQuantity() > 0;
         if (pack)
         {
-            card.add(makeCardLine("Buy: " + source.getPackName(), CARD_TEXT_WIDTH));
+            card.add(makeCardTitle("Buy pack", CARD_TEXT_WIDTH));
+            card.add(itemTitle(source.getPackName(), source.getPackName(), CARD_TEXT_WIDTH));
             card.add(makeCardLine("Contains: " + source.getPackQuantity() + " × " + source.getPackItemName()
                     + (source.isPackNoted() ? " (noted)" : ""), CARD_TEXT_WIDTH));
         }
 
-        if (hasText(source.getSourceType()))
+        if (!pack && hasText(source.getSourceType()))
         {
-            card.add(makeCardLine(source.getSourceType(), CARD_TEXT_WIDTH));
+            card.add(makeCardLine(SOURCE_TYPE_SHOP.equals(source.getSourceType()) ? "Direct purchase" : source.getSourceType(), CARD_TEXT_WIDTH));
         }
 
         boolean unverifiedCurrency = SOURCE_TYPE_REWARD_SHOP.equals(source.getSourceType())
@@ -1285,7 +1358,17 @@ public class ItemDropLookupPanel extends PluginPanel
 
     private JLabel makeItemHeader(String text)
     {
-        return makeWrappedLabel(text, PANEL_TEXT_WIDTH, true, new EmptyBorder(10, 0, 6, 0));
+        JLabel label = makeWrappedLabel(text, PANEL_TEXT_WIDTH, true, new EmptyBorder(10, 0, 6, 0));
+        if (!itemPriceLookupService.findPotionFamily(text).filter(text::equalsIgnoreCase).isPresent())
+            chooserIcons.add(text, label);
+        return label;
+    }
+
+    private JLabel itemTitle(String item, String title, int width)
+    {
+        JLabel label = makeCardTitle(title, width);
+        chooserIcons.add(item, label);
+        return label;
     }
 
     private String formatPriceLine(ItemPrice itemPrice)

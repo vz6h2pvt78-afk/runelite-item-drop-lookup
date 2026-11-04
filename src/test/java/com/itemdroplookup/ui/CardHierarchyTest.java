@@ -28,7 +28,7 @@ public class CardHierarchyTest
         SwingUtilities.invokeAndWait(()->{
             ItemDropLookupPanel p=panel(); MorningFeedbackTest.search(p,"Air rune");
             MorningFeedbackTest.click(p,"showOtherSources");
-            Container pack=cards(p).stream().filter(c->MorningFeedbackTest.labels(c).contains("Buy: Air rune pack")).findFirst().get();
+            Container pack=cards(p).stream().filter(c->MorningFeedbackTest.labels(c).contains("Buy pack") && MorningFeedbackTest.labels(c).contains("Air rune pack")).findFirst().get();
             String text=MorningFeedbackTest.labels(pack);
             assertTrue(((JLabel)pack.getComponent(0)).getText().contains("→ Air rune</html>"));
             assertTrue(text.contains("100 × Air rune"));

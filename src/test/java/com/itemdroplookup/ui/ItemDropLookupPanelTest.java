@@ -227,6 +227,13 @@ public class ItemDropLookupPanelTest
         });
     }
 
+    private static boolean hasDoseEntry(Container panel, String item)
+    {
+        return descendants(panel).stream().filter(c -> "openLocations".equals(c.getName()))
+                .map(c -> c.getAccessibleContext().getAccessibleName().toLowerCase(java.util.Locale.ROOT))
+                .anyMatch(s -> s.contains(item.toLowerCase(java.util.Locale.ROOT)));
+    }
+
     private static boolean textContains(Container panel, String value)
     {
         return descendants(panel).stream().anyMatch(c -> c instanceof JLabel && ((JLabel) c).getText().contains(value));
@@ -454,14 +461,14 @@ public class ItemDropLookupPanelTest
             search(panel, "Prayer potion");
             for (int dose = 1; dose <= 4; dose++)
             {
-                assertTrue(textContains(panel, "Prayer Potion(" + dose + ")"));
+                assertTrue(hasDoseEntry(panel, "Prayer potion(" + dose + ")"));
             }
             assertTrue(textContains(panel, "GE snapshot (4-dose): 8,650 gp"));
             assertTrue(textContains(panel, "Showing all available doses"));
             search(panel, "Super restore");
-            assertTrue(textContains(panel, "Super Restore(1)"));
-            assertTrue(textContains(panel, "Super Restore(3)"));
-            assertTrue(textContains(panel, "Super Restore(4)"));
+            assertTrue(hasDoseEntry(panel, "Super restore(1)"));
+            assertTrue(hasDoseEntry(panel, "Super restore(3)"));
+            assertTrue(hasDoseEntry(panel, "Super restore(4)"));
             assertFalse(textContains(panel, "Blighted"));
             assertFalse(textContains(panel, "Super Restore Mix"));
             assertTrue(textContains(panel, "GE snapshot (4-dose): 11,406 gp"));

@@ -1,0 +1,8 @@
+N1 - Source clarity
+
+Potion families now show source names first and keep exact dose rows accessible. Pack offers show their purchased object and price per pack. Reviewed Duke quantities display discrete amounts. Exact item artwork is requested on visible surfaces. The before/after audit matched all 5,653 lookup queries, 14,040 unique drop contexts and 4,827 non-NPC objects. Both Java runs passed 158 tests, Python passed 120, and package/API checks passed. Inspected the actual 242-pixel Swing cards at both text sizes using fallback artwork. Live native icons, clipboard and keyboard acceptance remain for Apollo.
+
+Starting commit d1e29372cf7b526609943ea66f0ad923dbfc9d8d
+Build development-2026-11-04-n1-source-clarity
+Official package SHA256 d57d5c69968b41c9882c768632d5c6c051dcfdf297a9da77ec21859e00ec63ae
+Human acceptance pending.
