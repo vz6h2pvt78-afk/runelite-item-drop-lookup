@@ -844,8 +844,7 @@ public class ItemDropLookupPanel extends PluginPanel
 
         card.add(makeCardTitle(source.getMonsterName(), wrapWidth));
 
-        card.add(makeCardLine((DropRatePresentation.unresolvedEvent(source.getMonsterName()) ? "Listed rate: " : "Rate: ")
-                + (DropRatePresentation.unresolvedEvent(source.getMonsterName()) ? (hasText(source.getDropRate()) ? source.getDropRate() : "Not recorded") : DropRatePresentation.format(source.getDropRate())), wrapWidth));
+        card.add(makeCardLine(DropRatePresentation.sourceRateLine(source), wrapWidth));
         card.add(makeCardLine("Quantity: " + source.getQuantity(), wrapWidth));
 
         if (source.getNotes() != null && !source.getNotes().isEmpty())
@@ -855,7 +854,7 @@ public class ItemDropLookupPanel extends PluginPanel
 
         for (AccessRequirement fact : accessRequirementLookupService.forSource(source))
         {
-            if (fact.isSourceCardRequirement())
+            if (fact.isSourceCardFact())
             {
                 JLabel requirement = makeCardLine(fact.getLabel() + ": " + fact.getText(), wrapWidth);
                 requirement.setName("requirement:" + fact.getId());

@@ -105161,5 +105161,12 @@
     "dropRate": "1/2730.7",
     "notes": "Members-world drop. Drop table 2 only.",
     "membersOnly": true
+  },
+  {
+    "itemName": "Dragonstone",
+    "monsterName": "Zulrah",
+    "quantity": "1",
+    "dropRate": "5/7968",
+    "notes": "Rare drop table. Rate and quantity are per roll; two rolls per kill."
   }
 ]

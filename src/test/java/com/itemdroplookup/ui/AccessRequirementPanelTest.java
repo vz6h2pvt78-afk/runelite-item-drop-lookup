@@ -21,6 +21,28 @@ import static org.junit.Assert.*;
 
 public class AccessRequirementPanelTest
 {
+    @Test
+    public void nightBeastContextIsVisibleOnceOnTheSourceAndDetails() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            Gson gson = new Gson();
+            ItemDropLookupPanel panel = new ItemDropLookupPanel(new DropLookupService(gson), new ItemSourceLookupService(gson),
+                    new ItemPriceLookupService(gson), new MonsterLocationLookupService(gson), new AccessRequirementLookupService(gson));
+            JTextField query = (JTextField) named(panel, "itemSearch").get(0);
+            query.setText("Adamant sq shield");
+            query.postActionEvent();
+            PanelTestSupport.openSources(panel);
+            JTextField finder = (JTextField) named(panel, "sourceSearch").get(0);
+            finder.setText("Night beast");
+            finder.postActionEvent();
+            assertEquals(1, named(panel, "requirement:night-beast-drop-roll-context").size());
+            assertLabel(panel, "night-beast-drop-roll-context", "Drop context");
+            ((JButton) named(panel, "openLocations").get(0)).doClick();
+            assertEquals(1, named(panel, "requirement:night-beast-drop-roll-context").size());
+            assertLabel(panel, "night-beast-drop-roll-context", "per roll");
+        });
+    }
+
     private MonsterLocationPanel detail(String monster, String item)
     {
         Gson gson = new Gson();

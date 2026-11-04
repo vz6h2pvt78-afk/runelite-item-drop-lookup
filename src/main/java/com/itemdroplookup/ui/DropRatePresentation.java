@@ -1,5 +1,7 @@
 package com.itemdroplookup.ui;
 
+import com.itemdroplookup.model.DropSource;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.regex.Matcher;
@@ -33,5 +35,35 @@ final class DropRatePresentation
     {
         // These named cases are under the separately reviewed C3 mechanics work.
         return "Ent".equalsIgnoreCase(monster) || "Night beast".equalsIgnoreCase(monster) || "Zulrah".equalsIgnoreCase(monster);
+    }
+
+    static String sourceRateLine(DropSource source)
+    {
+        String reviewed = reviewedRateLine(source);
+        if (reviewed != null) return reviewed;
+        return unresolvedEvent(source.getMonsterName()) ? "Listed rate: " + rawRate(source)
+                : "Rate: " + format(source.getDropRate());
+    }
+
+    static String detailRateLine(DropSource source)
+    {
+        String reviewed = reviewedRateLine(source);
+        return reviewed != null ? reviewed : "Rate: " + rawRate(source);
+    }
+
+    private static String rawRate(DropSource source)
+    {
+        return source.getDropRate() == null || source.getDropRate().trim().isEmpty() ? "Not recorded" : source.getDropRate();
+    }
+
+    private static String reviewedRateLine(DropSource source)
+    {
+        // Exact reviewed source only. Do not infer multi-roll semantics from a
+        // monster family, arbitrary notes, or similarly named gem/bolt items.
+        if ("Zulrah".equals(source.getMonsterName()) && "Dragonstone".equals(source.getItemName())
+                && "1".equals(source.getQuantity()) && "5/7968".equals(source.getDropRate())
+                && "Rare drop table. Rate and quantity are per roll; two rolls per kill.".equals(source.getNotes()))
+            return "Rate: " + format(source.getDropRate()) + " per roll; 2 rolls per kill";
+        return null;
     }
 }

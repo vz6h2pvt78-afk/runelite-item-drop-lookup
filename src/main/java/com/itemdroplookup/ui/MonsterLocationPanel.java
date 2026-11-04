@@ -165,7 +165,7 @@ public class MonsterLocationPanel extends JPanel
             locationsPanel.add(text("Requirements & context", true, TEXT_WIDTH));
             sourceFacts.forEach(fact -> locationsPanel.add(requirementText(fact, TEXT_WIDTH)));
         }
-        locationsPanel.add(text("Rate: " + (hasText(source.getDropRate()) ? source.getDropRate() : "Not recorded"), false, TEXT_WIDTH));
+        locationsPanel.add(text(DropRatePresentation.detailRateLine(source), false, TEXT_WIDTH));
         locationsPanel.add(text("Quantity: " + source.getQuantity(), false, TEXT_WIDTH));
         JButton toggle = style.button((filtersExpanded ? "Hide location filters" : "Location filters")
                 + (wilderness.getSelectedItem() != WildernessFilter.ALL ? "\n" + wilderness.getSelectedItem() : "")

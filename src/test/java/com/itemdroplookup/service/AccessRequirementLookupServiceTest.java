@@ -11,6 +11,26 @@ import static org.junit.Assert.*;
 
 public class AccessRequirementLookupServiceTest
 {
+    @Test
+    public void nightBeastDropContextIsNotAnAccessGateOrAFamilyRule()
+    {
+        AccessRequirement fact = facts("Night beast", "Adamant sq shield").stream()
+                .filter(f -> f.getAppliesTo() == AppliesTo.DROP_CONTEXT).findFirst().get();
+        assertEquals("Drop context", fact.getLabel());
+        assertTrue(fact.isSourceCardFact());
+        assertFalse(fact.isSourceCardRequirement());
+        assertTrue(fact.getText().contains("three additional items"));
+        assertTrue(fact.getText().contains("At most one"));
+        assertTrue(fact.getText().contains("Regular-table rates and quantities shown here are per roll"));
+        assertTrue(fact.getText().contains("Guaranteed and tertiary drops are separate"));
+        assertFalse(facts("Dark beast", "Adamant sq shield").stream().anyMatch(f -> f.getAppliesTo() == AppliesTo.DROP_CONTEXT));
+        assertFalse(facts("Nechryarch", "Adamant sq shield").stream().anyMatch(f -> f.getAppliesTo() == AppliesTo.DROP_CONTEXT));
+        DropLookupService drops = new DropLookupService(new Gson());
+        assertEquals("Always", drops.searchByItemName("Big bones").stream().filter(d -> d.getMonsterName().equals("Night beast")).findFirst().get().getDropRate());
+        assertEquals("1/400", drops.searchByItemName("Long bone").stream().filter(d -> d.getMonsterName().equals("Night beast")).findFirst().get().getDropRate());
+        assertEquals("1", drops.searchByItemName("Adamant sq shield").stream().filter(d -> d.getMonsterName().equals("Night beast")).findFirst().get().getQuantity());
+    }
+
     private final AccessRequirementLookupService requirements = new AccessRequirementLookupService(new Gson());
     private final MonsterLocationLookupService locations = new MonsterLocationLookupService(new Gson());
 

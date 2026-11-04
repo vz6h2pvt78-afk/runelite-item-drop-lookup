@@ -19,7 +19,8 @@ public final class AcquisitionPreview
             Gson gson = new Gson();
             ItemDropLookupPanel panel = new ItemDropLookupPanel(new DropLookupService(gson), new ItemSourceLookupService(gson),
                     new ItemPriceLookupService(gson), new MonsterLocationLookupService(gson), new AccessRequirementLookupService(gson));
-            for (String[] scenario : new String[][]{{"Magic logs", "Gathering"}, {"Amulet of glory", "Loot & containers"}})
+            for (String[] scenario : new String[][]{{"Magic logs", "Gathering", ""}, {"Amulet of glory", "Loot & containers", ""},
+                    {"Adamant sq shield", "NPC Drops", "Night beast"}, {"Dragonstone", "NPC Drops", "Zulrah"}})
             {
                 JTextField search = (JTextField) PanelTestSupport.find(panel, "itemSearch");
                 search.setText(scenario[0]);
@@ -29,12 +30,16 @@ public final class AcquisitionPreview
                     ((JComboBox<?>) PanelTestSupport.find(panel, "textSize")).setSelectedItem(size);
                     PanelTestSupport.openSources(panel);
                     ((JComboBox<?>) PanelTestSupport.find(panel, "sourceTypeFilter")).setSelectedItem(scenario[1]);
+                    JTextField finder = (JTextField) PanelTestSupport.find(panel, "sourceSearch");
+                    finder.setText(scenario[2]);
+                    finder.postActionEvent();
                     JComponent wrapped = panel.getWrappedPanel();
                     wrapped.setSize(242, 650);
                     for (int i = 0; i < 10; i++) layout(wrapped);
                     String name = scenario[0].replace(' ', '-') + "-" + size.replace(' ', '-');
                     save(wrapped, new File(output, name + "-sidebar.png"));
                     JComponent card = (JComponent) PanelTestSupport.find(panel, "itemSourceCard");
+                    if (card == null) card = (JComponent) PanelTestSupport.find(panel, "dropSourceCard");
                     checkBounds(card);
                     save(card, new File(output, name + "-card.png"));
                     System.out.println(name + ": card " + card.getWidth() + "x" + card.getHeight() + "; bounds OK");

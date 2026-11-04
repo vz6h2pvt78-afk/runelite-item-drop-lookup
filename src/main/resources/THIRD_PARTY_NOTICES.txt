@@ -21,6 +21,12 @@ nor their conversion to JSON is used to remove source credits or restrictions.
 
 Runtime resources under src/main/resources/:
 
+- Night beast drop context adapts revision 15373912; the exact Zulrah/Dragonstone
+  addition follows Zulrah 15385964, Template:RareDropTable 15104778 and
+  Module:RareDropLines 15343549. The rational rate is per roll, with two rolls
+  per kill. Their offline evidence fixtures in tools/fixtures/ retain the Wiki
+  attribution and license above; no location association is inferred.
+
 - acquisition_events.json: reviewed harvest actions, requirements, location yields
   and ordinary loot/capture routes from Ent (15388968), Dragon impling (15371528),
   Dragon impling jar (15371529), and Impling (15360701). Each association includes

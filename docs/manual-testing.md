@@ -111,6 +111,16 @@ offline renders cannot verify in-game behavior.
     button, and switch freely between methods. Check that no text is clipped and
     that Find source narrows these methods without changing the selected item.
 
+32. **Adamant sq shield -> Night beast** shows the raw listed rate and quantity,
+    plus one Drop context explanation of the three additional rolls. It must not
+    claim three independent regular rolls or triple the quantity. Dark beast must
+    not inherit the context. Big bones and Long bone keep their separate raw rates.
+33. **Dragonstone -> Zulrah** shows quantity 1 and **1 in 1593.6 per roll; 2 rolls
+    per kill** in both the result and details. Location data remains unavailable;
+    the Wiki button points to Zulrah. Specific NPC-area filters may exclude it
+    because its location is unverified; All restores it. **Uncut dragonstone** and
+    **Dragonstone bolt tips** must not inherit this exact source/rate.
+
 For failures, record query, monster/rate, active filters and observed behavior.
 Confirm these checks before considering public-release work. The proposed code
 license and wiki-data notices also need owner review before publication.

@@ -107,3 +107,34 @@ the full loot table to pinned Wiki rows. Java tests exercise route separation,
 counts, method filters, identity, unavailable data and changed location records.
 One malformed event collection cannot invalidate the other collection or ordinary
 shops/NPCs. The standard/larger preview checks real card bounds at sidebar width.
+
+## Night beast roll context and missing Zulrah Dragonstone
+
+Night beast now has a MONSTER / DROP_CONTEXT / CONTEXT fact, shown once per source
+card and in details. This is explanatory context, not an access gate. It describes
+three additional item rolls, at most one superior unique, regular-table rates and
+quantities per roll, and separate guaranteed/tertiary drops. It does not assert
+three independent regular rolls, multiply quantities, or alter any raw Night beast
+record/binding. It is not inherited by Dark beast or other superior monsters.
+Evidence: [Night beast 15373912](https://oldschool.runescape.wiki/w/Night_beast?oldid=15373912),
+drop-table introduction; full attributed text is in the offline fixture.
+
+The bounded Zulrah repair appends only Dragonstone / Zulrah / quantity 1 / rate
+5/7968 with explicit per-roll/two-roll notes. `patch_zulrah_dragonstone.py` defaults
+to read-only, validates the pinned call/template/module/rendered-row chain, rejects
+an existing conflicting exact source, and leaves every unrelated record in order.
+The derivation is 10/249 × 2/128 = 5/7968 = 1/1593.6 per roll. Both source and detail
+rate lines retain “per roll; 2 rolls per kill”; no combined per-kill odds are shown.
+The formatter binds that wording to the exact reviewed five-field signature.
+
+Evidence: [Zulrah 15385964](https://oldschool.runescape.wiki/w/Zulrah?oldid=15385964),
+[RareDropTable 15104778](https://oldschool.runescape.wiki/w/Template:RareDropTable?oldid=15104778),
+and [RareDropLines 15343549](https://oldschool.runescape.wiki/w/Module:RareDropLines?oldid=15343549).
+The page's rendered row confirms quantity 1 and 2 × 1/1,593.6; this checks extraction
+against another representation of the same source, not independent corroboration.
+
+The current dataset has no Zulrah locations or bindings. None are fabricated.
+The source appears with All NPC areas selected, and details retain the honest
+unknown-location state and Zulrah Wiki button. Specific location filters retain
+their established exclusion of unverified sources. Tests distinguish Dragonstone
+from Uncut dragonstone, bolt tips and amulets and preserve exact search counts.

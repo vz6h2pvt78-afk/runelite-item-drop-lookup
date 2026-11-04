@@ -323,6 +323,21 @@
           "sourceUrl": "https://oldschool.runescape.wiki/w/Ent?oldid=15388968"
         }
       ]
+    },
+    {
+      "id": "night-beast-drop-roll-context",
+      "monsterName": "Night beast",
+      "scope": "MONSTER",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "text": "Night beast rolls three additional items per kill. At most one can be from the superior unique table. Regular-table rates and quantities shown here are per roll. Guaranteed and tertiary drops are separate.",
+      "evidence": [
+        {
+          "page": "Night beast",
+          "revisionId": 15373912,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Night_beast?oldid=15373912"
+        }
+      ]
     }
   ]
 }

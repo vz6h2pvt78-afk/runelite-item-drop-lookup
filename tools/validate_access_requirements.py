@@ -7,7 +7,7 @@ from urllib.parse import parse_qs, unquote, urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 SCOPES = {"MONSTER", "LOCATION", "ITEM"}
-APPLICABILITY = {"COMBAT", "ACCESS", "TASK_ELIGIBILITY", "ITEM_DROP", "ENCOUNTER_CONTEXT", "ACTIVITY_CONTEXT"}
+APPLICABILITY = {"COMBAT", "ACCESS", "TASK_ELIGIBILITY", "ITEM_DROP", "ENCOUNTER_CONTEXT", "ACTIVITY_CONTEXT", "DROP_CONTEXT"}
 TYPES = {"SKILL", "ACTIVE_TASK", "QUEST", "EQUIPMENT", "CONTEXT"}
 
 
@@ -38,6 +38,8 @@ def validate(data, locations, drops):
         label = fact.get("id", f"index {index}")
         def fail(reason):
             errors.append(f"{label}: {reason}")
+        if fact.get("appliesTo") == "DROP_CONTEXT" and (fact.get("scope") != "MONSTER" or fact.get("type") != "CONTEXT"):
+            fail("Drop context must be a monster context, not an access requirement")
         if set(fact) - allowed:
             fail("Unsupported fields (variant constraints must never be silently ignored)")
         for key in ("id", "monsterName", "text"):

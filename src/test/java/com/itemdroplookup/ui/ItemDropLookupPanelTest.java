@@ -544,6 +544,40 @@ public class ItemDropLookupPanelTest
     }
 
     @Test
+    public void zulrahDragonstoneKeepsRateBasisAndHonestMissingLocations() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            Gson gson = new Gson();
+            DropLookupService drops = new DropLookupService(gson);
+            DropSource source = drops.searchByItemName("Dragonstone").stream().filter(d -> d.getMonsterName().equals("Zulrah")).findFirst().get();
+            assertEquals("Dragonstone", source.getItemName());
+            assertEquals("5/7968", source.getDropRate());
+            assertEquals("1", source.getQuantity());
+            assertEquals(1, drops.searchByItemName("Dragonstone").stream().filter(d -> d.getMonsterName().equals("Zulrah")).count());
+            for (String other : new String[]{"Uncut dragonstone", "Dragonstone bolt tips", "Dragonstone amulet"})
+                assertFalse(drops.searchByItemName(other).stream().anyMatch(d -> d.getMonsterName().equals("Zulrah") && d.getDropRate().equals("5/7968")));
+            MonsterLocationLookupService locations = new MonsterLocationLookupService(gson);
+            assertTrue(locations.lookupByMonsterName("Zulrah").isEmpty());
+            assertFalse(locations.lookup(source).isVerified());
+            ItemDropLookupPanel panel = panel(drops);
+            search(panel, "Dragonstone");
+            JTextField finder = (JTextField) named(panel, "sourceSearch");
+            finder.setText("Zulrah");
+            finder.postActionEvent();
+            assertTrue(textContains(panel, "1 in 1593.6 per roll; 2 rolls per kill"));
+            ((JButton) named(panel, "openLocations")).doClick();
+            assertTrue(textContains(panel, "1 in 1593.6 per roll; 2 rolls per kill"));
+            assertTrue(textContains(panel, "No location data available"));
+            assertEquals("https://oldschool.runescape.wiki/w/Zulrah", ((JButton) named(panel, "monsterWiki")).getToolTipText());
+            ((JButton) named(panel, "backToResults")).doClick();
+            ((JComboBox<?>) named(panel, "npcWildernessFilter")).setSelectedItem(WildernessFilter.EXCLUDE);
+            assertFalse(descendants(panel).stream().anyMatch(c -> "openLocations".equals(c.getName())));
+            ((JComboBox<?>) named(panel, "npcWildernessFilter")).setSelectedItem(WildernessFilter.ALL);
+            assertNotNull(named(panel, "openLocations"));
+        });
+    }
+
+    @Test
     public void gloryLootIsDiscoverableAndKeepsJarAndChargedItemSearchesSeparate() throws Exception
     {
         SwingUtilities.invokeAndWait(() -> {

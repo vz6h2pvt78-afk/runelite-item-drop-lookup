@@ -112,6 +112,8 @@ public class AccessRequirementLookupService
         {
             return false;
         }
+        if (fact.getAppliesTo() == AccessRequirement.AppliesTo.DROP_CONTEXT
+                && (fact.getScope() != Scope.MONSTER || fact.getType() != AccessRequirement.Type.CONTEXT)) return false;
         return !fact.getEvidence().isEmpty() && fact.getEvidence().stream().allMatch(evidence -> evidence != null
                 && hasText(evidence.getPage()) && evidence.getRevisionId() > 0
                 && evidence.getSourceUrl() != null

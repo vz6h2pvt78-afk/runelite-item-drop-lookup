@@ -27,7 +27,7 @@ class RequirementsValidationTest(unittest.TestCase):
         self.check_mutation(lambda d: d["facts"][1].update(monsterName="Goblin"), "monster mismatch")
 
     def test_item_scope_requires_real_pair(self):
-        self.check_mutation(lambda d: d["facts"][-1].update(itemName="Abyssal whip"), "Unknown exact monster/item")
+        self.check_mutation(lambda d: next(f for f in d["facts"] if f["id"] == "ent-enchantment-wilderness-task").update(itemName="Abyssal whip"), "Unknown exact monster/item")
 
     def test_provenance_cannot_point_to_different_revision(self):
         self.check_mutation(lambda d: d["facts"][0]["evidence"][0].update(revisionId=1), "exact Wiki page and revision")
