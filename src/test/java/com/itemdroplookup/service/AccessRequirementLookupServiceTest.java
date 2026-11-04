@@ -34,6 +34,24 @@ public class AccessRequirementLookupServiceTest
     private final AccessRequirementLookupService requirements = new AccessRequirementLookupService(new Gson());
     private final MonsterLocationLookupService locations = new MonsterLocationLookupService(new Gson());
 
+    @Test
+    public void twoAdditionalSlayerCasesSeparateProtectionFromFinishing()
+    {
+        List<AccessRequirement> dust = facts("Dust devil", "Adamant axe");
+        List<AccessRequirement> gargoyle = facts("Gargoyle", "Adamant boots");
+        assertEquals(2, dust.size());
+        assertEquals(2, gargoyle.size());
+        assertEquals(Integer.valueOf(65), dust.stream().filter(f -> f.getType() == AccessRequirement.Type.SKILL).findFirst().get().getLevel());
+        assertEquals(Integer.valueOf(75), gargoyle.stream().filter(f -> f.getType() == AccessRequirement.Type.SKILL).findFirst().get().getLevel());
+        assertTrue(dust.stream().anyMatch(f -> f.getText().contains("Equip a facemask, Slayer helmet or Slayer helmet (i) to prevent")));
+        assertTrue(gargoyle.stream().anyMatch(f -> f.getText().contains("use a rock hammer or rock thrownhammer at 8 HP or lower")
+                && f.getText().contains("wield a granite hammer for automatic finishing")));
+        for (String related : new String[]{"Choke devil", "Smoke devil", "Marble gargoyle", "Grotesque Guardians"})
+            assertTrue(related, facts(related, "Coins").isEmpty());
+        assertFalse(dust.stream().anyMatch(f -> f.getType() == AccessRequirement.Type.ACTIVE_TASK));
+        assertFalse(gargoyle.stream().anyMatch(f -> f.getType() == AccessRequirement.Type.ACTIVE_TASK));
+    }
+
     private List<AccessRequirement> facts(String monster, String item)
     {
         return requirements.forSource(new DropSource(item, monster, "1", "", ""));

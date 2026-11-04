@@ -127,6 +127,11 @@ offline renders cannot verify in-game behavior.
     the Wiki button points to Zulrah. Specific NPC-area filters may exclude it
     because its location is unverified; All restores it. **Uncut dragonstone** and
     **Dragonstone bolt tips** must not inherit this exact source/rate.
+34. **Adamant axe -> Dust devil** shows 65 Slayer and equipped face protection
+    against the dust attack. **Adamant boots -> Gargoyle** shows 75 Slayer and
+    the finishing action (use a rock hammer/rock thrownhammer, or wield a granite
+    hammer). Both conditions remain in details. Related superiors/bosses must
+    not inherit these exact-source facts.
 
 For failures, record query, monster/rate, active filters and observed behavior.
 Confirm these checks before considering public-release work. The proposed code

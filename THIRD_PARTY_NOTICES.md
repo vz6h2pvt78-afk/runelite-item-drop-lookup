@@ -37,6 +37,9 @@ Runtime resources under src/main/resources/:
   Module:Ent calculator (14807078). The ordinary-Logs level-45 disagreement is
   documented in tools/fixtures/ent_boundary_conflict.json without resolving the
   Wiki sources or translating their calculation into gameplay probabilities.
+  tools/fixtures/extra_slayer_cases.json retains Dust devil (15386431) and Gargoyle
+  (15385687) Wiki text supporting the exact Slayer/protective/finishing facts;
+  this fixture and adapted facts retain the same Wiki license.
 
 - wiki_ground_sources.json: twelve reviewed ground-pickup rows adapted from
   Spade (revision 15387831), Knife (15350068), Bucket (15390041), Snape grass

@@ -51,6 +51,31 @@ public class AccessRequirementPanelTest
     }
 
     @Test
+    public void equipmentActionsStayVisibleOnTheSourceAndInDetails() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            for (String[] row : new String[][]{{"Dust devil", "Adamant axe", "dust-devil-face-protection", "Equip a facemask"},
+                    {"Gargoyle", "Adamant boots", "gargoyle-finishing-equipment", "To finish: use"}})
+            {
+                Gson gson = new Gson();
+                ItemDropLookupPanel panel = new ItemDropLookupPanel(new DropLookupService(gson), new ItemSourceLookupService(gson),
+                        new ItemPriceLookupService(gson), new MonsterLocationLookupService(gson), new AccessRequirementLookupService(gson));
+                JTextField query = (JTextField) named(panel, "itemSearch").get(0);
+                query.setText(row[1]);
+                query.postActionEvent();
+                PanelTestSupport.openSources(panel);
+                JTextField finder = (JTextField) named(panel, "sourceSearch").get(0);
+                finder.setText(row[0]);
+                finder.postActionEvent();
+                assertLabel(panel, row[2], row[3]);
+                ((JButton) named(panel, "openLocations").get(0)).doClick();
+                assertEquals(1, named(panel, "requirement:" + row[2]).size());
+                assertLabel(panel, row[2], row[3]);
+            }
+        });
+    }
+
+    @Test
     public void monsterFactsAppearOnceAndLocalFactsStayInTheirCard() throws Exception
     {
         SwingUtilities.invokeAndWait(() -> {

@@ -1,5 +1,26 @@
 # Reviewed acquisition corrections
 
+## Two additional Slayer cases
+
+Dust devil has two exact MONSTER / COMBAT facts: 65 Slayer to kill, and equipped
+facemask / Slayer helmet / Slayer helmet (i) protection against the dust attack's
+heavy damage and stat drain. The equipment text explains its purpose; it does
+not claim that the attack action is disabled without protection. Evidence:
+[Dust devil revision 15386431](https://oldschool.runescape.wiki/w/Dust_devil?oldid=15386431).
+
+Gargoyle has two exact MONSTER / COMBAT facts: 75 Slayer to damage, and the
+finishing action. Use a rock hammer or rock thrownhammer at 8 HP or lower, or
+wield a granite hammer for automatic finishing. Carrying a hammer is not presented
+as equivalent to using it. The optional Gargoyle Smasher convenience is not needed
+for these manual/weapon alternatives. Evidence:
+[Gargoyle revision 15385687](https://oldschool.runescape.wiki/w/Gargoyle?oldid=15385687).
+
+No source-wide active-task gate is added. The existing Gargoyle basement location
+still says Slayer task only; that restriction is not spread to the top floor.
+These four facts do not propagate to Choke devil, Smoke devil, Marble gargoyle or
+Grotesque Guardians. Exact pins are retained in `tools/fixtures/extra_slayer_cases.json`.
+No drop records, location signatures, or account eligibility checks change.
+
 ## Lyre and Temple Supplies — November 3 evening
 
 Lyre facts apply only to the exact Lyre item paired with Borrokar, Freidir, Lanzig

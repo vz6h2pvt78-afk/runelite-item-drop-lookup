@@ -23,6 +23,7 @@ public final class AcquisitionPreview
                     {"Logs", "Gathering", ""}, {"Amulet of glory", "Loot & containers", ""},
                     {"Mystic robe bottom", "Loot & containers", ""}, {"Snapdragon seed", "Loot & containers", ""},
                     {"Dragon arrow", "Loot & containers", ""}, {"Dragon dagger(p++)", "Loot & containers", ""},
+                    {"Adamant axe", "NPC Drops", "Dust devil"}, {"Adamant boots", "NPC Drops", "Gargoyle"},
                     {"Adamant sq shield", "NPC Drops", "Night beast"}, {"Dragonstone", "NPC Drops", "Zulrah"}})
             {
                 JTextField search = (JTextField) PanelTestSupport.find(panel, "itemSearch");

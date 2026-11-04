@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-04T02:45:00Z",
+  "checkedAt": "2026-11-04T03:55:00Z",
   "coverage": "Small reviewed sample; missing facts do not mean unrestricted access.",
   "attribution": "OSRS Wiki contributors; adapted factual summaries, scoped by Item Drop Lookup. CC BY-NC-SA 3.0. See THIRD_PARTY_NOTICES.txt.",
   "facts": [
@@ -336,6 +336,70 @@
           "page": "Night beast",
           "revisionId": 15373912,
           "sourceUrl": "https://oldschool.runescape.wiki/w/Night_beast?oldid=15373912"
+        }
+      ]
+    },
+    {
+      "id": "dust-devil-slayer",
+      "monsterName": "Dust devil",
+      "scope": "MONSTER",
+      "appliesTo": "COMBAT",
+      "type": "SKILL",
+      "text": "65 Slayer to kill.",
+      "skill": "Slayer",
+      "level": 65,
+      "evidence": [
+        {
+          "page": "Dust devil",
+          "revisionId": 15386431,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Dust_devil?oldid=15386431"
+        }
+      ]
+    },
+    {
+      "id": "dust-devil-face-protection",
+      "monsterName": "Dust devil",
+      "scope": "MONSTER",
+      "appliesTo": "COMBAT",
+      "type": "EQUIPMENT",
+      "text": "Equip a facemask, Slayer helmet or Slayer helmet (i) to prevent the dust attack's heavy damage and stat drain.",
+      "evidence": [
+        {
+          "page": "Dust devil",
+          "revisionId": 15386431,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Dust_devil?oldid=15386431"
+        }
+      ]
+    },
+    {
+      "id": "gargoyle-slayer",
+      "monsterName": "Gargoyle",
+      "scope": "MONSTER",
+      "appliesTo": "COMBAT",
+      "type": "SKILL",
+      "text": "75 Slayer to damage.",
+      "skill": "Slayer",
+      "level": 75,
+      "evidence": [
+        {
+          "page": "Gargoyle",
+          "revisionId": 15385687,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Gargoyle?oldid=15385687"
+        }
+      ]
+    },
+    {
+      "id": "gargoyle-finishing-equipment",
+      "monsterName": "Gargoyle",
+      "scope": "MONSTER",
+      "appliesTo": "COMBAT",
+      "type": "EQUIPMENT",
+      "text": "To finish: use a rock hammer or rock thrownhammer at 8 HP or lower, or wield a granite hammer for automatic finishing.",
+      "evidence": [
+        {
+          "page": "Gargoyle",
+          "revisionId": 15385687,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Gargoyle?oldid=15385687"
         }
       ]
     }
