@@ -41,3 +41,20 @@ and original values are in `tools/fixtures/temple_supplies_patch.json`. This is
 not a full shop regeneration. Abyssal needle and Abyssal lantern are absent from
 the existing dataset and are not silently added. Generated source categories
 remain unchanged in this cost/condition-only patch.
+
+## Named forms and the Ent direct-reward boundary
+
+The Raw bear meat card for Alexis identifies her as a Canifis citizen in human
+form and states that Wolfbane prevents transformation. The distinct Werewolf
+record describes the werewolf form and notes that human-form loot differs. Neither
+identity, quantity, probability nor location signature is changed. This is not a
+family-wide equipment rule; other named citizens remain unannotated until reviewed.
+Evidence: [Alexis revision 15317213](https://oldschool.runescape.wiki/w/Alexis?oldid=15317213)
+and [Werewolf revision 15319526](https://oldschool.runescape.wiki/w/Werewolf?oldid=15319526),
+introductory form explanations and their separate food-table rows.
+
+The exact Ent / Slayer's enchantment pair retains direct-kill semantics and its
+Wilderness/Krystilia task condition. It must not inherit the axe, Woodcutting or
+harvest rules for logs, nor spread its task condition to those logs. Evidence:
+[Ent revision 15388968](https://oldschool.runescape.wiki/w/Ent?oldid=15388968),
+introductory drop-versus-harvest distinction and Wilderness Slayer tertiary section.

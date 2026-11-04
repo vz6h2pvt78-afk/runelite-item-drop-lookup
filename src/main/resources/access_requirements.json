@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-04T02:30:00Z",
+  "checkedAt": "2026-11-04T02:45:00Z",
   "coverage": "Small reviewed sample; missing facts do not mean unrestricted access.",
   "attribution": "OSRS Wiki contributors; adapted factual summaries, scoped by Item Drop Lookup. CC BY-NC-SA 3.0. See THIRD_PARTY_NOTICES.txt.",
   "facts": [
@@ -273,6 +273,54 @@
           "page": "The Fremennik Trials",
           "revisionId": 15374585,
           "sourceUrl": "https://oldschool.runescape.wiki/w/The_Fremennik_Trials?oldid=15374585"
+        }
+      ]
+    },
+    {
+      "id": "alexis-bear-meat-human-form",
+      "monsterName": "Alexis",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "EQUIPMENT",
+      "text": "Canifis citizen, human form. Wield Wolfbane to prevent Alexis transforming into a werewolf with a different loot table.",
+      "itemName": "Raw bear meat",
+      "evidence": [
+        {
+          "page": "Alexis",
+          "revisionId": 15317213,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Alexis?oldid=15317213"
+        }
+      ]
+    },
+    {
+      "id": "werewolf-bear-meat-form",
+      "monsterName": "Werewolf",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "CONTEXT",
+      "text": "Werewolf form. Canifis citizens have a separate loot table while kept in human form.",
+      "itemName": "Raw bear meat",
+      "evidence": [
+        {
+          "page": "Werewolf",
+          "revisionId": 15319526,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Werewolf?oldid=15319526"
+        }
+      ]
+    },
+    {
+      "id": "ent-enchantment-wilderness-task",
+      "monsterName": "Ent",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "ACTIVE_TASK",
+      "text": "Kill an Ent in the Wilderness on a Slayer task from Krystilia. This item drops on death, separately from chopping the trunk.",
+      "itemName": "Slayer's enchantment",
+      "evidence": [
+        {
+          "page": "Ent",
+          "revisionId": 15388968,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Ent?oldid=15388968"
         }
       ]
     }

@@ -124,6 +124,39 @@ public class AccessRequirementLookupServiceTest
     }
 
     @Test
+    public void bearMeatFormContextKeepsIdentityQuantityAndEquipmentScope()
+    {
+        AccessRequirement alexis = facts("Alexis", "Raw bear meat").get(0);
+        assertTrue(alexis.isSourceCardRequirement());
+        assertTrue(alexis.getText().contains("Canifis citizen, human form"));
+        assertTrue(alexis.getText().contains("Wield Wolfbane"));
+        AccessRequirement werewolf = facts("Werewolf", "Raw bear meat").get(0);
+        assertTrue(werewolf.getText().startsWith("Werewolf form"));
+        assertFalse(werewolf.getText().contains("Wield Wolfbane"));
+        assertTrue(facts("Roavar", "Raw bear meat").isEmpty());
+        assertTrue(facts("Alexis", "Coins").isEmpty());
+        List<DropSource> meat = new DropLookupService(new Gson()).searchByItemName("Raw bear meat");
+        assertEquals(25, meat.size());
+        assertTrue(meat.stream().anyMatch(d -> "Alexis".equals(d.getMonsterName())
+                && "2".equals(d.getQuantity()) && "10/512".equals(d.getDropRate())));
+        assertTrue(meat.stream().anyMatch(d -> "Werewolf".equals(d.getMonsterName())
+                && "5".equals(d.getQuantity()) && "10/512".equals(d.getDropRate())));
+    }
+
+    @Test
+    public void entDirectRewardTaskDoesNotBecomeAHarvestRequirement()
+    {
+        AccessRequirement task = facts("Ent", "Slayer's enchantment").get(0);
+        assertTrue(task.isSourceCardRequirement());
+        assertTrue(task.getText().contains("Wilderness"));
+        assertTrue(task.getText().contains("Krystilia"));
+        assertTrue(task.getText().contains("drops on death"));
+        assertTrue(facts("Ent", "Magic logs").isEmpty());
+        assertTrue(facts("Ent", "Logs").isEmpty());
+        assertTrue(facts("Goblin", "Slayer's enchantment").isEmpty());
+    }
+
+    @Test
     public void missingFactsDoNotRemoveExistingSources()
     {
         assertTrue(facts("Goblin", "Goblin mail").isEmpty());
