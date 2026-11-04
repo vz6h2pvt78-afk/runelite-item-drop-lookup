@@ -1,0 +1,441 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-04T02:50:00Z",
+  "attribution": "OSRS Wiki contributors; reviewed acquisition facts under CC BY-NC-SA 3.0. See THIRD_PARTY_NOTICES.txt.",
+  "harvests": [
+    {
+      "id": "ent-magic-logs",
+      "itemName": "Magic logs",
+      "sourceName": "Ent trunk",
+      "legacyDrop": {
+        "itemName": "Magic logs",
+        "monsterName": "Ent",
+        "quantity": "1 (noted)",
+        "dropRate": "Varies",
+        "notes": ""
+      },
+      "prerequisiteAction": "DEFEAT_MONSTER",
+      "harvestAction": "Chop the defeated Ent's trunk",
+      "outputCondition": {
+        "kind": "SKILL",
+        "scope": "OUTPUT",
+        "skill": "Woodcutting",
+        "minBaseLevel": 75,
+        "text": "Requires 75 base Woodcutting for Magic logs."
+      },
+      "chanceKind": "VARIABLE",
+      "chanceContext": "Base Woodcutting and axe affect the log type. Current Woodcutting affects chop success.",
+      "locations": [
+        {
+          "locationId": "96e8b6f8e85241dc9c51",
+          "combatLevel": 101,
+          "quantity": 2,
+          "noted": true,
+          "quantityBasis": "SUCCESSFUL_HARVEST",
+          "evidence": [
+            {
+              "page": "Ent",
+              "revisionId": 15388968,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Ent?oldid=15388968"
+            }
+          ],
+          "locationName": "East of Chaos Temple (Wilderness)"
+        },
+        {
+          "locationId": "a68fdb7c45298260aeff",
+          "combatLevel": 101,
+          "quantity": 2,
+          "noted": true,
+          "quantityBasis": "SUCCESSFUL_HARVEST",
+          "evidence": [
+            {
+              "page": "Ent",
+              "revisionId": 15388968,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Ent?oldid=15388968"
+            }
+          ],
+          "locationName": "North of Chaos Temple (Wilderness)"
+        },
+        {
+          "locationId": "b8ac024e7c04439a486b",
+          "combatLevel": 86,
+          "quantity": 1,
+          "noted": true,
+          "quantityBasis": "SUCCESSFUL_HARVEST",
+          "evidence": [
+            {
+              "page": "Ent",
+              "revisionId": 15388968,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Ent?oldid=15388968"
+            }
+          ],
+          "locationName": "Woodcutting Guild Ent cavern"
+        }
+      ],
+      "evidence": [
+        {
+          "page": "Ent",
+          "revisionId": 15388968,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Ent?oldid=15388968"
+        }
+      ],
+      "toolRequirement": {
+        "kind": "TOOL_CATEGORY",
+        "tool": "AXE",
+        "qualification": "USABLE_AT_CURRENT_SKILL",
+        "scope": "HARVEST",
+        "text": "An axe usable at your Woodcutting level."
+      }
+    }
+  ],
+  "lootEvents": [
+    {
+      "id": "dragon-impling-ordinary-loot",
+      "sourceName": "Dragon impling loot",
+      "containerName": "Dragon impling jar",
+      "probabilityBasis": "WIKI_LISTED_TABLE",
+      "probabilityContext": "Without Monkey Madness II, javelin tips are rerolled; the effective chance can differ.",
+      "quantityBasis": "SUCCESSFUL_OUTCOME",
+      "otherRewardsNotice": "Ordinary loot only; jar returns and extra clue rewards are not covered.",
+      "outcomes": [
+        {
+          "id": "dragon-dragonstone-bolt-tips-10-30",
+          "itemName": "Dragonstone bolt tips",
+          "quantityMin": 10,
+          "quantityMax": 30,
+          "noted": false,
+          "listedChance": "1/19"
+        },
+        {
+          "id": "dragon-dragonstone-bolt-tips-36-36",
+          "itemName": "Dragonstone bolt tips",
+          "quantityMin": 36,
+          "quantityMax": 36,
+          "noted": false,
+          "listedChance": "1/19"
+        },
+        {
+          "id": "dragon-mystic-robe-bottom",
+          "itemName": "Mystic robe bottom",
+          "quantityMin": 1,
+          "quantityMax": 1,
+          "noted": false,
+          "listedChance": "1/19"
+        },
+        {
+          "id": "dragon-amulet-of-glory",
+          "itemName": "Amulet of glory",
+          "quantityMin": 3,
+          "quantityMax": 3,
+          "noted": true,
+          "listedChance": "1/19"
+        },
+        {
+          "id": "dragon-dragonstone-amulet",
+          "itemName": "Dragonstone amulet",
+          "quantityMin": 2,
+          "quantityMax": 2,
+          "noted": true,
+          "listedChance": "1/19"
+        },
+        {
+          "id": "dragon-dragon-arrow",
+          "itemName": "Dragon arrow",
+          "quantityMin": 100,
+          "quantityMax": 250,
+          "noted": false,
+          "listedChance": "1/19"
+        },
+        {
+          "id": "dragon-dragonstone-bolts",
+          "itemName": "Dragonstone bolts",
+          "quantityMin": 10,
+          "quantityMax": 40,
+          "noted": false,
+          "listedChance": "1/19"
+        },
+        {
+          "id": "dragon-dragon-longsword",
+          "itemName": "Dragon longsword",
+          "quantityMin": 1,
+          "quantityMax": 1,
+          "noted": false,
+          "listedChance": "1/19"
+        },
+        {
+          "id": "dragon-dragon-dagger(p++)",
+          "itemName": "Dragon dagger(p++)",
+          "quantityMin": 3,
+          "quantityMax": 3,
+          "noted": true,
+          "listedChance": "1/19"
+        },
+        {
+          "id": "dragon-dragon-dart",
+          "itemName": "Dragon dart",
+          "quantityMin": 100,
+          "quantityMax": 250,
+          "noted": false,
+          "listedChance": "1/19"
+        },
+        {
+          "id": "dragon-dragonstone",
+          "itemName": "Dragonstone",
+          "quantityMin": 3,
+          "quantityMax": 3,
+          "noted": true,
+          "listedChance": "1/19"
+        },
+        {
+          "id": "dragon-dragon-dart-tip",
+          "itemName": "Dragon dart tip",
+          "quantityMin": 100,
+          "quantityMax": 350,
+          "noted": false,
+          "listedChance": "1/19"
+        },
+        {
+          "id": "dragon-dragon-arrowtips",
+          "itemName": "Dragon arrowtips",
+          "quantityMin": 100,
+          "quantityMax": 350,
+          "noted": false,
+          "listedChance": "1/19"
+        },
+        {
+          "id": "dragon-dragon-javelin-tips",
+          "itemName": "Dragon javelin tips",
+          "quantityMin": 25,
+          "quantityMax": 35,
+          "noted": false,
+          "listedChance": "1/19",
+          "eligibility": {
+            "kind": "QUEST",
+            "quest": "Monkey Madness II",
+            "state": "COMPLETED",
+            "scope": "OUTCOME"
+          },
+          "whenIneligible": "REROLL_WITHIN_ORDINARY_TABLE"
+        },
+        {
+          "id": "dragon-babydragon-bones",
+          "itemName": "Babydragon bones",
+          "quantityMin": 100,
+          "quantityMax": 300,
+          "noted": true,
+          "listedChance": "1/19"
+        },
+        {
+          "id": "dragon-dragon-bones",
+          "itemName": "Dragon bones",
+          "quantityMin": 50,
+          "quantityMax": 100,
+          "noted": true,
+          "listedChance": "1/19"
+        },
+        {
+          "id": "dragon-magic-seed",
+          "itemName": "Magic seed",
+          "quantityMin": 1,
+          "quantityMax": 1,
+          "noted": false,
+          "listedChance": "1/19"
+        },
+        {
+          "id": "dragon-snapdragon-seed",
+          "itemName": "Snapdragon seed",
+          "quantityMin": 6,
+          "quantityMax": 6,
+          "noted": false,
+          "listedChance": "1/19"
+        },
+        {
+          "id": "dragon-summer-pie",
+          "itemName": "Summer pie",
+          "quantityMin": 15,
+          "quantityMax": 15,
+          "noted": true,
+          "listedChance": "1/19"
+        }
+      ],
+      "routes": [
+        {
+          "id": "open-obtained-jar",
+          "kind": "OPEN_EXISTING",
+          "inputItem": "Dragon impling jar",
+          "steps": [
+            "Obtain a Dragon impling jar",
+            "Open the jar"
+          ],
+          "captureOptions": [],
+          "evidence": [
+            {
+              "page": "Dragon impling jar",
+              "revisionId": 15371529,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Dragon_impling_jar?oldid=15371529"
+            }
+          ]
+        },
+        {
+          "id": "catch-into-jar",
+          "kind": "CATCH_INTO_CONTAINER",
+          "area": "Gielinor or Puro-Puro",
+          "jarState": "EMPTY_JAR_PRESENT",
+          "steps": [
+            "Catch a Dragon impling into an empty impling jar",
+            "Open the Dragon impling jar"
+          ],
+          "captureOptions": [
+            {
+              "hunterLevel": 83,
+              "equipment": "Butterfly net or magic butterfly net",
+              "evidence": [
+                {
+                  "page": "Dragon impling",
+                  "revisionId": 15371528,
+                  "sourceUrl": "https://oldschool.runescape.wiki/w/Dragon_impling?oldid=15371528"
+                },
+                {
+                  "page": "Impling",
+                  "revisionId": 15360701,
+                  "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                }
+              ],
+              "kind": "NET",
+              "skill": "Hunter",
+              "equipmentAlternatives": [
+                "BUTTERFLY_NET",
+                "MAGIC_BUTTERFLY_NET"
+              ],
+              "scope": "CAPTURE"
+            },
+            {
+              "hunterLevel": 93,
+              "equipment": "Bare hands",
+              "evidence": [
+                {
+                  "page": "Dragon impling",
+                  "revisionId": 15371528,
+                  "sourceUrl": "https://oldschool.runescape.wiki/w/Dragon_impling?oldid=15371528"
+                },
+                {
+                  "page": "Impling",
+                  "revisionId": 15360701,
+                  "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                }
+              ],
+              "kind": "BAREHANDED",
+              "skill": "Hunter",
+              "equipmentAlternatives": [],
+              "scope": "CAPTURE"
+            }
+          ],
+          "evidence": [
+            {
+              "page": "Impling",
+              "revisionId": 15360701,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+            },
+            {
+              "page": "Dragon impling",
+              "revisionId": 15371528,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Dragon_impling?oldid=15371528"
+            }
+          ]
+        },
+        {
+          "id": "catch-and-loot",
+          "kind": "CATCH_AND_LOOT",
+          "area": "Outside Puro-Puro",
+          "jarState": "EMPTY_JAR_ABSENT",
+          "steps": [
+            "Catch a Dragon impling without an empty jar",
+            "Receive its loot immediately"
+          ],
+          "captureOptions": [
+            {
+              "hunterLevel": 83,
+              "equipment": "Butterfly net or magic butterfly net",
+              "evidence": [
+                {
+                  "page": "Dragon impling",
+                  "revisionId": 15371528,
+                  "sourceUrl": "https://oldschool.runescape.wiki/w/Dragon_impling?oldid=15371528"
+                },
+                {
+                  "page": "Impling",
+                  "revisionId": 15360701,
+                  "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                }
+              ],
+              "kind": "NET",
+              "skill": "Hunter",
+              "equipmentAlternatives": [
+                "BUTTERFLY_NET",
+                "MAGIC_BUTTERFLY_NET"
+              ],
+              "scope": "CAPTURE"
+            },
+            {
+              "hunterLevel": 93,
+              "equipment": "Bare hands",
+              "evidence": [
+                {
+                  "page": "Dragon impling",
+                  "revisionId": 15371528,
+                  "sourceUrl": "https://oldschool.runescape.wiki/w/Dragon_impling?oldid=15371528"
+                },
+                {
+                  "page": "Impling",
+                  "revisionId": 15360701,
+                  "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                }
+              ],
+              "kind": "BAREHANDED",
+              "skill": "Hunter",
+              "equipmentAlternatives": [],
+              "scope": "CAPTURE"
+            }
+          ],
+          "evidence": [
+            {
+              "page": "Impling",
+              "revisionId": 15360701,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+            },
+            {
+              "page": "Dragon impling",
+              "revisionId": 15371528,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Dragon_impling?oldid=15371528"
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "page": "Dragon impling jar",
+          "revisionId": 15371529,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Dragon_impling_jar?oldid=15371529"
+        },
+        {
+          "page": "Impling",
+          "revisionId": 15360701,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+        },
+        {
+          "page": "Dragon impling",
+          "revisionId": 15371528,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Dragon_impling?oldid=15371528"
+        }
+      ]
+    }
+  ],
+  "lootCoverage": [
+    {
+      "eventId": "dragon-impling-ordinary-loot",
+      "includedOutcomeIds": [
+        "dragon-amulet-of-glory"
+      ]
+    }
+  ]
+}

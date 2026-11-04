@@ -1,15 +1,16 @@
 # Item Drop Lookup
 
-Find OSRS item drops, shops and selected rewards from the RuneLite sidebar.
+Find OSRS item drops, shops and selected gathering, rewards and loot methods from the RuneLite sidebar.
 
-**Beta submission candidate.** This build has not been approved or released on
-the RuneLite Plugin Hub. Source coverage is incomplete, and a missing result
+**Development candidate.** This branch contains changes beyond the installed
+Plugin Hub release. Source coverage is incomplete, and a missing result
 does not mean that an item is unobtainable.
 
 ## Using the plugin
 
 1. Open **Item Drop Lookup** in the sidebar and enter an item name.
-2. Use the source filter to switch between NPC drops, shops and rewards. Buying
+2. Use the method dropdown to switch between NPC drops, shops, rewards, gathering
+   and loot. Buying
    options include verified packs, such as air rune packs and eye of newt packs.
 3. Open an NPC card for known locations, combat levels and available access notes.
    **Back** keeps your search, filters and scroll position.
@@ -18,6 +19,13 @@ does not mean that an item is unobtainable.
 Search potions by their ordinary name, such as `prayer potion`, to include all
 available doses. Entering a specific dose still restricts that search. Potion
 GE references use the four-dose item when one exists.
+
+Ent logs appear under **Gathering**, with a kill-then-chop explanation. Magic logs
+have reviewed combat levels, Woodcutting requirements and yield per successful
+chop; the other five log entries currently explain that their details are unavailable.
+Slayer's enchantment remains a direct NPC drop. **Amulet of glory** includes Dragon
+impling loot under **Loot & containers**, with separate jar-opening and catching
+routes. Opening an already obtained jar does not require Hunter levels.
 
 You can search within results for a monster, shop or shop location. NPC
 Wilderness filters and detail membership filters retain an explicit unknown
@@ -63,8 +71,8 @@ Only `src/main/java` and `src/main/resources` are used by that standard build.
 The development `shadowJar` is not the Plugin Hub distribution.
 
 Offline Python generators are in `tools/`. Diagnostics and generation inputs
-are in `tools/data/`; only the seven lookup JSON files and attribution notices
-belong in runtime resources. Review generated changes and curated corrections
+are in `tools/data/`; runtime resources contain only lookup data, the selected font
+and attribution/license notices. Review generated changes and curated corrections
 before replacing an existing snapshot. See [monster location generation](docs/monster-locations.md).
 
 ## License and credits

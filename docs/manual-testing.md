@@ -96,6 +96,21 @@ offline renders cannot verify in-game behavior.
     say **Combat level**, without implying that Slayer or Sailing requirements are
     represented by that number.
 
+29. **Magic logs -> Gathering** shows one Ent method. Read the kill-then-chop action,
+    usable axe and 75 base Woodcutting requirement. Confirm two Wilderness locations
+    say level 101 and two noted logs per successful chop; Guild says level 86 and
+    one. Ent must be absent from **NPC Drops** for logs, while **Slayer's enchantment**
+    still has its direct Ent drop and Wilderness task condition. Other Ent logs at
+    this checkpoint explain that harvesting details are unavailable.
+30. **Amulet of glory -> Loot & containers** shows one Dragon impling loot method,
+    three noted amulets and a qualified Wiki-listed 1/19. Opening an existing jar
+    requires no Hunter level. Catching requirements belong only to capture, with
+    separate jar/immediate-loot routes. Exact **Dragon impling jar** and charged
+    glory searches must not become searches for this uncharged outcome.
+31. On both event cards, try Standard and Larger text, scroll to the Method Wiki
+    button, and switch freely between methods. Check that no text is clipped and
+    that Find source narrows these methods without changing the selected item.
+
 For failures, record query, monster/rate, active filters and observed behavior.
 Confirm these checks before considering public-release work. The proposed code
 license and wiki-data notices also need owner review before publication.

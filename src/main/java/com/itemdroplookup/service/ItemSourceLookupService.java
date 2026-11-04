@@ -1,6 +1,8 @@
 package com.itemdroplookup.service;
 
 import com.google.gson.Gson;
+import com.itemdroplookup.model.AcquisitionMethod;
+import com.itemdroplookup.model.DropSource;
 import com.google.gson.reflect.TypeToken;
 import com.itemdroplookup.model.ItemSource;
 
@@ -76,12 +78,24 @@ public class ItemSourceLookupService
     }
 
     private final Gson gson;
+    private final AcquisitionEventLookupService events;
     private List<ItemSourceRecord> itemSourceRecords;
 
     @Inject
-    public ItemSourceLookupService(Gson gson)
+    public ItemSourceLookupService(Gson gson, AcquisitionEventLookupService events)
     {
         this.gson = gson;
+        this.events = events;
+    }
+
+    public ItemSourceLookupService(Gson gson)
+    {
+        this(gson, new AcquisitionEventLookupService(gson, new MonsterLocationLookupService(gson), new DropLookupService(gson)));
+    }
+
+    public boolean isHarvestSource(DropSource source)
+    {
+        return events.isHarvestSource(source);
     }
 
     public List<ItemSource> searchByItemName(String itemName)
@@ -102,7 +116,7 @@ public class ItemSourceLookupService
                         record.location,
                         record.cost,
                         record.notes,
-                        record.packName, record.packItemName, record.packQuantity, record.packNoted
+                        record.packName, record.packItemName, record.packQuantity, record.packNoted, record.acquisitionMethod
                 ))
                 .collect(Collectors.toList());
     }
@@ -199,6 +213,18 @@ public class ItemSourceLookupService
         merged.addAll(filterSuppressedGenerated(loadRecords(SHOP_RESOURCE)));
         merged.addAll(loadRecords(GROUND_RESOURCE));
         merged.addAll(loadRecords(GATHERING_RESOURCE));
+        for (AcquisitionMethod method : events.getMethods())
+        {
+            ItemSourceRecord record = new ItemSourceRecord();
+            record.itemName = method.getItemName();
+            record.sourceType = method.getSourceType();
+            record.sourceName = method.getSourceName();
+            record.location = method.getLocationText();
+            record.cost = "";
+            record.notes = "";
+            record.acquisitionMethod = method;
+            merged.add(record);
+        }
         // A zero-stock shop relies on player sales; it is not a reliable purchase
         // option. Filter before expanding packs so derived offers follow this rule.
         merged.removeIf(record -> record.sourceType != null
@@ -336,6 +362,7 @@ public class ItemSourceLookupService
         private String packItemName;
         private int packQuantity;
         private boolean packNoted;
+        private transient AcquisitionMethod acquisitionMethod;
     }
 
     private static class PackRecord

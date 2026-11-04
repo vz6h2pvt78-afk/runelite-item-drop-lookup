@@ -21,6 +21,13 @@ nor their conversion to JSON is used to remove source credits or restrictions.
 
 Runtime resources under src/main/resources/:
 
+- acquisition_events.json: reviewed harvest actions, requirements, location yields
+  and ordinary loot/capture routes from Ent (15388968), Dragon impling (15371528),
+  Dragon impling jar (15371529), and Impling (15360701). Each association includes
+  revision links. The full ordinary loot table is retained separately from the
+  subset of outcomes currently exposed in item searches. Offline evidence text in
+  tools/fixtures/acquisition_event_evidence.json retains the same Wiki license.
+
 - wiki_ground_sources.json: twelve reviewed ground-pickup rows adapted from
   Spade (revision 15387831), Knife (15350068), Bucket (15390041), Snape grass
   (15225056), and Red spiders' eggs (15183987), by OSRS Wiki contributors.

@@ -506,8 +506,69 @@ public class ItemDropLookupPanelTest
         });
     }
 
+    @Test
+    public void entHarvestMovesOnceToGatheringWithCombatAndYieldVisible() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            Gson gson = new Gson();
+            DropLookupService drops = new DropLookupService(gson);
+            ItemSourceLookupService sources = new ItemSourceLookupService(gson);
+            ItemSearchSelection selection = new ItemSearchSelection("Magic logs", drops, sources, new ItemPriceLookupService(gson));
+            assertEquals(drops.searchByItemName("Magic logs").size() - 1, selection.drops.size());
+            assertFalse(selection.drops.stream().anyMatch(d -> d.getMonsterName().equals("Ent")));
+            assertEquals(1, selection.sources.stream().filter(s -> s.getAcquisitionMethod() != null).count());
+            ItemDropLookupPanel panel = panel(drops);
+            search(panel, "Magic logs");
+            JComboBox<?> filter = (JComboBox<?>) named(panel, "sourceTypeFilter");
+            filter.setSelectedItem("Gathering");
+            assertEquals(1, sourceCardCount(panel));
+            assertTrue(textContains(panel, "75 base Woodcutting"));
+            assertTrue(textContains(panel, "level 101 Ent; 2 noted logs per successful chop"));
+            assertTrue(textContains(panel, "level 86 Ent; 1 noted log per successful chop"));
+            assertFalse(descendants(panel).stream().anyMatch(c -> "openLocations".equals(c.getName())));
+            assertEquals("https://oldschool.runescape.wiki/w/Ent", ((JButton) named(panel, "methodWiki")).getToolTipText());
+            filter.setSelectedItem("NPC Drops");
+            assertEquals(0, sourceCardCount(panel));
+            search(panel, "Slayer's enchantment");
+            assertTrue(textContains(panel, "Ent"));
+            assertEquals(0, descendants(panel).stream().filter(c -> "methodWiki".equals(c.getName())).count());
+            search(panel, "Oak logs");
+            filter.setSelectedItem("Gathering");
+            assertTrue(textContains(panel, "harvesting details unavailable"));
+        });
+    }
+
     private static long locationCardCount(Container detail)
     {
         return descendants(detail).stream().filter(c -> c.getName() != null && c.getName().startsWith("location:")).count();
+    }
+
+    @Test
+    public void gloryLootIsDiscoverableAndKeepsJarAndChargedItemSearchesSeparate() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            ItemDropLookupPanel panel = panel(new DropLookupService(new Gson()));
+            JTextField query = (JTextField) named(panel, "itemSearch");
+            query.setText("Amulet of glory");
+            query.postActionEvent();
+            JButton loot = (JButton) named(panel, "showLootSources");
+            assertTrue(loot.getText().contains("1 loot method"));
+            loot.doClick();
+            assertEquals(1, sourceCardCount(panel));
+            assertTrue(textContains(panel, "3 (noted)"));
+            assertTrue(textContains(panel, "Wiki-listed rate: 1/19"));
+            assertTrue(textContains(panel, "No Hunter level is needed"));
+            assertTrue(textContains(panel, "83 Hunter"));
+            assertTrue(textContains(panel, "93 Hunter"));
+            assertFalse(descendants(panel).stream().anyMatch(c -> "openLocations".equals(c.getName())));
+            JComboBox<?> filter = (JComboBox<?>) named(panel, "sourceTypeFilter");
+            filter.setSelectedItem("Non-NPC Sources");
+            assertEquals(1, descendants(panel).stream().filter(c -> "methodWiki".equals(c.getName())).count());
+            search(panel, "Dragon impling jar");
+            assertFalse(textContains(panel, "Dragon impling loot"));
+            assertFalse(textContains(panel, "Amulet Of Glory"));
+            search(panel, "Amulet of glory(4)");
+            assertFalse(textContains(panel, "Dragon impling loot"));
+        });
     }
 }

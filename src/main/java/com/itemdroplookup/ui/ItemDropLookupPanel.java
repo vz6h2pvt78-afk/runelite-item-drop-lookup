@@ -1,5 +1,6 @@
 package com.itemdroplookup.ui;
 
+import com.itemdroplookup.model.AcquisitionMethod;
 import com.itemdroplookup.model.DropSource;
 import com.itemdroplookup.model.DropSourceGroup;
 import com.itemdroplookup.model.ItemPrice;
@@ -15,6 +16,7 @@ import com.itemdroplookup.service.MonsterLocationFilter.WildernessFilter;
 import net.runelite.client.ui.PluginPanel;
 
 import javax.swing.BorderFactory;
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -55,6 +57,7 @@ public class ItemDropLookupPanel extends PluginPanel
     private static final String FILTER_REWARD_SHOPS = "Reward Shops";
     private static final String FILTER_GROUND = "Ground pickups";
     private static final String FILTER_GATHERING = "Gathering";
+    private static final String FILTER_LOOT = "Loot & containers";
 
     // Exact sourceType values matched by the Shops / Reward Shops filters. These
     // must match the data verbatim — no fuzzy matching.
@@ -62,6 +65,7 @@ public class ItemDropLookupPanel extends PluginPanel
     private static final String SOURCE_TYPE_REWARD_SHOP = "Reward Shop";
     private static final String SOURCE_TYPE_GROUND = "Ground pickup";
     private static final String SOURCE_TYPE_GATHERING = "Gathering";
+    private static final String SOURCE_TYPE_LOOT = "Loot & containers";
 
     // Swing HTML labels need an explicit pixel width to wrap, and that width also gives
     // a deterministic preferred height inside BoxLayout (unlike a JTextArea, whose wrap
@@ -110,7 +114,8 @@ public class ItemDropLookupPanel extends PluginPanel
             FILTER_SHOPS,
             FILTER_REWARD_SHOPS,
             FILTER_GROUND,
-            FILTER_GATHERING
+            FILTER_GATHERING,
+            FILTER_LOOT
     });
     private final JCheckBox showPriceCheckbox = new JCheckBox("Show GE price", true);
     private final JPanel resultsPanel = LookupStyle.column();
@@ -321,7 +326,8 @@ public class ItemDropLookupPanel extends PluginPanel
         addMethod("Shops", FILTER_SHOPS, "buying options", matchingSources.stream().filter(s -> SOURCE_TYPE_SHOP.equals(s.getSourceType())).count(), "showOtherSources");
         addMethod("Rewards", FILTER_REWARD_SHOPS, "reward offers", matchingSources.stream().filter(s -> SOURCE_TYPE_REWARD_SHOP.equals(s.getSourceType())).count(), "showRewardSources");
         addMethod("Pickups", FILTER_GROUND, "pickup locations", matchingSources.stream().filter(s -> SOURCE_TYPE_GROUND.equals(s.getSourceType())).count(), "showGroundSources");
-        addMethod("Gathering", FILTER_GATHERING, "gathering locations", matchingSources.stream().filter(s -> SOURCE_TYPE_GATHERING.equals(s.getSourceType())).count(), "showGatheringSources");
+        addMethod("Gathering", FILTER_GATHERING, "gathering methods", matchingSources.stream().filter(s -> SOURCE_TYPE_GATHERING.equals(s.getSourceType())).count(), "showGatheringSources");
+        addMethod("Loot & containers", FILTER_LOOT, "loot methods", matchingSources.stream().filter(s -> SOURCE_TYPE_LOOT.equals(s.getSourceType())).count(), "showLootSources");
         addMethod("Monsters", FILTER_DROPS, "drop entries", matchingDrops.size(), "showDropSources");
         JButton all = style.button("All sources", () -> openMethod(FILTER_ALL), true);
         all.setName("viewAllSources");
@@ -445,13 +451,20 @@ public class ItemDropLookupPanel extends PluginPanel
             {
                 sources = filterBySourceType(sources, SOURCE_TYPE_GATHERING);
             }
+            else if (FILTER_LOOT.equals(selectedFilter))
+            {
+                sources = filterBySourceType(sources, SOURCE_TYPE_LOOT);
+            }
             List<ItemSource> displaySources = showSources ? sources.stream()
                     .filter(source -> contains(source.getSourceName(), sourceQuery) || contains(source.getLocation(), sourceQuery)
-                            || contains(source.getPackName(), sourceQuery))
+                            || contains(source.getPackName(), sourceQuery)
+                            || (source.getAcquisitionMethod() != null
+                                && contains(source.getAcquisitionMethod().getSearchText(), sourceQuery)))
                     .collect(Collectors.toList()) : Collections.emptyList();
             boolean hasPacks = displaySources.stream().anyMatch(source -> source.getPackQuantity() > 0);
             long groundCount = displaySources.stream().filter(source -> SOURCE_TYPE_GROUND.equals(source.getSourceType())).count();
             long gatheringCount = displaySources.stream().filter(source -> SOURCE_TYPE_GATHERING.equals(source.getSourceType())).count();
+            long lootCount = displaySources.stream().filter(source -> SOURCE_TYPE_LOOT.equals(source.getSourceType())).count();
             if (hasPacks)
             {
                 // Keep a shop's loose and packaged purchase options next to each other.
@@ -522,6 +535,12 @@ public class ItemDropLookupPanel extends PluginPanel
                 gatheringSources.addActionListener(e -> filterDropdown.setSelectedItem(FILTER_GATHERING));
                 resultsPanel.add(gatheringSources);
             }
+            if (lootCount > 0 || FILTER_LOOT.equals(selectedFilter))
+            {
+                JLabel coverage = makeSummaryLabel("Loot & containers: selected methods only. Other loot sources may exist.");
+                coverage.setName("lootCoverage");
+                resultsPanel.add(coverage);
+            }
             if (!dropResults.isEmpty() && !displaySources.isEmpty())
             {
                 boolean shopsOnly = displaySources.stream().allMatch(source -> SOURCE_TYPE_SHOP.equals(source.getSourceType()));
@@ -565,6 +584,12 @@ public class ItemDropLookupPanel extends PluginPanel
                         emptyMessage = hasGatheringData ? "No verified gathering methods match these filters."
                                 : "No verified gathering methods in the current data.";
                     }
+                    else if (FILTER_LOOT.equals(selectedFilter))
+                    {
+                        boolean hasLootData = matchingSources.stream().anyMatch(source -> SOURCE_TYPE_LOOT.equals(source.getSourceType()));
+                        emptyMessage = hasLootData ? "No reviewed loot methods match these filters."
+                                : "No reviewed loot methods in the current data.";
+                    }
                     resultsPanel.add(makeNoResultHeader(emptyMessage));
                     resultsPanel.add(makeLabel("This item has other sources in the local data."));
                     JButton reset = new JButton("Show all sources");
@@ -576,10 +601,12 @@ public class ItemDropLookupPanel extends PluginPanel
                 {
                     resultsPanel.add(makeNoResultHeader(FILTER_GROUND.equals(selectedFilter)
                             ? "No verified ground pickups in the current data." : FILTER_GATHERING.equals(selectedFilter)
-                            ? "No verified gathering methods in the current data." : "No source found for: " + displayedQuery));
+                            ? "No verified gathering methods in the current data." : FILTER_LOOT.equals(selectedFilter)
+                            ? "No reviewed loot methods in the current data." : "No source found for: " + displayedQuery));
                     resultsPanel.add(makeLabel(FILTER_GROUND.equals(selectedFilter)
                             ? "Check the Wiki for other pickup locations."
                             : FILTER_GATHERING.equals(selectedFilter) ? "Check the Wiki for other gathering methods."
+                            : FILTER_LOOT.equals(selectedFilter) ? "Check the Wiki for other loot methods."
                             : "No match in the local data. Check the spelling or try a shorter item name."));
                 }
                 resultsPanel.add(wikiButton(displayedQuery));
@@ -904,6 +931,26 @@ public class ItemDropLookupPanel extends PluginPanel
         ));
 
         card.setName("itemSourceCard");
+        if (source.getAcquisitionMethod() != null)
+        {
+            AcquisitionMethod method = source.getAcquisitionMethod();
+            card.putClientProperty("acquisitionMethodId", method.getId());
+            card.add(makeCardTitle(method.getSourceName(), CARD_TEXT_WIDTH));
+            card.add(makeCardLine(formatItemName(source.getItemName()), CARD_TEXT_WIDTH));
+            for (AcquisitionMethod.Section section : method.getSections())
+            {
+                card.add(Box.createVerticalStrut(6));
+                card.add(makeCardTitle(section.getHeading(), CARD_TEXT_WIDTH));
+                for (String line : section.getLines()) card.add(makeCardLine(line, CARD_TEXT_WIDTH));
+            }
+            JButton wiki = wikiButton(method.getWikiPage());
+            wiki.setText("Method Wiki");
+            wiki.setName("methodWiki");
+            wiki.setToolTipText("https://oldschool.runescape.wiki/w/" + method.getWikiPage().replace(' ', '_'));
+            card.add(wiki);
+            card.setAlignmentX(LEFT_ALIGNMENT);
+            return card;
+        }
         boolean ground = SOURCE_TYPE_GROUND.equals(source.getSourceType());
         boolean gathering = SOURCE_TYPE_GATHERING.equals(source.getSourceType());
         card.add(makeCardTitle(hasText(source.getSourceName()) ? source.getSourceName() : source.getSourceType(), CARD_TEXT_WIDTH));
@@ -999,6 +1046,7 @@ public class ItemDropLookupPanel extends PluginPanel
      */
     private String sourceSectionHeading(String selectedFilter)
     {
+        if (FILTER_LOOT.equals(selectedFilter)) return "Loot & containers";
         if (FILTER_GATHERING.equals(selectedFilter))
         {
             return "Gathering";

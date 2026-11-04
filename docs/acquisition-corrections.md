@@ -58,3 +58,52 @@ Wilderness/Krystilia task condition. It must not inherit the axe, Woodcutting or
 harvest rules for logs, nor spread its task condition to those logs. Evidence:
 [Ent revision 15388968](https://oldschool.runescape.wiki/w/Ent?oldid=15388968),
 introductory drop-versus-harvest distinction and Wilderness Slayer tertiary section.
+
+## Harvest and ordinary-loot event slices
+
+`acquisition_events.json` separates harvest facts from ordinary loot tables and
+their lookup coverage. Runtime validates supported fields, typed requirement
+scopes, identities, quantities and evidence URLs. Display sections are built from
+these records; the plugin does not parse note prose to decide how a method works.
+
+The six known Ent/log pairs are suppressed from ordinary NPC presentation and
+project once into Gathering. This does not rewrite raw drops. Magic logs has a
+reviewed harvest: kill an Ent, chop with a usable axe, and have 75 base Woodcutting
+for that output. The two explicit Wilderness locations have level 101 Ents and
+two noted logs per successful chop; the Guild cavern has level 86 Ents and one.
+The selected log is not guaranteed, and neither the encounter level nor the yield
+is a player combat requirement or quantity per kill. Other log details remain
+unavailable at this checkpoint, including the held ordinary-Logs/Guild association.
+
+There are no legacy Ent drop bindings. The new association chain is Ent revision
+15388968 -> reviewed harvest -> explicit location IDs -> exact existing location
+records. Names, monster identities, combat levels and availability are checked.
+No fallback to all monster locations or fabricated legacy binding is permitted.
+The five-field raw signature independently identifies the presentation being
+replaced. A small six-pair guard keeps malformed/missing event data from restoring
+misleading kill quantities; it produces an honest harvesting-details-unavailable
+card instead. `LocationMatch.isVerified` keeps its original drop-only meaning.
+
+Dragon impling's 19 ordinary outcomes are preserved, including two distinct
+Dragonstone bolt-tip quantity rows and the Monkey Madness II javelin-tip outcome
+that rerolls when unavailable. `lootCoverage` initially exposes only the uncharged
+Amulet of glory (three noted). Coverage is never used as a probability denominator.
+The displayed 1/19 is labelled Wiki-listed, with the quest-dependent reroll caveat
+adjacent. No effective 1/18 or 1/16 chance is invented. Empty-jar returns and extra
+clue rewards are outside this ordinary-loot feature.
+
+Opening an existing Dragon impling jar has no capture requirement. Capture uses
+83 Hunter with a butterfly/magic butterfly net, or 93 Hunter bare-handed. A catch
+with an empty jar stores the impling even when bare-handed; outside Puro-Puro a
+catch without a jar gives immediate loot. Puro-Puro requires a jar. These routes
+lead to one loot event, not separate chances. Exact jar searches stay about the
+jar; charged glory searches do not inherit the uncharged outcome.
+
+Evidence: [Dragon impling 15371528](https://oldschool.runescape.wiki/w/Dragon_impling?oldid=15371528),
+[Dragon impling jar 15371529](https://oldschool.runescape.wiki/w/Dragon_impling_jar?oldid=15371529),
+[Impling 15360701](https://oldschool.runescape.wiki/w/Impling?oldid=15360701),
+and the Ent revision above. The offline evidence validator independently compares
+the full loot table to pinned Wiki rows. Java tests exercise route separation,
+counts, method filters, identity, unavailable data and changed location records.
+One malformed event collection cannot invalidate the other collection or ordinary
+shops/NPCs. The standard/larger preview checks real card bounds at sidebar width.

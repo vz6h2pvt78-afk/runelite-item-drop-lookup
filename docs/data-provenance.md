@@ -1,12 +1,15 @@
-# Data provenance for the Beta candidate
+# Data provenance
 
-All paths below are relative to the repository root. The seven active lookup
-JSON files remain byte-for-byte unchanged from `09c6eb6`. See
+All paths below are relative to the repository root. The original snapshot sources
+are listed below; subsequent bounded changes are recorded in
+[reviewed acquisition corrections](acquisition-corrections.md). See
 [third-party notices](../THIRD_PARTY_NOTICES.md) for source rights and adaptation
 terms, and [license review](license-review.md) for license scope and the disclosed price API terms distinction.
 
 | File | Origin and transformation | Evidence and limitation |
 |---|---|---|
+| src/main/resources/acquisition_events.json | Reviewed Ent harvest and Dragon impling ordinary-loot events | Revision-pinned associations; full 19-outcome loot table separate from lookup coverage; tools/validate_acquisition_events.py checks pinned text and exact source/location identities |
+| tools/fixtures/acquisition_event_evidence.json | Ent, Dragon impling, Dragon impling jar and Impling Wiki revisions | Offline wikitext/SHA evidence, not shipped in the plugin; same Wiki attribution and terms |
 | src/main/resources/wiki_monster_drops.json | OSRS Wiki monster pages; tools/build_wiki_drops.py parses and normalizes drop tables | monsterName is the source page; old revision IDs were not recorded |
 | src/main/resources/wiki_shop_sources.json | OSRS Wiki shop tables/infoboxes; tools/build_shop_sources.py plus reviewed corrections | sourceName is the source page; old revision IDs were not recorded; a fresh generator run alone can lose corrections |
 | src/main/resources/monster_locations.json | OSRS Wiki location/access text; tools/build_monster_locations.py plus exact overrides | sourceUrl/revisionId per location; docs/data/monster_locations_report.json revision manifest |
@@ -23,7 +26,7 @@ terms, and [license review](license-review.md) for license scope and the disclos
 | docs/data/monster_locations_report.json | Wiki location generator diagnostic and revision manifest | Generated alongside locations, with coverage gaps explicitly counted |
 | src/main/resources/data_sources.txt | Generated page URLs for attribution, not fresh data validation | Original records/worklist, locations, packs, potion and curated reward sources |
 | src/main/resources/LICENSE.txt | Copy of the original-code BSD 2-Clause license | Third-party resources retain separate terms |
-| src/main/resources/THIRD_PARTY_NOTICES.txt | Plain-text copy of root third-party notices | Ships in standard Hub artifact without a custom build step |
+| src/main/resources/THIRD_PARTY_NOTICES.txt | Runtime-focused third-party notices | Ships in standard Hub artifact without a custom build step; root notices additionally cover test-only assets |
 | src/main/resources/monster_locations_notice.txt | Location-specific credit pointing to complete notices | Retained for existing location documentation |
 
 ## Code, helpers and assets

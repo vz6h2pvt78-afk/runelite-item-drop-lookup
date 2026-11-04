@@ -84,15 +84,15 @@ public class GatheringSourcePanelTest
     }
 
     @Test
-    public void missingCoverageDoesNotClaimThatLogsCannotBeGathered() throws Exception
+    public void unreviewedLogsKeepAnHonestHarvestFallbackAndOtherSources() throws Exception
     {
         SwingUtilities.invokeAndWait(() -> {
             ItemDropLookupPanel panel = search("logs");
             ((JComboBox<?>) named(panel, "sourceTypeFilter").get(0)).setSelectedItem("Gathering");
-            assertTrue(named(panel, "itemSourceCard").isEmpty());
-            assertTrue(labels(panel).contains("No verified gathering methods in the current data."));
+            assertEquals(1, named(panel, "itemSourceCard").size());
+            assertTrue(labels(panel).contains("harvesting details unavailable"));
             assertEquals(1, named(panel, "gatheringCoverage").size());
-            ((JButton) named(panel, "resetSourceFilters").get(0)).doClick();
+            ((JComboBox<?>) named(panel, "sourceTypeFilter").get(0)).setSelectedItem("All");
             assertFalse(named(panel, "openLocations").isEmpty());
         });
     }

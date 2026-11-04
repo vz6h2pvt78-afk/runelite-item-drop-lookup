@@ -48,6 +48,9 @@ final class ItemSearchSelection
             foundDrops = foundDrops.stream().filter(d -> compact(d.getItemName()).equals(exactName)).collect(Collectors.toList());
             foundSources = foundSources.stream().filter(s -> compact(s.getItemName()).equals(exactName)).collect(Collectors.toList());
         }
+        // Known kill-then-harvest pairs have a Gathering projection, including an
+        // honest fallback when reviewed event details cannot be loaded.
+        foundDrops = foundDrops.stream().filter(d -> !sourceService.isHarvestSource(d)).collect(Collectors.toList());
         drops = Collections.unmodifiableList(new ArrayList<>(foundDrops));
         sources = Collections.unmodifiableList(new ArrayList<>(foundSources));
     }
