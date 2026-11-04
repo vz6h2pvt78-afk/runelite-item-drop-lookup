@@ -24,8 +24,9 @@ Ent logs appear under **Gathering**, with a kill-then-chop explanation. Magic lo
 Yew logs and ordinary Logs have reviewed encounter levels and yield per successful
 chop. Ordinary Logs explicitly flag conflicting Wiki evidence at level 45 and
 only list Wilderness locations. Oak, Willow and Maple details remain unavailable.
-Slayer's enchantment remains a direct NPC drop. **Amulet of glory** includes Dragon
-impling loot under **Loot & containers**, with separate jar-opening and catching
+Slayer's enchantment remains a direct NPC drop. Sixteen reviewed items, including
+**Amulet of glory**, **Dragonstone** and **Magic seed**, include Dragon impling
+loot under **Loot & containers**, with separate jar-opening and catching
 routes. Opening an already obtained jar does not require Hunter levels.
 
 You can search within results for a monster, shop or shop location. NPC

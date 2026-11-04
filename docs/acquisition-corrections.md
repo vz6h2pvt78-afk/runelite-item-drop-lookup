@@ -102,8 +102,14 @@ card instead. `LocationMatch.isVerified` keeps its original drop-only meaning.
 
 Dragon impling's 19 ordinary outcomes are preserved, including two distinct
 Dragonstone bolt-tip quantity rows and the Monkey Madness II javelin-tip outcome
-that rerolls when unavailable. `lootCoverage` initially exposes only the uncharged
-Amulet of glory (three noted). Coverage is never used as a probability denominator.
+that rerolls when unavailable. `lootCoverage` exposes sixteen distinct reviewed
+outputs: Mystic robe bottom, Amulet of glory, Dragonstone amulet, Dragon arrow,
+Dragonstone bolts, Dragon longsword, Dragon dagger(p++), Dragon dart, Dragonstone,
+Dragon dart tip, Dragon arrowtips, Babydragon bones, Dragon bones, Magic seed,
+Snapdragon seed and Summer pie. The two bolt-tip outcomes and gated javelin tips
+remain in the full table but are not exposed as lookup results. Quantity ranges
+and noting belong to each outcome; seeds are unnoted. Coverage is never used as
+a probability denominator.
 The displayed 1/19 is labelled Wiki-listed, with the quest-dependent reroll caveat
 adjacent. No effective 1/18 or 1/16 chance is invented. Empty-jar returns and extra
 clue rewards are outside this ordinary-loot feature.

@@ -21,6 +21,8 @@ public final class AcquisitionPreview
                     new ItemPriceLookupService(gson), new MonsterLocationLookupService(gson), new AccessRequirementLookupService(gson));
             for (String[] scenario : new String[][]{{"Magic logs", "Gathering", ""}, {"Yew logs", "Gathering", ""},
                     {"Logs", "Gathering", ""}, {"Amulet of glory", "Loot & containers", ""},
+                    {"Mystic robe bottom", "Loot & containers", ""}, {"Snapdragon seed", "Loot & containers", ""},
+                    {"Dragon arrow", "Loot & containers", ""}, {"Dragon dagger(p++)", "Loot & containers", ""},
                     {"Adamant sq shield", "NPC Drops", "Night beast"}, {"Dragonstone", "NPC Drops", "Zulrah"}})
             {
                 JTextField search = (JTextField) PanelTestSupport.find(panel, "itemSearch");

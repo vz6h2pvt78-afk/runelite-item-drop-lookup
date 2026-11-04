@@ -12,7 +12,15 @@ class AcquisitionEvidenceTest(unittest.TestCase):
 
     def test_complete_table_and_separate_lookup_coverage(self):
         self.assertEqual(19, self.check()["ordinaryOutcomes"])
-        self.assertEqual(1, self.check()["lookupOutcomes"])
+        self.assertEqual(16, self.check()["lookupOutcomes"])
+
+    def test_coverage_never_exposes_duplicate_or_quest_gated_outputs(self):
+        coverage = self.data["lootCoverage"][0]["includedOutcomeIds"]
+        original = list(coverage)
+        for excluded in ["dragon-dragonstone-bolt-tips-10-30", "dragon-dragonstone-bolt-tips-36-36", "dragon-dragon-javelin-tips"]:
+            coverage[:] = original + [excluded]
+            with self.assertRaisesRegex(ValueError, "Lookup coverage"):
+                self.check()
 
     def test_duplicate_item_outcomes_cannot_be_collapsed(self):
         self.data["lootEvents"][0]["outcomes"].pop(1)

@@ -17,7 +17,8 @@ public class ItemSearchSelectionTest
     {
         ItemSearchSelection stone = search("dragonstone");
         assertEquals(java.util.Collections.singletonList("Dragonstone"), stone.choices());
-        assertTrue(stone.sources.isEmpty());
+        assertEquals(1, stone.sources.size());
+        assertEquals("Loot & containers", stone.sources.get(0).getSourceType());
         assertEquals(4, stone.drops.size()); // Three existing sources plus reviewed Zulrah.
         assertEquals(1, stone.drops.stream().filter(d -> d.getMonsterName().equals("Zulrah")).count());
         assertTrue(search("air rune").sources.stream().anyMatch(s -> s.getPackQuantity() == 100));

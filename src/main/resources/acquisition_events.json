@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-04T03:40:53Z",
+  "checkedAt": "2026-11-04T03:48:00Z",
   "attribution": "OSRS Wiki contributors; reviewed acquisition facts under CC BY-NC-SA 3.0. See THIRD_PARTY_NOTICES.txt.",
   "harvests": [
     {
@@ -590,7 +590,22 @@
     {
       "eventId": "dragon-impling-ordinary-loot",
       "includedOutcomeIds": [
-        "dragon-amulet-of-glory"
+        "dragon-mystic-robe-bottom",
+        "dragon-amulet-of-glory",
+        "dragon-dragonstone-amulet",
+        "dragon-dragon-arrow",
+        "dragon-dragonstone-bolts",
+        "dragon-dragon-longsword",
+        "dragon-dragon-dagger(p++)",
+        "dragon-dragon-dart",
+        "dragon-dragonstone",
+        "dragon-dragon-dart-tip",
+        "dragon-dragon-arrowtips",
+        "dragon-babydragon-bones",
+        "dragon-dragon-bones",
+        "dragon-magic-seed",
+        "dragon-snapdragon-seed",
+        "dragon-summer-pie"
       ]
     }
   ]

@@ -109,6 +109,11 @@ offline renders cannot verify in-game behavior.
     requires no Hunter level. Catching requirements belong only to capture, with
     separate jar/immediate-loot routes. Exact **Dragon impling jar** and charged
     glory searches must not become searches for this uncharged outcome.
+    Also try **Dragonstone** (three noted), **Snapdragon seed** (six unnoted),
+    **Dragon arrow** (100–250), and **Dragon dagger(p++)** (three noted). Each has
+    one loot method with the same three alternatives and qualified 1/19 rate.
+    **Dragonstone bolt tips** and **Dragon javelin tips** have no reviewed impling
+    method at this checkpoint; the complete underlying table still retains them.
 31. On both event cards, try Standard and Larger text, scroll to the Method Wiki
     button, and switch freely between methods. Check that no text is clipped and
     that Find source narrows these methods without changing the selected item.

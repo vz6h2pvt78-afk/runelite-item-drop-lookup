@@ -191,8 +191,8 @@ public class AcquisitionEventLookupServiceTest
         JsonObject input = data();
         assertEquals(19, input.getAsJsonArray("lootEvents").get(0).getAsJsonObject().getAsJsonArray("outcomes").size());
         List<AcquisitionMethod> methods = loot(input);
-        assertEquals(1, methods.size());
-        AcquisitionMethod glory = methods.get(0);
+        assertEquals(16, methods.size());
+        AcquisitionMethod glory = methods.stream().filter(m -> m.getItemName().equals("Amulet of glory")).findFirst().get();
         assertEquals("Amulet of glory", glory.getItemName());
         assertEquals("Dragon impling jar", glory.getWikiPage());
         String text = glory.getSearchText();
@@ -245,6 +245,9 @@ public class AcquisitionEventLookupServiceTest
     public void lookupCoverageNeverChangesTheTableOrBecomesTheJarIdentity()
     {
         JsonObject input = data();
+        com.google.gson.JsonArray initial = new com.google.gson.JsonArray();
+        initial.add("dragon-amulet-of-glory");
+        input.getAsJsonArray("lootCoverage").get(0).getAsJsonObject().add("includedOutcomeIds", initial);
         input.getAsJsonArray("lootCoverage").get(0).getAsJsonObject().getAsJsonArray("includedOutcomeIds")
                 .add("dragon-magic-seed");
         List<AcquisitionMethod> methods = loot(input);
@@ -256,5 +259,34 @@ public class AcquisitionEventLookupServiceTest
         input.getAsJsonArray("lootCoverage").get(0).getAsJsonObject().getAsJsonArray("includedOutcomeIds")
                 .add("dragon-dragon-javelin-tips");
         assertTrue(loot(input).isEmpty());
+    }
+
+    @Test
+    public void finiteLootCoveragePreservesQuantitiesNotingAndExactIdentity()
+    {
+        String[][] expected = {{"Mystic robe bottom", "1"}, {"Amulet of glory", "3 (noted)"},
+                {"Dragonstone amulet", "2 (noted)"}, {"Dragon arrow", "100–250"}, {"Dragonstone bolts", "10–40"},
+                {"Dragon longsword", "1"}, {"Dragon dagger(p++)", "3 (noted)"}, {"Dragon dart", "100–250"},
+                {"Dragonstone", "3 (noted)"}, {"Dragon dart tip", "100–350"}, {"Dragon arrowtips", "100–350"},
+                {"Babydragon bones", "100–300 (noted)"}, {"Dragon bones", "50–100 (noted)"},
+                {"Magic seed", "1"}, {"Snapdragon seed", "6"}, {"Summer pie", "15 (noted)"}};
+        ItemSourceLookupService sources = new ItemSourceLookupService(gson, service(data()));
+        assertEquals(expected.length, loot(data()).size());
+        for (String[] row : expected)
+        {
+            List<com.itemdroplookup.model.ItemSource> matches = new ArrayList<>();
+            sources.searchByItemName(row[0]).stream()
+                    .filter(s -> s.getItemName().equals(row[0]) && s.getAcquisitionMethod() != null).forEach(matches::add);
+            assertEquals(row[0], 1, matches.size());
+            AcquisitionMethod method = matches.get(0).getAcquisitionMethod();
+            assertTrue(row[0], method.getSearchText().contains("Quantity: " + row[1] + " on this outcome."));
+            assertTrue(method.getSearchText().contains("Wiki-listed rate: 1/19"));
+            assertFalse(method.getSearchText().contains("1/16"));
+            SectionAssertion.assertOpeningHasNoCaptureGate(method);
+        }
+        for (String excluded : new String[]{"Dragonstone bolt tips", "Dragon javelin tips", "Dragon impling jar",
+                "Uncut dragonstone", "Dragon dagger", "Amulet of glory(4)"})
+            assertTrue(excluded, sources.searchByItemName(excluded).stream()
+                    .filter(s -> s.getItemName().equals(excluded)).noneMatch(s -> s.getAcquisitionMethod() != null));
     }
 }

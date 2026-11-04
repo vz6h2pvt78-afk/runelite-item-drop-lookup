@@ -17,6 +17,10 @@ PINS = {"Ent": 15388968, "Dragon impling": 15371528,
         "Dragon impling jar": 15371529, "Impling": 15360701,
         "Template:Ent Calculator": 14807076, "Module:Ent calculator": 14807078}
 SIGNATURE = ("itemName", "monsterName", "quantity", "dropRate", "notes")
+LOOKUP_ITEMS = {"Mystic robe bottom", "Amulet of glory", "Dragonstone amulet", "Dragon arrow",
+                "Dragonstone bolts", "Dragon longsword", "Dragon dagger(p++)", "Dragon dart", "Dragonstone",
+                "Dragon dart tip", "Dragon arrowtips", "Babydragon bones", "Dragon bones", "Magic seed",
+                "Snapdragon seed", "Summer pie"}
 
 
 def require(condition, message):
@@ -57,7 +61,7 @@ def validate(data, pins, locations, drops):
         validate_harvest(harvest, evidence, by_id, drops)
     validate_loot(data, evidence)
     return {"harvests": len(data["harvests"]), "harvestLocations": sum(len(h["locations"]) for h in data["harvests"]),
-            "lootEvents": 1, "ordinaryOutcomes": 19, "lookupOutcomes": 1}
+            "lootEvents": 1, "ordinaryOutcomes": 19, "lookupOutcomes": len(LOOKUP_ITEMS)}
 
 
 def validate_harvest(harvest, evidence, by_id, drops):
@@ -127,7 +131,9 @@ def validate_loot(data, evidence):
                     and outcome["whenIneligible"] == "REROLL_WITHIN_ORDINARY_TABLE", "Missing quest reroll semantics")
         require(set(outcome) == expected_keys, "Unsupported outcome field or condition")
     require(event["probabilityBasis"] == "WIKI_LISTED_TABLE" and event["quantityBasis"] == "SUCCESSFUL_OUTCOME", "Wrong loot basis")
-    require(data["lootCoverage"] == [{"eventId": event["id"], "includedOutcomeIds": ["dragon-amulet-of-glory"]}], "Lookup coverage expansion needs review")
+    selected_ids = [o["id"] for o in event["outcomes"] if o["itemName"] in LOOKUP_ITEMS]
+    require(len(selected_ids) == 16 and data["lootCoverage"] == [{"eventId": event["id"], "includedOutcomeIds": selected_ids}],
+            "Lookup coverage expansion needs review")
     routes = {r["kind"]: r for r in event["routes"]}
     require(len(event["routes"]) == 3 and set(routes) == {"OPEN_EXISTING", "CATCH_INTO_CONTAINER", "CATCH_AND_LOOT"}, "Wrong alternative routes")
     require(routes["OPEN_EXISTING"]["inputItem"] == "Dragon impling jar" and routes["OPEN_EXISTING"]["captureOptions"] == [], "Opening inherited capture requirement")
