@@ -13,6 +13,9 @@ import java.util.regex.Pattern;
 /** Shared search convenience rules; canonical names retain their identity. */
 public final class ItemNameMatching
 {
+    private static final Pattern WHITESPACE = Pattern.compile("\\s+");
+    private static final Pattern NON_COMPACT = Pattern.compile("[^a-z0-9+]");
+    private static final Pattern POSSESSIVE = Pattern.compile("'s\\b");
     private static final Pattern PARENTHESES = Pattern.compile("\\(([^)]*)\\)");
     private static final Pattern NUMBERS = Pattern.compile("[0-9]+");
     private static final Pattern PLUSES = Pattern.compile("\\++");
@@ -32,8 +35,9 @@ public final class ItemNameMatching
 
     public static String normalize(String value)
     {
-        return value.trim().toLowerCase(Locale.ROOT).replace('\u2019', '\'')
-                .replace('-', ' ').replace('_', ' ').replaceAll("\\s+", " ");
+        String normalized = value.trim().toLowerCase(Locale.ROOT).replace('\u2019', '\'')
+                .replace('-', ' ').replace('_', ' ');
+        return WHITESPACE.matcher(normalized).replaceAll(" ");
     }
 
     public static String resolveAlias(String value)
@@ -47,7 +51,7 @@ public final class ItemNameMatching
     public static String compact(String value)
     {
         // Plus signs distinguish poison and potion variants.
-        return normalize(value).replaceAll("[^a-z0-9+]", "");
+        return NON_COMPACT.matcher(normalize(value)).replaceAll("");
     }
 
     public static boolean hasExplicitQualifier(String query)
@@ -60,45 +64,79 @@ public final class ItemNameMatching
 
     public static boolean compatible(String query, String canonical)
     {
-        String q = normalize(query), item = normalize(canonical);
-        String remainder = PARENTHESES.matcher(q).replaceAll("");
-        if (remainder.contains("(") || remainder.contains(")")) return false;
-        List<String> qualifiers = tokens(PARENTHESES, q);
-        Matcher poison = POISON_SUFFIX.matcher(q);
-        if (qualifiers.isEmpty() && poison.find()) qualifiers = Collections.singletonList("(" + poison.group().trim() + ")");
-        return (qualifiers.isEmpty() || qualifiers.equals(tokens(PARENTHESES, item)))
-                && compatibleTokens(NUMBERS, q, item)
-                && compatibleTokens(PLUSES, q, item)
-                && compatibleTokens(CONTAINERS, q, item);
+        return new Qualifiers(normalize(query)).accept(normalize(canonical));
     }
 
-    private static boolean compatibleTokens(Pattern pattern, String query, String item)
+    private static final class Qualifiers
     {
-        List<String> explicit = tokens(pattern, query);
-        return explicit.isEmpty() || explicit.equals(tokens(pattern, item));
+        private final boolean valid;
+        private final List<String> parentheses, numbers, pluses, containers;
+
+        Qualifiers(String query)
+        {
+            String remainder = PARENTHESES.matcher(query).replaceAll("");
+            valid = !remainder.contains("(") && !remainder.contains(")");
+            List<String> explicit = tokens(PARENTHESES, query);
+            Matcher poison = POISON_SUFFIX.matcher(query);
+            parentheses = explicit.isEmpty() && poison.find()
+                    ? Collections.singletonList("(" + poison.group().trim() + ")") : explicit;
+            numbers = tokens(NUMBERS, query);
+            pluses = tokens(PLUSES, query);
+            containers = tokens(CONTAINERS, query);
+        }
+
+        boolean accept(String item)
+        {
+            return valid && match(parentheses, PARENTHESES, item) && match(numbers, NUMBERS, item)
+                    && match(pluses, PLUSES, item) && match(containers, CONTAINERS, item);
+        }
+
+        private static boolean match(List<String> required, Pattern pattern, String item)
+        {
+            return required.isEmpty() || required.equals(tokens(pattern, item));
+        }
     }
 
     private static List<String> tokens(Pattern pattern, String value)
     {
         List<String> result = new ArrayList<>();
         Matcher matcher = pattern.matcher(value);
-        while (matcher.find()) result.add(matcher.group().replaceAll("\\s+", ""));
+        while (matcher.find()) result.add(WHITESPACE.matcher(matcher.group()).replaceAll(""));
         return result;
     }
 
     /** 0 canonical, 1 compact, 2 prefix, 3 contains, otherwise no match. */
     public static int rank(String query, String canonical)
     {
-        String q = normalize(query), item = normalize(canonical);
-        if (!compatible(q, item)) return Integer.MAX_VALUE;
-        if (item.equals(q)) return 0;
-        String key = compact(q), candidate = compact(item);
-        String possessive = compact(item.replaceAll("'s\\b", ""));
-        if (key.isEmpty()) return Integer.MAX_VALUE;
-        if (candidate.equals(key) || possessive.equals(key)) return 1;
-        if (candidate.startsWith(key) || possessive.startsWith(key)) return 2;
-        if (candidate.contains(key) || possessive.contains(key)) return 3;
-        return Integer.MAX_VALUE;
+        return new Query(query).rank(canonical);
+    }
+
+    private static final class Query
+    {
+        private final String normalized, key;
+        private final Qualifiers qualifiers;
+
+        Query(String query)
+        {
+            normalized = normalize(query);
+            key = NON_COMPACT.matcher(normalized).replaceAll("");
+            qualifiers = new Qualifiers(normalized.trim());
+        }
+
+        int rank(String canonical)
+        {
+            String item = normalize(canonical);
+            if (!qualifiers.accept(item.trim())) return Integer.MAX_VALUE;
+            if (item.equals(normalized)) return 0;
+            if (key.isEmpty()) return Integer.MAX_VALUE;
+            String candidate = NON_COMPACT.matcher(item).replaceAll("");
+            String possessive = item.contains("'s")
+                    ? NON_COMPACT.matcher(POSSESSIVE.matcher(item).replaceAll("")).replaceAll("") : candidate;
+            if (candidate.equals(key) || possessive.equals(key)) return 1;
+            if (candidate.startsWith(key) || possessive.startsWith(key)) return 2;
+            if (candidate.contains(key) || possessive.contains(key)) return 3;
+            return Integer.MAX_VALUE;
+        }
     }
 
     /** Retains every canonical identity in a tied tier, including compact collisions. */
@@ -108,12 +146,13 @@ public final class ItemNameMatching
         // Many rows share an item. Calculate its rank once per lookup, without
         // retaining arbitrary player queries or a growing process-wide cache.
         Map<String, Integer> ranks = new HashMap<>();
+        Function<String, Integer> ranker = new Query(query)::rank;
         int best = Integer.MAX_VALUE;
         for (T record : records)
         {
             String canonical = name.apply(record);
             if (canonical == null) continue;
-            int rank = ranks.computeIfAbsent(canonical, item -> rank(query, item));
+            int rank = ranks.computeIfAbsent(canonical, ranker);
             if (rank == Integer.MAX_VALUE) continue;
             if (rank < best) { result.clear(); best = rank; }
             if (rank == best) result.add(record);

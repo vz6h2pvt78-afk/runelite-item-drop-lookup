@@ -882,7 +882,7 @@ public class ItemDropLookupPanel extends PluginPanel
             card.add(makeCardTitle(first.getMonsterName(), CARD_TEXT_WIDTH));
             if (hasText(first.getNotes())) card.add(makeCardLine(first.getNotes(), CARD_TEXT_WIDTH));
             addBoundDanger(card, first);
-            addSourceRequirements(card, first, CARD_TEXT_WIDTH);
+            addSourceRequirements(card, first, CARD_TEXT_WIDTH, Collections.emptyList());
             for (DropSource offer : offers)
             {
                 String title = doseLabel(offer.getItemName()) + " × " + DropQuantity.display(offer)
@@ -1074,10 +1074,14 @@ public class ItemDropLookupPanel extends PluginPanel
         JLabel title = itemTitle(first.getItemName(), first.getMonsterName() + " → " + first.getItemName(), CARD_TEXT_WIDTH);
         title.setName("dropContextGroup");
         card.add(title);
+        List<AccessRequirement> shared = new ArrayList<>(accessRequirementLookupService.forSource(first));
+        shared.removeIf(fact -> !fact.isSourceCardFact() || fact.getScope() != AccessRequirement.Scope.MONSTER
+                || members.stream().anyMatch(d -> !accessRequirementLookupService.forSource(d).contains(fact)));
+        shared.forEach(fact -> addRequirementLine(card, fact, CARD_TEXT_WIDTH));
         for (DropSource member : members)
         {
             card.add(makeSmallSpacer());
-            appendDropContext(card, member, CARD_TEXT_WIDTH, true);
+            appendDropContext(card, member, CARD_TEXT_WIDTH, true, shared);
         }
         return card;
     }
@@ -1109,12 +1113,12 @@ public class ItemDropLookupPanel extends PluginPanel
             ));
         }
 
-        appendDropContext(card, source, nested ? NESTED_CARD_TEXT_WIDTH : CARD_TEXT_WIDTH, false);
+        appendDropContext(card, source, nested ? NESTED_CARD_TEXT_WIDTH : CARD_TEXT_WIDTH, false, Collections.emptyList());
         card.setAlignmentX(LEFT_ALIGNMENT);
         return card;
     }
 
-    private void appendDropContext(JPanel card, DropSource source, int wrapWidth, boolean contextRow)
+    private void appendDropContext(JPanel card, DropSource source, int wrapWidth, boolean contextRow, List<AccessRequirement> shared)
     {
         int firstComponent = card.getComponentCount();
         if (!contextRow) card.add(itemTitle(source.getItemName(), source.getMonsterName() + " → " + source.getItemName(), wrapWidth));
@@ -1129,7 +1133,7 @@ public class ItemDropLookupPanel extends PluginPanel
             card.add(makeCardLine("Notes: " + source.getNotes(), wrapWidth));
         }
 
-        addSourceRequirements(card, source, wrapWidth);
+        addSourceRequirements(card, source, wrapWidth, shared);
 
         card.setName("dropSourceCard");
         MouseAdapter openDetail = new MouseAdapter()
@@ -1161,17 +1165,17 @@ public class ItemDropLookupPanel extends PluginPanel
         if (danger != null) card.add(style.wildernessWarning(danger));
     }
 
-    private void addSourceRequirements(JPanel card, DropSource source, int wrapWidth)
+    private void addSourceRequirements(JPanel card, DropSource source, int wrapWidth, List<AccessRequirement> shared)
     {
         for (AccessRequirement fact : accessRequirementLookupService.forSource(source))
-        {
-            if (fact.isSourceCardFact())
-            {
-                JLabel requirement = makeCardLine(fact.getLabel() + ": " + fact.getText(), wrapWidth);
-                requirement.setName("requirement:" + fact.getId());
-                card.add(requirement);
-            }
-        }
+            if (fact.isSourceCardFact() && !shared.contains(fact)) addRequirementLine(card, fact, wrapWidth);
+    }
+
+    private void addRequirementLine(JPanel card, AccessRequirement fact, int wrapWidth)
+    {
+        JLabel line = makeCardLine(fact.getLabel() + ": " + fact.getText(), wrapWidth);
+        line.setName("requirement:" + fact.getId());
+        card.add(line);
     }
 
     private void showMonsterDetails(DropSource source)

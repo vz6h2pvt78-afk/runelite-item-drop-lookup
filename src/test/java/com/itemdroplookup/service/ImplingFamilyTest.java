@@ -68,6 +68,21 @@ public class ImplingFamilyTest
         assertFalse(service.searchByItemName("Reward casket (master)").stream().anyMatch(s -> s.getSourceName().equals("Lucky impling")));
     }
 
+    @Test public void damagedTableIsIsolatedFromOtherTiersAndLucky() throws Exception
+    {
+        try (java.io.InputStreamReader reader = new java.io.InputStreamReader(getClass().getResourceAsStream("/impling_loot.json"), java.nio.charset.StandardCharsets.UTF_8))
+        {
+            com.google.gson.JsonObject root = new Gson().fromJson(reader, com.google.gson.JsonObject.class);
+            root.getAsJsonArray("tables").get(0).getAsJsonObject().getAsJsonObject("event").getAsJsonArray("outcomes").remove(0);
+            List<AcquisitionMethod> rest = LootEventAdapter.readFamily(root);
+            assertFalse(rest.stream().anyMatch(m -> m.getSourceName().equals("Baby impling loot")));
+            assertTrue(rest.stream().anyMatch(m -> m.getSourceName().equals("Young impling loot")));
+            assertTrue(rest.stream().anyMatch(m -> m.getItemName().equals("Lucky impling jar")));
+            root.getAsJsonObject("luckyCapture").remove("emptyJar");
+            assertTrue(LootEventAdapter.readFamily(root).stream().anyMatch(m -> m.getSourceName().equals("Crystal impling loot")));
+        }
+    }
+
     @Test public void searchableItemGetsOnlyItsOwnReviewedLoot()
     {
         ItemSourceLookupService service = new ItemSourceLookupService(new Gson());

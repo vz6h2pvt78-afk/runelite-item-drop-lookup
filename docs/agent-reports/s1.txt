@@ -1,0 +1,8 @@
+S1 - Stabilized lookup
+
+Fault isolation now holds a damaged impling table while verified siblings remain available. Identical monster-wide requirements appear once on a shared context card. Query qualifiers and compiled patterns are reused during a lookup. Three fresh JVM runs of the same workload gave median search times of 11.5–12.5 ms before and 2.6–2.9 ms after. All 5,664 audited queries produced byte-identical before/after inventories. Compared with C7c, every original NPC context and non-NPC object survived; all 188 additional objects and 158 changed baseline lookup counts were accounted for. Both Java runs passed 170 tests, Python passed 125, and 36 rendered cards passed at 242 px across both text sizes. Local CPU measurements cover the test workload. Actual gameplay, artwork and clipboard acceptance remain pending.
+
+Starting commit 4d9398725faa16d3ab5518524b9ea70bda78da37
+Build development-2026-11-04-s1-stability
+Official package SHA256 242aace7fa0b810ed0b951cd4989caf813b163b65222edfe09c990ac23613c2d
+Human acceptance pending.

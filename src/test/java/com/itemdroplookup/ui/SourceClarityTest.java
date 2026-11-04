@@ -153,6 +153,25 @@ public class SourceClarityTest
         });
     }
 
+    @Test public void sharedEquipmentRequirementAppearsOnceAboveBothDustDevilRates() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            Gson gson = new Gson();
+            ItemDropLookupPanel panel = new ItemDropLookupPanel(new DropLookupService(gson),new ItemSourceLookupService(gson),
+                    new ItemPriceLookupService(gson),new MonsterLocationLookupService(gson),new AccessRequirementLookupService(gson));
+            MorningFeedbackTest.search(panel, "Adamant axe");
+            MorningFeedbackTest.click(panel, "showDropSources");
+            JTextField finder = (JTextField)PanelTestSupport.find(panel,"sourceSearch");
+            finder.setText("Dust devil"); finder.postActionEvent();
+            Container card = named(panel,"dropContextGroup").get(0).getParent();
+            String labels = MorningFeedbackTest.labels(card);
+            assertTrue(labels.contains("facemask"));
+            assertEquals(labels.indexOf("facemask"),labels.lastIndexOf("facemask"));
+            assertEquals(2,named(card,"openLocations").size());
+            panel.dispose();
+        });
+    }
+
     @Test public void discreteQuantitiesKeepTheirMeaningAndUnreviewedCommasArePreserved()
     {
         for (String item : List.of("Iron ore", "Bronze bar"))

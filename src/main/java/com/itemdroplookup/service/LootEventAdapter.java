@@ -50,32 +50,52 @@ final class LootEventAdapter
 
     static List<AcquisitionMethod> readFamily(com.google.gson.Gson gson)
     {
-        List<AcquisitionMethod> result = new ArrayList<>();
         try (java.io.InputStream in = LootEventAdapter.class.getResourceAsStream("/impling_loot.json"))
         {
-            if (in == null) return result;
-            JsonObject root = gson.fromJson(new java.io.InputStreamReader(in, java.nio.charset.StandardCharsets.UTF_8), JsonObject.class);
-            fields(root, "schemaVersion,tables,luckyCapture", "");
-            integer(root, "schemaVersion", 1, 1);
-            Set<String> seen = new HashSet<>();
-            for (JsonElement row : array(root, "tables"))
-            {
-                JsonObject table = object(row);
-                fields(table, "event,coverage", "");
-                JsonObject event = object(table.get("event"));
-                String id = string(event, "id");
-                require(!EVENT.equals(id) && seen.add(id), "Duplicate impling event");
-                JsonArray events = new JsonArray(), coverage = new JsonArray();
-                events.add(event);
-                coverage.add(table.get("coverage"));
-                result.addAll(read(events, coverage));
-            }
-            result.add(LuckyImplingCapture.project(object(root.get("luckyCapture"))));
+            if (in == null) return Collections.emptyList();
+            return readFamily(gson.fromJson(new java.io.InputStreamReader(in, java.nio.charset.StandardCharsets.UTF_8), JsonObject.class));
         }
         catch (Exception ex)
         {
-            log.debug("Additional impling tables unavailable", ex);
-            result.clear();
+            log.debug("Impling family resource unavailable", ex);
+            return Collections.emptyList();
+        }
+    }
+
+    static List<AcquisitionMethod> readFamily(JsonObject root)
+    {
+        fields(root, "schemaVersion,tables", "luckyCapture");
+        integer(root, "schemaVersion", 1, 1);
+        Map<String, JsonObject> unique = new LinkedHashMap<>();
+        Set<String> ambiguous = new HashSet<>();
+        for (JsonElement row : array(root, "tables"))
+        {
+            try
+            {
+                JsonObject table = object(row);
+                fields(table, "event,coverage", "");
+                String id = string(object(table.get("event")), "id");
+                require(!EVENT.equals(id), "Dragon has a separate reviewed dataset");
+                if (unique.putIfAbsent(id, table) != null) ambiguous.add(id);
+            }
+            catch (RuntimeException ex) { log.debug("Unidentified impling table skipped", ex); }
+        }
+        List<AcquisitionMethod> result = new ArrayList<>();
+        unique.forEach((id, table) -> {
+            if (ambiguous.contains(id)) return;
+            try
+            {
+                JsonArray events = new JsonArray(), coverage = new JsonArray();
+                events.add(table.get("event"));
+                coverage.add(table.get("coverage"));
+                result.addAll(read(events, coverage));
+            }
+            catch (RuntimeException ex) { log.debug("Impling table {} unavailable", id, ex); }
+        });
+        if (root.has("luckyCapture"))
+        {
+            try { result.add(LuckyImplingCapture.project(object(root.get("luckyCapture")))); }
+            catch (RuntimeException ex) { log.debug("Lucky capture data unavailable", ex); }
         }
         return result;
     }
