@@ -32,17 +32,23 @@ public class ImplementedDesignReview extends Plugin
         JComboBox<String> treatment = new JComboBox<>(new String[] {"Current styling", "Warmer styling"});
         treatment.setFont(new LookupStyle(13).font());
         treatment.setToolTipText("C2 review only: compare the same screen without changing text size");
-        JPanel body = new JPanel(new BorderLayout())
-        {
-            @Override protected void paintComponent(Graphics graphics)
-            {
-                applyTreatment(this, treatment.getSelectedIndex() == 1);
-                super.paintComponent(graphics);
-            }
-        };
+        JPanel body = new JPanel(new BorderLayout());
         ItemDropLookupPanel panel = new ItemDropLookupPanel(drops, sources, prices, locations, requirements);
         body.add(panel.getWrappedPanel(), BorderLayout.CENTER);
-        treatment.addActionListener(e -> body.repaint());
+        treatment.addActionListener(e -> {
+            applyTreatment(body, treatment.getSelectedIndex() == 1);
+            body.repaint();
+        });
+        boolean[] queued = {false};
+        watchContent(body, () -> {
+            if (queued[0]) return;
+            queued[0] = true;
+            SwingUtilities.invokeLater(() -> {
+                queued[0] = false;
+                applyTreatment(body, treatment.getSelectedIndex() == 1);
+                body.repaint();
+            });
+        });
         review.add(treatment, BorderLayout.NORTH);
         review.add(body, BorderLayout.CENTER);
         ((JTextField) PanelTestSupport.find(panel, "itemSearch")).setText("Spade");
@@ -59,7 +65,7 @@ public class ImplementedDesignReview extends Plugin
     static void applyTreatment(Container parent, boolean warm)
     {
         Color[] current = {LookupStyle.BACK, LookupStyle.CARD, LookupStyle.TEXT, LookupStyle.MUTED, LookupStyle.ACCENT, new Color(83, 96, 106)};
-        Color[] alternative = {new Color(35, 31, 26), new Color(53, 46, 37), new Color(238, 224, 191), new Color(201, 188, 161), new Color(202, 165, 91), new Color(120, 98, 67)};
+        Color[] alternative = {new Color(42, 35, 27), new Color(67, 55, 39), new Color(244, 228, 188), new Color(205, 190, 156), new Color(207, 168, 83), new Color(143, 112, 67)};
         for (Component component : parent.getComponents())
         {
             for (int i = 0; i < current.length; i++)
@@ -71,6 +77,25 @@ public class ImplementedDesignReview extends Plugin
             }
             if (component instanceof Container) applyTreatment((Container) component, warm);
         }
+    }
+
+    private static void watchContent(Container parent, Runnable changed)
+    {
+        if (parent instanceof JComponent)
+        {
+            JComponent component = (JComponent) parent;
+            if (Boolean.TRUE.equals(component.getClientProperty("reviewWatched"))) return;
+            component.putClientProperty("reviewWatched", true);
+        }
+        parent.addContainerListener(new java.awt.event.ContainerAdapter()
+        {
+            @Override public void componentAdded(java.awt.event.ContainerEvent event)
+            {
+                if (event.getChild() instanceof Container) watchContent((Container) event.getChild(), changed);
+                changed.run();
+            }
+        });
+        for (Component child : parent.getComponents()) if (child instanceof Container) watchContent((Container) child, changed);
     }
 
     @Override protected void shutDown() { if (navigation != null) toolbar.removeNavigation(navigation); }
