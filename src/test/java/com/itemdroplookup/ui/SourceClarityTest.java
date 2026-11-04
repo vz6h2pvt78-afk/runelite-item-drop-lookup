@@ -172,6 +172,24 @@ public class SourceClarityTest
         });
     }
 
+    @Test public void detailHistoryFollowsItsResultSetAndPreservesExactVariants()
+    {
+        LookupViewState view = new LookupViewState();
+        DropSource standard = new DropSource("Air rune","Abyssal demon","50","8/128","");
+        DropSource wild = new DropSource("Air rune","Abyssal demon","50","8/68","");
+        MonsterLocationPanel.State first = new MonsterLocationPanel.State();
+        first.scroll = 17;
+        MonsterLocationPanel.State second = new MonsterLocationPanel.State();
+        second.scroll = 305;
+        view.detailStates.put(standard, first);
+        view.detailStates.put(wild, second);
+        LookupViewState back = view.copy();
+        view.beginSelection("Bronze bar",null);
+        assertTrue(view.detailStates.isEmpty());
+        assertEquals(17,back.detailStates.get(standard).scroll);
+        assertEquals(305,back.detailStates.get(wild).scroll);
+    }
+
     @Test public void discreteQuantitiesKeepTheirMeaningAndUnreviewedCommasArePreserved()
     {
         for (String item : List.of("Iron ore", "Bronze bar"))

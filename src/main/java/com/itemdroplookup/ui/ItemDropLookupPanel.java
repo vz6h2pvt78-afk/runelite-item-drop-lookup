@@ -133,7 +133,6 @@ public class ItemDropLookupPanel extends PluginPanel
     private final JButton clearSearch = style.button("Clear search", this::clearSourceSearch, false);
     private final java.util.Set<String> expandedGroups = new java.util.HashSet<>();
     private final Map<String, Integer> savedSourceScroll = new java.util.HashMap<>();
-    private final Map<DropSource, MonsterLocationPanel.State> detailStates = new java.util.IdentityHashMap<>();
     private DropSource detailSource;
     private BoundDropContexts boundContexts;
     private List<DropSource> indexedDrops;
@@ -282,8 +281,17 @@ public class ItemDropLookupPanel extends PluginPanel
     public void dispose()
     {
         chooserIcons.dispose();
-        if (SwingUtilities.isEventDispatchThread()) sourceSearchTimer.stop();
-        else SwingUtilities.invokeLater(sourceSearchTimer::stop);
+        Runnable release = () -> {
+            sourceSearchTimer.stop();
+            viewState.detailStates.clear();
+            if (previousItem != null) previousItem.view.detailStates.clear();
+            previousItem = null;
+            detailSource = null;
+            indexedDrops = null;
+            boundContexts = null;
+        };
+        if (SwingUtilities.isEventDispatchThread()) release.run();
+        else SwingUtilities.invokeLater(release);
     }
 
     private boolean adjustingControls;
@@ -341,9 +349,12 @@ public class ItemDropLookupPanel extends PluginPanel
         rememberItem();
         if (viewState.selection == null || !query.equals(viewState.query))
         {
-            viewState.query = query;
             displayedQuery = query;
-            viewState.selection = new ItemSearchSelection(query, dropLookupService, itemSourceLookupService, itemPriceLookupService);
+            viewState.beginSelection(query, new ItemSearchSelection(query, dropLookupService, itemSourceLookupService, itemPriceLookupService));
+            indexedDrops = null;
+            boundContexts = null;
+            matchingDrops = Collections.emptyList();
+            matchingSources = Collections.emptyList();
         }
         List<String> choices = viewState.selection.choices();
         if (choices.size() == 1) selectItem(choices.get(0));
@@ -1192,13 +1203,14 @@ public class ItemDropLookupPanel extends PluginPanel
         add(detail, BorderLayout.CENTER);
         revalidate();
         repaint();
-        detail.restoreState(detailStates.get(source));
+        detail.restoreState(viewState.detailStates.get(source));
     }
 
     private void showSearchResults()
     {
         chooserIcons.closePinned();
-        if (detail != null) detailStates.put(detailSource, detail.saveState());
+        if (detail != null) viewState.detailStates.put(detailSource, detail.saveState());
+        detailSource = null;
         removeAll();
         detail = null;
         add(searchView, BorderLayout.CENTER);

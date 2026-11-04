@@ -1,0 +1,8 @@
+S4 - Navigation state lifetime
+
+Before the fix, 40 successive real detail visits kept 40 entries, 39 beyond navigation reach. Afterward, the identical headless probe retained one reachable entry and zero unreachable entries, including after Back recovery. The map now belongs to its query and Back snapshot, preserving exact source variants and filters. Both Java runs passed 173 tests and Python passed 126, package/API and recovered resource reproduction passed. Source truth matches S3 with 202 cumulative source additions and no baseline loss.
+
+Starting commit 87ec771b3c9774914be2d237d3c1a6769be96ed7
+Build development-2026-11-04-s4-navigation-lifetime
+Official package SHA256 0ec06122524bbddc149cf24a01c311e2d026c67f1379c5aae09204a96b0e0ce5
+Human acceptance pending.
