@@ -1,0 +1,8 @@
+S6B - Slayer combat equipment
+
+Basilisk, Turoth, Kurask and Aberrant spectre each gained a verified Slayer kill level plus a separate combat or protection fact. The nine reviewed monsters now cover 148 exact drop rows with 15 facts. The packaged 5,664-query comparison reconciled all 14,040 original drop signatures and location bindings, 26 shop location enrichments and 202 acquisition additions since C7c. Both Java runs passed 176 tests, Python passed 132. Package/API, offline reproduction, real sidebar renders and independent recovery passed. Try Kurask head at Larger text, Aberrant spectre protection, and compare Basilisk Knight with Basilisk.
+
+Starting commit a41a0da05f0ed65d95a78c83561ed4aac6303b28
+Build development-2026-11-04-s6b-slayer-equipment
+Official package SHA256 967722d7a9430651fa2ebdc3b23202c731abaab97f86bd97d52d663d88534396
+Human acceptance pending.

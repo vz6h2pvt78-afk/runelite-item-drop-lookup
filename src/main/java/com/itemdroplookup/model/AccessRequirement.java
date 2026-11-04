@@ -43,7 +43,9 @@ public final class AccessRequirement
         {
             case PROTECTION: return "Protection";
             case FINISHING: return "Finishing";
-            case COMBAT: return scope == Scope.LOCATION ? "Location restriction" : "Required";
+            case COMBAT:
+                if (scope == Scope.LOCATION) return "Location restriction";
+                return type == Type.CONTEXT ? "Combat" : "Required";
             case ACCESS: return "Location access";
             case TASK_ELIGIBILITY: return "Task eligibility";
             case ITEM_DROP: return "For this drop";

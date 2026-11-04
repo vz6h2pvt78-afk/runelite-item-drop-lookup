@@ -14,6 +14,26 @@ public class SlayerScopeTest
     {
         return access.forSource(new DropSource("Coins",monster,"1","1/2",""));
     }
+    @Test public void laterMonstersKeepAttackRulesAndProtectionWithTheirExactCreature()
+    {
+        assertMonster("Basilisk", 40, "Protection", "mirror shield or V's shield");
+        assertMonster("Aberrant spectre", 60, "Protection", "nose peg or Slayer helmet");
+        assertMonster("Turoth", 55, "Combat", "For ordinary attacks");
+        assertMonster("Kurask", 70, "Combat", "Burn damage can also apply");
+        for (String relative : List.of("Basilisk Knight", "King kurask", "Deviant spectre", "Spiked turoth"))
+        {
+            assertTrue(relative, facts(relative).isEmpty());
+        }
+    }
+
+    private void assertMonster(String name, int level, String label, String text)
+    {
+        List<AccessRequirement> entries = facts(name);
+        assertEquals(name, 2, entries.size());
+        assertTrue(entries.stream().anyMatch(f -> "Slayer".equals(f.getSkill()) && Integer.valueOf(level).equals(f.getLevel())));
+        assertTrue(entries.stream().anyMatch(f -> label.equals(f.getLabel()) && f.isSourceCardFact() && f.getText().contains(text)));
+    }
+
     @Test public void earlyMonstersKeepSkillSeparateFromProtectionOrFinishing()
     {
         assertTrue(facts("Banshee").stream().anyMatch(f -> f.getLabel().equals("Protection") && f.isSourceCardFact() && f.getText().contains("earmuffs")));

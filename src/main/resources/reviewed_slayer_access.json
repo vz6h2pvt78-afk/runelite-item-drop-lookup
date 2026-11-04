@@ -3,6 +3,38 @@
   "checkedAt": "2026-11-04T23:00:00Z",
   "facts": [
     {
+      "monsterName": "Aberrant spectre",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Aberrant spectre",
+          "revisionId": 15371564,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Aberrant_spectre?oldid=15371564"
+        }
+      ],
+      "id": "aberrant-spectre-slayer",
+      "appliesTo": "COMBAT",
+      "type": "SKILL",
+      "skill": "Slayer",
+      "level": 60,
+      "text": "60 Slayer to kill."
+    },
+    {
+      "monsterName": "Aberrant spectre",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Aberrant spectre",
+          "revisionId": 15371564,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Aberrant_spectre?oldid=15371564"
+        }
+      ],
+      "id": "aberrant-spectre-protection",
+      "appliesTo": "PROTECTION",
+      "type": "EQUIPMENT",
+      "text": "Wear a nose peg or Slayer helmet to prevent the special attack and its combat stat drain."
+    },
+    {
       "monsterName": "Banshee",
       "scope": "MONSTER",
       "evidence": [
@@ -33,6 +65,38 @@
       "appliesTo": "PROTECTION",
       "type": "EQUIPMENT",
       "text": "Wear earmuffs or a Slayer helmet to prevent scream damage and stat drain."
+    },
+    {
+      "monsterName": "Basilisk",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Basilisk",
+          "revisionId": 15338302,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Basilisk?oldid=15338302"
+        }
+      ],
+      "id": "basilisk-slayer",
+      "appliesTo": "COMBAT",
+      "type": "SKILL",
+      "skill": "Slayer",
+      "level": 40,
+      "text": "40 Slayer to kill."
+    },
+    {
+      "monsterName": "Basilisk",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Basilisk",
+          "revisionId": 15338302,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Basilisk?oldid=15338302"
+        }
+      ],
+      "id": "basilisk-protection",
+      "appliesTo": "PROTECTION",
+      "type": "EQUIPMENT",
+      "text": "Equip a mirror shield or V's shield to prevent the combat stat drain."
     },
     {
       "monsterName": "Cave crawler",
@@ -86,6 +150,38 @@
       "text": "5 Slayer to kill."
     },
     {
+      "monsterName": "Kurask",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Kurask",
+          "revisionId": 15386817,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Kurask?oldid=15386817"
+        }
+      ],
+      "id": "kurask-slayer",
+      "appliesTo": "COMBAT",
+      "type": "SKILL",
+      "skill": "Slayer",
+      "level": 70,
+      "text": "70 Slayer to kill."
+    },
+    {
+      "monsterName": "Kurask",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Kurask",
+          "revisionId": 15386817,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Kurask?oldid=15386817"
+        }
+      ],
+      "id": "kurask-combat",
+      "appliesTo": "COMBAT",
+      "type": "CONTEXT",
+      "text": "For ordinary attacks, use leaf-bladed weapons, broad ammunition or Magic Dart. Burn damage can also apply."
+    },
+    {
       "monsterName": "Rockslug",
       "scope": "MONSTER",
       "evidence": [
@@ -116,6 +212,38 @@
       "appliesTo": "FINISHING",
       "type": "EQUIPMENT",
       "text": "Use a bag of salt at 4 Hitpoints or lower, or use a brine sabre to finish the kill."
+    },
+    {
+      "monsterName": "Turoth",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Turoth",
+          "revisionId": 15384704,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Turoth?oldid=15384704"
+        }
+      ],
+      "id": "turoth-slayer",
+      "appliesTo": "COMBAT",
+      "type": "SKILL",
+      "skill": "Slayer",
+      "level": 55,
+      "text": "55 Slayer to kill."
+    },
+    {
+      "monsterName": "Turoth",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Turoth",
+          "revisionId": 15384704,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Turoth?oldid=15384704"
+        }
+      ],
+      "id": "turoth-combat",
+      "appliesTo": "COMBAT",
+      "type": "CONTEXT",
+      "text": "For ordinary attacks, use leaf-bladed weapons, broad arrows or bolts, or Magic Dart."
     }
   ]
 }
