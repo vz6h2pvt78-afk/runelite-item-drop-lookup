@@ -24,7 +24,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
-import net.runelite.client.ui.ColorScheme;
 import net.runelite.client.ui.PluginPanel;
 import net.runelite.client.util.LinkBrowser;
 
@@ -166,8 +165,8 @@ public class MonsterLocationPanel extends JPanel
             locationsPanel.add(text("Requirements & context", true, TEXT_WIDTH));
             sourceFacts.forEach(fact -> locationsPanel.add(requirementText(fact, TEXT_WIDTH)));
         }
-        locationsPanel.add(text("Rate: " + (hasText(source.getDropRate()) ? source.getDropRate() : "Not recorded")
-                + " | Quantity: " + source.getQuantity(), false, TEXT_WIDTH));
+        locationsPanel.add(text("Rate: " + (hasText(source.getDropRate()) ? source.getDropRate() : "Not recorded"), false, TEXT_WIDTH));
+        locationsPanel.add(text("Quantity: " + source.getQuantity(), false, TEXT_WIDTH));
         JButton toggle = style.button((filtersExpanded ? "Hide location filters" : "Location filters")
                 + (wilderness.getSelectedItem() != WildernessFilter.ALL ? "\n" + wilderness.getSelectedItem() : "")
                 + (membership.getSelectedItem() != MembershipFilter.ALL ? "\n" + membership.getSelectedItem() : ""), () -> {
@@ -256,11 +255,20 @@ public class MonsterLocationPanel extends JPanel
         {
             card.add(text("Unavailable / unreachable", true, width));
         }
-        card.add(text("Combat level " + (hasText(location.getLevelsText()) ? location.getLevelsText() : "unknown")
-                + " · " + (location.getMembers() == null ? "Membership unknown" : location.getMembers() ? "Members area"
-                        : Boolean.TRUE.equals(source.getMembersOnly()) ? "F2P-accessible area; use a members world" : "F2P"), false, width));
+        if (hasText(location.getRequirements()))
+        {
+            card.add(text("Requirements: " + location.getRequirements(), false, width));
+        }
+        requirements.forLocation(location).forEach(fact -> card.add(requirementText(fact, width)));
+        card.add(text(location.getMembers() == null ? "Membership unknown" : location.getMembers() ? "Members area"
+                : Boolean.TRUE.equals(source.getMembersOnly()) ? "F2P-accessible area; use a members world" : "F2P", false, width));
         card.add(text(location.getWilderness() == MonsterLocation.Wilderness.YES ? "Wilderness"
                 : location.getWilderness() == MonsterLocation.Wilderness.NO ? "Outside Wilderness" : "Wilderness status unknown", false, width));
+        if (hasText(location.getNotes()))
+        {
+            card.add(text(location.getNotes(), false, width));
+        }
+        card.add(text("Combat level " + (hasText(location.getLevelsText()) ? location.getLevelsText() : "unknown"), false, width));
         if (location.getSpawns() != null)
         {
             boolean approximate = location.getSpawnCountBasis() != null && location.getSpawnCountBasis().contains("approximate");
@@ -268,15 +276,6 @@ public class MonsterLocationPanel extends JPanel
                     + (location.getSpawns() == 1 ? " spawn" : " spawns"), false, width);
             spawns.setToolTipText(location.getSpawnCountBasis());
             card.add(spawns);
-        }
-        if (hasText(location.getRequirements()))
-        {
-            card.add(text("Requirements: " + location.getRequirements(), false, width));
-        }
-        requirements.forLocation(location).forEach(fact -> card.add(requirementText(fact, width)));
-        if (hasText(location.getNotes()))
-        {
-            card.add(text(location.getNotes(), false, width));
         }
         String url = location.getSourceUrl();
         if (url != null && url.startsWith("https://oldschool.runescape.wiki/w/"))

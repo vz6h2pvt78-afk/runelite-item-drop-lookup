@@ -12,7 +12,6 @@ import com.itemdroplookup.service.ItemSourceLookupService;
 import com.itemdroplookup.service.MonsterFamilyGrouper;
 import com.itemdroplookup.service.MonsterLocationLookupService;
 import com.itemdroplookup.service.MonsterLocationFilter.WildernessFilter;
-import net.runelite.client.ui.ColorScheme;
 import net.runelite.client.ui.PluginPanel;
 
 import javax.swing.BorderFactory;
@@ -296,7 +295,7 @@ public class ItemDropLookupPanel extends PluginPanel
         priceLabels.clear();
         if (viewState.selection != null && viewState.selection.choices().size() > 1)
         {
-            JButton back = style.button("Back to matching items", this::showItemChoices, false);
+            JButton back = style.button("Matching items", this::showItemChoices, false);
             back.setName("backToItems");
             resultsPanel.add(back);
         }
@@ -310,19 +309,19 @@ public class ItemDropLookupPanel extends PluginPanel
                     + (!sourceSearch.getText().isEmpty() ? "; Find: " + sourceSearch.getText() : ""));
             saved.setName("activeFilters");
             resultsPanel.add(saved);
-            JButton resume = style.button("Continue with saved filters", () -> openMethod((String) filterDropdown.getSelectedItem()), false);
+            JButton resume = style.button("Use saved filters", () -> openMethod((String) filterDropdown.getSelectedItem()), false);
             resume.setName("viewCurrentMethod");
             resultsPanel.add(resume);
         }
-        addMethod("Buy from shops", FILTER_SHOPS, "buying options", matchingSources.stream().filter(s -> SOURCE_TYPE_SHOP.equals(s.getSourceType())).count(), "showOtherSources");
-        addMethod("Exchange rewards", FILTER_REWARD_SHOPS, "reward offers", matchingSources.stream().filter(s -> SOURCE_TYPE_REWARD_SHOP.equals(s.getSourceType())).count(), "showRewardSources");
-        addMethod("Pick up", FILTER_GROUND, "pickup locations", matchingSources.stream().filter(s -> SOURCE_TYPE_GROUND.equals(s.getSourceType())).count(), "showGroundSources");
-        addMethod("Gather", FILTER_GATHERING, "gathering locations", matchingSources.stream().filter(s -> SOURCE_TYPE_GATHERING.equals(s.getSourceType())).count(), "showGatheringSources");
-        addMethod("Monster drops", FILTER_DROPS, "drop entries", matchingDrops.size(), "showDropSources");
-        JButton all = style.button("See all sources", () -> openMethod(FILTER_ALL), true);
+        addMethod("Shops", FILTER_SHOPS, "buying options", matchingSources.stream().filter(s -> SOURCE_TYPE_SHOP.equals(s.getSourceType())).count(), "showOtherSources");
+        addMethod("Rewards", FILTER_REWARD_SHOPS, "reward offers", matchingSources.stream().filter(s -> SOURCE_TYPE_REWARD_SHOP.equals(s.getSourceType())).count(), "showRewardSources");
+        addMethod("Pickups", FILTER_GROUND, "pickup locations", matchingSources.stream().filter(s -> SOURCE_TYPE_GROUND.equals(s.getSourceType())).count(), "showGroundSources");
+        addMethod("Gathering", FILTER_GATHERING, "gathering locations", matchingSources.stream().filter(s -> SOURCE_TYPE_GATHERING.equals(s.getSourceType())).count(), "showGatheringSources");
+        addMethod("Monsters", FILTER_DROPS, "drop entries", matchingDrops.size(), "showDropSources");
+        JButton all = style.button("All sources", () -> openMethod(FILTER_ALL), true);
         all.setName("viewAllSources");
         resultsPanel.add(all);
-        resultsPanel.add(makeSummaryLabel("Counts describe listed offers and drop entries, before saved filters."));
+        resultsPanel.add(makeSummaryLabel("Counts before filters."));
         addDisplayOptions();
         finishPage(viewState.overviewScroll);
     }
@@ -737,7 +736,7 @@ public class ItemDropLookupPanel extends PluginPanel
         header.setOpaque(true);
         header.setBackground(LookupStyle.CARD);
         header.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createMatteBorder(0, 0, 1, 0, ColorScheme.MEDIUM_GRAY_COLOR),
+                BorderFactory.createMatteBorder(0, 0, 1, 0, LookupStyle.BORDER),
                 new EmptyBorder(8, 8, 6, 8)
         ));
         header.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -747,7 +746,7 @@ public class ItemDropLookupPanel extends PluginPanel
         membersPanel.setBackground(LookupStyle.BACK);
         membersPanel.setAlignmentX(LEFT_ALIGNMENT);
         membersPanel.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createMatteBorder(0, 2, 0, 0, ColorScheme.MEDIUM_GRAY_COLOR),
+                BorderFactory.createMatteBorder(0, 2, 0, 0, LookupStyle.BORDER),
                 new EmptyBorder(0, 8, 6, 0)
         ));
         membersPanel.setVisible(expandedGroups.contains(groupKey));
@@ -793,7 +792,7 @@ public class ItemDropLookupPanel extends PluginPanel
             card.setBorder(BorderFactory.createCompoundBorder(
                     new EmptyBorder(4, 0, 10, 0),
                     BorderFactory.createCompoundBorder(
-                            BorderFactory.createMatteBorder(1, 1, 1, 1, ColorScheme.MEDIUM_GRAY_COLOR),
+                            BorderFactory.createMatteBorder(1, 1, 1, 1, LookupStyle.BORDER),
                             new EmptyBorder(8, 8, 8, 8)
                     )
             ));
@@ -840,7 +839,8 @@ public class ItemDropLookupPanel extends PluginPanel
         {
             component.addMouseListener(openDetail);
         }
-        JButton locations = style.button("Locations & requirements", () -> showMonsterDetails(source), false);
+        JButton locations = style.button("View details", () -> showMonsterDetails(source), false);
+        locations.setToolTipText("Locations and requirements for " + source.getMonsterName());
         locations.setMargin(new java.awt.Insets(3, 4, 3, 4));
         locations.setName("openLocations");
         locations.getAccessibleContext().setAccessibleName("Locations and requirements for " + source.getMonsterName());

@@ -22,6 +22,7 @@ final class LookupStyle
     static final Color TEXT = new Color(239, 240, 232);
     static final Color MUTED = new Color(184, 196, 203);
     static final Color ACCENT = new Color(222, 193, 126);
+    static final Color BORDER = new Color(128, 144, 153);
     private static final Font REGULAR = loadFont();
     private final int size;
 
@@ -48,7 +49,7 @@ final class LookupStyle
         button.setFont(font());
         button.setForeground(primary ? BACK : TEXT);
         button.setBackground(primary ? ACCENT : CARD);
-        button.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(primary ? ACCENT : new Color(83, 96, 106)), new EmptyBorder(7, 8, 7, 8)));
+        button.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(primary ? ACCENT : BORDER), new EmptyBorder(7, 8, 7, 8)));
         button.setAlignmentX(Component.LEFT_ALIGNMENT);
         button.setHorizontalAlignment(SwingConstants.LEFT);
         button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -65,7 +66,7 @@ final class LookupStyle
         if (component instanceof JTextField)
         {
             ((JTextField) component).setCaretColor(TEXT);
-            component.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(new Color(83, 96, 106)), new EmptyBorder(6, 6, 6, 6)));
+            component.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(BORDER), new EmptyBorder(6, 6, 6, 6)));
         }
         component.setMaximumSize(new Dimension(Integer.MAX_VALUE, Math.max(32, component.getPreferredSize().height)));
     }
