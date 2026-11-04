@@ -7,7 +7,7 @@ public final class PackagedFontProbe
     {
         String origin = LookupStyle.class.getProtectionDomain().getCodeSource().getLocation().toString();
         if (!origin.endsWith(".jar")) throw new IllegalStateException("Expected packaged code: " + origin);
-        if (!"OpenDyslexic Regular".equals(LookupStyle.fontName())) throw new IllegalStateException("Wrong font");
+        if (!"Atkinson Hyperlegible".equals(new LookupStyle(LookupStyle.STANDARD_SIZE).font().getFamily())) throw new IllegalStateException("Wrong font");
         for (String resource : new String[] {"/fonts/OFL.txt", "/THIRD_PARTY_NOTICES.txt"})
         {
             try (java.io.InputStream input = LookupStyle.class.getResourceAsStream(resource))
@@ -15,6 +15,6 @@ public final class PackagedFontProbe
                 if (input == null || input.readAllBytes().length == 0) throw new IllegalStateException(resource);
             }
         }
-        System.out.println("Packaged OpenDyslexic font instantiated; notices loaded; origin=" + origin);
+        System.out.println("Packaged " + LookupStyle.fontName() + " instantiated; notices loaded; origin=" + origin);
     }
 }

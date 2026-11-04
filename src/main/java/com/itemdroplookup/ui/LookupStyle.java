@@ -23,6 +23,8 @@ final class LookupStyle
     static final Color MUTED = new Color(184, 196, 203);
     static final Color ACCENT = new Color(222, 193, 126);
     static final Color BORDER = new Color(128, 144, 153);
+    static final int STANDARD_SIZE = 15;
+    static final int LARGER_SIZE = 18;
     private static final Font REGULAR = loadFont();
     private final int size;
 
@@ -68,6 +70,12 @@ final class LookupStyle
             ((JTextField) component).setCaretColor(TEXT);
             component.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(BORDER), new EmptyBorder(6, 6, 6, 6)));
         }
+        controlFont(component);
+    }
+
+    void controlFont(JComponent component)
+    {
+        component.setFont(font());
         component.setMaximumSize(new Dimension(Integer.MAX_VALUE, Math.max(32, component.getPreferredSize().height)));
     }
 
@@ -78,7 +86,7 @@ final class LookupStyle
             if (child instanceof JLabel && ((JLabel)child).getClientProperty("lookupHeading") != null)
                 child.setFont(Boolean.TRUE.equals(((JLabel)child).getClientProperty("lookupHeading")) ? heading() : font());
             else if (child instanceof AbstractButton || child instanceof JComboBox || child instanceof JTextField)
-                child.setFont(font());
+                controlFont((JComponent) child);
             if (child instanceof Container) refreshTree((Container)child);
         }
     }
@@ -120,16 +128,16 @@ final class LookupStyle
 
     private static Font loadFont()
     {
-        try (InputStream in = LookupStyle.class.getResourceAsStream("/fonts/OpenDyslexic-Regular.otf"))
+        try (InputStream in = LookupStyle.class.getResourceAsStream("/fonts/AtkinsonHyperlegible-Regular.ttf"))
         {
-            if (in == null) throw new IllegalStateException("Missing bundled OpenDyslexic font");
+            if (in == null) throw new IllegalStateException("Missing bundled Atkinson Hyperlegible font");
             Font font = Font.createFont(Font.TRUETYPE_FONT, in);
             // Makes this bundled family resolvable by Swing's HTML renderer; does
             // not install a system font or change any RuneLite component defaults.
             GraphicsEnvironment.getLocalGraphicsEnvironment().registerFont(font);
             return font;
         }
-        catch (Exception ex) { throw new IllegalStateException("Cannot load bundled OpenDyslexic", ex); }
+        catch (Exception ex) { throw new IllegalStateException("Cannot load bundled Atkinson Hyperlegible", ex); }
     }
 
     private static int availableWidth(JComponent component)

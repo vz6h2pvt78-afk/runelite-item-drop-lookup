@@ -103,11 +103,24 @@ does not claim ownership of them and is not affiliated with Jagex, RuneLite,
 Weird Gloop or the OSRS Wiki. No external art, screenshots or sound assets
 are shipped in the plugin; its toolbar icon is drawn by the plugin.
 
-## OpenDyslexic
+## Atkinson Hyperlegible
 
-The unmodified OpenDyslexic Regular font is by Abbie Gonzalez, copyright
-2012–2019, with Reserved Font Name OpenDyslexic. It is distributed under the
-SIL Open Font License 1.1, retained in `src/main/resources/fonts/OFL.txt`.
+The unmodified runtime Atkinson Hyperlegible Regular font is copyright 2020
+Braille Institute of America, Inc. It is distributed under SIL Open Font License
+1.1, retained in `src/main/resources/fonts/OFL.txt`.
+Source: https://github.com/googlefonts/atkinson-hyperlegible
+Path: fonts/ttf/AtkinsonHyperlegible-Regular.ttf
+Git blob SHA-1: `b3cc4200fcf09d600eac74002ab4ea65b404a536`.
+TTF SHA-256: `7fb917c89019896d0b52ee84b7cbb3304c18cb90b19a62f5e32712bd23e97669`.
+The font remains under its own license, not this project's BSD license.
+No affiliation with or endorsement by Braille Institute is implied.
+
+## Historical OpenDyslexic preview
+
+Test-only design prototypes retain the unmodified OpenDyslexic Regular font by
+Abbie Gonzalez, copyright 2012–2019, with Reserved Font Name OpenDyslexic.
+Its SIL Open Font License 1.1 is in `src/test/resources/design/OFL.txt`.
+It is not included in the current production plugin artifact.
 Source: https://github.com/antijingoist/opendyslexic/releases/tag/v0.91.12
 (0.910.12-rc2, 2019-10-17). Its license was verified from the same upstream tag:
 https://github.com/antijingoist/opendyslexic/blob/v0.91.12/OFL.txt

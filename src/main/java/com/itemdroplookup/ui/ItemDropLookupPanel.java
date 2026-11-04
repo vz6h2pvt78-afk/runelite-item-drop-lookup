@@ -115,7 +115,7 @@ public class ItemDropLookupPanel extends PluginPanel
     private final JCheckBox showPriceCheckbox = new JCheckBox("Show GE price", true);
     private final JPanel resultsPanel = LookupStyle.column();
     private final LookupViewState viewState = new LookupViewState();
-    private LookupStyle style = new LookupStyle(13);
+    private LookupStyle style = new LookupStyle(LookupStyle.STANDARD_SIZE);
     private final JComboBox<String> textSize = new IntentionalComboBox<>(new String[] {"Standard text", "Larger text"});
     private final JPanel controlsPanel = LookupStyle.column();
     private final JButton overviewBack = style.button("Back to item", this::showOverview, false);
@@ -372,9 +372,9 @@ public class ItemDropLookupPanel extends PluginPanel
     private void changeTextSize()
     {
         int position = resultsScroll.getVerticalScrollBar().getValue();
-        style = new LookupStyle(textSize.getSelectedIndex() == 0 ? 13 : 16);
+        style = new LookupStyle(textSize.getSelectedIndex() == 0 ? LookupStyle.STANDARD_SIZE : LookupStyle.LARGER_SIZE);
         style.refreshTree(searchView);
-        for (javax.swing.JComponent control : new javax.swing.JComponent[] {searchField, searchButton, filterDropdown, wildernessDropdown, sourceSearch, showPriceCheckbox, textSize, overviewBack}) control.setFont(style.font());
+        for (javax.swing.JComponent control : new javax.swing.JComponent[] {searchField, searchButton, filterDropdown, wildernessDropdown, sourceSearch, showPriceCheckbox, textSize, overviewBack}) style.controlFont(control);
         if (viewState.page == LookupViewState.Page.SOURCES) renderResults();
         else if (viewState.page == LookupViewState.Page.OVERVIEW) showOverview();
         else if (viewState.selection != null) showItemChoices();

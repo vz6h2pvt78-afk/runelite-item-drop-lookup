@@ -123,12 +123,13 @@ does not claim ownership of them and is not affiliated with Jagex, RuneLite,
 Weird Gloop or the OSRS Wiki. No external art, screenshots or sound assets
 are shipped in the plugin; its toolbar icon is drawn by the plugin.
 
-OpenDyslexic Regular: copyright 2012–2019 Abbie Gonzalez.
-Reserved Font Name: OpenDyslexic. SIL Open Font License 1.1; full text at fonts/OFL.txt.
-Unmodified OTF from upstream v0.91.12 (0.910.12-rc2, 2019-10-17):
-https://github.com/antijingoist/opendyslexic/releases/tag/v0.91.12
-https://github.com/antijingoist/opendyslexic/blob/v0.91.12/OFL.txt
-SHA-256: c1a0cbf814a75a61abdf0f18143d347222b85e51209f47f8b685a1e0ca594b88
+Atkinson Hyperlegible Regular: copyright 2020 Braille Institute of America, Inc.
+SIL Open Font License 1.1; full text at fonts/OFL.txt.
+Unmodified TTF from https://github.com/googlefonts/atkinson-hyperlegible
+Path: fonts/ttf/AtkinsonHyperlegible-Regular.ttf
+Git blob SHA-1: b3cc4200fcf09d600eac74002ab4ea65b404a536
+SHA-256: 7fb917c89019896d0b52ee84b7cbb3304c18cb90b19a62f5e32712bd23e97669
+No affiliation with or endorsement by Braille Institute is implied.
 The font remains under its own license, not the plugin's BSD license.
 Gathering evidence: OSRS Wiki contributors, CC BY-NC-SA 3.0.
 Iron ore revision 15182636; Iron rocks 15372456; South-west Varrock mine 15127886.

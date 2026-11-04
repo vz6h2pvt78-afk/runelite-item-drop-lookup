@@ -62,18 +62,22 @@ public class OverviewFlowTest
     @Test public void wrappedContentGrowsForLargerTextAndNarrowerSpace() throws Exception
     {
         SwingUtilities.invokeAndWait(() -> {
-            assertEquals("OpenDyslexic Regular",LookupStyle.fontName());
+            assertEquals("Atkinson Hyperlegible",new LookupStyle(LookupStyle.STANDARD_SIZE).font().getFamily());
             JPanel parent=new JPanel();
-            JLabel label=new LookupStyle(13).text("A long location name with conditions that must remain readable",false);
+            // A short sample can occupy three lines at both widths in Atkinson.
+            // This longer requirements/cost example exercises an actual line-count change.
+            String text="Mourning's End Part II required. Costs 80 abyssal pearls. "
+                    + "Speak to the Rewards Guardian in the Temple of the Eye.";
+            JLabel label=new LookupStyle(LookupStyle.STANDARD_SIZE).text(text,false);
             parent.add(label);
             parent.setSize(242,500);
             int wide=label.getPreferredSize().height;
             parent.setSize(170,500);
-            assertTrue(label.getPreferredSize().height>wide);
-            JLabel larger=new LookupStyle(16).text("A long location name with conditions that must remain readable",false);
+            assertTrue("Narrow requirements should take more lines",label.getPreferredSize().height>wide);
+            JLabel larger=new LookupStyle(LookupStyle.LARGER_SIZE).text(text,false);
             parent.add(larger);
             assertTrue(larger.getPreferredSize().height>=label.getPreferredSize().height);
-            assertTrue(larger.getFont().getFamily().contains("OpenDyslexic"));
+            assertEquals("Atkinson Hyperlegible",larger.getFont().getFamily());
         });
     }
 
@@ -103,7 +107,7 @@ public class OverviewFlowTest
             JComboBox<String> combo = new IntentionalComboBox<>(new String[] {"All", "Shops", "Drops"});
             JPanel column = LookupStyle.column();
             column.add(combo);
-            for (int i = 0; i < 20; i++) column.add(new LookupStyle(13).text("Long source " + i, false));
+            for (int i = 0; i < 20; i++) column.add(new LookupStyle(LookupStyle.STANDARD_SIZE).text("Long source " + i, false));
             JScrollPane scroll = new JScrollPane(LookupStyle.scrollBody(column));
             scroll.setSize(242, 200);
             layout(scroll);
@@ -125,7 +129,7 @@ public class OverviewFlowTest
     {
         SwingUtilities.invokeAndWait(() -> {
             JPanel column = LookupStyle.column();
-            for (int i = 0; i < 25; i++) column.add(new LookupStyle(16).text("A very long source title and its conditions", true));
+            for (int i = 0; i < 25; i++) column.add(new LookupStyle(LookupStyle.LARGER_SIZE).text("A very long source title and its conditions", true));
             JPanel body = LookupStyle.scrollBody(column);
             JScrollPane scroll = new JScrollPane(body);
             scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
@@ -136,6 +140,33 @@ public class OverviewFlowTest
                 assertEquals(scroll.getViewport().getExtentSize().width, body.getWidth());
                 for (Component child : column.getComponents()) assertTrue(child.getX() + child.getWidth() <= body.getWidth());
             }
+        });
+    }
+
+    @Test public void largerTextResizesPersistentControlsAndSurvivesSourceNavigation() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            ItemDropLookupPanel p = panel();
+            search(p, "Lyre");
+            JComboBox<?> sizes = (JComboBox<?>) PanelTestSupport.find(p, "textSize");
+            sizes.setSelectedIndex(1);
+            for (String name : new String[] {"itemSearch", "showPrice", "textSize"})
+            {
+                JComponent control = (JComponent) PanelTestSupport.find(p, name);
+                assertEquals("Atkinson Hyperlegible", control.getFont().getFamily());
+                assertEquals(LookupStyle.LARGER_SIZE, control.getFont().getSize());
+                assertTrue(control.getMaximumSize().height >= control.getPreferredSize().height);
+            }
+            PanelTestSupport.openSources(p);
+            JButton details = (JButton) PanelTestSupport.find(p, "openLocations");
+            assertEquals(LookupStyle.LARGER_SIZE, details.getFont().getSize());
+            details.doClick(0);
+            JButton back = (JButton) PanelTestSupport.find(p, "backToResults");
+            assertEquals(LookupStyle.LARGER_SIZE, back.getFont().getSize());
+            back.doClick(0);
+            assertSame(details, PanelTestSupport.find(p, "openLocations"));
+            sizes.setSelectedIndex(0);
+            assertEquals(LookupStyle.STANDARD_SIZE, PanelTestSupport.find(p, "openLocations").getFont().getSize());
         });
     }
 

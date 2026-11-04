@@ -13,7 +13,7 @@ import net.runelite.client.ui.ClientToolbar;
 import net.runelite.client.ui.NavigationButton;
 import net.runelite.client.ui.PluginPanel;
 
-/** C2c review only. The font comparison never enters the production JAR. */
+/** C2d review only. The selected production font is used without comparison controls. */
 @PluginDescriptor(name = "Item Lookup C2 Review", enabledByDefault = true)
 public class ImplementedDesignReview extends Plugin
 {
@@ -29,75 +29,22 @@ public class ImplementedDesignReview extends Plugin
     {
         PluginPanel review = new PluginPanel(false) { };
         review.setLayout(new BorderLayout());
-        JComboBox<String> treatment = new JComboBox<>(new String[] {"OpenDyslexic", "Atkinson"});
-        treatment.setName("reviewFont");
-        treatment.setFont(new LookupStyle(13).font());
-        treatment.getAccessibleContext().setAccessibleName("Development font comparison");
-        treatment.setToolTipText("Atkinson Hyperlegible: approximate lowercase height match; same layout and colours");
-        JPanel body = new JPanel(new BorderLayout());
         ItemDropLookupPanel panel = new ItemDropLookupPanel(drops, sources, prices, locations, requirements);
-        JComponent size = (JComponent) PanelTestSupport.find(panel, "textSize");
-        size.setEnabled(false);
-        size.setToolTipText("Text size is held fixed during this font comparison");
-        body.add(panel.getWrappedPanel(), BorderLayout.CENTER);
-        installComparison(body, treatment);
-        JPanel controls = LookupStyle.column();
-        JLabel identifier = new JLabel("Review C2c");
-        identifier.setFont(new LookupStyle(13).font());
+        JLabel identifier = new JLabel("Review C2d");
+        identifier.setFont(new LookupStyle(LookupStyle.STANDARD_SIZE).font());
         identifier.setForeground(LookupStyle.ACCENT);
         identifier.setAlignmentX(Component.LEFT_ALIGNMENT);
-        controls.add(identifier);
-        controls.add(treatment);
-        review.add(controls, BorderLayout.NORTH);
-        review.add(body, BorderLayout.CENTER);
+        review.add(identifier, BorderLayout.NORTH);
+        review.add(panel.getWrappedPanel(), BorderLayout.CENTER);
         ((JTextField) PanelTestSupport.find(panel, "itemSearch")).setText("Spade");
         ((JTextField) PanelTestSupport.find(panel, "itemSearch")).postActionEvent();
         BufferedImage icon = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
         Graphics2D graphics = icon.createGraphics();
         graphics.setColor(LookupStyle.ACCENT); graphics.fillRoundRect(1, 1, 14, 14, 4, 4);
         graphics.setColor(Color.BLACK); graphics.drawString("B", 4, 12); graphics.dispose();
-        navigation = NavigationButton.builder().tooltip("C2c B review — layout and font")
+        navigation = NavigationButton.builder().tooltip("C2d B review — selected Atkinson font")
                 .icon(icon).priority(4).panel(review).build();
         toolbar.addNavigation(navigation);
-    }
-
-    static void installComparison(Container body, JComboBox<String> treatment)
-    {
-        Runnable update = () -> {
-            ReviewFontComparison.apply(body, treatment.getSelectedIndex() == 1);
-            body.revalidate();
-            body.repaint();
-        };
-        treatment.addActionListener(e -> update.run());
-        boolean[] queued = {false};
-        watchContent(body, () -> {
-            if (queued[0]) return;
-            queued[0] = true;
-            SwingUtilities.invokeLater(() -> {
-                queued[0] = false;
-                update.run();
-            });
-        });
-        update.run();
-    }
-
-    private static void watchContent(Container parent, Runnable changed)
-    {
-        if (parent instanceof JComponent)
-        {
-            JComponent component = (JComponent) parent;
-            if (Boolean.TRUE.equals(component.getClientProperty("reviewWatched"))) return;
-            component.putClientProperty("reviewWatched", true);
-        }
-        parent.addContainerListener(new java.awt.event.ContainerAdapter()
-        {
-            @Override public void componentAdded(java.awt.event.ContainerEvent event)
-            {
-                if (event.getChild() instanceof Container) watchContent((Container) event.getChild(), changed);
-                changed.run();
-            }
-        });
-        for (Component child : parent.getComponents()) if (child instanceof Container) watchContent((Container) child, changed);
     }
 
     @Override protected void shutDown() { if (navigation != null) toolbar.removeNavigation(navigation); }

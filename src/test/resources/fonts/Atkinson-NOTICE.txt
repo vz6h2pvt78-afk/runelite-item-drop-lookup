@@ -1,9 +1,0 @@
-Atkinson Hyperlegible Regular — local review comparison only
-Copyright 2020 Braille Institute of America, Inc.
-Licensed under SIL Open Font License 1.1; see Atkinson-OFL.txt.
-Unmodified font from https://github.com/googlefonts/atkinson-hyperlegible
-Path: fonts/ttf/AtkinsonHyperlegible-Regular.ttf
-Git blob SHA-1: b3cc4200fcf09d600eac74002ab4ea65b404a536
-License blob SHA-1: 2befc89b0ee81d5a37e6ca6503bb0db099feb70f
-Retrieved 2026-11-03. No affiliation or endorsement is implied.
-This asset is under src/test/resources and is excluded from the production plugin JAR.

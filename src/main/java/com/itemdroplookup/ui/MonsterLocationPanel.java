@@ -85,7 +85,7 @@ public class MonsterLocationPanel extends JPanel
                                 MonsterLocationLookupService service, AccessRequirementLookupService requirements,
                                 WildernessFilter initialFilter, Runnable back)
     {
-        this(source, searchQuery, service, requirements, initialFilter, back, new LookupStyle(13));
+        this(source, searchQuery, service, requirements, initialFilter, back, new LookupStyle(LookupStyle.STANDARD_SIZE));
     }
 
     MonsterLocationPanel(DropSource source, String searchQuery,
