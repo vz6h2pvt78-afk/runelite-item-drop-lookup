@@ -78,9 +78,11 @@ public class ItemDropLookupPlugin extends Plugin
             panel.dispose();
             panel = null;
         }
-        if (navButton != null)
+        NavigationButton removedButton = navButton;
+        navButton = null;
+        if (removedButton != null)
         {
-            clientToolbar.removeNavigation(navButton);
+            clientToolbar.removeNavigation(removedButton);
         }
 
         log.debug("Item Drop Lookup stopped!");
