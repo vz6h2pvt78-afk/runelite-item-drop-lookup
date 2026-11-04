@@ -19,7 +19,8 @@ public final class AcquisitionPreview
             Gson gson = new Gson();
             ItemDropLookupPanel panel = new ItemDropLookupPanel(new DropLookupService(gson), new ItemSourceLookupService(gson),
                     new ItemPriceLookupService(gson), new MonsterLocationLookupService(gson), new AccessRequirementLookupService(gson));
-            for (String[] scenario : new String[][]{{"Magic logs", "Gathering", ""}, {"Amulet of glory", "Loot & containers", ""},
+            for (String[] scenario : new String[][]{{"Magic logs", "Gathering", ""}, {"Yew logs", "Gathering", ""},
+                    {"Logs", "Gathering", ""}, {"Amulet of glory", "Loot & containers", ""},
                     {"Adamant sq shield", "NPC Drops", "Night beast"}, {"Dragonstone", "NPC Drops", "Zulrah"}})
             {
                 JTextField search = (JTextField) PanelTestSupport.find(panel, "itemSearch");

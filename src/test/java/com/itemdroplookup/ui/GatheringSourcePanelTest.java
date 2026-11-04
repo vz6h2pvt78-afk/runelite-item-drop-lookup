@@ -87,7 +87,7 @@ public class GatheringSourcePanelTest
     public void unreviewedLogsKeepAnHonestHarvestFallbackAndOtherSources() throws Exception
     {
         SwingUtilities.invokeAndWait(() -> {
-            ItemDropLookupPanel panel = search("logs");
+            ItemDropLookupPanel panel = search("oak logs");
             ((JComboBox<?>) named(panel, "sourceTypeFilter").get(0)).setSelectedItem("Gathering");
             assertEquals(1, named(panel, "itemSourceCard").size());
             assertTrue(labels(panel).contains("harvesting details unavailable"));

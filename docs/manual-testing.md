@@ -100,8 +100,10 @@ offline renders cannot verify in-game behavior.
     usable axe and 75 base Woodcutting requirement. Confirm two Wilderness locations
     say level 101 and two noted logs per successful chop; Guild says level 86 and
     one. Ent must be absent from **NPC Drops** for logs, while **Slayer's enchantment**
-    still has its direct Ent drop and Wilderness task condition. Other Ent logs at
-    this checkpoint explain that harvesting details are unavailable.
+    still has its direct Ent drop and Wilderness task condition. **Yew logs** uses
+    61 base Woodcutting and the same three encounters. **Logs** lists only two
+    Wilderness encounters and states that exactly level 45 is uncertain. Oak,
+    Willow and Maple explain that harvesting details are unavailable.
 30. **Amulet of glory -> Loot & containers** shows one Dragon impling loot method,
     three noted amulets and a qualified Wiki-listed 1/19. Opening an existing jar
     requires no Hunter level. Catching requirements belong only to capture, with

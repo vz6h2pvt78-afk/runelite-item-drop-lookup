@@ -72,8 +72,24 @@ reviewed harvest: kill an Ent, chop with a usable axe, and have 75 base Woodcutt
 for that output. The two explicit Wilderness locations have level 101 Ents and
 two noted logs per successful chop; the Guild cavern has level 86 Ents and one.
 The selected log is not guaranteed, and neither the encounter level nor the yield
-is a player combat requirement or quantity per kill. Other log details remain
-unavailable at this checkpoint, including the held ordinary-Logs/Guild association.
+is a player combat requirement or quantity per kill. Yew logs uses the same three
+reviewed locations, with the Ent-specific threshold of 61 base Woodcutting (not
+the ordinary tree's level 60).
+
+Ordinary Logs lists only the two Wilderness associations. Its output condition
+is a scoped statement: below 45 base Woodcutting, uncertain at exactly 45, and
+unavailable above 45. The article excludes Logs at 45, but
+[Ent calculator revision 14807078](https://oldschool.runescape.wiki/w/Module:Ent_calculator?oldid=14807078)
+includes Plain in its 31..45 bin. The conflict is recorded in
+`tools/fixtures/ent_boundary_conflict.json` and checked independently; no hard
+exclusive maximum or invented lower bound replaces this uncertainty. The
+[calculator template revision 14807076](https://oldschool.runescape.wiki/w/Template:Ent_Calculator?oldid=14807076)
+links the calculation. The matrix also depends on axe offsets and has boundary
+behaviour unsuitable for a quick translation into gameplay probabilities.
+
+Oak, Willow and Maple details remain unavailable, as does ordinary Logs in the
+Guild. Their normal-tree unlock levels are not inferred for Ent outputs. This
+bounded pass does not implement a probability calculator or resolve Wiki conflicts.
 
 There are no legacy Ent drop bindings. The new association chain is Ent revision
 15388968 -> reviewed harvest -> explicit location IDs -> exact existing location

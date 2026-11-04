@@ -55,9 +55,26 @@ public class AcquisitionEventLookupServiceTest
         assertEquals(1, lines.stream().filter(l -> l.contains("level 86 Ent; 1 noted log per successful chop")).count());
         assertTrue(text.contains("not guaranteed"));
         assertEquals(6, service.getMethods().stream().filter(m -> m.getSourceType().equals("Gathering")).count());
-        assertEquals(1, service.getMethods().stream().filter(m -> m.getSourceType().equals("Gathering") && m.isVerified()).count());
+        assertEquals(3, service.getMethods().stream().filter(m -> m.getSourceType().equals("Gathering") && m.isVerified()).count());
         assertEquals("1 (noted)", drops.searchByItemName("Magic logs").stream()
                 .filter(d -> d.getMonsterName().equals("Ent")).findFirst().get().getQuantity());
+    }
+
+    @Test
+    public void yewUsesItsEntOutputConditionAndExactEncounters()
+    {
+        AcquisitionMethod yew = service(data()).getMethods().stream()
+                .filter(m -> m.getItemName().equals("Yew logs")).findFirst().get();
+        assertTrue(yew.isVerified());
+        assertTrue(yew.getSearchText().contains("61 base Woodcutting"));
+        assertFalse(yew.getSearchText().contains("60 base Woodcutting"));
+        assertTrue(yew.getSearchText().contains("Kill an Ent, then chop its trunk"));
+        assertTrue(yew.getSearchText().contains("level 101 Ent; 2 noted logs per successful chop"));
+        assertTrue(yew.getSearchText().contains("level 86 Ent; 1 noted log per successful chop"));
+        assertTrue(yew.getSearchText().contains("not guaranteed"));
+        assertFalse(yew.getSearchText().contains("Slayer"));
+        for (String item : new String[]{"Oak logs", "Willow logs", "Maple logs"})
+            assertFalse(service(data()).getMethods().stream().filter(m -> m.getItemName().equals(item)).findFirst().get().isVerified());
     }
 
     @Test
@@ -104,6 +121,7 @@ public class AcquisitionEventLookupServiceTest
     public void absentLowerBoundIsNotInventedAndInvalidIntervalsAreRejected()
     {
         JsonObject input = data();
+        while (input.getAsJsonArray("harvests").size() > 1) input.getAsJsonArray("harvests").remove(1);
         JsonObject row = input.getAsJsonArray("harvests").get(0).getAsJsonObject();
         row.addProperty("id", "ent-logs");
         row.addProperty("itemName", "Logs");
@@ -119,6 +137,21 @@ public class AcquisitionEventLookupServiceTest
         assertFalse(logs.getSearchText().contains("Requires 1"));
         assertFalse(logs.getLocationText().contains("Guild"));
         rejects(r -> r.getAsJsonObject("outputCondition").addProperty("maxBaseLevelExclusive", 75));
+    }
+
+    @Test
+    public void ordinaryLogsKeepTheConflictingBoundaryAndOnlyWildernessLocations()
+    {
+        AcquisitionMethod logs = service(data()).getMethods().stream()
+                .filter(m -> m.getItemName().equals("Logs")).findFirst().get();
+        assertTrue(logs.isVerified());
+        assertTrue(logs.getSearchText().contains("below 45 base Woodcutting"));
+        assertTrue(logs.getSearchText().contains("At 45, availability is uncertain"));
+        assertTrue(logs.getSearchText().contains("Unavailable above 45"));
+        assertFalse(logs.getSearchText().contains("Requires 1"));
+        assertFalse(logs.getLocationText().contains("Guild"));
+        assertEquals(2, logs.getSections().stream().filter(s -> s.getHeading().equals("Where and yield"))
+                .findFirst().get().getLines().size());
     }
 
     @Test

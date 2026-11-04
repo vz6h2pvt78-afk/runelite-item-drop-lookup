@@ -19,6 +19,27 @@ class AcquisitionEvidenceTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "outcome table"):
             self.check()
 
+    def test_yew_uses_ent_threshold_and_other_logs_remain_unverified(self):
+        self.assertEqual(3, self.check()["harvests"])
+        self.assertEqual({"Magic logs", "Yew logs", "Logs"}, {h["itemName"] for h in self.data["harvests"]})
+        yew = next(h for h in self.data["harvests"] if h["itemName"] == "Yew logs")
+        yew["outputCondition"]["minBaseLevel"] = 60
+        with self.assertRaisesRegex(ValueError, "output requirement"):
+            self.check()
+
+    def test_logs_boundary_cannot_be_simplified_to_a_hard_maximum(self):
+        logs = next(h for h in self.data["harvests"] if h["itemName"] == "Logs")
+        logs["outputCondition"] = {"kind": "SKILL", "scope": "OUTPUT", "skill": "Woodcutting",
+                                   "maxBaseLevelExclusive": 45, "text": "Unavailable at 45 or above."}
+        with self.assertRaisesRegex(ValueError, "level-45 conflict"):
+            self.check()
+
+    def test_ordinary_logs_do_not_acquire_the_guild_association(self):
+        logs = next(h for h in self.data["harvests"] if h["itemName"] == "Logs")
+        logs["locations"].append(copy.deepcopy(self.data["harvests"][0]["locations"][2]))
+        with self.assertRaisesRegex(ValueError, "Harvest associations"):
+            self.check()
+
     def test_seed_noting_and_quest_scope_are_not_inferred(self):
         outcome = next(o for o in self.data["lootEvents"][0]["outcomes"] if o["itemName"] == "Snapdragon seed")
         outcome["noted"] = True

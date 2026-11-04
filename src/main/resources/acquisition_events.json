@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-04T02:50:00Z",
+  "checkedAt": "2026-11-04T03:40:53Z",
   "attribution": "OSRS Wiki contributors; reviewed acquisition facts under CC BY-NC-SA 3.0. See THIRD_PARTY_NOTICES.txt.",
   "harvests": [
     {
@@ -77,6 +77,162 @@
           "page": "Ent",
           "revisionId": 15388968,
           "sourceUrl": "https://oldschool.runescape.wiki/w/Ent?oldid=15388968"
+        }
+      ],
+      "toolRequirement": {
+        "kind": "TOOL_CATEGORY",
+        "tool": "AXE",
+        "qualification": "USABLE_AT_CURRENT_SKILL",
+        "scope": "HARVEST",
+        "text": "An axe usable at your Woodcutting level."
+      }
+    },
+    {
+      "id": "ent-yew-logs",
+      "itemName": "Yew logs",
+      "sourceName": "Ent trunk",
+      "legacyDrop": {
+        "itemName": "Yew logs",
+        "monsterName": "Ent",
+        "quantity": "1 (noted)",
+        "dropRate": "Varies",
+        "notes": ""
+      },
+      "prerequisiteAction": "DEFEAT_MONSTER",
+      "harvestAction": "Chop the defeated Ent's trunk",
+      "outputCondition": {
+        "kind": "SKILL",
+        "scope": "OUTPUT",
+        "skill": "Woodcutting",
+        "minBaseLevel": 61,
+        "text": "Requires 61 base Woodcutting for Yew logs."
+      },
+      "chanceKind": "VARIABLE",
+      "chanceContext": "Base Woodcutting and axe affect the log type. Current Woodcutting affects chop success.",
+      "locations": [
+        {
+          "locationId": "96e8b6f8e85241dc9c51",
+          "combatLevel": 101,
+          "quantity": 2,
+          "noted": true,
+          "quantityBasis": "SUCCESSFUL_HARVEST",
+          "evidence": [
+            {
+              "page": "Ent",
+              "revisionId": 15388968,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Ent?oldid=15388968"
+            }
+          ],
+          "locationName": "East of Chaos Temple (Wilderness)"
+        },
+        {
+          "locationId": "a68fdb7c45298260aeff",
+          "combatLevel": 101,
+          "quantity": 2,
+          "noted": true,
+          "quantityBasis": "SUCCESSFUL_HARVEST",
+          "evidence": [
+            {
+              "page": "Ent",
+              "revisionId": 15388968,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Ent?oldid=15388968"
+            }
+          ],
+          "locationName": "North of Chaos Temple (Wilderness)"
+        },
+        {
+          "locationId": "b8ac024e7c04439a486b",
+          "combatLevel": 86,
+          "quantity": 1,
+          "noted": true,
+          "quantityBasis": "SUCCESSFUL_HARVEST",
+          "evidence": [
+            {
+              "page": "Ent",
+              "revisionId": 15388968,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Ent?oldid=15388968"
+            }
+          ],
+          "locationName": "Woodcutting Guild Ent cavern"
+        }
+      ],
+      "evidence": [
+        {
+          "page": "Ent",
+          "revisionId": 15388968,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Ent?oldid=15388968"
+        }
+      ],
+      "toolRequirement": {
+        "kind": "TOOL_CATEGORY",
+        "tool": "AXE",
+        "qualification": "USABLE_AT_CURRENT_SKILL",
+        "scope": "HARVEST",
+        "text": "An axe usable at your Woodcutting level."
+      }
+    },
+    {
+      "id": "ent-logs",
+      "itemName": "Logs",
+      "sourceName": "Ent trunk",
+      "legacyDrop": {
+        "itemName": "Logs",
+        "monsterName": "Ent",
+        "quantity": "1 (noted)",
+        "dropRate": "Varies",
+        "notes": ""
+      },
+      "prerequisiteAction": "DEFEAT_MONSTER",
+      "harvestAction": "Chop the defeated Ent's trunk",
+      "outputCondition": {
+        "kind": "SCOPED_STATEMENT",
+        "scope": "OUTPUT",
+        "text": "Output range: below 45 base Woodcutting. At 45, availability is uncertain because Wiki sources disagree. Unavailable above 45."
+      },
+      "chanceKind": "VARIABLE",
+      "chanceContext": "Base Woodcutting and axe affect the log type. Current Woodcutting affects chop success.",
+      "locations": [
+        {
+          "locationId": "96e8b6f8e85241dc9c51",
+          "combatLevel": 101,
+          "quantity": 2,
+          "noted": true,
+          "quantityBasis": "SUCCESSFUL_HARVEST",
+          "evidence": [
+            {
+              "page": "Ent",
+              "revisionId": 15388968,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Ent?oldid=15388968"
+            }
+          ],
+          "locationName": "East of Chaos Temple (Wilderness)"
+        },
+        {
+          "locationId": "a68fdb7c45298260aeff",
+          "combatLevel": 101,
+          "quantity": 2,
+          "noted": true,
+          "quantityBasis": "SUCCESSFUL_HARVEST",
+          "evidence": [
+            {
+              "page": "Ent",
+              "revisionId": 15388968,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Ent?oldid=15388968"
+            }
+          ],
+          "locationName": "North of Chaos Temple (Wilderness)"
+        }
+      ],
+      "evidence": [
+        {
+          "page": "Ent",
+          "revisionId": 15388968,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Ent?oldid=15388968"
+        },
+        {
+          "page": "Module:Ent calculator",
+          "revisionId": 14807078,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Module:Ent_calculator?oldid=14807078"
         }
       ],
       "toolRequirement": {

@@ -33,6 +33,10 @@ Runtime resources under src/main/resources/:
   revision links. The full ordinary loot table is retained separately from the
   subset of outcomes currently exposed in item searches. Offline evidence text in
   tools/fixtures/acquisition_event_evidence.json retains the same Wiki license.
+  This fixture also retains Template:Ent Calculator (14807076) and
+  Module:Ent calculator (14807078). The ordinary-Logs level-45 disagreement is
+  documented in tools/fixtures/ent_boundary_conflict.json without resolving the
+  Wiki sources or translating their calculation into gameplay probabilities.
 
 - wiki_ground_sources.json: twelve reviewed ground-pickup rows adapted from
   Spade (revision 15387831), Knife (15350068), Bucket (15390041), Snape grass

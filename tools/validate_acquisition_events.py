@@ -14,7 +14,8 @@ ROOT = Path(__file__).resolve().parents[1]
 RESOURCE = ROOT / "src/main/resources/acquisition_events.json"
 FIXTURE = ROOT / "tools/fixtures/acquisition_event_evidence.json"
 PINS = {"Ent": 15388968, "Dragon impling": 15371528,
-        "Dragon impling jar": 15371529, "Impling": 15360701}
+        "Dragon impling jar": 15371529, "Impling": 15360701,
+        "Template:Ent Calculator": 14807076, "Module:Ent calculator": 14807078}
 SIGNATURE = ("itemName", "monsterName", "quantity", "dropRate", "notes")
 
 
@@ -50,22 +51,50 @@ def validate(data, pins, locations, drops):
                     check_refs(entries)
     check_refs(data)
     by_id = {r["id"]: r for r in locations["locations"]}
-    require(len(data["harvests"]) == 1, "Harvest coverage expansion needs review")
-    harvest = data["harvests"][0]
-    require(harvest["id"] == "ent-magic-logs" and harvest["itemName"] == "Magic logs", "Unexpected harvest identity")
+    require(len(data["harvests"]) == 3 and {h["itemName"] for h in data["harvests"]} == {"Magic logs", "Yew logs", "Logs"},
+            "Harvest coverage expansion needs review")
+    for harvest in data["harvests"]:
+        validate_harvest(harvest, evidence, by_id, drops)
+    validate_loot(data, evidence)
+    return {"harvests": len(data["harvests"]), "harvestLocations": sum(len(h["locations"]) for h in data["harvests"]),
+            "lootEvents": 1, "ordinaryOutcomes": 19, "lookupOutcomes": 1}
+
+
+def validate_harvest(harvest, evidence, by_id, drops):
+    item = harvest["itemName"]
+    require(harvest["id"] == "ent-" + item.lower().replace(" ", "-"), "Unexpected harvest identity")
     require(harvest["prerequisiteAction"] == "DEFEAT_MONSTER" and harvest["chanceKind"] == "VARIABLE", "Wrong harvest action/chance")
     require(harvest["toolRequirement"] == {"kind": "TOOL_CATEGORY", "tool": "AXE", "qualification": "USABLE_AT_CURRENT_SKILL",
                                           "scope": "HARVEST", "text": "An axe usable at your Woodcutting level."}, "Wrong tool requirement")
-    require(harvest["outputCondition"] == {"kind": "SKILL", "scope": "OUTPUT", "skill": "Woodcutting", "minBaseLevel": 75,
-                                          "text": "Requires 75 base Woodcutting for Magic logs."}, "Wrong output requirement")
+    if item == "Logs":
+        require(harvest["outputCondition"] == {"kind": "SCOPED_STATEMENT", "scope": "OUTPUT",
+                "text": "Output range: below 45 base Woodcutting. At 45, availability is uncertain because Wiki sources disagree. Unavailable above 45."},
+                "Logs level-45 conflict must remain explicit; no hard upper bound")
+        conflict = json.loads((ROOT / "tools/fixtures/ent_boundary_conflict.json").read_text())
+        require(conflict["supportedOutputRangeBelow"] == 45 and conflict["unresolvedLevels"] == [45]
+                and conflict["unavailableAbove"] == 45 and conflict["basis"] == "BASE_LEVEL"
+                and conflict["articleRevisionId"] == PINS["Ent"]
+                and conflict["calculatorRevisionId"] == PINS["Module:Ent calculator"], "Conflict evidence changed")
+        require("regular [[logs]] are not dropped once you reach level 45" in evidence["Ent"]["wikitext"], "Missing article boundary")
+        calculator = evidence["Module:Ent calculator"]["wikitext"]
+        require('{31, 45}' in calculator and '{"Plain",   "Plain",   "Plain",   "Oak"' in calculator
+                and 'dataTable.data[roll][levelBinIndex]' in calculator, "Missing conflicting calculator cell")
+        require(any(ref["page"] == "Module:Ent calculator" for ref in harvest["evidence"]), "Missing conflict source")
+    else:
+        minimum = {"Magic logs": 75, "Yew logs": 61}[item]
+        require(harvest["outputCondition"] == {"kind": "SKILL", "scope": "OUTPUT", "skill": "Woodcutting", "minBaseLevel": minimum,
+                                              "text": f"Requires {minimum} base Woodcutting for {item}."}, "Wrong output requirement")
     require("[[magic logs]] are only obtainable at level 75" in evidence["Ent"]["wikitext"], "Missing threshold evidence")
+    require("[[yew logs]] are only obtainable at level 61" in evidence["Ent"]["wikitext"], "Missing yew threshold evidence")
     require("2 noted logs drop on each success instead of 1 in the Woodcutting Guild" in evidence["Ent"]["wikitext"], "Missing yield evidence")
     legacy = harvest["legacyDrop"]
     require(set(legacy) == set(SIGNATURE), "Legacy signature fields changed")
-    require(legacy == dict(zip(SIGNATURE, ["Magic logs", "Ent", "1 (noted)", "Varies", ""])), "Legacy signature changed")
+    require(legacy == dict(zip(SIGNATURE, [item, "Ent", "1 (noted)", "Varies", ""])), "Legacy signature changed")
     require(sum(all(row.get(k) == legacy[k] for k in SIGNATURE) for row in drops) == 1, "Exact legacy source missing or ambiguous")
     expected_locations = {"96e8b6f8e85241dc9c51": (101, 2), "a68fdb7c45298260aeff": (101, 2), "b8ac024e7c04439a486b": (86, 1)}
-    require(len(harvest["locations"]) == 3 and {r["locationId"] for r in harvest["locations"]} == set(expected_locations), "Harvest associations changed")
+    if item == "Logs":
+        del expected_locations["b8ac024e7c04439a486b"] # Ordinary Logs/Guild remains explicitly held.
+    require(len(harvest["locations"]) == len(expected_locations) and {r["locationId"] for r in harvest["locations"]} == set(expected_locations), "Harvest associations changed")
     for association in harvest["locations"]:
         record = by_id.get(association["locationId"])
         level, quantity = expected_locations[association["locationId"]]
@@ -73,6 +102,9 @@ def validate(data, pins, locations, drops):
                 and record["location"] == association["locationName"] and record["levels"] == [level], "Changed harvest location record")
         require(association["combatLevel"] == level and association["quantity"] == quantity
                 and association["noted"] is True and association["quantityBasis"] == "SUCCESSFUL_HARVEST", "Wrong harvest yield/encounter")
+
+
+def validate_loot(data, evidence):
     # The source contains two legitimate bolt-tip rows. Preserve both, in order.
     expected_outcomes = []
     pattern = r"\{\{DropsLineReward\|name=([^|{}]+)\|quantity=([^|{}]+)\|rarity=1/19(?=\||\}\})"
@@ -106,7 +138,6 @@ def validate(data, pins, locations, drops):
         require([(o["kind"], o["hunterLevel"], o["skill"], o["scope"], o["equipmentAlternatives"]) for o in route["captureOptions"]]
                 == [("NET", 83, "Hunter", "CAPTURE", ["BUTTERFLY_NET", "MAGIC_BUTTERFLY_NET"]),
                     ("BAREHANDED", 93, "Hunter", "CAPTURE", [])], "Wrong capture requirements")
-    return {"harvests": 1, "harvestLocations": 3, "lootEvents": 1, "ordinaryOutcomes": 19, "lookupOutcomes": 1}
 
 
 def load_inputs():

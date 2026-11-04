@@ -20,9 +20,10 @@ Search potions by their ordinary name, such as `prayer potion`, to include all
 available doses. Entering a specific dose still restricts that search. Potion
 GE references use the four-dose item when one exists.
 
-Ent logs appear under **Gathering**, with a kill-then-chop explanation. Magic logs
-have reviewed combat levels, Woodcutting requirements and yield per successful
-chop; the other five log entries currently explain that their details are unavailable.
+Ent logs appear under **Gathering**, with a kill-then-chop explanation. Magic logs,
+Yew logs and ordinary Logs have reviewed encounter levels and yield per successful
+chop. Ordinary Logs explicitly flag conflicting Wiki evidence at level 45 and
+only list Wilderness locations. Oak, Willow and Maple details remain unavailable.
 Slayer's enchantment remains a direct NPC drop. **Amulet of glory** includes Dragon
 impling loot under **Loot & containers**, with separate jar-opening and catching
 routes. Opening an already obtained jar does not require Hunter levels.

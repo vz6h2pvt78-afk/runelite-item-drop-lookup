@@ -1,0 +1,13 @@
+{
+  "itemName": "Logs",
+  "skill": "Woodcutting",
+  "basis": "BASE_LEVEL",
+  "supportedOutputRangeBelow": 45,
+  "unresolvedLevels": [
+    45
+  ],
+  "unavailableAbove": 45,
+  "articleRevisionId": 15388968,
+  "calculatorRevisionId": 14807078,
+  "reason": "Article excludes Logs at 45; calculator includes Plain in the 31..45 level bin. Do not replace this scoped statement with a hard exclusive maximum."
+}
