@@ -1,0 +1,8 @@
+S6A - Early Slayer requirements
+
+Five exact monsters gained seven verified facts across 76 drop rows. Banshee separates 15 Slayer from protection against its scream. Rockslug separates 20 Slayer from the salt or brine sabre finish. Both text sizes rendered the exact named cards. Each monster's kill level was checked against its Wiki infobox and separate prose. The 5,664-query audit reconciled all 14,040 existing drop rows and location bindings. Both Java runs passed 175 tests, Python passed 132, and package, API, regeneration and recovery checks passed. Check the two equipment labels in the client and compare Twisted banshee with Banshee.
+
+Starting commit 32baa88f4520a35aa860b75bf08660076c722b5c
+Build development-2026-11-04-s6a-early-slayer
+Official package SHA256 fc38dce1747d9ac19ce703ead73f9dd4c103143b5004368fd9ad9e42bb521751
+Human acceptance pending.

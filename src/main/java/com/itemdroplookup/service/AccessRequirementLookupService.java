@@ -63,7 +63,15 @@ public class AccessRequirementLookupService
             return;
         }
         // First use is on the Swing sidebar, never on the game client thread.
-        try (InputStream input = getClass().getResourceAsStream("/access_requirements.json"))
+        Set<String> ids = new HashSet<>();
+        loadResource("/access_requirements.json",ids);
+        loadResource("/reviewed_slayer_access.json",ids);
+        loaded = true;
+    }
+
+    private void loadResource(String path, Set<String> allIds)
+    {
+        try (InputStream input = getClass().getResourceAsStream(path))
         {
             if (input == null)
             {
@@ -77,21 +85,20 @@ public class AccessRequirementLookupService
             Set<String> ids = new HashSet<>();
             for (AccessRequirement fact : data.facts)
             {
-                if (!valid(fact) || !ids.add(fact.getId()))
+                if (!valid(fact) || allIds.contains(fact.getId()) || !ids.add(fact.getId()))
                 {
                     throw new IllegalArgumentException("Invalid bundled access fact");
                 }
+            }
+            allIds.addAll(ids);
+            for (AccessRequirement fact : data.facts)
+            {
                 byMonster.computeIfAbsent(normalize(fact.getMonsterName()), key -> new ArrayList<>()).add(fact);
             }
         }
         catch (Exception ex)
         {
-            byMonster.clear();
-            log.debug("Unable to load bundled access requirements", ex);
-        }
-        finally
-        {
-            loaded = true;
+            log.debug("Unable to load bundled access requirements {}", path, ex);
         }
     }
 
@@ -112,6 +119,8 @@ public class AccessRequirementLookupService
         {
             return false;
         }
+        if ((fact.getAppliesTo() == AccessRequirement.AppliesTo.PROTECTION || fact.getAppliesTo() == AccessRequirement.AppliesTo.FINISHING)
+                && (fact.getScope() != Scope.MONSTER || fact.getType() != AccessRequirement.Type.EQUIPMENT)) return false;
         if (fact.getAppliesTo() == AccessRequirement.AppliesTo.DROP_CONTEXT
                 && (fact.getScope() != Scope.MONSTER || fact.getType() != AccessRequirement.Type.CONTEXT)) return false;
         return !fact.getEvidence().isEmpty() && fact.getEvidence().stream().allMatch(evidence -> evidence != null

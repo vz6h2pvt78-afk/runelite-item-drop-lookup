@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-04T23:00:00Z",
+  "facts": [
+    {
+      "monsterName": "Banshee",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Banshee",
+          "revisionId": 15373192,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Banshee?oldid=15373192"
+        }
+      ],
+      "id": "banshee-slayer",
+      "appliesTo": "COMBAT",
+      "type": "SKILL",
+      "skill": "Slayer",
+      "level": 15,
+      "text": "15 Slayer to kill."
+    },
+    {
+      "monsterName": "Banshee",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Banshee",
+          "revisionId": 15373192,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Banshee?oldid=15373192"
+        }
+      ],
+      "id": "banshee-protection",
+      "appliesTo": "PROTECTION",
+      "type": "EQUIPMENT",
+      "text": "Wear earmuffs or a Slayer helmet to prevent scream damage and stat drain."
+    },
+    {
+      "monsterName": "Cave crawler",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Cave crawler",
+          "revisionId": 15373244,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Cave_crawler?oldid=15373244"
+        }
+      ],
+      "id": "cave-crawler-slayer",
+      "appliesTo": "COMBAT",
+      "type": "SKILL",
+      "skill": "Slayer",
+      "level": 10,
+      "text": "10 Slayer to kill."
+    },
+    {
+      "monsterName": "Cave slime",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Cave slime",
+          "revisionId": 15365366,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Cave_slime?oldid=15365366"
+        }
+      ],
+      "id": "cave-slime-slayer",
+      "appliesTo": "COMBAT",
+      "type": "SKILL",
+      "skill": "Slayer",
+      "level": 17,
+      "text": "17 Slayer to kill."
+    },
+    {
+      "monsterName": "Crawling Hand",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Crawling Hand",
+          "revisionId": 15387322,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Crawling_Hand?oldid=15387322"
+        }
+      ],
+      "id": "crawling-hand-slayer",
+      "appliesTo": "COMBAT",
+      "type": "SKILL",
+      "skill": "Slayer",
+      "level": 5,
+      "text": "5 Slayer to kill."
+    },
+    {
+      "monsterName": "Rockslug",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Rockslug",
+          "revisionId": 15339655,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Rockslug?oldid=15339655"
+        }
+      ],
+      "id": "rockslug-slayer",
+      "appliesTo": "COMBAT",
+      "type": "SKILL",
+      "skill": "Slayer",
+      "level": 20,
+      "text": "20 Slayer to kill."
+    },
+    {
+      "monsterName": "Rockslug",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Rockslug",
+          "revisionId": 15339655,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Rockslug?oldid=15339655"
+        }
+      ],
+      "id": "rockslug-finishing",
+      "appliesTo": "FINISHING",
+      "type": "EQUIPMENT",
+      "text": "Use a bag of salt at 4 Hitpoints or lower, or use a brine sabre to finish the kill."
+    }
+  ]
+}

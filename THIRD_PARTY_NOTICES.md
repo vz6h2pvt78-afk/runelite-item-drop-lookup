@@ -21,6 +21,7 @@ nor their conversion to JSON is used to remove source credits or restrictions.
 
 Runtime resources under src/main/resources/:
 
+- `reviewed_slayer_access.json` adapts the exact monster pages pinned under `tools/fixtures/slayer_access/`. Each skill and separate combat mechanic carries the source revision.
 - `shop_locations.json` binds existing offers to the named shop versions in Forestry Shop revision 15374369 and Slayer Rewards revision 15373095. The reviewed inputs and their source links are in `tools/fixtures/shop_sites/`.
 - `wiki_ground_additions.json` selects three Bronze bar spawn locations from the same pinned article. `docs/data/bronze_ground.json` records the individual templates, locations and restrictions.
 - `production_recipes.json` uses the Standard normal-furnace recipe in Bronze bar revision 15315107. The offline fixture records its raw text and the saved rendered recipe table.

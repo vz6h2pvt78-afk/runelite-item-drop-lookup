@@ -7,7 +7,7 @@ import java.util.List;
 public final class AccessRequirement
 {
     public enum Scope { MONSTER, LOCATION, ITEM }
-    public enum AppliesTo { COMBAT, ACCESS, TASK_ELIGIBILITY, ITEM_DROP, ENCOUNTER_CONTEXT, ACTIVITY_CONTEXT, DROP_CONTEXT }
+    public enum AppliesTo { PROTECTION, FINISHING, COMBAT, ACCESS, TASK_ELIGIBILITY, ITEM_DROP, ENCOUNTER_CONTEXT, ACTIVITY_CONTEXT, DROP_CONTEXT }
     public enum Type { SKILL, ACTIVE_TASK, QUEST, EQUIPMENT, CONTEXT }
 
     private String id;
@@ -41,6 +41,8 @@ public final class AccessRequirement
     {
         switch (appliesTo)
         {
+            case PROTECTION: return "Protection";
+            case FINISHING: return "Finishing";
             case COMBAT: return scope == Scope.LOCATION ? "Location restriction" : "Required";
             case ACCESS: return "Location access";
             case TASK_ELIGIBILITY: return "Task eligibility";
@@ -61,6 +63,7 @@ public final class AccessRequirement
     public boolean isSourceCardFact()
     {
         return isSourceCardRequirement()
+                || (scope == Scope.MONSTER && (appliesTo == AppliesTo.PROTECTION || appliesTo == AppliesTo.FINISHING))
                 || (scope == Scope.MONSTER && appliesTo == AppliesTo.DROP_CONTEXT && type == Type.CONTEXT);
     }
 

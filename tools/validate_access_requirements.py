@@ -7,7 +7,7 @@ from urllib.parse import parse_qs, unquote, urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 SCOPES = {"MONSTER", "LOCATION", "ITEM"}
-APPLICABILITY = {"COMBAT", "ACCESS", "TASK_ELIGIBILITY", "ITEM_DROP", "ENCOUNTER_CONTEXT", "ACTIVITY_CONTEXT", "DROP_CONTEXT"}
+APPLICABILITY = {"PROTECTION", "FINISHING", "COMBAT", "ACCESS", "TASK_ELIGIBILITY", "ITEM_DROP", "ENCOUNTER_CONTEXT", "ACTIVITY_CONTEXT", "DROP_CONTEXT"}
 TYPES = {"SKILL", "ACTIVE_TASK", "QUEST", "EQUIPMENT", "CONTEXT"}
 
 
@@ -38,6 +38,8 @@ def validate(data, locations, drops):
         label = fact.get("id", f"index {index}")
         def fail(reason):
             errors.append(f"{label}: {reason}")
+        if fact.get("appliesTo") in {"PROTECTION","FINISHING"} and (fact.get("scope")!="MONSTER" or fact.get("type")!="EQUIPMENT"):
+            fail("Protection/finishing must be a monster equipment fact")
         if fact.get("appliesTo") == "DROP_CONTEXT" and (fact.get("scope") != "MONSTER" or fact.get("type") != "CONTEXT"):
             fail("Drop context must be a monster context, not an access requirement")
         if set(fact) - allowed:
@@ -94,7 +96,11 @@ def main():
     resources = ROOT / "src/main/resources"
     read = lambda name: json.loads((resources / name).read_text(encoding="utf-8"))
     data = read("access_requirements.json")
-    errors = validate(data, read("monster_locations.json"), read("wiki_monster_drops.json"))
+    extra = read("reviewed_slayer_access.json")
+    locations, drops = read("monster_locations.json"), read("wiki_monster_drops.json")
+    errors = validate(extra,locations,drops)
+    data["facts"] += extra["facts"]
+    errors += validate(data, locations, drops)
     for error in errors:
         print(error)
     print(f"Validated {len(data.get('facts', []))} access facts: {len(errors)} error(s)")
