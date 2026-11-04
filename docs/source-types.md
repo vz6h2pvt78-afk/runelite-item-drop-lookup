@@ -35,9 +35,10 @@ the validator (`tools/validate_item_sources.py`) can enforce it.
 
 ## Current state (informational)
 
-- `wiki_gathering_sources.json` adds one reviewed Mining method/location and one
-  Fishing method/location. Action and requirement lines are generated from
-  `docs/data/gathering_sources.json` and `docs/data/fishing_sources.json`.
+- `wiki_gathering_sources.json` adds one reviewed Mining, Fishing and ordinary-tree
+  Woodcutting method/location each. Action and requirement lines are generated from
+  `docs/data/gathering_sources.json`, `docs/data/fishing_sources.json` and
+  `docs/data/woodcutting_sources.json`.
   Fishing map points are not active-spot or source counts. See `docs/gathering.md`. The older `Skilling`
   vocabulary remains reserved; no existing records are reclassified.
 

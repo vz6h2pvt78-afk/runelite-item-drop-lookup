@@ -18,5 +18,15 @@
     "location": "Lumbridge Swamp",
     "cost": "",
     "notes": "Fishing level 1 · Small fishing net required\nNo bait needed · F2P\nNear the Fishing tutor."
+  },
+  {
+    "id": "4ed898018b0594689f92",
+    "itemId": 1511,
+    "itemName": "Logs",
+    "sourceType": "Gathering",
+    "sourceName": "Chop ordinary trees",
+    "location": "Draynor Village — near the bank",
+    "cost": "",
+    "notes": "Woodcutting level 1 · Axe required"
   }
 ]

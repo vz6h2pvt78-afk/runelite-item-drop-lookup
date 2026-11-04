@@ -191,6 +191,77 @@ public class GatheringSourcePanelTest
                 .noneMatch(d -> d.getMonsterName().toLowerCase().contains("fishing spot")));
     }
 
+    @Test
+    public void ordinaryTreesAndEntsRemainSeparateGatheringMethods() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            ItemDropLookupPanel panel = search("Logs");
+            JComboBox<?> filter = (JComboBox<?>) named(panel, "sourceTypeFilter").get(0);
+            assertEquals("View gathering (2)", ((JButton) named(panel, "showGatheringSources").get(0)).getText());
+            for (String included : new String[] {"All", "Non-NPC Sources", "Gathering"})
+            {
+                filter.setSelectedItem(included);
+                assertEquals(1, named(panel, "itemSourceCard").stream()
+                        .filter(c -> labels((Container)c).contains("Chop ordinary trees")).count());
+                assertEquals(1, named(panel, "itemSourceCard").stream()
+                        .filter(c -> labels((Container)c).contains("Ent trunk")).count());
+            }
+            assertEquals(2, named(panel, "itemSourceCard").size());
+            for (Component component : named(panel, "itemSourceCard"))
+            {
+                String card = labels((Container) component);
+                if (card.contains("Chop ordinary trees"))
+                {
+                    assertTrue(card.contains("Woodcutting level 1 · Axe required"));
+                    assertTrue(card.contains("Draynor Village"));
+                    for (String excluded : new String[] {"Ent", "WILDERNESS", "PvP", "45", "noted log", "Combat"})
+                        assertFalse(card, card.contains(excluded));
+                }
+                else
+                {
+                    assertTrue(card.contains("Ent trunk"));
+                    assertTrue(card.contains("WILDERNESS"));
+                    assertTrue(card.contains("45"));
+                    assertFalse(card.contains("Draynor"));
+                    assertFalse(card.contains("Woodcutting level 1 · Axe required"));
+                }
+            }
+            filter.setSelectedItem("NPC Drops");
+            assertFalse(labels(panel).contains("Chop ordinary trees"));
+            assertFalse(labels(panel).contains("Ent trunk"));
+        });
+    }
+
+    @Test
+    public void ordinaryTreeLocationFinderDoesNotBorrowEntLocations() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            ItemDropLookupPanel panel = search("Logs");
+            JTextField finder = (JTextField) named(panel, "sourceSearch").get(0);
+            finder.setText("Draynor");
+            ((JComboBox<?>) named(panel, "sourceTypeFilter").get(0)).setSelectedItem("Gathering");
+            assertEquals(1, named(panel, "itemSourceCard").size());
+            assertTrue(labels(panel).contains("Chop ordinary trees"));
+            assertFalse(labels(panel).contains("Ent trunk"));
+            assertTrue(named(panel, "openLocations").isEmpty());
+            ((JButton) named(panel, "clearSourceSearch").get(0)).doClick();
+            assertEquals(2, named(panel, "itemSourceCard").size());
+        });
+    }
+
+    @Test
+    public void ordinaryTreesOnlyAddTheReviewedCanonicalLogsOutput()
+    {
+        Gson gson = new Gson();
+        ItemSourceLookupService sources = new ItemSourceLookupService(gson);
+        for (String query : new String[] {"Oak logs", "Willow logs", "Maple logs", "Yew logs", "Magic logs", "Raw shrimps"})
+            assertTrue(sources.searchByItemName(query).stream().noneMatch(s -> "Chop ordinary trees".equals(s.getSourceName())));
+        ItemSearchSelection logs = new ItemSearchSelection("Logs", new DropLookupService(gson), sources, new ItemPriceLookupService(gson));
+        assertEquals(java.util.Collections.singletonList("Logs"), logs.choices());
+        assertEquals(2, logs.sources.stream().filter(s -> "Gathering".equals(s.getSourceType())).count());
+        assertEquals(1, logs.sources.stream().filter(s -> "Chop ordinary trees".equals(s.getSourceName()) && s.getAcquisitionMethod() == null).count());
+    }
+
     private static List<Component> named(Container parent, String name)
     {
         List<Component> result = new ArrayList<>();

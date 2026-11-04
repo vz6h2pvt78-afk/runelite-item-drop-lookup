@@ -8,6 +8,8 @@ terms, and [license review](license-review.md) for license scope and the disclos
 
 | File | Origin and transformation | Evidence and limitation |
 |---|---|---|
+| src/main/resources/wiki_gathering_sources.json | Reviewed Iron ore Mining, Raw shrimps Fishing and ordinary-tree Logs Woodcutting | Separate pinned fixtures and manifests for each activity; tools/build_gathering_sources.py checks all three offline; limited named-location coverage, no inferred rates/eligibility |
+| tools/fixtures/gathering_sources.json, fishing_sources.json, woodcutting_sources.json | Saved Wiki item/resource/location revisions | Full wikitext and snapshot/revision hashes; not shipped in the plugin; same Wiki attribution and terms; derived provenance in docs/data/ |
 | src/main/resources/acquisition_events.json | Reviewed Ent harvest and Dragon impling ordinary-loot events | Revision-pinned associations; full 19-outcome loot table separate from lookup coverage; tools/validate_acquisition_events.py checks pinned text and exact source/location identities |
 | tools/fixtures/acquisition_event_evidence.json | Ent, Dragon impling, Dragon impling jar and Impling Wiki revisions | Offline wikitext/SHA evidence, not shipped in the plugin; same Wiki attribution and terms |
 | src/main/resources/wiki_monster_drops.json | OSRS Wiki monster pages; tools/build_wiki_drops.py parses and normalizes drop tables | monsterName is the source page; old revision IDs were not recorded |

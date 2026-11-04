@@ -1,7 +1,7 @@
-"""Offline, reviewed gathering: Iron ore mining and one Raw shrimps fishing area.
+"""Offline reviewed gathering: bounded Mining, Fishing and Woodcutting slices.
 
-Default writes a proposal. --apply appends the reviewed fishing slice once;
---check compares both slices and all unrelated C3m JSON resources. No crawl.
+Default writes a proposal. --apply appends the reviewed Woodcutting slice once;
+--check compares all slices and unrelated baseline resources. No crawl.
 """
 import argparse
 import hashlib
@@ -124,12 +124,18 @@ def build_proposal(fixture):
 def run(apply=False, check=False, output=None):
     from build_fishing_sources import load_fixture as load_fishing, build_proposal as build_fishing
     from build_fishing_sources import check_unchanged, MANIFEST as FISHING_MANIFEST
+    from build_woodcutting_sources import load_fixture as load_woodcutting, build_proposal as build_woodcutting
+    from build_woodcutting_sources import check_unchanged as check_woodcutting, MANIFEST as WOODCUTTING_MANIFEST
     fixture = load_fixture()
     proposal = build_proposal(fixture)
     fishing_fixture = load_fishing()
     fishing = build_fishing(fishing_fixture)
     check_unchanged(fishing_fixture, proposal['records'])
-    records = proposal['records'] + fishing['records']
+    previous = proposal['records'] + fishing['records']
+    woodcutting_fixture = load_woodcutting()
+    woodcutting = build_woodcutting(woodcutting_fixture)
+    check_woodcutting(woodcutting_fixture, previous)
+    records = previous + woodcutting['records']
     # The mining fixture retains its historical pre-C3 hashes for provenance.
     # Later reviewed C3 changes are now protected by the exact C3m byte baseline
     # above; requiring the older global hashes would reject those accepted fixes.
@@ -137,17 +143,19 @@ def run(apply=False, check=False, output=None):
         require(json.loads(RESOURCE.read_text(encoding='utf-8')) == records, 'Runtime gathering records differ')
         require(json.loads(MANIFEST.read_text(encoding='utf-8')) == proposal, 'Gathering provenance differs')
         require(json.loads(FISHING_MANIFEST.read_text(encoding='utf-8')) == fishing, 'Fishing provenance differs')
+        require(json.loads(WOODCUTTING_MANIFEST.read_text(encoding='utf-8')) == woodcutting, 'Woodcutting provenance differs')
     elif apply:
-        require(not FISHING_MANIFEST.exists(), 'Fishing slice already exists; use --check')
-        require(json.loads(RESOURCE.read_text(encoding='utf-8')) == proposal['records'], 'Existing gathering slice differs')
+        require(not WOODCUTTING_MANIFEST.exists(), 'Woodcutting slice already exists; use --check')
+        require(json.loads(RESOURCE.read_text(encoding='utf-8')) == previous, 'Existing gathering slices differ')
         require(json.loads(MANIFEST.read_text(encoding='utf-8')) == proposal, 'Existing mining provenance differs')
-        FISHING_MANIFEST.write_text(json.dumps(fishing, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+        require(json.loads(FISHING_MANIFEST.read_text(encoding='utf-8')) == fishing, 'Existing Fishing provenance differs')
+        WOODCUTTING_MANIFEST.write_text(json.dumps(woodcutting, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
         RESOURCE.write_text(json.dumps(records, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     else:
         output = output or ROOT / '.cache/gathering_sources_proposal.json'
         output.parent.mkdir(parents=True, exist_ok=True)
-        output.write_text(json.dumps({'records': records, 'mining': proposal, 'fishing': fishing}, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-    print(json.dumps({'records': len(records), 'miningAreas': 1, 'fishingAreas': 1,
+        output.write_text(json.dumps({'records': records, 'mining': proposal, 'fishing': fishing, 'woodcutting': woodcutting}, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    print(json.dumps({'records': len(records), 'miningAreas': 1, 'fishingAreas': 1, 'woodcuttingAreas': 1,
                       'unchangedResources': len(fishing_fixture['unchangedResourceSha256']),
                       'mode': 'check' if check else 'apply' if apply else 'proposal'}))
 

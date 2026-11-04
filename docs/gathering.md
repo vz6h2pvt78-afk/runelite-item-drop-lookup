@@ -1,8 +1,9 @@
 # Reviewed gathering slices
 
-Two bounded activities now share the existing Gathering presentation: the original
-Iron ore mine below and Raw shrimps at one reviewed fishing area. This is not complete
-gathering coverage. No runtime model, NPC area-filter semantics or schema changed.
+Three bounded ordinary activities share the existing Gathering presentation:
+Iron ore mining, Raw shrimps fishing, and ordinary-tree Logs. Ent harvesting remains
+an independent event projection. This is not complete gathering coverage. No runtime
+model, NPC area-filter semantics or schema changed for these ordinary activities.
 
 One output, method and named area: Iron ore (440), mining iron rocks at South-west
 Varrock mine. Requires Mining 15 and a Pickaxe. Three resource points are separately
@@ -11,17 +12,19 @@ every iron-mining location is F2P. The nearby mugger is a caution, never an elig
 condition. Output quantity, boostability, raw plane and unverified access remain
 unknown. No quantity/rate/timer, account evaluation or navigation is supplied.
 
-`tools/build_gathering_sources.py` reproduces both reviewed fixtures offline.
-`--check` compares the two runtime records and separate structured manifests, then
-validates all unrelated runtime JSON resources against the C3m baseline byte hashes.
-Default writes a proposal. `--apply` can append the reviewed fishing slice once,
-only when the exact original mining record/manifest remains present. Source or
+`tools/build_gathering_sources.py` reproduces all three reviewed fixtures offline.
+`--check` compares the three runtime records and separate structured manifests, then
+validates unrelated runtime JSON resources and earlier fixtures/manifests against
+their baseline byte hashes. Default writes a proposal. `--apply` can append the
+reviewed Woodcutting slice once, only when the exact Mining/Fishing records and
+manifests remain present. Source or
 allowlist changes need explicit review and a new pin. Do not automatically repin
 changed evidence. The original mining fixture and manifest remain unchanged.
 
 The fixture includes Iron ore revision 15182636, Iron rocks 15372456 and South-west
 Varrock mine 15127886. Logs 15322883 is retained only as a negative test: its Firemaking
-template consumes logs, so it cannot generate a Logs acquisition source. Full page
+template consumes logs, so it cannot generate a Logs acquisition source. C5b uses
+the separate Tree page's Woodcutting evidence instead. Full page
 pins cover surrounding prose; template checks also guard identities, requirements,
 resource/location association, membership, points and independently stated count.
 
@@ -37,7 +40,7 @@ shortcut respects Find source. NPC Drops, Shops, Reward Shops and Ground pickups
 exclude gathering. Missing dataset coverage is explicitly distinguished from a
 filter hiding an existing record. Source counts are acquisition records, not rocks.
 
-This is an allowlisted adapter, not broad discovery. Do not add Woodcutting, more
+These are allowlisted adapters, not broad discovery. Do not add more Woodcutting,
 Fishing, production, additional mines, recursive ingredients or ranking without review.
 Skill output tables may use NPC-backed fishing resources and must never be assumed
 to represent combat. Uses/Products describes consuming an item, not obtaining it.
@@ -73,3 +76,28 @@ One new source appears under All, Non-NPC Sources and Gathering. Find source mat
 the method and Lumbridge Swamp text. NPC location filters retain their existing NPC
 scope. Raw shrimps stays distinct from cooked Shrimps and other raw fish. No rates,
 XP, timers, banking/training advice, ranking or cooking chain are supplied.
+
+## C5b: ordinary-tree Logs / Draynor Village
+
+Saved Logs revision 15322883 establishes item 1511. Tree revision 15226767 explicitly
+names regular trees near the bank in Draynor Village, supplies Woodcutting level 1
+and Axe in its skill template, and lists Logs as the Woodcutting output.
+`tools/build_woodcutting_sources.py` binds that exact item, action, output and named
+location prose. It does not use the Logs page's consuming Firemaking template.
+
+`docs/data/woodcutting_sources.json` retains the separate ordinary-tree method and
+provenance. Coordinates, map/plane, active tree count, location membership, yield
+quantity and boostability stay null. The runtime card only states Chop ordinary
+trees, Logs, Draynor Village near the bank, Woodcutting level 1 and Axe required.
+No map action, F2P claim, yield, XP, timers, double-yield, banking efficiency or
+recommendation is inferred from this location description.
+
+Logs now has two distinct Gathering methods: ordinary-tree Woodcutting and Ent
+kill-then-harvest. Ent locations/combat/yields/level-45 uncertainty do not enter the
+tree card; tree level/location/tool wording does not enter the Ent method. Other
+log families are not added. Source counts are per-item acquisition methods, not
+numbers of trees. NPC Drops and the C5a fishing/identity behavior stay unchanged.
+
+The Raw anchovies sibling was held: the saved chart strongly suggests Fishing 15,
+but its `req1` field semantics are not explicitly defined in currently pinned
+evidence. No new Wiki page was fetched to force that addition.

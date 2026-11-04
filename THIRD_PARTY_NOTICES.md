@@ -41,6 +41,13 @@ Runtime resources under src/main/resources/:
   (15385687) Wiki text supporting the exact Slayer/protective/finishing facts;
   this fixture and adapted facts retain the same Wiki license.
 
+- wiki_gathering_sources.json: bounded ordinary Gathering adaptations from Iron ore
+  (15182636), Iron rocks (15372456), South-west Varrock mine (15127886), Raw shrimps
+  (15331265), Fishing spot (small net, bait) (15288182), Logs (15322883), and Tree
+  (15226767), by OSRS Wiki contributors. Selected actions, requirements and named
+  locations retain the applicable Wiki license above. Source/revision URLs are in
+  data_sources.txt; separate offline fixtures/manifests retain the underlying text.
+
 - wiki_ground_sources.json: twelve reviewed ground-pickup rows adapted from
   Spade (revision 15387831), Knife (15350068), Bucket (15390041), Snape grass
   (15225056), and Red spiders' eggs (15183987). docs/data/ground_sources.json

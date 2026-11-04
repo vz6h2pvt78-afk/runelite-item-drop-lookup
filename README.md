@@ -29,6 +29,8 @@ not imply complete coverage of all OSRS items.
 Raw shrimps includes one reviewed **Gathering** source: small-net fishing at
 Lumbridge Swamp near the Fishing tutor. It states Fishing level 1, a small fishing
 net and no bait. Other fishing locations are not yet covered by this slice.
+Ordinary Logs also has a separate tree-cutting source near Draynor Village's bank,
+with Woodcutting level 1 and an axe requirement. It stays separate from Ent harvesting.
 
 Ent logs appear under **Gathering**, with a kill-then-chop explanation. Magic logs,
 Yew logs and ordinary Logs have reviewed encounter levels and yield per successful

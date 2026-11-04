@@ -1,0 +1,87 @@
+{
+  "baseCommit": "00c2632d49400a9b442af8f652b4e5c159a1850b",
+  "records": [
+    {
+      "id": "4ed898018b0594689f92",
+      "itemId": 1511,
+      "itemName": "Logs",
+      "sourceType": "Gathering",
+      "sourceName": "Chop ordinary trees",
+      "location": "Draynor Village — near the bank",
+      "cost": "",
+      "notes": "Woodcutting level 1 · Axe required"
+    }
+  ],
+  "method": {
+    "outputItemId": 1511,
+    "kind": "GATHERING",
+    "skill": "Woodcutting",
+    "resourcePage": "Tree",
+    "interactionVariant": "Ordinary tree",
+    "methodId": "dbbd6d98f47d20b64005",
+    "actionLabel": "Chop ordinary trees",
+    "output": {
+      "itemId": 1511,
+      "itemName": "Logs",
+      "quantity": null,
+      "quantityBasis": "not asserted"
+    },
+    "skills": [
+      {
+        "skill": "Woodcutting",
+        "level": 1,
+        "boostable": null
+      }
+    ],
+    "tools": [
+      {
+        "kind": "CATEGORY",
+        "name": "Axe",
+        "itemId": null
+      }
+    ],
+    "membersOnly": null,
+    "accessCoverage": "incomplete",
+    "verifiedConditions": []
+  },
+  "occurrence": {
+    "methodId": "dbbd6d98f47d20b64005",
+    "location": "Draynor Village — near the bank",
+    "coordinates": null,
+    "plane": null,
+    "rawMapId": null,
+    "occurrenceId": "4ed898018b0594689f92",
+    "membersOnly": null,
+    "resourceCount": null,
+    "resourceCountBasis": "not asserted; named area from prose only",
+    "accessCoverage": "incomplete",
+    "verifiedConditions": [],
+    "contextNotes": []
+  },
+  "provenance": [
+    {
+      "title": "Logs",
+      "revisionId": 15322883,
+      "sourceUrl": "https://oldschool.runescape.wiki/w/Logs",
+      "historyUrl": "https://oldschool.runescape.wiki/w/Special:PermanentLink/15322883",
+      "rawSnapshotSha256": "b16a8351c6e1f2da73cf752bce847ebf2c896b87d39cc81c2c83e1e742ab8315",
+      "wikitextSha256": "cf2a7e72f0b1e5e2bca042ba24e5b2a02ac56c598d61899003c8aed90c173a1e"
+    },
+    {
+      "title": "Tree",
+      "revisionId": 15226767,
+      "sourceUrl": "https://oldschool.runescape.wiki/w/Tree",
+      "historyUrl": "https://oldschool.runescape.wiki/w/Special:PermanentLink/15226767",
+      "rawSnapshotSha256": "9c664a01bea76a97dee582628db4b7f00b2adfb357f29cf5bdaf6375e1182a17",
+      "wikitextSha256": "3830360b7ab0c3b673f166785c81dd62e33a96724fd5bc9a6ba91873826658b7"
+    }
+  ],
+  "rawSkillTemplate": "{{Woodcutting info\n|name = Tree\n|level = 1\n|xp = 25\n|tool = [[Axe]]\n|time = 35.4 - 58.8 seconds\n}}",
+  "rawLocationProse": "Some more popular spots to cut regular trees are near the bank in [[Draynor Village]], as well as in the areas surrounding the [[Grand Exchange]] and [[Varrock West Bank]].",
+  "limitations": [
+    "One ordinary-tree method and named area only; other tree locations exist.",
+    "No coordinates, active tree counts, location membership, rates or quantities asserted.",
+    "Independent of Ent combat/harvest conditions and all other tree/log families.",
+    "No XP, timers, double-yield, banking/training advice, ranking or account eligibility."
+  ]
+}
