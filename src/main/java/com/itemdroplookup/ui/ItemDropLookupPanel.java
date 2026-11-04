@@ -133,6 +133,8 @@ public class ItemDropLookupPanel extends PluginPanel
     private final Map<String, Integer> savedSourceScroll = new java.util.HashMap<>();
     private final Map<DropSource, MonsterLocationPanel.State> detailStates = new java.util.IdentityHashMap<>();
     private DropSource detailSource;
+    private BoundDropContexts boundContexts;
+    private List<DropSource> indexedDrops;
     private final Map<String, Integer> loadedSourceRows = new java.util.HashMap<>();
 
     public ItemDropLookupPanel(
@@ -603,9 +605,14 @@ public class ItemDropLookupPanel extends PluginPanel
         {
             WildernessFilter locationFilter = (WildernessFilter) wildernessDropdown.getSelectedItem();
             String sourceQuery = sourceSearch.getText().trim().toLowerCase(Locale.ROOT);
+            if (showDrops && indexedDrops != matchingDrops)
+            {
+                boundContexts = new BoundDropContexts(monsterLocationLookupService, matchingDrops);
+                indexedDrops = matchingDrops;
+            }
             List<DropSource> dropResults = showDrops ? matchingDrops.stream()
                     .filter(source -> monsterLocationLookupService.hasQualifyingLocation(source, locationFilter))
-                    .filter(source -> contains(source.getMonsterName(), sourceQuery))
+                    .filter(source -> boundContexts.find(source, sourceQuery, locationFilter))
                     .collect(Collectors.toList()) : Collections.emptyList();
             List<ItemSource> sources = matchingSources;
             if (FILTER_SHOPS.equals(selectedFilter))
@@ -861,6 +868,7 @@ public class ItemDropLookupPanel extends PluginPanel
             card.setBorder(LookupStyle.cardBorder());
             card.add(makeCardTitle(first.getMonsterName(), CARD_TEXT_WIDTH));
             if (hasText(first.getNotes())) card.add(makeCardLine(first.getNotes(), CARD_TEXT_WIDTH));
+            addBoundDanger(card, first);
             addSourceRequirements(card, first, CARD_TEXT_WIDTH);
             for (DropSource offer : offers)
             {
@@ -911,7 +919,12 @@ public class ItemDropLookupPanel extends PluginPanel
             for (DropSourceGroup group : groups)
             {
                 List<DropSource> members = group.getMembers();
-                if (shouldRenderAsGroup(group))
+                if (members.size() > 1 && members.stream().allMatch(boundContexts::isVariant)
+                        && members.stream().map(DropSource::getMonsterName).distinct().count() == 1)
+                {
+                    rows.add(() -> makeVariantCard(members));
+                }
+                else if (shouldRenderAsGroup(group))
                 {
                     rows.add(() -> makeGroupContainer(group));
                 }
@@ -1038,6 +1051,24 @@ public class ItemDropLookupPanel extends PluginPanel
         return container;
     }
 
+    private JPanel makeVariantCard(List<DropSource> members)
+    {
+        DropSource first = members.get(0);
+        JPanel card = LookupStyle.column();
+        card.setBorder(LookupStyle.cardBorder());
+        card.setName("dropSourceCard");
+        card.setBackground(LookupStyle.CARD);
+        JLabel title = itemTitle(first.getItemName(), first.getMonsterName() + " → " + first.getItemName(), CARD_TEXT_WIDTH);
+        title.setName("dropContextGroup");
+        card.add(title);
+        for (DropSource member : members)
+        {
+            card.add(makeSmallSpacer());
+            appendDropContext(card, member, CARD_TEXT_WIDTH, true);
+        }
+        return card;
+    }
+
     private JPanel makeDropCard(DropSource source, boolean nested)
     {
         JPanel card = LookupStyle.column();
@@ -1065,9 +1096,17 @@ public class ItemDropLookupPanel extends PluginPanel
             ));
         }
 
-        int wrapWidth = nested ? NESTED_CARD_TEXT_WIDTH : CARD_TEXT_WIDTH;
+        appendDropContext(card, source, nested ? NESTED_CARD_TEXT_WIDTH : CARD_TEXT_WIDTH, false);
+        card.setAlignmentX(LEFT_ALIGNMENT);
+        return card;
+    }
 
-        card.add(itemTitle(source.getItemName(), source.getMonsterName() + " → " + source.getItemName(), wrapWidth));
+    private void appendDropContext(JPanel card, DropSource source, int wrapWidth, boolean contextRow)
+    {
+        int firstComponent = card.getComponentCount();
+        if (!contextRow) card.add(itemTitle(source.getItemName(), source.getMonsterName() + " → " + source.getItemName(), wrapWidth));
+        if (boundContexts.isVariant(source)) card.add(makeCardTitle(boundContexts.variantTitle(source), wrapWidth));
+        addBoundDanger(card, source);
 
         card.add(makeCardLine(DropRatePresentation.sourceRateLine(source), wrapWidth));
         card.add(makeCardLine("Quantity: " + DropQuantity.display(source), wrapWidth));
@@ -1091,23 +1130,22 @@ public class ItemDropLookupPanel extends PluginPanel
                 }
             }
         };
-        card.addMouseListener(openDetail);
+        if (!contextRow) card.addMouseListener(openDetail);
         card.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        for (Component component : card.getComponents())
-        {
-            component.addMouseListener(openDetail);
-        }
+        for (int i = firstComponent; i < card.getComponentCount(); i++)
+            card.getComponent(i).addMouseListener(openDetail);
         JButton locations = style.button("View details", () -> showMonsterDetails(source), false);
         locations.setToolTipText("Locations and requirements for " + source.getMonsterName());
         locations.setMargin(new java.awt.Insets(3, 4, 3, 4));
         locations.setName("openLocations");
         locations.getAccessibleContext().setAccessibleName("Locations and requirements for " + source.getMonsterName());
         card.add(locations);
+    }
 
-        card.setAlignmentX(LEFT_ALIGNMENT);
-
-
-        return card;
+    private void addBoundDanger(JPanel card, DropSource source)
+    {
+        String danger = boundContexts.danger(source, (WildernessFilter) wildernessDropdown.getSelectedItem());
+        if (danger != null) card.add(style.wildernessWarning(danger));
     }
 
     private void addSourceRequirements(JPanel card, DropSource source, int wrapWidth)
@@ -1130,6 +1168,7 @@ public class ItemDropLookupPanel extends PluginPanel
         remove(searchView);
         detail = new MonsterLocationPanel(source, displayedQuery, monsterLocationLookupService, accessRequirementLookupService,
                 (WildernessFilter) wildernessDropdown.getSelectedItem(), this::showSearchResults, style);
+        if (boundContexts.isVariant(source)) detail.setContextTitle(boundContexts.variantTitle(source));
         detailSource = source;
         chooserIcons.showPinned(source.getItemName(), detail.getIdentityHeading());
         detail.setReportControls(reportControls());

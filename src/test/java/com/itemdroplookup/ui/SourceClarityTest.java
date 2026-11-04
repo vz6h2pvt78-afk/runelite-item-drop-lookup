@@ -75,6 +75,56 @@ public class SourceClarityTest
         });
     }
 
+    @Test public void areaVariantsExposeTheirOwnRateLocationAndFilteredDetail() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            Gson gson = new Gson();
+            DropLookupService exactMonster = new DropLookupService(gson) {
+                @Override public List<DropSource> searchByItemName(String item)
+                {
+                    return super.searchByItemName(item).stream().filter(d -> d.getMonsterName().equals("Abyssal demon"))
+                            .collect(java.util.stream.Collectors.toList());
+                }
+            };
+            ItemDropLookupPanel p = new ItemDropLookupPanel(exactMonster, new ItemSourceLookupService(gson),
+                    new ItemPriceLookupService(gson), new MonsterLocationLookupService(gson), new AccessRequirementLookupService(gson));
+            MorningFeedbackTest.search(p, "Air rune");
+            MorningFeedbackTest.click(p, "showDropSources");
+            JTextField finder = (JTextField)PanelTestSupport.find(p, "sourceSearch");
+            finder.setText("Abyssal demon");
+            finder.postActionEvent();
+            assertEquals(1, named(p, "dropContextGroup").size());
+            assertEquals(2, named(p, "openLocations").size());
+            String both = MorningFeedbackTest.labels(p);
+            assertTrue(both.contains("1 in 16") && both.contains("1 in 8.5"));
+            JComboBox<?> area = (JComboBox<?>)PanelTestSupport.find(p, "npcWildernessFilter");
+            area.setSelectedItem(MonsterLocationFilter.WildernessFilter.ONLY);
+            assertEquals(1, named(p, "openLocations").size());
+            MorningFeedbackTest.click(p, "openLocations");
+            String detail = MorningFeedbackTest.labels(p);
+            assertTrue(detail.contains("Wilderness Slayer Cave") && detail.contains("1 in 8.5"));
+            assertFalse(detail.contains("1 in 16"));
+            MorningFeedbackTest.click(p, "backToResults");
+            area.setSelectedItem(MonsterLocationFilter.WildernessFilter.EXCLUDE);
+            assertEquals(1, named(p, "openLocations").size());
+            assertTrue(MorningFeedbackTest.labels(p).contains("1 in 16"));
+            assertFalse(MorningFeedbackTest.labels(p).contains("1 in 8.5"));
+            p.dispose();
+        });
+    }
+
+    @Test public void mixedLocationsKeepASingleTupleAndFinderRespectsArea()
+    {
+        Gson gson = new Gson();
+        DropSource source = new DropLookupService(gson).searchByItemName("Adamant full helm").stream()
+                .filter(d -> d.getMonsterName().equals("Green dragon") && d.getDropRate().equals("1/128")).findFirst().get();
+        BoundDropContexts ctx = new BoundDropContexts(new MonsterLocationLookupService(gson), List.of(source));
+        assertFalse(ctx.isVariant(source));
+        assertTrue(ctx.danger(source, MonsterLocationFilter.WildernessFilter.ALL).contains("Some locations"));
+        assertTrue(ctx.find(source, "wilderness slayer cave", MonsterLocationFilter.WildernessFilter.ONLY));
+        assertFalse(ctx.find(source, "wilderness slayer cave", MonsterLocationFilter.WildernessFilter.EXCLUDE));
+    }
+
     @Test public void discreteQuantitiesKeepTheirMeaningAndUnreviewedCommasArePreserved()
     {
         for (String item : List.of("Iron ore", "Bronze bar"))

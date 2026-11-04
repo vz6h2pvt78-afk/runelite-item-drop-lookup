@@ -1,0 +1,8 @@
+N2 - Location-specific drops
+
+Mixed Wilderness and standard drop contexts share a source heading and retain separately bound rates, requirements and detail actions. Find source now also matches verified, available locations within the selected NPC area. Existing records provide 63 relevant monster/item pairs. Area filters, generic and unknown bindings, exact dose history and package compatibility were checked. Both Java runs passed 160 tests, Python passed 120. The visual bounds gate caught a Dust devil requirement clipping in the initial layout. The revised flat layout passed the full bounds and package checks and both text sizes were visually inspected. Human review pending.
+
+Starting commit febfd5d601475a33ef856d434abc4318f8929c4f
+Build development-2026-11-04-n2-bound-locations
+Official package SHA256 a20a06ffda927849d39146e4895d4a926db0d60de25bb5a1e2148e5367e0eaa5
+Human acceptance pending.

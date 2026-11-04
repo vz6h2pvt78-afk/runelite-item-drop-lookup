@@ -50,6 +50,9 @@ public class MonsterLocationPanel extends JPanel
     private boolean filtersExpanded;
     private boolean adjusting;
     private JPanel reportControls;
+    private String contextTitle;
+
+    void setContextTitle(String title) { contextTitle = title; }
 
     void setReportControls(JPanel controls)
     {
@@ -165,6 +168,7 @@ public class MonsterLocationPanel extends JPanel
     {
         if (adjusting) return;
         locationsPanel.removeAll();
+        if (contextTitle != null) locationsPanel.add(text(contextTitle, true, TEXT_WIDTH));
         locationsPanel.add(text(DropRatePresentation.detailRateLine(source), false, TEXT_WIDTH));
         locationsPanel.add(text("Quantity: " + DropQuantity.display(source), false, TEXT_WIDTH));
         if (!sourceFacts.isEmpty())

@@ -89,7 +89,12 @@ final class LookupStyle
 
     JLabel wildernessWarning()
     {
-        JLabel label = text("WILDERNESS\nPvP danger", true);
+        return wildernessWarning("WILDERNESS\nPvP danger");
+    }
+
+    JLabel wildernessWarning(String message)
+    {
+        JLabel label = text(message, true);
         label.setName("wildernessWarning");
         label.setForeground(new Color(255, 192, 155));
         label.setIcon(new Icon()
@@ -113,7 +118,7 @@ final class LookupStyle
             }
         });
         label.setIconTextGap(8);
-        label.getAccessibleContext().setAccessibleName("Wilderness: PvP danger");
+        label.getAccessibleContext().setAccessibleName(message.replace('\n', ' '));
         return label;
     }
 

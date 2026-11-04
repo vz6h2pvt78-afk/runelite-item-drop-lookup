@@ -32,6 +32,7 @@ public class MonsterLocationLookupService
             .thenComparing(location -> String.valueOf(location.getLevelsText()));
     private final Map<String, List<MonsterLocation>> byMonster = new HashMap<>();
     private final Map<List<String>, List<MonsterLocation>> byDrop = new HashMap<>();
+    private final Map<List<String>, Set<String>> versions = new HashMap<>();
     private final Set<List<String>> commonDrops = new LinkedHashSet<>();
     private boolean loaded;
 
@@ -55,6 +56,13 @@ public class MonsterLocationLookupService
         return verified == null
                 ? new LocationMatch(lookupByMonsterName(source.getMonsterName()), false)
                 : new LocationMatch(verified, true);
+    }
+
+    public Set<String> tableVersions(DropSource source)
+    {
+        loadOnce();
+        return Collections.unmodifiableSet(versions.getOrDefault(key(source.getMonsterName(), source.getItemName(),
+                source.getQuantity(), source.getDropRate(), source.getNotes()), Collections.emptySet()));
     }
 
     /** Dose outputs may share a source card only where their exact unversioned tables are known. */
@@ -116,6 +124,8 @@ public class MonsterLocationLookupService
             for (Binding binding : dataset.dropBindings)
             {
                 List<String> signature = key(binding.monsterName, binding.itemName, binding.quantity, binding.dropRate, binding.notes);
+                if (binding.dropVersions != null && !binding.dropVersions.isEmpty())
+                    versions.computeIfAbsent(signature, unused -> new LinkedHashSet<>()).addAll(binding.dropVersions);
                 if (binding.dropVersions == null || !binding.dropVersions.isEmpty()
                         || !Collections.singletonList("common-unversioned-table").equals(binding.matchMethods))
                     variantTables.add(signature);
@@ -157,6 +167,7 @@ public class MonsterLocationLookupService
             byMonster.clear();
             byDrop.clear();
             commonDrops.clear();
+            versions.clear();
             log.debug("Unable to load bundled monster locations", ex);
         }
         finally
