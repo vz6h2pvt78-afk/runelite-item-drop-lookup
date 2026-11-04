@@ -26,7 +26,8 @@ public final class AcquisitionPreview
                     {"Adamant axe", "NPC Drops", "Dust devil"}, {"Adamant boots", "NPC Drops", "Gargoyle"},
                     {"Adamant sq shield", "NPC Drops", "Night beast"}, {"Dragonstone", "NPC Drops", "Zulrah"},
                     {"Air rune", "Shops", "pack"}, {"Death talisman", "Reward Shops", "Temple Supplies"},
-                    {"Spade", "Ground pickups", ""}, {"Iron ore", "Gathering", ""}, {"Oak logs", "Gathering", ""}})
+                    {"Spade", "Ground pickups", ""}, {"Iron ore", "Gathering", ""}, {"Oak logs", "Gathering", ""},
+                    {"Blighted super restore(4) (x4)", "Reward Shops", "Soul Wars"}, {"Soul cape", "Reward Shops", "Soul Wars"}})
             {
                 JTextField search = (JTextField) PanelTestSupport.find(panel, "itemSearch");
                 search.setText(scenario[0]);

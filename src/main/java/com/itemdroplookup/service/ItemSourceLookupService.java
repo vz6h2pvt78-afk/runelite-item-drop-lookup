@@ -58,7 +58,16 @@ public class ItemSourceLookupService
             "Agility Arena Store", "Brimhaven vouchers",
             "Brimhaven Agility Arena Ticket Exchange", "discontinued Agility arena tickets",
             "Bounty Hunter Store", "Bounty Hunter points",
-            "Justine's stuff for the Last Shopper Standing", "LMS points");
+            "Justine's stuff for the Last Shopper Standing", "LMS points",
+            "Soul Wars Reward Shop", "Zeal Tokens");
+
+    // Exact display labels and per-purchase quantities in Wiki revision 15337354.
+    // Keep these legacy bundle identities distinct until a reviewed projection exists.
+    private static final Set<String> SOUL_WARS_BUNDLES = Set.of(
+            "Blighted entangle sack (x70)", "Blighted teleport spell sack (x50)",
+            "Blighted vengeance sack (x50)", "Blighted ancient ice sack (x30)",
+            "Blighted manta ray (x15)", "Blighted anglerfish (x15)",
+            "Blighted karambwan (x12)", "Blighted super restore(4) (x4)");
 
     private static Set<String> buildSuppressedGeneratedSources()
     {
@@ -185,6 +194,10 @@ public class ItemSourceLookupService
             if (currency != null && record.cost != null)
             {
                 record.cost = record.cost.replaceAll(" coins?$", " " + currency);
+                if ("Soul Wars Reward Shop".equals(record.sourceName) && SOUL_WARS_BUNDLES.contains(record.itemName))
+                {
+                    record.cost += " per bundle";
+                }
                 if (!"Tokkul".equals(currency))
                 {
                     record.sourceType = "Reward Shop";
