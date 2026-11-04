@@ -141,7 +141,7 @@ public class ItemDropLookupPanelTest
             assertEquals("https://oldschool.runescape.wiki/w/Zulrah", ((JButton) named(detail, "monsterWiki")).getToolTipText());
             assertFalse(named(detail, "detailWilderness").isVisible());
             assertFalse(named(detail, "detailMembership").isVisible());
-            assertFalse(named(detail, "clearLocationFilters").isVisible());
+            assertNull(PanelTestSupport.find(detail, "clearLocationFilters"));
             ((JButton) named(detail, "backToResults")).doClick();
             assertTrue(returned[0]);
         });
@@ -213,8 +213,9 @@ public class ItemDropLookupPanelTest
             assertEquals(0, locationCardCount(detail));
             assertTrue(named(detail, "detailWilderness").isVisible());
             assertTrue(named(detail, "detailMembership").isVisible());
-            assertTrue(named(detail, "clearLocationFilters").isVisible());
-            ((JButton) named(detail, "clearLocationFilters")).doClick();
+            assertNull(PanelTestSupport.find(detail, "clearLocationFilters"));
+            ((JComboBox<?>) named(detail, "detailWilderness")).setSelectedItem(WildernessFilter.ALL);
+            ((JComboBox<?>) named(detail, "detailMembership")).setSelectedItem(com.itemdroplookup.service.MonsterLocationFilter.MembershipFilter.ALL);
             assertEquals(12, locationCardCount(detail));
             ((JComboBox<?>) named(detail, "detailWilderness")).setSelectedItem(WildernessFilter.ONLY);
             ((JComboBox<?>) named(detail, "detailMembership")).setSelectedItem(com.itemdroplookup.service.MonsterLocationFilter.MembershipFilter.ALL);
@@ -290,7 +291,7 @@ public class ItemDropLookupPanelTest
     }
 
     @Test
-    public void oneClickRestoresSourcesHiddenByCombinedFilters() throws Exception
+    public void clearSearchLeavesMenusInControlOfCombinedFilters() throws Exception
     {
         SwingUtilities.invokeAndWait(() -> {
             ItemDropLookupPanel panel = panel(new DropLookupService(new Gson()));
@@ -302,10 +303,11 @@ public class ItemDropLookupPanelTest
             find.setText("missing");
             find.postActionEvent();
             assertTrue(textContains(panel, "No sources match these filters"));
-            ((JButton) named(panel, "resetSourceFilters")).doClick();
-            assertEquals("All", ((JComboBox<?>) named(panel, "sourceTypeFilter")).getSelectedItem());
-            assertEquals(WildernessFilter.ALL, ((JComboBox<?>) named(panel, "npcWildernessFilter")).getSelectedItem());
+            ((JButton) named(panel, "clearSourceSearch")).doClick();
+            assertEquals("NPC Drops", ((JComboBox<?>) named(panel, "sourceTypeFilter")).getSelectedItem());
+            assertEquals(WildernessFilter.ONLY, ((JComboBox<?>) named(panel, "npcWildernessFilter")).getSelectedItem());
             assertEquals("", find.getText());
+            ((JComboBox<?>) named(panel, "sourceTypeFilter")).setSelectedItem("Reward Shops");
             assertEquals(1, sourceCardCount(panel));
         });
     }

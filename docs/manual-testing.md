@@ -16,7 +16,7 @@ offline renders cannot verify in-game behavior.
    Catacombs, Waterfall and other locations are readable.
 5. In details choose **Wilderness only**: Deep Wilderness Dungeon should remain.
    **Exclude Wilderness** should remove it. Members should retain Fire
-   giants; F2P should show a clear no-matches state. Clear filters to restore all,
+   giants; F2P should show a clear no-matches state. Select All locations and Any membership to restore all,
    including the explicitly unreachable Crandor/Karamja row near the end.
 6. Press **Back to results**. Confirm query, source filter, GE checkbox, expanded
    monster groups, results and scroll position remain. Repeat after scrolling far
@@ -28,7 +28,7 @@ offline renders cannot verify in-game behavior.
    `4/128` should show standard locations. **Abyssal whip** `1/512` should retain
    both contexts.
 9. At item level choose Wilderness-only, then Exclude Wilderness. Fire giant can
-   qualify in both via different locations. Clearing filters must restore every
+   qualify in both via different locations. Choosing All locations must restore every
    source. Status text should explain unknown/unverified exclusions. Shops and
    other non-NPC sources follow the separate source-type filter.
 10. Search **dragon pickaxe**, open **King Black Dragon**: the card must say
@@ -132,6 +132,27 @@ offline renders cannot verify in-game behavior.
     the finishing action (use a rock hammer/rock thrownhammer, or wield a granite
     hammer). Both conditions remain in details. Related superiors/bosses must
     not inherit these exact-source facts.
+35. Type a nonmatching **Find source** value. **Clear search** appears immediately,
+    clears only that field and disappears again. Item query, selected item, method,
+    NPC area and display settings remain unchanged. Menus recover a method/area
+    with no results; there is no generic filter-reset button in sources or details.
+36. Click **Copy report**, then paste into a text editor yourself. Check the submitted
+    item query, selected item, active menus, build label and dataset identity. A new
+    item-name draft that has not been searched must not appear. In NPC details,
+    check the exact source name and detail filters. No clipboard change should
+    occur merely from searching, opening details or changing menus. Nothing sends
+    the report automatically. A busy clipboard should show a short failure message.
+
+## Diagnostic build identity
+
+`lookup_build.properties` records a neutral build label, three schema versions and
+a digest of every bundled JSON dataset. Before a new checkpoint, run
+`python tools/check_report_identity.py --write <checkpoint-tag>` and verify with
+`--expected-build <checkpoint-tag>`. The checkpoint tag must point to the exact
+saved commit. This is a diagnostic label, not a claim of a Plugin Hub release.
+The metadata guard canonicalizes JSON so Windows line endings do not change its
+meaning. Missing metadata reports build identity unavailable; runtime never
+guesses Git state. The copy action writes once per click and never reads clipboard.
 
 For failures, record query, monster/rate, active filters and observed behavior.
 Confirm these checks before considering public-release work. The proposed code

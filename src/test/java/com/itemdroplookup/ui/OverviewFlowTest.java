@@ -53,13 +53,13 @@ public class OverviewFlowTest
             assertNotNull(PanelTestSupport.find(p,"activeFilters"));
             ((JButton)PanelTestSupport.find(p,"viewCurrentMethod")).doClick(0);
             assertNull(PanelTestSupport.find(p,"dropSourceCard"));
-            ((JButton)PanelTestSupport.find(p,"resetSourceFilters")).doClick(0);
+            ((JComboBox<?>)PanelTestSupport.find(p,"sourceTypeFilter")).setSelectedItem("NPC Drops");
             assertNotNull(PanelTestSupport.find(p,"dropSourceCard"));
             assertEquals("Black bead",((JTextField)PanelTestSupport.find(p,"itemSearch")).getText());
         });
     }
 
-    @Test public void methodsStayAvailableAndClearFiltersPreservesItemAndDisplay() throws Exception
+    @Test public void methodsStayAvailableAndClearSearchPreservesMenusItemAndDisplay() throws Exception
     {
         SwingUtilities.invokeAndWait(() -> {
             ItemDropLookupPanel p = panel();
@@ -84,16 +84,24 @@ public class OverviewFlowTest
             size.setSelectedIndex(1);
             JCheckBox price = (JCheckBox) PanelTestSupport.find(p, "showPrice");
             price.setSelected(false);
-            ((JButton) PanelTestSupport.find(p, "clearSourceFilters")).doClick(0);
-            assertEquals("All", method.getSelectedItem());
-            assertEquals(MonsterLocationFilter.WildernessFilter.ALL, area.getSelectedItem());
+            JButton clear = (JButton) PanelTestSupport.find(p, "clearSourceSearch");
+            assertTrue(clear.getText().contains("Clear search"));
+            assertTrue(clear.isVisible());
+            clear.doClick(0);
+            assertEquals("Shops", method.getSelectedItem());
+            assertEquals(MonsterLocationFilter.WildernessFilter.ONLY, area.getSelectedItem());
             assertEquals("", finder.getText());
             assertEquals("Spade", ((JTextField) PanelTestSupport.find(p, "itemSearch")).getText());
             assertEquals(1, size.getSelectedIndex());
             assertFalse(price.isSelected());
-            assertNotNull(PanelTestSupport.find(p, "dropSourceCard"));
+            assertNull(PanelTestSupport.find(p, "dropSourceCard"));
             assertNotNull(PanelTestSupport.find(p, "itemSourceCard"));
-            assertFalse(PanelTestSupport.find(p, "clearSourceFilters").isEnabled());
+            assertFalse(clear.isVisible());
+            assertNull(PanelTestSupport.find(p, "clearSourceFilters"));
+            assertNull(PanelTestSupport.find(p, "resetSourceFilters"));
+            method.setSelectedItem("NPC Drops");
+            area.setSelectedItem(MonsterLocationFilter.WildernessFilter.ALL);
+            assertNotNull(PanelTestSupport.find(p, "dropSourceCard"));
             ((JButton) PanelTestSupport.find(p, "backToOverview")).doClick(0);
             assertNotNull(PanelTestSupport.find(p, "viewAllSources"));
         });
@@ -226,11 +234,11 @@ public class OverviewFlowTest
             search(p, "uncut");
             ((JButton) PanelTestSupport.find(p, "selectItem:Uncut emerald")).doClick(0);
             PanelTestSupport.openSources(p);
-            JButton clear = (JButton) PanelTestSupport.find(p, "clearSourceFilters");
-            assertFalse(clear.isEnabled());
+            JButton clear = (JButton) PanelTestSupport.find(p, "clearSourceSearch");
+            assertFalse(clear.isVisible());
             JTextField finder = (JTextField) PanelTestSupport.find(p, "sourceSearch");
             finder.setText("no matching source");
-            assertTrue("Clear must work before the debounce fires", clear.isEnabled());
+            assertTrue("Clear must work before the debounce fires", clear.isVisible());
             clear.doClick(0);
             assertEquals("", finder.getText());
             originalResult[0] = (JButton) PanelTestSupport.find(p, "openLocations");

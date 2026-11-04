@@ -36,7 +36,6 @@ public class MonsterLocationPanel extends JPanel
     private final JComboBox<WildernessFilter> wilderness = new IntentionalComboBox<>(WildernessFilter.values());
     private final JComboBox<MembershipFilter> membership = new IntentionalComboBox<>(MembershipFilter.values());
     private final JCheckBox showAll = new JCheckBox("Other locations");
-    private final JButton clear = new JButton("Clear location filters");
     private final LocationMatch match;
     private final List<MonsterLocation> allLocations;
     private final String dropNotes;
@@ -47,6 +46,13 @@ public class MonsterLocationPanel extends JPanel
     private final LookupStyle style;
     private boolean filtersExpanded;
     private boolean adjusting;
+    private JPanel reportControls;
+
+    void setReportControls(JPanel controls)
+    {
+        reportControls = controls;
+        renderLocations();
+    }
 
     static final class State
     {
@@ -125,11 +131,6 @@ public class MonsterLocationPanel extends JPanel
         showAll.setVisible(match.isVerified() && allLocations.stream().anyMatch(location ->
                 match.getLocations().stream().noneMatch(matched -> matched.getId().equals(location.getId()))));
         showAll.setToolTipText("Include other drop tables; the item and rate above may not apply there");
-        clear.setName("clearLocationFilters");
-        clear.addActionListener(e -> {
-            wilderness.setSelectedItem(WildernessFilter.ALL);
-            membership.setSelectedItem(MembershipFilter.ALL);
-        });
 
         for (JComboBox<?> combo : new JComboBox<?>[] {wilderness, membership})
         {
@@ -139,11 +140,11 @@ public class MonsterLocationPanel extends JPanel
             combo.addActionListener(e -> renderLocations());
         }
         style.control(showAll);
-        style.control(clear);
         showAll.addActionListener(e -> renderLocations());
         add(header, BorderLayout.NORTH);
         JPanel body = LookupStyle.scrollBody(locationsPanel);
         locationScroll.setViewportView(body);
+        locationScroll.getViewport().setBackground(LookupStyle.BACK);
         locationScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         locationScroll.setBorder(null);
         locationScroll.getVerticalScrollBar().setUnitIncrement(24);
@@ -179,7 +180,6 @@ public class MonsterLocationPanel extends JPanel
         filters.add(wilderness);
         filters.add(membership);
         filters.add(showAll);
-        filters.add(clear);
         filters.setVisible(filtersExpanded);
         locationsPanel.add(filters);
         if (hasText(dropNotes))
@@ -203,7 +203,6 @@ public class MonsterLocationPanel extends JPanel
         List<MonsterLocation> locations = verifiedView ? match.getLocations() : allLocations;
         wilderness.setVisible(!locations.isEmpty());
         membership.setVisible(!locations.isEmpty());
-        clear.setVisible(filtering && !locations.isEmpty());
         if (locations.isEmpty())
         {
             locationsPanel.add(text("No location data available for this monster yet.", true, TEXT_WIDTH));
@@ -231,13 +230,14 @@ public class MonsterLocationPanel extends JPanel
             {
                 locationsPanel.add(text(membersDrop && membership.getSelectedItem() == MembershipFilter.F2P
                         ? "No F2P acquisition locations for this drop. Choose Any membership to see its locations."
-                        : "No known locations match these filters. Clear the filters to include unknown classifications.", false, TEXT_WIDTH));
+                        : "No known locations match these filters. Use the location menus to include other areas or memberships.", false, TEXT_WIDTH));
             }
             filtered.forEach(location -> locationsPanel.add(locationCard(location)));
         }
         JLabel coverage = text("Requirements coverage is incomplete; other conditions may apply.", false, TEXT_WIDTH);
         coverage.setName("requirementsCoverage");
         locationsPanel.add(coverage);
+        if (reportControls != null) locationsPanel.add(reportControls);
         revalidate();
         repaint();
         javax.swing.SwingUtilities.invokeLater(() -> locationScroll.getVerticalScrollBar().setValue(0));

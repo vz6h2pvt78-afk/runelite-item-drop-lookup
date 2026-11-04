@@ -85,7 +85,7 @@ public class GroundSourcePanelTest
             assertEquals(0, named(panel, "itemSourceCard").size());
             assertTrue(labels(panel).contains("No verified ground pickups in the current data."));
             assertTrue(labels(panel).contains("limited coverage"));
-            ((JButton) named(panel, "resetSourceFilters").get(0)).doClick();
+            ((JComboBox<?>) named(panel, "sourceTypeFilter").get(0)).setSelectedItem("Shops");
             assertFalse(named(panel, "itemSourceCard").isEmpty());
             assertFalse(labels(panel).contains("Type: Ground pickup"));
         });

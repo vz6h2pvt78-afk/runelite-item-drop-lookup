@@ -109,8 +109,8 @@ public final class HighVolumeAudit
                 }
                 finder.setText("no-source-qa-zz");
                 finder.postActionEvent();
-                Component reset = named(panel, "resetSourceFilters");
-                row.put("emptyFilterResetAvailable", reset != null);
+                Component reset = named(panel, "clearSourceSearch");
+                row.put("emptySearchClearAvailable", reset != null && reset.isVisible());
                 if (reset instanceof JButton) { ((JButton) reset).doClick(0); }
                 finder.setText("");
                 finder.postActionEvent();

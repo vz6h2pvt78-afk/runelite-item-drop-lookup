@@ -22,7 +22,7 @@ import static org.junit.Assert.*;
 public class SharedHerbPanelTest
 {
     @Test
-    public void f2pGuardMembersLumbridgeAndClearAreVisible() throws Exception
+    public void f2pGuardMembersLumbridgeAndMenuRecoveryAreVisible() throws Exception
     {
         SwingUtilities.invokeAndWait(() -> {
             MonsterLocationPanel panel = detail("Man", "Grimy harralander", "1/50.9");
@@ -35,7 +35,8 @@ public class SharedHerbPanelTest
             assertEquals(1, named(panel, "location:fdf802b6900421379085").size());
             assertTrue(labels(panel).contains("F2P-accessible area; use a members world"));
             ((JComboBox<?>) named(panel, "detailWilderness").get(0)).setSelectedItem(WildernessFilter.ONLY);
-            ((JButton) named(panel, "clearLocationFilters").get(0)).doClick();
+            membership.setSelectedItem(MembershipFilter.ALL);
+            ((JComboBox<?>) named(panel, "detailWilderness").get(0)).setSelectedItem(WildernessFilter.ALL);
             assertEquals(MembershipFilter.ALL, membership.getSelectedItem());
             assertEquals(WildernessFilter.ALL, ((JComboBox<?>) named(panel, "detailWilderness").get(0)).getSelectedItem());
             assertEquals(28, locationCount(panel));

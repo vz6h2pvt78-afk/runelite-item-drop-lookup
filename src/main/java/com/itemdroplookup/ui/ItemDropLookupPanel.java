@@ -91,6 +91,7 @@ public class ItemDropLookupPanel extends PluginPanel
     private final ItemPriceLookupService itemPriceLookupService;
     private final MonsterLocationLookupService monsterLocationLookupService;
     private final AccessRequirementLookupService accessRequirementLookupService;
+    private final java.util.function.Consumer<String> clipboardWriter;
     private final JPanel searchView = new JPanel(new BorderLayout());
     private final JComboBox<WildernessFilter> wildernessDropdown = new IntentionalComboBox<>(WildernessFilter.values());
     private int searchScrollPosition;
@@ -124,7 +125,7 @@ public class ItemDropLookupPanel extends PluginPanel
     private final JComboBox<String> textSize = new IntentionalComboBox<>(new String[] {"Standard text", "Larger text"});
     private final JPanel controlsPanel = LookupStyle.column();
     private final JButton overviewBack = style.backButton("Back to item", this::showOverview);
-    private final JButton clearFilters = style.button("Clear filters", this::clearSourceFilters, false);
+    private final JButton clearSearch = style.button("Clear search", this::clearSourceSearch, false);
     private final java.util.Set<String> expandedGroups = new java.util.HashSet<>();
     private final Map<String, Integer> savedSourceScroll = new java.util.HashMap<>();
     private final Map<DropSource, MonsterLocationPanel.State> detailStates = new java.util.IdentityHashMap<>();
@@ -139,12 +140,23 @@ public class ItemDropLookupPanel extends PluginPanel
             AccessRequirementLookupService accessRequirementLookupService
     )
     {
+        this(dropLookupService, itemSourceLookupService, itemPriceLookupService, monsterLocationLookupService,
+                accessRequirementLookupService, text -> java.awt.Toolkit.getDefaultToolkit().getSystemClipboard()
+                        .setContents(new java.awt.datatransfer.StringSelection(text), null));
+    }
+
+    ItemDropLookupPanel(DropLookupService dropLookupService, ItemSourceLookupService itemSourceLookupService,
+                        ItemPriceLookupService itemPriceLookupService, MonsterLocationLookupService monsterLocationLookupService,
+                        AccessRequirementLookupService accessRequirementLookupService,
+                        java.util.function.Consumer<String> clipboardWriter)
+    {
         super(false);
         this.dropLookupService = dropLookupService;
         this.itemSourceLookupService = itemSourceLookupService;
         this.itemPriceLookupService = itemPriceLookupService;
         this.monsterLocationLookupService = monsterLocationLookupService;
         this.accessRequirementLookupService = accessRequirementLookupService;
+        this.clipboardWriter = clipboardWriter;
 
         setLayout(new BorderLayout());
         setBorder(new EmptyBorder(8, 8, 8, 8));
@@ -204,9 +216,10 @@ public class ItemDropLookupPanel extends PluginPanel
         controlsPanel.add(filterDropdown);
         controlsPanel.add(npcFilters);
         controlsPanel.add(sourceSearchRow);
-        clearFilters.setName("clearSourceFilters");
-        clearFilters.setToolTipText("Show all methods and NPC areas, and clear Find source for this item");
-        controlsPanel.add(clearFilters);
+        clearSearch.setName("clearSourceSearch");
+        clearSearch.setToolTipText("Clear Find source text; keep the selected item, method and NPC area");
+        clearSearch.setVisible(false);
+        controlsPanel.add(clearSearch);
 
         showPriceCheckbox.setName("showPrice");
         style.control(showPriceCheckbox);
@@ -224,6 +237,7 @@ public class ItemDropLookupPanel extends PluginPanel
         searchView.add(topPanel, BorderLayout.NORTH);
         JPanel body = LookupStyle.scrollBody(resultsPanel);
         resultsScroll.setViewportView(body);
+        resultsScroll.getViewport().setBackground(LookupStyle.BACK);
         resultsScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         resultsScroll.setBorder(null);
         resultsScroll.getVerticalScrollBar().setUnitIncrement(28);
@@ -292,6 +306,7 @@ public class ItemDropLookupPanel extends PluginPanel
             resultsPanel.add(makeSmallSpacer());
         }
         if (choices.isEmpty()) resultsPanel.add(wikiButton(viewState.query));
+        resultsPanel.add(reportControls());
         finishPage(0);
     }
 
@@ -379,6 +394,42 @@ public class ItemDropLookupPanel extends PluginPanel
         resultsPanel.add(makeSectionHeader("Display"));
         resultsPanel.add(textSize);
         resultsPanel.add(showPriceCheckbox);
+        if (viewState.selection != null) resultsPanel.add(reportControls());
+    }
+
+    private JPanel reportControls()
+    {
+        JPanel controls = LookupStyle.column();
+        JLabel status = style.text("", false);
+        status.setName("copyReportStatus");
+        status.setVisible(false);
+        JButton copy = style.button("Copy report", () -> {
+            boolean hasSelectedItem = viewState.page != LookupViewState.Page.ITEMS;
+            String method = hasSelectedItem ? (String) filterDropdown.getSelectedItem() : null;
+            String area = FILTER_ALL.equals(method) || FILTER_DROPS.equals(method)
+                    ? wildernessDropdown.getSelectedItem().toString() : null;
+            String view = detail != null ? "Source details" : viewState.page == LookupViewState.Page.ITEMS
+                    ? "Matching items" : viewState.page == LookupViewState.Page.OVERVIEW ? "Item overview" : "Sources";
+            try
+            {
+                clipboardWriter.accept(LookupReport.create(hasSelectedItem ? viewState.selectedItem : null,
+                        viewState.query, hasSelectedItem ? sourceSearch.getText() : null, method, area, view,
+                        detail == null ? null : detailSource.getMonsterName(), detail == null ? null : detail.saveState()));
+                status.setText("<html>Report copied</html>");
+            }
+            catch (RuntimeException ex)
+            {
+                status.setText("<html>Could not copy; try again</html>");
+            }
+            status.setVisible(true);
+            controls.revalidate();
+            controls.repaint();
+        }, false);
+        copy.setName("copyReport");
+        copy.setToolTipText("Copies this lookup and build details. Paste it where you choose.");
+        controls.add(copy);
+        controls.add(status);
+        return controls;
     }
 
     private void changeTextSize()
@@ -415,7 +466,7 @@ public class ItemDropLookupPanel extends PluginPanel
         overviewBack.setVisible(true);
         resultsPanel.add(makeItemHeader(viewState.selectedItem), 0);
         if (controlsPanel.getParent() != resultsPanel) resultsPanel.add(controlsPanel);
-        clearFilters.setEnabled(hasSourceFilters());
+        clearSearch.setVisible(!sourceSearch.getText().isEmpty());
         String selectedFilter = (String) filterDropdown.getSelectedItem();
         boolean showDrops = FILTER_ALL.equals(selectedFilter) || FILTER_DROPS.equals(selectedFilter);
         boolean showSources = !FILTER_DROPS.equals(selectedFilter);
@@ -592,10 +643,9 @@ public class ItemDropLookupPanel extends PluginPanel
                     }
                     resultsPanel.add(makeNoResultHeader(emptyMessage));
                     resultsPanel.add(makeLabel("This item has other sources in the local data."));
-                    JButton reset = new JButton("Show all sources");
-                    reset.setName("resetSourceFilters");
-                    reset.addActionListener(e -> clearSourceFilters());
-                    resultsPanel.add(reset);
+                    resultsPanel.add(makeLabel((showDrops ? "Use the Method and NPC area menus above to change filters."
+                            : "Use the Method menu above to choose another source type.")
+                            + (!sourceSearch.getText().isEmpty() ? " Clear search removes only Find source text." : "")));
                 }
                 else
                 {
@@ -625,28 +675,22 @@ public class ItemDropLookupPanel extends PluginPanel
         return query.isEmpty() || value != null && value.toLowerCase(Locale.ROOT).contains(query);
     }
 
-    private boolean hasSourceFilters()
-    {
-        return !FILTER_ALL.equals(filterDropdown.getSelectedItem())
-                || wildernessDropdown.getSelectedItem() != WildernessFilter.ALL || !sourceSearch.getText().isEmpty();
-    }
-
     private void sourceSearchChanged()
     {
         if (adjustingControls) return;
-        clearFilters.setEnabled(hasSourceFilters());
+        clearSearch.setVisible(!sourceSearch.getText().isEmpty());
+        controlsPanel.revalidate();
         sourceSearchTimer.restart();
     }
 
-    private void clearSourceFilters()
+    private void clearSourceSearch()
     {
         sourceSearchTimer.stop();
         adjustingControls = true;
-        filterDropdown.setSelectedItem(FILTER_ALL);
-        wildernessDropdown.setSelectedItem(WildernessFilter.ALL);
         sourceSearch.setText("");
         adjustingControls = false;
         renderResults();
+        sourceSearch.requestFocusInWindow();
     }
 
     private JButton wikiButton(String item)
@@ -901,6 +945,7 @@ public class ItemDropLookupPanel extends PluginPanel
         detail = new MonsterLocationPanel(source, displayedQuery, monsterLocationLookupService, accessRequirementLookupService,
                 (WildernessFilter) wildernessDropdown.getSelectedItem(), this::showSearchResults, style);
         detailSource = source;
+        detail.setReportControls(reportControls());
         add(detail, BorderLayout.CENTER);
         revalidate();
         repaint();

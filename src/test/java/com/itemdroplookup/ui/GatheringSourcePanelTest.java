@@ -111,8 +111,9 @@ public class GatheringSourcePanelTest
             assertTrue(named(panel, "showGatheringSources").isEmpty());
             ((JComboBox<?>) named(panel, "sourceTypeFilter").get(0)).setSelectedItem("Gathering");
             assertTrue(labels(panel).contains("No verified gathering methods match these filters."));
-            ((JButton) named(panel, "resetSourceFilters").get(0)).doClick();
-            assertEquals(1, named(panel, "showGatheringSources").size());
+            ((JButton) named(panel, "clearSourceSearch").get(0)).doClick();
+            assertEquals("Gathering", ((JComboBox<?>) named(panel, "sourceTypeFilter").get(0)).getSelectedItem());
+            assertEquals(1, named(panel, "itemSourceCard").size());
         });
     }
 

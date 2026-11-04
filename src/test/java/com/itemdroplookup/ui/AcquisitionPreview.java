@@ -52,7 +52,7 @@ public final class AcquisitionPreview
         });
     }
 
-    private static void checkBounds(Container parent)
+    static void checkBounds(Container parent)
     {
         for (Component child : parent.getComponents())
         {
@@ -65,13 +65,13 @@ public final class AcquisitionPreview
         }
     }
 
-    private static void layout(Container parent)
+    static void layout(Container parent)
     {
         parent.doLayout();
         for (Component child : parent.getComponents()) if (child instanceof Container) layout((Container) child);
     }
 
-    private static void save(JComponent component, File path)
+    static void save(JComponent component, File path)
     {
         BufferedImage image = new BufferedImage(component.getWidth(), component.getHeight(), BufferedImage.TYPE_INT_RGB);
         Graphics2D graphics = image.createGraphics();

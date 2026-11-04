@@ -29,8 +29,13 @@ Slayer's enchantment remains a direct NPC drop. Sixteen reviewed items, includin
 loot under **Loot & containers**, with separate jar-opening and catching
 routes. Opening an already obtained jar does not require Hunter levels.
 
-You can search within results for a monster, shop or shop location. NPC
-Wilderness filters and detail membership filters retain an explicit unknown
+You can search within results for a monster, shop or shop location.
+**Clear search** removes only the Find source text; method and area choices stay
+in their menus. **Copy report** manually copies the current lookup, menu state
+and build/data identity so you can paste them into feedback. It does not send a
+report, read existing clipboard contents, or include account information.
+
+NPC Wilderness filters and detail membership filters retain an explicit unknown
 state. League regions are not exposed as a filter. Shops with zero default
 stock and known returned-item/resupply sources are excluded from acquisition
 results.
