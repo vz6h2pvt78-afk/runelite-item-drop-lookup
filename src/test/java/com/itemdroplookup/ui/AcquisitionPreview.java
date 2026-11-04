@@ -25,7 +25,7 @@ public final class AcquisitionPreview
                     {"Dragon arrow", "Loot & containers", ""}, {"Dragon dagger(p++)", "Loot & containers", ""},
                     {"Adamant axe", "NPC Drops", "Dust devil"}, {"Adamant boots", "NPC Drops", "Gargoyle"},
                     {"Adamant sq shield", "NPC Drops", "Night beast"}, {"Dragonstone", "NPC Drops", "Zulrah"},
-                    {"Crystal shard", "Loot & containers", "Crystal impling"}, {"Lucky impling jar", "Gathering", ""},
+                    {"Bronze bar", "Production", ""}, {"Crystal shard", "Loot & containers", "Crystal impling"}, {"Lucky impling jar", "Gathering", ""},
                     {"Mithril ore", "Loot & containers", "Earth impling"}, {"Black dragonhide", "Loot & containers", "Magpie impling"},
                     {"Prayer potion", "NPC Drops", "Tormented Demon"}, {"Earth rune", "Shops", "Ali\u0027s Discount Wares"},
                     {"Air rune", "Shops", "pack"}, {"Death talisman", "Reward Shops", "Temple Supplies"},

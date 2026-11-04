@@ -125,6 +125,34 @@ public class SourceClarityTest
         assertFalse(ctx.find(source, "wilderness slayer cave", MonsterLocationFilter.WildernessFilter.EXCLUDE));
     }
 
+    @Test public void productionFilterAndIngredientFinderKeepTheOutputInReport() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            Gson gson = new Gson();
+            List<String> reports = new ArrayList<>();
+            ItemDropLookupPanel p = new ItemDropLookupPanel(new DropLookupService(gson),new ItemSourceLookupService(gson),
+                    new ItemPriceLookupService(gson),new MonsterLocationLookupService(gson),new AccessRequirementLookupService(gson),reports::add);
+            MorningFeedbackTest.search(p,"Bronze bar");
+            MorningFeedbackTest.click(p,"showProductionSources");
+            assertEquals(1,named(p,"itemSourceCard").size());
+            JTextField finder = (JTextField)PanelTestSupport.find(p,"sourceSearch");
+            finder.setText("Copper ore");
+            finder.postActionEvent();
+            assertTrue(MorningFeedbackTest.labels(p).contains("Normal furnace → Bronze bar"));
+            MorningFeedbackTest.click(p,"copyReport");
+            assertTrue(reports.get(0).contains("Item: Bronze bar") && reports.get(0).contains("Method: Production"));
+            assertFalse(reports.get(0).contains("NPC area:"));
+            JComboBox<?> filter = (JComboBox<?>)PanelTestSupport.find(p,"sourceTypeFilter");
+            filter.setSelectedItem("Non-NPC Sources");
+            assertEquals(1,named(p,"itemSourceCard").size());
+            filter.setSelectedItem("All");
+            assertEquals(1,named(p,"itemSourceCard").size());
+            filter.setSelectedItem("Gathering");
+            assertEquals(0,named(p,"itemSourceCard").size());
+            p.dispose();
+        });
+    }
+
     @Test public void discreteQuantitiesKeepTheirMeaningAndUnreviewedCommasArePreserved()
     {
         for (String item : List.of("Iron ore", "Bronze bar"))

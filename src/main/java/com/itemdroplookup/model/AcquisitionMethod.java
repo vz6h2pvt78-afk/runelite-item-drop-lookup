@@ -63,6 +63,7 @@ public final class AcquisitionMethod
         private final String heading;
         private final List<String> lines;
         private final boolean wilderness;
+        private final List<String> lineItems;
 
         public Section(String heading, List<String> lines)
         {
@@ -71,11 +72,24 @@ public final class AcquisitionMethod
 
         public Section(String heading, List<String> lines, boolean wilderness)
         {
+            this(heading, lines, wilderness, null);
+        }
+
+        public static Section itemLines(String heading, List<String> lines, List<String> items)
+        {
+            if (items.size() != lines.size()) throw new IllegalArgumentException("Each item line needs an identity");
+            return new Section(heading, lines, false, Collections.unmodifiableList(new ArrayList<>(items)));
+        }
+
+        private Section(String heading, List<String> lines, boolean wilderness, List<String> lineItems)
+        {
+            this.lineItems = lineItems;
             this.heading = heading;
             this.lines = Collections.unmodifiableList(new ArrayList<>(lines));
             this.wilderness = wilderness;
         }
 
+        public String itemForLine(int index) { return lineItems == null ? null : lineItems.get(index); }
         public String getHeading() { return heading; }
         public List<String> getLines() { return lines; }
         public boolean isWilderness() { return wilderness; }

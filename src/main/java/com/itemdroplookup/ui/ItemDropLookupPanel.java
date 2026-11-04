@@ -58,6 +58,7 @@ public class ItemDropLookupPanel extends PluginPanel
     private static final String FILTER_REWARD_SHOPS = "Reward Shops";
     private static final String FILTER_GROUND = "Ground pickups";
     private static final String FILTER_GATHERING = "Gathering";
+    private static final String FILTER_PRODUCTION = "Production";
     private static final String FILTER_LOOT = "Loot & containers";
 
     // Exact sourceType values matched by the Shops / Reward Shops filters. These
@@ -118,6 +119,7 @@ public class ItemDropLookupPanel extends PluginPanel
             FILTER_REWARD_SHOPS,
             FILTER_GROUND,
             FILTER_GATHERING,
+            FILTER_PRODUCTION,
             FILTER_LOOT
     });
     private final JCheckBox showPriceCheckbox = new JCheckBox("Show GE price", true);
@@ -456,6 +458,7 @@ public class ItemDropLookupPanel extends PluginPanel
         addMethod("Rewards", FILTER_REWARD_SHOPS, "reward offers", matchingSources.stream().filter(s -> SOURCE_TYPE_REWARD_SHOP.equals(s.getSourceType())).count(), "showRewardSources");
         addMethod("Pickups", FILTER_GROUND, "pickup locations", matchingSources.stream().filter(s -> SOURCE_TYPE_GROUND.equals(s.getSourceType())).count(), "showGroundSources");
         addMethod("Gathering", FILTER_GATHERING, "gathering methods", matchingSources.stream().filter(s -> SOURCE_TYPE_GATHERING.equals(s.getSourceType())).count(), "showGatheringSources");
+        addMethod("Production", FILTER_PRODUCTION, "production methods", matchingSources.stream().filter(s -> FILTER_PRODUCTION.equals(s.getSourceType())).count(), "showProductionSources");
         addMethod("Loot & containers", FILTER_LOOT, "loot methods", matchingSources.stream().filter(s -> SOURCE_TYPE_LOOT.equals(s.getSourceType())).count(), "showLootSources");
         addMethod("Monsters", FILTER_DROPS, "drop entries", matchingDrops.size(), "showDropSources");
         JButton all = style.button("All sources", () -> openMethod(FILTER_ALL), true);
@@ -631,6 +634,10 @@ public class ItemDropLookupPanel extends PluginPanel
             {
                 sources = filterBySourceType(sources, SOURCE_TYPE_GATHERING);
             }
+            else if (FILTER_PRODUCTION.equals(selectedFilter))
+            {
+                sources = filterBySourceType(sources, FILTER_PRODUCTION);
+            }
             else if (FILTER_LOOT.equals(selectedFilter))
             {
                 sources = filterBySourceType(sources, SOURCE_TYPE_LOOT);
@@ -764,6 +771,11 @@ public class ItemDropLookupPanel extends PluginPanel
                                 .anyMatch(source -> SOURCE_TYPE_GATHERING.equals(source.getSourceType()));
                         emptyMessage = hasGatheringData ? "No verified gathering methods match these filters."
                                 : "No verified gathering methods in the current data.";
+                    }
+                    else if (FILTER_PRODUCTION.equals(selectedFilter))
+                    {
+                        emptyMessage = matchingSources.stream().anyMatch(s -> FILTER_PRODUCTION.equals(s.getSourceType()))
+                                ? "No Production methods match these filters." : "No Production methods recorded for this item.";
                     }
                     else if (FILTER_LOOT.equals(selectedFilter))
                     {
@@ -1210,7 +1222,13 @@ public class ItemDropLookupPanel extends PluginPanel
                 card.add(Box.createVerticalStrut(6));
                 card.add(makeCardTitle(section.getHeading(), CARD_TEXT_WIDTH));
                 if (section.isWilderness()) card.add(style.wildernessWarning());
-                for (String line : section.getLines()) card.add(makeCardLine(line, CARD_TEXT_WIDTH));
+                for (int i = 0; i < section.getLines().size(); i++)
+                {
+                    JLabel line = makeCardLine(section.getLines().get(i), CARD_TEXT_WIDTH);
+                    String lineItem = section.itemForLine(i);
+                    if (lineItem != null) chooserIcons.add(lineItem, line);
+                    card.add(line);
+                }
             }
             JButton wiki = wikiButton(method.getWikiPage());
             wiki.setText("Method Wiki");
@@ -1322,6 +1340,7 @@ public class ItemDropLookupPanel extends PluginPanel
      */
     private String sourceSectionHeading(String selectedFilter)
     {
+        if (FILTER_PRODUCTION.equals(selectedFilter)) return "Production";
         if (FILTER_LOOT.equals(selectedFilter)) return "Loot & containers";
         if (FILTER_GATHERING.equals(selectedFilter))
         {

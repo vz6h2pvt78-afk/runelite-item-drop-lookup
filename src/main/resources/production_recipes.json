@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "recipes": [
+    {
+      "id": "production:bronze-bar:normal-furnace",
+      "output": {
+        "itemName": "Bronze bar",
+        "quantity": 1
+      },
+      "inputs": [
+        {
+          "itemName": "Copper ore",
+          "quantity": 1
+        },
+        {
+          "itemName": "Tin ore",
+          "quantity": 1
+        }
+      ],
+      "action": "Smelt",
+      "facility": "Normal furnace",
+      "skill": "Smithing",
+      "level": 1,
+      "tools": [],
+      "membersOnly": false,
+      "locationCoverage": "UNREVIEWED",
+      "evidence": [
+        {
+          "page": "Bronze bar",
+          "revisionId": 15315107,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Bronze_bar?oldid=15315107"
+        }
+      ]
+    }
+  ]
+}

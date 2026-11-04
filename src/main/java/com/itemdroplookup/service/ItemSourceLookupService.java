@@ -147,6 +147,7 @@ public class ItemSourceLookupService
         merged.addAll(loadRecords(GATHERING_RESOURCE));
         List<AcquisitionMethod> methods = new ArrayList<>(events.getMethods());
         methods.addAll(LootEventAdapter.readFamily(gson));
+        methods.addAll(ProductionRecipeAdapter.readBundled(gson));
         for (AcquisitionMethod method : methods)
         {
             ItemSourceRecord record = new ItemSourceRecord();

@@ -1,0 +1,8 @@
+N5 - Bronze bar Production
+
+Bronze bar exposes one typed normal-furnace recipe in All, Non-NPC and Production. Inputs, output, Smithing, facility, membership and tool evidence come from the pinned Standard recipe. Source finder and Copy report retain the selected output. The restored generator reproduces the recipe. Both Java suites passed 168 tests and Python passed 125. Package/API and actual Swing card bounds passed. Screens at both sizes are saved. Human acceptance remains pending.
+
+Starting commit 1e201dcfa8b953ce53e71a99287fcff214e3c925
+Build development-2026-11-04-n5-bronze-production
+Official package SHA256 4271737b51913b27e4b8222537c810f4844dd956376d611cb4ed83794853838d
+Human acceptance pending.
