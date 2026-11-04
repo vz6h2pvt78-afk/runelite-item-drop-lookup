@@ -1,0 +1,8 @@
+N3A - First six implings
+
+Baby, Young, Gourmet, Earth, Essence and Eclectic expose 110 item/event combinations from 113 ordinary rows. Empty loot, pre-rolls and tertiary rewards have separate treatment. Repeated items retain their own amounts and listed rates in one event. Each capture requirement and table traces to pinned Wiki inputs. The Coal shortcut opens its six shops. Both Java runs passed 163 tests, Python passed 123, and the package/API checks and validators passed. Recovery reproduces the tables. Human review pending.
+
+Starting commit a4335c4b841c1fd5a9e3978fb9cda1d03dd2803c
+Build development-2026-11-04-n3a-impling-loot
+Official package SHA256 16df81e84110883c18e6b116603b1d918969abfc9338f915d2e8d2ee27b515f9
+Human acceptance pending.

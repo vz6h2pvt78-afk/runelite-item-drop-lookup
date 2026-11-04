@@ -1,0 +1,2149 @@
+{
+  "schemaVersion": 1,
+  "tables": [
+    {
+      "event": {
+        "id": "baby-impling-ordinary-loot",
+        "sourceName": "Baby impling loot",
+        "containerName": "Baby impling jar",
+        "probabilityBasis": "WIKI_LISTED_TABLE",
+        "probabilityContext": "Listed on the ordinary loot table.",
+        "quantityBasis": "SUCCESSFUL_OUTCOME",
+        "otherRewardsNotice": "Additional clue rewards and jar returns are separate.",
+        "outcomes": [
+          {
+            "id": "baby-chisel-1",
+            "itemName": "Chisel",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "baby-thread-2",
+            "itemName": "Thread",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "baby-needle-3",
+            "itemName": "Needle",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "baby-knife-4",
+            "itemName": "Knife",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "baby-cheese-5",
+            "itemName": "Cheese",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "baby-hammer-6",
+            "itemName": "Hammer",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "baby-nothing-7",
+            "itemName": "Nothing",
+            "quantityMin": 0,
+            "quantityMax": 0,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "baby-ball-of-wool-8",
+            "itemName": "Ball of wool",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "baby-anchovies-9",
+            "itemName": "Anchovies",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "baby-spice-10",
+            "itemName": "Spice",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "baby-flax-11",
+            "itemName": "Flax",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "baby-mud-pie-12",
+            "itemName": "Mud pie",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "baby-seaweed-13",
+            "itemName": "Seaweed",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "baby-air-talisman-14",
+            "itemName": "Air talisman",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "baby-silver-bar-15",
+            "itemName": "Silver bar",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "baby-sapphire-16",
+            "itemName": "Sapphire",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "baby-hard-leather-17",
+            "itemName": "Hard leather",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "baby-lobster-18",
+            "itemName": "Lobster",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "baby-soft-clay-19",
+            "itemName": "Soft clay",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          }
+        ],
+        "routes": [
+          {
+            "id": "open-obtained-jar",
+            "kind": "OPEN_EXISTING",
+            "inputItem": "Baby impling jar",
+            "steps": [
+              "Obtain a filled Baby impling jar",
+              "Open the jar"
+            ],
+            "captureOptions": [],
+            "evidence": [
+              {
+                "page": "Baby impling",
+                "revisionId": 15358220,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Baby_impling?oldid=15358220"
+              },
+              {
+                "page": "Impling",
+                "revisionId": 15360701,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+              }
+            ]
+          },
+          {
+            "id": "catch-into-jar",
+            "kind": "CATCH_INTO_CONTAINER",
+            "area": "Gielinor or Puro-Puro",
+            "jarState": "EMPTY_JAR_PRESENT",
+            "steps": [
+              "Catch the impling in an empty jar",
+              "Open the filled jar"
+            ],
+            "captureOptions": [
+              {
+                "kind": "NET",
+                "hunterLevel": 17,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Butterfly net or magic butterfly net",
+                "equipmentAlternatives": [
+                  "BUTTERFLY_NET",
+                  "MAGIC_BUTTERFLY_NET"
+                ],
+                "evidence": [
+                  {
+                    "page": "Baby impling",
+                    "revisionId": 15358220,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Baby_impling?oldid=15358220"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              },
+              {
+                "kind": "BAREHANDED",
+                "hunterLevel": 27,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Bare hands",
+                "equipmentAlternatives": [],
+                "evidence": [
+                  {
+                    "page": "Baby impling",
+                    "revisionId": 15358220,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Baby_impling?oldid=15358220"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              }
+            ],
+            "evidence": [
+              {
+                "page": "Baby impling",
+                "revisionId": 15358220,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Baby_impling?oldid=15358220"
+              },
+              {
+                "page": "Impling",
+                "revisionId": 15360701,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+              }
+            ]
+          },
+          {
+            "id": "catch-and-loot",
+            "kind": "CATCH_AND_LOOT",
+            "area": "Outside Puro-Puro",
+            "jarState": "EMPTY_JAR_ABSENT",
+            "steps": [
+              "Catch the impling without an empty jar",
+              "Receive loot immediately"
+            ],
+            "captureOptions": [
+              {
+                "kind": "NET",
+                "hunterLevel": 17,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Butterfly net or magic butterfly net",
+                "equipmentAlternatives": [
+                  "BUTTERFLY_NET",
+                  "MAGIC_BUTTERFLY_NET"
+                ],
+                "evidence": [
+                  {
+                    "page": "Baby impling",
+                    "revisionId": 15358220,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Baby_impling?oldid=15358220"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              },
+              {
+                "kind": "BAREHANDED",
+                "hunterLevel": 27,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Bare hands",
+                "equipmentAlternatives": [],
+                "evidence": [
+                  {
+                    "page": "Baby impling",
+                    "revisionId": 15358220,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Baby_impling?oldid=15358220"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              }
+            ],
+            "evidence": [
+              {
+                "page": "Baby impling",
+                "revisionId": 15358220,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Baby_impling?oldid=15358220"
+              },
+              {
+                "page": "Impling",
+                "revisionId": 15360701,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "page": "Baby impling",
+            "revisionId": 15358220,
+            "sourceUrl": "https://oldschool.runescape.wiki/w/Baby_impling?oldid=15358220"
+          },
+          {
+            "page": "Impling",
+            "revisionId": 15360701,
+            "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+          }
+        ]
+      },
+      "coverage": {
+        "eventId": "baby-impling-ordinary-loot",
+        "includedOutcomeIds": [
+          "baby-chisel-1",
+          "baby-thread-2",
+          "baby-needle-3",
+          "baby-knife-4",
+          "baby-cheese-5",
+          "baby-hammer-6",
+          "baby-ball-of-wool-8",
+          "baby-anchovies-9",
+          "baby-spice-10",
+          "baby-flax-11",
+          "baby-mud-pie-12",
+          "baby-seaweed-13",
+          "baby-air-talisman-14",
+          "baby-silver-bar-15",
+          "baby-sapphire-16",
+          "baby-hard-leather-17",
+          "baby-lobster-18",
+          "baby-soft-clay-19"
+        ]
+      }
+    },
+    {
+      "event": {
+        "id": "earth-impling-ordinary-loot",
+        "sourceName": "Earth impling loot",
+        "containerName": "Earth impling jar",
+        "probabilityBasis": "WIKI_LISTED_TABLE",
+        "probabilityContext": "Listed on the ordinary loot table.",
+        "quantityBasis": "SUCCESSFUL_OUTCOME",
+        "otherRewardsNotice": "Additional clue rewards and jar returns are separate.",
+        "outcomes": [
+          {
+            "id": "earth-fire-talisman-1",
+            "itemName": "Fire talisman",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "earth-earth-talisman-2",
+            "itemName": "Earth talisman",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "earth-earth-tiara-3",
+            "itemName": "Earth tiara",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "earth-earth-rune-4",
+            "itemName": "Earth rune",
+            "quantityMin": 32,
+            "quantityMax": 32,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "earth-mithril-ore-5",
+            "itemName": "Mithril ore",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "earth-bucket-of-sand-6",
+            "itemName": "Bucket of sand",
+            "quantityMin": 4,
+            "quantityMax": 4,
+            "noted": true,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "earth-unicorn-horn-7",
+            "itemName": "Unicorn horn",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "earth-compost-8",
+            "itemName": "Compost",
+            "quantityMin": 6,
+            "quantityMax": 6,
+            "noted": true,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "earth-gold-ore-9",
+            "itemName": "Gold ore",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "earth-steel-bar-10",
+            "itemName": "Steel bar",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "earth-mithril-pickaxe-11",
+            "itemName": "Mithril pickaxe",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "earth-wildblood-seed-12",
+            "itemName": "Wildblood seed",
+            "quantityMin": 2,
+            "quantityMax": 2,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "earth-jangerberry-seed-13",
+            "itemName": "Jangerberry seed",
+            "quantityMin": 2,
+            "quantityMax": 2,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "earth-supercompost-14",
+            "itemName": "Supercompost",
+            "quantityMin": 2,
+            "quantityMax": 2,
+            "noted": true,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "earth-mithril-ore-15",
+            "itemName": "Mithril ore",
+            "quantityMin": 3,
+            "quantityMax": 3,
+            "noted": true,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "earth-harralander-seed-16",
+            "itemName": "Harralander seed",
+            "quantityMin": 2,
+            "quantityMax": 2,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "earth-coal-17",
+            "itemName": "Coal",
+            "quantityMin": 6,
+            "quantityMax": 6,
+            "noted": true,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "earth-emerald-18",
+            "itemName": "Emerald",
+            "quantityMin": 2,
+            "quantityMax": 2,
+            "noted": true,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "earth-ruby-19",
+            "itemName": "Ruby",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          }
+        ],
+        "routes": [
+          {
+            "id": "open-obtained-jar",
+            "kind": "OPEN_EXISTING",
+            "inputItem": "Earth impling jar",
+            "steps": [
+              "Obtain a filled Earth impling jar",
+              "Open the jar"
+            ],
+            "captureOptions": [],
+            "evidence": [
+              {
+                "page": "Earth impling",
+                "revisionId": 15297396,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Earth_impling?oldid=15297396"
+              },
+              {
+                "page": "Impling",
+                "revisionId": 15360701,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+              }
+            ]
+          },
+          {
+            "id": "catch-into-jar",
+            "kind": "CATCH_INTO_CONTAINER",
+            "area": "Gielinor or Puro-Puro",
+            "jarState": "EMPTY_JAR_PRESENT",
+            "steps": [
+              "Catch the impling in an empty jar",
+              "Open the filled jar"
+            ],
+            "captureOptions": [
+              {
+                "kind": "NET",
+                "hunterLevel": 36,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Butterfly net or magic butterfly net",
+                "equipmentAlternatives": [
+                  "BUTTERFLY_NET",
+                  "MAGIC_BUTTERFLY_NET"
+                ],
+                "evidence": [
+                  {
+                    "page": "Earth impling",
+                    "revisionId": 15297396,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Earth_impling?oldid=15297396"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              },
+              {
+                "kind": "BAREHANDED",
+                "hunterLevel": 46,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Bare hands",
+                "equipmentAlternatives": [],
+                "evidence": [
+                  {
+                    "page": "Earth impling",
+                    "revisionId": 15297396,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Earth_impling?oldid=15297396"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              }
+            ],
+            "evidence": [
+              {
+                "page": "Earth impling",
+                "revisionId": 15297396,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Earth_impling?oldid=15297396"
+              },
+              {
+                "page": "Impling",
+                "revisionId": 15360701,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+              }
+            ]
+          },
+          {
+            "id": "catch-and-loot",
+            "kind": "CATCH_AND_LOOT",
+            "area": "Outside Puro-Puro",
+            "jarState": "EMPTY_JAR_ABSENT",
+            "steps": [
+              "Catch the impling without an empty jar",
+              "Receive loot immediately"
+            ],
+            "captureOptions": [
+              {
+                "kind": "NET",
+                "hunterLevel": 36,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Butterfly net or magic butterfly net",
+                "equipmentAlternatives": [
+                  "BUTTERFLY_NET",
+                  "MAGIC_BUTTERFLY_NET"
+                ],
+                "evidence": [
+                  {
+                    "page": "Earth impling",
+                    "revisionId": 15297396,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Earth_impling?oldid=15297396"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              },
+              {
+                "kind": "BAREHANDED",
+                "hunterLevel": 46,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Bare hands",
+                "equipmentAlternatives": [],
+                "evidence": [
+                  {
+                    "page": "Earth impling",
+                    "revisionId": 15297396,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Earth_impling?oldid=15297396"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              }
+            ],
+            "evidence": [
+              {
+                "page": "Earth impling",
+                "revisionId": 15297396,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Earth_impling?oldid=15297396"
+              },
+              {
+                "page": "Impling",
+                "revisionId": 15360701,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "page": "Earth impling",
+            "revisionId": 15297396,
+            "sourceUrl": "https://oldschool.runescape.wiki/w/Earth_impling?oldid=15297396"
+          },
+          {
+            "page": "Impling",
+            "revisionId": 15360701,
+            "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+          }
+        ]
+      },
+      "coverage": {
+        "eventId": "earth-impling-ordinary-loot",
+        "includedOutcomeIds": [
+          "earth-fire-talisman-1",
+          "earth-earth-talisman-2",
+          "earth-earth-tiara-3",
+          "earth-earth-rune-4",
+          "earth-mithril-ore-5",
+          "earth-bucket-of-sand-6",
+          "earth-unicorn-horn-7",
+          "earth-compost-8",
+          "earth-gold-ore-9",
+          "earth-steel-bar-10",
+          "earth-mithril-pickaxe-11",
+          "earth-wildblood-seed-12",
+          "earth-jangerberry-seed-13",
+          "earth-supercompost-14",
+          "earth-mithril-ore-15",
+          "earth-harralander-seed-16",
+          "earth-coal-17",
+          "earth-emerald-18",
+          "earth-ruby-19"
+        ]
+      }
+    },
+    {
+      "event": {
+        "id": "eclectic-impling-ordinary-loot",
+        "sourceName": "Eclectic impling loot",
+        "containerName": "Eclectic impling jar",
+        "probabilityBasis": "WIKI_LISTED_TABLE",
+        "probabilityContext": "Listed on the ordinary loot table.",
+        "quantityBasis": "SUCCESSFUL_OUTCOME",
+        "otherRewardsNotice": "Additional clue rewards and jar returns are separate.",
+        "outcomes": [
+          {
+            "id": "eclectic-mithril-pickaxe-1",
+            "itemName": "Mithril pickaxe",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "eclectic-curry-leaf-2",
+            "itemName": "Curry leaf",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "eclectic-snape-grass-3",
+            "itemName": "Snape grass",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "eclectic-air-rune-4",
+            "itemName": "Air rune",
+            "quantityMin": 30,
+            "quantityMax": 58,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "eclectic-oak-plank-5",
+            "itemName": "Oak plank",
+            "quantityMin": 4,
+            "quantityMax": 4,
+            "noted": true,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "eclectic-empty-candle-lantern-6",
+            "itemName": "Empty candle lantern",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "eclectic-gold-ore-7",
+            "itemName": "Gold ore",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "eclectic-gold-bar-8",
+            "itemName": "Gold bar",
+            "quantityMin": 5,
+            "quantityMax": 5,
+            "noted": true,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "eclectic-unicorn-horn-9",
+            "itemName": "Unicorn horn",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "eclectic-adamant-kiteshield-10",
+            "itemName": "Adamant kiteshield",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "eclectic-blue-d'hide-chaps-11",
+            "itemName": "Blue d'hide chaps",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "eclectic-red-spiky-vambraces-12",
+            "itemName": "Red spiky vambraces",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "eclectic-rune-dagger-13",
+            "itemName": "Rune dagger",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "eclectic-battlestaff-14",
+            "itemName": "Battlestaff",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "eclectic-adamantite-ore-15",
+            "itemName": "Adamantite ore",
+            "quantityMin": 10,
+            "quantityMax": 10,
+            "noted": true,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "eclectic-slayer's-respite-16",
+            "itemName": "Slayer's respite",
+            "quantityMin": 2,
+            "quantityMax": 2,
+            "noted": true,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "eclectic-wild-pie-17",
+            "itemName": "Wild pie",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "eclectic-watermelon-seed-18",
+            "itemName": "Watermelon seed",
+            "quantityMin": 3,
+            "quantityMax": 3,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "eclectic-diamond-19",
+            "itemName": "Diamond",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          }
+        ],
+        "routes": [
+          {
+            "id": "open-obtained-jar",
+            "kind": "OPEN_EXISTING",
+            "inputItem": "Eclectic impling jar",
+            "steps": [
+              "Obtain a filled Eclectic impling jar",
+              "Open the jar"
+            ],
+            "captureOptions": [],
+            "evidence": [
+              {
+                "page": "Eclectic impling",
+                "revisionId": 15297390,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Eclectic_impling?oldid=15297390"
+              },
+              {
+                "page": "Impling",
+                "revisionId": 15360701,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+              }
+            ]
+          },
+          {
+            "id": "catch-into-jar",
+            "kind": "CATCH_INTO_CONTAINER",
+            "area": "Gielinor or Puro-Puro",
+            "jarState": "EMPTY_JAR_PRESENT",
+            "steps": [
+              "Catch the impling in an empty jar",
+              "Open the filled jar"
+            ],
+            "captureOptions": [
+              {
+                "kind": "NET",
+                "hunterLevel": 50,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Butterfly net or magic butterfly net",
+                "equipmentAlternatives": [
+                  "BUTTERFLY_NET",
+                  "MAGIC_BUTTERFLY_NET"
+                ],
+                "evidence": [
+                  {
+                    "page": "Eclectic impling",
+                    "revisionId": 15297390,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Eclectic_impling?oldid=15297390"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              },
+              {
+                "kind": "BAREHANDED",
+                "hunterLevel": 60,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Bare hands",
+                "equipmentAlternatives": [],
+                "evidence": [
+                  {
+                    "page": "Eclectic impling",
+                    "revisionId": 15297390,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Eclectic_impling?oldid=15297390"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              }
+            ],
+            "evidence": [
+              {
+                "page": "Eclectic impling",
+                "revisionId": 15297390,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Eclectic_impling?oldid=15297390"
+              },
+              {
+                "page": "Impling",
+                "revisionId": 15360701,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+              }
+            ]
+          },
+          {
+            "id": "catch-and-loot",
+            "kind": "CATCH_AND_LOOT",
+            "area": "Outside Puro-Puro",
+            "jarState": "EMPTY_JAR_ABSENT",
+            "steps": [
+              "Catch the impling without an empty jar",
+              "Receive loot immediately"
+            ],
+            "captureOptions": [
+              {
+                "kind": "NET",
+                "hunterLevel": 50,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Butterfly net or magic butterfly net",
+                "equipmentAlternatives": [
+                  "BUTTERFLY_NET",
+                  "MAGIC_BUTTERFLY_NET"
+                ],
+                "evidence": [
+                  {
+                    "page": "Eclectic impling",
+                    "revisionId": 15297390,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Eclectic_impling?oldid=15297390"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              },
+              {
+                "kind": "BAREHANDED",
+                "hunterLevel": 60,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Bare hands",
+                "equipmentAlternatives": [],
+                "evidence": [
+                  {
+                    "page": "Eclectic impling",
+                    "revisionId": 15297390,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Eclectic_impling?oldid=15297390"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              }
+            ],
+            "evidence": [
+              {
+                "page": "Eclectic impling",
+                "revisionId": 15297390,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Eclectic_impling?oldid=15297390"
+              },
+              {
+                "page": "Impling",
+                "revisionId": 15360701,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "page": "Eclectic impling",
+            "revisionId": 15297390,
+            "sourceUrl": "https://oldschool.runescape.wiki/w/Eclectic_impling?oldid=15297390"
+          },
+          {
+            "page": "Impling",
+            "revisionId": 15360701,
+            "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+          }
+        ]
+      },
+      "coverage": {
+        "eventId": "eclectic-impling-ordinary-loot",
+        "includedOutcomeIds": [
+          "eclectic-mithril-pickaxe-1",
+          "eclectic-curry-leaf-2",
+          "eclectic-snape-grass-3",
+          "eclectic-air-rune-4",
+          "eclectic-oak-plank-5",
+          "eclectic-empty-candle-lantern-6",
+          "eclectic-gold-ore-7",
+          "eclectic-gold-bar-8",
+          "eclectic-unicorn-horn-9",
+          "eclectic-adamant-kiteshield-10",
+          "eclectic-blue-d'hide-chaps-11",
+          "eclectic-red-spiky-vambraces-12",
+          "eclectic-rune-dagger-13",
+          "eclectic-battlestaff-14",
+          "eclectic-adamantite-ore-15",
+          "eclectic-slayer's-respite-16",
+          "eclectic-wild-pie-17",
+          "eclectic-watermelon-seed-18",
+          "eclectic-diamond-19"
+        ]
+      }
+    },
+    {
+      "event": {
+        "id": "essence-impling-ordinary-loot",
+        "sourceName": "Essence impling loot",
+        "containerName": "Essence impling jar",
+        "probabilityBasis": "WIKI_LISTED_TABLE",
+        "probabilityContext": "Listed on the ordinary loot table.",
+        "quantityBasis": "SUCCESSFUL_OUTCOME",
+        "otherRewardsNotice": "Additional clue rewards and jar returns are separate.",
+        "outcomes": [
+          {
+            "id": "essence-pure-essence-1",
+            "itemName": "Pure essence",
+            "quantityMin": 20,
+            "quantityMax": 20,
+            "noted": true,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "essence-water-rune-2",
+            "itemName": "Water rune",
+            "quantityMin": 30,
+            "quantityMax": 30,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "essence-air-rune-3",
+            "itemName": "Air rune",
+            "quantityMin": 30,
+            "quantityMax": 30,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "essence-fire-rune-4",
+            "itemName": "Fire rune",
+            "quantityMin": 50,
+            "quantityMax": 50,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "essence-mind-rune-5",
+            "itemName": "Mind rune",
+            "quantityMin": 25,
+            "quantityMax": 25,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "essence-body-rune-6",
+            "itemName": "Body rune",
+            "quantityMin": 28,
+            "quantityMax": 28,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "essence-chaos-rune-7",
+            "itemName": "Chaos rune",
+            "quantityMin": 4,
+            "quantityMax": 4,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "essence-cosmic-rune-8",
+            "itemName": "Cosmic rune",
+            "quantityMin": 4,
+            "quantityMax": 4,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "essence-mind-talisman-9",
+            "itemName": "Mind talisman",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "essence-pure-essence-10",
+            "itemName": "Pure essence",
+            "quantityMin": 35,
+            "quantityMax": 35,
+            "noted": true,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "essence-lava-rune-11",
+            "itemName": "Lava rune",
+            "quantityMin": 4,
+            "quantityMax": 4,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "essence-mud-rune-12",
+            "itemName": "Mud rune",
+            "quantityMin": 4,
+            "quantityMax": 4,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "essence-smoke-rune-13",
+            "itemName": "Smoke rune",
+            "quantityMin": 4,
+            "quantityMax": 4,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "essence-steam-rune-14",
+            "itemName": "Steam rune",
+            "quantityMin": 4,
+            "quantityMax": 4,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "essence-death-rune-15",
+            "itemName": "Death rune",
+            "quantityMin": 13,
+            "quantityMax": 13,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "essence-law-rune-16",
+            "itemName": "Law rune",
+            "quantityMin": 13,
+            "quantityMax": 13,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "essence-blood-rune-17",
+            "itemName": "Blood rune",
+            "quantityMin": 7,
+            "quantityMax": 7,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "essence-soul-rune-18",
+            "itemName": "Soul rune",
+            "quantityMin": 11,
+            "quantityMax": 11,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "essence-nature-rune-19",
+            "itemName": "Nature rune",
+            "quantityMin": 13,
+            "quantityMax": 13,
+            "noted": false,
+            "listedChance": "1/100"
+          }
+        ],
+        "routes": [
+          {
+            "id": "open-obtained-jar",
+            "kind": "OPEN_EXISTING",
+            "inputItem": "Essence impling jar",
+            "steps": [
+              "Obtain a filled Essence impling jar",
+              "Open the jar"
+            ],
+            "captureOptions": [],
+            "evidence": [
+              {
+                "page": "Essence impling",
+                "revisionId": 15367384,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Essence_impling?oldid=15367384"
+              },
+              {
+                "page": "Impling",
+                "revisionId": 15360701,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+              }
+            ]
+          },
+          {
+            "id": "catch-into-jar",
+            "kind": "CATCH_INTO_CONTAINER",
+            "area": "Gielinor or Puro-Puro",
+            "jarState": "EMPTY_JAR_PRESENT",
+            "steps": [
+              "Catch the impling in an empty jar",
+              "Open the filled jar"
+            ],
+            "captureOptions": [
+              {
+                "kind": "NET",
+                "hunterLevel": 42,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Butterfly net or magic butterfly net",
+                "equipmentAlternatives": [
+                  "BUTTERFLY_NET",
+                  "MAGIC_BUTTERFLY_NET"
+                ],
+                "evidence": [
+                  {
+                    "page": "Essence impling",
+                    "revisionId": 15367384,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Essence_impling?oldid=15367384"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              },
+              {
+                "kind": "BAREHANDED",
+                "hunterLevel": 52,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Bare hands",
+                "equipmentAlternatives": [],
+                "evidence": [
+                  {
+                    "page": "Essence impling",
+                    "revisionId": 15367384,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Essence_impling?oldid=15367384"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              }
+            ],
+            "evidence": [
+              {
+                "page": "Essence impling",
+                "revisionId": 15367384,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Essence_impling?oldid=15367384"
+              },
+              {
+                "page": "Impling",
+                "revisionId": 15360701,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+              }
+            ]
+          },
+          {
+            "id": "catch-and-loot",
+            "kind": "CATCH_AND_LOOT",
+            "area": "Outside Puro-Puro",
+            "jarState": "EMPTY_JAR_ABSENT",
+            "steps": [
+              "Catch the impling without an empty jar",
+              "Receive loot immediately"
+            ],
+            "captureOptions": [
+              {
+                "kind": "NET",
+                "hunterLevel": 42,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Butterfly net or magic butterfly net",
+                "equipmentAlternatives": [
+                  "BUTTERFLY_NET",
+                  "MAGIC_BUTTERFLY_NET"
+                ],
+                "evidence": [
+                  {
+                    "page": "Essence impling",
+                    "revisionId": 15367384,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Essence_impling?oldid=15367384"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              },
+              {
+                "kind": "BAREHANDED",
+                "hunterLevel": 52,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Bare hands",
+                "equipmentAlternatives": [],
+                "evidence": [
+                  {
+                    "page": "Essence impling",
+                    "revisionId": 15367384,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Essence_impling?oldid=15367384"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              }
+            ],
+            "evidence": [
+              {
+                "page": "Essence impling",
+                "revisionId": 15367384,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Essence_impling?oldid=15367384"
+              },
+              {
+                "page": "Impling",
+                "revisionId": 15360701,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "page": "Essence impling",
+            "revisionId": 15367384,
+            "sourceUrl": "https://oldschool.runescape.wiki/w/Essence_impling?oldid=15367384"
+          },
+          {
+            "page": "Impling",
+            "revisionId": 15360701,
+            "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+          }
+        ]
+      },
+      "coverage": {
+        "eventId": "essence-impling-ordinary-loot",
+        "includedOutcomeIds": [
+          "essence-pure-essence-1",
+          "essence-water-rune-2",
+          "essence-air-rune-3",
+          "essence-fire-rune-4",
+          "essence-mind-rune-5",
+          "essence-body-rune-6",
+          "essence-chaos-rune-7",
+          "essence-cosmic-rune-8",
+          "essence-mind-talisman-9",
+          "essence-pure-essence-10",
+          "essence-lava-rune-11",
+          "essence-mud-rune-12",
+          "essence-smoke-rune-13",
+          "essence-steam-rune-14",
+          "essence-death-rune-15",
+          "essence-law-rune-16",
+          "essence-blood-rune-17",
+          "essence-soul-rune-18",
+          "essence-nature-rune-19"
+        ]
+      }
+    },
+    {
+      "event": {
+        "id": "gourmet-impling-ordinary-loot",
+        "sourceName": "Gourmet impling loot",
+        "containerName": "Gourmet impling jar",
+        "probabilityBasis": "WIKI_LISTED_TABLE",
+        "probabilityContext": "Listed on the standard table after the Grubby key pre-roll.",
+        "quantityBasis": "SUCCESSFUL_OUTCOME",
+        "otherRewardsNotice": "Additional clue rewards and jar returns are separate.",
+        "outcomes": [
+          {
+            "id": "gourmet-tuna-1",
+            "itemName": "Tuna",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/5"
+          },
+          {
+            "id": "gourmet-bass-2",
+            "itemName": "Bass",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "gourmet-curry-3",
+            "itemName": "Curry",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "gourmet-meat-pie-4",
+            "itemName": "Meat pie",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "gourmet-chocolate-cake-5",
+            "itemName": "Chocolate cake",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "gourmet-frog-spawn-6",
+            "itemName": "Frog spawn",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "gourmet-spice-7",
+            "itemName": "Spice",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "gourmet-curry-leaf-8",
+            "itemName": "Curry leaf",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "gourmet-ugthanki-kebab-9",
+            "itemName": "Ugthanki kebab",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "gourmet-lobster-10",
+            "itemName": "Lobster",
+            "quantityMin": 4,
+            "quantityMax": 4,
+            "noted": true,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "gourmet-shark-11",
+            "itemName": "Shark",
+            "quantityMin": 3,
+            "quantityMax": 3,
+            "noted": true,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "gourmet-fish-pie-12",
+            "itemName": "Fish pie",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "gourmet-chef's-delight-13",
+            "itemName": "Chef's delight",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "gourmet-rainbow-fish-14",
+            "itemName": "Rainbow fish",
+            "quantityMin": 5,
+            "quantityMax": 5,
+            "noted": true,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "gourmet-garden-pie-15",
+            "itemName": "Garden pie",
+            "quantityMin": 6,
+            "quantityMax": 6,
+            "noted": true,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "gourmet-swordfish-16",
+            "itemName": "Swordfish",
+            "quantityMin": 3,
+            "quantityMax": 3,
+            "noted": true,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "gourmet-strawberries(5)-17",
+            "itemName": "Strawberries(5)",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "gourmet-cooked-karambwan-18",
+            "itemName": "Cooked karambwan",
+            "quantityMin": 2,
+            "quantityMax": 2,
+            "noted": true,
+            "listedChance": "1/100"
+          }
+        ],
+        "routes": [
+          {
+            "id": "open-obtained-jar",
+            "kind": "OPEN_EXISTING",
+            "inputItem": "Gourmet impling jar",
+            "steps": [
+              "Obtain a filled Gourmet impling jar",
+              "Open the jar"
+            ],
+            "captureOptions": [],
+            "evidence": [
+              {
+                "page": "Gourmet impling",
+                "revisionId": 15297393,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Gourmet_impling?oldid=15297393"
+              },
+              {
+                "page": "Impling",
+                "revisionId": 15360701,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+              }
+            ]
+          },
+          {
+            "id": "catch-into-jar",
+            "kind": "CATCH_INTO_CONTAINER",
+            "area": "Gielinor or Puro-Puro",
+            "jarState": "EMPTY_JAR_PRESENT",
+            "steps": [
+              "Catch the impling in an empty jar",
+              "Open the filled jar"
+            ],
+            "captureOptions": [
+              {
+                "kind": "NET",
+                "hunterLevel": 28,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Butterfly net or magic butterfly net",
+                "equipmentAlternatives": [
+                  "BUTTERFLY_NET",
+                  "MAGIC_BUTTERFLY_NET"
+                ],
+                "evidence": [
+                  {
+                    "page": "Gourmet impling",
+                    "revisionId": 15297393,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Gourmet_impling?oldid=15297393"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              },
+              {
+                "kind": "BAREHANDED",
+                "hunterLevel": 38,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Bare hands",
+                "equipmentAlternatives": [],
+                "evidence": [
+                  {
+                    "page": "Gourmet impling",
+                    "revisionId": 15297393,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Gourmet_impling?oldid=15297393"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              }
+            ],
+            "evidence": [
+              {
+                "page": "Gourmet impling",
+                "revisionId": 15297393,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Gourmet_impling?oldid=15297393"
+              },
+              {
+                "page": "Impling",
+                "revisionId": 15360701,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+              }
+            ]
+          },
+          {
+            "id": "catch-and-loot",
+            "kind": "CATCH_AND_LOOT",
+            "area": "Outside Puro-Puro",
+            "jarState": "EMPTY_JAR_ABSENT",
+            "steps": [
+              "Catch the impling without an empty jar",
+              "Receive loot immediately"
+            ],
+            "captureOptions": [
+              {
+                "kind": "NET",
+                "hunterLevel": 28,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Butterfly net or magic butterfly net",
+                "equipmentAlternatives": [
+                  "BUTTERFLY_NET",
+                  "MAGIC_BUTTERFLY_NET"
+                ],
+                "evidence": [
+                  {
+                    "page": "Gourmet impling",
+                    "revisionId": 15297393,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Gourmet_impling?oldid=15297393"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              },
+              {
+                "kind": "BAREHANDED",
+                "hunterLevel": 38,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Bare hands",
+                "equipmentAlternatives": [],
+                "evidence": [
+                  {
+                    "page": "Gourmet impling",
+                    "revisionId": 15297393,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Gourmet_impling?oldid=15297393"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              }
+            ],
+            "evidence": [
+              {
+                "page": "Gourmet impling",
+                "revisionId": 15297393,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Gourmet_impling?oldid=15297393"
+              },
+              {
+                "page": "Impling",
+                "revisionId": 15360701,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "page": "Gourmet impling",
+            "revisionId": 15297393,
+            "sourceUrl": "https://oldschool.runescape.wiki/w/Gourmet_impling?oldid=15297393"
+          },
+          {
+            "page": "Impling",
+            "revisionId": 15360701,
+            "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+          }
+        ]
+      },
+      "coverage": {
+        "eventId": "gourmet-impling-ordinary-loot",
+        "includedOutcomeIds": [
+          "gourmet-tuna-1",
+          "gourmet-bass-2",
+          "gourmet-curry-3",
+          "gourmet-meat-pie-4",
+          "gourmet-chocolate-cake-5",
+          "gourmet-frog-spawn-6",
+          "gourmet-spice-7",
+          "gourmet-curry-leaf-8",
+          "gourmet-ugthanki-kebab-9",
+          "gourmet-lobster-10",
+          "gourmet-shark-11",
+          "gourmet-fish-pie-12",
+          "gourmet-chef's-delight-13",
+          "gourmet-rainbow-fish-14",
+          "gourmet-garden-pie-15",
+          "gourmet-swordfish-16",
+          "gourmet-strawberries(5)-17",
+          "gourmet-cooked-karambwan-18"
+        ]
+      }
+    },
+    {
+      "event": {
+        "id": "young-impling-ordinary-loot",
+        "sourceName": "Young impling loot",
+        "containerName": "Young impling jar",
+        "probabilityBasis": "WIKI_LISTED_TABLE",
+        "probabilityContext": "Listed on the ordinary loot table.",
+        "quantityBasis": "SUCCESSFUL_OUTCOME",
+        "otherRewardsNotice": "Additional clue rewards and jar returns are separate.",
+        "outcomes": [
+          {
+            "id": "young-steel-nails-1",
+            "itemName": "Steel nails",
+            "quantityMin": 5,
+            "quantityMax": 5,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "young-lockpick-2",
+            "itemName": "Lockpick",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "young-pure-essence-3",
+            "itemName": "Pure essence",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "young-tuna-4",
+            "itemName": "Tuna",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "young-chocolate-slice-5",
+            "itemName": "Chocolate slice",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "young-steel-axe-6",
+            "itemName": "Steel axe",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "young-meat-pizza-7",
+            "itemName": "Meat pizza",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "young-coal-8",
+            "itemName": "Coal",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "young-bow-string-9",
+            "itemName": "Bow string",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/10"
+          },
+          {
+            "id": "young-snape-grass-10",
+            "itemName": "Snape grass",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "young-soft-clay-11",
+            "itemName": "Soft clay",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "young-studded-chaps-12",
+            "itemName": "Studded chaps",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "young-steel-full-helm-13",
+            "itemName": "Steel full helm",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "young-oak-plank-14",
+            "itemName": "Oak plank",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "young-defence-potion(3)-15",
+            "itemName": "Defence potion(3)",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "young-mithril-bar-16",
+            "itemName": "Mithril bar",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "young-yew-longbow-17",
+            "itemName": "Yew longbow",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "young-garden-pie-18",
+            "itemName": "Garden pie",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          },
+          {
+            "id": "young-jangerberries-19",
+            "itemName": "Jangerberries",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/100"
+          }
+        ],
+        "routes": [
+          {
+            "id": "open-obtained-jar",
+            "kind": "OPEN_EXISTING",
+            "inputItem": "Young impling jar",
+            "steps": [
+              "Obtain a filled Young impling jar",
+              "Open the jar"
+            ],
+            "captureOptions": [],
+            "evidence": [
+              {
+                "page": "Young impling",
+                "revisionId": 15360603,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Young_impling?oldid=15360603"
+              },
+              {
+                "page": "Impling",
+                "revisionId": 15360701,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+              }
+            ]
+          },
+          {
+            "id": "catch-into-jar",
+            "kind": "CATCH_INTO_CONTAINER",
+            "area": "Gielinor or Puro-Puro",
+            "jarState": "EMPTY_JAR_PRESENT",
+            "steps": [
+              "Catch the impling in an empty jar",
+              "Open the filled jar"
+            ],
+            "captureOptions": [
+              {
+                "kind": "NET",
+                "hunterLevel": 22,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Butterfly net or magic butterfly net",
+                "equipmentAlternatives": [
+                  "BUTTERFLY_NET",
+                  "MAGIC_BUTTERFLY_NET"
+                ],
+                "evidence": [
+                  {
+                    "page": "Young impling",
+                    "revisionId": 15360603,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Young_impling?oldid=15360603"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              },
+              {
+                "kind": "BAREHANDED",
+                "hunterLevel": 32,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Bare hands",
+                "equipmentAlternatives": [],
+                "evidence": [
+                  {
+                    "page": "Young impling",
+                    "revisionId": 15360603,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Young_impling?oldid=15360603"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              }
+            ],
+            "evidence": [
+              {
+                "page": "Young impling",
+                "revisionId": 15360603,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Young_impling?oldid=15360603"
+              },
+              {
+                "page": "Impling",
+                "revisionId": 15360701,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+              }
+            ]
+          },
+          {
+            "id": "catch-and-loot",
+            "kind": "CATCH_AND_LOOT",
+            "area": "Outside Puro-Puro",
+            "jarState": "EMPTY_JAR_ABSENT",
+            "steps": [
+              "Catch the impling without an empty jar",
+              "Receive loot immediately"
+            ],
+            "captureOptions": [
+              {
+                "kind": "NET",
+                "hunterLevel": 22,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Butterfly net or magic butterfly net",
+                "equipmentAlternatives": [
+                  "BUTTERFLY_NET",
+                  "MAGIC_BUTTERFLY_NET"
+                ],
+                "evidence": [
+                  {
+                    "page": "Young impling",
+                    "revisionId": 15360603,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Young_impling?oldid=15360603"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              },
+              {
+                "kind": "BAREHANDED",
+                "hunterLevel": 32,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Bare hands",
+                "equipmentAlternatives": [],
+                "evidence": [
+                  {
+                    "page": "Young impling",
+                    "revisionId": 15360603,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Young_impling?oldid=15360603"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              }
+            ],
+            "evidence": [
+              {
+                "page": "Young impling",
+                "revisionId": 15360603,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Young_impling?oldid=15360603"
+              },
+              {
+                "page": "Impling",
+                "revisionId": 15360701,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "page": "Young impling",
+            "revisionId": 15360603,
+            "sourceUrl": "https://oldschool.runescape.wiki/w/Young_impling?oldid=15360603"
+          },
+          {
+            "page": "Impling",
+            "revisionId": 15360701,
+            "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+          }
+        ]
+      },
+      "coverage": {
+        "eventId": "young-impling-ordinary-loot",
+        "includedOutcomeIds": [
+          "young-steel-nails-1",
+          "young-lockpick-2",
+          "young-pure-essence-3",
+          "young-tuna-4",
+          "young-chocolate-slice-5",
+          "young-steel-axe-6",
+          "young-meat-pizza-7",
+          "young-coal-8",
+          "young-bow-string-9",
+          "young-snape-grass-10",
+          "young-soft-clay-11",
+          "young-studded-chaps-12",
+          "young-steel-full-helm-13",
+          "young-oak-plank-14",
+          "young-defence-potion(3)-15",
+          "young-mithril-bar-16",
+          "young-yew-longbow-17",
+          "young-garden-pie-18",
+          "young-jangerberries-19"
+        ]
+      }
+    }
+  ]
+}

@@ -723,12 +723,13 @@ public class ItemDropLookupPanel extends PluginPanel
             }
             if (!dropResults.isEmpty() && !displaySources.isEmpty())
             {
-                boolean shopsOnly = displaySources.stream().allMatch(source -> SOURCE_TYPE_SHOP.equals(source.getSourceType()));
-                JButton otherSources = new JButton((hasPacks ? "View buying options" : shopsOnly ? "View shops" : "View other sources")
-                        + " (" + displaySources.size() + ")");
+                long shopCount = displaySources.stream().filter(s -> SOURCE_TYPE_SHOP.equals(s.getSourceType())).count();
+                boolean shopShortcut = shopCount > 0;
+                JButton otherSources = new JButton((shopShortcut ? (hasPacks ? "View buying options" : "View shops") : "View other sources")
+                        + " (" + (shopShortcut ? shopCount : displaySources.size()) + ")");
                 otherSources.setName("showOtherSources");
                 otherSources.setAlignmentX(Component.LEFT_ALIGNMENT);
-                otherSources.addActionListener(e -> filterDropdown.setSelectedItem(shopsOnly ? FILTER_SHOPS : FILTER_SOURCES));
+                otherSources.addActionListener(e -> filterDropdown.setSelectedItem(shopShortcut ? FILTER_SHOPS : FILTER_SOURCES));
                 resultsPanel.add(otherSources);
             }
             if (!dropResults.isEmpty())
@@ -737,7 +738,7 @@ public class ItemDropLookupPanel extends PluginPanel
             }
             if (!displaySources.isEmpty())
             {
-                resultsPanel.add(makeSectionHeader((hasPacks ? "Buying options" : sourceSectionHeading(selectedFilter)) + " (" + displaySources.size() + ")"));
+                resultsPanel.add(makeSectionHeader((hasPacks && displaySources.stream().allMatch(s -> SOURCE_TYPE_SHOP.equals(s.getSourceType()) || SOURCE_TYPE_REWARD_SHOP.equals(s.getSourceType())) ? "Buying options" : sourceSectionHeading(selectedFilter)) + " (" + displaySources.size() + ")"));
                 for (ItemSource source : displaySources)
                 {
                     resultsPanel.add(makeItemSourceCard(source));

@@ -16,10 +16,67 @@ import java.util.Set;
 import static com.itemdroplookup.service.AcquisitionEventLookupService.*;
 
 /** One bounded ordinary-loot table. Capture routes never become extra rolls. */
+@lombok.extern.slf4j.Slf4j
 final class LootEventAdapter
 {
     private static final String EVENT = "dragon-impling-ordinary-loot";
-    private static final String JAR = "Dragon impling jar";
+    private enum Tier
+    {
+        DRAGON("Dragon", 83, 93, 19), BABY("Baby", 17, 27, 19), YOUNG("Young", 22, 32, 19),
+        GOURMET("Gourmet", 28, 38, 18), EARTH("Earth", 36, 46, 19),
+        ESSENCE("Essence", 42, 52, 19), ECLECTIC("Eclectic", 50, 60, 19);
+
+        final String creature, jar, eventId;
+        final int net, bare, ordinaryRows;
+        Tier(String name, int net, int bare, int ordinaryRows)
+        {
+            creature = name + " impling";
+            jar = creature + " jar";
+            eventId = name.toLowerCase(java.util.Locale.ROOT) + "-impling-ordinary-loot";
+            this.net = net;
+            this.bare = bare;
+            this.ordinaryRows = ordinaryRows;
+        }
+
+        static Tier from(JsonObject event)
+        {
+            for (Tier tier : values())
+                if (tier.eventId.equals(string(event, "id")) && tier.jar.equals(string(event, "containerName"))
+                        && (tier.creature + " loot").equals(string(event, "sourceName"))) return tier;
+            throw new IllegalArgumentException("Unreviewed impling");
+        }
+    }
+
+    static List<AcquisitionMethod> readFamily(com.google.gson.Gson gson)
+    {
+        List<AcquisitionMethod> result = new ArrayList<>();
+        try (java.io.InputStream in = LootEventAdapter.class.getResourceAsStream("/impling_loot.json"))
+        {
+            if (in == null) return result;
+            JsonObject root = gson.fromJson(new java.io.InputStreamReader(in, java.nio.charset.StandardCharsets.UTF_8), JsonObject.class);
+            fields(root, "schemaVersion,tables", "");
+            integer(root, "schemaVersion", 1, 1);
+            Set<String> seen = new HashSet<>();
+            for (JsonElement row : array(root, "tables"))
+            {
+                JsonObject table = object(row);
+                fields(table, "event,coverage", "");
+                JsonObject event = object(table.get("event"));
+                String id = string(event, "id");
+                require(!EVENT.equals(id) && seen.add(id), "Duplicate impling event");
+                JsonArray events = new JsonArray(), coverage = new JsonArray();
+                events.add(event);
+                coverage.add(table.get("coverage"));
+                result.addAll(read(events, coverage));
+            }
+        }
+        catch (Exception ex)
+        {
+            log.debug("Additional impling tables unavailable", ex);
+            result.clear();
+        }
+        return result;
+    }
 
     static List<AcquisitionMethod> read(JsonArray events, JsonArray coverage)
     {
@@ -30,8 +87,8 @@ final class LootEventAdapter
             fields(event, "id,sourceName,containerName,probabilityBasis,probabilityContext,quantityBasis,"
                     + "otherRewardsNotice,outcomes,routes,evidence", "");
             String id = string(event, "id");
-            require(EVENT.equals(id) && tables.put(id, event) == null, "Unsupported or duplicate loot event");
-            require(JAR.equals(string(event, "containerName")), "Wrong container identity");
+            Tier.from(event);
+            require(tables.put(id, event) == null, "Duplicate loot event");
             require("WIKI_LISTED_TABLE".equals(string(event, "probabilityBasis"))
                     && "SUCCESSFUL_OUTCOME".equals(string(event, "quantityBasis")), "Unsupported chance or quantity basis");
             string(event, "sourceName");
@@ -52,7 +109,9 @@ final class LootEventAdapter
             JsonObject event = tables.get(id);
             Map<String, JsonObject> outcomes = outcomes(event);
             Set<String> selected = new HashSet<>();
-            Set<String> itemNames = new HashSet<>();
+            Tier tier = Tier.from(event);
+            List<Section> routeSections = routes(event);
+            Map<String, List<JsonObject>> byItem = new LinkedHashMap<>();
             for (JsonElement selection : array(row, "includedOutcomeIds"))
             {
                 require(selection.isJsonPrimitive() && selection.getAsJsonPrimitive().isString(), "Outcome ID must be text");
@@ -60,29 +119,39 @@ final class LootEventAdapter
                 require(selected.add(outcomeId) && outcomes.containsKey(outcomeId), "Unknown or duplicate covered outcome");
                 JsonObject outcome = outcomes.get(outcomeId);
                 String item = string(outcome, "itemName");
-                // Ambiguous multi-row or gated outputs need a separately reviewed presentation.
-                require(!"Dragonstone bolt tips".equals(item) && !outcome.has("eligibility") && itemNames.add(item),
-                        "Unsupported lookup coverage");
-                int minimum = integer(outcome, "quantityMin", 1, 1000000);
-                int maximum = integer(outcome, "quantityMax", minimum, 1000000);
-                String quantity = minimum == maximum ? String.valueOf(minimum) : minimum + "–" + maximum;
+                require(!outcome.has("eligibility") && !"Nothing".equals(item)
+                        && (tier != Tier.DRAGON || !"Dragonstone bolt tips".equals(item)), "Unsupported lookup coverage");
+                byItem.computeIfAbsent(item, unused -> new ArrayList<>()).add(outcome);
+            }
+            for (Map.Entry<String, List<JsonObject>> entry : byItem.entrySet())
+            {
+                String item = entry.getKey();
+                List<JsonObject> rolls = entry.getValue();
+                List<String> lootLines = new ArrayList<>();
+                for (JsonObject outcome : rolls)
+                {
+                    int minimum = integer(outcome, "quantityMin", 1, 1000000);
+                    int maximum = integer(outcome, "quantityMax", minimum, 1000000);
+                    String quantity = minimum == maximum ? String.valueOf(minimum) : minimum + "–" + maximum;
+                    lootLines.add("Quantity: " + quantity + (bool(outcome, "noted") ? " (noted)" : "") + " on this outcome.");
+                    lootLines.add("Wiki-listed rate: " + string(outcome, "listedChance") + ".");
+                }
+                lootLines.add(string(event, "probabilityContext"));
                 List<Section> sections = new ArrayList<>();
-                sections.add(new Section("Loot", Arrays.asList("Quantity: " + quantity
-                        + (bool(outcome, "noted") ? " (noted)" : "") + " on this outcome.",
-                        "Wiki-listed rate: " + string(outcome, "listedChance") + ".", string(event, "probabilityContext"))));
-                sections.addAll(routes(event));
+                sections.add(new Section("Loot", lootLines));
+                sections.addAll(routeSections);
                 sections.add(new Section("One loot event", Arrays.asList(
                         "Each route gives one loot event. Catching into a jar adds no extra chance.",
                         string(event, "otherRewardsNotice"))));
                 List<Section> summary = Arrays.asList(sections.get(0),
                         new Section("Catch and loot", Arrays.asList(
                                 "Puro-Puro or rare encounters around Gielinor.",
-                                "83 Hunter with a butterfly or magic butterfly net; 93 bare-handed.",
+                                tier.net + " Hunter with a butterfly or magic butterfly net; " + tier.bare + " bare-handed.",
                                 "Take an empty impling jar in Puro-Puro.")),
                         new Section("Already have a filled jar?", Collections.singletonList(
-                                "Open the Dragon impling jar directly; no Hunter level is required.")));
-                methods.add(new AcquisitionMethod(id + ":" + outcomeId, item, string(event, "sourceName"),
-                        "Loot & containers", JAR, "Gielinor; Puro-Puro", sections, summary, true));
+                                "Open the " + tier.jar + " directly; no Hunter level is required.")));
+                methods.add(new AcquisitionMethod(id + ":" + string(rolls.get(0), "id"), item, string(event, "sourceName"),
+                        "Loot & containers", tier == Tier.DRAGON ? tier.jar : tier.creature, "Gielinor; Puro-Puro", sections, summary, true));
             }
         }
         return methods;
@@ -91,7 +160,8 @@ final class LootEventAdapter
     private static Map<String, JsonObject> outcomes(JsonObject event)
     {
         JsonArray values = array(event, "outcomes");
-        require(values.size() == 19, "Incomplete Dragon impling ordinary table");
+        Tier tier = Tier.from(event);
+        require(values.size() == tier.ordinaryRows, "Incomplete impling ordinary table");
         Map<String, JsonObject> result = new LinkedHashMap<>();
         int gated = 0;
         for (JsonElement value : values)
@@ -100,10 +170,13 @@ final class LootEventAdapter
             fields(outcome, "id,itemName,quantityMin,quantityMax,noted,listedChance", "eligibility,whenIneligible");
             require(result.put(string(outcome, "id"), outcome) == null, "Duplicate outcome ID");
             String item = string(outcome, "itemName");
-            int minimum = integer(outcome, "quantityMin", 1, 1000000);
+            int minimum = integer(outcome, "quantityMin", "Nothing".equals(item) ? 0 : 1, 1000000);
             integer(outcome, "quantityMax", minimum, 1000000);
             bool(outcome, "noted");
-            require("1/19".equals(string(outcome, "listedChance")), "Unsupported listed table chance");
+            String chance = string(outcome, "listedChance");
+            require(tier == Tier.DRAGON ? chance.equals("1/19") : chance.matches("[1-9][0-9]{0,3}/[1-9][0-9]{0,3}"), "Invalid listed chance");
+            String[] fraction = chance.split("/");
+            require(Integer.parseInt(fraction[0]) <= Integer.parseInt(fraction[1]), "Invalid probability");
             if (outcome.has("eligibility"))
             {
                 gated++;
@@ -116,12 +189,13 @@ final class LootEventAdapter
             }
             else require(!outcome.has("whenIneligible") && !"Dragon javelin tips".equals(item), "Missing outcome eligibility");
         }
-        require(gated == 1, "Missing quest-dependent outcome");
+        require(gated == (tier == Tier.DRAGON ? 1 : 0), "Missing quest-dependent outcome");
         return result;
     }
 
     private static List<Section> routes(JsonObject event)
     {
+        Tier tier = Tier.from(event);
         JsonArray values = array(event, "routes");
         require(values.size() == 3, "Incomplete loot routes");
         Map<String, Section> result = new LinkedHashMap<>();
@@ -148,10 +222,10 @@ final class LootEventAdapter
             String title;
             if (opening)
             {
-                require(JAR.equals(string(route, "inputItem")) && array(route, "captureOptions").size() == 0,
+                require(tier.jar.equals(string(route, "inputItem")) && array(route, "captureOptions").size() == 0,
                         "Opening must not inherit capture requirements");
                 title = "Already have a jar?";
-                lines.add("Open an already obtained Dragon impling jar.");
+                lines.add("Open an already obtained " + tier.jar + ".");
                 lines.add("No Hunter level is needed.");
             }
             else
@@ -161,7 +235,7 @@ final class LootEventAdapter
                 require((intoJar ? "EMPTY_JAR_PRESENT" : "EMPTY_JAR_ABSENT").equals(string(route, "jarState")), "Wrong jar state");
                 require((intoJar ? "Gielinor or Puro-Puro" : "Outside Puro-Puro").equals(string(route, "area")), "Wrong route area");
                 title = intoJar ? "Catch into a jar" : "Catch for immediate loot";
-                String requirements = captureOptions(array(route, "captureOptions"));
+                String requirements = captureOptions(array(route, "captureOptions"), tier);
                 require(catchRequirements == null || catchRequirements.equals(requirements), "Capture alternatives differ between routes");
                 catchRequirements = requirements;
                 lines.add(intoJar ? "Catch with an empty impling jar, then open it."
@@ -176,7 +250,7 @@ final class LootEventAdapter
                 result.get("CATCH_INTO_CONTAINER"), result.get("CATCH_AND_LOOT"));
     }
 
-    private static String captureOptions(JsonArray options)
+    private static String captureOptions(JsonArray options, Tier tier)
     {
         require(options.size() == 2, "Incomplete capture alternatives");
         Set<String> kinds = new HashSet<>();
@@ -187,7 +261,7 @@ final class LootEventAdapter
             String kind = string(option, "kind");
             require(kinds.add(kind) && ("NET".equals(kind) || "BAREHANDED".equals(kind)), "Unsupported capture type");
             require("Hunter".equals(string(option, "skill")) && "CAPTURE".equals(string(option, "scope")), "Wrong capture requirement scope");
-            require(integer(option, "hunterLevel", 1, 99) == ("NET".equals(kind) ? 83 : 93), "Unreviewed Hunter level");
+            require(integer(option, "hunterLevel", 1, 99) == ("NET".equals(kind) ? tier.net : tier.bare), "Unreviewed Hunter level");
             string(option, "equipment");
             evidence(array(option, "evidence"));
             List<String> equipment = new ArrayList<>();
@@ -199,6 +273,6 @@ final class LootEventAdapter
             require(equipment.equals("NET".equals(kind) ? Arrays.asList("BUTTERFLY_NET", "MAGIC_BUTTERFLY_NET")
                     : Collections.emptyList()), "Unreviewed capture equipment");
         }
-        return "83 Hunter with a butterfly net or magic butterfly net; or 93 Hunter bare-handed.";
+        return tier.net + " Hunter with a butterfly net or magic butterfly net; or " + tier.bare + " Hunter bare-handed.";
     }
 }

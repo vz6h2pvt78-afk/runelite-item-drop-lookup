@@ -145,7 +145,9 @@ public class ItemSourceLookupService
         merged.addAll(filterSuppressedGenerated(loadRecords(SHOP_RESOURCE)));
         merged.addAll(loadRecords(GROUND_RESOURCE));
         merged.addAll(loadRecords(GATHERING_RESOURCE));
-        for (AcquisitionMethod method : events.getMethods())
+        List<AcquisitionMethod> methods = new ArrayList<>(events.getMethods());
+        methods.addAll(LootEventAdapter.readFamily(gson));
+        for (AcquisitionMethod method : methods)
         {
             ItemSourceRecord record = new ItemSourceRecord();
             record.itemName = method.getItemName();

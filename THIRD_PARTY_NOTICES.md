@@ -21,6 +21,8 @@ nor their conversion to JSON is used to remove source credits or restrictions.
 
 Runtime resources under src/main/resources/:
 
+- `impling_loot.json` adapts the ordinary loot tables and capture routes from the OSRS Wiki impling articles. The exact revisions, source links and offline inputs are preserved in `tools/fixtures/implings/`. The adaptation selects searchable outputs and keeps the listed quantities and chances for each outcome.
+
 - Night beast drop context adapts revision 15373912; the exact Zulrah/Dragonstone
   addition follows Zulrah 15385964, Template:RareDropTable 15104778 and
   Module:RareDropLines 15343549. The rational rate is per roll, with two rolls
