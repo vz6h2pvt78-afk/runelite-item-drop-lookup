@@ -64,11 +64,29 @@ def build_event(pin):
     event = {"id":event_id, "sourceName":name+" loot", "containerName":jar, "probabilityBasis":"WIKI_LISTED_TABLE",
              "probabilityContext":context, "quantityBasis":"SUCCESSFUL_OUTCOME", "otherRewardsNotice":"Additional clue rewards and jar returns are separate.",
              "outcomes":outcomes, "routes":routes, "evidence":[source,GENERAL]}
+    if tier == "Crystal":
+        prif = json.loads((FIXTURES.parent/"prifddinas_access.json").read_text(encoding="utf-8"))
+        if prif["revisionId"] != 15374558 or "require completion of [[Song of the Elves]]" not in prif["entryStatement"]:
+            raise ValueError("Missing reviewed city access fact")
+        event["captureAccess"] = {"scope":"LOCATION_ENTRY","area":"Prifddinas","quest":"Song of the Elves",
+                                  "evidence":[{"page":"Prifddinas","revisionId":15374558,"sourceUrl":"https://oldschool.runescape.wiki/w/Prifddinas?oldid=15374558"}]}
     coverage = {"eventId":event_id, "includedOutcomeIds":[o["id"] for o in outcomes if o["itemName"] != "Nothing"]}
     return {"event": event, "coverage": coverage}
 
 def build():
-    return {"schemaVersion":1, "tables":[build_event(json.loads(p.read_text(encoding="utf-8"))) for p in sorted(FIXTURES.glob("*.json"))]}
+    pin = json.loads((FIXTURES.parent/"lucky_impling.json").read_text(encoding="utf-8"))
+    raw = pin["wikitext"]
+    if pin["revisionId"] != 15297402 or hashlib.sha256(raw.encode()).hexdigest() != pin["wikitextSha256"]:
+        raise ValueError("Unexpected Lucky impling evidence")
+    tiers = re.findall(r"\{\{DropsLineSkill\|name=Roll from (\w+) clue table\|quantity=1\|rarity=1/5\|", raw)
+    if tiers != ["easy","medium","hard","elite","master"] or "89 [[Hunter]]" not in raw or "99 Hunter to capture it barehanded" not in raw:
+        raise ValueError("Unexpected Lucky capture or reward tiers")
+    lucky = {"id":"lucky-impling-jar-capture","sourceName":"Lucky impling","output":"Lucky impling jar","quantity":1,
+             "netHunter":89,"bareHunter":99,"emptyJar":True,"areas":["Gielinor","Puro-Puro"],
+             "opening":{"rolls":1,"tiers":tiers,"chancePerTier":"1/5","excluded":["Bloodhound","Clue scroll (master)"]},
+             "evidence":[{"page":"Lucky impling","revisionId":15297402,"sourceUrl":"https://oldschool.runescape.wiki/w/Lucky_impling?oldid=15297402"},GENERAL]}
+    return {"schemaVersion":1, "tables":[build_event(json.loads(p.read_text(encoding="utf-8"))) for p in sorted(FIXTURES.glob("*.json"))],
+            "luckyCapture":lucky}
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

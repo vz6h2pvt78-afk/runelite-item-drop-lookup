@@ -25,7 +25,7 @@ final class LootEventAdapter
         DRAGON("Dragon", 83, 93, 19), BABY("Baby", 17, 27, 19), YOUNG("Young", 22, 32, 19),
         GOURMET("Gourmet", 28, 38, 18), EARTH("Earth", 36, 46, 19),
         ESSENCE("Essence", 42, 52, 19), ECLECTIC("Eclectic", 50, 60, 19),
-        NATURE("Nature", 58, 68, 19), MAGPIE("Magpie", 65, 75, 20), NINJA("Ninja", 74, 84, 19);
+        NATURE("Nature", 58, 68, 19), MAGPIE("Magpie", 65, 75, 20), NINJA("Ninja", 74, 84, 19), CRYSTAL("Crystal", 80, 90, 18);
 
         final String creature, jar, eventId;
         final int net, bare, ordinaryRows;
@@ -55,7 +55,7 @@ final class LootEventAdapter
         {
             if (in == null) return result;
             JsonObject root = gson.fromJson(new java.io.InputStreamReader(in, java.nio.charset.StandardCharsets.UTF_8), JsonObject.class);
-            fields(root, "schemaVersion,tables", "");
+            fields(root, "schemaVersion,tables,luckyCapture", "");
             integer(root, "schemaVersion", 1, 1);
             Set<String> seen = new HashSet<>();
             for (JsonElement row : array(root, "tables"))
@@ -70,6 +70,7 @@ final class LootEventAdapter
                 coverage.add(table.get("coverage"));
                 result.addAll(read(events, coverage));
             }
+            result.add(LuckyImplingCapture.project(object(root.get("luckyCapture"))));
         }
         catch (Exception ex)
         {
@@ -86,9 +87,10 @@ final class LootEventAdapter
         {
             JsonObject event = object(value);
             fields(event, "id,sourceName,containerName,probabilityBasis,probabilityContext,quantityBasis,"
-                    + "otherRewardsNotice,outcomes,routes,evidence", "");
+                    + "otherRewardsNotice,outcomes,routes,evidence", "captureAccess");
             String id = string(event, "id");
-            Tier.from(event);
+            Tier profile = Tier.from(event);
+            require(event.has("captureAccess") == (profile == Tier.CRYSTAL), "Invalid capture access scope");
             require(tables.put(id, event) == null, "Duplicate loot event");
             require("WIKI_LISTED_TABLE".equals(string(event, "probabilityBasis"))
                     && "SUCCESSFUL_OUTCOME".equals(string(event, "quantityBasis")), "Unsupported chance or quantity basis");
@@ -144,15 +146,26 @@ final class LootEventAdapter
                 sections.add(new Section("One loot event", Arrays.asList(
                         "Each route gives one loot event. Catching into a jar adds no extra chance.",
                         string(event, "otherRewardsNotice"))));
+                List<String> capture = new ArrayList<>();
+                capture.add(tier == Tier.CRYSTAL ? "Prifddinas." : "Puro-Puro or rare encounters around Gielinor.");
+                capture.add(tier.net + " Hunter with a butterfly or magic butterfly net; " + tier.bare + " bare-handed.");
+                if (tier == Tier.CRYSTAL)
+                {
+                    JsonObject access = object(event.get("captureAccess"));
+                    fields(access, "scope,area,quest,evidence", "");
+                    require("LOCATION_ENTRY".equals(string(access,"scope")) && "Prifddinas".equals(string(access,"area"))
+                            && "Song of the Elves".equals(string(access,"quest")), "Invalid Crystal access");
+                    evidence(array(access,"evidence"));
+                    capture.add("Complete Song of the Elves to enter the city.");
+                    sections.add(new Section("Where to catch", Collections.singletonList(capture.get(2))));
+                }
+                else capture.add("Take an empty impling jar in Puro-Puro.");
                 List<Section> summary = Arrays.asList(sections.get(0),
-                        new Section("Catch and loot", Arrays.asList(
-                                "Puro-Puro or rare encounters around Gielinor.",
-                                tier.net + " Hunter with a butterfly or magic butterfly net; " + tier.bare + " bare-handed.",
-                                "Take an empty impling jar in Puro-Puro.")),
+                        new Section("Catch and loot", capture),
                         new Section("Already have a filled jar?", Collections.singletonList(
                                 "Open the " + tier.jar + " directly; no Hunter level is required.")));
                 methods.add(new AcquisitionMethod(id + ":" + string(rolls.get(0), "id"), item, string(event, "sourceName"),
-                        "Loot & containers", tier == Tier.DRAGON ? tier.jar : tier.creature, "Gielinor; Puro-Puro", sections, summary, true));
+                        "Loot & containers", tier == Tier.DRAGON ? tier.jar : tier.creature, tier == Tier.CRYSTAL ? "Prifddinas" : "Gielinor; Puro-Puro", sections, summary, true));
             }
         }
         return methods;
@@ -234,14 +247,16 @@ final class LootEventAdapter
                 boolean intoJar = "CATCH_INTO_CONTAINER".equals(kind);
                 require(intoJar || "CATCH_AND_LOOT".equals(kind), "Unknown route");
                 require((intoJar ? "EMPTY_JAR_PRESENT" : "EMPTY_JAR_ABSENT").equals(string(route, "jarState")), "Wrong jar state");
-                require((intoJar ? "Gielinor or Puro-Puro" : "Outside Puro-Puro").equals(string(route, "area")), "Wrong route area");
+                String area = tier == Tier.CRYSTAL ? "Prifddinas" : (intoJar ? "Gielinor or Puro-Puro" : "Outside Puro-Puro");
+                require(area.equals(string(route, "area")), "Wrong route area");
                 title = intoJar ? "Catch into a jar" : "Catch for immediate loot";
                 String requirements = captureOptions(array(route, "captureOptions"), tier);
                 require(catchRequirements == null || catchRequirements.equals(requirements), "Capture alternatives differ between routes");
                 catchRequirements = requirements;
                 lines.add(intoJar ? "Catch with an empty impling jar, then open it."
-                        : "Outside Puro-Puro: catch without an empty jar for immediate loot.");
-                lines.add(intoJar ? "Gielinor or Puro-Puro. Bare-handed catches also fill the jar."
+                        : area + ": catch without an empty jar for immediate loot.");
+                if (tier == Tier.CRYSTAL) lines.add("In Prifddinas.");
+                else lines.add(intoJar ? "Gielinor or Puro-Puro. Bare-handed catches also fill the jar."
                         : "Puro-Puro requires a jar.");
             }
             require(result.put(kind, new Section(title, lines)) == null, "Duplicate route kind");

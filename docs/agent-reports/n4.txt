@@ -1,0 +1,8 @@
+N4 - Crystal and Lucky implings
+
+Crystal adds 18 exact ordinary outputs with Prifddinas capture and city entry requirements. The Lucky impling jar has one Gathering capture method. Its secondary opening text describes five equal clue-reward tier rolls as alternatives for one roll. Searches for individual clue rewards gain no Lucky loot source. Both Java suites passed 165 tests, Python passed 123, and validators/package/API/recovery passed. Source data came from the saved article revisions and one city-access support page. Live human acceptance pending.
+
+Starting commit 5324071a69a7dad42b2d0565808b318f455f9cd4
+Build development-2026-11-04-n4-crystal-lucky
+Official package SHA256 659f5aea3301bf818f2c2a795bd41b591bd9470d595c616555ef992ccfdf651f
+Human acceptance pending.

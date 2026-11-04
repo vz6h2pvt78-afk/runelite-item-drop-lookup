@@ -361,6 +361,368 @@
     },
     {
       "event": {
+        "id": "crystal-impling-ordinary-loot",
+        "sourceName": "Crystal impling loot",
+        "containerName": "Crystal impling jar",
+        "probabilityBasis": "WIKI_LISTED_TABLE",
+        "probabilityContext": "Listed on the ordinary loot table.",
+        "quantityBasis": "SUCCESSFUL_OUTCOME",
+        "otherRewardsNotice": "Additional clue rewards and jar returns are separate.",
+        "outcomes": [
+          {
+            "id": "crystal-amulet-of-power-1",
+            "itemName": "Amulet of power",
+            "quantityMin": 5,
+            "quantityMax": 7,
+            "noted": true,
+            "listedChance": "1/18"
+          },
+          {
+            "id": "crystal-crystal-acorn-2",
+            "itemName": "Crystal acorn",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/18"
+          },
+          {
+            "id": "crystal-crystal-shard-3",
+            "itemName": "Crystal shard",
+            "quantityMin": 30,
+            "quantityMax": 40,
+            "noted": false,
+            "listedChance": "1/18"
+          },
+          {
+            "id": "crystal-dragonstone-amulet-4",
+            "itemName": "Dragonstone amulet",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/18"
+          },
+          {
+            "id": "crystal-dragonstone-5",
+            "itemName": "Dragonstone",
+            "quantityMin": 2,
+            "quantityMax": 2,
+            "noted": true,
+            "listedChance": "1/18"
+          },
+          {
+            "id": "crystal-ruby-bolt-tips-6",
+            "itemName": "Ruby bolt tips",
+            "quantityMin": 50,
+            "quantityMax": 125,
+            "noted": false,
+            "listedChance": "1/18"
+          },
+          {
+            "id": "crystal-onyx-bolt-tips-7",
+            "itemName": "Onyx bolt tips",
+            "quantityMin": 6,
+            "quantityMax": 10,
+            "noted": false,
+            "listedChance": "1/18"
+          },
+          {
+            "id": "crystal-rune-arrowtips-8",
+            "itemName": "Rune arrowtips",
+            "quantityMin": 150,
+            "quantityMax": 250,
+            "noted": false,
+            "listedChance": "1/18"
+          },
+          {
+            "id": "crystal-rune-arrow-9",
+            "itemName": "Rune arrow",
+            "quantityMin": 400,
+            "quantityMax": 750,
+            "noted": false,
+            "listedChance": "1/18"
+          },
+          {
+            "id": "crystal-rune-javelin-tips-10",
+            "itemName": "Rune javelin tips",
+            "quantityMin": 20,
+            "quantityMax": 60,
+            "noted": false,
+            "listedChance": "1/18"
+          },
+          {
+            "id": "crystal-rune-dart-tip-11",
+            "itemName": "Rune dart tip",
+            "quantityMin": 25,
+            "quantityMax": 75,
+            "noted": false,
+            "listedChance": "1/18"
+          },
+          {
+            "id": "crystal-rune-dart-12",
+            "itemName": "Rune dart",
+            "quantityMin": 50,
+            "quantityMax": 100,
+            "noted": false,
+            "listedChance": "1/18"
+          },
+          {
+            "id": "crystal-dragon-dart-tip-13",
+            "itemName": "Dragon dart tip",
+            "quantityMin": 10,
+            "quantityMax": 15,
+            "noted": false,
+            "listedChance": "1/18"
+          },
+          {
+            "id": "crystal-dragon-dagger-14",
+            "itemName": "Dragon dagger",
+            "quantityMin": 2,
+            "quantityMax": 2,
+            "noted": true,
+            "listedChance": "1/18"
+          },
+          {
+            "id": "crystal-rune-scimitar-15",
+            "itemName": "Rune scimitar",
+            "quantityMin": 3,
+            "quantityMax": 6,
+            "noted": true,
+            "listedChance": "1/18"
+          },
+          {
+            "id": "crystal-babydragon-bones-16",
+            "itemName": "Babydragon bones",
+            "quantityMin": 75,
+            "quantityMax": 125,
+            "noted": true,
+            "listedChance": "1/18"
+          },
+          {
+            "id": "crystal-ranarr-seed-17",
+            "itemName": "Ranarr seed",
+            "quantityMin": 3,
+            "quantityMax": 8,
+            "noted": false,
+            "listedChance": "1/18"
+          },
+          {
+            "id": "crystal-yew-seed-18",
+            "itemName": "Yew seed",
+            "quantityMin": 1,
+            "quantityMax": 1,
+            "noted": false,
+            "listedChance": "1/18"
+          }
+        ],
+        "routes": [
+          {
+            "id": "open-obtained-jar",
+            "kind": "OPEN_EXISTING",
+            "inputItem": "Crystal impling jar",
+            "steps": [
+              "Obtain a filled Crystal impling jar",
+              "Open the jar"
+            ],
+            "captureOptions": [],
+            "evidence": [
+              {
+                "page": "Crystal impling",
+                "revisionId": 15358229,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Crystal_impling?oldid=15358229"
+              },
+              {
+                "page": "Impling",
+                "revisionId": 15360701,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+              }
+            ]
+          },
+          {
+            "id": "catch-into-jar",
+            "kind": "CATCH_INTO_CONTAINER",
+            "area": "Prifddinas",
+            "jarState": "EMPTY_JAR_PRESENT",
+            "steps": [
+              "Catch the impling in an empty jar",
+              "Open the filled jar"
+            ],
+            "captureOptions": [
+              {
+                "kind": "NET",
+                "hunterLevel": 80,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Butterfly net or magic butterfly net",
+                "equipmentAlternatives": [
+                  "BUTTERFLY_NET",
+                  "MAGIC_BUTTERFLY_NET"
+                ],
+                "evidence": [
+                  {
+                    "page": "Crystal impling",
+                    "revisionId": 15358229,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Crystal_impling?oldid=15358229"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              },
+              {
+                "kind": "BAREHANDED",
+                "hunterLevel": 90,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Bare hands",
+                "equipmentAlternatives": [],
+                "evidence": [
+                  {
+                    "page": "Crystal impling",
+                    "revisionId": 15358229,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Crystal_impling?oldid=15358229"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              }
+            ],
+            "evidence": [
+              {
+                "page": "Crystal impling",
+                "revisionId": 15358229,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Crystal_impling?oldid=15358229"
+              },
+              {
+                "page": "Impling",
+                "revisionId": 15360701,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+              }
+            ]
+          },
+          {
+            "id": "catch-and-loot",
+            "kind": "CATCH_AND_LOOT",
+            "area": "Prifddinas",
+            "jarState": "EMPTY_JAR_ABSENT",
+            "steps": [
+              "Catch the impling without an empty jar",
+              "Receive loot immediately"
+            ],
+            "captureOptions": [
+              {
+                "kind": "NET",
+                "hunterLevel": 80,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Butterfly net or magic butterfly net",
+                "equipmentAlternatives": [
+                  "BUTTERFLY_NET",
+                  "MAGIC_BUTTERFLY_NET"
+                ],
+                "evidence": [
+                  {
+                    "page": "Crystal impling",
+                    "revisionId": 15358229,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Crystal_impling?oldid=15358229"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              },
+              {
+                "kind": "BAREHANDED",
+                "hunterLevel": 90,
+                "skill": "Hunter",
+                "scope": "CAPTURE",
+                "equipment": "Bare hands",
+                "equipmentAlternatives": [],
+                "evidence": [
+                  {
+                    "page": "Crystal impling",
+                    "revisionId": 15358229,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Crystal_impling?oldid=15358229"
+                  },
+                  {
+                    "page": "Impling",
+                    "revisionId": 15360701,
+                    "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+                  }
+                ]
+              }
+            ],
+            "evidence": [
+              {
+                "page": "Crystal impling",
+                "revisionId": 15358229,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Crystal_impling?oldid=15358229"
+              },
+              {
+                "page": "Impling",
+                "revisionId": 15360701,
+                "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "page": "Crystal impling",
+            "revisionId": 15358229,
+            "sourceUrl": "https://oldschool.runescape.wiki/w/Crystal_impling?oldid=15358229"
+          },
+          {
+            "page": "Impling",
+            "revisionId": 15360701,
+            "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+          }
+        ],
+        "captureAccess": {
+          "scope": "LOCATION_ENTRY",
+          "area": "Prifddinas",
+          "quest": "Song of the Elves",
+          "evidence": [
+            {
+              "page": "Prifddinas",
+              "revisionId": 15374558,
+              "sourceUrl": "https://oldschool.runescape.wiki/w/Prifddinas?oldid=15374558"
+            }
+          ]
+        }
+      },
+      "coverage": {
+        "eventId": "crystal-impling-ordinary-loot",
+        "includedOutcomeIds": [
+          "crystal-amulet-of-power-1",
+          "crystal-crystal-acorn-2",
+          "crystal-crystal-shard-3",
+          "crystal-dragonstone-amulet-4",
+          "crystal-dragonstone-5",
+          "crystal-ruby-bolt-tips-6",
+          "crystal-onyx-bolt-tips-7",
+          "crystal-rune-arrowtips-8",
+          "crystal-rune-arrow-9",
+          "crystal-rune-javelin-tips-10",
+          "crystal-rune-dart-tip-11",
+          "crystal-rune-dart-12",
+          "crystal-dragon-dart-tip-13",
+          "crystal-dragon-dagger-14",
+          "crystal-rune-scimitar-15",
+          "crystal-babydragon-bones-16",
+          "crystal-ranarr-seed-17",
+          "crystal-yew-seed-18"
+        ]
+      }
+    },
+    {
+      "event": {
         "id": "earth-impling-ordinary-loot",
         "sourceName": "Earth impling loot",
         "containerName": "Earth impling jar",
@@ -3231,5 +3593,45 @@
         ]
       }
     }
-  ]
+  ],
+  "luckyCapture": {
+    "id": "lucky-impling-jar-capture",
+    "sourceName": "Lucky impling",
+    "output": "Lucky impling jar",
+    "quantity": 1,
+    "netHunter": 89,
+    "bareHunter": 99,
+    "emptyJar": true,
+    "areas": [
+      "Gielinor",
+      "Puro-Puro"
+    ],
+    "opening": {
+      "rolls": 1,
+      "tiers": [
+        "easy",
+        "medium",
+        "hard",
+        "elite",
+        "master"
+      ],
+      "chancePerTier": "1/5",
+      "excluded": [
+        "Bloodhound",
+        "Clue scroll (master)"
+      ]
+    },
+    "evidence": [
+      {
+        "page": "Lucky impling",
+        "revisionId": 15297402,
+        "sourceUrl": "https://oldschool.runescape.wiki/w/Lucky_impling?oldid=15297402"
+      },
+      {
+        "page": "Impling",
+        "revisionId": 15360701,
+        "sourceUrl": "https://oldschool.runescape.wiki/w/Impling?oldid=15360701"
+      }
+    ]
+  }
 }

@@ -51,6 +51,23 @@ public class ImplingFamilyTest
                 && m.getItemName().equals("Dragon dagger(p++)")));
     }
 
+    @Test public void crystalAccessIsScopedToCaptureAndLuckyProducesOnlyTheJar()
+    {
+        AcquisitionMethod crystal = find("Crystal", "Crystal shard");
+        assertEquals("Prifddinas", crystal.getLocationText());
+        assertTrue(crystal.getSearchText().contains("Song of the Elves"));
+        assertFalse(crystal.getSearchText().contains("Puro-Puro"));
+        assertTrue(crystal.getSearchText().contains("90 Hunter"));
+        ItemSourceLookupService service = new ItemSourceLookupService(new Gson());
+        List<AcquisitionMethod> lucky = methods.stream().filter(m -> m.getSourceName().equals("Lucky impling")).collect(Collectors.toList());
+        assertEquals(1,lucky.size());
+        assertEquals("Gathering",lucky.get(0).getSourceType());
+        assertEquals("Lucky impling jar",lucky.get(0).getItemName());
+        assertTrue(lucky.get(0).getSearchText().contains("89 Hunter"));
+        assertEquals(1,service.searchByItemName("Lucky impling jar").stream().filter(s -> s.getSourceName().equals("Lucky impling")).count());
+        assertFalse(service.searchByItemName("Reward casket (master)").stream().anyMatch(s -> s.getSourceName().equals("Lucky impling")));
+    }
+
     @Test public void searchableItemGetsOnlyItsOwnReviewedLoot()
     {
         ItemSourceLookupService service = new ItemSourceLookupService(new Gson());
