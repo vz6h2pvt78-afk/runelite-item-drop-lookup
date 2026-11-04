@@ -85,6 +85,14 @@ public class ItemPriceLookupService
         return Optional.of(new ItemPrice(record.itemName, record.price, record.highAlch, record.tradeable, record.notes));
     }
 
+    /** An identity guard only: no punctuation, compact, prefix or fuzzy discovery. */
+    public Optional<String> findExactItemName(String query)
+    {
+        if (query == null || query.trim().isEmpty()) return Optional.empty();
+        return getItemPriceRecords().stream().map(record -> record.itemName)
+                .filter(name -> name != null && name.equalsIgnoreCase(query.trim())).findFirst();
+    }
+
     private List<ItemPriceRecord> getItemPriceRecords()
     {
         if (itemPriceRecords != null)

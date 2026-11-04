@@ -20,6 +20,16 @@ Search potions by their ordinary name, such as `prayer potion`, to include all
 available doses. Entering a specific dose still restricts that search. Potion
 GE references use the four-dose item when one exists.
 
+An exact recognized item with no recorded sources has its own empty state. For
+example, `Shrimps` keeps the cooked item identity instead of showing `Raw shrimps`.
+Copy report identifies the item and zero recorded sources; Back returns to the
+previous lookup when available. This recognition uses the saved catalog and does
+not imply complete coverage of all OSRS items.
+
+Raw shrimps includes one reviewed **Gathering** source: small-net fishing at
+Lumbridge Swamp near the Fishing tutor. It states Fishing level 1, a small fishing
+net and no bait. Other fishing locations are not yet covered by this slice.
+
 Ent logs appear under **Gathering**, with a kill-then-chop explanation. Magic logs,
 Yew logs and ordinary Logs have reviewed encounter levels and yield per successful
 chop. Ordinary Logs explicitly flag conflicting Wiki evidence at level 45 and

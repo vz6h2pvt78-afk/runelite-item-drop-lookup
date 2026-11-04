@@ -1,7 +1,7 @@
-"""Offline, reviewed Iron ore gathering slice: one method at one mine.
+"""Offline, reviewed gathering: Iron ore mining and one Raw shrimps fishing area.
 
-Default writes a proposal. --apply creates the resource/manifest once; --check
-compares both and all nine earlier JSON resources. No automatic coverage crawl.
+Default writes a proposal. --apply appends the reviewed fishing slice once;
+--check compares both slices and all unrelated C3m JSON resources. No crawl.
 """
 import argparse
 import hashlib
@@ -122,23 +122,33 @@ def build_proposal(fixture):
 
 
 def run(apply=False, check=False, output=None):
+    from build_fishing_sources import load_fixture as load_fishing, build_proposal as build_fishing
+    from build_fishing_sources import check_unchanged, MANIFEST as FISHING_MANIFEST
     fixture = load_fixture()
     proposal = build_proposal(fixture)
-    for name, expected in fixture['unchangedResourceSha256'].items():
-        require(digest(json.loads((RESOURCES / name).read_text(encoding='utf-8'))) == expected,
-                'Existing resource changed: ' + name)
+    fishing_fixture = load_fishing()
+    fishing = build_fishing(fishing_fixture)
+    check_unchanged(fishing_fixture, proposal['records'])
+    records = proposal['records'] + fishing['records']
+    # The mining fixture retains its historical pre-C3 hashes for provenance.
+    # Later reviewed C3 changes are now protected by the exact C3m byte baseline
+    # above; requiring the older global hashes would reject those accepted fixes.
     if check:
-        require(json.loads(RESOURCE.read_text(encoding='utf-8')) == proposal['records'], 'Runtime gathering records differ')
+        require(json.loads(RESOURCE.read_text(encoding='utf-8')) == records, 'Runtime gathering records differ')
         require(json.loads(MANIFEST.read_text(encoding='utf-8')) == proposal, 'Gathering provenance differs')
+        require(json.loads(FISHING_MANIFEST.read_text(encoding='utf-8')) == fishing, 'Fishing provenance differs')
     elif apply:
-        require(not RESOURCE.exists() and not MANIFEST.exists(), 'Slice already exists; use --check')
-        RESOURCE.write_text(json.dumps(proposal['records'], ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-        MANIFEST.write_text(json.dumps(proposal, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+        require(not FISHING_MANIFEST.exists(), 'Fishing slice already exists; use --check')
+        require(json.loads(RESOURCE.read_text(encoding='utf-8')) == proposal['records'], 'Existing gathering slice differs')
+        require(json.loads(MANIFEST.read_text(encoding='utf-8')) == proposal, 'Existing mining provenance differs')
+        FISHING_MANIFEST.write_text(json.dumps(fishing, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+        RESOURCE.write_text(json.dumps(records, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     else:
         output = output or ROOT / '.cache/gathering_sources_proposal.json'
         output.parent.mkdir(parents=True, exist_ok=True)
-        output.write_text(json.dumps(proposal, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-    print(json.dumps({'records': 1, 'rocks': 3, 'unchangedResources': 9,
+        output.write_text(json.dumps({'records': records, 'mining': proposal, 'fishing': fishing}, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    print(json.dumps({'records': len(records), 'miningAreas': 1, 'fishingAreas': 1,
+                      'unchangedResources': len(fishing_fixture['unchangedResourceSha256']),
                       'mode': 'check' if check else 'apply' if apply else 'proposal'}))
 
 

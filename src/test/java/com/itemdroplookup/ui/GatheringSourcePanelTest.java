@@ -117,6 +117,80 @@ public class GatheringSourcePanelTest
         });
     }
 
+    @Test
+    public void fishingAppearsOnceInEachApplicableViewAndNeverAsCombat() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            ItemDropLookupPanel panel = search("Raw shrimps");
+            JComboBox<?> filter = (JComboBox<?>) named(panel, "sourceTypeFilter").get(0);
+            assertEquals("View gathering (1)", ((JButton) named(panel, "showGatheringSources").get(0)).getText());
+            for (String included : new String[] {"All", "Non-NPC Sources", "Gathering"})
+            {
+                filter.setSelectedItem(included);
+                assertEquals(1, named(panel, "itemSourceCard").stream()
+                        .filter(c -> labels((Container) c).contains("Small-net fishing")).count());
+                assertTrue(labels(panel).contains("Fishing level 1 · Small fishing net required"));
+                assertTrue(labels(panel).contains("No bait needed · F2P"));
+                assertTrue(labels(panel).contains("Lumbridge Swamp"));
+                assertTrue(labels(panel).contains("Near the Fishing tutor."));
+            }
+            assertEquals(1, named(panel, "itemSourceCard").size());
+            assertTrue(named(panel, "openLocations").isEmpty());
+            for (String excluded : new String[] {"Shops", "Reward Shops", "Ground pickups", "NPC Drops"})
+            {
+                filter.setSelectedItem(excluded);
+                assertFalse(labels(panel).contains("Small-net fishing"));
+                assertFalse(labels(panel).contains("Small fishing net required"));
+            }
+        });
+    }
+
+    @Test
+    public void fishingSourceFinderPreservesOneLocationAndRecoversFromNoMatch() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            ItemDropLookupPanel panel = search("rawshrimps");
+            JComboBox<?> filter = (JComboBox<?>) named(panel, "sourceTypeFilter").get(0);
+            JTextField finder = (JTextField) named(panel, "sourceSearch").get(0);
+            finder.setText("Lumbridge Swamp");
+            filter.setSelectedItem("Gathering");
+            assertEquals(1, named(panel, "itemSourceCard").size());
+            finder.setText("Draynor");
+            filter.setSelectedItem("Non-NPC Sources");
+            filter.setSelectedItem("Gathering");
+            assertEquals(0, named(panel, "itemSourceCard").size());
+            assertTrue(labels(panel).contains("No verified gathering methods match these filters."));
+            ((JButton) named(panel, "clearSourceSearch").get(0)).doClick();
+            assertEquals("Gathering", filter.getSelectedItem());
+            assertEquals(1, named(panel, "itemSourceCard").size());
+            finder.setText("Small-net");
+            filter.setSelectedItem("Non-NPC Sources");
+            assertEquals(1, named(panel, "itemSourceCard").size());
+        });
+    }
+
+    @Test
+    public void fishingIdentityDoesNotLeakToCookedShrimpsOrOtherFish()
+    {
+        Gson gson = new Gson();
+        ItemSourceLookupService sources = new ItemSourceLookupService(gson);
+        assertEquals(1, sources.searchByItemName("Raw shrimps").stream()
+                .filter(s -> "Gathering".equals(s.getSourceType())).count());
+        for (String query : new String[] {"Shrimps", "Raw anchovies", "Raw sardine", "Raw herring"})
+        {
+            // Selection resolves the best identity across NPC and non-NPC data.
+            // A single service may legitimately return a broader matching tier.
+            ItemSearchSelection selection = new ItemSearchSelection(query, new DropLookupService(gson),
+                    sources, new ItemPriceLookupService(gson));
+            assertTrue(query, selection.sources.stream()
+                    .noneMatch(s -> "Small-net fishing".equals(s.getSourceName())));
+            assertEquals(query, 1, selection.choices().size());
+            assertEquals(query, selection.choices().get(0));
+        }
+        assertTrue(new DropLookupService(gson).searchByItemName("Raw shrimps").stream()
+                .noneMatch(d -> d.getMonsterName().toLowerCase().contains("fishing spot")));
+    }
+
     private static List<Component> named(Container parent, String name)
     {
         List<Component> result = new ArrayList<>();

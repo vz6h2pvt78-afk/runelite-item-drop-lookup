@@ -1,0 +1,115 @@
+{
+  "baseCommit": "26c9f8a013b62cc5cbfde040c4fa13a132cac134",
+  "records": [
+    {
+      "id": "4dce06a72005ea67d454",
+      "itemId": 317,
+      "itemName": "Raw shrimps",
+      "sourceType": "Gathering",
+      "sourceName": "Small-net fishing",
+      "location": "Lumbridge Swamp",
+      "cost": "",
+      "notes": "Fishing level 1 · Small fishing net required\nNo bait needed · F2P\nNear the Fishing tutor."
+    }
+  ],
+  "method": {
+    "outputItemId": 317,
+    "kind": "GATHERING",
+    "skill": "Fishing",
+    "resourcePage": "Fishing spot (small net, bait)",
+    "interactionVariant": "Small net",
+    "methodId": "33ddf8936ee71a075e02",
+    "actionLabel": "Small-net fishing",
+    "output": {
+      "itemId": 317,
+      "itemName": "Raw shrimps",
+      "quantity": null,
+      "quantityBasis": "not asserted; output is not guaranteed per attempt"
+    },
+    "skills": [
+      {
+        "skill": "Fishing",
+        "level": 1,
+        "boostable": null
+      }
+    ],
+    "tools": [
+      {
+        "kind": "CATEGORY",
+        "name": "Small fishing net",
+        "itemId": null
+      }
+    ],
+    "baitRequired": false,
+    "membersOnly": null,
+    "accessCoverage": "incomplete",
+    "verifiedConditions": []
+  },
+  "occurrence": {
+    "methodId": "33ddf8936ee71a075e02",
+    "location": "Lumbridge Swamp",
+    "coordinates": [
+      {
+        "x": 3246,
+        "y": 3155
+      },
+      {
+        "x": 3240,
+        "y": 3147
+      },
+      {
+        "x": 3240,
+        "y": 3146
+      },
+      {
+        "x": 3244,
+        "y": 3150
+      },
+      {
+        "x": 3245,
+        "y": 3152
+      }
+    ],
+    "plane": 0,
+    "rawMapId": "0",
+    "occurrenceId": "4dce06a72005ea67d454",
+    "membersOnly": false,
+    "resourceCount": null,
+    "resourceCountBasis": "not asserted; map points are not an active spot count",
+    "accessCoverage": "incomplete",
+    "verifiedConditions": [],
+    "contextNotes": [
+      {
+        "kind": "LOCATION",
+        "text": "Near the Fishing tutor.",
+        "eligibilityGate": false
+      }
+    ]
+  },
+  "provenance": [
+    {
+      "title": "Raw shrimps",
+      "revisionId": 15331265,
+      "sourceUrl": "https://oldschool.runescape.wiki/w/Raw_shrimps",
+      "historyUrl": "https://oldschool.runescape.wiki/w/Special:PermanentLink/15331265",
+      "rawSnapshotSha256": "ae84157e6e7b76f60967be150e3668b1b1b8e4ff8e12a4ff042c68791f4e82ff",
+      "wikitextSha256": "b8639910bf62329c3ece329ffb22714f591af309996f33b4be612aa5a41e13e2"
+    },
+    {
+      "title": "Fishing spot (small net, bait)",
+      "revisionId": 15288182,
+      "sourceUrl": "https://oldschool.runescape.wiki/w/Fishing_spot_%28small_net%2C_bait%29",
+      "historyUrl": "https://oldschool.runescape.wiki/w/Special:PermanentLink/15288182",
+      "rawSnapshotSha256": "662209804f265e625a3bb9ccf1aa6556ad99a65b511577b43c2f638aca81a5f0",
+      "wikitextSha256": "ec54d31dbb6786c1077f447c158cbc5a1da60bb19b87f907f56f4b206ae0a211"
+    }
+  ],
+  "rawSkillTemplate": "{{Fishing info\n|name = Raw shrimps\n|level = 1\n|xp = 10\n|spot = [[Fishing spot (small net, bait)]]\n|tool = Small fishing net\n|bait = None\n}}",
+  "rawLocationTemplate": "{{ObjectLocLine\n|name = Fishing spot (small net, bait)\n|location = [[Lumbridge Swamp]]\n|members = No\n|mapID = 0\n|plane = 0\n|x:3246,y:3155|x:3240,y:3147|x:3240,y:3146|x:3244,y:3150|x:3245,y:3152\n|mtype = pin\n|dropversion=Small net, Bait\n|leagueRegion = misthalin\n}}",
+  "limitations": [
+    "One output, Small net method and named area only; other fishing locations exist.",
+    "Map coordinates are evidence, not simultaneous active spots or navigation.",
+    "No catch quantity, rate, XP, timers, ranking, cooking chain or account eligibility.",
+    "F2P describes this location; access coverage remains explicitly incomplete."
+  ]
+}

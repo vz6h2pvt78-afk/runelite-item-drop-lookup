@@ -320,6 +320,14 @@ public class ItemDropLookupPanel extends PluginPanel
 
     private void selectItem(String item)
     {
+        matchingDrops = viewState.selection.dropsFor(item);
+        matchingSources = viewState.selection.sourcesFor(item);
+        if (matchingDrops.isEmpty() && matchingSources.isEmpty())
+        {
+            viewState.selectedItem = item;
+            showNoSources();
+            return;
+        }
         previousItem = null;
         if (!item.equals(viewState.selectedItem))
         {
@@ -329,10 +337,29 @@ public class ItemDropLookupPanel extends PluginPanel
             adjustingControls = false;
         }
         viewState.selectedItem = item;
-        matchingDrops = viewState.selection.dropsFor(item);
-        matchingSources = viewState.selection.sourcesFor(item);
         viewState.page = LookupViewState.Page.OVERVIEW;
         showOverview();
+    }
+
+    private void showNoSources()
+    {
+        viewState.page = LookupViewState.Page.NO_SOURCES;
+        overviewBack.setVisible(false);
+        resultsPanel.removeAll();
+        priceLabels.clear();
+        if (previousItem != null)
+        {
+            JButton back = style.backButton(previousItem.view.page == LookupViewState.Page.SOURCES
+                    ? "Back to results" : "Back to item", this::restorePreviousItem);
+            back.setName("backToPreviousItem");
+            resultsPanel.add(back);
+        }
+        resultsPanel.add(makeItemHeader(viewState.selectedItem));
+        resultsPanel.add(makeSectionHeader("No acquisition sources recorded"));
+        resultsPanel.add(makeLabel("This item is recognized, but no acquisition sources are recorded in the current data."));
+        resultsPanel.add(wikiButton(viewState.selectedItem));
+        resultsPanel.add(reportControls());
+        finishPage(0);
     }
 
     private void showItemChoices()
@@ -458,16 +485,20 @@ public class ItemDropLookupPanel extends PluginPanel
         status.setVisible(false);
         JButton copy = style.button("Copy report", () -> {
             boolean hasSelectedItem = viewState.page != LookupViewState.Page.ITEMS;
-            String method = hasSelectedItem ? (String) filterDropdown.getSelectedItem() : null;
+            boolean hasSourceContext = hasSelectedItem && viewState.page != LookupViewState.Page.NO_SOURCES;
+            String method = hasSourceContext ? (String) filterDropdown.getSelectedItem() : null;
             String area = FILTER_ALL.equals(method) || FILTER_DROPS.equals(method)
                     ? wildernessDropdown.getSelectedItem().toString() : null;
             String view = detail != null ? "Source details" : viewState.page == LookupViewState.Page.ITEMS
-                    ? "Matching items" : viewState.page == LookupViewState.Page.OVERVIEW ? "Item overview" : "Sources";
+                    ? "Matching items" : viewState.page == LookupViewState.Page.NO_SOURCES ? "No sources"
+                    : viewState.page == LookupViewState.Page.OVERVIEW ? "Item overview" : "Sources";
             try
             {
-                clipboardWriter.accept(LookupReport.create(hasSelectedItem ? viewState.selectedItem : null,
-                        viewState.query, hasSelectedItem ? sourceSearch.getText() : null, method, area, view,
-                        detail == null ? null : detailSource.getMonsterName(), detail == null ? null : detail.saveState()));
+                String report = LookupReport.create(hasSelectedItem ? viewState.selectedItem : null,
+                        viewState.query, hasSourceContext ? sourceSearch.getText() : null, method, area, view,
+                        detail == null ? null : detailSource.getMonsterName(), detail == null ? null : detail.saveState());
+                if (viewState.page == LookupViewState.Page.NO_SOURCES) report += "Recorded sources: 0\n";
+                clipboardWriter.accept(report);
                 status.setText("<html>Report copied</html>");
             }
             catch (RuntimeException ex)
@@ -493,6 +524,7 @@ public class ItemDropLookupPanel extends PluginPanel
         for (javax.swing.JComponent control : new javax.swing.JComponent[] {searchField, searchButton, filterDropdown, wildernessDropdown, sourceSearch, showPriceCheckbox, textSize, overviewBack}) style.controlFont(control);
         if (viewState.page == LookupViewState.Page.SOURCES) renderResults();
         else if (viewState.page == LookupViewState.Page.OVERVIEW) showOverview();
+        else if (viewState.page == LookupViewState.Page.NO_SOURCES) showNoSources();
         else if (viewState.selection != null) showItemChoices();
         revalidate();
         SwingUtilities.invokeLater(() -> resultsScroll.getVerticalScrollBar().setValue(position));

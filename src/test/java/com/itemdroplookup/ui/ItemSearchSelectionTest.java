@@ -44,4 +44,19 @@ public class ItemSearchSelectionTest
         assertEquals(java.util.Collections.singletonList("rune pouch"), search("runepouch").choices());
         assertEquals(java.util.Collections.singletonList("Dragon boots"), search("dboots").choices());
     }
+
+    @Test public void exactCatalogIdentityCannotBorrowAnotherItemsCoverage()
+    {
+        ItemSearchSelection cooked = search("  SHRIMPS  ");
+        assertEquals(java.util.Collections.singletonList("Shrimps"), cooked.choices());
+        assertTrue(cooked.drops.isEmpty());
+        assertTrue(cooked.sources.isEmpty());
+        assertEquals(java.util.Collections.singletonList("Raw shrimps"), search("Raw shrimps").choices());
+        ItemPriceLookupService prices = new ItemPriceLookupService(new Gson());
+        assertFalse(prices.findExactItemName("rawshrimps").isPresent());
+        assertFalse(prices.findExactItemName("shrimp").isPresent());
+        assertFalse(prices.findExactItemName("Raw-shrimps").isPresent());
+        assertTrue(search("Prayer potion(5)").choices().isEmpty());
+        assertTrue(search("Super restore(9)").choices().isEmpty());
+    }
 }

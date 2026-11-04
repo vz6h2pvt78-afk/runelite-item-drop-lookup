@@ -21,15 +21,20 @@ final class ItemSearchSelection
     final List<ItemSource> sources;
     private final ItemPriceLookupService prices;
     private final boolean explicitDose;
+    private final Optional<String> exactCatalogItem;
 
     ItemSearchSelection(String query, DropLookupService dropsService, ItemSourceLookupService sourceService, ItemPriceLookupService prices)
     {
         this.query = query;
         this.prices = prices;
+        String canonicalQuery = ItemNameMatching.reviewedAliases().getOrDefault(ItemNameMatching.normalize(query), query.trim());
         query = ItemNameMatching.resolveAlias(query);
         Optional<String> family = prices.findPotionFamily(query);
         // Numeric compact queries also retain their selected dose (prayerpotion4).
         explicitDose = query.matches(".*[0-9].*");
+        // Establish an exact known identity before gathering source candidates.
+        // Unqualified potion families deliberately retain their existing dose view.
+        exactCatalogItem = family.isPresent() && !explicitDose ? Optional.empty() : prices.findExactItemName(canonicalQuery);
         String lookup = family.isPresent() && !explicitDose ? family.get() : query;
         List<DropSource> foundDrops = dropsService.searchByItemName(lookup);
         List<ItemSource> foundSources = sourceService.searchByItemName(lookup);
@@ -55,6 +60,13 @@ final class ItemSearchSelection
                 foundSources = foundSources.stream().filter(s -> best.contains(s.getItemName())).collect(Collectors.toList());
             }
         }
+        if (exactCatalogItem.isPresent())
+        {
+            // Lack of coverage for a known item must not substitute another item.
+            String exact = exactCatalogItem.get();
+            foundDrops = foundDrops.stream().filter(d -> d.getItemName().equalsIgnoreCase(exact)).collect(Collectors.toList());
+            foundSources = foundSources.stream().filter(s -> s.getItemName().equalsIgnoreCase(exact)).collect(Collectors.toList());
+        }
         // Known kill-then-harvest pairs have a Gathering projection, including an
         // honest fallback when reviewed event details cannot be loaded.
         foundDrops = foundDrops.stream().filter(d -> !sourceService.isHarvestSource(d)).collect(Collectors.toList());
@@ -67,6 +79,7 @@ final class ItemSearchSelection
         TreeSet<String> result = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
         drops.forEach(d -> result.add(choice(d.getItemName())));
         sources.forEach(s -> result.add(choice(s.getItemName())));
+        if (result.isEmpty()) exactCatalogItem.ifPresent(result::add);
         return new ArrayList<>(result);
     }
 

@@ -8,5 +8,15 @@
     "location": "South-west Varrock mine",
     "cost": "",
     "notes": "Mining level 15 · Pickaxe required\n3 iron rocks · F2P\nCaution: aggressive mugger nearby."
+  },
+  {
+    "id": "4dce06a72005ea67d454",
+    "itemId": 317,
+    "itemName": "Raw shrimps",
+    "sourceType": "Gathering",
+    "sourceName": "Small-net fishing",
+    "location": "Lumbridge Swamp",
+    "cost": "",
+    "notes": "Fishing level 1 · Small fishing net required\nNo bait needed · F2P\nNear the Fishing tutor."
   }
 ]

@@ -90,6 +90,53 @@ public class MorningFeedbackTest
         });
     }
 
+    @Test public void knownZeroSourceStateKeepsCanonicalReportAndLastValidBack() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            List<String> reports = new ArrayList<>();
+            ItemDropLookupPanel p = panel(reports);
+            search(p, "Iron ore"); PanelTestSupport.openSources(p);
+            ((JComboBox<?>)PanelTestSupport.find(p,"sourceTypeFilter")).setSelectedItem("Gathering");
+            JTextField finder = (JTextField)PanelTestSupport.find(p,"sourceSearch");
+            finder.setText("Varrock"); finder.postActionEvent();
+            click(p, "copyReport"); String original = reports.get(0);
+            search(p, "Shrimps");
+            assertTrue(labels(p).contains("No acquisition sources recorded"));
+            assertFalse(labels(p).contains("No matching item"));
+            assertFalse(labels(p).contains("Raw shrimps"));
+            assertNull(PanelTestSupport.find(p,"viewAllSources"));
+            assertNotNull(((JButton)PanelTestSupport.find(p,"backToPreviousItem")).getIcon());
+            click(p, "copyReport"); String empty = reports.get(1);
+            assertTrue(empty.contains("Item: Shrimps\n"));
+            assertTrue(empty.contains("Item query: Shrimps\n"));
+            assertTrue(empty.contains("View: No sources\n"));
+            assertTrue(empty.contains("Recorded sources: 0\n"));
+            assertFalse(empty.contains("Find source:"));
+            assertFalse(empty.contains("Method:"));
+            assertFalse(empty.contains("NPC area:"));
+            search(p, "zzzz-no-item");
+            assertTrue(labels(p).contains("No matching item"));
+            click(p, "copyReport"); assertFalse(reports.get(2).contains("\nItem:"));
+            click(p, "backToPreviousItem"); click(p, "copyReport");
+            assertEquals(original, reports.get(3));
+            assertEquals("Varrock", finder.getText());
+            assertEquals("Gathering", ((JComboBox<?>)PanelTestSupport.find(p,"sourceTypeFilter")).getSelectedItem());
+        });
+    }
+
+    @Test public void freshKnownZeroSourceHasNoFakeHistoryAndCanonicalWikiAction() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            ItemDropLookupPanel p = panel(new ArrayList<>());
+            search(p, "  sHRimps  ");
+            assertTrue(labels(p).contains("Shrimps"));
+            assertNull(PanelTestSupport.find(p,"backToPreviousItem"));
+            JButton wiki = (JButton)PanelTestSupport.find(p,"itemWiki");
+            assertNotNull(wiki);
+            assertTrue(wiki.getText().contains("Wiki"));
+        });
+    }
+
     @Test public void historyRestoresScrollAndSavedDetailFiltersAfterEventQueueSettles() throws Exception
     {
         ItemDropLookupPanel[] current=new ItemDropLookupPanel[1];
