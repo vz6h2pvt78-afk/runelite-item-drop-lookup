@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-05T00:35:00Z",
+  "checkedAt": "2026-11-05T01:45:00Z",
   "facts": [
     {
       "monsterName": "Aberrant spectre",
@@ -114,6 +114,38 @@
       "skill": "Slayer",
       "level": 50,
       "text": "50 Slayer to kill."
+    },
+    {
+      "monsterName": "Brine rat",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Brine rat",
+          "revisionId": 15372645,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Brine_rat?oldid=15372645"
+        }
+      ],
+      "id": "brine-rat-slayer",
+      "appliesTo": "COMBAT",
+      "type": "SKILL",
+      "skill": "Slayer",
+      "level": 47,
+      "text": "47 Slayer to fight."
+    },
+    {
+      "monsterName": "Brine rat",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Brine rat",
+          "revisionId": 15372645,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Brine_rat?oldid=15372645"
+        }
+      ],
+      "id": "brine-rat-task-eligibility",
+      "appliesTo": "TASK_ELIGIBILITY",
+      "type": "QUEST",
+      "text": "Complete Olaf's Quest to receive Brine rat Slayer tasks."
     },
     {
       "monsterName": "Cave crawler",

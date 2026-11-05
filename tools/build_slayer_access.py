@@ -60,11 +60,13 @@ def facts_for(pin, locations=None):
             raise ValueError("Contradictory or missing Slayer level for " + name)
     plain = re.sub(r"\[\[(?:[^\]|]+\|)?([^\]]+)\]\]",r"\1",raw)
     verb = pin.get("combatVerb", "kill")
-    if verb not in ("kill", "harm"):
+    if verb not in ("kill", "harm", "fight"):
         raise ValueError("Unreviewed combat verb")
     pattern = rf"requir(?:e|es|ing) (?:a )?(?:level {level} Slayer|Slayer level of {level}|{level} Slayer) (?:in order )?to {verb}\b"
     listed_kill_conditions = rf"\bKilling them requires [^.!?\n]*\blevel {level} Slayer\b"
-    if not re.search(pattern, plain, re.I) and not (verb == "kill" and re.search(listed_kill_conditions, plain, re.I)):
+    passive = rf"\bSlayer level of {level} is required to {verb} them\b"
+    if not (re.search(pattern, plain, re.I) or re.search(passive, plain, re.I)
+            or (verb == "kill" and re.search(listed_kill_conditions, plain, re.I))):
         raise ValueError("Missing combat-level prose for "+name)
     rev = pin["revisionId"]
     evidence=[{"page":name,"revisionId":rev,"sourceUrl":"https://oldschool.runescape.wiki/w/"+name.replace(" ","_")+"?oldid="+str(rev)}]
@@ -85,7 +87,7 @@ def build():
     locations = json.loads((ROOT / "src/main/resources/monster_locations.json").read_text(encoding="utf8"))
     facts=[fact for p in sorted(PINS.glob("*.json")) for fact in facts_for(json.loads(p.read_text(encoding="utf8")), locations)]
     if not facts or len({f["id"] for f in facts})!=len(facts):raise ValueError("Missing or duplicate facts")
-    return {"schemaVersion":1,"checkedAt":"2026-11-05T00:35:00Z","facts":facts}
+    return {"schemaVersion":1,"checkedAt":"2026-11-05T01:45:00Z","facts":facts}
 
 if __name__=="__main__":
     parser=argparse.ArgumentParser();parser.add_argument("--check",action="store_true");args=parser.parse_args()

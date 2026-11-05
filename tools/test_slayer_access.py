@@ -42,6 +42,16 @@ class SlayerEvidenceTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "combat-level prose"):
             source.facts_for(harm)
 
+    def test_brine_rat_fight_and_task_proofs_are_independent(self):
+        pin = json.loads((source.PINS/"Brine_rat.json").read_text(encoding="utf8"))
+        facts = source.facts_for(pin)
+        self.assertEqual(["COMBAT","TASK_ELIGIBILITY"], [f["appliesTo"] for f in facts])
+        self.assertEqual("47 Slayer to fight.", facts[0]["text"])
+        self.assertIn("Olaf's Quest", facts[1]["text"])
+        pin["combatVerb"] = "kill"
+        with self.assertRaisesRegex(ValueError,"combat-level prose"):
+            source.facts_for(pin)
+
     def test_cave_access_requires_exact_location_and_all_reviewed_drop_bindings(self):
         pin = json.loads((source.PINS / "Cave_horror.json").read_text(encoding="utf8"))
         locations = json.loads((source.ROOT / "src/main/resources/monster_locations.json").read_text(encoding="utf8"))

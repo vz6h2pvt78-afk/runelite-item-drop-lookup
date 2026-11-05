@@ -51,6 +51,26 @@ public class AccessRequirementPanelTest
     }
 
     @Test
+    public void brineSabreKeepsTaskAssignmentSeparateFromFightingAndFinishing() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            Gson g = new Gson();
+            AccessRequirementLookupService access = new AccessRequirementLookupService(g);
+            ItemDropLookupPanel p = new ItemDropLookupPanel(new DropLookupService(g),new ItemSourceLookupService(g),
+                    new ItemPriceLookupService(g),new MonsterLocationLookupService(g),access);
+            MorningFeedbackTest.search(p,"Brine sabre"); MorningFeedbackTest.click(p,"showDropSources");
+            assertLabel(p,"brine-rat-slayer","47 Slayer to fight");
+            assertTrue(named(p,"requirement:brine-rat-task-eligibility").isEmpty());
+            MorningFeedbackTest.click(p,"openLocations");
+            assertLabel(p,"brine-rat-task-eligibility","Task eligibility: Complete Olaf's Quest");
+            assertTrue(named(detail("Giant rat","Brine sabre"),"requirement:brine-rat-slayer").isEmpty());
+            assertTrue(named(detail("Rockslug","Bronze bar"),"requirement:brine-rat-slayer").isEmpty());
+            assertLabel(detail("Rockslug","Bronze bar"),"rockslug-finishing","brine sabre to finish");
+            p.dispose();
+        });
+    }
+
+    @Test
     public void caveHorrorKeepsProtectionOnTheMonsterAndAccessInsideTheExactCave() throws Exception
     {
         SwingUtilities.invokeAndWait(() -> {

@@ -1,0 +1,8 @@
+S17 - Brine rat combat and assignment
+
+Brine sabre and the other 25 existing Brine rat drop contexts show 47 Slayer to fight. Olaf's Quest appears in details as assignment eligibility. Rockslug retains its independent brine-sabre finishing option. All 5,664 queries kept their source identities, counts, rates, quantities and bindings compared with S16. Both Java runs passed 193 tests, Python passed 147, and package/API, sidebar, offline generator and independent recovery checks passed. Try Brine sabre, inspect the task-eligibility label, then return to Rockslug's finishing alternatives.
+
+Starting commit 800b424e62862bd38cd34556f72deaf3ae84d3eb
+Build development-2026-11-04-s17-brine-rat
+Official package SHA256 897a7efa91de6799399261600934a5da4fec2357518f23a3cad53dcd2f743f15
+Human acceptance pending.
