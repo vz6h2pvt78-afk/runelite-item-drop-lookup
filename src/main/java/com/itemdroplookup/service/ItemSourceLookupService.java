@@ -6,6 +6,7 @@ import com.itemdroplookup.model.DropSource;
 import com.google.gson.reflect.TypeToken;
 import com.itemdroplookup.model.ItemSource;
 import com.itemdroplookup.model.ShopLocations;
+import com.itemdroplookup.model.BulkPurchase;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -90,6 +91,7 @@ public class ItemSourceLookupService
     private final Gson gson;
     private final AcquisitionEventLookupService events;
     private List<ItemSourceRecord> itemSourceRecords;
+    private final Map<String, ItemSource> bulkByStockLabel = new HashMap<>();
 
     @Inject
     public ItemSourceLookupService(Gson gson, AcquisitionEventLookupService events)
@@ -108,6 +110,13 @@ public class ItemSourceLookupService
         return events.isHarvestSource(source);
     }
 
+    public ItemSource findExactBulkOffer(String stockLabel)
+    {
+        if (stockLabel == null || !stockLabel.trim().endsWith(")")) return null;
+        getItemSourceRecords();
+        return bulkByStockLabel.get(stockLabel.trim().toLowerCase(Locale.ROOT));
+    }
+
     public List<ItemSource> searchByItemName(String itemName)
     {
         if (itemName == null || itemName.trim().isEmpty())
@@ -115,18 +124,12 @@ public class ItemSourceLookupService
             return Collections.emptyList();
         }
 
+        ItemSource bulk = findExactBulkOffer(itemName);
+        if (bulk != null) return Collections.singletonList(bulk);
         String query = ItemNameMatching.resolveAlias(itemName);
 
         return ItemNameMatching.bestMatches(query, getItemSourceRecords(), record -> record.itemName).stream()
-                .map(record -> new ItemSource(
-                        record.itemName,
-                        record.sourceType,
-                        record.sourceName,
-                        record.location,
-                        record.cost,
-                        record.notes,
-                        record.packName, record.packItemName, record.packQuantity, record.packNoted, record.acquisitionMethod, record.shopLocations
-                ))
+                .map(record -> record.bulkSource != null ? record.bulkSource : record.toSource(null))
                 .collect(Collectors.toList());
     }
 
@@ -176,7 +179,7 @@ public class ItemSourceLookupService
 
     private void applyShopLocations(List<ItemSourceRecord> generated)
     {
-        Map<List<String>,ShopLocations> sites = ShopLocationCoverage.read(gson);
+        Map<List<String>,ShopLocationCoverage.Offer> sites = ShopLocationCoverage.read(gson);
         Map<List<String>,ItemSourceRecord> matches = new HashMap<>();
         Set<List<String>> duplicates = new HashSet<>();
         for (ItemSourceRecord record : generated)
@@ -187,8 +190,17 @@ public class ItemSourceLookupService
         }
         matches.forEach((key, record) -> {
             if (duplicates.contains(key)) return;
-            record.shopLocations = sites.get(key);
-            record.location = String.join("\n",record.shopLocations.getSites());
+            ShopLocationCoverage.Offer reviewed = sites.get(key);
+            record.shopLocations = reviewed.locations;
+            record.location = String.join("\n", record.shopLocations.getSites());
+            BulkPurchase bulk = reviewed.bulk;
+            if (bulk != null && generated.stream().noneMatch(r -> record.sourceName.equals(r.sourceName)
+                    && bulk.getItemName().equalsIgnoreCase(r.itemName)))
+            {
+                record.itemName = bulk.getItemName();
+                record.bulkSource = record.toSource(bulk);
+                bulkByStockLabel.put(bulk.getStockLabel().toLowerCase(Locale.ROOT), record.bulkSource);
+            }
         });
     }
 
@@ -325,6 +337,13 @@ public class ItemSourceLookupService
         private boolean packNoted;
         private transient AcquisitionMethod acquisitionMethod;
         private transient ShopLocations shopLocations;
+        private transient ItemSource bulkSource;
+
+        private ItemSource toSource(BulkPurchase bulk)
+        {
+            return new ItemSource(itemName, sourceType, sourceName, location, cost, notes, packName, packItemName,
+                    packQuantity, packNoted, acquisitionMethod, shopLocations, bulk);
+        }
     }
 
     private static class PackRecord

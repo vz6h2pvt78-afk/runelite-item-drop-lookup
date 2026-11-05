@@ -14,6 +14,7 @@ public class ItemSource
     private final boolean packNoted;
     private final AcquisitionMethod acquisitionMethod;
     private final ShopLocations shopLocations;
+    private final BulkPurchase bulkPurchase;
 
     public ItemSource(String itemName, String sourceType, String sourceName, String location, String cost, String notes)
     {
@@ -29,13 +30,22 @@ public class ItemSource
     public ItemSource(String itemName, String sourceType, String sourceName, String location, String cost, String notes,
             String packName, String packItemName, int packQuantity, boolean packNoted, AcquisitionMethod acquisitionMethod)
     {
-        this(itemName,sourceType,sourceName,location,cost,notes,packName,packItemName,packQuantity,packNoted,acquisitionMethod,null);
+        this(itemName,sourceType,sourceName,location,cost,notes,packName,packItemName,packQuantity,packNoted,acquisitionMethod,null,null);
     }
 
     public ItemSource(String itemName, String sourceType, String sourceName, String location, String cost, String notes,
             String packName, String packItemName, int packQuantity, boolean packNoted, AcquisitionMethod acquisitionMethod,
             ShopLocations shopLocations)
     {
+        this(itemName, sourceType, sourceName, location, cost, notes, packName, packItemName, packQuantity,
+                packNoted, acquisitionMethod, shopLocations, null);
+    }
+
+    public ItemSource(String itemName, String sourceType, String sourceName, String location, String cost, String notes,
+            String packName, String packItemName, int packQuantity, boolean packNoted, AcquisitionMethod acquisitionMethod,
+            ShopLocations shopLocations, BulkPurchase bulkPurchase)
+    {
+        this.bulkPurchase = bulkPurchase;
         this.shopLocations = shopLocations;
         this.itemName = itemName;
         this.sourceType = sourceType;
@@ -49,6 +59,8 @@ public class ItemSource
         this.packNoted = packNoted;
         this.acquisitionMethod = acquisitionMethod;
     }
+
+    public BulkPurchase getBulkPurchase() { return bulkPurchase; }
 
     public ShopLocations getShopLocations() { return shopLocations; }
 

@@ -39,6 +39,7 @@ def extract(pin, bundled):
         raise ValueError("Table does not bind the reviewed shop versions")
     close = raw.lower().index("{{storetablebottom",end)
     stock = {}
+    bulk = {}
     for a,_,kind,p,_ in parsed:
         if not end <= a < close or kind != "storeline": continue
         if p.get("shopversion") or p.get("version"): continue
@@ -46,13 +47,24 @@ def extract(pin, bundled):
         if item in stock: raise ValueError("Ambiguous stock identity")
         member = re.fullmatch(r"\{\{Members\|(yes|no)\}\}",p.get("column4",""),re.I) if name == "Forestry Shop" else None
         stock[item] = member[1].lower()=="yes" if member else None
+        if name == "Slayer Rewards" and p["name"] in ("Broad bolts", "Broad arrows"):
+            if (item != p["name"] + " (x250)" or head.get("currency") != "Points"
+                    or p.get("sell") != "35" or p.get("stock") != "inf"
+                    or "rewards to be exchanged for [[Slayer reward point]]s" not in raw):
+                raise ValueError("Slayer ammunition purchase needs review")
+            bulk[item] = {"itemName": p["name"], "quantity": 250}
     rows = [r for r in bundled if r.get("sourceName")==name and r.get("sourceType")=="Reward Shop"]
     frequency = Counter(r["itemName"] for r in rows)
     offers = []
     for r in rows:
         item=r["itemName"]
         if item not in stock or r.get("location") or frequency[item]!=1: continue
-        offers.append({"itemName":item,"cost":r["cost"],"notes":r["notes"],"itemMembers":stock[item]})
+        offer = {"itemName":item,"cost":r["cost"],"notes":r["notes"],"itemMembers":stock[item]}
+        if item in bulk:
+            if r["cost"] != "35 Slayer points":
+                raise ValueError("Currency or price differs from the reviewed Slayer offer")
+            offer["bulkPurchase"] = bulk[item]
+        offers.append(offer)
     return {"sourceName":name,"sourceType":"Reward Shop","sites":sites,"offers":offers,
             "evidence":[{"page":name,"revisionId":revision,"sourceUrl":"https://oldschool.runescape.wiki/w/"+name.replace(" ","_")+"?oldid="+str(revision)}]}
 

@@ -1,0 +1,8 @@
+S7 - Slayer ammunition purchases
+
+Broad bolts and Broad arrows each show one Slayer Rewards purchase of 250 for 35 Slayer points. The old exact stock label opens the same offer. Broad arrows retains its three drop rows and existing ordinary shop. Finder can match the quantity, price or one of ten shop locations. Copy report includes the purchase only when visible. Exactly four of 5,664 audited queries changed from S6B, covering the two canonical names and two compatibility labels. Both Java runs passed 178 tests, Python passed 133. Package/API, visual bounds in both text sizes and independent recovery passed. Compare Broad bolts with Broad bolts (x250), then filter the offer out and copy its report.
+
+Starting commit 8d160fdfc570380d4ef5b1c58353e9c9b9a0c2fc
+Build development-2026-11-04-s7-slayer-bulk-ammo
+Official package SHA256 1bcd762ab247d636be1982a1f5ba1de3a3243a290d7d026e0a4ddc56537a7ff1
+Human acceptance pending.

@@ -269,7 +269,7 @@ public class ItemDropLookupPanel extends PluginPanel
         searchView.add(resultsScroll, BorderLayout.CENTER);
         add(searchView, BorderLayout.CENTER);
         resultsPanel.add(makeLabel("Find an item, then choose how to get it."));
-        addDisplayOptions();
+        addDisplayOptions(null);
     }
 
     @Override
@@ -402,7 +402,7 @@ public class ItemDropLookupPanel extends PluginPanel
         resultsPanel.add(makeSectionHeader("No acquisition sources recorded"));
         resultsPanel.add(makeLabel("This item is recognized, but no acquisition sources are recorded in the current data."));
         resultsPanel.add(wikiButton(viewState.selectedItem));
-        resultsPanel.add(reportControls());
+        resultsPanel.add(reportControls(null));
         finishPage(0);
     }
 
@@ -432,7 +432,7 @@ public class ItemDropLookupPanel extends PluginPanel
             resultsPanel.add(makeSmallSpacer());
         }
         if (choices.isEmpty()) resultsPanel.add(wikiButton(viewState.query));
-        resultsPanel.add(reportControls());
+        resultsPanel.add(reportControls(null));
         finishPage(0);
     }
 
@@ -476,7 +476,7 @@ public class ItemDropLookupPanel extends PluginPanel
         all.setName("viewAllSources");
         resultsPanel.add(all);
         resultsPanel.add(makeSummaryLabel("Counts before filters."));
-        addDisplayOptions();
+        addDisplayOptions(null);
         finishPage(viewState.overviewScroll);
     }
 
@@ -517,15 +517,15 @@ public class ItemDropLookupPanel extends PluginPanel
         if (family.isPresent() && !viewState.selectedItem.matches(".*\\([1-4]\\)$")) resultsPanel.add(makeSummaryLabel("Showing all available doses"));
     }
 
-    private void addDisplayOptions()
+    private void addDisplayOptions(ItemSource matchingBulkOffer)
     {
         resultsPanel.add(makeSectionHeader("Display"));
         resultsPanel.add(textSize);
         resultsPanel.add(showPriceCheckbox);
-        if (viewState.selection != null) resultsPanel.add(reportControls());
+        if (viewState.selection != null) resultsPanel.add(reportControls(matchingBulkOffer));
     }
 
-    private JPanel reportControls()
+    private JPanel reportControls(ItemSource matchingBulkOffer)
     {
         JPanel controls = LookupStyle.column();
         JLabel status = style.text("", false);
@@ -547,6 +547,8 @@ public class ItemDropLookupPanel extends PluginPanel
                         detail == null ? null : detailSource.getMonsterName(), detail == null ? null : detail.saveState());
                 if (viewState.page == LookupViewState.Page.NO_SOURCES) report += "Recorded sources: 0\n";
                 if (detail != null && showingPotionFamily()) report += "Dose item: " + detailSource.getItemName() + "\n";
+                if (matchingBulkOffer != null)
+                    report += "Bulk purchase: " + matchingBulkOffer.getSourceName() + " | " + bulkSummary(matchingBulkOffer) + "\n";
                 clipboardWriter.accept(report);
                 status.setText("<html>Report copied</html>");
             }
@@ -611,6 +613,7 @@ public class ItemDropLookupPanel extends PluginPanel
         npcFilters.setVisible(showDrops);
         sourceSearchRow.setVisible(!matchingDrops.isEmpty() || !matchingSources.isEmpty());
 
+        ItemSource matchingBulkOffer = null;
         if (displayedQuery.isEmpty())
         {
             resultsPanel.add(makeLabel("Enter an item name, then press Enter or Search."));
@@ -656,6 +659,7 @@ public class ItemDropLookupPanel extends PluginPanel
             List<ItemSource> displaySources = showSources ? sources.stream()
                     .filter(source -> contains(source.getSourceName(), sourceQuery) || contains(source.getLocation(), sourceQuery)
                             || contains(source.getPackName(), sourceQuery)
+                            || (source.getBulkPurchase() != null && contains("Bulk purchase " + bulkSummary(source), sourceQuery))
                             || (source.getAcquisitionMethod() != null
                                 && contains(source.getAcquisitionMethod().getSearchText(), sourceQuery)))
                     .collect(Collectors.toList()) : Collections.emptyList();
@@ -759,6 +763,7 @@ public class ItemDropLookupPanel extends PluginPanel
                 resultsPanel.add(makeSectionHeader((hasPacks && displaySources.stream().allMatch(s -> SOURCE_TYPE_SHOP.equals(s.getSourceType()) || SOURCE_TYPE_REWARD_SHOP.equals(s.getSourceType())) ? "Buying options" : sourceSectionHeading(selectedFilter)) + " (" + displaySources.size() + ")"));
                 for (ItemSource source : displaySources)
                 {
+                    if (source.getBulkPurchase() != null) matchingBulkOffer = source;
                     resultsPanel.add(makeItemSourceCard(source));
                 }
             }
@@ -815,7 +820,7 @@ public class ItemDropLookupPanel extends PluginPanel
                 resultsPanel.add(wikiButton(displayedQuery));
             }
         }
-        addDisplayOptions();
+        addDisplayOptions(matchingBulkOffer);
         style.refreshTree(searchView);
         resultsPanel.revalidate();
         resultsPanel.repaint();
@@ -1199,7 +1204,7 @@ public class ItemDropLookupPanel extends PluginPanel
         if (boundContexts.isVariant(source)) detail.setContextTitle(boundContexts.variantTitle(source));
         detailSource = source;
         chooserIcons.showPinned(source.getItemName(), detail.getIdentityHeading());
-        detail.setReportControls(reportControls());
+        detail.setReportControls(reportControls(null));
         add(detail, BorderLayout.CENTER);
         revalidate();
         repaint();
@@ -1272,7 +1277,12 @@ public class ItemDropLookupPanel extends PluginPanel
                     + (source.isPackNoted() ? " (noted)" : ""), CARD_TEXT_WIDTH));
         }
 
-        if (!pack && hasText(source.getSourceType()))
+        if (source.getBulkPurchase() != null)
+        {
+            card.add(makeCardTitle("Bulk purchase", CARD_TEXT_WIDTH));
+            card.add(makeCardLine("Quantity: " + source.getBulkPurchase().getQuantity(), CARD_TEXT_WIDTH));
+        }
+        else if (!pack && hasText(source.getSourceType()))
         {
             card.add(makeCardLine(SOURCE_TYPE_SHOP.equals(source.getSourceType()) ? "Direct purchase" : source.getSourceType(), CARD_TEXT_WIDTH));
         }
@@ -1288,7 +1298,7 @@ public class ItemDropLookupPanel extends PluginPanel
             boolean missingAmount = source.getCost().equals("Marks of grace")
                     || source.getCost().equals("Slayer reward points") || source.getCost().equals("LMS points");
             card.add(makeCardLine((missingAmount ? "Currency: " : "Cost: ") + source.getCost()
-                    + (pack ? " per pack" : ""), CARD_TEXT_WIDTH));
+                    + (pack ? " per pack" : source.getBulkPurchase() != null ? " per purchase" : ""), CARD_TEXT_WIDTH));
             if (missingAmount)
             {
                 card.add(makeCardLine("Amount not recorded; check the Wiki.", CARD_TEXT_WIDTH));
@@ -1325,6 +1335,11 @@ public class ItemDropLookupPanel extends PluginPanel
 
 
         return card;
+    }
+
+    private static String bulkSummary(ItemSource source)
+    {
+        return source.getBulkPurchase().getQuantity() + " " + source.getItemName() + " for " + source.getCost() + " per purchase";
     }
 
     private void addShopSites(JPanel card, com.itemdroplookup.model.ShopLocations sites)

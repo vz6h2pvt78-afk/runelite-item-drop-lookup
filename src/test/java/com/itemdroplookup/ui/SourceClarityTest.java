@@ -225,6 +225,63 @@ public class SourceClarityTest
         });
     }
 
+    @Test public void canonicalAndLegacyBulkSearchShareOneReviewedOffer()
+    {
+        Gson gson = new Gson();
+        ItemSourceLookupService service = new ItemSourceLookupService(gson);
+        DropLookupService drops = new DropLookupService(gson);
+        ItemPriceLookupService prices = new ItemPriceLookupService(gson);
+        for (String item : List.of("Broad bolts", "Broad arrows"))
+        {
+            ItemSearchSelection canonical = new ItemSearchSelection(item, drops, service, prices);
+            ItemSearchSelection legacy = new ItemSearchSelection(item + " (x250)", drops, service, prices);
+            assertEquals(List.of(item), canonical.choices());
+            assertEquals(List.of(item), legacy.choices());
+            assertEquals(1, legacy.sources.size());
+            assertTrue(legacy.drops.isEmpty());
+            com.itemdroplookup.model.ItemSource offer = legacy.sources.get(0);
+            assertSame(offer, canonical.sources.stream().filter(s -> s.getSourceName().equals("Slayer Rewards")).findFirst().get());
+            assertEquals(1, canonical.sources.stream().filter(s -> s.getBulkPurchase() != null).count());
+            assertEquals(250, offer.getBulkPurchase().getQuantity());
+            assertEquals(0, offer.getPackQuantity());
+            assertEquals(10, offer.getShopLocations().getSites().size());
+            assertEquals("35 Slayer points", offer.getCost());
+            assertEquals(item.equals("Broad arrows") ? 3 : 0, canonical.drops.size());
+            assertEquals(item.equals("Broad arrows") ? 2 : 1, canonical.sources.size());
+        }
+        ItemSearchSelection broad = new ItemSearchSelection("broad", drops, service, prices);
+        assertTrue(broad.choices().containsAll(List.of("Broad bolts","Broad arrows")));
+        assertFalse(broad.choices().stream().anyMatch(n -> n.endsWith("(x250)")));
+        assertNull(service.findExactBulkOffer("Broad-bolts (x250)"));
+        assertNull(service.findExactBulkOffer("Broad bolts (x25)"));
+        assertNull(service.findExactBulkOffer("Sawmill voucher (x10)"));
+    }
+
+    @Test public void bulkPurchaseReportTracksOnlyMatchingVisibleOffers() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            Gson g = new Gson();
+            List<String> reports = new ArrayList<>();
+            ItemDropLookupPanel panel = new ItemDropLookupPanel(new DropLookupService(g),new ItemSourceLookupService(g),
+                    new ItemPriceLookupService(g),new MonsterLocationLookupService(g),new AccessRequirementLookupService(g),reports::add);
+            MorningFeedbackTest.search(panel,"Broad bolts (x250)");
+            MorningFeedbackTest.click(panel,"showRewardSources");
+            JTextField find = (JTextField)PanelTestSupport.find(panel,"sourceSearch");
+            find.setText("250"); find.postActionEvent();
+            String labels = MorningFeedbackTest.labels(panel);
+            assertTrue(labels.contains("Bulk purchase") && labels.contains("Quantity: 250"));
+            assertTrue(labels.contains("35 Slayer points per purchase"));
+            MorningFeedbackTest.click(panel,"copyReport");
+            String report = reports.get(reports.size()-1);
+            assertTrue(report.contains("Item: Broad bolts\n") && report.contains("Item query: Broad bolts (x250)"));
+            assertTrue(report.contains("Bulk purchase: Slayer Rewards | 250 Broad bolts for 35 Slayer points per purchase"));
+            find.setText("nowhere"); find.postActionEvent();
+            MorningFeedbackTest.click(panel,"copyReport");
+            assertFalse(reports.get(reports.size()-1).contains("Bulk purchase:"));
+            panel.dispose();
+        });
+    }
+
     @Test public void discreteQuantitiesKeepTheirMeaningAndUnreviewedCommasArePreserved()
     {
         for (String item : List.of("Iron ore", "Bronze bar"))

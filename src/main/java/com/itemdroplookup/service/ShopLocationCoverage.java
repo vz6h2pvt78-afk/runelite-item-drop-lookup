@@ -2,6 +2,7 @@ package com.itemdroplookup.service;
 
 import com.google.gson.*;
 import com.itemdroplookup.model.ShopLocations;
+import com.itemdroplookup.model.BulkPurchase;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
@@ -12,9 +13,21 @@ import static com.itemdroplookup.service.AcquisitionEventLookupService.*;
 @Slf4j
 final class ShopLocationCoverage
 {
-    static Map<List<String>, ShopLocations> read(Gson gson)
+    static final class Offer
     {
-        Map<List<String>, ShopLocations> result = new HashMap<>();
+        final ShopLocations locations;
+        final BulkPurchase bulk;
+
+        Offer(ShopLocations locations, BulkPurchase bulk)
+        {
+            this.locations = locations;
+            this.bulk = bulk;
+        }
+    }
+
+    static Map<List<String>, Offer> read(Gson gson)
+    {
+        Map<List<String>, Offer> result = new HashMap<>();
         try (InputStream stream = ShopLocationCoverage.class.getResourceAsStream("/shop_locations.json"))
         {
             if (stream == null) return result;
@@ -48,10 +61,12 @@ final class ShopLocationCoverage
                 for (JsonElement e : array(shop,"offers"))
                 {
                     JsonObject offer = object(e);
-                    fields(offer,"itemName,cost,notes","itemMembers");
+                    fields(offer,"itemName,cost,notes","itemMembers,bulkPurchase");
                     Boolean members = !offer.has("itemMembers") || offer.get("itemMembers").isJsonNull() ? null : bool(offer,"itemMembers");
                     List<String> key = Arrays.asList(name,string(offer,"itemName"),text(offer,"cost"),text(offer,"notes"));
-                    require(result.put(key,new ShopLocations(forestry && Boolean.FALSE.equals(members) ? worldLabels : labels,members))==null,"Ambiguous offer");
+                    ShopLocations locations = new ShopLocations(forestry && Boolean.FALSE.equals(members) ? worldLabels : labels, members);
+                    BulkPurchase bulk = offer.has("bulkPurchase") ? bulkPurchase(name, offer) : null;
+                    require(result.put(key,new Offer(locations,bulk))==null,"Ambiguous offer");
                 }
             }
         }
@@ -61,5 +76,26 @@ final class ShopLocationCoverage
             result.clear();
         }
         return result;
+    }
+
+    private static BulkPurchase bulkPurchase(String shop, JsonObject offer)
+    {
+        try
+        {
+            JsonObject bulk = object(offer.get("bulkPurchase"));
+            fields(bulk, "itemName,quantity", "");
+            String item = string(bulk, "itemName");
+            String label = string(offer, "itemName");
+            int quantity = integer(bulk, "quantity", 250, 250);
+            require(shop.equals("Slayer Rewards") && (item.equals("Broad bolts") || item.equals("Broad arrows"))
+                    && label.equals(item + " (x250)") && string(offer, "cost").equals("35 Slayer points"),
+                    "Unreviewed bulk offer");
+            return new BulkPurchase(item, label, quantity);
+        }
+        catch (RuntimeException ex)
+        {
+            log.debug("Bulk purchase identity unavailable", ex);
+            return null;
+        }
     }
 }

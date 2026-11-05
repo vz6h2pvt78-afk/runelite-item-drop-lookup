@@ -27,6 +27,15 @@ final class ItemSearchSelection
     {
         this.query = query;
         this.prices = prices;
+        ItemSource exactOffer = sourceService.findExactBulkOffer(query);
+        if (exactOffer != null)
+        {
+            explicitDose = false;
+            exactCatalogItem = prices.findExactItemName(exactOffer.getItemName());
+            drops = Collections.emptyList();
+            sources = Collections.singletonList(exactOffer);
+            return;
+        }
         String canonicalQuery = ItemNameMatching.reviewedAliases().getOrDefault(ItemNameMatching.normalize(query), query.trim());
         query = ItemNameMatching.resolveAlias(query);
         Optional<String> family = prices.findPotionFamily(query);

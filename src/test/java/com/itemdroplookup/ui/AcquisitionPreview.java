@@ -29,6 +29,7 @@ public final class AcquisitionPreview
                     {"Adamant axe", "NPC Drops", "Dust devil"}, {"Adamant boots", "NPC Drops", "Gargoyle"},
                     {"Adamant sq shield", "NPC Drops", "Night beast"}, {"Dragonstone", "NPC Drops", "Zulrah"},
                     {"Cape pouch", "Reward Shops", "Forestry Shop"}, {"Broad bolts (x250)", "Reward Shops", "Shilo Village"},
+                    {"Broad arrows", "Reward Shops", "250"},
                     {"Bronze bar", "Production", ""}, {"Crystal shard", "Loot & containers", "Crystal impling"}, {"Lucky impling jar", "Gathering", ""},
                     {"Mithril ore", "Loot & containers", "Earth impling"}, {"Black dragonhide", "Loot & containers", "Magpie impling"},
                     {"Prayer potion", "NPC Drops", "Tormented Demon"}, {"Earth rune", "Shops", "Ali\u0027s Discount Wares"},

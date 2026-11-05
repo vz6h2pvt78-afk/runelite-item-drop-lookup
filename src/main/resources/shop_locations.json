@@ -236,13 +236,21 @@
           "itemName": "Broad arrows (x250)",
           "cost": "35 Slayer points",
           "notes": "Members shop.",
-          "itemMembers": null
+          "itemMembers": null,
+          "bulkPurchase": {
+            "itemName": "Broad arrows",
+            "quantity": 250
+          }
         },
         {
           "itemName": "Broad bolts (x250)",
           "cost": "35 Slayer points",
           "notes": "Members shop.",
-          "itemMembers": null
+          "itemMembers": null,
+          "bulkPurchase": {
+            "itemName": "Broad bolts",
+            "quantity": 250
+          }
         },
         {
           "itemName": "Herb sack",

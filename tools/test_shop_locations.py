@@ -17,6 +17,18 @@ class ShopSiteTest(unittest.TestCase):
         self.assertFalse(forest['sites'][0]['membersShop'])
         self.assertTrue(next(o['itemMembers'] for o in forest['offers'] if o['itemName']=='Cape pouch'))
 
+    def test_bulk_contents_are_exactly_the_two_infinite_slayer_stock_rows(self):
+        data = sites.build()
+        offers = [(shop["sourceName"], row) for shop in data["shops"] for row in shop["offers"] if "bulkPurchase" in row]
+        self.assertEqual(2, len(offers))
+        for shop, row in offers:
+            item = row["bulkPurchase"]["itemName"]
+            self.assertEqual("Slayer Rewards", shop)
+            self.assertIn(item, ("Broad bolts", "Broad arrows"))
+            self.assertEqual(item + " (x250)", row["itemName"])
+            self.assertEqual(250, row["bulkPurchase"]["quantity"])
+            self.assertEqual("35 Slayer points", row["cost"])
+
     def test_ambiguous_or_already_located_offers_do_not_acquire_a_site_map(self):
         row=next(r for r in self.offers if r['sourceName']=='Forestry Shop' and r['itemName']=='Cape pouch')
         self.offers.append(copy.deepcopy(row))
