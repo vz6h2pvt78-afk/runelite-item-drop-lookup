@@ -14,6 +14,27 @@ public class SearchIdentityTest
     private final ItemPriceLookupService prices=new ItemPriceLookupService(gson);
     private ItemSearchSelection search(String q) { return new ItemSearchSelection(q,drops,sources,prices); }
 
+    @Test public void uniqueCanonicalFormattingCannotSubstituteAvailableChargedOrPoisonedVariants()
+    {
+        for (String[] example : new String[][] {
+                {"blackmask","Black mask"},{"amulet of glory (4)","Amulet of glory(4)"},
+                {"amulet of glory (6)","Amulet of glory(6)"},{"rune dagger p++","Rune dagger(p++)"},
+                {"cookedchicken","Cooked chicken"}})
+        {
+            ItemSearchSelection selected = search(example[0]);
+            assertEquals(Collections.singletonList(example[1]), selected.choices());
+            assertTrue(selected.drops.isEmpty());
+            assertTrue(selected.sources.isEmpty());
+        }
+        assertEquals(Collections.singletonList("Black mask (10)"),search("Black mask (10)").choices());
+        assertFalse(search("Black mask (10)").drops.isEmpty());
+        for (String alias : List.of("d pick","d pickaxe","dpick"))
+        {
+            assertEquals(Collections.singletonList("Dragon pickaxe"),search(alias).choices());
+            assertEquals(sourceSet(search("Dragon pickaxe")), sourceSet(search(alias)));
+        }
+    }
+
     @Test public void unavailableQualifiedItemsNeverBorrowAnotherVariantsSources()
     {
         for(String q:Arrays.asList("Dragon dagger (p+)","dragon dagger p+"))

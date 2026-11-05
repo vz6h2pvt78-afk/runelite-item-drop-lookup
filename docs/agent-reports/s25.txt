@@ -1,0 +1,8 @@
+S25 - Canonical spelling and pickaxe aliases
+
+The shared literal-first, alias-aware canonical resolver accepts only a unique compatible exact/compact item. Blackmask resolves to uncharged Black mask with zero sources. Spaced charged Glories, rune dagger p++ and cookedchicken retain their canonical identities. The three explicit d pick/d pickaxe/dpick aliases reproduce Dragon pickaxe's ordered nine-source list. All 4,569 literal catalog identities retain identical source truth. Of 4,568 compact queries, 4,564 resolve uniquely and four incompatible numeric spellings remain withheld; 2,680 previously wrong/unmatched identity results are corrected. Full 5,664 inventory byte-identical, and all 1,187 potion audit cases retained. 209 regular and packaged Java tests, 161 Python tests, API/package/validators and 16 sidebar previews passed. Warm query median is 2.8–3.3ms; p95 is 8.0–8.6ms versus S24's 5.4–5.9ms, with identical workload checksums. Human acceptance pending.
+
+Starting commit 49b040efe4874673fb1df04f02fdeefd82d86747
+Build development-2026-11-04-s25-canonical-spelling-identity
+Official package SHA256 43a5158ea46d255d0bd46006c1510c8a78358caab3096ce49261d2a905f2a2dd
+Human acceptance pending.

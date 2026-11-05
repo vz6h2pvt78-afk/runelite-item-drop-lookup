@@ -77,9 +77,9 @@ public class ItemSearchSelectionTest
         assertTrue(search("Cooked chicken").sources.isEmpty());
         assertEquals(java.util.Collections.singletonList("Raw shrimps"), search("Raw shrimps").choices());
         ItemPriceLookupService prices = new ItemPriceLookupService(new Gson());
-        assertFalse(prices.findExactItemName("rawshrimps").isPresent());
+        assertEquals("Raw shrimps", prices.findExactItemName("rawshrimps").get());
         assertFalse(prices.findExactItemName("shrimp").isPresent());
-        assertFalse(prices.findExactItemName("Raw-shrimps").isPresent());
+        assertEquals("Raw shrimps", prices.findExactItemName("Raw-shrimps").get());
         assertTrue(search("Prayer potion(5)").choices().isEmpty());
         assertTrue(search("Super restore(9)").choices().isEmpty());
     }

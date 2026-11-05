@@ -24,6 +24,23 @@ public class ItemNameMatchingTest
         assertEquals(0, ItemNameMatching.rank("Zulrah’s scales", "Zulrah's scales"));
     }
 
+    @Test public void catalogIdentityAndPricesUseTheSameConservativeCollisionRule() throws Exception
+    {
+        ItemPriceLookupService service = new ItemPriceLookupService(new com.google.gson.Gson());
+        java.lang.reflect.Field records = ItemPriceLookupService.class.getDeclaredField("itemPriceRecords");
+        records.setAccessible(true);
+        records.set(service, new com.google.gson.Gson().fromJson(
+                "[{\"itemName\":\"A bc\"},{\"itemName\":\"Ab c\"},{\"itemName\":\"Rune dagger(p+)\"},{\"itemName\":\"Rune dagger(p++)\"}]",
+                records.getGenericType()));
+        assertFalse(service.findExactItemName("abc").isPresent());
+        assertFalse(service.searchByItemName("abc").isPresent());
+        assertEquals("Ab c",service.findExactItemName("Ab c").get());
+        assertEquals("Ab c",service.searchByItemName("Ab c").get().getItemName());
+        assertEquals("Rune dagger(p+)",service.findExactItemName("rune dagger p+").get());
+        assertFalse(service.findExactItemName("rune dagger p+++").isPresent());
+        assertFalse(service.findExactItemName("rune dagger").isPresent());
+    }
+
     @Test public void compactCollisionsKeepAllCanonicalChoicesUntilExactNameIsGiven()
     {
         java.util.List<String> items=Arrays.asList("A bc", "Ab c", "Abc extra");

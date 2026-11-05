@@ -32,7 +32,8 @@ public final class ItemNameMatching
             Map.entry("amulet of glory (uncharged)", "amulet of glory"),
             Map.entry("ppot", "prayer potion"), Map.entry("range pot", "ranging potion"),
             Map.entry("super restore potion", "super restore"), Map.entry("super energy potion", "super energy"),
-            Map.entry("stam", "stamina potion"));
+            Map.entry("stam", "stamina potion"),
+            Map.entry("d pick", "dragon pickaxe"), Map.entry("d pickaxe", "dragon pickaxe"), Map.entry("dpick", "dragon pickaxe"));
 
     private ItemNameMatching() { }
 

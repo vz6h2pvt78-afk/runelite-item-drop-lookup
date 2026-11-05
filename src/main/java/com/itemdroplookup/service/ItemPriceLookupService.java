@@ -69,11 +69,17 @@ public class ItemPriceLookupService
 
     public Optional<ItemPrice> searchByItemName(String itemName)
     {
-        if (itemName == null || itemName.trim().isEmpty())
-        {
-            return Optional.empty();
-        }
+        return canonicalRecord(itemName).map(record ->
+                new ItemPrice(record.itemName, record.price, record.highAlch, record.tradeable, record.notes));
+    }
 
+    /** Canonical names in the saved catalog establish identity independently of recorded prices. */
+    private Optional<ItemPriceRecord> canonicalRecord(String itemName)
+    {
+        if (itemName == null || itemName.trim().isEmpty()) return Optional.empty();
+        Optional<ItemPriceRecord> literal = getItemPriceRecords().stream()
+                .filter(record -> record.itemName != null && record.itemName.equalsIgnoreCase(itemName.trim())).findFirst();
+        if (literal.isPresent()) return literal;
         String query = ItemNameMatching.resolveAlias(itemName);
         List<ItemPriceRecord> matches = ItemNameMatching.bestMatches(query, getItemPriceRecords(), record -> record.itemName);
         if (matches.isEmpty() || ItemNameMatching.rank(query, matches.get(0).itemName) > 1
@@ -81,16 +87,13 @@ public class ItemPriceLookupService
         {
             return Optional.empty();
         }
-        ItemPriceRecord record = matches.get(0);
-        return Optional.of(new ItemPrice(record.itemName, record.price, record.highAlch, record.tradeable, record.notes));
+        return Optional.of(matches.get(0));
     }
 
-    /** An identity guard only: no punctuation, compact, prefix or fuzzy discovery. */
+    /** Literal or uniquely compatible compact identity, before source-backed discovery. */
     public Optional<String> findExactItemName(String query)
     {
-        if (query == null || query.trim().isEmpty()) return Optional.empty();
-        return getItemPriceRecords().stream().map(record -> record.itemName)
-                .filter(name -> name != null && name.equalsIgnoreCase(query.trim())).findFirst();
+        return canonicalRecord(query).map(record -> record.itemName);
     }
 
     private List<ItemPriceRecord> getItemPriceRecords()

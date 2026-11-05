@@ -325,6 +325,30 @@ public class MorningFeedbackTest
         });
     }
 
+    @Test public void compactUnchargedMaskKeepsZeroSourcesCanonicalWikiAndPreviousItem() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            List<String> reports = new ArrayList<>();
+            ItemDropLookupPanel p = panel(reports);
+            search(p, "Dragon pickaxe"); PanelTestSupport.openSources(p);
+            click(p, "copyReport"); String original = reports.get(0);
+            search(p, "blackmask");
+            assertTrue(labels(p).contains("No acquisition sources recorded"));
+            assertFalse(labels(p).contains("Black mask (10)"));
+            click(p, "copyReport");
+            String empty=reports.get(1);
+            assertTrue(empty.contains("Item: Black mask\n"));
+            assertTrue(empty.contains("Item query: blackmask\n"));
+            assertTrue(empty.contains("View: No sources\n"));
+            assertTrue(empty.contains("Recorded sources: 0\n"));
+            assertFalse(empty.contains("Method:"));
+            click(p, "backToPreviousItem"); click(p, "copyReport");
+            assertEquals(original,reports.get(2));
+            search(p, "Black mask (10)");
+            assertNotNull(PanelTestSupport.find(p, "showDropSources"));
+        });
+    }
+
     @Test public void implingSummaryRetainsRateCaveatAndOpeningExceptionWithoutRouteLecture()
     {
         AcquisitionMethod method=selection("Amulet of glory").sources.stream().filter(s->s.getAcquisitionMethod()!=null).findFirst().get().getAcquisitionMethod();

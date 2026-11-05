@@ -49,7 +49,7 @@ final class ItemSearchSelection
         // Establish an exact known identity before gathering source candidates.
         // Unqualified potion families deliberately retain their existing dose view.
         exactCatalogItem = family.isPresent() && !explicitDose ? Optional.empty() : prices.findExactItemName(canonicalQuery);
-        String lookup = family.isPresent() && !explicitDose ? family.get() : query;
+        String lookup = family.isPresent() && !explicitDose ? family.get() : exactCatalogItem.orElse(query);
         List<DropSource> foundDrops = dropsService.searchByItemName(lookup);
         List<ItemSource> foundSources = sourceService.searchByItemName(lookup);
         String exactName = ItemNameMatching.compact(query);
