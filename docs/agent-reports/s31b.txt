@@ -1,0 +1,8 @@
+S31B - Bone reward Wilderness warnings
+
+Six exact Bones/Big bones signatures at Callisto40/Vetion35/Venenatis35 gain the existing encounter fallback. RawAlways/qty1 and separate recipient roles are preserved. No new exact drop bindings. Shared validator retains Voidwaker/pickaxe gates; bindings win, dangling bindings withhold fallback, ambiguous locations and malformed/duplicate hints remain isolated. Full normal and official-package Java221/Python179, validators/API/Java11/fonts/resources passed. Full5664query/14041drop inventory is byte-identical toS30. Independent area comparison proves exactly6warning/Wilderness-only changes and allother14035contexts unchanged.15normal/fault/binding cases passed. All6cards/details tested in both sizes with48in-memory reports, hidden-location report omission, Back and area recovery.24renders saved and representative longest cards/details inspected.12priorpickaxe and9Voidwaker fault scenarios passed;37Wilderness and20pickaxe journeyreports passed. DWHnormal/missing controls passed. SourceZIP/fullbundle/recovery/fsck/generators verified; native human acceptance pending. No external research. Nextapprovedwork is bounded local shorthand/identity audit;1externalpage remainsreserved.
+
+Starting commit c19cc73be0d36555ab64ac181d655742ce4f4034
+Build development-2026-11-04-s31b-bone-wilderness
+Official package SHA256 90f0f9779c380b5b83462e77ce0f533fc720c492af9ab29dd0bdc1f04fc88807
+Human acceptance pending.

@@ -192,9 +192,39 @@ public class MonsterLocationLookupServiceTest
             if (pair[0].equals("Artio")) assertNull(group);
             else assertEquals(AccessRequirement.GroupRewardRole.PER_KILL_UNIQUE,group.getGroupRewardRole());
             assertFalse(service.lookup(drop(pair[0],"Dragon pickaxe","1/999")).isReviewedEncounter());
-            assertFalse(service.lookup(drop(pair[0],"Bones","Always")).isReviewedEncounter());
+            assertFalse(service.lookup(drop(pair[0],"Rune pickaxe","1/256")).isReviewedEncounter());
         }
         assertTrue(service.hasQualifyingLocation(serviceDrop("Dragon pickaxe","King Black Dragon"),WildernessFilter.EXCLUDE));
+    }
+
+    @Test
+    public void sixBoneRewardsKeepRecipientAndWildernessContextSeparate()
+    {
+        AccessRequirementLookupService access = new AccessRequirementLookupService(new Gson());
+        for (String[] boss : new String[][] {{"Callisto","40"}, {"Vet'ion","35"}, {"Venenatis","35"}})
+        {
+            for (String item : new String[]{"Bones", "Big bones"})
+            {
+                DropSource source = serviceDrop(item,boss[0]);
+                assertEquals("1",source.getQuantity());
+                assertEquals("Always",source.getDropRate());
+                assertEquals("",source.getNotes());
+                MonsterLocationLookupService.LocationMatch match = service.lookup(source);
+                assertTrue(match.isReviewedEncounter());
+                assertFalse(match.isVerified());
+                assertEquals("level " + boss[1],match.encounterLevelText());
+                assertEquals(1,match.getLocations().size());
+                assertTrue(service.hasQualifyingLocation(source,WildernessFilter.ONLY));
+                assertFalse(service.hasQualifyingLocation(source,WildernessFilter.EXCLUDE));
+                AccessRequirement recipient = AccessRequirement.groupRewardIn(access.forSource(source));
+                assertNotNull(recipient);
+                assertEquals("Recipient",recipient.getLabel());
+                assertEquals(item.equals("Bones") ? AccessRequirement.GroupRewardRole.OTHER_ELIGIBLE
+                        : AccessRequirement.GroupRewardRole.TOP_DAMAGE, recipient.getGroupRewardRole());
+                assertFalse(service.lookup(drop(boss[0],item,"1/2")).isReviewedEncounter());
+            }
+        }
+        assertFalse(service.lookup(drop("Artio","Bones","Always")).isReviewedEncounter());
     }
 
     @Test

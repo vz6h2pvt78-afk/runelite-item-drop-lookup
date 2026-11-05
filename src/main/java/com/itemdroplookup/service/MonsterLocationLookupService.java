@@ -186,6 +186,13 @@ public class MonsterLocationLookupService
             Map<String, EncounterWarning> shards = ReviewedRows.read(gson, "/scorpia_shard_lairs.json", "shards",
                     "itemName", this::readScorpiaWarning);
             shards.forEach((item, warning) -> addRewardWarning(new DropSource(item, "Scorpia", "1", "1/256", ""), warning));
+            Map<String, DropSource> boneRewards = ReviewedRows.read(gson, "/bone_reward_lairs.json", "encounters",
+                    "id", this::readBoneRewardLair);
+            for (DropSource reward : boneRewards.values())
+            {
+                WildernessBossLair lair = WildernessBossLair.forMonster(reward.getMonsterName());
+                addRewardWarning(reward, new EncounterWarning(lair.level, lair.level, lair.location));
+            }
             Set<String> accessItems = accessItemNames();
             for (Binding binding : dataset.dropBindings)
             {
@@ -289,7 +296,27 @@ public class MonsterLocationLookupService
                 "monsterName,itemName,quantity,dropRate,notes,locationId,lair,revisionId,wildernessLevel", "");
         WildernessBossLair lair = WildernessBossLair.forMonster(name);
         DropSource reward = pickaxe ? lair.pickaxe() : lair.component();
-        if (!lair.matchesLocation(byMonster.get(normalize(name)))
+        validateBossRewardLair(row, lair, reward);
+        return lair;
+    }
+
+    private DropSource readBoneRewardLair(JsonObject row, String id)
+    {
+        AcquisitionEventLookupService.fields(row,
+                "id,monsterName,itemName,quantity,dropRate,notes,locationId,lair,revisionId,wildernessLevel", "");
+        WildernessBossLair lair = WildernessBossLair.forMonster(AcquisitionEventLookupService.string(row, "monsterName"));
+        String item = AcquisitionEventLookupService.string(row, "itemName");
+        String expectedId = "bone-" + lair.name().toLowerCase(Locale.ROOT) + "-" + item.toLowerCase(Locale.ROOT).replace(' ', '-');
+        if (lair == WildernessBossLair.ARTIO || (!item.equals("Bones") && !item.equals("Big bones")) || !id.equals(expectedId))
+            throw new IllegalArgumentException("Unreviewed bone reward");
+        DropSource reward = new DropSource(item, lair.monster, "1", "Always", "");
+        validateBossRewardLair(row, lair, reward);
+        return reward;
+    }
+
+    private void validateBossRewardLair(JsonObject row, WildernessBossLair lair, DropSource reward)
+    {
+        if (!lair.matchesLocation(byMonster.get(normalize(lair.monster)))
                 || !lair.id.equals(AcquisitionEventLookupService.string(row, "locationId"))
                 || !lair.location.equals(AcquisitionEventLookupService.string(row, "lair"))
                 || !reward.getItemName().equals(AcquisitionEventLookupService.string(row, "itemName"))
@@ -300,7 +327,6 @@ public class MonsterLocationLookupService
             throw new IllegalArgumentException("Unverified boss reward encounter");
         AcquisitionEventLookupService.integer(row, "revisionId", lair.revision, lair.revision);
         AcquisitionEventLookupService.integer(row, "wildernessLevel", lair.level, lair.level);
-        return lair;
     }
 
     private static MonsterLocation readEncounterLair(JsonObject row, String name)

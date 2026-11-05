@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "encounters": [
+    {
+      "id": "bone-vetion-big-bones",
+      "monsterName": "Vet'ion",
+      "itemName": "Big bones",
+      "quantity": "1",
+      "dropRate": "Always",
+      "notes": "",
+      "locationId": "443dd543a3e6bc6c8d3b",
+      "lair": "Vet'ion's Rest",
+      "revisionId": 15360817,
+      "wildernessLevel": 35
+    },
+    {
+      "id": "bone-vetion-bones",
+      "monsterName": "Vet'ion",
+      "itemName": "Bones",
+      "quantity": "1",
+      "dropRate": "Always",
+      "notes": "",
+      "locationId": "443dd543a3e6bc6c8d3b",
+      "lair": "Vet'ion's Rest",
+      "revisionId": 15360817,
+      "wildernessLevel": 35
+    },
+    {
+      "id": "bone-venenatis-big-bones",
+      "monsterName": "Venenatis",
+      "itemName": "Big bones",
+      "quantity": "1",
+      "dropRate": "Always",
+      "notes": "",
+      "locationId": "f867bf8c06f5f237885a",
+      "lair": "Silk Chasm",
+      "revisionId": 15361982,
+      "wildernessLevel": 35
+    },
+    {
+      "id": "bone-venenatis-bones",
+      "monsterName": "Venenatis",
+      "itemName": "Bones",
+      "quantity": "1",
+      "dropRate": "Always",
+      "notes": "",
+      "locationId": "f867bf8c06f5f237885a",
+      "lair": "Silk Chasm",
+      "revisionId": 15361982,
+      "wildernessLevel": 35
+    },
+    {
+      "id": "bone-callisto-big-bones",
+      "monsterName": "Callisto",
+      "itemName": "Big bones",
+      "quantity": "1",
+      "dropRate": "Always",
+      "notes": "",
+      "locationId": "7dc3d2578ee79c0d635b",
+      "lair": "Callisto's Den",
+      "revisionId": 15360463,
+      "wildernessLevel": 40
+    },
+    {
+      "id": "bone-callisto-bones",
+      "monsterName": "Callisto",
+      "itemName": "Bones",
+      "quantity": "1",
+      "dropRate": "Always",
+      "notes": "",
+      "locationId": "7dc3d2578ee79c0d635b",
+      "lair": "Callisto's Den",
+      "revisionId": 15360463,
+      "wildernessLevel": 40
+    }
+  ]
+}
