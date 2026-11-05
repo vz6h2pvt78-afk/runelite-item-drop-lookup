@@ -185,3 +185,5 @@ Permanent links and exact revision evidence are retained in
 ## Reviewed historical-source exclusion
 
 The exact Bloodthirst rockslug exclusion uses OSRS Wiki contributors’ saved page revision 15204801. The primary explicitly describes an unused League variant that could never be encountered. Its pinned text and evidence hash are in tools/fixtures/historical_sources/Bloodthirst_rockslug.json. This adapted data is CC BY-NC-SA 3.0. [Permanent source](https://oldschool.runescape.wiki/w/Bloodthirst_rockslug?oldid=15204801).
+
+The additional exact historical exclusions use General Danknuck 15204759, Scavenger runt 15362673, Demon of Balance 15225385, Demon of Darkness 15355707 and Demon of Light 15375355. Each saved primary explicitly establishes removal or replacement. Exact revision links and text hashes are retained with the pinned evidence in tools/fixtures/historical_sources. These adapted texts and data are CC BY-NC-SA 3.0. [OSRS Wiki copyright terms](https://oldschool.runescape.wiki/w/RuneScape:Copyrights).

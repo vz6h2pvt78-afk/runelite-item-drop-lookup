@@ -27,7 +27,12 @@ final class AcquisitionSourceRules
             "bloodthirsty shadow wyrm", "bloodthirsty smoke devil", "bloodthirsty spectre",
             "bloodthirsty turoth", "bloodthirsty twisted banshee", "bloodthirsty warped jelly");
     private static final Map<String, Integer> HISTORICAL_PRIMARY_REVISIONS = Map.of(
-            "Bloodthirst rockslug", 15204801);
+            "Bloodthirst rockslug", 15204801,
+            "General Danknuck", 15204759,
+            "Scavenger runt", 15362673,
+            "Demon of Balance", 15225385,
+            "Demon of Darkness", 15355707,
+            "Demon of Light", 15375355);
     private static final Map<String, Integer> ECHO_PRIMARY_REVISIONS = Map.ofEntries(
             Map.entry("Amoxliatl (Echo)", 15210490),
             Map.entry("Cerberus (Echo)", 15286453),

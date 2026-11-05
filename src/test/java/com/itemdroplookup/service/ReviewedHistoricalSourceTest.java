@@ -18,16 +18,18 @@ public class ReviewedHistoricalSourceTest
         Gson gson = new Gson();
         DropLookupService drops = new DropLookupService(gson);
         Set<String> excluded = AcquisitionSourceRules.reviewedHistoricalSources(gson);
-        assertEquals(Collections.singleton("Bloodthirst rockslug"), excluded);
+        assertEquals(Set.of("Bloodthirst rockslug", "General Danknuck", "Scavenger runt",
+                "Demon of Balance", "Demon of Darkness", "Demon of Light"), excluded);
         List<DropSource> raw;
         try (InputStreamReader reader = new InputStreamReader(getClass().getResourceAsStream("/wiki_monster_drops.json"), StandardCharsets.UTF_8))
         {
             raw = gson.fromJson(reader, new TypeToken<List<DropSource>>(){}.getType());
         }
         List<DropSource> reviewed = raw.stream().filter(row -> excluded.contains(row.getMonsterName())).collect(Collectors.toList());
-        assertEquals(13, reviewed.size());
+        assertEquals(41, reviewed.size());
         Set<String> items = reviewed.stream().map(DropSource::getItemName).collect(Collectors.toSet());
-        assertEquals(12, items.size());
+        assertEquals(37, items.size());
+        Set<String> zeroSourceItems = Set.of("Demon\'s heart (balance)", "Demon\'s heart (darkness)", "Demon\'s heart (light)");
         Set<String> allExcluded = new HashSet<>(AcquisitionSourceRules.reviewedEchoSources(gson));
         allExcluded.addAll(excluded);
         for (String item : items)
@@ -37,10 +39,10 @@ public class ReviewedHistoricalSourceTest
                     && !allExcluded.contains(row.getMonsterName())).map(gson::toJson).sorted().collect(Collectors.toList());
             List<DropSource> actual = drops.searchByItemName(item);
             assertEquals(item, expected, actual.stream().map(gson::toJson).sorted().collect(Collectors.toList()));
-            assertFalse(item, actual.isEmpty());
+            assertEquals(item, zeroSourceItems.contains(item), actual.isEmpty());
             assertEquals(Optional.of(item), drops.findReviewedSourceItemName(item));
         }
-        for (String counterpart : List.of("Rockslug", "Giant rockslug"))
+        for (String counterpart : List.of("Rockslug", "Giant rockslug", "Scavenger beast", "Derwen", "Porazdir", "Justiciar Zachariah"))
             for (DropSource row : raw)
                 if (row.getMonsterName().equals(counterpart))
                     assertTrue(counterpart, drops.searchByItemName(row.getItemName()).stream()

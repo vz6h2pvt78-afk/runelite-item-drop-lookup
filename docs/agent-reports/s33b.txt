@@ -1,0 +1,8 @@
+S33B - Five historical source corrections
+
+Exactly five additional reviewed sources are suppressed using pinned explicit removal/replacement prose:General Danknuck,Scavenger runt,Demon of Balance,Demon of Darkness,Demon of Light. Additional28rows across26items; totalordinarycontexts14008to13980. Raw15018rows,locations,andallretainedsources/bindings/facts/othermethods are unchanged. CurrentScavengerbeast/Derwen/Porazdir/JusticiarZachariah remain independent. Threeoldheartidentities retaincanonicalzero coverage.234Java/186Python andofficialstandardpackage/API/validators/fonts passed. Full5664query delta,9137catalog withonly32expectedfull/compactsourcechanges,and1187unchangedpotioncases passed.34fault/isolation cases,72newtwo-size reports,64rockslug/synthetic,110shorthand,14Echo and37Wildernessreports passed. Eightnewheadlessrenders saved. All18localhistoricalflags classified; UnusualChicken deferredunderfive-sourcecap and11cases heldforinsufficientexplicitprose. Nativevisual/clipboard/gameplayacceptancepending. C3g remainsacceptedfallback;Hubunchanged.
+
+Starting commit 8a623512e4f1077012fc8b31139dc3e97dd7a3a6
+Build development-2026-11-04-s33b-historical-sources
+Official package SHA256 faff47236659ee1a12d4442d9a13428327f32f116e934134d2255a4bcae77674
+Human acceptance pending.

@@ -8,7 +8,8 @@ class HistoricalExclusionTest(unittest.TestCase):
     def test_exact_reviewed_source_reproduces(self):
         data = source.build()
         self.assertEqual(data, json.loads(source.OUT.read_text(encoding="utf8")))
-        self.assertEqual({"Bloodthirst rockslug"}, {row["monsterName"] for row in data["sources"]})
+        self.assertEqual(set(source.REVISIONS), {row["monsterName"] for row in data["sources"]})
+        self.assertEqual(6, len(data["sources"]))
 
     def test_revision_identity_and_explicit_prose_are_required(self):
         pin = json.loads(next(source.PINS.glob("*.json")).read_text(encoding="utf8"))
@@ -21,6 +22,13 @@ class HistoricalExclusionTest(unittest.TestCase):
         changed["wikitextSha256"] = hashlib.sha256(changed["wikitext"].encode()).hexdigest()
         with self.assertRaises(ValueError):
             source.exclusion(changed)
+
+    def test_each_primary_requires_its_own_revision_and_prose(self):
+        for file in source.PINS.glob("*.json"):
+            pin = json.loads(file.read_text(encoding="utf8"))
+            for field, value in (("revisionId", pin["revisionId"] + 1), ("support", "{{Gone}}")):
+                with self.subTest(title=pin["title"], field=field), self.assertRaises(ValueError):
+                    source.exclusion(dict(pin, **{field: value}))
 
     def test_raw_rows_and_ordinary_counterparts_remain(self):
         raw = json.loads((source.ROOT / "src/main/resources/wiki_monster_drops.json").read_text(encoding="utf8"))

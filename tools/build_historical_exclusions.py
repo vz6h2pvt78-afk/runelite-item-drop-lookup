@@ -8,9 +8,44 @@ from build_monster_locations import templates
 ROOT = Path(__file__).resolve().parents[1]
 PINS = ROOT / "tools/fixtures/historical_sources"
 OUT = ROOT / "src/main/resources/historical_source_exclusions.json"
-REVISIONS = {"Bloodthirst rockslug": 15204801}
+REVISIONS = {
+    "Bloodthirst rockslug": 15204801,
+    "Demon of Balance": 15225385,
+    "Demon of Darkness": 15355707,
+    "Demon of Light": 15375355,
+    "General Danknuck": 15204759,
+    "Scavenger runt": 15362673,
+}
 SUPPORT = {
-    "Bloodthirst rockslug": "The '''bloodthirst'''{{Sic}} '''rockslug''' was an unused variant of the [[giant rockslug]], the [[superior]] variant of the [[rockslug]], that would have appeared after unlocking the [[Bloodthirsty]] [[Trailblazer Reloaded League/Relics|relic]] in [[Trailblazer Reloaded League]]. Because rockslugs could not be assigned as a Slayer task during the league, it was never possible to encounter a bloodthirst rockslug."
+    "Bloodthirst rockslug": (
+        "The '''bloodthirst'''{{Sic}} '''rockslug''' was an unused variant of the [[giant rockslug]], the "
+        "[[superior]] variant of the [[rockslug]], that would have appeared after unlocking the [[Bloodthirsty]] "
+        "[[Trailblazer Reloaded League/Relics|relic]] in [[Trailblazer Reloaded League]]. Because rockslugs could "
+        "not be assigned as a Slayer task during the league, it was never possible to encounter a bloodthirst "
+        "rockslug."
+    ),
+    "Demon of Balance": (
+        "It was replaced by [[Derwen]] on [[Update:PvM QoL updates & Wilderness Rejuvenation improvements|an "
+        "update]] on February 8th [[2018]]."
+    ),
+    "Demon of Darkness": (
+        "It was replaced by [[Porazdir]] on [[Update:PvM QoL updates & Wilderness Rejuvenation improvements|an "
+        "update]] on February 8th [[2018]]."
+    ),
+    "Demon of Light": (
+        "It was replaced by [[Justiciar Zachariah]] on [[Update:PvM QoL updates & Wilderness Rejuvenation "
+        "improvements|an update]] on February 8th [[2018]]."
+    ),
+    "General Danknuck": (
+        "'''General Danknuck''' was a high ranking [[goblin (race)|goblin]] general who lead the final attempt on "
+        "the invasion on [[Falador]] during the [[2014 Goblin Invasion]] event. He could only be harmed with an "
+        "[[event rpg]], and had similar drops to [[Painted Goblin]]s, albeit in higher quantities. He was removed "
+        "from the game at the end of the event."
+    ),
+    "Scavenger runt": (
+        "|change = Following a balance update, scavenger runts were removed and replaced with their [[Scavenger "
+        "beast|bigger versions]] in all scavenger rooms."
+    ),
 }
 INFOBOX_NAMES = {"Bloodthirst rockslug": "Bloodthirst rockslug{{Sic}}"}
 
@@ -23,7 +58,7 @@ def exclusion(pin):
     if pin["support"] != SUPPORT[title] or pin["support"] not in pin["wikitext"]:
         raise ValueError("Missing explicit historical encounter evidence")
     boxes = [params for _, _, kind, params, _ in templates(pin["wikitext"]) if kind == "infobox monster"]
-    if len(boxes) != 1 or boxes[0].get("name") != INFOBOX_NAMES[title]:
+    if len(boxes) != 1 or boxes[0].get("name") != INFOBOX_NAMES.get(title, title):
         raise ValueError("Unclear exact historical encounter identity")
     return {"monsterName": title, "revisionId": pin["revisionId"],
             "sourceUrl": "https://oldschool.runescape.wiki/w/" + title.replace(" ", "_") + "?oldid=" + str(pin["revisionId"])}
@@ -31,12 +66,12 @@ def exclusion(pin):
 
 def build():
     sources = [exclusion(json.loads(file.read_text(encoding="utf8"))) for file in sorted(PINS.glob("*.json"))]
-    if len(sources) != 1 or {row["monsterName"] for row in sources} != REVISIONS.keys():
-        raise ValueError("Expected the single reviewed historical source")
+    if len(sources) != 6 or {row["monsterName"] for row in sources} != REVISIONS.keys():
+        raise ValueError("Expected the six reviewed historical sources")
     raw = json.loads((ROOT / "src/main/resources/wiki_monster_drops.json").read_text(encoding="utf8"))
     rows = [row for row in raw if row["monsterName"] in REVISIONS]
-    if len(rows) != 13 or len({row["itemName"] for row in rows}) != 12:
-        raise ValueError("Re-review the thirteen raw rows and twelve item identities")
+    if len(rows) != 41 or len({row["itemName"] for row in rows}) != 37:
+        raise ValueError("Re-review the forty-one raw rows and thirty-seven item identities")
     return {"schemaVersion": 1, "sources": sources}
 
 
@@ -50,4 +85,4 @@ if __name__ == "__main__":
             raise SystemExit("Historical exclusions differ from reviewed primaries")
     else:
         OUT.write_text(expected, encoding="utf8")
-    print("1 reviewed historical source,13 retained raw rows and12 derived item identities")
+    print("6 reviewed historical sources,41 retained raw rows and37 derived item identities")

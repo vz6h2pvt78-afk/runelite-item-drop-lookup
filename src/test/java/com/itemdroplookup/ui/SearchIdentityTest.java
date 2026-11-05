@@ -128,6 +128,23 @@ public class SearchIdentityTest
         assertEquals(Collections.singletonList("Dragon dagger(p++)"), search("Dragon dagger(p++)").choices());
     }
 
+    @Test public void replacedDemonHeartsRemainExactKnownZeroIdentities()
+    {
+        for (String kind : List.of("balance", "darkness", "light"))
+        {
+            String canonical = "Demon's heart (" + kind + ")";
+            for (String query : List.of(canonical, ItemNameMatching.compact(canonical)))
+            {
+                ItemSearchSelection selected = search(query);
+                assertEquals(query, Collections.singletonList(canonical), selected.choices());
+                assertTrue(query, selected.drops.isEmpty());
+                assertTrue(query, selected.sources.isEmpty());
+            }
+        }
+        for (String counterpartItem : List.of("Ent's roots", "Demon's heart", "Justiciar's hand"))
+            assertFalse(counterpartItem, search(counterpartItem).drops.isEmpty());
+    }
+
     @Test public void compactPossessiveBroadAndTypoSearchRemainUseful()
     {
         assertEquals(9,search("uncut").choices().size());
