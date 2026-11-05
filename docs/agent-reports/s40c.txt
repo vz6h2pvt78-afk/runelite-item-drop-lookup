@@ -1,0 +1,14 @@
+S40C - Elite clue reward conditions
+
+Adds3 signature-bound informational conditions from two independently pinned primaries. Aberrant spectre Clue scroll(elite) requires a non-final elite cryptic kill step, while Reward casket(elite) requires the final step. The own-page named note explicitly supports that distinction. King Black Dragon Key(elite) requires its elite-clue kill request and no existing copy in bank/inventory.
+
+All three retain quantity1/Always and their source identities. The existing exact-condition-first, finder and selected Copy paths are reused. Conditions appear only on their exact item/source signatures. Source availability remains informational. Existing KBD location/basic route text is preserved; further route guidance is deferred.
+
+249Java/203Python, fullvalidators, officialJava11/RuneLite1.13.5 package/API and packaged tests/fonts passed.35faultcases cover swapped final/non-final selectors, reference/provenance/signature changes, duplicates, missing/corrupt resources and source preservation. All15018originalsource fact records differ only by3newfacts; every priorJSON/fontresource is byte-identical. All13977area/context classifications matchS34.66report/finder snapshots prove only3selected reward identities gain condition lines, with6expected finder-view changes; broad/Back/control payloads are preserved.
+
+Twelve final-package Standard/Larger source/detail captures reviewed. Native appearance, keyboard, actual clipboard and gameplay remain human gates. S40B practical timing evidence is separately preserved with6alternating samples and no reproduced hotspot. AcceptedC3g/Hub frozen; S34liveclient retained; researchclosed15/15. Nextapprovedwork is a read-only five-monster Iorwerth item-location association matrix, reviewed before implementation.
+
+Starting commit f3cc090b8b606c76529f5ce8b5676f0013642d01
+Build development-2026-11-05-s40c-elite-clue-conditions
+Official package SHA256 4cf592a928b17d85e2a0de51b6493495e33e80b9795029dca977a56dc3343e90
+Human acceptance pending.

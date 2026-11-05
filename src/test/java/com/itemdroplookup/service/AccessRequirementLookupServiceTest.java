@@ -243,6 +243,45 @@ public class AccessRequirementLookupServiceTest
         }
     }
 
+    @Test
+    public void eliteClueConditionsStayOnThreeExactRewardsAndKeepTheirSelectorsDistinct()
+    {
+        Gson gson = new Gson();
+        DropLookupService drops = new DropLookupService(gson);
+        AccessRequirementLookupService access = new AccessRequirementLookupService(gson, drops);
+        for (String[] example : new String[][]{
+                {"Aberrant spectre", "Clue scroll (elite)", "non-final elite cryptic"},
+                {"Aberrant spectre", "Reward casket (elite)", "the final elite cryptic"},
+                {"King Black Dragon", "Key (elite)", "no Key (elite) in your bank or inventory"}})
+        {
+            for (DropSource source : drops.searchByItemName(example[1]))
+            {
+                List<AccessRequirement> conditions = access.forSource(source).stream()
+                        .filter(AccessRequirement::isBoundItemDropContext).collect(java.util.stream.Collectors.toList());
+                if (!source.getMonsterName().equals(example[0]))
+                {
+                    assertTrue(source.getMonsterName(), conditions.isEmpty());
+                    continue;
+                }
+                assertEquals(1, conditions.size());
+                AccessRequirement fact = conditions.get(0);
+                assertTrue(fact.getText().contains(example[2]));
+                assertEquals("Always", source.getDropRate());
+                assertEquals("1", source.getQuantity());
+                assertFalse(fact.isPerRollContext());
+                assertFalse(fact.isSpawnContext());
+                assertEquals(source.getMonsterName(), fact.getEvidence().get(0).getPage());
+                if (example[1].equals("Reward casket (elite)")) assertFalse(fact.getText().contains("non-final"));
+                if (example[1].equals("Key (elite)")) assertFalse(fact.getText().contains("cryptic"));
+                for (DropSource changed : List.of(
+                        new DropSource(source.getItemName(), source.getMonsterName(), "2", "Always", ""),
+                        new DropSource(source.getItemName(), source.getMonsterName(), "1", "1/2", ""),
+                        new DropSource(source.getItemName(), source.getMonsterName(), "1", "Always", "Changed")))
+                    assertFalse(access.forSource(changed).stream().anyMatch(AccessRequirement::isBoundItemDropContext));
+            }
+        }
+    }
+
     private final AccessRequirementLookupService requirements = new AccessRequirementLookupService(new Gson());
     private final MonsterLocationLookupService locations = new MonsterLocationLookupService(new Gson());
 

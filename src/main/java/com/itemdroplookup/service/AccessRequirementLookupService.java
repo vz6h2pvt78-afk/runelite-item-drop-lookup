@@ -178,6 +178,16 @@ public class AccessRequirementLookupService
     private static final Set<String> GUARANTEED_CRYSTAL_SHARD_SOURCES = Set.of(
             "Insatiable mutated Bloodveld", "King kurask", "Nechryarch", "Night beast");
 
+    private static final Map<String, List<String>> ELITE_CLUE_CONDITIONS = Map.of(
+            "elite-clue-aberrant-spectre-next-step", List.of("Aberrant spectre", "Clue scroll (elite)",
+                    "Only for a non-final elite cryptic clue step that asks you to kill an aberrant spectre."),
+            "elite-clue-aberrant-spectre-casket", List.of("Aberrant spectre", "Reward casket (elite)",
+                    "Only for the final elite cryptic clue step that asks you to kill an aberrant spectre."),
+            "elite-clue-king-black-dragon-key", List.of("King Black Dragon", "Key (elite)",
+                    "Only for an elite clue step asking for a King Black Dragon kill, with no Key (elite) in your bank or inventory."));
+    private static final Map<String, Long> ELITE_CLUE_REVISIONS = Map.of(
+            "Aberrant spectre", 15371564L, "King Black Dragon", 15385987L);
+
     private static final Comparator<AccessRequirement> ITEM_DROP_CONTEXT_FIRST =
             Comparator.comparing(AccessRequirement::isBoundItemDropContext).reversed();
 
@@ -258,6 +268,7 @@ public class AccessRequirementLookupService
         addReviewedFacts(ReviewedRows.readDatedFacts(gson, "/superior_regular_rolls.json", "id", this::readSuperiorRoll), ids);
         addReviewedFacts(ReviewedRows.readDatedFacts(gson, "/brittle_key_conditions.json", "id", this::readBrittleKeyCondition), ids);
         addReviewedFacts(ReviewedRows.readDatedFacts(gson, "/crystal_shard_conditions.json", "id", this::readCrystalShardCondition), ids);
+        addReviewedFacts(ReviewedRows.readDatedFacts(gson, "/elite_clue_conditions.json", "id", this::readEliteClueCondition), ids);
         loaded = true;
     }
 
@@ -275,6 +286,25 @@ public class AccessRequirementLookupService
         AccessRequirement fact = gson.fromJson(row, AccessRequirement.class);
         require(valid(fact) && fact.isBoundItemDropContext() && fact.getEvidence().size() == 1,
                 "Unreviewed item-drop context");
+        return fact;
+    }
+
+    private AccessRequirement readEliteClueCondition(JsonObject row, String id)
+    {
+        AccessRequirement fact = readBoundItemDropContext(row);
+        List<String> expected = ELITE_CLUE_CONDITIONS.get(id);
+        require(expected != null && expected.equals(List.of(fact.getMonsterName(), fact.getItemName(), fact.getText())),
+                "Unreviewed elite clue reward");
+        DropSource drop = fact.boundDrop();
+        require("1".equals(drop.getQuantity()) && "Always".equals(drop.getDropRate())
+                && "".equals(drop.getNotes()) && drops.hasUniqueRecordedDrop(drop),
+                "Unmatched elite clue reward signature");
+        long revision = ELITE_CLUE_REVISIONS.get(fact.getMonsterName());
+        AccessRequirement.Evidence proof = fact.getEvidence().get(0);
+        require(proof.getPage().equals(fact.getMonsterName()) && proof.getRevisionId() == revision
+                && proof.getSourceUrl().equals("https://oldschool.runescape.wiki/w/"
+                        + fact.getMonsterName().replace(' ', '_') + "?oldid=" + revision),
+                "Changed elite clue primary");
         return fact;
     }
 

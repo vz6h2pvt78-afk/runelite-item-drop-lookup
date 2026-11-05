@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-05T14:36:47Z",
+  "facts": [
+    {
+      "id": "elite-clue-aberrant-spectre-next-step",
+      "monsterName": "Aberrant spectre",
+      "itemName": "Clue scroll (elite)",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "CONTEXT",
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "Always",
+        "notes": ""
+      },
+      "text": "Only for a non-final elite cryptic clue step that asks you to kill an aberrant spectre.",
+      "evidence": [
+        {
+          "page": "Aberrant spectre",
+          "revisionId": 15371564,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Aberrant_spectre?oldid=15371564"
+        }
+      ]
+    },
+    {
+      "id": "elite-clue-aberrant-spectre-casket",
+      "monsterName": "Aberrant spectre",
+      "itemName": "Reward casket (elite)",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "CONTEXT",
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "Always",
+        "notes": ""
+      },
+      "text": "Only for the final elite cryptic clue step that asks you to kill an aberrant spectre.",
+      "evidence": [
+        {
+          "page": "Aberrant spectre",
+          "revisionId": 15371564,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Aberrant_spectre?oldid=15371564"
+        }
+      ]
+    },
+    {
+      "id": "elite-clue-king-black-dragon-key",
+      "monsterName": "King Black Dragon",
+      "itemName": "Key (elite)",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "CONTEXT",
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "Always",
+        "notes": ""
+      },
+      "text": "Only for an elite clue step asking for a King Black Dragon kill, with no Key (elite) in your bank or inventory.",
+      "evidence": [
+        {
+          "page": "King Black Dragon",
+          "revisionId": 15385987,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/King_Black_Dragon?oldid=15385987"
+        }
+      ]
+    }
+  ]
+}
