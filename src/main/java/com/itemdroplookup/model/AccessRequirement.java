@@ -8,7 +8,7 @@ public final class AccessRequirement
 {
     public enum Scope { MONSTER, LOCATION, ITEM }
     public enum AppliesTo { PROTECTION, FINISHING, COMBAT, ACCESS, TASK_ELIGIBILITY, ITEM_DROP, ENCOUNTER_CONTEXT, ACTIVITY_CONTEXT, DROP_CONTEXT }
-    public enum Type { SKILL, ACTIVE_TASK, QUEST, EQUIPMENT, CONTEXT }
+    public enum Type { SKILL, ACTIVE_TASK, QUEST, EQUIPMENT, CONTEXT, UNLOCK }
 
     private String id;
     private String monsterName;
@@ -50,11 +50,17 @@ public final class AccessRequirement
                 && dropSignature.notes.equals(source.getNotes()));
     }
 
+    public boolean isItemAccess() { return scope == Scope.ITEM && appliesTo == AppliesTo.ACCESS; }
+    public String getBoundLocationId() { return dropSignature == null ? null : dropSignature.verifiedLocationId; }
+    public String getBoundVersion() { return dropSignature == null ? null : dropSignature.dropVersion; }
+
     private static final class RawSignature
     {
         private String quantity;
         private String dropRate;
         private String notes;
+        private String verifiedLocationId;
+        private String dropVersion;
     }
 
     public String getLabel()
@@ -66,7 +72,7 @@ public final class AccessRequirement
             case COMBAT:
                 if (scope == Scope.LOCATION) return "Location restriction";
                 return type == Type.CONTEXT ? "Combat" : "Required";
-            case ACCESS: return "Location access";
+            case ACCESS: return isItemAccess() ? "Access" : "Location access";
             case TASK_ELIGIBILITY: return "Task eligibility";
             case ITEM_DROP: return "For this drop";
             case ENCOUNTER_CONTEXT: return "Encounter context";
@@ -79,7 +85,7 @@ public final class AccessRequirement
     public boolean isSourceCardRequirement()
     {
         return (scope == Scope.MONSTER && appliesTo == AppliesTo.COMBAT)
-                || (scope == Scope.ITEM && appliesTo == AppliesTo.ITEM_DROP);
+                || (scope == Scope.ITEM && appliesTo == AppliesTo.ITEM_DROP) || isItemAccess();
     }
 
     public boolean isSourceCardFact()

@@ -27,6 +27,7 @@ Runtime resources under src/main/resources/:
 - shop_locations.json links offers to the listed Forestry and Slayer shop branches. Two Slayer stock entries also record their ammunition identity, purchase quantity and full price. https://oldschool.runescape.wiki/w/Special:PermanentLink/15374369 and https://oldschool.runescape.wiki/w/Special:PermanentLink/15373095 .
 - Kamil’s Chocolate cake encounter qualification uses https://oldschool.runescape.wiki/w/Special:PermanentLink/15200663 .
 - animator_rewards.json records the animator preparation and three stated token awards from each of seven Animated Armour pages. Each entry links the applicable Wiki revision.
+- item_access.json selects the earned Rune defender prerequisite and the basement Cyclops drop from https://oldschool.runescape.wiki/w/Special:PermanentLink/15337742 .
 - ocean_bounty_access.json adapts the Eagle ray, Butterfly ray, Stingray, Narwhal and Orca articles. Each fact links its source revision. Named drop conditions are matched to their recorded quantity, rate and notes.
 - shark_bounty_access.json records the bounty eligibility and jaw/liver conditions from Bull shark (15372302), Hammerhead shark (15285222) and Tiger shark (15379177). Each fact links its source revision.
 - reviewed_slayer_access.json distinguishes Slayer kill levels, attack conditions, protection and finishing equipment for exact named monsters. Each fact carries the contributor page and permanent revision link.

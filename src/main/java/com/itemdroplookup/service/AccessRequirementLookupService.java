@@ -31,7 +31,9 @@ public class AccessRequirementLookupService
 {
     private final Gson gson;
     private final DropLookupService drops;
+    private final MonsterLocationLookupService locations;
     private final Map<String, List<AccessRequirement>> byMonster = new HashMap<>();
+    private final Map<String, List<AccessRequirement>> accessByItem = new HashMap<>();
     private boolean loaded;
 
     public AccessRequirementLookupService(Gson gson)
@@ -39,11 +41,17 @@ public class AccessRequirementLookupService
         this(gson, new DropLookupService(gson));
     }
 
-    @Inject
     public AccessRequirementLookupService(Gson gson, DropLookupService drops)
+    {
+        this(gson, drops, new MonsterLocationLookupService(gson));
+    }
+
+    @Inject
+    public AccessRequirementLookupService(Gson gson, DropLookupService drops, MonsterLocationLookupService locations)
     {
         this.gson = gson;
         this.drops = drops;
+        this.locations = locations;
     }
 
     public List<AccessRequirement> forSource(DropSource source)
@@ -52,6 +60,14 @@ public class AccessRequirementLookupService
                 || (fact.getScope() == Scope.ITEM && normalize(fact.getItemName()).equals(normalize(source.getItemName()))
                         && fact.matchesSignature(source)))
                 .collect(Collectors.collectingAndThen(Collectors.toList(), Collections::unmodifiableList));
+    }
+
+    public List<AccessRequirement> itemAccessFor(DropSource source)
+    {
+        loadOnce();
+        List<AccessRequirement> candidates = accessByItem.get(source.getItemName());
+        return candidates == null ? Collections.emptyList() : candidates.stream().filter(fact -> fact.matchesSignature(source))
+                .collect(Collectors.toList());
     }
 
     public List<AccessRequirement> forLocation(MonsterLocation location)
@@ -79,6 +95,7 @@ public class AccessRequirementLookupService
         loadResource("/reviewed_slayer_access.json",ids);
         loadResource("/shark_bounty_access.json",ids);
         loadResource("/ocean_bounty_access.json",ids,true);
+        loadResource(MonsterLocationLookupService.ITEM_ACCESS_RESOURCE,ids,true);
         loaded = true;
     }
 
@@ -104,7 +121,13 @@ public class AccessRequirementLookupService
                     if ("ITEM".equals(string(row, "scope")))
                     {
                         JsonObject signature = object(row.get("dropSignature"));
-                        fields(signature, "quantity,dropRate,notes", "");
+                        boolean access = "ACCESS".equals(string(row, "appliesTo"));
+                        fields(signature, access ? "quantity,dropRate,notes,verifiedLocationId,dropVersion" : "quantity,dropRate,notes", "");
+                        if (access)
+                        {
+                            string(signature, "verifiedLocationId");
+                            string(signature, "dropVersion");
+                        }
                         string(signature, "quantity");
                         string(signature, "dropRate");
                         text(signature, "notes");
@@ -128,12 +151,14 @@ public class AccessRequirementLookupService
             for (AccessRequirement fact : data.facts)
             {
                 DropSource bound = fact.boundDrop();
-                if (bound != null && !drops.hasUniqueRecordedDrop(bound))
+                if (bound != null && (!drops.hasUniqueRecordedDrop(bound) || (fact.isItemAccess()
+                        && !locations.hasUniqueVerifiedBinding(bound, fact.getBoundLocationId(), fact.getBoundVersion()))))
                 {
                     log.debug("Withholding unmatched access fact {}", fact.getId());
                     continue;
                 }
                 byMonster.computeIfAbsent(normalize(fact.getMonsterName()), key -> new ArrayList<>()).add(fact);
+                if (fact.isItemAccess()) accessByItem.computeIfAbsent(fact.getItemName(), key -> new ArrayList<>()).add(fact);
             }
         }
         catch (Exception ex)
@@ -157,6 +182,9 @@ public class AccessRequirementLookupService
         DropSource bound = fact.boundDrop();
         if (bound != null && (fact.getScope() != Scope.ITEM || !hasText(bound.getQuantity())
                 || !hasText(bound.getDropRate()) || bound.getNotes() == null)) return false;
+        if (fact.isItemAccess() != (fact.getType() == AccessRequirement.Type.UNLOCK)) return false;
+        if (fact.isItemAccess() && (bound == null || !hasText(fact.getBoundLocationId()) || !hasText(fact.getBoundVersion()))) return false;
+        if (!fact.isItemAccess() && (fact.getBoundLocationId() != null || fact.getBoundVersion() != null)) return false;
         if (fact.getType() == AccessRequirement.Type.SKILL
                 && (!hasText(fact.getSkill()) || fact.getLevel() == null || fact.getLevel() < 1 || fact.getLevel() > 99))
         {

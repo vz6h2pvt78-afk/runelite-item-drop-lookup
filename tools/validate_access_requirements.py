@@ -9,7 +9,7 @@ from urllib.parse import parse_qs, unquote, urlparse
 ROOT = Path(__file__).resolve().parents[1]
 SCOPES = {"MONSTER", "LOCATION", "ITEM"}
 APPLICABILITY = {"PROTECTION", "FINISHING", "COMBAT", "ACCESS", "TASK_ELIGIBILITY", "ITEM_DROP", "ENCOUNTER_CONTEXT", "ACTIVITY_CONTEXT", "DROP_CONTEXT"}
-TYPES = {"SKILL", "ACTIVE_TASK", "QUEST", "EQUIPMENT", "CONTEXT"}
+TYPES = {"SKILL", "ACTIVE_TASK", "QUEST", "EQUIPMENT", "CONTEXT", "UNLOCK"}
 
 
 def norm(value):
@@ -74,16 +74,28 @@ def validate(data, locations, drops, *, require_item_signatures=False):
         if fact.get("scope") == "ITEM":
             if (monster, norm(fact.get("itemName"))) not in known_items:
                 fail("Unknown exact monster/item pair")
-            if fact.get("appliesTo") != "ITEM_DROP":
-                fail("ITEM facts must describe ITEM_DROP eligibility")
+            if fact.get("appliesTo") not in {"ITEM_DROP","ACCESS"}:
+                fail("ITEM facts must describe a drop condition or bound source access")
+        item_access = fact.get("scope") == "ITEM" and fact.get("appliesTo") == "ACCESS"
+        if item_access != (fact.get("type") == "UNLOCK"):
+            fail("Item-specific ACCESS must be a verified UNLOCK")
         signature = fact.get("dropSignature")
-        if "dropSignature" in fact or (require_item_signatures and fact.get("scope") == "ITEM"):
+        if "dropSignature" in fact or item_access or (require_item_signatures and fact.get("scope") == "ITEM"):
+            keys = {"quantity", "dropRate", "notes"} | ({"verifiedLocationId","dropVersion"} if item_access else set())
             if (fact.get("scope") != "ITEM" or not isinstance(signature, dict)
                     or not isinstance(fact.get("monsterName"),str) or not isinstance(fact.get("itemName"),str)
-                    or set(signature) != {"quantity","dropRate","notes"} or not all(isinstance(v,str) for v in signature.values())):
+                    or set(signature) != keys or not all(isinstance(v,str) for v in signature.values())):
                 fail("Invalid or missing exact drop signature")
             elif raw_rows[(fact["monsterName"],fact["itemName"],signature["quantity"],signature["dropRate"],signature["notes"])] != 1:
                 fail("Orphaned or ambiguous exact drop signature")
+            elif item_access:
+                values = (fact["monsterName"], fact["itemName"], signature["quantity"], signature["dropRate"], signature["notes"])
+                bindings = [b for b in locations.get("dropBindings",[]) if tuple(b.get(k) for k in identity_fields) == values]
+                location_id = signature["verifiedLocationId"]
+                if (not signature["dropVersion"] or location_id not in by_id or by_id[location_id].get("monsterName") != fact["monsterName"]
+                        or len(bindings) != 1 or bindings[0]["locationIds"] != [location_id]
+                        or bindings[0].get("dropVersions") != [signature["dropVersion"]]):
+                    fail("Item unlock must resolve to exactly one location and drop version")
         if fact.get("type") == "SKILL":
             if not isinstance(fact.get("skill"), str) or not fact["skill"].strip() or type(fact.get("level")) is not int or not 1 <= fact["level"] <= 99:
                 fail("Invalid skill requirement")
@@ -109,12 +121,12 @@ def main():
     resources = ROOT / "src/main/resources"
     read = lambda name: json.loads((resources / name).read_text(encoding="utf-8"))
     data = read("access_requirements.json")
-    supplements = ["reviewed_slayer_access.json", "shark_bounty_access.json", "ocean_bounty_access.json"]
+    supplements = ["reviewed_slayer_access.json", "shark_bounty_access.json", "ocean_bounty_access.json", "item_access.json"]
     locations, drops = read("monster_locations.json"), read("wiki_monster_drops.json")
     errors = []
     for name in supplements:
         extra = read(name)
-        errors.extend(validate(extra, locations, drops, require_item_signatures=name == 'ocean_bounty_access.json'))
+        errors.extend(validate(extra, locations, drops, require_item_signatures=name in {'ocean_bounty_access.json','item_access.json'}))
         data["facts"].extend(extra["facts"])
     errors += validate(data, locations, drops)
     for error in errors:

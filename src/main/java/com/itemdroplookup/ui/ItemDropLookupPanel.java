@@ -548,6 +548,9 @@ public class ItemDropLookupPanel extends PluginPanel
                 if (viewState.page == LookupViewState.Page.NO_SOURCES) report += "Recorded sources: 0\n";
                 if (detail != null && showingPotionFamily()) report += "Dose item: " + detailSource.getItemName() + "\n";
                 if (matchingOfferReport != null) report += matchingOfferReport + "\n";
+                if (detail != null)
+                    for (AccessRequirement fact : accessRequirementLookupService.itemAccessFor(detailSource))
+                        report += fact.getLabel() + ": " + fact.getText() + "\n";
                 clipboardWriter.accept(report);
                 status.setText("<html>Report copied</html>");
             }
@@ -755,6 +758,9 @@ public class ItemDropLookupPanel extends PluginPanel
             if (!dropResults.isEmpty())
             {
                 displayDropResults(dropResults);
+                for (DropSource drop : dropResults)
+                    for (AccessRequirement fact : accessRequirementLookupService.itemAccessFor(drop))
+                        matchingOfferReports.add(fact.getLabel() + ": " + fact.getText());
             }
             if (!displaySources.isEmpty())
             {
@@ -1344,7 +1350,8 @@ public class ItemDropLookupPanel extends PluginPanel
 
     private boolean npcMatches(DropSource source, String finder, WildernessFilter area)
     {
-        return monsterLocationLookupService.hasQualifyingLocation(source, area) && boundContexts.find(source, finder, area);
+        return monsterLocationLookupService.hasQualifyingLocation(source, area) && (boundContexts.find(source, finder, area)
+                || accessRequirementLookupService.itemAccessFor(source).stream().anyMatch(fact -> contains(fact.getText(), finder)));
     }
 
     private void addFilterRecovery(String emptyMessage, boolean showDrops, String finder, WildernessFilter area)

@@ -1,0 +1,8 @@
+S16 - Dragon defender basement access
+
+Dragon defender now says to earn a Rune defender before entering the Warriors' Guild basement. Only the exact Cyclops, quantity 1, raw 1/100, basement location and basement table version qualify. The text is searchable and appears in Copy report only for that source. The upstairs Rune defender remains separate. Six packaged fault scenarios withheld invalid or ambiguous bindings while preserving the underlying drop. The single Dragon defender source was the only enriched row since S15. Both Java runs passed 192 tests, Python passed 146, and package/API, sidebar, full 5,664-query audit, generator and independent recovery passed. A separate Rune crossbow audit verified the Crazy archaeologist Wilderness icon/text, two-crossbow quantity and 5/128 rate on card and details; it required no change.
+
+Starting commit 994735c93009aa71b75027a8b2ba2ebe5358836f
+Build development-2026-11-04-s16-dragon-defender-access
+Official package SHA256 aa559c7d2369739aff6089f58b2addb75903c223a4f540c54572e8bf4cff56bb
+Human acceptance pending.

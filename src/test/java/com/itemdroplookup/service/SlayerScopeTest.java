@@ -62,6 +62,23 @@ public class SlayerScopeTest
                 .stream().anyMatch(f -> f.getType() == AccessRequirement.Type.ACTIVE_TASK));
     }
 
+    @Test public void basementUnlockRequiresOneVerifiedLocationAndExactVersion()
+    {
+        Gson g = new Gson();
+        DropSource defender = new DropSource("Dragon defender","Cyclops","1","1/100","");
+        MonsterLocationLookupService locations = new MonsterLocationLookupService(g);
+        assertTrue(locations.hasUniqueVerifiedBinding(defender,"d5a1fab73fd067a98909","Warriors' Guild Basement"));
+        assertFalse(locations.hasUniqueVerifiedBinding(defender,"ec2299b243b871a0ab97","Warriors' Guild Basement"));
+        assertFalse(locations.hasUniqueVerifiedBinding(defender,"d5a1fab73fd067a98909","Upstairs"));
+        assertEquals("Access", access.itemAccessFor(defender).get(0).getLabel());
+        assertTrue(access.itemAccessFor(new DropSource("Rune defender","Cyclops","1","2/100","")).isEmpty());
+        assertTrue(access.itemAccessFor(new DropSource("Dragon defender","Cyclops","1","1/99","")).isEmpty());
+        MonsterLocationLookupService missing = new MonsterLocationLookupService(g) {
+            @Override boolean hasUniqueVerifiedBinding(DropSource drop, String id, String version) { return false; }
+        };
+        assertTrue(new AccessRequirementLookupService(g,new DropLookupService(g),missing).forSource(defender).isEmpty());
+    }
+
     @Test public void anOrphanedOceanFactIsWithheldIndependently()
     {
         Gson gson = new Gson();

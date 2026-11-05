@@ -1,6 +1,8 @@
 package com.itemdroplookup.service;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.itemdroplookup.model.DropSource;
 import com.itemdroplookup.model.MonsterLocation;
 import java.io.InputStream;
@@ -25,7 +27,10 @@ import lombok.extern.slf4j.Slf4j;
 @Singleton
 public class MonsterLocationLookupService
 {
+    static final String ITEM_ACCESS_RESOURCE = "/item_access.json";
     private final Gson gson;
+    // Retain raw binding multiplicity only for the few reviewed item-access targets.
+    private final Map<List<String>, Binding> accessBindings = new HashMap<>();
     private static final Comparator<MonsterLocation> LOCATION_ORDER = Comparator
             .comparing(MonsterLocation::isAvailable).reversed()
             .thenComparing(MonsterLocation::getLocation, String.CASE_INSENSITIVE_ORDER)
@@ -46,6 +51,33 @@ public class MonsterLocationLookupService
     {
         loadOnce();
         return byMonster.getOrDefault(normalize(monsterName), Collections.emptyList());
+    }
+
+    boolean hasUniqueVerifiedBinding(DropSource drop, String locationId, String version)
+    {
+        LocationMatch match = lookup(drop);
+        Binding binding = accessBindings.get(Arrays.asList(drop.getMonsterName(),drop.getItemName(),drop.getQuantity(),drop.getDropRate(),drop.getNotes()));
+        return binding != null && Collections.singletonList(locationId).equals(binding.locationIds)
+                && Collections.singletonList(version).equals(binding.dropVersions)
+                && match.isVerified() && match.getLocations().size() == 1 && locationId.equals(match.getLocations().get(0).getId());
+    }
+
+    private Set<String> accessItemNames()
+    {
+        Set<String> names = new LinkedHashSet<>();
+        try (InputStream input = getClass().getResourceAsStream(ITEM_ACCESS_RESOURCE))
+        {
+            if (input == null) return names;
+            JsonObject root = gson.fromJson(new InputStreamReader(input, StandardCharsets.UTF_8), JsonObject.class);
+            for (JsonElement entry : AcquisitionEventLookupService.array(root,"facts"))
+                names.add(AcquisitionEventLookupService.string(AcquisitionEventLookupService.object(entry),"itemName"));
+        }
+        catch (Exception ex)
+        {
+            log.debug("Item access binding targets unavailable",ex);
+            names.clear();
+        }
+        return names;
     }
 
     public LocationMatch lookup(DropSource source)
@@ -121,8 +153,14 @@ public class MonsterLocationLookupService
             Map<List<String>, Set<MonsterLocation>> associations = new HashMap<>();
             Set<List<String>> invalid = new LinkedHashSet<>();
             Set<List<String>> variantTables = new LinkedHashSet<>();
+            Set<String> accessItems = accessItemNames();
             for (Binding binding : dataset.dropBindings)
             {
+                if (accessItems.contains(binding.itemName))
+                {
+                    List<String> rawKey = Arrays.asList(binding.monsterName,binding.itemName,binding.quantity,binding.dropRate,binding.notes);
+                    accessBindings.put(rawKey, accessBindings.containsKey(rawKey) ? null : binding);
+                }
                 List<String> signature = key(binding.monsterName, binding.itemName, binding.quantity, binding.dropRate, binding.notes);
                 if (binding.dropVersions != null && !binding.dropVersions.isEmpty())
                     versions.computeIfAbsent(signature, unused -> new LinkedHashSet<>()).addAll(binding.dropVersions);

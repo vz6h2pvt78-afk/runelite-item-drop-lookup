@@ -257,6 +257,32 @@ public class SourceClarityTest
         assertNull(service.findExactBulkOffer("Sawmill voucher (x10)"));
     }
 
+    @Test public void defenderPrerequisiteBelongsOnlyToTheVisibleBasementSource() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            Gson g = new Gson(); List<String> reports = new ArrayList<>();
+            ItemDropLookupPanel p = new ItemDropLookupPanel(new DropLookupService(g),new ItemSourceLookupService(g),
+                    new ItemPriceLookupService(g),new MonsterLocationLookupService(g),new AccessRequirementLookupService(g),reports::add);
+            MorningFeedbackTest.search(p,"Dragon defender"); MorningFeedbackTest.click(p,"showDropSources");
+            JTextField find = (JTextField)PanelTestSupport.find(p,"sourceSearch");
+            find.setText("Rune defender"); find.postActionEvent();
+            for (int page=0; page<2; page++)
+            {
+                assertTrue(MorningFeedbackTest.labels(p).contains("Access: Earn a Rune defender"));
+                MorningFeedbackTest.click(p,"copyReport");
+                assertTrue(reports.get(page).contains("Access: Earn a Rune defender"));
+                if (page==0) MorningFeedbackTest.click(p,"openLocations");
+            }
+            MorningFeedbackTest.click(p,"backToResults");
+            find.setText("unrelated"); find.postActionEvent();
+            MorningFeedbackTest.click(p,"copyReport"); assertFalse(reports.get(2).contains("Access: Earn"));
+            MorningFeedbackTest.search(p,"Rune defender"); MorningFeedbackTest.click(p,"showDropSources");
+            assertFalse(MorningFeedbackTest.labels(p).contains("Access: Earn"));
+            MorningFeedbackTest.click(p,"copyReport"); assertFalse(reports.get(3).contains("Access: Earn"));
+            p.dispose();
+        });
+    }
+
     @Test public void areaRecoveryRequiresAMatchingHiddenDropAndOnlyRelaxesTheArea() throws Exception
     {
         SwingUtilities.invokeAndWait(() -> {
