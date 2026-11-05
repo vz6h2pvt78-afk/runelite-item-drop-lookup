@@ -1,0 +1,12 @@
+{
+  "title": "Scorpia",
+  "revisionId": 15362166,
+  "pageSha256": "a14891f61a203229e4d0476e527b1acdfa9cedf94c53b3b1eff49d39a3cf83ad",
+  "encounter": "'''Scorpia''' is a large female [[scorpion]] [[boss]] that resides in a cave beneath the [[Scorpion Pit]] located in Wilderness level 53-55.",
+  "fight": "The [[Scorpion Pit]] and the surrounding area is a [[multi-combat area]] in level 50+ [[Wilderness]], so player killers '''may attack you''' at any time while fighting the boss.",
+  "locLine": "{{LocLine\n|name = Scorpia\n|location = Cave in the [[Scorpion Pit]] (north-east Wilderness)\n|levels = 225\n|members = Yes\n|mapID = 26\n|plane = 0\n|x:3233,y:10341\n|mtype = pin\n|leagueRegion = Wilderness\n}}",
+  "shards": [
+    "{{DropsLine|name=Odium shard 3|quantity=1|rarity=1/256|raritynotes=<ref group=d name=\"shard\">The drop rate is 1/256 for a specific shard, or 1/128 for any shard.</ref>}}",
+    "{{DropsLine|name=Malediction shard 3|quantity=1|rarity=1/256|raritynotes=<ref group=d name=\"shard\"/>}}"
+  ]
+}

@@ -148,6 +148,31 @@ public class MonsterLocationLookupServiceTest
     }
 
     @Test
+    public void scorpiaWarningsCoverBothExactShardsAndPreserveTheRange()
+    {
+        for (String item : Arrays.asList("Malediction shard 3", "Odium shard 3"))
+        {
+            DropSource shard = serviceDrop(item, "Scorpia");
+            assertEquals("1/256", shard.getDropRate());
+            assertEquals("1", shard.getQuantity());
+            assertEquals("", shard.getNotes());
+            MonsterLocationLookupService.LocationMatch match = service.lookup(shard);
+            assertFalse(match.isVerified());
+            assertTrue(match.isReviewedEncounter());
+            assertEquals("levels 53–55", match.encounterLevelText());
+            assertEquals(0, match.getEncounterWildernessLevel());
+            assertEquals(1, match.getLocations().size());
+            assertSame(service.lookupByMonsterName("Scorpia").get(0), match.getLocations().get(0));
+            assertTrue(service.hasQualifyingLocation(shard, WildernessFilter.ONLY));
+            assertFalse(service.hasQualifyingLocation(shard, WildernessFilter.EXCLUDE));
+            assertFalse(service.lookup(drop("Scorpia", item, "1/128")).isReviewedEncounter());
+        }
+        for (String item : Arrays.asList("Brimstone key", "Scorpia's offspring", "Dragon 2h sword"))
+            assertFalse(service.lookup(serviceDrop(item, "Scorpia")).isReviewedEncounter());
+        assertTrue(service.lookup(serviceDrop("Dragon 2h sword", "Scorpia")).isVerified());
+    }
+
+    @Test
     public void fourWildernessEntrancesKeepTheirIndependentDiaryOrBossAssignment()
     {
         AccessRequirementLookupService access = new AccessRequirementLookupService(new Gson());

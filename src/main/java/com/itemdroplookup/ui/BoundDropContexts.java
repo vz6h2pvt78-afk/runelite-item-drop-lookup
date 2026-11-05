@@ -14,7 +14,7 @@ final class BoundDropContexts
 {
     private final MonsterLocationLookupService service;
     private final Map<DropSource, List<MonsterLocation>> locations = new IdentityHashMap<>();
-    private final Map<DropSource, Integer> encounterLevels = new IdentityHashMap<>();
+    private final Map<DropSource, MonsterLocationLookupService.LocationMatch> reviewedEncounters = new IdentityHashMap<>();
     private final Set<DropSource> split = Collections.newSetFromMap(new IdentityHashMap<>());
 
     BoundDropContexts(MonsterLocationLookupService service, List<DropSource> drops)
@@ -31,7 +31,7 @@ final class BoundDropContexts
             locations.put(drop, available);
             if (match.isReviewedEncounter())
             {
-                encounterLevels.put(drop, match.getEncounterWildernessLevel());
+                reviewedEncounters.put(drop, match);
                 continue;
             }
             pairs.computeIfAbsent(Arrays.asList(drop.getItemName(), drop.getMonsterName()), k -> new ArrayList<>()).add(drop);
@@ -58,6 +58,9 @@ final class BoundDropContexts
         if (query.isEmpty() || drop.getMonsterName().toLowerCase(Locale.ROOT).contains(query)) return true;
         if (drop.getAnimatorReward() != null && (drop.getAnimatorReward().getSetupText().toLowerCase(Locale.ROOT).contains(query)
                 || drop.getAnimatorReward().getEquipment().stream().anyMatch(item -> item.toLowerCase(Locale.ROOT).contains(query)))) return true;
+        MonsterLocationLookupService.LocationMatch encounter = reviewedEncounters.get(drop);
+        if (encounter != null && filter != WildernessFilter.EXCLUDE
+                && encounter.encounterShortLocation().toLowerCase(Locale.ROOT).contains(query)) return true;
         return locations.getOrDefault(drop, Collections.emptyList()).stream()
                 .filter(l -> MonsterLocationFilter.matches(l, filter, MonsterLocationFilter.MembershipFilter.ALL))
                 .anyMatch(l -> l.getLocation() != null && l.getLocation().toLowerCase(Locale.ROOT).contains(query));
@@ -74,12 +77,9 @@ final class BoundDropContexts
     {
         if (filter == WildernessFilter.EXCLUDE) return null;
         List<MonsterLocation> places = locations.getOrDefault(drop, Collections.emptyList());
-        Integer encounterLevel = encounterLevels.get(drop);
-        if (encounterLevel != null)
-        {
-            MonsterLocation lair = places.get(0);
-            return LookupStyle.encounterDanger(encounterLevel) + "\n" + lair.getLocation();
-        }
+        MonsterLocationLookupService.LocationMatch encounter = reviewedEncounters.get(drop);
+        if (encounter != null)
+            return LookupStyle.encounterDanger(encounter.encounterLevelText()) + "\n" + encounter.encounterShortLocation();
         if (places.stream().noneMatch(l -> l.getWilderness() == Wilderness.YES)) return null;
         if (all(drop, Wilderness.YES) || filter == WildernessFilter.ONLY) return "WILDERNESS\nPvP danger";
         return "Some locations in the WILDERNESS\nPvP danger there";

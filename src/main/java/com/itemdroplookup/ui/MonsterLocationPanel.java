@@ -279,7 +279,7 @@ public class MonsterLocationPanel extends JPanel
         int width = TEXT_WIDTH - 16;
         card.add(text(location.getLocation(), true, width));
         if (match.isReviewedEncounter())
-            card.add(style.wildernessWarning(LookupStyle.encounterDanger(match.getEncounterWildernessLevel())));
+            card.add(style.wildernessWarning(LookupStyle.encounterDanger(match.encounterLevelText())));
         else if (location.getWilderness() == MonsterLocation.Wilderness.YES)
             card.add(style.wildernessWarning());
         if (!location.isAvailable())
@@ -331,8 +331,8 @@ public class MonsterLocationPanel extends JPanel
             MonsterLocation place = match.getLocations().get(0);
             if (MonsterLocationFilter.matchesSource(source, place, (WildernessFilter) wilderness.getSelectedItem(),
                     (MembershipFilter) membership.getSelectedItem()))
-                report.append("Fighting lair: ").append(place.getLocation()).append(" (Wilderness level ")
-                        .append(match.getEncounterWildernessLevel()).append(", PvP danger)\n");
+                report.append("Fighting lair: ").append(place.getLocation()).append(" (Wilderness ")
+                        .append(match.encounterLevelText()).append(", PvP danger)\n");
         }
         return report.toString();
     }

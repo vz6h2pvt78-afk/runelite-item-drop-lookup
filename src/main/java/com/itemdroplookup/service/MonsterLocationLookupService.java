@@ -30,7 +30,8 @@ public class MonsterLocationLookupService
     static final String ITEM_ACCESS_RESOURCE = "/item_access.json";
     private final Gson gson;
     private final DropLookupService drops;
-    private Map<String, WildernessBossLair> componentLairs = Collections.emptyMap();
+    // Only reviewed rewards enter this small index. Raw quantity, rate and notes remain part of the key.
+    private final Map<String, Map<List<String>, EncounterWarning>> rewardWarnings = new HashMap<>();
     // Retain raw binding multiplicity only for the few reviewed item-access targets.
     private final Map<List<String>, Binding> accessBindings = new HashMap<>();
     private static final Comparator<MonsterLocation> LOCATION_ORDER = Comparator
@@ -97,13 +98,18 @@ public class MonsterLocationLookupService
         loadOnce();
         List<MonsterLocation> verified = byDrop.get(key(source.getMonsterName(), source.getItemName(),
                 source.getQuantity(), source.getDropRate(), source.getNotes()));
-        if (verified != null) return new LocationMatch(verified, true, 0);
+        if (verified != null) return new LocationMatch(verified, true, null);
         List<MonsterLocation> places = lookupByMonsterName(source.getMonsterName());
-        int level = places.size() == 1 ? places.get(0).getEncounterWildernessLevel() : 0;
-        WildernessBossLair component = componentLairs.get(source.getMonsterName());
-        if (component != null && component.matchesDrop(source.getMonsterName(), source.getItemName(),
-                source.getQuantity(), source.getDropRate(), source.getNotes())) level = component.level;
-        return new LocationMatch(places, false, level);
+        Map<List<String>, EncounterWarning> rewards = rewardWarnings.get(source.getMonsterName());
+        EncounterWarning warning = rewards == null ? null : rewards.get(Arrays.asList(
+                source.getItemName(), source.getQuantity(), source.getDropRate(), source.getNotes()));
+        if (places.size() == 1 && places.get(0).getEncounterWildernessLevel() > 0)
+        {
+            MonsterLocation place = places.get(0);
+            int level = place.getEncounterWildernessLevel();
+            warning = new EncounterWarning(level, level, place.getLocation());
+        }
+        return new LocationMatch(places, false, warning);
     }
 
     public Set<String> tableVersions(DropSource source)
@@ -169,13 +175,18 @@ public class MonsterLocationLookupService
             Map<List<String>, Set<MonsterLocation>> associations = new HashMap<>();
             Set<List<String>> invalid = new LinkedHashSet<>();
             Set<List<String>> variantTables = new LinkedHashSet<>();
-            componentLairs = ReviewedRows.read(gson, "/voidwaker_lairs.json", "encounters", "monsterName", this::readComponentLair);
+            Map<String, WildernessBossLair> components = ReviewedRows.read(gson, "/voidwaker_lairs.json", "encounters",
+                    "monsterName", this::readComponentLair);
+            for (WildernessBossLair lair : components.values())
+                addRewardWarning(lair.component(), new EncounterWarning(lair.level, lair.level, lair.location));
+            Map<String, EncounterWarning> shards = ReviewedRows.read(gson, "/scorpia_shard_lairs.json", "shards",
+                    "itemName", this::readScorpiaWarning);
+            shards.forEach((item, warning) -> addRewardWarning(new DropSource(item, "Scorpia", "1", "1/256", ""), warning));
             Set<String> accessItems = accessItemNames();
             for (Binding binding : dataset.dropBindings)
             {
-                WildernessBossLair component = componentLairs.get(binding.monsterName);
-                if (component != null && component.matchesDrop(binding.monsterName, binding.itemName,
-                        binding.quantity, binding.dropRate, binding.notes)) componentLairs.remove(binding.monsterName);
+                Map<List<String>, EncounterWarning> rewards = rewardWarnings.get(binding.monsterName);
+                if (rewards != null) rewards.remove(Arrays.asList(binding.itemName, binding.quantity, binding.dropRate, binding.notes));
                 if (accessItems.contains(binding.itemName))
                 {
                     List<String> rawKey = Arrays.asList(binding.monsterName,binding.itemName,binding.quantity,binding.dropRate,binding.notes);
@@ -224,7 +235,7 @@ public class MonsterLocationLookupService
         }
         catch (Exception ex)
         {
-            componentLairs = Collections.emptyMap();
+            rewardWarnings.clear();
             byMonster.clear();
             byDrop.clear();
             commonDrops.clear();
@@ -235,6 +246,37 @@ public class MonsterLocationLookupService
         {
             loaded = true;
         }
+    }
+
+    private void addRewardWarning(DropSource source, EncounterWarning warning)
+    {
+        rewardWarnings.computeIfAbsent(source.getMonsterName(), unused -> new HashMap<>()).put(
+                Arrays.asList(source.getItemName(), source.getQuantity(), source.getDropRate(), source.getNotes()), warning);
+    }
+
+    private EncounterWarning readScorpiaWarning(JsonObject row, String item)
+    {
+        AcquisitionEventLookupService.fields(row,
+                "itemName,monsterName,quantity,dropRate,notes,locationId,lair,revisionId,wildernessLevelMin,wildernessLevelMax", "");
+        if (!item.equals("Malediction shard 3") && !item.equals("Odium shard 3")) throw new IllegalArgumentException("Unknown shard");
+        DropSource source = new DropSource(item, AcquisitionEventLookupService.string(row, "monsterName"),
+                AcquisitionEventLookupService.string(row, "quantity"), AcquisitionEventLookupService.string(row, "dropRate"),
+                AcquisitionEventLookupService.text(row, "notes"));
+        if (!"Scorpia".equals(source.getMonsterName()) || !"1".equals(source.getQuantity()) || !"1/256".equals(source.getDropRate())
+                || !"".equals(source.getNotes()) || !drops.hasUniqueRecordedDrop(source)) throw new IllegalArgumentException("Invalid shard row");
+        List<MonsterLocation> caves = byMonster.get(normalize("Scorpia"));
+        if (caves == null || caves.size() != 1) throw new IllegalArgumentException("Ambiguous Scorpia cave");
+        MonsterLocation cave = caves.get(0);
+        if (!"f3fb4ec480822cf6cbb2".equals(cave.getId()) || !"Cave in the Scorpion Pit (north-east Wilderness)".equals(cave.getLocation())
+                || !"Scorpia".equals(cave.getMonsterName()) || !"Scorpia".equals(cave.getSourcePage()) || cave.getRevisionId() != 15362166
+                || !cave.isAvailable() || cave.getWilderness() != MonsterLocation.Wilderness.YES
+                || !cave.getId().equals(AcquisitionEventLookupService.string(row, "locationId"))
+                || !cave.getLocation().equals(AcquisitionEventLookupService.string(row, "lair")))
+            throw new IllegalArgumentException("Unreviewed Scorpia cave");
+        AcquisitionEventLookupService.integer(row, "revisionId", 15362166, 15362166);
+        int low = AcquisitionEventLookupService.integer(row, "wildernessLevelMin", 53, 53);
+        int high = AcquisitionEventLookupService.integer(row, "wildernessLevelMax", 55, 55);
+        return new EncounterWarning(low, high, "Scorpion Pit cave");
     }
 
     private WildernessBossLair readComponentLair(JsonObject row, String name)
@@ -283,26 +325,51 @@ public class MonsterLocationLookupService
                 .trim().toLowerCase(Locale.ROOT).replaceAll("\\s+", " ");
     }
 
+    private static final class EncounterWarning
+    {
+        private final int minimum, maximum;
+        private final String shortLocation;
+
+        private EncounterWarning(int minimum, int maximum, String shortLocation)
+        {
+            this.minimum = minimum;
+            this.maximum = maximum;
+            this.shortLocation = shortLocation;
+        }
+    }
+
     public static final class LocationMatch
     {
         private final List<MonsterLocation> locations;
         private final boolean verified;
 
-        private final int encounterLevel;
+        private final EncounterWarning warning;
 
-        private LocationMatch(List<MonsterLocation> locations, boolean verified, int encounterLevel)
+        private LocationMatch(List<MonsterLocation> locations, boolean verified, EncounterWarning warning)
         {
             this.locations = locations;
             this.verified = verified;
-            this.encounterLevel = encounterLevel;
+            this.warning = warning;
         }
 
         public List<MonsterLocation> getLocations() { return locations; }
         public boolean isVerified() { return verified; }
 
         /** Normal encounter evidence is separate from verification of an individual drop. */
-        public boolean isReviewedEncounter() { return encounterLevel > 0; }
-        public int getEncounterWildernessLevel() { return encounterLevel; }
+        public boolean isReviewedEncounter() { return warning != null; }
+
+        public int getEncounterWildernessLevel()
+        {
+            return warning != null && warning.minimum == warning.maximum ? warning.minimum : 0;
+        }
+
+        public String encounterLevelText()
+        {
+            if (warning == null) return "";
+            return warning.minimum == warning.maximum ? "level " + warning.minimum : "levels " + warning.minimum + "–" + warning.maximum;
+        }
+
+        public String encounterShortLocation() { return warning == null ? "" : warning.shortLocation; }
     }
 
     private static class Dataset

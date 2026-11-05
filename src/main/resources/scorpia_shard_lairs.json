@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "shards": [
+    {
+      "itemName": "Odium shard 3",
+      "monsterName": "Scorpia",
+      "quantity": "1",
+      "dropRate": "1/256",
+      "notes": "",
+      "locationId": "f3fb4ec480822cf6cbb2",
+      "lair": "Cave in the Scorpion Pit (north-east Wilderness)",
+      "revisionId": 15362166,
+      "wildernessLevelMin": 53,
+      "wildernessLevelMax": 55
+    },
+    {
+      "itemName": "Malediction shard 3",
+      "monsterName": "Scorpia",
+      "quantity": "1",
+      "dropRate": "1/256",
+      "notes": "",
+      "locationId": "f3fb4ec480822cf6cbb2",
+      "lair": "Cave in the Scorpion Pit (north-east Wilderness)",
+      "revisionId": 15362166,
+      "wildernessLevelMin": 53,
+      "wildernessLevelMax": 55
+    }
+  ]
+}

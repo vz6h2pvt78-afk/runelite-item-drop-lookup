@@ -1,0 +1,8 @@
+S23 - Scorpia shard danger
+
+The Malediction shard 3 and Odium shard 3 cards now show the PvP skull, Scorpion Pit cave and Wilderness levels 53–55. Both appear with Wilderness only and disappear with Exclude Wilderness. Their original 1 in 256 selected-item chance and one existing cave remain intact. The visible compact cave name can be used in Find source. A packaged comparison of all 14,040 drop contexts found exactly those two warning/filter changes. All 5,664 query inventories match S22B byte-for-byte. 204 regular and packaged Java tests, 161 Python tests, validators, standard package/API and two-size renders passed. Eleven Scorpia integrity scenarios and the nine earlier Voidwaker scenarios passed. Human-native acceptance pending.
+
+Starting commit b8f17e618888d03db9621355462067ec60cbeac9
+Build development-2026-11-04-s23-scorpia-shard-danger
+Official package SHA256 8d459bfbf93cada66942861140eee83fc3a8046c486d27d56e4b9e0eda1755de
+Human acceptance pending.

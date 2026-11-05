@@ -270,6 +270,28 @@ public class MorningFeedbackTest
         });
     }
 
+    @Test public void shardWarningIsSearchableAndReportsTheAreaRangeOnlyForVisibleCave() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            List<String> reports = new ArrayList<>();
+            ItemDropLookupPanel p = panel(reports);
+            search(p, "Odium shard 3"); click(p, "showDropSources");
+            JTextField finder = (JTextField)PanelTestSupport.find(p, "sourceSearch");
+            finder.setText("Scorpion Pit cave"); finder.postActionEvent();
+            ((JComboBox<?>)PanelTestSupport.find(p,"npcWildernessFilter")).setSelectedItem(MonsterLocationFilter.WildernessFilter.ONLY);
+            JLabel danger = (JLabel)PanelTestSupport.find(p,"wildernessWarning");
+            assertEquals("WILDERNESS levels 53–55 PvP danger Scorpion Pit cave",danger.getAccessibleContext().getAccessibleName());
+            assertNotNull(danger.getIcon());
+            assertTrue(labels(p).contains("1 in 256"));
+            click(p, "openLocations"); click(p, "copyReport");
+            assertTrue(reports.get(0).contains("(Wilderness levels 53–55, PvP danger)"));
+            assertFalse(reports.get(0).contains("Group drop:"));
+            click(p, "backToResults");
+            ((JComboBox<?>)PanelTestSupport.find(p,"npcWildernessFilter")).setSelectedItem(MonsterLocationFilter.WildernessFilter.EXCLUDE);
+            assertNull(PanelTestSupport.find(p,"openLocations"));
+        });
+    }
+
     @Test public void implingSummaryRetainsRateCaveatAndOpeningExceptionWithoutRouteLecture()
     {
         AcquisitionMethod method=selection("Amulet of glory").sources.stream().filter(s->s.getAcquisitionMethod()!=null).findFirst().get().getAcquisitionMethod();
