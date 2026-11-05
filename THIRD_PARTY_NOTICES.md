@@ -181,3 +181,7 @@ Logs revision 15322883 is a negative generator fixture. These adapted texts/data
 are CC BY-NC-SA 3.0; see https://oldschool.runescape.wiki/w/RuneScape:Copyrights.
 Permanent links and exact revision evidence are retained in
 `docs/data/gathering_sources.json` and `tools/fixtures/gathering_sources.json`.
+
+## Reviewed historical-source exclusion
+
+The exact Bloodthirst rockslug exclusion uses OSRS Wiki contributors’ saved page revision 15204801. The primary explicitly describes an unused League variant that could never be encountered. Its pinned text and evidence hash are in tools/fixtures/historical_sources/Bloodthirst_rockslug.json. This adapted data is CC BY-NC-SA 3.0. [Permanent source](https://oldschool.runescape.wiki/w/Bloodthirst_rockslug?oldid=15204801).

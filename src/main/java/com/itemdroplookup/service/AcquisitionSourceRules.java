@@ -26,6 +26,8 @@ final class AcquisitionSourceRules
             "bloodthirsty night beast", "bloodthirsty pyrelord", "bloodthirsty repugnant spectre",
             "bloodthirsty shadow wyrm", "bloodthirsty smoke devil", "bloodthirsty spectre",
             "bloodthirsty turoth", "bloodthirsty twisted banshee", "bloodthirsty warped jelly");
+    private static final Map<String, Integer> HISTORICAL_PRIMARY_REVISIONS = Map.of(
+            "Bloodthirst rockslug", 15204801);
     private static final Map<String, Integer> ECHO_PRIMARY_REVISIONS = Map.ofEntries(
             Map.entry("Amoxliatl (Echo)", 15210490),
             Map.entry("Cerberus (Echo)", 15286453),
@@ -46,6 +48,23 @@ final class AcquisitionSourceRules
     {
         return Collections.unmodifiableSet(new HashSet<>(ReviewedRows.read(gson, "/league_echo_exclusions.json",
                 "sources", "monsterName", AcquisitionSourceRules::readEchoExclusion).values()));
+    }
+
+    static Set<String> reviewedHistoricalSources(Gson gson)
+    {
+        return Collections.unmodifiableSet(new HashSet<>(ReviewedRows.read(gson, "/historical_source_exclusions.json",
+                "sources", "monsterName", AcquisitionSourceRules::readHistoricalExclusion).values()));
+    }
+
+    private static String readHistoricalExclusion(JsonObject row, String name)
+    {
+        fields(row, "monsterName,revisionId,sourceUrl", "");
+        Integer revision = HISTORICAL_PRIMARY_REVISIONS.get(name);
+        require(revision != null, "Unreviewed historical encounter");
+        integer(row, "revisionId", revision, revision);
+        require(string(row, "sourceUrl").equals("https://oldschool.runescape.wiki/w/"
+                + name.replace(' ', '_') + "?oldid=" + revision), "Changed historical encounter evidence");
+        return name;
     }
 
     private static String readEchoExclusion(JsonObject row, String name)

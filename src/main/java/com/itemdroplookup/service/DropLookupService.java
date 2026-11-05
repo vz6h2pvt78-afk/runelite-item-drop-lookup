@@ -33,7 +33,7 @@ public class DropLookupService
     private final Gson gson;
     private List<DropRecord> dropRecords;
     private Map<String, List<DropRecord>> recordsByItemName;
-    private Set<String> reviewedEchoSources = Collections.emptySet();
+    private Set<String> reviewedExcludedSources = Collections.emptySet();
     private Set<String> reviewedSourceItems = Collections.emptySet();
 
     @Inject
@@ -72,7 +72,7 @@ public class DropLookupService
 
         return matches.stream()
                 .filter(record -> AcquisitionSourceRules.isOrdinaryDrop(record.itemName, record.monsterName)
-                        && !reviewedEchoSources.contains(record.monsterName))
+                        && !reviewedExcludedSources.contains(record.monsterName))
                 .map(record -> new DropSource(
                         record.itemName,
                         record.monsterName,
@@ -262,12 +262,13 @@ public class DropLookupService
                     AnimatorReward reward = reviewed.get(record.monsterName);
                     if (reward != null && Integer.toString(reward.getBase()).equals(record.quantity)) record.animatorReward = reward;
                 }
-                Set<String> exclusions = AcquisitionSourceRules.reviewedEchoSources(gson);
+                Set<String> exclusions = new LinkedHashSet<>(AcquisitionSourceRules.reviewedEchoSources(gson));
+                exclusions.addAll(AcquisitionSourceRules.reviewedHistoricalSources(gson));
                 Set<String> identities = dropRecords.stream()
                         .filter(record -> record.itemName != null && exclusions.contains(record.monsterName))
                         .map(record -> record.itemName).collect(Collectors.toCollection(LinkedHashSet::new));
                 reviewedSourceItems = Collections.unmodifiableSet(identities);
-                reviewedEchoSources = exclusions;
+                reviewedExcludedSources = Collections.unmodifiableSet(exclusions);
             }
 
             if (dropRecords == null)

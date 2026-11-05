@@ -1,0 +1,8 @@
+S33A - Unused rockslug source correction
+
+The exact Bloodthirst rockslug source is excluded using pinned Wiki revision15204801, which states it was an unused League variant that could never be encountered. A one-record optional historical resource reuses ReviewedRows and the existing atomic exclusion/derived-identity index. Existing28static exclusions and14Echo records retain their behavior. Full5664query inventory proves exactly13removed contexts across12items,14021to14008, with all other contexts/bindings/facts/methods identical. Raw15018rows andlocations remain byte-identical.9137catalog queries show only24affected full/compact source-count deltas; allidentities and1187potion cases preserved.233Java/185Python, officialstandardpackage/API/validators/fonts passed.19fault/isolation/raw-change cases,64new two-size real/synthetic report captures,110shorthand and14Echo reports passed. OrdinaryRockslug/Giantrockslug remain. Native visual/clipboard/gameplay acceptance pending. C3g remains the accepted fallback; Hubunchanged.
+
+Starting commit 47f4cd13f3c87135c3a7d4027625cd729b5d8b25
+Build development-2026-11-04-s33a-unused-rockslug
+Official package SHA256 aea1a674260da7144ee179efa39d9c175fd29d40783277adf9d4a78c5322fdfc
+Human acceptance pending.
