@@ -188,6 +188,8 @@ public class MonsterLocationPanel extends JPanel
         locationsPanel.add(text(DropRatePresentation.quantityWithContext(source, rollContext), false, TEXT_WIDTH));
         if (source.getAnimatorReward() != null)
             locationsPanel.add(text(source.getAnimatorReward().getRewardText(), false, TEXT_WIDTH));
+        if (source.getReviewedDropTable() != null)
+            locationsPanel.add(text("Drop table: " + source.getReviewedDropTable(), false, TEXT_WIDTH));
         if (!sourceFacts.isEmpty())
         {
             locationsPanel.add(text("Requirements & context", true, TEXT_WIDTH));
@@ -325,6 +327,8 @@ public class MonsterLocationPanel extends JPanel
     String reviewedRewardReport()
     {
         StringBuilder report = new StringBuilder();
+        if (source.getReviewedDropTable() != null)
+            report.append("Drop table: ").append(source.getReviewedDropTable()).append('\n');
         if (source.getConditionalRate() != null)
             report.append(DropRatePresentation.sourceRateLine(source)).append('\n')
                     .append(DropRatePresentation.taskRateLine(source)).append('\n');

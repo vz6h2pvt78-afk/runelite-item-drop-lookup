@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "itemName": "Dragon warhammer",
+      "monsterName": "Lizardman shaman",
+      "quantity": "1",
+      "dropRate": "1/3000",
+      "notes": "",
+      "membersOnly": true,
+      "dropTable": "Pre-roll",
+      "evidence": [
+        {
+          "page": "Lizardman shaman",
+          "revisionId": 15371945,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Lizardman_shaman?oldid=15371945"
+        },
+        {
+          "page": "Template:Uniques/Lizardman shaman",
+          "revisionId": 14669471,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Template:Uniques/Lizardman_shaman?oldid=14669471"
+        }
+      ]
+    }
+  ]
+}

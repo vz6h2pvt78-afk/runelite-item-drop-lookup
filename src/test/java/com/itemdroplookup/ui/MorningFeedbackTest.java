@@ -439,6 +439,35 @@ public class MorningFeedbackTest
         });
     }
 
+    @Test public void dragonWarhammerKeepsGenericLocationsAndSecondaryTableContextInDetails() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            List<String> reports = new ArrayList<>();
+            ItemDropLookupPanel p = panel(reports);
+            search(p,"Dragon warhammer"); click(p,"showDropSources");
+            JButton open = conditionalDetailButton(p,"Lizardman shaman");
+            assertNotNull(open);
+            assertTrue(labels(open.getParent()).contains("Rate: 1 in 3000"));
+            assertFalse(labels(open.getParent()).contains("Pre-roll"));
+            assertFalse(labels(open.getParent()).contains("Slayer task"));
+            JTextField finder = (JTextField)PanelTestSupport.find(p,"sourceSearch");
+            finder.setText("Canyon"); finder.postActionEvent();
+            assertNull(conditionalDetailButton(p,"Lizardman shaman"));
+            finder.setText("Lizardman shaman"); finder.postActionEvent();
+            click(p,"copyReport"); String overview=reports.get(reports.size()-1);
+            assertFalse(overview.contains("Pre-roll"));
+            conditionalDetailButton(p,"Lizardman shaman").doClick(0);
+            assertTrue(labels(p).contains("Monster locations only: this item and rate may not apply at every location."));
+            assertTrue(labels(p).contains("Drop table: Pre-roll"));
+            assertTrue(labels(p).contains("Lizardman Caves"));
+            click(p,"copyReport");
+            assertTrue(reports.get(reports.size()-1).contains("Drop table: Pre-roll"));
+            click(p,"backToResults"); click(p,"copyReport");
+            assertEquals(overview,reports.get(reports.size()-1));
+            p.dispose();
+        });
+    }
+
     private static JButton conditionalDetailButton(Container root, String monster)
     {
         for (Component c : root.getComponents())

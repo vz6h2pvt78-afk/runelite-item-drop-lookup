@@ -5,6 +5,7 @@ public class DropSource
     private final String itemName;
     private final transient AnimatorReward animatorReward;
     private final transient ConditionalDropRate conditionalRate;
+    private final transient String reviewedDropTable;
     private final String monsterName;
     private final String quantity;
     private final String dropRate;
@@ -30,6 +31,13 @@ public class DropSource
     public DropSource(String itemName, String monsterName, String quantity, String dropRate, String notes,
             Boolean membersOnly, AnimatorReward animatorReward, ConditionalDropRate conditionalRate)
     {
+        this(itemName, monsterName, quantity, dropRate, notes, membersOnly, animatorReward, conditionalRate, null);
+    }
+
+    public DropSource(String itemName, String monsterName, String quantity, String dropRate, String notes,
+            Boolean membersOnly, AnimatorReward animatorReward, ConditionalDropRate conditionalRate, String reviewedDropTable)
+    {
+        this.reviewedDropTable = reviewedDropTable;
         this.conditionalRate = conditionalRate;
         this.animatorReward = animatorReward;
         this.itemName = itemName;
@@ -40,6 +48,7 @@ public class DropSource
         this.membersOnly = membersOnly;
     }
 
+    public String getReviewedDropTable() { return reviewedDropTable; }
     public ConditionalDropRate getConditionalRate() { return conditionalRate; }
     public AnimatorReward getAnimatorReward() { return animatorReward; }
 

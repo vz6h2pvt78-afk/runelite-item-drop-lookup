@@ -1,0 +1,8 @@
+S30 - Dragon warhammer ordinary source
+
+Adds exactly one optional reviewed source for Dragon warhammer from ordinary Lizardman shaman, quantity1/rate1/3000, using parent15371945 and unique-template14669471. Source is members-only as pinned. Pre-roll is secondary detail/report metadata and does not affect raw signature or probability. No new location records/bindings, raid siblings or source task requirement. Generic existing parent places remain detail-only with the unverified-item caveat and cannot qualify a location finder/area filter. A pre-existing legacy source suppresses the addition without being overwritten. Original22shaman rows preserved. Normal and official-package Java220/Python177, all validators/Java11/API/fonts/resources passed. Full5664query/14041drop inventory proves exactly1 newDWH source and allS29 other data unchanged.18normal/missing/malformed/duplicate/legacy-overlap cases passed, preserving oldsources and independent rates;48report snapshots. Two-size source/detail render and navigation/area recovery inspected. Sentinel normal/corrupt/duplicate controls and34combined reports passed. Fullsource/bundle/recovery gates verified; human native acceptance pending. External research14of15pages,1reserved, displayed movement0of4. First reset used;2credits remain,1further authorized with reserve protected.
+
+Starting commit e881aac4fa71919f717052f8102ddca2be9544d9
+Build development-2026-11-04-s30-dragon-warhammer
+Official package SHA256 7b705ff779e8bef058ddb7e80ec98ef82141fc20c11cd6cc4dfd75bff8ace169
+Human acceptance pending.

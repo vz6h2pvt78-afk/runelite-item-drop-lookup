@@ -1,6 +1,8 @@
 package com.itemdroplookup.service;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import static com.itemdroplookup.service.AcquisitionEventLookupService.*;
 import com.google.gson.reflect.TypeToken;
 import com.itemdroplookup.model.DropSource;
 import com.itemdroplookup.model.AnimatorReward;
@@ -73,7 +75,7 @@ public class DropLookupService
                         record.quantity,
                         record.dropRate,
                         record.notes,
-                        record.membersOnly, record.animatorReward, record.conditionalRate
+                        record.membersOnly, record.animatorReward, record.conditionalRate, record.reviewedDropTable
                 ))
                 .sorted(Comparator.comparing(DropSource::getMonsterName, String.CASE_INSENSITIVE_ORDER))
                 .collect(Collectors.toList());
@@ -216,6 +218,14 @@ public class DropLookupService
             dropRecords = gson.fromJson(reader, listType);
             if (dropRecords != null)
             {
+                Map<String, DropRecord> additions = ReviewedRows.read(gson, "/dragon_warhammer_source.json",
+                        "sources", "itemName", this::readDragonWarhammer);
+                for (DropRecord addition : additions.values())
+                {
+                    boolean recorded = dropRecords.stream().anyMatch(existing -> addition.itemName.equals(existing.itemName)
+                            && addition.monsterName.equals(existing.monsterName));
+                    if (!recorded) dropRecords.add(addition);
+                }
                 Map<String, AnimatorReward> reviewed = AnimatorRewards.read(gson);
                 Map<String, ConditionalDropRate> rates = DropTaskRates.read(gson);
                 Map<String, DropRecord> rateMatches = new HashMap<>();
@@ -248,6 +258,31 @@ public class DropLookupService
         }
     }
 
+    private DropRecord readDragonWarhammer(JsonObject row, String item)
+    {
+        fields(row, "itemName,monsterName,quantity,dropRate,notes,membersOnly,dropTable,evidence", "");
+        require(item.equals("Dragon warhammer") && string(row, "monsterName").equals("Lizardman shaman")
+                && string(row, "quantity").equals("1") && string(row, "dropRate").equals("1/3000")
+                && text(row, "notes").isEmpty() && string(row, "dropTable").equals("Pre-roll"),
+                "Unreviewed Dragon warhammer source");
+        require(row.get("membersOnly").isJsonPrimitive() && row.getAsJsonPrimitive("membersOnly").isBoolean()
+                && row.get("membersOnly").getAsBoolean(), "Unreviewed source membership");
+        require(array(row, "evidence").size() == 2, "Missing unique-table or parent evidence");
+        String[] pages = {"Lizardman shaman", "Template:Uniques/Lizardman shaman"};
+        long[] revisions = {15371945, 14669471};
+        for (int i = 0; i < pages.length; i++)
+        {
+            JsonObject proof = object(array(row, "evidence").get(i));
+            fields(proof, "page,revisionId,sourceUrl", "");
+            require(string(proof, "page").equals(pages[i]) && integer(proof, "revisionId", 1, Integer.MAX_VALUE) == revisions[i]
+                    && string(proof, "sourceUrl").equals("https://oldschool.runescape.wiki/w/"
+                            + pages[i].replace(' ', '_') + "?oldid=" + revisions[i]), "Changed source primary");
+        }
+        DropRecord record = gson.fromJson(row, DropRecord.class);
+        record.reviewedDropTable = "Pre-roll";
+        return record;
+    }
+
     private static class DropRecord
     {
         private String itemName;
@@ -258,5 +293,6 @@ public class DropLookupService
         private Boolean membersOnly;
         private transient AnimatorReward animatorReward;
         private transient ConditionalDropRate conditionalRate;
+        private transient String reviewedDropTable;
     }
 }

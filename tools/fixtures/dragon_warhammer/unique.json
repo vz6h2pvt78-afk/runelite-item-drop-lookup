@@ -1,0 +1,8 @@
+{
+  "title": "Template:Uniques/Lizardman shaman",
+  "revisionId": 14669471,
+  "revisionTimestamp": "2024-05-29T10:53:14Z",
+  "fetchedAt": "2026-11-05T05:38:38.811631+00:00",
+  "wikitextSha256": "e3c7bd7cb3dfada2140178ca5826a1bae1fc5508a980639f82d71e43726fa354",
+  "wikitext": "<includeonly>===Pre-roll===\n{{DropsTableHead}}\n{{DropsLine|name=Dragon warhammer|quantity=1|rarity=1/3000}}\n{{DropsTableBottom}}</includeonly>"
+}

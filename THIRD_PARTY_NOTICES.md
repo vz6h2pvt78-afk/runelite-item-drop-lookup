@@ -21,6 +21,7 @@ nor their conversion to JSON is used to remove source credits or restrictions.
 
 Runtime resources under src/main/resources/:
 
+- `dragon_warhammer_source.json` adapts one direct pre-roll row from `Template:Uniques/Lizardman shaman` revision 14669471 and its ordinary parent transclusion in Lizardman shaman revision 15371945. Both raw primaries are pinned in `tools/fixtures/dragon_warhammer/`. No item-specific location binding is created.
 - `sentinel_regular_rolls.json` classifies only the 15 recorded direct regular-table signatures marked `rolls=3` in Basilisk Sentinel revision 15373808. The same pinned primary supports the separate guaranteed and tertiary exclusions. Raw source data is preserved.
 - `sentinel_spawn_context.json` adapts the exact Basilisk Sentinel encounter trigger from Sentinel revision 15373808 and Basilisk Knight revision 15340714. Both primary snapshots and their revision links are pinned in `tools/fixtures/`. The adaptation describes spawn conditions without calculating an item probability.
 
