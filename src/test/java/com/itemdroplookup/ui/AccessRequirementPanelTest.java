@@ -51,6 +51,24 @@ public class AccessRequirementPanelTest
     }
 
     @Test
+    public void caveHorrorKeepsProtectionOnTheMonsterAndAccessInsideTheExactCave() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            MonsterLocationPanel panel = detail("Cave horror","Black mask (10)");
+            assertLabel(panel,"cave-horror-slayer","58 Slayer to kill");
+            assertLabel(panel,"cave-horror-protection","Protection: A witchwood icon reduces");
+            assertLabel(panel,"cave-horror-protection","Protect from Melee prevents its damage");
+            Container cave = (Container)named(panel,"location:70e74913efa330ff38bc").get(0);
+            assertEquals(1, named(panel,"requirement:cave-horror-cabin-fever").size());
+            assertLabel(cave,"cave-horror-cabin-fever","Complete Cabin Fever");
+            assertLabel(cave,"cave-horror-light","unless the fire of eternal light is lit");
+            assertTrue(named(cave,"requirement:cave-horror-protection").isEmpty());
+            assertFalse(MorningFeedbackTest.labels(panel).contains("Trouble Brewing"));
+            assertTrue(named(detail("Cave abomination","Black mask (10)"),"requirement:cave-horror-protection").isEmpty());
+        });
+    }
+
+    @Test
     public void assignmentQuestsAppearOnceInMonsterDetails() throws Exception
     {
         SwingUtilities.invokeAndWait(() -> {

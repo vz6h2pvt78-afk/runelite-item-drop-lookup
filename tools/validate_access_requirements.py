@@ -38,8 +38,10 @@ def validate(data, locations, drops):
         label = fact.get("id", f"index {index}")
         def fail(reason):
             errors.append(f"{label}: {reason}")
-        if fact.get("appliesTo") in {"PROTECTION","FINISHING"} and (fact.get("scope")!="MONSTER" or fact.get("type")!="EQUIPMENT"):
-            fail("Protection/finishing must be a monster equipment fact")
+        if fact.get("appliesTo") == "PROTECTION" and (fact.get("scope") != "MONSTER" or fact.get("type") not in {"EQUIPMENT", "CONTEXT"}):
+            fail("Protection must be a monster equipment or mitigation fact")
+        if fact.get("appliesTo") == "FINISHING" and (fact.get("scope") != "MONSTER" or fact.get("type") != "EQUIPMENT"):
+            fail("Finishing must be a monster equipment fact")
         if fact.get("appliesTo") == "DROP_CONTEXT" and (fact.get("scope") != "MONSTER" or fact.get("type") != "CONTEXT"):
             fail("Drop context must be a monster context, not an access requirement")
         if set(fact) - allowed:

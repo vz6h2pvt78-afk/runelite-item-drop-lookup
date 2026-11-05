@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-04T23:00:00Z",
+  "checkedAt": "2026-11-05T00:35:00Z",
   "facts": [
     {
       "monsterName": "Aberrant spectre",
@@ -131,6 +131,70 @@
       "skill": "Slayer",
       "level": 10,
       "text": "10 Slayer to kill."
+    },
+    {
+      "monsterName": "Cave horror",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Cave horror",
+          "revisionId": 15388981,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Cave_horror?oldid=15388981"
+        }
+      ],
+      "id": "cave-horror-slayer",
+      "appliesTo": "COMBAT",
+      "type": "SKILL",
+      "skill": "Slayer",
+      "level": 58,
+      "text": "58 Slayer to kill."
+    },
+    {
+      "monsterName": "Cave horror",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Cave horror",
+          "revisionId": 15388981,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Cave_horror?oldid=15388981"
+        }
+      ],
+      "id": "cave-horror-protection",
+      "appliesTo": "PROTECTION",
+      "type": "CONTEXT",
+      "text": "A witchwood icon reduces the special attack. Protect from Melee prevents its damage."
+    },
+    {
+      "monsterName": "Cave horror",
+      "scope": "LOCATION",
+      "evidence": [
+        {
+          "page": "Cave horror",
+          "revisionId": 15388981,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Cave_horror?oldid=15388981"
+        }
+      ],
+      "locationId": "70e74913efa330ff38bc",
+      "appliesTo": "ACCESS",
+      "type": "QUEST",
+      "id": "cave-horror-cabin-fever",
+      "text": "Complete Cabin Fever to access the cave."
+    },
+    {
+      "monsterName": "Cave horror",
+      "scope": "LOCATION",
+      "evidence": [
+        {
+          "page": "Cave horror",
+          "revisionId": 15388981,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Cave_horror?oldid=15388981"
+        }
+      ],
+      "locationId": "70e74913efa330ff38bc",
+      "appliesTo": "ACCESS",
+      "type": "EQUIPMENT",
+      "id": "cave-horror-light",
+      "text": "Bring a light source unless the fire of eternal light is lit."
     },
     {
       "monsterName": "Cave slime",

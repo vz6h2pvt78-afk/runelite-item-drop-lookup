@@ -120,7 +120,9 @@ public class AccessRequirementLookupService
         {
             return false;
         }
-        if ((fact.getAppliesTo() == AccessRequirement.AppliesTo.PROTECTION || fact.getAppliesTo() == AccessRequirement.AppliesTo.FINISHING)
+        if (fact.getAppliesTo() == AccessRequirement.AppliesTo.PROTECTION && (fact.getScope() != Scope.MONSTER
+                || (fact.getType() != AccessRequirement.Type.EQUIPMENT && fact.getType() != AccessRequirement.Type.CONTEXT))) return false;
+        if (fact.getAppliesTo() == AccessRequirement.AppliesTo.FINISHING
                 && (fact.getScope() != Scope.MONSTER || fact.getType() != AccessRequirement.Type.EQUIPMENT)) return false;
         if (fact.getAppliesTo() == AccessRequirement.AppliesTo.DROP_CONTEXT
                 && (fact.getScope() != Scope.MONSTER || fact.getType() != AccessRequirement.Type.CONTEXT)) return false;

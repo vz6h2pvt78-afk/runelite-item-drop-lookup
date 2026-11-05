@@ -8,7 +8,10 @@ class SlayerEvidenceTest(unittest.TestCase):
     def test_packaged_facts_reproduce_and_remain_exact_monster_scoped(self):
         data=source.build()
         self.assertEqual(data,json.loads(source.OUTPUT.read_text(encoding='utf8')))
-        self.assertTrue(all(f['scope']=='MONSTER' and f['evidence'][0]['page']==f['monsterName'] for f in data['facts']))
+        self.assertTrue(all(f['evidence'][0]['page']==f['monsterName'] for f in data['facts']))
+        local = [f for f in data['facts'] if f['scope'] != 'MONSTER']
+        self.assertEqual({'cave-horror-cabin-fever', 'cave-horror-light'}, {f['id'] for f in local})
+        self.assertTrue(all(f['scope'] == 'LOCATION' and f['locationId'] == '70e74913efa330ff38bc' for f in local))
 
     def test_conflicting_multibox_level_is_withheld(self):
         pin=json.loads((source.PINS/'Cave_crawler.json').read_text(encoding='utf8'))
@@ -38,6 +41,19 @@ class SlayerEvidenceTest(unittest.TestCase):
         harm["combatVerb"] = "kill"
         with self.assertRaisesRegex(ValueError, "combat-level prose"):
             source.facts_for(harm)
+
+    def test_cave_access_requires_exact_location_and_all_reviewed_drop_bindings(self):
+        pin = json.loads((source.PINS / "Cave_horror.json").read_text(encoding="utf8"))
+        locations = json.loads((source.ROOT / "src/main/resources/monster_locations.json").read_text(encoding="utf8"))
+        bindings = [b for b in locations["dropBindings"] if b["monsterName"] == "Cave horror"]
+        self.assertEqual(18, len(bindings))
+        self.assertTrue(any(b["itemName"] == "Black mask (10)" for b in bindings))
+        bindings[0]["locationIds"] = []
+        with self.assertRaisesRegex(ValueError, "drop bindings"):
+            source.facts_for(pin, locations)
+        pin["locationReview"]["locationId"] = "another-cave"
+        with self.assertRaisesRegex(ValueError, "Location identity"):
+            source.facts_for(pin, locations)
 
     def test_finisher_requires_its_own_proof(self):
         pin=json.loads((source.PINS/'Rockslug.json').read_text(encoding='utf8'))

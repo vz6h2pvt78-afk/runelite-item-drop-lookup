@@ -1,0 +1,8 @@
+S11 - Cave horror access and protection
+
+All 18 Cave horror drop records now show 58 Slayer and distinguish the witchwood icon's mitigation from Protect from Melee. The bound Mos Le'Harmless Cave location shows Cabin Fever and the light-source exception under a single Access heading. Source cards, detail links and the actual location card were tested at sidebar width in both text sizes. Counts, rates, quantities, location IDs and method choices match S10 across 5,664 lookups. Both Java runs passed 185 tests and Python passed 139. Package/API, generator and independent recovery checks passed. Try Black mask (10) on Cave horror, then check the cave under View details.
+
+Starting commit 3ffc9d94a76fc9e13c7780a61fc3ce80a6d4aa8a
+Build development-2026-11-04-s11-cave-horror
+Official package SHA256 e3be319de207508c5e683eebe82ca8b0924413662b49f89c7208467e4535c5a6
+Human acceptance pending.

@@ -23,6 +23,7 @@ public final class AcquisitionPreview
                     {"Logs", "Gathering", ""}, {"Amulet of glory", "Loot & containers", ""},
                     {"Mystic robe bottom", "Loot & containers", ""}, {"Snapdragon seed", "Loot & containers", ""},
                     {"Dragon arrow", "Loot & containers", ""}, {"Dragon dagger(p++)", "Loot & containers", ""},
+                    {"Black mask (10)", "NPC Drops", "Cave horror", "witchwood icon", "70e74913efa330ff38bc"},
                     {"Rune boots", "NPC Drops", "Nechryael", "80 Slayer to harm"}, {"Dragon boots", "NPC Drops", "Spiritual mage", "83 Slayer to kill"},
                     {"Bull shark jaw", "NPC Drops", "Bull shark", "applicable bounty task"},
                     {"Hammerhead shark liver", "NPC Drops", "Hammerhead shark", "40 Sailing"},
@@ -51,7 +52,7 @@ public final class AcquisitionPreview
                     JTextField finder = (JTextField) PanelTestSupport.find(panel, "sourceSearch");
                     finder.setText(scenario[2]);
                     finder.postActionEvent();
-                    if (scenario.length == 4)
+                    if (scenario.length >= 4)
                     {
                         Component family = PanelTestSupport.find(panel, "sourceGroup:" + scenario[2]);
                         if (family instanceof JButton && ((JButton) family).getText().contains("▸")) ((JButton) family).doClick(0);
@@ -63,13 +64,23 @@ public final class AcquisitionPreview
                     save(wrapped, new File(output, name + "-sidebar.png"));
                     JComponent card = (JComponent) PanelTestSupport.find(panel, "itemSourceCard");
                     if (card == null) card = (JComponent) PanelTestSupport.find(panel, "dropSourceCard");
-                    if (scenario.length == 4)
+                    if (scenario.length >= 4)
                     {
                         card = exactMonsterCard(wrapped, scenario[2] + " → " + scenario[0], scenario[3]);
                         if (card == null) throw new IllegalStateException("Missing reviewed monster card: " + scenario[2]);
                     }
                     checkBounds(card);
                     save(card, new File(output, name + "-card.png"));
+                    if (scenario.length == 5)
+                    {
+                        ((JButton)PanelTestSupport.find(card, "openLocations")).doClick(0);
+                        for (int i = 0; i < 10; i++) layout(wrapped);
+                        JComponent location = (JComponent)PanelTestSupport.find(panel, "location:" + scenario[4]);
+                        if (location == null) throw new IllegalStateException("Missing reviewed location: " + scenario[4]);
+                        checkBounds(location);
+                        save(location, new File(output, name + "-location.png"));
+                        MorningFeedbackTest.click(panel, "backToResults");
+                    }
                     System.out.println(name + ": card " + card.getWidth() + "x" + card.getHeight() + "; bounds OK");
                 }
             }

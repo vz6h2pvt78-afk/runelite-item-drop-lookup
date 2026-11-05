@@ -22,7 +22,26 @@ def exact_monster_name(box, title):
     return bool(names) and all(value.strip().casefold() == title.casefold() for value in names)
 
 
-def facts_for(pin):
+def location_facts(pin, plain, base, locations):
+    reviewed = pin["locationReview"]
+    title, location_id = pin["title"], reviewed["locationId"]
+    matches = [row for row in locations["locations"] if row["monsterName"] == title]
+    if (len(matches) != 1 or matches[0]["id"] != location_id or matches[0]["location"] != reviewed["locationName"]
+            or matches[0]["revisionId"] != pin["revisionId"] or matches[0]["sourcePage"] != title):
+        raise ValueError("Location identity or evidence changed for " + title)
+    bindings = [row for row in locations["dropBindings"] if row["monsterName"] == title]
+    if len(bindings) != reviewed["boundDrops"] or any(row["locationIds"] != [location_id] for row in bindings):
+        raise ValueError("Re-review the drop bindings for " + title)
+    result = []
+    for fact in reviewed["facts"]:
+        if fact["type"] not in ("QUEST", "EQUIPMENT") or not fact["support"] or not all(s in plain for s in fact["support"]):
+            raise ValueError("Missing exact location access evidence")
+        result.append(dict(base, scope="LOCATION", locationId=location_id, appliesTo="ACCESS", type=fact["type"],
+                           id=title.lower().replace(" ", "-") + "-" + fact["suffix"], text=fact["text"]))
+    return result
+
+
+def facts_for(pin, locations=None):
     raw, name, level = pin["wikitext"],pin["title"],pin["slayerLevel"]
     if hashlib.sha256(raw.encode()).hexdigest()!=pin["wikitextSha256"]:
         raise ValueError("Changed article for "+name)
@@ -44,7 +63,8 @@ def facts_for(pin):
     if verb not in ("kill", "harm"):
         raise ValueError("Unreviewed combat verb")
     pattern = rf"requir(?:e|es|ing) (?:a )?(?:level {level} Slayer|Slayer level of {level}|{level} Slayer) (?:in order )?to {verb}\b"
-    if not re.search(pattern,plain,re.I):
+    listed_kill_conditions = rf"\bKilling them requires [^.!?\n]*\blevel {level} Slayer\b"
+    if not re.search(pattern, plain, re.I) and not (verb == "kill" and re.search(listed_kill_conditions, plain, re.I)):
         raise ValueError("Missing combat-level prose for "+name)
     rev = pin["revisionId"]
     evidence=[{"page":name,"revisionId":rev,"sourceUrl":"https://oldschool.runescape.wiki/w/"+name.replace(" ","_")+"?oldid="+str(rev)}]
@@ -54,15 +74,18 @@ def facts_for(pin):
     for extra in pin["additionalFacts"]:
         if not extra["support"] or not all(fragment in plain for fragment in extra["support"]):
             raise ValueError("Missing evidence for "+name+" "+extra["appliesTo"])
-        if (extra["appliesTo"], extra["type"]) not in {("PROTECTION","EQUIPMENT"),("FINISHING","EQUIPMENT"),("COMBAT","CONTEXT"),("TASK_ELIGIBILITY","QUEST")}:
+        if (extra["appliesTo"], extra["type"]) not in {("PROTECTION","EQUIPMENT"),("PROTECTION","CONTEXT"),("FINISHING","EQUIPMENT"),("COMBAT","CONTEXT"),("TASK_ELIGIBILITY","QUEST")}:
             raise ValueError("Unsupported monster mechanic")
         result.append(dict(base,id=prefix+"-"+extra["appliesTo"].lower().replace("_","-"),appliesTo=extra["appliesTo"],type=extra["type"],text=extra["text"]))
+    if "locationReview" in pin:
+        result.extend(location_facts(pin, plain, base, locations))
     return result
 
 def build():
-    facts=[fact for p in sorted(PINS.glob("*.json")) for fact in facts_for(json.loads(p.read_text(encoding="utf8")))]
+    locations = json.loads((ROOT / "src/main/resources/monster_locations.json").read_text(encoding="utf8"))
+    facts=[fact for p in sorted(PINS.glob("*.json")) for fact in facts_for(json.loads(p.read_text(encoding="utf8")), locations)]
     if not facts or len({f["id"] for f in facts})!=len(facts):raise ValueError("Missing or duplicate facts")
-    return {"schemaVersion":1,"checkedAt":"2026-11-04T23:00:00Z","facts":facts}
+    return {"schemaVersion":1,"checkedAt":"2026-11-05T00:35:00Z","facts":facts}
 
 if __name__=="__main__":
     parser=argparse.ArgumentParser();parser.add_argument("--check",action="store_true");args=parser.parse_args()

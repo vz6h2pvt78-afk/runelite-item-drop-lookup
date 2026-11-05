@@ -176,7 +176,7 @@ public class MonsterLocationPanel extends JPanel
         if (!sourceFacts.isEmpty())
         {
             locationsPanel.add(text("Requirements & context", true, TEXT_WIDTH));
-            sourceFacts.forEach(fact -> locationsPanel.add(requirementText(fact, TEXT_WIDTH)));
+            sourceFacts.forEach(fact -> locationsPanel.add(requirementText(fact, TEXT_WIDTH, true)));
         }
         JButton toggle = style.button((filtersExpanded ? "Hide location filters" : "Location filters")
                 + (wilderness.getSelectedItem() != WildernessFilter.ALL ? "\n" + wilderness.getSelectedItem() : "")
@@ -270,7 +270,11 @@ public class MonsterLocationPanel extends JPanel
         {
             card.add(text("Requirements: " + location.getRequirements(), false, width));
         }
-        requirements.forLocation(location).forEach(fact -> card.add(requirementText(fact, width)));
+        List<AccessRequirement> localFacts = requirements.forLocation(location);
+        boolean sharedAccessHeading = localFacts.size() > 1
+                && localFacts.stream().allMatch(fact -> fact.getAppliesTo() == AccessRequirement.AppliesTo.ACCESS);
+        if (sharedAccessHeading) card.add(text("Access", true, width));
+        localFacts.forEach(fact -> card.add(requirementText(fact, width, !sharedAccessHeading)));
         card.add(text(location.getMembers() == null ? "Membership unknown" : location.getMembers() ? "Members area"
                 : Boolean.TRUE.equals(source.getMembersOnly()) ? "F2P-accessible area; use a members world" : "F2P", false, width));
         if (hasText(location.getNotes()))
@@ -296,9 +300,9 @@ public class MonsterLocationPanel extends JPanel
         return card;
     }
 
-    private JLabel requirementText(AccessRequirement fact, int width)
+    private JLabel requirementText(AccessRequirement fact, int width, boolean includeLabel)
     {
-        JLabel label = text(fact.getLabel() + ": " + fact.getText(), false, width);
+        JLabel label = text(includeLabel ? fact.getLabel() + ": " + fact.getText() : fact.getText(), false, width);
         label.setName("requirement:" + fact.getId());
         String sources = fact.getEvidence().stream().map(evidence -> evidence.getPage()
                 + " (revision " + evidence.getRevisionId() + "): " + evidence.getSourceUrl())
