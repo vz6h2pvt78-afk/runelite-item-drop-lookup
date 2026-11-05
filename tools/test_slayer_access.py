@@ -13,6 +13,37 @@ class SlayerEvidenceTest(unittest.TestCase):
         self.assertEqual({'cave-horror-cabin-fever', 'cave-horror-light'}, {f['id'] for f in local})
         self.assertTrue(all(f['scope'] == 'LOCATION' and f['locationId'] == '70e74913efa330ff38bc' for f in local))
 
+    def test_three_iorwerth_monsters_reuse_own_primary_and_preserve_combat_verbs(self):
+        for name, level, verb, revision in (
+                ("Dark beast", 90, "kill", 15350345),
+                ("Greater Nechryael", 80, "harm", 15341801),
+                ("Mutated Bloodveld", 50, "kill", 15338397)):
+            filename = name.replace(" ", "_") + ".json"
+            pin = json.loads((source.PINS / filename).read_text(encoding="utf8"))
+            original = json.loads((source.ROOT / "tools/fixtures/crystal_shard_conditions" / filename).read_text(encoding="utf8"))
+            for key in original:
+                self.assertEqual(original[key], pin[key])
+            self.assertEqual(revision, pin["revisionId"])
+            self.assertEqual([], pin["additionalFacts"])
+            fact, = source.facts_for(pin)
+            self.assertEqual(("MONSTER", "COMBAT", "SKILL"), tuple(fact[key] for key in ("scope", "appliesTo", "type")))
+            self.assertEqual(level, fact["level"])
+            self.assertEqual(f"{level} Slayer to {verb}.", fact["text"])
+            self.assertEqual(name, fact["evidence"][0]["page"])
+            self.assertNotIn("locationId", fact)
+        self.assertFalse((source.PINS / "Waterfiend.json").exists())
+
+    def test_new_combat_levels_and_verbs_require_matching_primary_prose(self):
+        for name, verb in (("Dark beast", "kill"), ("Greater Nechryael", "harm"), ("Mutated Bloodveld", "kill")):
+            pin = json.loads((source.PINS / (name.replace(" ", "_") + ".json")).read_text(encoding="utf8"))
+            pin["slayerLevel"] = 1
+            with self.assertRaisesRegex(ValueError, "Contradictory"):
+                source.facts_for(pin)
+            pin = json.loads((source.PINS / (name.replace(" ", "_") + ".json")).read_text(encoding="utf8"))
+            pin["combatVerb"] = "kill" if verb == "harm" else "harm"
+            with self.assertRaisesRegex(ValueError, "combat-level prose"):
+                source.facts_for(pin)
+
     def test_conflicting_multibox_level_is_withheld(self):
         pin=json.loads((source.PINS/'Cave_crawler.json').read_text(encoding='utf8'))
         pin['wikitext']=pin['wikitext'].replace('|slaylvl = 10','|slaylvl = 99',1)

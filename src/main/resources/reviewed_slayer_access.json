@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-05T04:09:08Z",
+  "checkedAt": "2026-11-05T16:50:52Z",
   "facts": [
     {
       "monsterName": "Aberrant spectre",
@@ -423,6 +423,23 @@
       "text": "5 Slayer to kill."
     },
     {
+      "monsterName": "Dark beast",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Dark beast",
+          "revisionId": 15350345,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Dark_beast?oldid=15350345"
+        }
+      ],
+      "id": "dark-beast-slayer",
+      "appliesTo": "COMBAT",
+      "type": "SKILL",
+      "skill": "Slayer",
+      "level": 90,
+      "text": "90 Slayer to kill."
+    },
+    {
       "monsterName": "Drake",
       "scope": "MONSTER",
       "evidence": [
@@ -438,6 +455,23 @@
       "skill": "Slayer",
       "level": 84,
       "text": "84 Slayer to kill."
+    },
+    {
+      "monsterName": "Greater Nechryael",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Greater Nechryael",
+          "revisionId": 15341801,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Greater_Nechryael?oldid=15341801"
+        }
+      ],
+      "id": "greater-nechryael-slayer",
+      "appliesTo": "COMBAT",
+      "type": "SKILL",
+      "skill": "Slayer",
+      "level": 80,
+      "text": "80 Slayer to harm."
     },
     {
       "monsterName": "Infernal Mage",
@@ -504,6 +538,23 @@
       "appliesTo": "COMBAT",
       "type": "CONTEXT",
       "text": "For ordinary attacks, use leaf-bladed weapons, broad ammunition or Magic Dart. Burn damage can also apply."
+    },
+    {
+      "monsterName": "Mutated Bloodveld",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Mutated Bloodveld",
+          "revisionId": 15338397,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Mutated_Bloodveld?oldid=15338397"
+        }
+      ],
+      "id": "mutated-bloodveld-slayer",
+      "appliesTo": "COMBAT",
+      "type": "SKILL",
+      "skill": "Slayer",
+      "level": 50,
+      "text": "50 Slayer to kill."
     },
     {
       "monsterName": "Nechryael",

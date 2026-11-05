@@ -1,0 +1,8 @@
+S42 - Exact combat Slayer requirements
+
+Adds exactly three monster-wide combat facts from their already-pinned own primary infoboxes and lead prose. Dark beast90Slayer to kill; Greater Nechryael80Slayer to harm; Mutated Bloodveld50Slayer to kill. Reuses the existing Slayer pipeline with no runtime code change.97intended raw rows gain their own fact; allother facts and13977area/context records remain unchanged. All94production classes are byte-identical to S40D. No assignment/access quests, Waterfiend requirement or family inheritance.256Java209Python,18overlay/failure independence cases,84UI/report snapshots per package and14two-size captures pass. Copy reports preserve established semantics. Broad-search and shared-variant component ownership required test-harness corrections only. Native visual/gameplay/clipboard acceptance remains pending.
+
+Starting commit bc536351fa3faf1073fa0c2a9950fb2350ae7955
+Build development-2026-11-05-s42-combat-slayer
+Official package SHA256 c8df7407e88f72c11f53070b8cf939a9d90c3f3617f50c03b1acee80e3758d8d
+Human acceptance pending.
