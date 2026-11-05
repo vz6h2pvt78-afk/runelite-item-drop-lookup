@@ -1,0 +1,16 @@
+S38 - Superior regular-roll clarification
+
+Adds signature-bound per-roll context for 14 Cave abomination, 19 Marble gargoyle and 23 Choke devil rows from three cached pinned primaries. Rate and Quantity display per roll through the existing presentation and Copy model. Short140character explanation distinguishes additional rolls, the superior unique table, and separate guaranteed/tertiary/pre-roll stages.
+
+Exactly56 context gains proven across5664queries/13977contexts. Every previous JSON/font resource, raw rate/quantity/notes/order, source count and binding is unchanged. Repeated Coins/Nature/Fire/Soul rune signatures remain independent. Parents receive no new context. Sentinel and Night beast behavior retained.
+
+242Java/194Python, validators, official Java11/RuneLite1.13.5 package/API and packaged tests/fonts pass. Final38case superior fault suite and14Sentinel fault suite pass. Both-size all66superior rows yield132child inspections/378in-memoryCopy reports and28captures. Long Cave item, Marble ordinary/pre-roll and Choke renders inspected. Native confirmation remains pending.
+
+S37 spawn chains remain held for missing explicit parent/task causal evidence. Marble Granite maul and Mystic robe top(dark) pre-roll semantics remain held. No probability calculations or inherited combat/access facts. No layout/navigation/matching/filter redesign. S35 Goblin offscreen-title artifact still needs native review. The longer first wording package is separately marked superseded.
+
+S36 integrated stability evidence remains attached to S35. S38 is a local human-test candidate. C3g and accepted Hub are frozen. External research remains closed15/15. No publication or foreground/gameplay input.
+
+Starting commit 2c1b5e8d840b91155bd7650eb7ff72906a1febdc
+Build development-2026-11-05-s38-superior-regular-rolls
+Official package SHA256 4e33771bace8862bf65cac7269a0728ab3559dd91021b7d95e5b4ccd4e4dc523
+Human acceptance pending.

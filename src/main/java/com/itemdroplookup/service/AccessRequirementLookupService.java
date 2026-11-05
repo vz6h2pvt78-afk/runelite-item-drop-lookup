@@ -46,6 +46,126 @@ public class AccessRequirementLookupService
             Map.entry("Rune scimitar", List.of("1", "1/52")),
             Map.entry("Rune spear", List.of("1", "1/52")));
 
+    private static final Map<String, Map<String, List<String>>> SUPERIOR_REGULAR_ROWS = Map.ofEntries(
+            Map.entry("Cave abomination", Map.ofEntries(
+                    Map.entry("superior-regular-cave-abomination-adamant-full-helm-1",
+                            List.of("Adamant full helm", "1", "1/128")),
+                    Map.entry("superior-regular-cave-abomination-black-mask-10-1",
+                            List.of("Black mask (10)", "1", "1/512")),
+                    Map.entry("superior-regular-cave-abomination-coins-440",
+                            List.of("Coins", "440", "1/128")),
+                    Map.entry("superior-regular-cave-abomination-coins-132",
+                            List.of("Coins", "132", "12/128")),
+                    Map.entry("superior-regular-cave-abomination-coins-44",
+                            List.of("Coins", "44", "28/128")),
+                    Map.entry("superior-regular-cave-abomination-limpwurt-root-1",
+                            List.of("Limpwurt root", "1", "7/128")),
+                    Map.entry("superior-regular-cave-abomination-mahogany-logs-2",
+                            List.of("Mahogany logs", "2", "3/128")),
+                    Map.entry("superior-regular-cave-abomination-mithril-axe-1",
+                            List.of("Mithril axe", "1", "3/128")),
+                    Map.entry("superior-regular-cave-abomination-mithril-kiteshield-1",
+                            List.of("Mithril kiteshield", "1", "1/128")),
+                    Map.entry("superior-regular-cave-abomination-nature-rune-3",
+                            List.of("Nature rune", "3", "1/128")),
+                    Map.entry("superior-regular-cave-abomination-nature-rune-4",
+                            List.of("Nature rune", "4", "5/128")),
+                    Map.entry("superior-regular-cave-abomination-nature-rune-6",
+                            List.of("Nature rune", "6", "6/128")),
+                    Map.entry("superior-regular-cave-abomination-rune-dagger-1",
+                            List.of("Rune dagger", "1", "1/128")),
+                    Map.entry("superior-regular-cave-abomination-teak-logs-4-noted",
+                            List.of("Teak logs", "4 (noted)", "7/128")))),
+            Map.entry("Marble gargoyle", Map.ofEntries(
+                    Map.entry("superior-regular-marble-gargoyle-adamant-boots-1",
+                            List.of("Adamant boots", "1", "1/128")),
+                    Map.entry("superior-regular-marble-gargoyle-adamant-platelegs-1",
+                            List.of("Adamant platelegs", "1", "4/128")),
+                    Map.entry("superior-regular-marble-gargoyle-chaos-rune-30",
+                            List.of("Chaos rune", "30", "8/128")),
+                    Map.entry("superior-regular-marble-gargoyle-coins-500-1000",
+                            List.of("Coins", "500-1000", "20/128")),
+                    Map.entry("superior-regular-marble-gargoyle-coins-400-800",
+                            List.of("Coins", "400-800", "28/128")),
+                    Map.entry("superior-regular-marble-gargoyle-coins-10000",
+                            List.of("Coins", "10000", "5/128")),
+                    Map.entry("superior-regular-marble-gargoyle-death-rune-15",
+                            List.of("Death rune", "15", "5/128")),
+                    Map.entry("superior-regular-marble-gargoyle-fire-rune-75",
+                            List.of("Fire rune", "75", "10/128")),
+                    Map.entry("superior-regular-marble-gargoyle-fire-rune-150",
+                            List.of("Fire rune", "150", "6/128")),
+                    Map.entry("superior-regular-marble-gargoyle-gold-bar-10-15-noted",
+                            List.of("Gold bar", "10-15 (noted)", "3/128")),
+                    Map.entry("superior-regular-marble-gargoyle-gold-ore-10-20-noted",
+                            List.of("Gold ore", "10-20 (noted)", "10/128")),
+                    Map.entry("superior-regular-marble-gargoyle-mithril-bar-15-noted",
+                            List.of("Mithril bar", "15 (noted)", "2/128")),
+                    Map.entry("superior-regular-marble-gargoyle-pure-essence-150-noted",
+                            List.of("Pure essence", "150 (noted)", "6/128")),
+                    Map.entry("superior-regular-marble-gargoyle-rune-2h-sword-1",
+                            List.of("Rune 2h sword", "1", "2/128")),
+                    Map.entry("superior-regular-marble-gargoyle-rune-battleaxe-1",
+                            List.of("Rune battleaxe", "1", "1/128")),
+                    Map.entry("superior-regular-marble-gargoyle-rune-full-helm-1",
+                            List.of("Rune full helm", "1", "3/128")),
+                    Map.entry("superior-regular-marble-gargoyle-rune-platelegs-1",
+                            List.of("Rune platelegs", "1", "1/128")),
+                    Map.entry("superior-regular-marble-gargoyle-runite-ore-1",
+                            List.of("Runite ore", "1", "2/128")),
+                    Map.entry("superior-regular-marble-gargoyle-steel-bar-15-noted",
+                            List.of("Steel bar", "15 (noted)", "6/128")))),
+            Map.entry("Choke devil", Map.ofEntries(
+                    Map.entry("superior-regular-choke-devil-adamant-axe-1",
+                            List.of("Adamant axe", "1", "3/128")),
+                    Map.entry("superior-regular-choke-devil-adamantite-bar-4-noted",
+                            List.of("Adamantite bar", "4 (noted)", "1/128")),
+                    Map.entry("superior-regular-choke-devil-air-battlestaff-1",
+                            List.of("Air battlestaff", "1", "2/128")),
+                    Map.entry("superior-regular-choke-devil-black-d-hide-vambraces-1",
+                            List.of("Black d'hide vambraces", "1", "1/128")),
+                    Map.entry("superior-regular-choke-devil-chaos-rune-80",
+                            List.of("Chaos rune", "80", "7/128")),
+                    Map.entry("superior-regular-choke-devil-coins-2000-4000",
+                            List.of("Coins", "2000-4000", "32/128")),
+                    Map.entry("superior-regular-choke-devil-dragon-chainbody-1",
+                            List.of("Dragon chainbody", "1", "1/32768")),
+                    Map.entry("superior-regular-choke-devil-dragon-dagger-1",
+                            List.of("Dragon dagger", "1", "1/128")),
+                    Map.entry("superior-regular-choke-devil-dust-battlestaff-1",
+                            List.of("Dust battlestaff", "1", "1/4000")),
+                    Map.entry("superior-regular-choke-devil-dust-rune-200",
+                            List.of("Dust rune", "200", "10/128")),
+                    Map.entry("superior-regular-choke-devil-earth-battlestaff-1",
+                            List.of("Earth battlestaff", "1", "2/128")),
+                    Map.entry("superior-regular-choke-devil-earth-rune-300",
+                            List.of("Earth rune", "300", "10/128")),
+                    Map.entry("superior-regular-choke-devil-fire-rune-50",
+                            List.of("Fire rune", "50", "1/128")),
+                    Map.entry("superior-regular-choke-devil-fire-rune-300",
+                            List.of("Fire rune", "300", "10/128")),
+                    Map.entry("superior-regular-choke-devil-mithril-bar-10-noted",
+                            List.of("Mithril bar", "10 (noted)", "3/128")),
+                    Map.entry("superior-regular-choke-devil-mystic-air-staff-1",
+                            List.of("Mystic air staff", "1", "1/128")),
+                    Map.entry("superior-regular-choke-devil-mystic-earth-staff-1",
+                            List.of("Mystic earth staff", "1", "1/128")),
+                    Map.entry("superior-regular-choke-devil-red-d-hide-vambraces-1",
+                            List.of("Red d'hide vambraces", "1", "2/128")),
+                    Map.entry("superior-regular-choke-devil-rune-arrow-12",
+                            List.of("Rune arrow", "12", "5/128")),
+                    Map.entry("superior-regular-choke-devil-rune-dagger-1",
+                            List.of("Rune dagger", "1", "2/128")),
+                    Map.entry("superior-regular-choke-devil-soul-rune-50",
+                            List.of("Soul rune", "50", "1/128")),
+                    Map.entry("superior-regular-choke-devil-soul-rune-20",
+                            List.of("Soul rune", "20", "4/128")),
+                    Map.entry("superior-regular-choke-devil-ugthanki-kebab-4",
+                            List.of("Ugthanki kebab", "4", "2/128")))));
+
+    private static final Map<String, Long> SUPERIOR_ROLL_REVISIONS = Map.of(
+            "Cave abomination", 15373805L, "Marble gargoyle", 15383620L, "Choke devil", 15373841L);
+
     private final Gson gson;
     private final DropLookupService drops;
     private final MonsterLocationLookupService locations;
@@ -119,6 +239,7 @@ public class AccessRequirementLookupService
         addReviewedFacts(ReviewedRows.readDatedFacts(gson, "/group_reward_access.json", "id", this::readGroupReward), ids);
         addReviewedFacts(ReviewedRows.readDatedFacts(gson, "/sentinel_spawn_context.json", "id", this::readSentinelSpawn), ids);
         addReviewedFacts(ReviewedRows.readDatedFacts(gson, "/sentinel_regular_rolls.json", "id", this::readSentinelRoll), ids);
+        addReviewedFacts(ReviewedRows.readDatedFacts(gson, "/superior_regular_rolls.json", "id", this::readSuperiorRoll), ids);
         loaded = true;
     }
 
@@ -129,15 +250,44 @@ public class AccessRequirementLookupService
                 byMonster.computeIfAbsent(normalize(fact.getMonsterName()), unused -> new ArrayList<>()).add(fact);
     }
 
-    private AccessRequirement readSentinelRoll(JsonObject row, String id)
+    private AccessRequirement readRegularRoll(JsonObject row)
     {
         fields(row, "id,monsterName,itemName,scope,appliesTo,type,perRoll,dropSignature,text,evidence", "");
         fields(object(row.get("dropSignature")), "quantity,dropRate,notes", "");
         require(row.get("perRoll").isJsonPrimitive() && row.getAsJsonPrimitive("perRoll").isBoolean()
                 && row.get("perRoll").getAsBoolean(), "Missing per-roll basis");
         AccessRequirement fact = gson.fromJson(row, AccessRequirement.class);
-        require(valid(fact) && fact.isPerRollContext() && fact.getMonsterName().equals("Basilisk Sentinel")
-                && fact.getEvidence().size() == 1, "Unreviewed Sentinel regular row");
+        require(valid(fact) && fact.isPerRollContext() && fact.getEvidence().size() == 1,
+                "Unreviewed regular-roll context");
+        return fact;
+    }
+
+    private AccessRequirement readSuperiorRoll(JsonObject row, String id)
+    {
+        AccessRequirement fact = readRegularRoll(row);
+        Map<String, List<String>> reviewed = SUPERIOR_REGULAR_ROWS.get(fact.getMonsterName());
+        require(reviewed != null && reviewed.containsKey(id), "Unreviewed superior regular row");
+        List<String> expected = reviewed.get(id);
+        DropSource drop = fact.boundDrop();
+        require(expected.equals(List.of(drop.getItemName(), drop.getQuantity(), drop.getDropRate()))
+                && "".equals(drop.getNotes()) && drops.hasUniqueRecordedDrop(drop),
+                "Unmatched superior regular-roll signature");
+        long revision = SUPERIOR_ROLL_REVISIONS.get(fact.getMonsterName());
+        AccessRequirement.Evidence proof = fact.getEvidence().get(0);
+        require(proof.getPage().equals(fact.getMonsterName()) && proof.getRevisionId() == revision
+                && proof.getSourceUrl().equals("https://oldschool.runescape.wiki/w/"
+                        + fact.getMonsterName().replace(' ', '_') + "?oldid=" + revision),
+                "Changed superior roll primary");
+        require(fact.getText().equals("Three additional item rolls per kill, with at most one from the superior unique table. "
+                + "Guaranteed, tertiary and pre-roll drops are separate."),
+                "Changed superior roll explanation");
+        return fact;
+    }
+
+    private AccessRequirement readSentinelRoll(JsonObject row, String id)
+    {
+        AccessRequirement fact = readRegularRoll(row);
+        require(fact.getMonsterName().equals("Basilisk Sentinel"), "Unreviewed Sentinel regular row");
         DropSource drop = fact.boundDrop();
         List<String> expected = SENTINEL_REGULAR_ROWS.get(fact.getItemName());
         require(expected != null && id.equals("sentinel-regular-" + fact.getItemName().toLowerCase(Locale.ROOT).replace(' ', '-'))

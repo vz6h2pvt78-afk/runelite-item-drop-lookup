@@ -1,0 +1,1238 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-05T12:54:15Z",
+  "facts": [
+    {
+      "id": "superior-regular-cave-abomination-adamant-full-helm-1",
+      "monsterName": "Cave abomination",
+      "itemName": "Adamant full helm",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Cave abomination",
+          "revisionId": 15373805,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Cave_abomination?oldid=15373805"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-cave-abomination-black-mask-10-1",
+      "monsterName": "Cave abomination",
+      "itemName": "Black mask (10)",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/512",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Cave abomination",
+          "revisionId": 15373805,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Cave_abomination?oldid=15373805"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-cave-abomination-coins-440",
+      "monsterName": "Cave abomination",
+      "itemName": "Coins",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "440",
+        "dropRate": "1/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Cave abomination",
+          "revisionId": 15373805,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Cave_abomination?oldid=15373805"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-cave-abomination-coins-132",
+      "monsterName": "Cave abomination",
+      "itemName": "Coins",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "132",
+        "dropRate": "12/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Cave abomination",
+          "revisionId": 15373805,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Cave_abomination?oldid=15373805"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-cave-abomination-coins-44",
+      "monsterName": "Cave abomination",
+      "itemName": "Coins",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "44",
+        "dropRate": "28/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Cave abomination",
+          "revisionId": 15373805,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Cave_abomination?oldid=15373805"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-cave-abomination-limpwurt-root-1",
+      "monsterName": "Cave abomination",
+      "itemName": "Limpwurt root",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "7/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Cave abomination",
+          "revisionId": 15373805,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Cave_abomination?oldid=15373805"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-cave-abomination-mahogany-logs-2",
+      "monsterName": "Cave abomination",
+      "itemName": "Mahogany logs",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "2",
+        "dropRate": "3/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Cave abomination",
+          "revisionId": 15373805,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Cave_abomination?oldid=15373805"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-cave-abomination-mithril-axe-1",
+      "monsterName": "Cave abomination",
+      "itemName": "Mithril axe",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "3/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Cave abomination",
+          "revisionId": 15373805,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Cave_abomination?oldid=15373805"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-cave-abomination-mithril-kiteshield-1",
+      "monsterName": "Cave abomination",
+      "itemName": "Mithril kiteshield",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Cave abomination",
+          "revisionId": 15373805,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Cave_abomination?oldid=15373805"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-cave-abomination-nature-rune-3",
+      "monsterName": "Cave abomination",
+      "itemName": "Nature rune",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "3",
+        "dropRate": "1/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Cave abomination",
+          "revisionId": 15373805,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Cave_abomination?oldid=15373805"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-cave-abomination-nature-rune-4",
+      "monsterName": "Cave abomination",
+      "itemName": "Nature rune",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "4",
+        "dropRate": "5/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Cave abomination",
+          "revisionId": 15373805,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Cave_abomination?oldid=15373805"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-cave-abomination-nature-rune-6",
+      "monsterName": "Cave abomination",
+      "itemName": "Nature rune",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "6",
+        "dropRate": "6/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Cave abomination",
+          "revisionId": 15373805,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Cave_abomination?oldid=15373805"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-cave-abomination-rune-dagger-1",
+      "monsterName": "Cave abomination",
+      "itemName": "Rune dagger",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Cave abomination",
+          "revisionId": 15373805,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Cave_abomination?oldid=15373805"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-cave-abomination-teak-logs-4-noted",
+      "monsterName": "Cave abomination",
+      "itemName": "Teak logs",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "4 (noted)",
+        "dropRate": "7/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Cave abomination",
+          "revisionId": 15373805,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Cave_abomination?oldid=15373805"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-marble-gargoyle-adamant-boots-1",
+      "monsterName": "Marble gargoyle",
+      "itemName": "Adamant boots",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Marble gargoyle",
+          "revisionId": 15383620,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Marble_gargoyle?oldid=15383620"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-marble-gargoyle-adamant-platelegs-1",
+      "monsterName": "Marble gargoyle",
+      "itemName": "Adamant platelegs",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "4/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Marble gargoyle",
+          "revisionId": 15383620,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Marble_gargoyle?oldid=15383620"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-marble-gargoyle-chaos-rune-30",
+      "monsterName": "Marble gargoyle",
+      "itemName": "Chaos rune",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "30",
+        "dropRate": "8/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Marble gargoyle",
+          "revisionId": 15383620,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Marble_gargoyle?oldid=15383620"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-marble-gargoyle-coins-500-1000",
+      "monsterName": "Marble gargoyle",
+      "itemName": "Coins",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "500-1000",
+        "dropRate": "20/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Marble gargoyle",
+          "revisionId": 15383620,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Marble_gargoyle?oldid=15383620"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-marble-gargoyle-coins-400-800",
+      "monsterName": "Marble gargoyle",
+      "itemName": "Coins",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "400-800",
+        "dropRate": "28/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Marble gargoyle",
+          "revisionId": 15383620,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Marble_gargoyle?oldid=15383620"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-marble-gargoyle-coins-10000",
+      "monsterName": "Marble gargoyle",
+      "itemName": "Coins",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "10000",
+        "dropRate": "5/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Marble gargoyle",
+          "revisionId": 15383620,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Marble_gargoyle?oldid=15383620"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-marble-gargoyle-death-rune-15",
+      "monsterName": "Marble gargoyle",
+      "itemName": "Death rune",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "15",
+        "dropRate": "5/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Marble gargoyle",
+          "revisionId": 15383620,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Marble_gargoyle?oldid=15383620"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-marble-gargoyle-fire-rune-75",
+      "monsterName": "Marble gargoyle",
+      "itemName": "Fire rune",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "75",
+        "dropRate": "10/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Marble gargoyle",
+          "revisionId": 15383620,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Marble_gargoyle?oldid=15383620"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-marble-gargoyle-fire-rune-150",
+      "monsterName": "Marble gargoyle",
+      "itemName": "Fire rune",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "150",
+        "dropRate": "6/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Marble gargoyle",
+          "revisionId": 15383620,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Marble_gargoyle?oldid=15383620"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-marble-gargoyle-gold-bar-10-15-noted",
+      "monsterName": "Marble gargoyle",
+      "itemName": "Gold bar",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "10-15 (noted)",
+        "dropRate": "3/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Marble gargoyle",
+          "revisionId": 15383620,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Marble_gargoyle?oldid=15383620"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-marble-gargoyle-gold-ore-10-20-noted",
+      "monsterName": "Marble gargoyle",
+      "itemName": "Gold ore",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "10-20 (noted)",
+        "dropRate": "10/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Marble gargoyle",
+          "revisionId": 15383620,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Marble_gargoyle?oldid=15383620"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-marble-gargoyle-mithril-bar-15-noted",
+      "monsterName": "Marble gargoyle",
+      "itemName": "Mithril bar",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "15 (noted)",
+        "dropRate": "2/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Marble gargoyle",
+          "revisionId": 15383620,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Marble_gargoyle?oldid=15383620"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-marble-gargoyle-pure-essence-150-noted",
+      "monsterName": "Marble gargoyle",
+      "itemName": "Pure essence",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "150 (noted)",
+        "dropRate": "6/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Marble gargoyle",
+          "revisionId": 15383620,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Marble_gargoyle?oldid=15383620"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-marble-gargoyle-rune-2h-sword-1",
+      "monsterName": "Marble gargoyle",
+      "itemName": "Rune 2h sword",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "2/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Marble gargoyle",
+          "revisionId": 15383620,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Marble_gargoyle?oldid=15383620"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-marble-gargoyle-rune-battleaxe-1",
+      "monsterName": "Marble gargoyle",
+      "itemName": "Rune battleaxe",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Marble gargoyle",
+          "revisionId": 15383620,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Marble_gargoyle?oldid=15383620"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-marble-gargoyle-rune-full-helm-1",
+      "monsterName": "Marble gargoyle",
+      "itemName": "Rune full helm",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "3/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Marble gargoyle",
+          "revisionId": 15383620,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Marble_gargoyle?oldid=15383620"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-marble-gargoyle-rune-platelegs-1",
+      "monsterName": "Marble gargoyle",
+      "itemName": "Rune platelegs",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Marble gargoyle",
+          "revisionId": 15383620,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Marble_gargoyle?oldid=15383620"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-marble-gargoyle-runite-ore-1",
+      "monsterName": "Marble gargoyle",
+      "itemName": "Runite ore",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "2/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Marble gargoyle",
+          "revisionId": 15383620,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Marble_gargoyle?oldid=15383620"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-marble-gargoyle-steel-bar-15-noted",
+      "monsterName": "Marble gargoyle",
+      "itemName": "Steel bar",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "15 (noted)",
+        "dropRate": "6/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Marble gargoyle",
+          "revisionId": 15383620,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Marble_gargoyle?oldid=15383620"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-choke-devil-adamant-axe-1",
+      "monsterName": "Choke devil",
+      "itemName": "Adamant axe",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "3/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Choke devil",
+          "revisionId": 15373841,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Choke_devil?oldid=15373841"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-choke-devil-adamantite-bar-4-noted",
+      "monsterName": "Choke devil",
+      "itemName": "Adamantite bar",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "4 (noted)",
+        "dropRate": "1/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Choke devil",
+          "revisionId": 15373841,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Choke_devil?oldid=15373841"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-choke-devil-air-battlestaff-1",
+      "monsterName": "Choke devil",
+      "itemName": "Air battlestaff",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "2/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Choke devil",
+          "revisionId": 15373841,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Choke_devil?oldid=15373841"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-choke-devil-black-d-hide-vambraces-1",
+      "monsterName": "Choke devil",
+      "itemName": "Black d'hide vambraces",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Choke devil",
+          "revisionId": 15373841,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Choke_devil?oldid=15373841"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-choke-devil-chaos-rune-80",
+      "monsterName": "Choke devil",
+      "itemName": "Chaos rune",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "80",
+        "dropRate": "7/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Choke devil",
+          "revisionId": 15373841,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Choke_devil?oldid=15373841"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-choke-devil-coins-2000-4000",
+      "monsterName": "Choke devil",
+      "itemName": "Coins",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "2000-4000",
+        "dropRate": "32/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Choke devil",
+          "revisionId": 15373841,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Choke_devil?oldid=15373841"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-choke-devil-dragon-chainbody-1",
+      "monsterName": "Choke devil",
+      "itemName": "Dragon chainbody",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/32768",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Choke devil",
+          "revisionId": 15373841,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Choke_devil?oldid=15373841"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-choke-devil-dragon-dagger-1",
+      "monsterName": "Choke devil",
+      "itemName": "Dragon dagger",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Choke devil",
+          "revisionId": 15373841,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Choke_devil?oldid=15373841"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-choke-devil-dust-battlestaff-1",
+      "monsterName": "Choke devil",
+      "itemName": "Dust battlestaff",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/4000",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Choke devil",
+          "revisionId": 15373841,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Choke_devil?oldid=15373841"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-choke-devil-dust-rune-200",
+      "monsterName": "Choke devil",
+      "itemName": "Dust rune",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "200",
+        "dropRate": "10/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Choke devil",
+          "revisionId": 15373841,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Choke_devil?oldid=15373841"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-choke-devil-earth-battlestaff-1",
+      "monsterName": "Choke devil",
+      "itemName": "Earth battlestaff",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "2/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Choke devil",
+          "revisionId": 15373841,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Choke_devil?oldid=15373841"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-choke-devil-earth-rune-300",
+      "monsterName": "Choke devil",
+      "itemName": "Earth rune",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "300",
+        "dropRate": "10/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Choke devil",
+          "revisionId": 15373841,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Choke_devil?oldid=15373841"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-choke-devil-fire-rune-50",
+      "monsterName": "Choke devil",
+      "itemName": "Fire rune",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "50",
+        "dropRate": "1/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Choke devil",
+          "revisionId": 15373841,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Choke_devil?oldid=15373841"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-choke-devil-fire-rune-300",
+      "monsterName": "Choke devil",
+      "itemName": "Fire rune",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "300",
+        "dropRate": "10/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Choke devil",
+          "revisionId": 15373841,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Choke_devil?oldid=15373841"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-choke-devil-mithril-bar-10-noted",
+      "monsterName": "Choke devil",
+      "itemName": "Mithril bar",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "10 (noted)",
+        "dropRate": "3/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Choke devil",
+          "revisionId": 15373841,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Choke_devil?oldid=15373841"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-choke-devil-mystic-air-staff-1",
+      "monsterName": "Choke devil",
+      "itemName": "Mystic air staff",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Choke devil",
+          "revisionId": 15373841,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Choke_devil?oldid=15373841"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-choke-devil-mystic-earth-staff-1",
+      "monsterName": "Choke devil",
+      "itemName": "Mystic earth staff",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Choke devil",
+          "revisionId": 15373841,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Choke_devil?oldid=15373841"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-choke-devil-red-d-hide-vambraces-1",
+      "monsterName": "Choke devil",
+      "itemName": "Red d'hide vambraces",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "2/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Choke devil",
+          "revisionId": 15373841,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Choke_devil?oldid=15373841"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-choke-devil-rune-arrow-12",
+      "monsterName": "Choke devil",
+      "itemName": "Rune arrow",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "12",
+        "dropRate": "5/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Choke devil",
+          "revisionId": 15373841,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Choke_devil?oldid=15373841"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-choke-devil-rune-dagger-1",
+      "monsterName": "Choke devil",
+      "itemName": "Rune dagger",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "2/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Choke devil",
+          "revisionId": 15373841,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Choke_devil?oldid=15373841"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-choke-devil-soul-rune-50",
+      "monsterName": "Choke devil",
+      "itemName": "Soul rune",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "50",
+        "dropRate": "1/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Choke devil",
+          "revisionId": 15373841,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Choke_devil?oldid=15373841"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-choke-devil-soul-rune-20",
+      "monsterName": "Choke devil",
+      "itemName": "Soul rune",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "20",
+        "dropRate": "4/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Choke devil",
+          "revisionId": 15373841,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Choke_devil?oldid=15373841"
+        }
+      ]
+    },
+    {
+      "id": "superior-regular-choke-devil-ugthanki-kebab-4",
+      "monsterName": "Choke devil",
+      "itemName": "Ugthanki kebab",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "4",
+        "dropRate": "2/128",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill, with at most one from the superior unique table. Guaranteed, tertiary and pre-roll drops are separate.",
+      "evidence": [
+        {
+          "page": "Choke devil",
+          "revisionId": 15373841,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Choke_devil?oldid=15373841"
+        }
+      ]
+    }
+  ]
+}

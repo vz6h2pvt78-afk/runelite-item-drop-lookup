@@ -85,6 +85,71 @@ public class AccessRequirementLookupServiceTest
             assertNull(AccessRequirement.perRollContextIn(access.forSource(new DropSource("Adamant kiteshield", monster, "1", "1/52", ""))));
     }
 
+    @Test
+    public void superiorOrdinaryRollsBindOnlyTheReviewedExactRows() throws Exception
+    {
+        Gson gson = new Gson();
+        DropLookupService drops = new DropLookupService(gson);
+        AccessRequirementLookupService access = new AccessRequirementLookupService(gson, drops);
+        java.util.Map<String, Integer> counts = new java.util.HashMap<>();
+        java.util.Map<String, String> parents = java.util.Map.of(
+                "Cave abomination", "Cave horror", "Marble gargoyle", "Gargoyle", "Choke devil", "Dust devil");
+        int excluded = 0;
+        try (java.io.Reader input = new java.io.InputStreamReader(
+                getClass().getResourceAsStream("/wiki_monster_drops.json"), java.nio.charset.StandardCharsets.UTF_8))
+        {
+            for (DropSource source : gson.fromJson(input, DropSource[].class))
+            {
+                if (!parents.containsKey(source.getMonsterName())) continue;
+                List<AccessRequirement> facts = access.forSource(source);
+                assertFalse(facts.stream().anyMatch(AccessRequirement::isSpawnContext));
+                AccessRequirement context = AccessRequirement.perRollContextIn(facts);
+                if (context == null)
+                {
+                    excluded++;
+                    continue;
+                }
+                counts.merge(source.getMonsterName(), 1, Integer::sum);
+                assertEquals(1, facts.stream().filter(AccessRequirement::isPerRollContext).count());
+                assertEquals(AccessRequirement.Scope.ITEM, context.getScope());
+                assertEquals(AppliesTo.DROP_CONTEXT, context.getAppliesTo());
+                assertFalse(context.isSourceCardRequirement());
+                assertTrue(context.getText().contains("pre-roll drops are separate"));
+                assertNull(AccessRequirement.perRollContextIn(access.forSource(new DropSource(
+                        source.getItemName(), source.getMonsterName(), "999", source.getDropRate(), source.getNotes()))));
+                assertNull(AccessRequirement.perRollContextIn(access.forSource(new DropSource(
+                        source.getItemName(), source.getMonsterName(), source.getQuantity(), "1/999", source.getNotes()))));
+                assertNull(AccessRequirement.perRollContextIn(access.forSource(new DropSource(
+                        source.getItemName(), source.getMonsterName(), source.getQuantity(), source.getDropRate(), "Changed notes"))));
+                assertNull(AccessRequirement.perRollContextIn(access.forSource(new DropSource(
+                        source.getItemName(), parents.get(source.getMonsterName()),
+                        source.getQuantity(), source.getDropRate(), source.getNotes()))));
+            }
+        }
+        assertEquals(java.util.Map.of("Cave abomination", 14, "Marble gargoyle", 19, "Choke devil", 23), counts);
+        assertEquals(10, excluded);
+    }
+
+    @Test
+    public void superiorRepeatedItemsKeepDistinctSignaturesAndPreRollsStaySeparate()
+    {
+        Gson gson = new Gson();
+        DropLookupService drops = new DropLookupService(gson);
+        AccessRequirementLookupService access = new AccessRequirementLookupService(gson, drops);
+        List<DropSource> nature = drops.searchByItemName("Nature rune").stream()
+                .filter(source -> source.getMonsterName().equals("Cave abomination"))
+                .collect(java.util.stream.Collectors.toList());
+        assertEquals(3, nature.size());
+        assertEquals(3, nature.stream().map(DropSource::getQuantity).distinct().count());
+        assertEquals(3, nature.stream().map(DropSource::getDropRate).distinct().count());
+        assertEquals(3, nature.stream().map(source -> AccessRequirement.perRollContextIn(access.forSource(source)).getId())
+                .distinct().count());
+        for (String item : new String[]{"Granite maul", "Mystic robe top (dark)", "Brittle key", "Brimstone key"})
+            for (DropSource source : drops.searchByItemName(item))
+                if (source.getMonsterName().equals("Marble gargoyle"))
+                    assertNull(AccessRequirement.perRollContextIn(access.forSource(source)));
+    }
+
     private final AccessRequirementLookupService requirements = new AccessRequirementLookupService(new Gson());
     private final MonsterLocationLookupService locations = new MonsterLocationLookupService(new Gson());
 

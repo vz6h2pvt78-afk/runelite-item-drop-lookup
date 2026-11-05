@@ -128,7 +128,7 @@ def main():
     resources = ROOT / "src/main/resources"
     read = lambda name: json.loads((resources / name).read_text(encoding="utf-8"))
     data = read("access_requirements.json")
-    supplements = ["reviewed_slayer_access.json", "shark_bounty_access.json", "ocean_bounty_access.json", "item_access.json", "lair_access.json", "group_reward_access.json", "sentinel_spawn_context.json", "sentinel_regular_rolls.json"]
+    supplements = ["reviewed_slayer_access.json", "shark_bounty_access.json", "ocean_bounty_access.json", "item_access.json", "lair_access.json", "group_reward_access.json", "sentinel_spawn_context.json", "sentinel_regular_rolls.json", "superior_regular_rolls.json"]
     locations, drops = read("monster_locations.json"), read("wiki_monster_drops.json")
     errors = []
     for name in supplements:
