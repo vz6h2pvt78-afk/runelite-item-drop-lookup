@@ -21,6 +21,7 @@ import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -32,6 +33,8 @@ public class DropLookupService
     private final Gson gson;
     private List<DropRecord> dropRecords;
     private Map<String, List<DropRecord>> recordsByItemName;
+    private Set<String> reviewedEchoSources = Collections.emptySet();
+    private Set<String> reviewedSourceItems = Collections.emptySet();
 
     @Inject
     public DropLookupService(Gson gson)
@@ -68,7 +71,8 @@ public class DropLookupService
         }
 
         return matches.stream()
-                .filter(record -> AcquisitionSourceRules.isOrdinaryDrop(record.itemName, record.monsterName))
+                .filter(record -> AcquisitionSourceRules.isOrdinaryDrop(record.itemName, record.monsterName)
+                        && !reviewedEchoSources.contains(record.monsterName))
                 .map(record -> new DropSource(
                         record.itemName,
                         record.monsterName,
@@ -79,6 +83,22 @@ public class DropLookupService
                 ))
                 .sorted(Comparator.comparing(DropSource::getMonsterName, String.CASE_INSENSITIVE_ORDER))
                 .collect(Collectors.toList());
+    }
+
+    /** Retain a reviewed source-only identity even when its available sources are excluded. */
+    public Optional<String> findReviewedSourceItemName(String query)
+    {
+        if (query == null || query.trim().isEmpty()) return Optional.empty();
+        List<DropRecord> records = getDropRecords();
+        for (String name : reviewedSourceItems)
+            if (name.equalsIgnoreCase(query.trim())) return Optional.of(name);
+        List<String> matches = ItemNameMatching.bestMatches(query, reviewedSourceItems, name -> name);
+        if (matches.size() != 1 || ItemNameMatching.rank(query, matches.get(0)) > 1) return Optional.empty();
+        String candidate = matches.get(0);
+        List<DropRecord> recordedMatches = ItemNameMatching.bestMatches(query, records, record -> record.itemName);
+        if (recordedMatches.isEmpty() || recordedMatches.stream().anyMatch(record -> !candidate.equalsIgnoreCase(record.itemName)))
+            return Optional.empty();
+        return Optional.of(candidate);
     }
 
     boolean hasUniqueRecordedDrop(DropSource key)
@@ -174,7 +194,7 @@ public class DropLookupService
         return dp[first.length()][second.length()];
     }
 
-    private Map<String, List<DropRecord>> getRecordsByItemName()
+    private synchronized Map<String, List<DropRecord>> getRecordsByItemName()
     {
         if (recordsByItemName != null)
         {
@@ -197,7 +217,7 @@ public class DropLookupService
         return recordsByItemName;
     }
 
-    private List<DropRecord> getDropRecords()
+    private synchronized List<DropRecord> getDropRecords()
     {
         if (dropRecords != null)
         {
@@ -242,6 +262,12 @@ public class DropLookupService
                     AnimatorReward reward = reviewed.get(record.monsterName);
                     if (reward != null && Integer.toString(reward.getBase()).equals(record.quantity)) record.animatorReward = reward;
                 }
+                Set<String> exclusions = AcquisitionSourceRules.reviewedEchoSources(gson);
+                Set<String> identities = dropRecords.stream()
+                        .filter(record -> record.itemName != null && exclusions.contains(record.monsterName))
+                        .map(record -> record.itemName).collect(Collectors.toCollection(LinkedHashSet::new));
+                reviewedSourceItems = Collections.unmodifiableSet(identities);
+                reviewedEchoSources = exclusions;
             }
 
             if (dropRecords == null)

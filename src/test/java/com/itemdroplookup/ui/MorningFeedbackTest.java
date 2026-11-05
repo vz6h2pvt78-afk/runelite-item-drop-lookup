@@ -468,6 +468,30 @@ public class MorningFeedbackTest
         });
     }
 
+    @Test public void excludedSourceRetainsExactIdentityAndBackWithoutSelectingAnotherBlowpipe() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            List<String> reports = new ArrayList<>();
+            ItemDropLookupPanel p = panel(reports);
+            search(p,"Dragon warhammer");click(p,"showDropSources");click(p,"copyReport");
+            String previous = reports.get(reports.size()-1);
+            search(p,"Drygore blowpipe (empty)");click(p,"copyReport");
+            String empty = reports.get(reports.size()-1);
+            assertTrue(empty.contains("Item: Drygore blowpipe (empty)"));
+            assertTrue(empty.contains("Recorded sources: 0"));
+            assertTrue(labels(p).contains("No acquisition sources recorded"));
+            assertFalse(labels(p).contains("Kalphite Queen (Echo)"));
+            click(p,"backToPreviousItem");click(p,"copyReport");
+            assertEquals(previous,reports.get(reports.size()-1));
+            search(p,"drygoreblowpipeempty");click(p,"copyReport");
+            assertTrue(reports.get(reports.size()-1).contains("Item: Drygore blowpipe (empty)"));
+            search(p,"blowpipe");click(p,"copyReport");
+            assertFalse(reports.get(reports.size()-1).contains("\nItem:"));
+            assertFalse(labels(p).contains("Kalphite Queen (Echo)"));
+            p.dispose();
+        });
+    }
+
     private static JButton conditionalDetailButton(Container root, String monster)
     {
         for (Component c : root.getComponents())

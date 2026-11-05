@@ -1,0 +1,8 @@
+S32A - Reviewed Echo source scope
+
+Exactly20 reviewed Echo rows across14 source identities are excluded from ordinary acquisition output.15 item identities remain recognizable from their actual raw rows. Raw15018 drop rows and all location data stay byte-identical. Ordinary Hespori Tangleroot remains. Full5664-query comparison proves all retained sources, bindings, facts and other methods preserved.9137catalog queries and1187potion cases remain identical.226Java/182Python and official standard package/API/validators/fonts passed.18metadata/raw-change/optional-resource/collision cases, concurrent first-load checks,14two-size report captures and37Wilderness reports passed. The closed14source evidence matrix uses saved Wiki primaries. Native appearance, clipboard and gameplay acceptance remain pending. C3g is the accepted fallback and the Hub is unchanged.
+
+Starting commit a1c08ed434c683022b179a2cf8bb7d4215c8ddea
+Build development-2026-11-04-s32a-echo-source-scope
+Official package SHA256 d4ad0a0426d4dd0fba7a0676c5515ca802988ac6713a43b2c1c3d6637def1ab4
+Human acceptance pending.
