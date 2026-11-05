@@ -42,6 +42,13 @@ class SlayerEvidenceTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "combat-level prose"):
             source.facts_for(harm)
 
+    def test_smoke_devil_needs_independent_skill_task_and_protection_evidence(self):
+        pin = json.loads((source.PINS / "Smoke_devil.json").read_text(encoding="utf8"))
+        self.assertEqual(["SKILL","ACTIVE_TASK","EQUIPMENT"], [f["type"] for f in source.facts_for(pin)])
+        pin["additionalFacts"][0]["support"] = ["Different unverified assignment"]
+        with self.assertRaisesRegex(ValueError, "Missing evidence"):
+            source.facts_for(pin)
+
     def test_brine_rat_fight_and_task_proofs_are_independent(self):
         pin = json.loads((source.PINS/"Brine_rat.json").read_text(encoding="utf8"))
         facts = source.facts_for(pin)

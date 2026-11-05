@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-05T01:45:00Z",
+  "checkedAt": "2026-11-05T01:52:00Z",
   "facts": [
     {
       "monsterName": "Aberrant spectre",
@@ -246,6 +246,38 @@
       "text": "17 Slayer to kill."
     },
     {
+      "monsterName": "Cockatrice",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Cockatrice",
+          "revisionId": 15374532,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Cockatrice?oldid=15374532"
+        }
+      ],
+      "id": "cockatrice-slayer",
+      "appliesTo": "COMBAT",
+      "type": "SKILL",
+      "skill": "Slayer",
+      "level": 25,
+      "text": "25 Slayer to kill."
+    },
+    {
+      "monsterName": "Cockatrice",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Cockatrice",
+          "revisionId": 15374532,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Cockatrice?oldid=15374532"
+        }
+      ],
+      "id": "cockatrice-protection",
+      "appliesTo": "PROTECTION",
+      "type": "EQUIPMENT",
+      "text": "A mirror shield or V's shield protects against the piercing gaze and its stat drain."
+    },
+    {
       "monsterName": "Crawling Hand",
       "scope": "MONSTER",
       "evidence": [
@@ -261,6 +293,23 @@
       "skill": "Slayer",
       "level": 5,
       "text": "5 Slayer to kill."
+    },
+    {
+      "monsterName": "Drake",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Drake",
+          "revisionId": 15371749,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Drake?oldid=15371749"
+        }
+      ],
+      "id": "drake-slayer",
+      "appliesTo": "COMBAT",
+      "type": "SKILL",
+      "skill": "Slayer",
+      "level": 84,
+      "text": "84 Slayer to kill."
     },
     {
       "monsterName": "Kurask",
@@ -357,6 +406,85 @@
       "appliesTo": "FINISHING",
       "type": "EQUIPMENT",
       "text": "Use a bag of salt at 4 Hitpoints or lower, or use a brine sabre to finish the kill."
+    },
+    {
+      "monsterName": "Skeletal Wyvern",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Skeletal Wyvern",
+          "revisionId": 15359558,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Skeletal_Wyvern?oldid=15359558"
+        }
+      ],
+      "id": "skeletal-wyvern-slayer",
+      "appliesTo": "COMBAT",
+      "type": "SKILL",
+      "skill": "Slayer",
+      "level": 72,
+      "text": "72 Slayer to harm."
+    },
+    {
+      "monsterName": "Skeletal Wyvern",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Skeletal Wyvern",
+          "revisionId": 15359558,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Skeletal_Wyvern?oldid=15359558"
+        }
+      ],
+      "id": "skeletal-wyvern-protection",
+      "appliesTo": "PROTECTION",
+      "type": "EQUIPMENT",
+      "text": "An elemental shield, mind shield, dragonfire shield, dragonfire ward or ancient wyvern shield reduces icy breath damage."
+    },
+    {
+      "monsterName": "Smoke devil",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Smoke devil",
+          "revisionId": 15357607,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Smoke_devil?oldid=15357607"
+        }
+      ],
+      "id": "smoke-devil-slayer",
+      "appliesTo": "COMBAT",
+      "type": "SKILL",
+      "skill": "Slayer",
+      "level": 93,
+      "text": "93 Slayer to harm."
+    },
+    {
+      "monsterName": "Smoke devil",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Smoke devil",
+          "revisionId": 15357607,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Smoke_devil?oldid=15357607"
+        }
+      ],
+      "id": "smoke-devil-combat",
+      "appliesTo": "COMBAT",
+      "type": "ACTIVE_TASK",
+      "text": "An active Smoke devil task to harm it."
+    },
+    {
+      "monsterName": "Smoke devil",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Smoke devil",
+          "revisionId": 15357607,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Smoke_devil?oldid=15357607"
+        }
+      ],
+      "id": "smoke-devil-protection",
+      "appliesTo": "PROTECTION",
+      "type": "EQUIPMENT",
+      "text": "Wear a facemask, Slayer helmet or Slayer helmet (i)."
     },
     {
       "monsterName": "Spiritual mage",

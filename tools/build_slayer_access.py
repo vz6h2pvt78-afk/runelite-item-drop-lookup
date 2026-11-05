@@ -62,7 +62,9 @@ def facts_for(pin, locations=None):
     verb = pin.get("combatVerb", "kill")
     if verb not in ("kill", "harm", "fight"):
         raise ValueError("Unreviewed combat verb")
-    pattern = rf"requir(?:e|es|ing) (?:a )?(?:level {level} Slayer|Slayer level of {level}|{level} Slayer) (?:in order )?to {verb}\b"
+    action = r"(?:harm|be harmed)" if verb == "harm" else verb
+    pattern = (rf"requir(?:e|es|ing) (?:a )?(?:minimum of )?(?:level {level} Slayer|Slayer level of {level}|{level} Slayer)"
+               rf"(?: and an active Slayer task)? (?:in order )?to {action}\b")
     listed_kill_conditions = rf"\bKilling them requires [^.!?\n]*\blevel {level} Slayer\b"
     passive = rf"\bSlayer level of {level} is required to {verb} them\b"
     if not (re.search(pattern, plain, re.I) or re.search(passive, plain, re.I)
@@ -76,7 +78,7 @@ def facts_for(pin, locations=None):
     for extra in pin["additionalFacts"]:
         if not extra["support"] or not all(fragment in plain for fragment in extra["support"]):
             raise ValueError("Missing evidence for "+name+" "+extra["appliesTo"])
-        if (extra["appliesTo"], extra["type"]) not in {("PROTECTION","EQUIPMENT"),("PROTECTION","CONTEXT"),("FINISHING","EQUIPMENT"),("COMBAT","CONTEXT"),("TASK_ELIGIBILITY","QUEST")}:
+        if (extra["appliesTo"], extra["type"]) not in {("PROTECTION","EQUIPMENT"),("PROTECTION","CONTEXT"),("FINISHING","EQUIPMENT"),("COMBAT","CONTEXT"),("COMBAT","ACTIVE_TASK"),("TASK_ELIGIBILITY","QUEST")}:
             raise ValueError("Unsupported monster mechanic")
         result.append(dict(base,id=prefix+"-"+extra["appliesTo"].lower().replace("_","-"),appliesTo=extra["appliesTo"],type=extra["type"],text=extra["text"]))
     if "locationReview" in pin:
@@ -87,7 +89,7 @@ def build():
     locations = json.loads((ROOT / "src/main/resources/monster_locations.json").read_text(encoding="utf8"))
     facts=[fact for p in sorted(PINS.glob("*.json")) for fact in facts_for(json.loads(p.read_text(encoding="utf8")), locations)]
     if not facts or len({f["id"] for f in facts})!=len(facts):raise ValueError("Missing or duplicate facts")
-    return {"schemaVersion":1,"checkedAt":"2026-11-05T01:45:00Z","facts":facts}
+    return {"schemaVersion":1,"checkedAt":"2026-11-05T01:52:00Z","facts":facts}
 
 if __name__=="__main__":
     parser=argparse.ArgumentParser();parser.add_argument("--check",action="store_true");args=parser.parse_args()

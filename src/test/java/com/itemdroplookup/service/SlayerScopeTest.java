@@ -62,6 +62,26 @@ public class SlayerScopeTest
                 .stream().anyMatch(f -> f.getType() == AccessRequirement.Type.ACTIVE_TASK));
     }
 
+    @Test public void gearSourcesDistinguishCombatTaskAndProtection()
+    {
+        List<AccessRequirement> smoke = facts("Smoke devil");
+        assertEquals(3, smoke.size());
+        assertTrue(smoke.stream().anyMatch(f -> f.getText().equals("93 Slayer to harm.") && f.isSourceCardRequirement()));
+        assertTrue(smoke.stream().anyMatch(f -> f.getType()==AccessRequirement.Type.ACTIVE_TASK && f.isSourceCardRequirement()));
+        assertTrue(smoke.stream().anyMatch(f -> f.getAppliesTo()==AccessRequirement.AppliesTo.PROTECTION
+                && !f.isSourceCardRequirement() && f.getText().contains("facemask, Slayer helmet or Slayer helmet (i)")));
+        List<AccessRequirement> wyvern = facts("Skeletal Wyvern");
+        assertEquals(2, wyvern.size());
+        assertTrue(wyvern.stream().anyMatch(f -> f.getText().equals("72 Slayer to harm.")));
+        assertTrue(wyvern.stream().anyMatch(f -> f.getLabel().equals("Protection")
+                && f.getText().contains("elemental shield, mind shield, dragonfire shield, dragonfire ward or ancient wyvern shield reduces")));
+        assertMonster("Cockatrice",25,"Protection","mirror shield or V's shield");
+        assertEquals(1, facts("Drake").size());
+        assertEquals("84 Slayer to kill.", facts("Drake").get(0).getText());
+        for (String other : List.of("Guardian Drake","Thermonuclear smoke devil","Choke devil","Cockathrice","Ancient Wyvern"))
+            assertTrue(other, facts(other).isEmpty());
+    }
+
     @Test public void basementUnlockRequiresOneVerifiedLocationAndExactVersion()
     {
         Gson g = new Gson();

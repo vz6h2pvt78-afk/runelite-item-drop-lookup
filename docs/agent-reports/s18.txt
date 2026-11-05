@@ -1,0 +1,8 @@
+S18 - Gear source combat conditions
+
+Smoke devil now shows 93 Slayer, an active task to harm it, and its face protection. Skeletal Wyvern shows 72 Slayer to harm and five alternative forms of icy-breath protection. Cockatrice shows 25 Slayer and gaze protection. Drake shows 84 Slayer to kill, with dungeon heat and diary conditions held. Eight verified facts enriched 112 existing drop contexts. All 5,664 queries kept their prior counts, rates, quantities and bindings. Both Java runs passed 194 tests, Python passed 148. Package/API, exact named card renders, generator and recovery checks passed. Check Occult necklace, Granite legs, Mystic boots (light) and Drake's tooth.
+
+Starting commit 5a6ef8172a0ea54a8eaf82cfb9e29d670589192a
+Build development-2026-11-04-s18-gear-combat-context
+Official package SHA256 2caf90e118aed00869ec38edd91cc555ecaf4c4e99ae7a522f21126809382822
+Human acceptance pending.

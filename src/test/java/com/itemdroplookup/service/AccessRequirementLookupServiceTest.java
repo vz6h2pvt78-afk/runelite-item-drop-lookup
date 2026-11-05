@@ -47,7 +47,8 @@ public class AccessRequirementLookupServiceTest
         assertTrue(gargoyle.stream().anyMatch(f -> f.getText().contains("use a rock hammer or rock thrownhammer at 8 HP or lower")
                 && f.getText().contains("wield a granite hammer for automatic finishing")));
         for (String related : new String[]{"Choke devil", "Smoke devil", "Marble gargoyle", "Grotesque Guardians"})
-            assertTrue(related, facts(related, "Coins").isEmpty());
+            assertFalse(related, facts(related, "Coins").stream()
+                    .anyMatch(f -> f.getId().startsWith("dust-devil-") || f.getId().startsWith("gargoyle-")));
         assertFalse(dust.stream().anyMatch(f -> f.getType() == AccessRequirement.Type.ACTIVE_TASK));
         assertFalse(gargoyle.stream().anyMatch(f -> f.getType() == AccessRequirement.Type.ACTIVE_TASK));
     }
