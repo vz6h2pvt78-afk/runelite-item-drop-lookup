@@ -370,7 +370,8 @@ public class MonsterLocationPanel extends JPanel
                     .append(DropRatePresentation.quantityWithContext(source, rollContext)).append('\n')
                     .append(rollContext.getLabel()).append(": ").append(rollContext.getText()).append('\n');
         for (AccessRequirement fact : sourceFacts)
-            if (fact.isSpawnContext()) report.append(fact.getLabel()).append(": ").append(fact.getText()).append('\n');
+            if (fact.isSpawnContext() || fact.isBoundItemDropContext())
+                report.append(fact.getLabel()).append(": ").append(fact.getText()).append('\n');
         RoamingEncounter roaming = match.getRoamingEncounter();
         if (roaming != null && MonsterLocationFilter.matches(roaming, (WildernessFilter) wilderness.getSelectedItem(),
                 (MembershipFilter) membership.getSelectedItem()))

@@ -166,6 +166,9 @@ public class AccessRequirementLookupService
     private static final Map<String, Long> SUPERIOR_ROLL_REVISIONS = Map.of(
             "Cave abomination", 15373805L, "Marble gargoyle", 15383620L, "Choke devil", 15373841L);
 
+    private static final Map<String, Long> BRITTLE_KEY_REVISIONS = Map.of(
+            "Gargoyle", 15385687L, "Marble gargoyle", 15383620L);
+
     private final Gson gson;
     private final DropLookupService drops;
     private final MonsterLocationLookupService locations;
@@ -240,6 +243,7 @@ public class AccessRequirementLookupService
         addReviewedFacts(ReviewedRows.readDatedFacts(gson, "/sentinel_spawn_context.json", "id", this::readSentinelSpawn), ids);
         addReviewedFacts(ReviewedRows.readDatedFacts(gson, "/sentinel_regular_rolls.json", "id", this::readSentinelRoll), ids);
         addReviewedFacts(ReviewedRows.readDatedFacts(gson, "/superior_regular_rolls.json", "id", this::readSuperiorRoll), ids);
+        addReviewedFacts(ReviewedRows.readDatedFacts(gson, "/brittle_key_conditions.json", "id", this::readBrittleKeyCondition), ids);
         loaded = true;
     }
 
@@ -248,6 +252,29 @@ public class AccessRequirementLookupService
         for (AccessRequirement fact : facts.values())
             if (ids.add(fact.getId()))
                 byMonster.computeIfAbsent(normalize(fact.getMonsterName()), unused -> new ArrayList<>()).add(fact);
+    }
+
+    private AccessRequirement readBrittleKeyCondition(JsonObject row, String id)
+    {
+        fields(row, "id,monsterName,itemName,scope,appliesTo,type,dropSignature,text,evidence", "");
+        fields(object(row.get("dropSignature")), "quantity,dropRate,notes", "");
+        AccessRequirement fact = gson.fromJson(row, AccessRequirement.class);
+        require(valid(fact) && fact.isBoundItemDropContext() && fact.getEvidence().size() == 1
+                && BRITTLE_KEY_REVISIONS.containsKey(fact.getMonsterName()), "Unreviewed Brittle key condition");
+        DropSource drop = fact.boundDrop();
+        require(id.equals("brittle-key-" + fact.getMonsterName().toLowerCase(Locale.ROOT).replace(' ', '-'))
+                && "Brittle key".equals(drop.getItemName()) && "1".equals(drop.getQuantity())
+                && "1/150".equals(drop.getDropRate()) && "".equals(drop.getNotes())
+                && drops.hasUniqueRecordedDrop(drop), "Unmatched Brittle key signature");
+        long revision = BRITTLE_KEY_REVISIONS.get(fact.getMonsterName());
+        AccessRequirement.Evidence proof = fact.getEvidence().get(0);
+        require(proof.getPage().equals(fact.getMonsterName()) && proof.getRevisionId() == revision
+                && proof.getSourceUrl().equals("https://oldschool.runescape.wiki/w/"
+                        + fact.getMonsterName().replace(' ', '_') + "?oldid=" + revision),
+                "Changed Brittle key primary");
+        require(fact.getText().equals("Requires a Gargoyles Slayer task, Slayer Tower roof access still locked, "
+                + "and no Brittle key in your bank or inventory."), "Changed Brittle key conditions");
+        return fact;
     }
 
     private AccessRequirement readRegularRoll(JsonObject row)

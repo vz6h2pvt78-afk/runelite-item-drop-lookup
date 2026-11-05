@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-05T13:12:00Z",
+  "facts": [
+    {
+      "id": "brittle-key-gargoyle",
+      "monsterName": "Gargoyle",
+      "itemName": "Brittle key",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "CONTEXT",
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/150",
+        "notes": ""
+      },
+      "text": "Requires a Gargoyles Slayer task, Slayer Tower roof access still locked, and no Brittle key in your bank or inventory.",
+      "evidence": [
+        {
+          "page": "Gargoyle",
+          "revisionId": 15385687,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Gargoyle?oldid=15385687"
+        }
+      ]
+    },
+    {
+      "id": "brittle-key-marble-gargoyle",
+      "monsterName": "Marble gargoyle",
+      "itemName": "Brittle key",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "CONTEXT",
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/150",
+        "notes": ""
+      },
+      "text": "Requires a Gargoyles Slayer task, Slayer Tower roof access still locked, and no Brittle key in your bank or inventory.",
+      "evidence": [
+        {
+          "page": "Marble gargoyle",
+          "revisionId": 15383620,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Marble_gargoyle?oldid=15383620"
+        }
+      ]
+    }
+  ]
+}

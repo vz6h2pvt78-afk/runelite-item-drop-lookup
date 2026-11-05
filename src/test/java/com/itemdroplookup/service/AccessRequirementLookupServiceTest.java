@@ -150,6 +150,42 @@ public class AccessRequirementLookupServiceTest
                     assertNull(AccessRequirement.perRollContextIn(access.forSource(source)));
     }
 
+    @Test
+    public void brittleKeyConditionsStayOnTwoExactItemDrops()
+    {
+        Gson gson = new Gson();
+        DropLookupService drops = new DropLookupService(gson);
+        AccessRequirementLookupService access = new AccessRequirementLookupService(gson, drops);
+        List<DropSource> keys = drops.searchByItemName("Brittle key");
+        assertEquals(2, keys.size());
+        for (DropSource source : keys)
+        {
+            List<AccessRequirement> conditions = access.forSource(source).stream()
+                    .filter(AccessRequirement::isBoundItemDropContext).collect(java.util.stream.Collectors.toList());
+            assertEquals(1, conditions.size());
+            AccessRequirement fact = conditions.get(0);
+            assertEquals("For this drop", fact.getLabel());
+            assertFalse(fact.isSpawnContext());
+            assertFalse(fact.isPerRollContext());
+            assertEquals("1/150", source.getDropRate());
+            assertEquals("1", source.getQuantity());
+            assertEquals(source.getMonsterName(), fact.getEvidence().get(0).getPage());
+            assertTrue(fact.getText().contains("Gargoyles Slayer task"));
+            assertTrue(fact.getText().contains("roof access still locked"));
+            assertTrue(fact.getText().contains("no Brittle key in your bank or inventory"));
+            for (DropSource wrong : List.of(
+                    new DropSource("Coins", source.getMonsterName(), "1", "1/150", ""),
+                    new DropSource("Brittle key", source.getMonsterName(), "2", "1/150", ""),
+                    new DropSource("Brittle key", source.getMonsterName(), "1", "1/151", ""),
+                    new DropSource("Brittle key", source.getMonsterName(), "1", "1/150", "Changed"),
+                    new DropSource("Brittle key", "Bloodthirsty gargoyle", "1", "1/150", "")))
+                assertFalse(access.forSource(wrong).stream().anyMatch(AccessRequirement::isBoundItemDropContext));
+        }
+        DropSource groupBone = drops.searchByItemName("Bones").stream()
+                .filter(source -> source.getMonsterName().equals("Callisto")).findFirst().get();
+        assertFalse(access.forSource(groupBone).stream().anyMatch(AccessRequirement::isBoundItemDropContext));
+    }
+
     private final AccessRequirementLookupService requirements = new AccessRequirementLookupService(new Gson());
     private final MonsterLocationLookupService locations = new MonsterLocationLookupService(new Gson());
 

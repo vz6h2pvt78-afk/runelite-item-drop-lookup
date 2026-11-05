@@ -106,6 +106,12 @@ public final class AccessRequirement
         }
     }
 
+    public boolean isBoundItemDropContext()
+    {
+        return scope == Scope.ITEM && appliesTo == AppliesTo.ITEM_DROP && type == Type.CONTEXT
+                && dropSignature != null && groupRewardRole == null;
+    }
+
     public boolean isSpawnContext()
     {
         return scope == Scope.MONSTER && appliesTo == AppliesTo.ENCOUNTER_CONTEXT && type == Type.CONTEXT;

@@ -1,0 +1,14 @@
+S39 - Brittle key drop conditions
+
+Adds independently sourced For this drop conditions to Gargoyle and Marble gargoyle Brittle key rows. Each cached primary explicitly requires a Gargoyles Slayer task, Slayer Tower roof access still locked, and no Brittle key in bank/inventory. Existing quantity1/rate1/150/source counts/bindings remain intact. The excluded Bloodthirsty gargoyle source stays excluded. No account evaluation or hiding.
+
+The semantic signature-bound ITEM/ITEM_DROP/CONTEXT predicate appends the visible condition only in selected detail Copy reports. Group recipient, spawn, per-roll and other reporting retain their own behavior. Source facts remain visible above location filters. Back restores the original report exactly.
+
+244Java/197Python, full validators, officialJava11/RuneLite1.13.5 package/API and packaged tests/fonts passed.31malformed/mismatched/failure cases passed. All15018original rows retain identical source facts except these two additions; all prior JSON/font resources are byte-identical.60focused and378superior report comparisons prove exactly the two selected Brittle key identities gain the condition, with build/dataset metadata normalized. The 56superior and15Sentinel per-roll contexts remain intact.
+
+Both text sizes and8source/detail captures reviewed. Native appearance/clipboard/keyboard/gameplay acceptance remains Apollo's gate. S34 client remains open; no foreground input. S37spawn chains, Marblepre-rolls and S35Goblin title artifact remain held. C3g and acceptedHub frozen; externalresearchclosed15/15. Local test candidate only.
+
+Starting commit 6b7e783f4f20899d099e23f3b9385cba71c1f144
+Build development-2026-11-05-s39-brittle-key-conditions
+Official package SHA256 c420e75f894bd4586078e34485b53b86dc1b94557d428924d8d8fbaabe14171a
+Human acceptance pending.
