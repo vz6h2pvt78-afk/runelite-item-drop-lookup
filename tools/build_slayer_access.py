@@ -10,6 +10,18 @@ ROOT = Path(__file__).resolve().parents[1]
 PINS = ROOT / "tools/fixtures/slayer_access"
 OUTPUT = ROOT / "src/main/resources/reviewed_slayer_access.json"
 
+def exact_monster_name(box, title):
+    numbered = {key[4:]:value for key, value in box.items() if re.fullmatch(r"name\d+", key)}
+    names = list(numbered.values())
+    if "name" in box:
+        names.append(box["name"])
+    else:
+        versions = {key[7:] for key in box if re.fullmatch(r"version\d+", key)}
+        if not versions or versions != numbered.keys():
+            return False
+    return bool(names) and all(value.strip().casefold() == title.casefold() for value in names)
+
+
 def facts_for(pin):
     raw, name, level = pin["wikitext"],pin["title"],pin["slayerLevel"]
     if hashlib.sha256(raw.encode()).hexdigest()!=pin["wikitextSha256"]:
@@ -21,27 +33,30 @@ def facts_for(pin):
             for key, value in wrapper.items():
                 if re.fullmatch(r"item\d+",key):
                     boxes.extend(p for _,_,t,p,_ in templates(value) if t == "infobox monster")
-    if not boxes or any(p.get("name","").strip().casefold()!=name.casefold() for p in boxes):
+    if not boxes or not all(exact_monster_name(box, name) for box in boxes):
         raise ValueError("Monster infobox identity unclear for "+name)
     for box in boxes:
         levels = {value.strip() for key, value in box.items() if re.fullmatch(r"slaylvl\d*", key)}
         if levels != {str(level)}:
             raise ValueError("Contradictory or missing Slayer level for " + name)
     plain = re.sub(r"\[\[(?:[^\]|]+\|)?([^\]]+)\]\]",r"\1",raw)
-    pattern = rf"requir(?:e|es) (?:a )?(?:level {level} Slayer|Slayer level of {level}) to kill"
+    verb = pin.get("combatVerb", "kill")
+    if verb not in ("kill", "harm"):
+        raise ValueError("Unreviewed combat verb")
+    pattern = rf"requir(?:e|es|ing) (?:a )?(?:level {level} Slayer|Slayer level of {level}|{level} Slayer) (?:in order )?to {verb}\b"
     if not re.search(pattern,plain,re.I):
-        raise ValueError("Missing kill-level prose for "+name)
+        raise ValueError("Missing combat-level prose for "+name)
     rev = pin["revisionId"]
     evidence=[{"page":name,"revisionId":rev,"sourceUrl":"https://oldschool.runescape.wiki/w/"+name.replace(" ","_")+"?oldid="+str(rev)}]
     prefix=name.lower().replace(" ","-")
     base={"monsterName":name,"scope":"MONSTER","evidence":evidence}
-    result=[dict(base,id=prefix+"-slayer",appliesTo="COMBAT",type="SKILL",skill="Slayer",level=level,text=f"{level} Slayer to kill.")]
+    result=[dict(base,id=prefix+"-slayer",appliesTo="COMBAT",type="SKILL",skill="Slayer",level=level,text=f"{level} Slayer to {verb}.")]
     for extra in pin["additionalFacts"]:
         if not extra["support"] or not all(fragment in plain for fragment in extra["support"]):
             raise ValueError("Missing evidence for "+name+" "+extra["appliesTo"])
-        if (extra["appliesTo"], extra["type"]) not in {("PROTECTION","EQUIPMENT"),("FINISHING","EQUIPMENT"),("COMBAT","CONTEXT")}:
+        if (extra["appliesTo"], extra["type"]) not in {("PROTECTION","EQUIPMENT"),("FINISHING","EQUIPMENT"),("COMBAT","CONTEXT"),("TASK_ELIGIBILITY","QUEST")}:
             raise ValueError("Unsupported monster mechanic")
-        result.append(dict(base,id=prefix+"-"+extra["appliesTo"].lower(),appliesTo=extra["appliesTo"],type=extra["type"],text=extra["text"]))
+        result.append(dict(base,id=prefix+"-"+extra["appliesTo"].lower().replace("_","-"),appliesTo=extra["appliesTo"],type=extra["type"],text=extra["text"]))
     return result
 
 def build():

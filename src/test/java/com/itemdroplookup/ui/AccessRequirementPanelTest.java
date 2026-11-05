@@ -51,6 +51,23 @@ public class AccessRequirementPanelTest
     }
 
     @Test
+    public void assignmentQuestsAppearOnceInMonsterDetails() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            for (String[] entry : new String[][]{{"Nechryael", "Rune boots", "nechryael", "80 Slayer to harm", "Priest in Peril"},
+                    {"Spiritual mage", "Dragon boots", "spiritual-mage", "83 Slayer to kill", "Death Plateau"}})
+            {
+                MonsterLocationPanel panel = detail(entry[0], entry[1]);
+                assertEquals(1, named(panel, "requirement:" + entry[2] + "-slayer").size());
+                assertLabel(panel, entry[2] + "-slayer", entry[3]);
+                assertEquals(1, named(panel, "requirement:" + entry[2] + "-task-eligibility").size());
+                assertLabel(panel, entry[2] + "-task-eligibility", "Task eligibility");
+                assertLabel(panel, entry[2] + "-task-eligibility", entry[4]);
+            }
+        });
+    }
+
+    @Test
     public void equipmentActionsStayVisibleOnTheSourceAndInDetails() throws Exception
     {
         SwingUtilities.invokeAndWait(() -> {

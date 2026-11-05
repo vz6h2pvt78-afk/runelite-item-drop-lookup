@@ -99,6 +99,23 @@
       "text": "Equip a mirror shield or V's shield to prevent the combat stat drain."
     },
     {
+      "monsterName": "Bloodveld",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Bloodveld",
+          "revisionId": 15378518,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Bloodveld?oldid=15378518"
+        }
+      ],
+      "id": "bloodveld-slayer",
+      "appliesTo": "COMBAT",
+      "type": "SKILL",
+      "skill": "Slayer",
+      "level": 50,
+      "text": "50 Slayer to kill."
+    },
+    {
       "monsterName": "Cave crawler",
       "scope": "MONSTER",
       "evidence": [
@@ -182,6 +199,38 @@
       "text": "For ordinary attacks, use leaf-bladed weapons, broad ammunition or Magic Dart. Burn damage can also apply."
     },
     {
+      "monsterName": "Nechryael",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Nechryael",
+          "revisionId": 15385695,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Nechryael?oldid=15385695"
+        }
+      ],
+      "id": "nechryael-slayer",
+      "appliesTo": "COMBAT",
+      "type": "SKILL",
+      "skill": "Slayer",
+      "level": 80,
+      "text": "80 Slayer to harm."
+    },
+    {
+      "monsterName": "Nechryael",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Nechryael",
+          "revisionId": 15385695,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Nechryael?oldid=15385695"
+        }
+      ],
+      "id": "nechryael-task-eligibility",
+      "appliesTo": "TASK_ELIGIBILITY",
+      "type": "QUEST",
+      "text": "Complete Priest in Peril to receive Nechryael Slayer tasks."
+    },
+    {
       "monsterName": "Rockslug",
       "scope": "MONSTER",
       "evidence": [
@@ -212,6 +261,38 @@
       "appliesTo": "FINISHING",
       "type": "EQUIPMENT",
       "text": "Use a bag of salt at 4 Hitpoints or lower, or use a brine sabre to finish the kill."
+    },
+    {
+      "monsterName": "Spiritual mage",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Spiritual mage",
+          "revisionId": 15339602,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Spiritual_mage?oldid=15339602"
+        }
+      ],
+      "id": "spiritual-mage-slayer",
+      "appliesTo": "COMBAT",
+      "type": "SKILL",
+      "skill": "Slayer",
+      "level": 83,
+      "text": "83 Slayer to kill."
+    },
+    {
+      "monsterName": "Spiritual mage",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Spiritual mage",
+          "revisionId": 15339602,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Spiritual_mage?oldid=15339602"
+        }
+      ],
+      "id": "spiritual-mage-task-eligibility",
+      "appliesTo": "TASK_ELIGIBILITY",
+      "type": "QUEST",
+      "text": "Complete Death Plateau to receive Spiritual creatures Slayer tasks."
     },
     {
       "monsterName": "Turoth",

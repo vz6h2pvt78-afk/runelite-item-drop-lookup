@@ -39,6 +39,22 @@ public class SlayerScopeTest
         assertTrue(facts("Orca").isEmpty());
     }
 
+    @Test public void threeNamedMonstersKeepCombatVerbsAndQuestAssignmentSeparate()
+    {
+        for (String[] row : new String[][]{{"Bloodveld","50 Slayer to kill.",""},{"Nechryael","80 Slayer to harm.","Priest in Peril"},
+                {"Spiritual mage","83 Slayer to kill.","Death Plateau"}})
+        {
+            List<AccessRequirement> entries = facts(row[0]);
+            assertEquals(row[2].isEmpty() ? 1 : 2, entries.size());
+            assertTrue(entries.stream().anyMatch(f -> f.isSourceCardRequirement() && f.getText().equals(row[1])));
+            if (!row[2].isEmpty()) assertTrue(entries.stream().anyMatch(f -> f.getLabel().equals("Task eligibility")
+                    && !f.isSourceCardFact() && f.getText().contains(row[2])));
+        }
+        for (String name : List.of("Mutated Bloodveld","Greater Nechryael","Spiritual warrior","Spiritual ranger"))
+            assertFalse(facts(name).stream().anyMatch(f -> f.getId().equals("bloodveld-slayer") || f.getId().equals("nechryael-slayer")
+                    || f.getId().equals("spiritual-mage-slayer")));
+    }
+
     @Test public void laterMonstersKeepAttackRulesAndProtectionWithTheirExactCreature()
     {
         assertMonster("Basilisk", 40, "Protection", "mirror shield or V's shield");

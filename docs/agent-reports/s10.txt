@@ -1,0 +1,8 @@
+S10 - Slayer levels on gear sources
+
+Bloodveld shows 50 Slayer to kill, Nechryael 80 Slayer to harm, and Spiritual mage 83 Slayer to kill. The two verified quest conditions are labelled as task assignment in details. Infobox variants, skill levels and matching prose were checked, including all five Spiritual mage names. These changes enriched 101 existing drop contexts. The 5,664-query comparison matched S9 on all identities, counts, rates, quantities and bindings. Both Java runs passed 184 tests, Python passed 138, and package/API, sidebar, offline generation and recovery checks passed. Check Rune boots and Dragon boots in the client and compare Greater Nechryael separately.
+
+Starting commit f77baaee08429d478b23f2a4159df4b0eb7c4dc7
+Build development-2026-11-04-s10-slayer-gear-sources
+Official package SHA256 00e16f5c9a1407cda871f374be20dc65af12763f056c3895111c5f7709e4e7f2
+Human acceptance pending.
