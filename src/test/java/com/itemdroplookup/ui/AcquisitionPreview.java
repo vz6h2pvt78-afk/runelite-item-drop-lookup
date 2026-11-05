@@ -23,6 +23,7 @@ public final class AcquisitionPreview
                     {"Logs", "Gathering", ""}, {"Amulet of glory", "Loot & containers", ""},
                     {"Mystic robe bottom", "Loot & containers", ""}, {"Snapdragon seed", "Loot & containers", ""},
                     {"Dragon arrow", "Loot & containers", ""}, {"Dragon dagger(p++)", "Loot & containers", ""},
+                    {"Warrior guild token", "NPC Drops", "Animated Adamant Armour", "magical animator"},
                     {"Black mask (10)", "NPC Drops", "Cave horror", "witchwood icon", "70e74913efa330ff38bc"},
                     {"Rune boots", "NPC Drops", "Nechryael", "80 Slayer to harm"}, {"Dragon boots", "NPC Drops", "Spiritual mage", "83 Slayer to kill"},
                     {"Bull shark jaw", "NPC Drops", "Bull shark", "applicable bounty task"},

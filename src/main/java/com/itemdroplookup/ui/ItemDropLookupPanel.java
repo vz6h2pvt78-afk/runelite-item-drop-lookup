@@ -1143,8 +1143,15 @@ public class ItemDropLookupPanel extends PluginPanel
         if (boundContexts.isVariant(source)) card.add(makeCardTitle(boundContexts.variantTitle(source), wrapWidth));
         addBoundDanger(card, source);
 
+        if (source.getAnimatorReward() != null)
+        {
+            card.add(makeCardTitle("Create opponent", wrapWidth));
+            card.add(makeCardLine(source.getAnimatorReward().getSetupText(), wrapWidth));
+        }
         card.add(makeCardLine(DropRatePresentation.sourceRateLine(source), wrapWidth));
         card.add(makeCardLine("Quantity: " + DropQuantity.display(source), wrapWidth));
+        if (source.getAnimatorReward() != null)
+            card.add(makeCardLine(source.getAnimatorReward().getRewardText(), wrapWidth));
 
         if (source.getNotes() != null && !source.getNotes().isEmpty())
         {

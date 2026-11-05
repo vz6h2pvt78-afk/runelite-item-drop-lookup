@@ -50,6 +50,8 @@ final class BoundDropContexts
     boolean find(DropSource drop, String query, WildernessFilter filter)
     {
         if (query.isEmpty() || drop.getMonsterName().toLowerCase(Locale.ROOT).contains(query)) return true;
+        if (drop.getAnimatorReward() != null && (drop.getAnimatorReward().getSetupText().toLowerCase(Locale.ROOT).contains(query)
+                || drop.getAnimatorReward().getEquipment().stream().anyMatch(item -> item.toLowerCase(Locale.ROOT).contains(query)))) return true;
         return locations.getOrDefault(drop, Collections.emptyList()).stream()
                 .filter(l -> MonsterLocationFilter.matches(l, filter, MonsterLocationFilter.MembershipFilter.ALL))
                 .anyMatch(l -> l.getLocation() != null && l.getLocation().toLowerCase(Locale.ROOT).contains(query));

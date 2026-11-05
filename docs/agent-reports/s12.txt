@@ -1,0 +1,8 @@
+S12 - Animated armour token rewards
+
+Seven existing Warrior guild token sources now show the three armour pieces used on the magical animator before the reward. Each tier's base, Easy and Medium Combat Achievement amounts come from that tier's own pinned page. Searching the source list for an exact armour item also finds the matching opponent. The raw source records and 5,664-query inventory were byte-identical to S11. The returned armour stays suppressed under equipment searches. Both Java runs passed 186 tests, Python passed 141, with package/API, both sidebar sizes, generator and recovery verified. Try Warrior guild token, find Adamant full helm, compare the card and detail, then search Adamant platebody as the item itself.
+
+Starting commit b54498306fc026c82e8a05c6f659d004cfac1c69
+Build development-2026-11-04-s12-animator-tokens
+Official package SHA256 d8464f17309e4736a84945732aa0ef9672972bcb9ee033c64d4a23a6f878ed53
+Human acceptance pending.

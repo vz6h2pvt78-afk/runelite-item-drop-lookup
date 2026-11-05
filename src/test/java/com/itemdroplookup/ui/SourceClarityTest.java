@@ -257,6 +257,46 @@ public class SourceClarityTest
         assertNull(service.findExactBulkOffer("Sawmill voucher (x10)"));
     }
 
+    @Test public void sevenTokenRewardsKeepOneSourceAndTheMatchingPreparation() throws Exception
+    {
+        Gson g = new Gson();
+        DropLookupService drops = new DropLookupService(g);
+        List<DropSource> tokens = drops.searchByItemName("Warrior guild token");
+        assertEquals(7, tokens.stream().filter(s -> s.getAnimatorReward() != null).count());
+        String[] metals = {"Bronze","Iron","Steel","Black","Mithril","Adamant","Rune"};
+        int[][] amounts = {{5,10,15},{10,20,30},{15,30,45},{20,40,60},{25,50,75},{30,60,90},{40,80,120}};
+        for (int i = 0; i < metals.length; i++)
+        {
+            String metal = metals[i];
+            String name = "Animated " + metal + " Armour";
+            DropSource token = tokens.stream().filter(s -> s.getMonsterName().equals(name)).findFirst().get();
+            com.itemdroplookup.model.AnimatorReward reward = token.getAnimatorReward();
+            assertEquals(Integer.toString(amounts[i][0]), token.getQuantity());
+            assertEquals("Always", token.getDropRate());
+            assertEquals(amounts[i][1], reward.getEasy());
+            assertEquals(amounts[i][2], reward.getMedium());
+            for (String piece : reward.getEquipment())
+                assertFalse(drops.searchByItemName(piece).stream().anyMatch(s -> s.getMonsterName().equals(name)));
+        }
+        SwingUtilities.invokeAndWait(() -> {
+            ItemDropLookupPanel panel = new ItemDropLookupPanel(drops,new ItemSourceLookupService(g),new ItemPriceLookupService(g),
+                    new MonsterLocationLookupService(g),new AccessRequirementLookupService(g));
+            MorningFeedbackTest.search(panel,"Warrior guild token"); PanelTestSupport.openSources(panel);
+            JTextField find = (JTextField)PanelTestSupport.find(panel,"sourceSearch");
+            find.setText("Adamant full helm"); find.postActionEvent();
+            assertEquals(1,named(panel,"dropSourceCard").size());
+            for (int page = 0; page < 2; page++)
+            {
+                String labels = MorningFeedbackTest.labels(panel);
+                assertTrue(labels.contains("Create opponent") && labels.contains("magical animator"));
+                assertTrue(labels.indexOf("magical animator") < labels.indexOf("30 tokens (base)"));
+                assertTrue(labels.contains("30 tokens (base)") && labels.contains("60 tokens after Easy, 90 after Medium"));
+                if (page == 0) MorningFeedbackTest.click(panel,"openLocations");
+            }
+            panel.dispose();
+        });
+    }
+
     @Test public void alternateJawRatesAreFlaggedForOnlyTheReviewedDropSignatures() throws Exception
     {
         for (String[] row : new String[][]{{"Bull shark","1/3"},{"Hammerhead shark","1/2"}})

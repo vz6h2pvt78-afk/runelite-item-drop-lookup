@@ -3,6 +3,7 @@ package com.itemdroplookup.service;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.itemdroplookup.model.DropSource;
+import com.itemdroplookup.model.AnimatorReward;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -71,7 +72,7 @@ public class DropLookupService
                         record.quantity,
                         record.dropRate,
                         record.notes,
-                        record.membersOnly
+                        record.membersOnly, record.animatorReward
                 ))
                 .sorted(Comparator.comparing(DropSource::getMonsterName, String.CASE_INSENSITIVE_ORDER))
                 .collect(Collectors.toList());
@@ -205,6 +206,16 @@ public class DropLookupService
             Type listType = new TypeToken<List<DropRecord>>() {}.getType();
 
             dropRecords = gson.fromJson(reader, listType);
+            if (dropRecords != null)
+            {
+                Map<String, AnimatorReward> reviewed = AnimatorRewards.read(gson);
+                for (DropRecord record : dropRecords)
+                {
+                    if (!"Warrior guild token".equals(record.itemName) || !"Always".equals(record.dropRate) || !"".equals(record.notes)) continue;
+                    AnimatorReward reward = reviewed.get(record.monsterName);
+                    if (reward != null && Integer.toString(reward.getBase()).equals(record.quantity)) record.animatorReward = reward;
+                }
+            }
 
             if (dropRecords == null)
             {
@@ -228,5 +239,6 @@ public class DropLookupService
         private String dropRate;
         private String notes;
         private Boolean membersOnly;
+        private transient AnimatorReward animatorReward;
     }
 }

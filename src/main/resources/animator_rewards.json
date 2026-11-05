@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "rewards": [
+    {
+      "monsterName": "Animated Bronze Armour",
+      "itemName": "Warrior guild token",
+      "quantity": "5",
+      "dropRate": "Always",
+      "notes": "",
+      "metal": "Bronze",
+      "items": [
+        "Bronze platebody",
+        "Bronze platelegs",
+        "Bronze full helm"
+      ],
+      "facility": "Magical animator",
+      "easyTokens": 10,
+      "mediumTokens": 15,
+      "evidence": [
+        {
+          "page": "Animated Bronze Armour",
+          "revisionId": 15364174,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Animated_Bronze_Armour?oldid=15364174"
+        }
+      ]
+    },
+    {
+      "monsterName": "Animated Iron Armour",
+      "itemName": "Warrior guild token",
+      "quantity": "10",
+      "dropRate": "Always",
+      "notes": "",
+      "metal": "Iron",
+      "items": [
+        "Iron platebody",
+        "Iron platelegs",
+        "Iron full helm"
+      ],
+      "facility": "Magical animator",
+      "easyTokens": 20,
+      "mediumTokens": 30,
+      "evidence": [
+        {
+          "page": "Animated Iron Armour",
+          "revisionId": 15364176,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Animated_Iron_Armour?oldid=15364176"
+        }
+      ]
+    },
+    {
+      "monsterName": "Animated Steel Armour",
+      "itemName": "Warrior guild token",
+      "quantity": "15",
+      "dropRate": "Always",
+      "notes": "",
+      "metal": "Steel",
+      "items": [
+        "Steel platebody",
+        "Steel platelegs",
+        "Steel full helm"
+      ],
+      "facility": "Magical animator",
+      "easyTokens": 30,
+      "mediumTokens": 45,
+      "evidence": [
+        {
+          "page": "Animated Steel Armour",
+          "revisionId": 15364175,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Animated_Steel_Armour?oldid=15364175"
+        }
+      ]
+    },
+    {
+      "monsterName": "Animated Black Armour",
+      "itemName": "Warrior guild token",
+      "quantity": "20",
+      "dropRate": "Always",
+      "notes": "",
+      "metal": "Black",
+      "items": [
+        "Black platebody",
+        "Black platelegs",
+        "Black full helm"
+      ],
+      "facility": "Magical animator",
+      "easyTokens": 40,
+      "mediumTokens": 60,
+      "evidence": [
+        {
+          "page": "Animated Black Armour",
+          "revisionId": 15364177,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Animated_Black_Armour?oldid=15364177"
+        }
+      ]
+    },
+    {
+      "monsterName": "Animated Mithril Armour",
+      "itemName": "Warrior guild token",
+      "quantity": "25",
+      "dropRate": "Always",
+      "notes": "",
+      "metal": "Mithril",
+      "items": [
+        "Mithril platebody",
+        "Mithril platelegs",
+        "Mithril full helm"
+      ],
+      "facility": "Magical animator",
+      "easyTokens": 50,
+      "mediumTokens": 75,
+      "evidence": [
+        {
+          "page": "Animated Mithril Armour",
+          "revisionId": 15364178,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Animated_Mithril_Armour?oldid=15364178"
+        }
+      ]
+    },
+    {
+      "monsterName": "Animated Adamant Armour",
+      "itemName": "Warrior guild token",
+      "quantity": "30",
+      "dropRate": "Always",
+      "notes": "",
+      "metal": "Adamant",
+      "items": [
+        "Adamant platebody",
+        "Adamant platelegs",
+        "Adamant full helm"
+      ],
+      "facility": "Magical animator",
+      "easyTokens": 60,
+      "mediumTokens": 90,
+      "evidence": [
+        {
+          "page": "Animated Adamant Armour",
+          "revisionId": 15364179,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Animated_Adamant_Armour?oldid=15364179"
+        }
+      ]
+    },
+    {
+      "monsterName": "Animated Rune Armour",
+      "itemName": "Warrior guild token",
+      "quantity": "40",
+      "dropRate": "Always",
+      "notes": "",
+      "metal": "Rune",
+      "items": [
+        "Rune platebody",
+        "Rune platelegs",
+        "Rune full helm"
+      ],
+      "facility": "Magical animator",
+      "easyTokens": 80,
+      "mediumTokens": 120,
+      "evidence": [
+        {
+          "page": "Animated Rune Armour",
+          "revisionId": 15364180,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Animated_Rune_Armour?oldid=15364180"
+        }
+      ]
+    }
+  ]
+}

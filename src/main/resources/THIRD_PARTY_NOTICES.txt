@@ -25,6 +25,7 @@ Runtime resources under src/main/resources/:
 - cooking_recipes.json adapts the cooking-range table and the successful and burnt outcomes from Shrimps revision 15183319, with Raw shrimps revision 15331265 as supporting evidence. Permanent links are attached to the recipe. The alternate fire mention comes from the article prose.
 - production_recipes.json and wiki_ground_additions.json select the normal furnace recipe and three Bronze bar pickups from https://oldschool.runescape.wiki/w/Special:PermanentLink/15315107 .
 - shop_locations.json links offers to the listed Forestry and Slayer shop branches. Two Slayer stock entries also record their ammunition identity, purchase quantity and full price. https://oldschool.runescape.wiki/w/Special:PermanentLink/15374369 and https://oldschool.runescape.wiki/w/Special:PermanentLink/15373095 .
+- animator_rewards.json records the animator preparation and three stated token awards from each of seven Animated Armour pages. Each entry links the applicable Wiki revision.
 - shark_bounty_access.json records the bounty eligibility and jaw/liver conditions from Bull shark (15372302), Hammerhead shark (15285222) and Tiger shark (15379177). Each fact links its source revision.
 - reviewed_slayer_access.json distinguishes Slayer kill levels, attack conditions, protection and finishing equipment for exact named monsters. Each fact carries the contributor page and permanent revision link.
 

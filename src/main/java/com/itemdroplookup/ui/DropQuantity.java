@@ -11,6 +11,7 @@ final class DropQuantity
 
     static String display(DropSource source)
     {
+        if (source.getAnimatorReward() != null) return source.getAnimatorReward().getBase() + " tokens (base)";
         String raw = source.getQuantity();
         if (raw == null || raw.isEmpty()) return "Not recorded";
         // These two reviewed Duke rows contain alternatives in the same Wiki table cell.

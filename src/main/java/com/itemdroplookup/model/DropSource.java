@@ -3,6 +3,7 @@ package com.itemdroplookup.model;
 public class DropSource
 {
     private final String itemName;
+    private final transient AnimatorReward animatorReward;
     private final String monsterName;
     private final String quantity;
     private final String dropRate;
@@ -16,6 +17,13 @@ public class DropSource
 
     public DropSource(String itemName, String monsterName, String quantity, String dropRate, String notes, Boolean membersOnly)
     {
+        this(itemName, monsterName, quantity, dropRate, notes, membersOnly, null);
+    }
+
+    public DropSource(String itemName, String monsterName, String quantity, String dropRate, String notes,
+            Boolean membersOnly, AnimatorReward animatorReward)
+    {
+        this.animatorReward = animatorReward;
         this.itemName = itemName;
         this.monsterName = monsterName;
         this.quantity = quantity;
@@ -23,6 +31,8 @@ public class DropSource
         this.notes = notes;
         this.membersOnly = membersOnly;
     }
+
+    public AnimatorReward getAnimatorReward() { return animatorReward; }
 
     public String getItemName()
     {
