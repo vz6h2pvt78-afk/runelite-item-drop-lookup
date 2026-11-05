@@ -60,15 +60,16 @@ def facts_for(pin, locations=None):
             raise ValueError("Contradictory or missing Slayer level for " + name)
     plain = re.sub(r"\[\[(?:[^\]|]+\|)?([^\]]+)\]\]",r"\1",raw)
     verb = pin.get("combatVerb", "kill")
-    if verb not in ("kill", "harm", "fight"):
+    if verb not in ("kill", "harm", "fight", "damage"):
         raise ValueError("Unreviewed combat verb")
     action = r"(?:harm|be harmed)" if verb == "harm" else verb
     pattern = (rf"requir(?:e|es|ing) (?:a )?(?:minimum of )?(?:level {level} Slayer|Slayer level of {level}|{level} Slayer)"
-               rf"(?: and an active Slayer task)? (?:in order )?to {action}\b")
+               rf"(?: and an active Slayer task| and completion of [^.!?\n]+)? (?:in order )?to {action}\b")
     listed_kill_conditions = rf"\bKilling them requires [^.!?\n]*\blevel {level} Slayer\b"
+    defeating = rf"\bDefeating {re.escape(name)} requires a Slayer level of {level}\b"
     passive = rf"\bSlayer level of {level} is required to {verb} them\b"
     if not (re.search(pattern, plain, re.I) or re.search(passive, plain, re.I)
-            or (verb == "kill" and re.search(listed_kill_conditions, plain, re.I))):
+            or (verb == "kill" and (re.search(listed_kill_conditions, plain, re.I) or re.search(defeating, plain, re.I)))):
         raise ValueError("Missing combat-level prose for "+name)
     rev = pin["revisionId"]
     evidence=[{"page":name,"revisionId":rev,"sourceUrl":"https://oldschool.runescape.wiki/w/"+name.replace(" ","_")+"?oldid="+str(rev)}]
@@ -78,7 +79,7 @@ def facts_for(pin, locations=None):
     for extra in pin["additionalFacts"]:
         if not extra["support"] or not all(fragment in plain for fragment in extra["support"]):
             raise ValueError("Missing evidence for "+name+" "+extra["appliesTo"])
-        if (extra["appliesTo"], extra["type"]) not in {("PROTECTION","EQUIPMENT"),("PROTECTION","CONTEXT"),("FINISHING","EQUIPMENT"),("COMBAT","CONTEXT"),("COMBAT","ACTIVE_TASK"),("TASK_ELIGIBILITY","QUEST")}:
+        if (extra["appliesTo"], extra["type"]) not in {("PROTECTION","EQUIPMENT"),("PROTECTION","CONTEXT"),("FINISHING","EQUIPMENT"),("COMBAT","CONTEXT"),("COMBAT","ACTIVE_TASK"),("COMBAT","QUEST"),("TASK_ELIGIBILITY","QUEST")}:
             raise ValueError("Unsupported monster mechanic")
         result.append(dict(base,id=prefix+"-"+extra["appliesTo"].lower().replace("_","-"),appliesTo=extra["appliesTo"],type=extra["type"],text=extra["text"]))
     if "locationReview" in pin:
@@ -89,7 +90,7 @@ def build():
     locations = json.loads((ROOT / "src/main/resources/monster_locations.json").read_text(encoding="utf8"))
     facts=[fact for p in sorted(PINS.glob("*.json")) for fact in facts_for(json.loads(p.read_text(encoding="utf8")), locations)]
     if not facts or len({f["id"] for f in facts})!=len(facts):raise ValueError("Missing or duplicate facts")
-    return {"schemaVersion":1,"checkedAt":"2026-11-05T02:18:00Z","facts":facts}
+    return {"schemaVersion":1,"checkedAt":"2026-11-05T04:09:08Z","facts":facts}
 
 if __name__=="__main__":
     parser=argparse.ArgumentParser();parser.add_argument("--check",action="store_true");args=parser.parse_args()

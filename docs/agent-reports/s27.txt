@@ -1,0 +1,8 @@
+S27 - Five Slayer boss requirements
+
+Cerberus shows 91 Slayer only. Alchemical Hydra shows 95 Slayer and the supported active-task alternatives. Abyssal Sire shows 85 Slayer and its qualifying task rule, including the Krystilia exclusion. Basilisk Knight shows 60 Slayer, The Fremennik Exiles and separate mirror/V's shield protection. Thermonuclear smoke devil shows 93 Slayer to damage and the one-kill Western Provinces Diary exception at 93 unboosted Slayer. Active task and quest labels are distinct. Ten new facts apply to 187 exact monster/drop contexts. The 5,664 query identities/counts/methods and all raw drops/bindings are preserved. 211 normal and packaged Java tests, 164 Python tests, full validators/API/packaging, both text sizes, five malformed/missing-overlay scenarios and five source/detail journeys passed. Cerberus task/boosting/clue nuances, Sire Abyss access and Hydra routes remain held. Human acceptance pending.
+
+Starting commit d44bf0884f76a2b9d95f31b62d3ca60cfc929c41
+Build development-2026-11-04-s27-slayer-boss-requirements
+Official package SHA256 e282926dcc6c21d1741fd3ab06594ca04ac62dd3660a8b40b5d8545122351821
+Human acceptance pending.

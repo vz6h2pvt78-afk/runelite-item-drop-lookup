@@ -42,6 +42,24 @@ class SlayerEvidenceTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "combat-level prose"):
             source.facts_for(harm)
 
+    def test_five_specific_monsters_preserve_exact_verb_and_exception(self):
+        expectations = {"Cerberus":(91,"kill",1), "Alchemical_Hydra":(95,"kill",2), "Abyssal_Sire":(85,"kill",2),
+                        "Basilisk_Knight":(60,"kill",3), "Thermonuclear_smoke_devil":(93,"damage",2)}
+        for file,(level,verb,count) in expectations.items():
+            pin = json.loads((source.PINS/(file+".json")).read_text(encoding="utf8"))
+            facts = source.facts_for(pin)
+            self.assertEqual(count,len(facts))
+            self.assertEqual(f"{level} Slayer to {verb}.",facts[0]["text"])
+        thermy = json.loads((source.PINS/"Thermonuclear_smoke_devil.json").read_text(encoding="utf8"))
+        self.assertIn("one off-task kill with 93 unboosted Slayer",source.facts_for(thermy)[1]["text"])
+        thermy["combatVerb"]="kill"
+        with self.assertRaisesRegex(ValueError,"combat-level prose"):
+            source.facts_for(thermy)
+        knight = json.loads((source.PINS/"Basilisk_Knight.json").read_text(encoding="utf8"))
+        knight["additionalFacts"][0]["support"]=["Completion of another quest"]
+        with self.assertRaisesRegex(ValueError,"Missing evidence"):
+            source.facts_for(knight)
+
     def test_three_boot_sources_have_only_their_own_named_kill_level(self):
         for name, level in (("Infernal_Mage",45), ("Jelly",52), ("Pyrefiend",30)):
             pin = json.loads((source.PINS/(name+".json")).read_text(encoding="utf8"))

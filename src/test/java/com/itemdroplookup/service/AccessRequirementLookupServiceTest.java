@@ -68,7 +68,7 @@ public class AccessRequirementLookupServiceTest
     {
         assertEquals(Integer.valueOf(85), facts("Abyssal demon", "Abyssal whip").get(0).getLevel());
         assertEquals(1, facts(" abyssal_demon ", "Abyssal whip").size());
-        assertTrue(facts("Abyssal Sire", "Abyssal whip").isEmpty());
+        assertFalse(facts("Abyssal Sire", "Abyssal whip").stream().anyMatch(f -> f.getId().startsWith("abyssal-demon-")));
         assertTrue(facts("Greater abyssal demon", "Abyssal whip").isEmpty());
     }
 

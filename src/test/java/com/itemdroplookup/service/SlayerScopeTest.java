@@ -33,6 +33,29 @@ public class SlayerScopeTest
         }
     }
 
+    @Test public void fiveNamedSlayerBossesKeepSkillsTasksQuestsAndProtectionSeparate()
+    {
+        for (Object[] row : new Object[][] {{"Cerberus",91,1},{"Alchemical Hydra",95,2},{"Abyssal Sire",85,2},
+                {"Basilisk Knight",60,3},{"Thermonuclear smoke devil",93,2}})
+        {
+            List<AccessRequirement> reviewed = facts((String)row[0]);
+            assertEquals(row[0].toString(),((Integer)row[2]).intValue(),reviewed.size());
+            AccessRequirement skill = reviewed.stream().filter(f->f.getType()==AccessRequirement.Type.SKILL).findFirst().get();
+            assertEquals(row[1],skill.getLevel());
+            assertEquals(AccessRequirement.AppliesTo.COMBAT,skill.getAppliesTo());
+        }
+        assertTrue(facts("Alchemical Hydra").stream().anyMatch(f -> "Active task".equals(f.getLabel()) && f.getText().contains("boss task from Konar")));
+        assertTrue(facts("Abyssal Sire").stream().anyMatch(f -> "Active task".equals(f.getLabel()) && f.getText().contains("other than Krystilia")));
+        assertTrue(facts("Basilisk Knight").stream().anyMatch(f -> "Quest".equals(f.getLabel()) && f.getText().contains("The Fremennik Exiles")));
+        assertTrue(facts("Basilisk Knight").stream().anyMatch(f -> "Protection".equals(f.getLabel()) && f.getText().contains("mirror shield or V's shield")));
+        assertTrue(facts("Thermonuclear smoke devil").stream().anyMatch(f -> f.getText().contains("one off-task kill with 93 unboosted Slayer")));
+        assertFalse(facts("Smoke devil").stream().anyMatch(f -> f.getText().contains("Diary")));
+        assertFalse(facts("Hydra").stream().anyMatch(f -> f.getId().startsWith("alchemical-hydra")));
+        assertFalse(facts("Abyssal demon").stream().anyMatch(f -> f.getId().startsWith("abyssal-sire")));
+        assertTrue(facts("Basilisk").stream().anyMatch(f -> Integer.valueOf(40).equals(f.getLevel())));
+        assertFalse(facts("Basilisk Knight").stream().anyMatch(f -> f.getAppliesTo()==AccessRequirement.AppliesTo.TASK_ELIGIBILITY));
+    }
+
     @Test public void sailingBountyLevelsApplyToAssignmentAndSixExactDrops()
     {
         for (String[] reviewed : List.of(new String[]{"Bull shark","30"}, new String[]{"Hammerhead shark","40"},
@@ -118,7 +141,9 @@ public class SlayerScopeTest
         assertMonster("Cockatrice",25,"Protection","mirror shield or V's shield");
         assertEquals(1, facts("Drake").size());
         assertEquals("84 Slayer to kill.", facts("Drake").get(0).getText());
-        for (String other : List.of("Guardian Drake","Thermonuclear smoke devil","Choke devil","Cockathrice","Ancient Wyvern"))
+        assertFalse(facts("Thermonuclear smoke devil").stream().anyMatch(f -> f.getId().startsWith("smoke-devil-")));
+        assertFalse(facts("Thermonuclear smoke devil").stream().anyMatch(f -> f.getAppliesTo()==AccessRequirement.AppliesTo.PROTECTION));
+        for (String other : List.of("Guardian Drake","Choke devil","Cockathrice","Ancient Wyvern"))
             assertTrue(other, facts(other).isEmpty());
     }
 
@@ -175,7 +200,8 @@ public class SlayerScopeTest
         assertMonster("Aberrant spectre", 60, "Protection", "nose peg or Slayer helmet");
         assertMonster("Turoth", 55, "Combat", "For ordinary attacks");
         assertMonster("Kurask", 70, "Combat", "Burn damage can also apply");
-        for (String relative : List.of("Basilisk Knight", "King kurask", "Deviant spectre", "Spiked turoth"))
+        assertFalse(facts("Basilisk Knight").stream().anyMatch(f -> f.getId().equals("basilisk-slayer") || f.getId().equals("basilisk-protection")));
+        for (String relative : List.of("King kurask", "Deviant spectre", "Spiked turoth"))
         {
             assertTrue(relative, facts(relative).isEmpty());
         }

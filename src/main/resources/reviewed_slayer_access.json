@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-05T02:18:00Z",
+  "checkedAt": "2026-11-05T04:09:08Z",
   "facts": [
     {
       "monsterName": "Aberrant spectre",
@@ -33,6 +33,70 @@
       "appliesTo": "PROTECTION",
       "type": "EQUIPMENT",
       "text": "Wear a nose peg or Slayer helmet to prevent the special attack and its combat stat drain."
+    },
+    {
+      "monsterName": "Abyssal Sire",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Abyssal Sire",
+          "revisionId": 15337396,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Abyssal_Sire?oldid=15337396"
+        }
+      ],
+      "id": "abyssal-sire-slayer",
+      "appliesTo": "COMBAT",
+      "type": "SKILL",
+      "skill": "Slayer",
+      "level": 85,
+      "text": "85 Slayer to kill."
+    },
+    {
+      "monsterName": "Abyssal Sire",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Abyssal Sire",
+          "revisionId": 15337396,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Abyssal_Sire?oldid=15337396"
+        }
+      ],
+      "id": "abyssal-sire-combat",
+      "appliesTo": "COMBAT",
+      "type": "ACTIVE_TASK",
+      "text": "An Abyssal demon task from a master other than Krystilia, or an Abyssal Sire task."
+    },
+    {
+      "monsterName": "Alchemical Hydra",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Alchemical Hydra",
+          "revisionId": 15375803,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Alchemical_Hydra?oldid=15375803"
+        }
+      ],
+      "id": "alchemical-hydra-slayer",
+      "appliesTo": "COMBAT",
+      "type": "SKILL",
+      "skill": "Slayer",
+      "level": 95,
+      "text": "95 Slayer to kill."
+    },
+    {
+      "monsterName": "Alchemical Hydra",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Alchemical Hydra",
+          "revisionId": 15375803,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Alchemical_Hydra?oldid=15375803"
+        }
+      ],
+      "id": "alchemical-hydra-combat",
+      "appliesTo": "COMBAT",
+      "type": "ACTIVE_TASK",
+      "text": "A Hydra Slayer task, or an Alchemical Hydra boss task from Konar."
     },
     {
       "monsterName": "Banshee",
@@ -97,6 +161,53 @@
       "appliesTo": "PROTECTION",
       "type": "EQUIPMENT",
       "text": "Equip a mirror shield or V's shield to prevent the combat stat drain."
+    },
+    {
+      "monsterName": "Basilisk Knight",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Basilisk Knight",
+          "revisionId": 15340714,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Basilisk_Knight?oldid=15340714"
+        }
+      ],
+      "id": "basilisk-knight-slayer",
+      "appliesTo": "COMBAT",
+      "type": "SKILL",
+      "skill": "Slayer",
+      "level": 60,
+      "text": "60 Slayer to kill."
+    },
+    {
+      "monsterName": "Basilisk Knight",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Basilisk Knight",
+          "revisionId": 15340714,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Basilisk_Knight?oldid=15340714"
+        }
+      ],
+      "id": "basilisk-knight-combat",
+      "appliesTo": "COMBAT",
+      "type": "QUEST",
+      "text": "Complete The Fremennik Exiles to kill Basilisk Knights."
+    },
+    {
+      "monsterName": "Basilisk Knight",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Basilisk Knight",
+          "revisionId": 15340714,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Basilisk_Knight?oldid=15340714"
+        }
+      ],
+      "id": "basilisk-knight-protection",
+      "appliesTo": "PROTECTION",
+      "type": "EQUIPMENT",
+      "text": "Equip a mirror shield or V's shield to avoid heavy damage and stat drain."
     },
     {
       "monsterName": "Bloodveld",
@@ -244,6 +355,23 @@
       "skill": "Slayer",
       "level": 17,
       "text": "17 Slayer to kill."
+    },
+    {
+      "monsterName": "Cerberus",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Cerberus",
+          "revisionId": 15363026,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Cerberus?oldid=15363026"
+        }
+      ],
+      "id": "cerberus-slayer",
+      "appliesTo": "COMBAT",
+      "type": "SKILL",
+      "skill": "Slayer",
+      "level": 91,
+      "text": "91 Slayer to kill."
     },
     {
       "monsterName": "Cockatrice",
@@ -568,6 +696,38 @@
       "appliesTo": "TASK_ELIGIBILITY",
       "type": "QUEST",
       "text": "Complete Death Plateau to receive Spiritual creatures Slayer tasks."
+    },
+    {
+      "monsterName": "Thermonuclear smoke devil",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Thermonuclear smoke devil",
+          "revisionId": 15369525,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Thermonuclear_smoke_devil?oldid=15369525"
+        }
+      ],
+      "id": "thermonuclear-smoke-devil-slayer",
+      "appliesTo": "COMBAT",
+      "type": "SKILL",
+      "skill": "Slayer",
+      "level": 93,
+      "text": "93 Slayer to damage."
+    },
+    {
+      "monsterName": "Thermonuclear smoke devil",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Thermonuclear smoke devil",
+          "revisionId": 15369525,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Thermonuclear_smoke_devil?oldid=15369525"
+        }
+      ],
+      "id": "thermonuclear-smoke-devil-combat",
+      "appliesTo": "COMBAT",
+      "type": "CONTEXT",
+      "text": "A smoke devil task is required for repeat kills. The Western Provinces Diary allows one off-task kill with 93 unboosted Slayer."
     },
     {
       "monsterName": "Turoth",

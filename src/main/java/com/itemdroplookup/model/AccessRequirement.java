@@ -84,6 +84,8 @@ public final class AccessRequirement
             case FINISHING: return "Finishing";
             case COMBAT:
                 if (scope == Scope.LOCATION) return "Location restriction";
+                if (type == Type.ACTIVE_TASK) return "Active task";
+                if (type == Type.QUEST) return "Quest";
                 return type == Type.CONTEXT ? "Combat" : "Required";
             case ACCESS: return isItemAccess() ? "Access" : "Location access";
             case TASK_ELIGIBILITY: return "Task eligibility";
