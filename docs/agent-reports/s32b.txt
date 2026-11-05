@@ -1,0 +1,8 @@
+S32B - Player shorthand and source finder
+
+Exactly11 approved aliases now select their canonical items, including honest zero-source tbow and godswords. Finder-only comparison handles case,ordinaryspaces,straight/curlyapostrophes and apostropheomission. No new item matching tiers or location bindings. DWH compact NPC finder works while Canyon stays0.231Java/182Python, officialstandardpackage/API/validators/fonts passed.5664query/14021context inventory,9137catalog queries,1187potion cases andall data/fontresources matchS32A.147shorthandcases prove26formatting forms haveorderedcanonical sources,110qualified/extra forms and11canonicalcontrols unchanged.44-item/15-finder audit hasexactly11alias and7finder fixes.110two-size journeyreports,14Echo,37Wilderness,34combinedreports,6Echo-fault controls and2DWHcontrols passed. Eightheadlessrenders saved. Native visual/clipboard/gameplay acceptance pending. C3g remains acceptedfallback; Hubunchanged.
+
+Starting commit bc1c6833f7464f339f25da0e58c27932a20bfe94
+Build development-2026-11-04-s32b-shorthand-finder
+Official package SHA256 45c3922d7b420c20410c57fa56c2f77a5ba66357843da4356906fd44fb2954d5
+Human acceptance pending.

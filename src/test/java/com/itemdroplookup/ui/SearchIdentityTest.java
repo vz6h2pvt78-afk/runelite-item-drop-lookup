@@ -88,6 +88,46 @@ public class SearchIdentityTest
         assertFalse(search("r scim").sources.isEmpty());
     }
 
+    @Test public void reviewedWeaponShorthandKeepsExactIdentityIncludingZeroCoverage()
+    {
+        for (String[] pair : new String[][] {
+                {"dwh", "Dragon warhammer"}, {"tbow", "Twisted bow"}, {"d scim", "Dragon scimitar"},
+                {"d defender", "Dragon defender"}, {"d axe", "Dragon axe"}, {"d spear", "Dragon spear"},
+                {"acb", "Armadyl crossbow"}, {"ags", "Armadyl godsword"}, {"bgs", "Bandos godsword"},
+                {"sgs", "Saradomin godsword"}, {"zgs", "Zamorak godsword"}})
+        {
+            ItemSearchSelection canonical = search(pair[1]);
+            for (String query : List.of(pair[0], "  " + pair[0].toUpperCase(Locale.ROOT) + "  ",
+                    pair[0].replace(" ", "   ")))
+            {
+                ItemSearchSelection selected = search(query);
+                assertEquals(query, Collections.singletonList(pair[1]), selected.choices());
+                assertEquals(query, gson.toJson(Arrays.asList(canonical.drops, canonical.sources)),
+                        gson.toJson(Arrays.asList(selected.drops, selected.sources)));
+                assertEquals(query, selected.query);
+            }
+        }
+        for (String query : List.of("tbow", "ags", "bgs", "sgs", "zgs"))
+        {
+            assertTrue(query, search(query).drops.isEmpty());
+            assertTrue(query, search(query).sources.isEmpty());
+        }
+        assertEquals(1, search("dwh").drops.size());
+        assertEquals("Lizardman shaman", search("dwh").drops.get(0).getMonsterName());
+    }
+
+    @Test public void shorthandDoesNotExpandInsideQualifiedOrAmbiguousQueries()
+    {
+        for (String query : List.of("dwh(or)", "tbow (or)", "ags ornament kit", "d scim(p)",
+                "d spear p++", "acb(1)", "dwh noted", "dwh pack", "dwh extra",
+                "dfs", "dds", "bowfa", "shadow", "trident", "whip", "fang"))
+            assertEquals(query, ItemNameMatching.normalize(query), ItemNameMatching.resolveAlias(query));
+        for (String query : List.of("dwh(or)", "tbow (or)", "ags ornament kit", "d scim(p)",
+                "d spear p++", "acb(1)", "dwh noted", "dwh pack"))
+            assertTrue(query, search(query).choices().isEmpty());
+        assertEquals(Collections.singletonList("Dragon dagger(p++)"), search("Dragon dagger(p++)").choices());
+    }
+
     @Test public void compactPossessiveBroadAndTypoSearchRemainUseful()
     {
         assertEquals(9,search("uncut").choices().size());

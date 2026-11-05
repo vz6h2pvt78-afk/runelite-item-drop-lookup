@@ -843,7 +843,7 @@ public class ItemDropLookupPanel extends PluginPanel
 
     private boolean contains(String value, String query)
     {
-        return query.isEmpty() || value != null && value.toLowerCase(Locale.ROOT).contains(query);
+        return SourceTextMatching.contains(value, query);
     }
 
     private void sourceSearchChanged()

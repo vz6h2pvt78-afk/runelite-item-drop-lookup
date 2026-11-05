@@ -55,15 +55,15 @@ final class BoundDropContexts
 
     boolean find(DropSource drop, String query, WildernessFilter filter)
     {
-        if (query.isEmpty() || drop.getMonsterName().toLowerCase(Locale.ROOT).contains(query)) return true;
-        if (drop.getAnimatorReward() != null && (drop.getAnimatorReward().getSetupText().toLowerCase(Locale.ROOT).contains(query)
-                || drop.getAnimatorReward().getEquipment().stream().anyMatch(item -> item.toLowerCase(Locale.ROOT).contains(query)))) return true;
+        if (SourceTextMatching.contains(drop.getMonsterName(), query)) return true;
+        if (drop.getAnimatorReward() != null && (SourceTextMatching.contains(drop.getAnimatorReward().getSetupText(), query)
+                || drop.getAnimatorReward().getEquipment().stream().anyMatch(item -> SourceTextMatching.contains(item, query)))) return true;
         MonsterLocationLookupService.LocationMatch encounter = reviewedEncounters.get(drop);
         if (encounter != null && filter != WildernessFilter.EXCLUDE
-                && encounter.encounterShortLocation().toLowerCase(Locale.ROOT).contains(query)) return true;
+                && SourceTextMatching.contains(encounter.encounterShortLocation(), query)) return true;
         return locations.getOrDefault(drop, Collections.emptyList()).stream()
                 .filter(l -> MonsterLocationFilter.matches(l, filter, MonsterLocationFilter.MembershipFilter.ALL))
-                .anyMatch(l -> l.getLocation() != null && l.getLocation().toLowerCase(Locale.ROOT).contains(query));
+                .anyMatch(l -> SourceTextMatching.contains(l.getLocation(), query));
     }
 
     String variantTitle(DropSource drop)

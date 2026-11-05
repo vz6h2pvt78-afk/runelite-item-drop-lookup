@@ -33,7 +33,13 @@ public final class ItemNameMatching
             Map.entry("ppot", "prayer potion"), Map.entry("range pot", "ranging potion"),
             Map.entry("super restore potion", "super restore"), Map.entry("super energy potion", "super energy"),
             Map.entry("stam", "stamina potion"),
-            Map.entry("d pick", "dragon pickaxe"), Map.entry("d pickaxe", "dragon pickaxe"), Map.entry("dpick", "dragon pickaxe"));
+            Map.entry("d pick", "dragon pickaxe"), Map.entry("d pickaxe", "dragon pickaxe"), Map.entry("dpick", "dragon pickaxe"),
+            Map.entry("dwh", "dragon warhammer"), Map.entry("tbow", "twisted bow"),
+            Map.entry("d scim", "dragon scimitar"), Map.entry("d defender", "dragon defender"),
+            Map.entry("d axe", "dragon axe"), Map.entry("d spear", "dragon spear"),
+            Map.entry("acb", "armadyl crossbow"), Map.entry("ags", "armadyl godsword"),
+            Map.entry("bgs", "bandos godsword"), Map.entry("sgs", "saradomin godsword"),
+            Map.entry("zgs", "zamorak godsword"));
 
     private ItemNameMatching() { }
 
