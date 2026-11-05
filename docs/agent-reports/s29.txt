@@ -1,0 +1,8 @@
+S29 - Exact Sentinel regular-roll context
+
+Classifies all23 recorded Sentinel rows against pinned primary15373808. Exactly15 direct rolls=3 regular signatures gain informational ITEM/DROP_CONTEXT with explicit perRoll marker and a closed reader. Rates/quantities remain raw; UI and selected-detail reports say per roll. Eight guaranteed/tertiary rows, including jaw1/1000 and the Brimstone Konar note, retain their original semantics. Spawn context stays separate and Night beast remains unchanged. Context is never an access requirement or source filter. Normal and official-package Java217/Python173, all validators/Java11/API/resources/fonts passed. Final5664-query/14040-drop comparison proves exactly15new fact counts and allS28 query/source/binding data preserved. Fourteen normal/fault scenarios cover all23rows at two sizes and328 report snapshots;13spawn fault cases add130reports; combined journey34reports passed. Eight regular card/detail renders inspected. The display qualifier remains together while copied text uses ordinary spaces. Full recovery gates and native human acceptance remain separate. No external research consumed. Next independently reviewed task is one exact Lizardman shaman unique-template page if local cache still lacks it.
+
+Starting commit 7c2fd8dce4170fe44027f1fc0ec3693b52bceb9c
+Build development-2026-11-04-s29-sentinel-regular-rolls
+Official package SHA256 93ee703c0a836ae46e3b9c1fe2719389b58cedf12c23086447b4b7b5d49d43e1
+Human acceptance pending.

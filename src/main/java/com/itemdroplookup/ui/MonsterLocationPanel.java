@@ -44,6 +44,7 @@ public class MonsterLocationPanel extends JPanel
     private final List<AccessRequirement> sourceFacts;
     private final DropSource source;
     private final AccessRequirement groupReward;
+    private final AccessRequirement rollContext;
     private final JLabel identity;
 
     JLabel getIdentityHeading() { return identity; }
@@ -114,6 +115,7 @@ public class MonsterLocationPanel extends JPanel
         this.requirements = requirements;
         sourceFacts = new java.util.ArrayList<>(requirements.forSource(source));
         groupReward = AccessRequirement.groupRewardIn(sourceFacts);
+        rollContext = AccessRequirement.perRollContextIn(sourceFacts);
         sourceFacts.remove(groupReward);
         dropNotes = source.getNotes();
         monsterWikiUrl = "https://oldschool.runescape.wiki/w/"
@@ -177,13 +179,13 @@ public class MonsterLocationPanel extends JPanel
             locationsPanel.add(text("Create opponent", true, TEXT_WIDTH));
             locationsPanel.add(text(source.getAnimatorReward().getSetupText(), false, TEXT_WIDTH));
         }
-        locationsPanel.add(text(DropRatePresentation.rateWithContext(source, groupReward), false, TEXT_WIDTH));
+        locationsPanel.add(text(DropRatePresentation.rateDisplayWithContext(source, groupReward, rollContext), false, TEXT_WIDTH));
         if (groupReward != null) locationsPanel.add(requirementText(groupReward, TEXT_WIDTH, true));
         if (source.getConditionalRate() != null) locationsPanel.add(text(DropRatePresentation.taskRateDisplayLine(source), false, TEXT_WIDTH));
         if (DropRatePresentation.isDreamCake(source)) locationsPanel.add(text(DropRatePresentation.DREAM_CAKE_NOTE, false, TEXT_WIDTH));
         if (DropRatePresentation.hasUnresolvedAlternate(source))
             locationsPanel.add(text("The Wiki lists 1 in 2 and 1 in 3. Which rate applies here is unverified.", false, TEXT_WIDTH));
-        locationsPanel.add(text("Quantity: " + DropQuantity.display(source), false, TEXT_WIDTH));
+        locationsPanel.add(text(DropRatePresentation.quantityWithContext(source, rollContext), false, TEXT_WIDTH));
         if (source.getAnimatorReward() != null)
             locationsPanel.add(text(source.getAnimatorReward().getRewardText(), false, TEXT_WIDTH));
         if (!sourceFacts.isEmpty())
@@ -329,6 +331,10 @@ public class MonsterLocationPanel extends JPanel
         if (groupReward != null)
             report.append(DropRatePresentation.rateWithContext(source, groupReward)).append('\n')
                     .append(groupReward.getLabel()).append(": ").append(groupReward.getText()).append('\n');
+        if (rollContext != null)
+            report.append(DropRatePresentation.rateWithContext(source, groupReward, rollContext)).append('\n')
+                    .append(DropRatePresentation.quantityWithContext(source, rollContext)).append('\n')
+                    .append(rollContext.getLabel()).append(": ").append(rollContext.getText()).append('\n');
         for (AccessRequirement fact : sourceFacts)
             if (fact.isSpawnContext()) report.append(fact.getLabel()).append(": ").append(fact.getText()).append('\n');
         if (match.isReviewedEncounter())

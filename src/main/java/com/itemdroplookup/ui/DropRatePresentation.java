@@ -56,6 +56,22 @@ final class DropRatePresentation
                 ? rate + " per kill" : rate;
     }
 
+    static String rateWithContext(DropSource source, AccessRequirement groupReward, AccessRequirement rollContext)
+    {
+        return rateWithContext(source, groupReward) + (rollContext == null ? "" : " per roll");
+    }
+
+    static String rateDisplayWithContext(DropSource source, AccessRequirement groupReward, AccessRequirement rollContext)
+    {
+        String rate = rateWithContext(source, groupReward, rollContext);
+        return rollContext == null ? rate : rate.replace("per roll", "per\u00a0roll");
+    }
+
+    static String quantityWithContext(DropSource source, AccessRequirement rollContext)
+    {
+        return "Quantity: " + DropQuantity.display(source) + (rollContext == null ? "" : " per roll");
+    }
+
     static String taskRateLine(DropSource source)
     {
         return "On a " + source.getConditionalRate().getTaskName() + " Slayer task: " + format(source.getConditionalRate().getTaskRate());

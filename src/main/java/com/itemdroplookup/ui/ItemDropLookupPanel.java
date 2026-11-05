@@ -1158,11 +1158,12 @@ public class ItemDropLookupPanel extends PluginPanel
         }
         List<AccessRequirement> sourceFacts = accessRequirementLookupService.forSource(source);
         AccessRequirement groupReward = AccessRequirement.groupRewardIn(sourceFacts);
-        card.add(makeCardLine(DropRatePresentation.rateWithContext(source, groupReward), wrapWidth));
+        AccessRequirement rollContext = AccessRequirement.perRollContextIn(sourceFacts);
+        card.add(makeCardLine(DropRatePresentation.rateDisplayWithContext(source, groupReward, rollContext), wrapWidth));
         if (groupReward != null) addRequirementLine(card, groupReward, wrapWidth);
         if (source.getConditionalRate() != null) card.add(makeCardLine(DropRatePresentation.taskRateDisplayLine(source), wrapWidth));
         if (DropRatePresentation.isDreamCake(source)) card.add(makeCardLine(DropRatePresentation.DREAM_CAKE_NOTE, wrapWidth));
-        card.add(makeCardLine("Quantity: " + DropQuantity.display(source), wrapWidth));
+        card.add(makeCardLine(DropRatePresentation.quantityWithContext(source, rollContext), wrapWidth));
         if (source.getAnimatorReward() != null)
             card.add(makeCardLine(source.getAnimatorReward().getRewardText(), wrapWidth));
 

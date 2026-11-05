@@ -29,6 +29,23 @@ import lombok.extern.slf4j.Slf4j;
 @Singleton
 public class AccessRequirementLookupService
 {
+    private static final Map<String, List<String>> SENTINEL_REGULAR_ROWS = Map.ofEntries(
+            Map.entry("Adamant kiteshield", List.of("1", "1/52")),
+            Map.entry("Adamant platelegs", List.of("1", "1/52")),
+            Map.entry("Adamantite ore", List.of("1-2 (noted)", "1/52")),
+            Map.entry("Astral rune", List.of("15-35", "6/52")),
+            Map.entry("Blood rune", List.of("8-20", "3/52")),
+            Map.entry("Coins", List.of("500-2498", "7/52")),
+            Map.entry("Death rune", List.of("10-25", "3/52")),
+            Map.entry("Law rune", List.of("20-30", "6/52")),
+            Map.entry("Nature rune", List.of("15-30", "6/52")),
+            Map.entry("Rune axe", List.of("1", "2/52")),
+            Map.entry("Rune battleaxe", List.of("1", "1/52")),
+            Map.entry("Rune dagger", List.of("1", "1/52")),
+            Map.entry("Rune med helm", List.of("1", "1/52")),
+            Map.entry("Rune scimitar", List.of("1", "1/52")),
+            Map.entry("Rune spear", List.of("1", "1/52")));
+
     private final Gson gson;
     private final DropLookupService drops;
     private final MonsterLocationLookupService locations;
@@ -101,6 +118,7 @@ public class AccessRequirementLookupService
         addReviewedFacts(gates, ids);
         addReviewedFacts(ReviewedRows.readDatedFacts(gson, "/group_reward_access.json", "id", this::readGroupReward), ids);
         addReviewedFacts(ReviewedRows.readDatedFacts(gson, "/sentinel_spawn_context.json", "id", this::readSentinelSpawn), ids);
+        addReviewedFacts(ReviewedRows.readDatedFacts(gson, "/sentinel_regular_rolls.json", "id", this::readSentinelRoll), ids);
         loaded = true;
     }
 
@@ -109,6 +127,27 @@ public class AccessRequirementLookupService
         for (AccessRequirement fact : facts.values())
             if (ids.add(fact.getId()))
                 byMonster.computeIfAbsent(normalize(fact.getMonsterName()), unused -> new ArrayList<>()).add(fact);
+    }
+
+    private AccessRequirement readSentinelRoll(JsonObject row, String id)
+    {
+        fields(row, "id,monsterName,itemName,scope,appliesTo,type,perRoll,dropSignature,text,evidence", "");
+        fields(object(row.get("dropSignature")), "quantity,dropRate,notes", "");
+        require(row.get("perRoll").isJsonPrimitive() && row.getAsJsonPrimitive("perRoll").isBoolean()
+                && row.get("perRoll").getAsBoolean(), "Missing per-roll basis");
+        AccessRequirement fact = gson.fromJson(row, AccessRequirement.class);
+        require(valid(fact) && fact.isPerRollContext() && fact.getMonsterName().equals("Basilisk Sentinel")
+                && fact.getEvidence().size() == 1, "Unreviewed Sentinel regular row");
+        DropSource drop = fact.boundDrop();
+        List<String> expected = SENTINEL_REGULAR_ROWS.get(fact.getItemName());
+        require(expected != null && id.equals("sentinel-regular-" + fact.getItemName().toLowerCase(Locale.ROOT).replace(' ', '-'))
+                && expected.get(0).equals(drop.getQuantity()) && expected.get(1).equals(drop.getDropRate())
+                && "".equals(drop.getNotes()) && drops.hasUniqueRecordedDrop(drop), "Unmatched regular-roll signature");
+        AccessRequirement.Evidence proof = fact.getEvidence().get(0);
+        require(proof.getPage().equals("Basilisk Sentinel") && proof.getRevisionId() == 15373808
+                && proof.getSourceUrl().equals("https://oldschool.runescape.wiki/w/Basilisk_Sentinel?oldid=15373808"),
+                "Changed Sentinel roll primary");
+        return fact;
     }
 
     private AccessRequirement readSentinelSpawn(JsonObject row, String id)
@@ -283,8 +322,11 @@ public class AccessRequirementLookupService
                 || (fact.getType() != AccessRequirement.Type.EQUIPMENT && fact.getType() != AccessRequirement.Type.CONTEXT))) return false;
         if (fact.getAppliesTo() == AccessRequirement.AppliesTo.FINISHING
                 && (fact.getScope() != Scope.MONSTER || fact.getType() != AccessRequirement.Type.EQUIPMENT)) return false;
+        boolean itemRoll = fact.getScope() == Scope.ITEM && fact.getAppliesTo() == AccessRequirement.AppliesTo.DROP_CONTEXT
+                && fact.getType() == AccessRequirement.Type.CONTEXT && bound != null && fact.isPerRollContext();
+        if (fact.hasPerRollMarker() && !itemRoll) return false;
         if (fact.getAppliesTo() == AccessRequirement.AppliesTo.DROP_CONTEXT
-                && (fact.getScope() != Scope.MONSTER || fact.getType() != AccessRequirement.Type.CONTEXT)) return false;
+                && !(itemRoll || (fact.getScope() == Scope.MONSTER && fact.getType() == AccessRequirement.Type.CONTEXT))) return false;
         return !fact.getEvidence().isEmpty() && fact.getEvidence().stream().allMatch(evidence -> evidence != null
                 && hasText(evidence.getPage()) && evidence.getRevisionId() > 0
                 && evidence.getSourceUrl() != null

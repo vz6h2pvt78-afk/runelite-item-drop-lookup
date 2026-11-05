@@ -1,0 +1,336 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-05T05:24:10Z",
+  "facts": [
+    {
+      "id": "sentinel-regular-adamant-kiteshield",
+      "monsterName": "Basilisk Sentinel",
+      "itemName": "Adamant kiteshield",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/52",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill. At most one uses the superior unique table. Guaranteed and tertiary drops are separate.",
+      "evidence": [
+        {
+          "page": "Basilisk Sentinel",
+          "revisionId": 15373808,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Basilisk_Sentinel?oldid=15373808"
+        }
+      ]
+    },
+    {
+      "id": "sentinel-regular-adamant-platelegs",
+      "monsterName": "Basilisk Sentinel",
+      "itemName": "Adamant platelegs",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/52",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill. At most one uses the superior unique table. Guaranteed and tertiary drops are separate.",
+      "evidence": [
+        {
+          "page": "Basilisk Sentinel",
+          "revisionId": 15373808,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Basilisk_Sentinel?oldid=15373808"
+        }
+      ]
+    },
+    {
+      "id": "sentinel-regular-adamantite-ore",
+      "monsterName": "Basilisk Sentinel",
+      "itemName": "Adamantite ore",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "1-2 (noted)",
+        "dropRate": "1/52",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill. At most one uses the superior unique table. Guaranteed and tertiary drops are separate.",
+      "evidence": [
+        {
+          "page": "Basilisk Sentinel",
+          "revisionId": 15373808,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Basilisk_Sentinel?oldid=15373808"
+        }
+      ]
+    },
+    {
+      "id": "sentinel-regular-astral-rune",
+      "monsterName": "Basilisk Sentinel",
+      "itemName": "Astral rune",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "15-35",
+        "dropRate": "6/52",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill. At most one uses the superior unique table. Guaranteed and tertiary drops are separate.",
+      "evidence": [
+        {
+          "page": "Basilisk Sentinel",
+          "revisionId": 15373808,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Basilisk_Sentinel?oldid=15373808"
+        }
+      ]
+    },
+    {
+      "id": "sentinel-regular-blood-rune",
+      "monsterName": "Basilisk Sentinel",
+      "itemName": "Blood rune",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "8-20",
+        "dropRate": "3/52",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill. At most one uses the superior unique table. Guaranteed and tertiary drops are separate.",
+      "evidence": [
+        {
+          "page": "Basilisk Sentinel",
+          "revisionId": 15373808,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Basilisk_Sentinel?oldid=15373808"
+        }
+      ]
+    },
+    {
+      "id": "sentinel-regular-coins",
+      "monsterName": "Basilisk Sentinel",
+      "itemName": "Coins",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "500-2498",
+        "dropRate": "7/52",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill. At most one uses the superior unique table. Guaranteed and tertiary drops are separate.",
+      "evidence": [
+        {
+          "page": "Basilisk Sentinel",
+          "revisionId": 15373808,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Basilisk_Sentinel?oldid=15373808"
+        }
+      ]
+    },
+    {
+      "id": "sentinel-regular-death-rune",
+      "monsterName": "Basilisk Sentinel",
+      "itemName": "Death rune",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "10-25",
+        "dropRate": "3/52",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill. At most one uses the superior unique table. Guaranteed and tertiary drops are separate.",
+      "evidence": [
+        {
+          "page": "Basilisk Sentinel",
+          "revisionId": 15373808,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Basilisk_Sentinel?oldid=15373808"
+        }
+      ]
+    },
+    {
+      "id": "sentinel-regular-law-rune",
+      "monsterName": "Basilisk Sentinel",
+      "itemName": "Law rune",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "20-30",
+        "dropRate": "6/52",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill. At most one uses the superior unique table. Guaranteed and tertiary drops are separate.",
+      "evidence": [
+        {
+          "page": "Basilisk Sentinel",
+          "revisionId": 15373808,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Basilisk_Sentinel?oldid=15373808"
+        }
+      ]
+    },
+    {
+      "id": "sentinel-regular-nature-rune",
+      "monsterName": "Basilisk Sentinel",
+      "itemName": "Nature rune",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "15-30",
+        "dropRate": "6/52",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill. At most one uses the superior unique table. Guaranteed and tertiary drops are separate.",
+      "evidence": [
+        {
+          "page": "Basilisk Sentinel",
+          "revisionId": 15373808,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Basilisk_Sentinel?oldid=15373808"
+        }
+      ]
+    },
+    {
+      "id": "sentinel-regular-rune-axe",
+      "monsterName": "Basilisk Sentinel",
+      "itemName": "Rune axe",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "2/52",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill. At most one uses the superior unique table. Guaranteed and tertiary drops are separate.",
+      "evidence": [
+        {
+          "page": "Basilisk Sentinel",
+          "revisionId": 15373808,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Basilisk_Sentinel?oldid=15373808"
+        }
+      ]
+    },
+    {
+      "id": "sentinel-regular-rune-battleaxe",
+      "monsterName": "Basilisk Sentinel",
+      "itemName": "Rune battleaxe",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/52",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill. At most one uses the superior unique table. Guaranteed and tertiary drops are separate.",
+      "evidence": [
+        {
+          "page": "Basilisk Sentinel",
+          "revisionId": 15373808,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Basilisk_Sentinel?oldid=15373808"
+        }
+      ]
+    },
+    {
+      "id": "sentinel-regular-rune-dagger",
+      "monsterName": "Basilisk Sentinel",
+      "itemName": "Rune dagger",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/52",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill. At most one uses the superior unique table. Guaranteed and tertiary drops are separate.",
+      "evidence": [
+        {
+          "page": "Basilisk Sentinel",
+          "revisionId": 15373808,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Basilisk_Sentinel?oldid=15373808"
+        }
+      ]
+    },
+    {
+      "id": "sentinel-regular-rune-med-helm",
+      "monsterName": "Basilisk Sentinel",
+      "itemName": "Rune med helm",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/52",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill. At most one uses the superior unique table. Guaranteed and tertiary drops are separate.",
+      "evidence": [
+        {
+          "page": "Basilisk Sentinel",
+          "revisionId": 15373808,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Basilisk_Sentinel?oldid=15373808"
+        }
+      ]
+    },
+    {
+      "id": "sentinel-regular-rune-scimitar",
+      "monsterName": "Basilisk Sentinel",
+      "itemName": "Rune scimitar",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/52",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill. At most one uses the superior unique table. Guaranteed and tertiary drops are separate.",
+      "evidence": [
+        {
+          "page": "Basilisk Sentinel",
+          "revisionId": 15373808,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Basilisk_Sentinel?oldid=15373808"
+        }
+      ]
+    },
+    {
+      "id": "sentinel-regular-rune-spear",
+      "monsterName": "Basilisk Sentinel",
+      "itemName": "Rune spear",
+      "scope": "ITEM",
+      "appliesTo": "DROP_CONTEXT",
+      "type": "CONTEXT",
+      "perRoll": true,
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/52",
+        "notes": ""
+      },
+      "text": "Three additional item rolls per kill. At most one uses the superior unique table. Guaranteed and tertiary drops are separate.",
+      "evidence": [
+        {
+          "page": "Basilisk Sentinel",
+          "revisionId": 15373808,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Basilisk_Sentinel?oldid=15373808"
+        }
+      ]
+    }
+  ]
+}

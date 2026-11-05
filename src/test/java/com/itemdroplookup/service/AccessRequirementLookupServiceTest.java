@@ -56,6 +56,35 @@ public class AccessRequirementLookupServiceTest
         assertNull(source.getConditionalRate());
     }
 
+    @Test
+    public void sentinelRegularRollContextIsBoundToExactDirectRows()
+    {
+        AccessRequirement regular = AccessRequirement.perRollContextIn(facts("Basilisk Sentinel", "Adamant kiteshield"));
+        // Use the real signature for item-scoped facts.
+        Gson gson = new Gson();
+        DropLookupService drops = new DropLookupService(gson);
+        AccessRequirementLookupService access = new AccessRequirementLookupService(gson, drops);
+        DropSource shield = drops.searchByItemName("Adamant kiteshield").stream()
+                .filter(d -> d.getMonsterName().equals("Basilisk Sentinel")).findFirst().get();
+        assertNull(regular);
+        regular = AccessRequirement.perRollContextIn(access.forSource(shield));
+        assertNotNull(regular);
+        assertTrue(regular.isSourceCardFact());
+        assertFalse(regular.isSourceCardRequirement());
+        assertEquals(AccessRequirement.Scope.ITEM, regular.getScope());
+        assertEquals(AppliesTo.DROP_CONTEXT, regular.getAppliesTo());
+        assertEquals("Drop context", regular.getLabel());
+        assertEquals("1/52", shield.getDropRate());
+        assertNull(AccessRequirement.perRollContextIn(access.forSource(
+                new DropSource(shield.getItemName(), shield.getMonsterName(), "2", shield.getDropRate(), ""))));
+        for (String item : new String[]{"Basilisk jaw", "Basilisk head", "Basilisk bone", "Big bones", "Brimstone key",
+                "Mystic hat (light)", "Long bone", "Curved bone"})
+            for (DropSource source : drops.searchByItemName(item))
+                assertNull(AccessRequirement.perRollContextIn(access.forSource(source)));
+        for (String monster : new String[]{"Basilisk Knight", "Basilisk", "Night beast"})
+            assertNull(AccessRequirement.perRollContextIn(access.forSource(new DropSource("Adamant kiteshield", monster, "1", "1/52", ""))));
+    }
+
     private final AccessRequirementLookupService requirements = new AccessRequirementLookupService(new Gson());
     private final MonsterLocationLookupService locations = new MonsterLocationLookupService(new Gson());
 

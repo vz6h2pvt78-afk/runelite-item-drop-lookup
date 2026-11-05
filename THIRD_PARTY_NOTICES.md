@@ -21,6 +21,7 @@ nor their conversion to JSON is used to remove source credits or restrictions.
 
 Runtime resources under src/main/resources/:
 
+- `sentinel_regular_rolls.json` classifies only the 15 recorded direct regular-table signatures marked `rolls=3` in Basilisk Sentinel revision 15373808. The same pinned primary supports the separate guaranteed and tertiary exclusions. Raw source data is preserved.
 - `sentinel_spawn_context.json` adapts the exact Basilisk Sentinel encounter trigger from Sentinel revision 15373808 and Basilisk Knight revision 15340714. Both primary snapshots and their revision links are pinned in `tools/fixtures/`. The adaptation describes spawn conditions without calculating an item probability.
 
 - The Nightmare Zone qualification of Kamil’s Chocolate cake drop uses Kamil (Nightmare Zone) revision 15200663, preserved in `tools/fixtures/kamil_nightmare_zone.json`.

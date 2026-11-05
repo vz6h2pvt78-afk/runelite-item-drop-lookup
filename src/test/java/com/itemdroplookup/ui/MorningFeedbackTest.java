@@ -408,6 +408,37 @@ public class MorningFeedbackTest
         });
     }
 
+    @Test public void sentinelRegularRateAndQuantityArePerRollOnlyInTheirSelectedContext() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            List<String> reports = new ArrayList<>();
+            ItemDropLookupPanel p = panel(reports);
+            search(p,"Adamant kiteshield"); click(p,"showDropSources");
+            JTextField finder = (JTextField)PanelTestSupport.find(p,"sourceSearch");
+            finder.setText("Basilisk Sentinel"); finder.postActionEvent();
+            JButton open = conditionalDetailButton(p,"Basilisk Sentinel");
+            assertNotNull(open);
+            assertTrue(labels(open.getParent()).contains("Rate: 1 in 52 per roll"));
+            assertTrue(labels(open.getParent()).contains("Quantity: 1 per roll"));
+            click(p,"copyReport"); String overview = reports.get(reports.size()-1);
+            assertFalse(overview.contains("per roll"));
+            open.doClick(0); click(p,"copyReport");
+            String report = reports.get(reports.size()-1);
+            assertTrue(report.contains("Rate: 1 in 52 per roll"));
+            assertTrue(report.contains("Quantity: 1 per roll"));
+            assertTrue(report.contains("Drop context: Three additional item rolls per kill."));
+            assertTrue(report.contains("Spawn condition: May spawn"));
+            click(p,"backToResults"); click(p,"copyReport");
+            assertEquals(overview,reports.get(reports.size()-1));
+            search(p,"Basilisk jaw"); click(p,"showDropSources");
+            conditionalDetailButton(p,"Basilisk Sentinel").doClick(0); click(p,"copyReport");
+            assertFalse(labels(p).contains("per roll"));
+            assertFalse(reports.get(reports.size()-1).contains("Drop context:"));
+            assertTrue(labels(p).contains("Rate: 1 in 1000"));
+            p.dispose();
+        });
+    }
+
     private static JButton conditionalDetailButton(Container root, String monster)
     {
         for (Component c : root.getComponents())

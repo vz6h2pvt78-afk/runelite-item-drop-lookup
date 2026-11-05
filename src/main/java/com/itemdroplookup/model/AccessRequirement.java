@@ -12,6 +12,15 @@ public final class AccessRequirement
 
     public enum GroupRewardRole { TOP_DAMAGE, OTHER_ELIGIBLE, PER_KILL_UNIQUE }
     private GroupRewardRole groupRewardRole;
+    private Boolean perRoll;
+
+    public boolean isPerRollContext() { return Boolean.TRUE.equals(perRoll); }
+    public boolean hasPerRollMarker() { return perRoll != null; }
+
+    public static AccessRequirement perRollContextIn(List<AccessRequirement> facts)
+    {
+        return facts.stream().filter(AccessRequirement::isPerRollContext).findFirst().orElse(null);
+    }
 
     public GroupRewardRole getGroupRewardRole() { return groupRewardRole; }
 
@@ -112,7 +121,7 @@ public final class AccessRequirement
     {
         // The exact group reward is already shown beside its rate.
         if (groupRewardRole != null) return false;
-        return isSourceCardRequirement() || isSpawnContext()
+        return isSourceCardRequirement() || isSpawnContext() || isPerRollContext()
                 || (scope == Scope.MONSTER && (appliesTo == AppliesTo.PROTECTION || appliesTo == AppliesTo.FINISHING))
                 || (scope == Scope.MONSTER && appliesTo == AppliesTo.DROP_CONTEXT && type == Type.CONTEXT);
     }
