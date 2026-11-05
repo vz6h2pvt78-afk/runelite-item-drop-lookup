@@ -22,6 +22,7 @@ final class ItemSearchSelection
     private final ItemPriceLookupService prices;
     private final boolean explicitDose;
     private final Optional<String> exactCatalogItem;
+    private final Optional<String> unqualifiedPotionFamily;
 
     ItemSearchSelection(String query, DropLookupService dropsService, ItemSourceLookupService sourceService, ItemPriceLookupService prices)
     {
@@ -31,6 +32,7 @@ final class ItemSearchSelection
         if (exactOffer != null)
         {
             explicitDose = false;
+            unqualifiedPotionFamily = Optional.empty();
             exactCatalogItem = prices.findExactItemName(exactOffer.getItemName());
             drops = Collections.emptyList();
             sources = Collections.singletonList(exactOffer);
@@ -39,8 +41,11 @@ final class ItemSearchSelection
         String canonicalQuery = ItemNameMatching.reviewedAliases().getOrDefault(ItemNameMatching.normalize(query), query.trim());
         query = ItemNameMatching.resolveAlias(query);
         Optional<String> family = prices.findPotionFamily(query);
-        // Numeric compact queries also retain their selected dose (prayerpotion4).
-        explicitDose = query.matches(".*[0-9].*");
+        String compactQuery = ItemNameMatching.compact(query);
+        unqualifiedPotionFamily = family.filter(name -> ItemNameMatching.compact(name).equals(compactQuery));
+        // A numeral within a reviewed family name (Serum 207) is part of its identity.
+        // Explicit suffixes and existing compact dose queries still retain the exact dose.
+        explicitDose = !unqualifiedPotionFamily.isPresent() && query.matches(".*[0-9].*");
         // Establish an exact known identity before gathering source candidates.
         // Unqualified potion families deliberately retain their existing dose view.
         exactCatalogItem = family.isPresent() && !explicitDose ? Optional.empty() : prices.findExactItemName(canonicalQuery);
@@ -88,7 +93,7 @@ final class ItemSearchSelection
         TreeSet<String> result = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
         drops.forEach(d -> result.add(choice(d.getItemName())));
         sources.forEach(s -> result.add(choice(s.getItemName())));
-        if (result.isEmpty()) exactCatalogItem.ifPresent(result::add);
+        if (result.isEmpty()) unqualifiedPotionFamily.or(() -> exactCatalogItem).ifPresent(result::add);
         return new ArrayList<>(result);
     }
 

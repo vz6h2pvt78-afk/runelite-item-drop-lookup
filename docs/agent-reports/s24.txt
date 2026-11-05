@@ -1,0 +1,8 @@
+S24 - Potion family search identity
+
+All 107 reviewed potion families retain their family identity. The 67 without acquisition coverage show the existing known-zero-source view, with a four-dose price reference when recorded. Serum 207 retains its inherent numeral as part of the family. Exactly five aliases were added: ppot, range pot, super restore potion, super energy potion and stam. The full 5,664-query inventory and the complete source-data digest match S23 exactly. A separate 1,187-query audit tested 107 families, 326 actual dose identities, 749 invalid dose forms and the five aliases. All existing dose source objects and ordering stayed exact, with zero cross-family leaks. Normal and packaged Java suites passed 206 tests; Python passed 161. Validators, package/API, recovery and twelve actual sidebar renders passed. Copy report distinguishes family context and exact selected doses. Human acceptance pending.
+
+Starting commit 288ddbe08542158d4d4a84b2180c7aecd426c000
+Build development-2026-11-04-s24-potion-family-identity
+Official package SHA256 0a3f9fd9d19df8a56b586c6d2b8ef0b300cb3f2d547e98700f622ee941ffc3f4
+Human acceptance pending.

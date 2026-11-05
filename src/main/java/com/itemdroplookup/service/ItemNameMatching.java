@@ -29,7 +29,10 @@ public final class ItemNameMatching
             Map.entry("d chain", "dragon chainbody"), Map.entry("d med", "dragon med helm"),
             Map.entry("dmed", "dragon med helm"), Map.entry("rune scim", "rune scimitar"),
             Map.entry("r scim", "rune scimitar"),
-            Map.entry("amulet of glory (uncharged)", "amulet of glory"));
+            Map.entry("amulet of glory (uncharged)", "amulet of glory"),
+            Map.entry("ppot", "prayer potion"), Map.entry("range pot", "ranging potion"),
+            Map.entry("super restore potion", "super restore"), Map.entry("super energy potion", "super energy"),
+            Map.entry("stam", "stamina potion"));
 
     private ItemNameMatching() { }
 

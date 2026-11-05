@@ -399,6 +399,7 @@ public class ItemDropLookupPanel extends PluginPanel
             resultsPanel.add(back);
         }
         resultsPanel.add(makeItemHeader(viewState.selectedItem));
+        if (showingPotionFamily()) addSelectedPrice();
         resultsPanel.add(makeSectionHeader("No acquisition sources recorded"));
         resultsPanel.add(makeLabel("This item is recognized, but no acquisition sources are recorded in the current data."));
         resultsPanel.add(wikiButton(viewState.selectedItem));
@@ -510,11 +511,13 @@ public class ItemDropLookupPanel extends PluginPanel
     {
         java.util.Optional<String> family = itemPriceLookupService.findPotionFamily(viewState.selectedItem);
         java.util.Optional<ItemPrice> price = itemPriceLookupService.searchByItemName(family.map(f -> f + "(4)").orElse(viewState.selectedItem));
+        if (viewState.page == LookupViewState.Page.NO_SOURCES && !price.isPresent()) return;
         JLabel label = price.map(p -> makeSearchPriceSummary(p, family.isPresent())).orElseGet(() -> makeSummaryLabel(family.isPresent() ? "GE snapshot (4-dose): unavailable" : "GE price not recorded"));
         label.setVisible(showPriceCheckbox.isSelected());
         priceLabels.add(label);
         resultsPanel.add(label);
-        if (family.isPresent() && !viewState.selectedItem.matches(".*\\([1-4]\\)$")) resultsPanel.add(makeSummaryLabel("Showing all available doses"));
+        if (viewState.page != LookupViewState.Page.NO_SOURCES && family.isPresent()
+                && !viewState.selectedItem.matches(".*\\([1-4]\\)$")) resultsPanel.add(makeSummaryLabel("Showing all available doses"));
     }
 
     private void addDisplayOptions(String matchingOfferReport)
@@ -545,6 +548,7 @@ public class ItemDropLookupPanel extends PluginPanel
                 String report = LookupReport.create(hasSelectedItem ? viewState.selectedItem : null,
                         viewState.query, hasSourceContext ? sourceSearch.getText() : null, method, area, view,
                         detail == null ? null : detailSource.getMonsterName(), detail == null ? null : detail.saveState());
+                if (hasSelectedItem && showingPotionFamily()) report += "Item family: " + viewState.selectedItem + "\n";
                 if (viewState.page == LookupViewState.Page.NO_SOURCES) report += "Recorded sources: 0\n";
                 if (detail != null && showingPotionFamily()) report += "Dose item: " + detailSource.getItemName() + "\n";
                 if (matchingOfferReport != null) report += matchingOfferReport + "\n";

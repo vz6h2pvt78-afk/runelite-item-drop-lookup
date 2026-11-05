@@ -13,6 +13,25 @@ public class ItemSearchSelectionTest
         return new ItemSearchSelection(query, new DropLookupService(gson), new ItemSourceLookupService(gson), new ItemPriceLookupService(gson));
     }
 
+    @Test public void reviewedFamilyIdentitySurvivesMissingSourcesAndIntrinsicNumerals()
+    {
+        for (String name : new String[]{"Stamina potion", "Super energy", "Serum 207"})
+        {
+            ItemSearchSelection selected = search(name);
+            assertEquals(java.util.Collections.singletonList(name), selected.choices());
+            assertTrue(selected.drops.isEmpty());
+            assertTrue(selected.sources.isEmpty());
+        }
+        assertTrue(search("Prayer potion(5)").choices().isEmpty());
+        assertTrue(search("Serum 207(5)").choices().isEmpty());
+        assertEquals(java.util.Collections.singletonList("Prayer potion(3)"), search("Prayer potion(3)").choices());
+        assertEquals(java.util.Collections.singletonList("Super restore"), search("super restore potion").choices());
+        assertEquals(java.util.Collections.singletonList("Stamina potion"), search("stam").choices());
+        assertEquals(java.util.Collections.singletonList("Prayer potion"), search("ppot").choices());
+        assertEquals(java.util.Collections.singletonList("Ranging potion"), search("range pot").choices());
+        assertEquals(java.util.Collections.singletonList("Super energy"), search("super energy potion").choices());
+    }
+
     @Test public void exactIdentityWinsBeforeFilteringWhileVerifiedPacksSurvive()
     {
         ItemSearchSelection stone = search("dragonstone");

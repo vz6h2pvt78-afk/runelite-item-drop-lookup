@@ -292,6 +292,39 @@ public class MorningFeedbackTest
         });
     }
 
+    @Test public void knownEmptyPotionFamilyHasHonestPriceReportAndBackWithoutPretendSources() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            List<String> reports = new ArrayList<>();
+            ItemDropLookupPanel p = panel(reports);
+            search(p, "Iron ore"); PanelTestSupport.openSources(p);
+            click(p, "copyReport"); String original = reports.get(0);
+            search(p, "stam");
+            assertTrue(labels(p).contains("Stamina potion"));
+            assertTrue(labels(p).contains("No acquisition sources recorded"));
+            assertTrue(labels(p).contains("GE snapshot (4-dose)"));
+            assertFalse(labels(p).contains("Showing all available doses"));
+            assertNull(PanelTestSupport.find(p, "viewAllSources"));
+            click(p, "copyReport");
+            String noSources = reports.get(1);
+            assertTrue(noSources.contains("Item family: Stamina potion"));
+            assertTrue(noSources.contains("Item query: stam"));
+            assertTrue(noSources.contains("View: No sources"));
+            assertTrue(noSources.contains("Recorded sources: 0"));
+            assertFalse(noSources.contains("Stamina potion(4)"));
+            assertFalse(noSources.contains("Method:"));
+            click(p, "backToPreviousItem"); click(p, "copyReport"); assertEquals(original, reports.get(2));
+            search(p, "ppot"); click(p, "copyReport");
+            assertTrue(reports.get(3).contains("Item family: Prayer potion"));
+            search(p, "Prayer potion(3)"); click(p, "copyReport");
+            assertTrue(reports.get(4).contains("Item: Prayer potion(3)"));
+            assertFalse(reports.get(4).contains("Item family:"));
+            search(p, "Prayer potion(5)");
+            assertTrue(labels(p).contains("No matching item"));
+            click(p, "copyReport"); assertFalse(reports.get(5).contains("Item family:"));
+        });
+    }
+
     @Test public void implingSummaryRetainsRateCaveatAndOpeningExceptionWithoutRouteLecture()
     {
         AcquisitionMethod method=selection("Amulet of glory").sources.stream().filter(s->s.getAcquisitionMethod()!=null).findFirst().get().getAcquisitionMethod();
