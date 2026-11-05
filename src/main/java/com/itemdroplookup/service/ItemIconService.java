@@ -2,20 +2,30 @@ package com.itemdroplookup.service;
 
 import java.awt.image.BufferedImage;
 import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 import java.util.function.BooleanSupplier;
 import java.util.function.Consumer;
 import javax.inject.Inject;
 import net.runelite.api.ItemComposition;
+import net.runelite.api.gameval.ItemID;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.game.ItemManager;
 import net.runelite.client.util.AsyncBufferedImage;
 import net.runelite.http.api.item.ItemPrice;
 import lombok.extern.slf4j.Slf4j;
 
-/** Uses RuneLite's existing in-memory name index and native image cache. */
+/** Uses RuneLite's in-memory name index, reviewed native IDs and native image cache. */
 @Slf4j
 public final class ItemIconService implements ItemIconProvider
 {
+    // These exact remains have local RuneLite IDs even when the price index has no entry.
+    // The live definition must still pass the name, note and placeholder checks below.
+    private static final Map<String, Integer> REVIEWED_ICON_IDS = Map.of(
+            "ent's roots", ItemID.MA2_GUTHIX_HEART,
+            "demon's heart", ItemID.MA2_ZAMORAK_HEART,
+            "justiciar's hand", ItemID.MA2_SARADOMIN_HEART);
+
     private final ItemManager items;
     private final ClientThread clientThread;
 
@@ -58,7 +68,7 @@ public final class ItemIconService implements ItemIconProvider
             if (result != null && result != candidate.getId()) return null;
             result = candidate.getId();
         }
-        return result;
+        return result != null ? result : REVIEWED_ICON_IDS.get(canonicalName.toLowerCase(Locale.ROOT));
     }
 
     static boolean acceptedDefinition(String canonicalName, String name, int noteTemplate, int placeholderTemplate)

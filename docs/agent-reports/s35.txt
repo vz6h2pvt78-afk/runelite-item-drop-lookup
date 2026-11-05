@@ -1,0 +1,14 @@
+S35 - Exact quest remains icons
+
+Adds presentation-only native IDs for Ent's roots, Demon's heart and Justiciar's hand when the price index has no exact entry. Existing indexed identity, ambiguity, live definition name, noted/placeholder and cancellation checks remain enforced. No acquisition or grouping changes.
+
+240 Java and 189 Python tests pass. Official Java 11 / RuneLite 1.13.5 package, API and packaged tests/fonts pass. 22 icon request facade cases pass. Twelve-family two-size semantic audit passes 106 exact child inspections and 332 in-memory Copy snapshots. Catalogue (9137), potion (1187), ordinary query (5664), context (13977) and area baselines match S34. Six roaming contexts remain covered by 156 reports and 24 captures.
+
+One Standard Red cape/Goblin grouped title clips in a non-displayable headless capture. Explicit full-tree invalidation resolves it. No missing production lifecycle event is proven. Classified offscreen/headless sizing artifact, native confirmation pending. Raw evidence and five-stage measurements retained. No broad visual acceptance claimed.
+
+Apollo confirmed useful Skeleton grouping, Wilderness warnings and real S34 Bandit, Ent overview and Porazdir Copy reports. Native three-remains sprites, Goblin title, membership/Back, keyboard and live lifecycle acceptance remain pending. No gameplay or foreground input during daytime work. C3g and accepted Hub remain frozen. External research closed at 15/15.
+
+Starting commit 415fedd1db895133d8e23f93a3533247bfc45ad0
+Build development-2026-11-05-s35-feedback-polish
+Official package SHA256 8024f8f07e40bb8a5245f7fc9b3d7304b2dad201c235152c2723e53cf61db3f1
+Human acceptance pending.
