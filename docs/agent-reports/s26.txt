@@ -1,0 +1,8 @@
+S26 - Dragon pickaxe source context
+
+Artio, Callisto, Vet'ion and Venenatis Dragon pickaxe rows now carry their reviewed Wilderness lair/level and filter applicability. Their raw 1/358 or 1/256 rates, quantity one, notes and original bindings remain exact. The three group bosses also show per-kill probability and contribution-based recipient context. Artio keeps its own encounter. The 14,040-row area audit found exactly four warning/filter changes; the 5,664 lookup audit found only three intended source-context facts. 210 regular and packaged Java tests, 163 Python tests, validators, package/API and both text sizes passed. Twelve pickaxe corruption/precedence cases plus seventeen prior group/Voidwaker cases passed. Integrated alias/safety/detail/Back/report journeys passed with 20 new and 37 prior captured reports. Human-native review pending.
+
+Starting commit c1ddfd9199674748aab5332b77f23815f455aea0
+Build development-2026-11-04-s26-dragon-pickaxe-context
+Official package SHA256 b2fc2cdd4e235fb56a051439edbc8de46ed49e2c46c545b88c5e14ec08c36b74
+Human acceptance pending.

@@ -173,6 +173,31 @@ public class MonsterLocationLookupServiceTest
     }
 
     @Test
+    public void fourPickaxeEncountersHaveIndependentSafetyAndThreeGroupRates()
+    {
+        AccessRequirementLookupService access = new AccessRequirementLookupService(new Gson());
+        for (String[] pair : new String[][] {{"Artio","1/358"},{"Callisto","1/256"},{"Vet'ion","1/256"},{"Venenatis","1/256"}})
+        {
+            DropSource pickaxe = serviceDrop("Dragon pickaxe",pair[0]);
+            assertEquals(pair[1],pickaxe.getDropRate());
+            assertEquals("1",pickaxe.getQuantity());
+            assertEquals("",pickaxe.getNotes());
+            MonsterLocationLookupService.LocationMatch match = service.lookup(pickaxe);
+            assertTrue(match.isReviewedEncounter());
+            assertFalse(match.isVerified());
+            assertEquals(1,match.getLocations().size());
+            assertTrue(service.hasQualifyingLocation(pickaxe,WildernessFilter.ONLY));
+            assertFalse(service.hasQualifyingLocation(pickaxe,WildernessFilter.EXCLUDE));
+            AccessRequirement group = AccessRequirement.groupRewardIn(access.forSource(pickaxe));
+            if (pair[0].equals("Artio")) assertNull(group);
+            else assertEquals(AccessRequirement.GroupRewardRole.PER_KILL_UNIQUE,group.getGroupRewardRole());
+            assertFalse(service.lookup(drop(pair[0],"Dragon pickaxe","1/999")).isReviewedEncounter());
+            assertFalse(service.lookup(drop(pair[0],"Bones","Always")).isReviewedEncounter());
+        }
+        assertTrue(service.hasQualifyingLocation(serviceDrop("Dragon pickaxe","King Black Dragon"),WildernessFilter.EXCLUDE));
+    }
+
+    @Test
     public void fourWildernessEntrancesKeepTheirIndependentDiaryOrBossAssignment()
     {
         AccessRequirementLookupService access = new AccessRequirementLookupService(new Gson());

@@ -176,9 +176,13 @@ public class MonsterLocationLookupService
             Set<List<String>> invalid = new LinkedHashSet<>();
             Set<List<String>> variantTables = new LinkedHashSet<>();
             Map<String, WildernessBossLair> components = ReviewedRows.read(gson, "/voidwaker_lairs.json", "encounters",
-                    "monsterName", this::readComponentLair);
+                    "monsterName", (row, name) -> readBossRewardLair(row, name, false));
             for (WildernessBossLair lair : components.values())
                 addRewardWarning(lair.component(), new EncounterWarning(lair.level, lair.level, lair.location));
+            Map<String, WildernessBossLair> pickaxes = ReviewedRows.read(gson, "/pickaxe_lairs.json", "encounters",
+                    "monsterName", (row, name) -> readBossRewardLair(row, name, true));
+            for (WildernessBossLair lair : pickaxes.values())
+                addRewardWarning(lair.pickaxe(), new EncounterWarning(lair.level, lair.level, lair.location));
             Map<String, EncounterWarning> shards = ReviewedRows.read(gson, "/scorpia_shard_lairs.json", "shards",
                     "itemName", this::readScorpiaWarning);
             shards.forEach((item, warning) -> addRewardWarning(new DropSource(item, "Scorpia", "1", "1/256", ""), warning));
@@ -279,19 +283,21 @@ public class MonsterLocationLookupService
         return new EncounterWarning(low, high, "Scorpion Pit cave");
     }
 
-    private WildernessBossLair readComponentLair(JsonObject row, String name)
+    private WildernessBossLair readBossRewardLair(JsonObject row, String name, boolean pickaxe)
     {
         AcquisitionEventLookupService.fields(row,
                 "monsterName,itemName,quantity,dropRate,notes,locationId,lair,revisionId,wildernessLevel", "");
         WildernessBossLair lair = WildernessBossLair.forMonster(name);
+        DropSource reward = pickaxe ? lair.pickaxe() : lair.component();
         if (!lair.matchesLocation(byMonster.get(normalize(name)))
                 || !lair.id.equals(AcquisitionEventLookupService.string(row, "locationId"))
                 || !lair.location.equals(AcquisitionEventLookupService.string(row, "lair"))
-                || !lair.matchesDrop(name, AcquisitionEventLookupService.string(row, "itemName"),
-                        AcquisitionEventLookupService.string(row, "quantity"), AcquisitionEventLookupService.string(row, "dropRate"),
-                        AcquisitionEventLookupService.text(row, "notes"))
-                || !drops.hasUniqueRecordedDrop(lair.component()))
-            throw new IllegalArgumentException("Unverified Voidwaker encounter");
+                || !reward.getItemName().equals(AcquisitionEventLookupService.string(row, "itemName"))
+                || !reward.getQuantity().equals(AcquisitionEventLookupService.string(row, "quantity"))
+                || !reward.getDropRate().equals(AcquisitionEventLookupService.string(row, "dropRate"))
+                || !reward.getNotes().equals(AcquisitionEventLookupService.text(row, "notes"))
+                || !drops.hasUniqueRecordedDrop(reward))
+            throw new IllegalArgumentException("Unverified boss reward encounter");
         AcquisitionEventLookupService.integer(row, "revisionId", lair.revision, lair.revision);
         AcquisitionEventLookupService.integer(row, "wildernessLevel", lair.level, lair.level);
         return lair;

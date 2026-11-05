@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-05T02:55:00Z",
+  "checkedAt": "2026-11-05T03:50:00Z",
   "facts": [
     {
       "id": "group-vetion-top_damage",
@@ -197,6 +197,72 @@
           "page": "Callisto",
           "revisionId": 15360463,
           "sourceUrl": "https://oldschool.runescape.wiki/w/Callisto?oldid=15360463"
+        }
+      ]
+    },
+    {
+      "id": "group-callisto-pickaxe-per_kill_unique",
+      "monsterName": "Callisto",
+      "itemName": "Dragon pickaxe",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "CONTEXT",
+      "groupRewardRole": "PER_KILL_UNIQUE",
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/256",
+        "notes": ""
+      },
+      "text": "At most one unique per kill. Your damage contribution affects your chance to receive it.",
+      "evidence": [
+        {
+          "page": "Callisto",
+          "revisionId": 15360463,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Callisto?oldid=15360463"
+        }
+      ]
+    },
+    {
+      "id": "group-vetion-pickaxe-per_kill_unique",
+      "monsterName": "Vet'ion",
+      "itemName": "Dragon pickaxe",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "CONTEXT",
+      "groupRewardRole": "PER_KILL_UNIQUE",
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/256",
+        "notes": ""
+      },
+      "text": "At most one unique per kill. Your damage contribution affects your chance to receive it.",
+      "evidence": [
+        {
+          "page": "Vet'ion",
+          "revisionId": 15360817,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Vet'ion?oldid=15360817"
+        }
+      ]
+    },
+    {
+      "id": "group-venenatis-pickaxe-per_kill_unique",
+      "monsterName": "Venenatis",
+      "itemName": "Dragon pickaxe",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "CONTEXT",
+      "groupRewardRole": "PER_KILL_UNIQUE",
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/256",
+        "notes": ""
+      },
+      "text": "At most one unique per kill. Your damage contribution affects your chance to receive it.",
+      "evidence": [
+        {
+          "page": "Venenatis",
+          "revisionId": 15361982,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Venenatis?oldid=15361982"
         }
       ]
     }

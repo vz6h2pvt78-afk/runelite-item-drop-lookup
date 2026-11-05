@@ -129,11 +129,24 @@ public class AccessRequirementLookupService
                 "Unreviewed group boss primary");
         AccessRequirement.GroupRewardRole role = fact.getGroupRewardRole();
         boolean unique = role == AccessRequirement.GroupRewardRole.PER_KILL_UNIQUE;
-        String item = unique ? boss.item : role == AccessRequirement.GroupRewardRole.TOP_DAMAGE ? "Big bones" : "Bones";
+        String item = role == AccessRequirement.GroupRewardRole.TOP_DAMAGE ? "Big bones" : "Bones";
+        String rate = "Always";
+        String infix = "";
+        if (unique)
+        {
+            item = boss.item;
+            rate = "1/360";
+            if ("Dragon pickaxe".equals(fact.getItemName()))
+            {
+                item = "Dragon pickaxe";
+                rate = "1/256";
+                infix = "pickaxe-";
+            }
+        }
         DropSource drop = fact.boundDrop();
-        require(id.equals("group-" + boss.name().toLowerCase(Locale.ROOT) + "-" + role.name().toLowerCase(Locale.ROOT))
+        require(id.equals("group-" + boss.name().toLowerCase(Locale.ROOT) + "-" + infix + role.name().toLowerCase(Locale.ROOT))
                 && item.equals(fact.getItemName()) && "1".equals(drop.getQuantity()) && "".equals(drop.getNotes())
-                && (unique ? "1/360" : "Always").equals(drop.getDropRate()) && drops.hasUniqueRecordedDrop(drop),
+                && rate.equals(drop.getDropRate()) && drops.hasUniqueRecordedDrop(drop),
                 "Unmatched group reward signature");
         return fact;
     }

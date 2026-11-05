@@ -43,9 +43,9 @@ enum WildernessBossLair
                 && place.isAvailable() && place.getWilderness() == MonsterLocation.Wilderness.YES;
     }
 
-    boolean matchesDrop(String name, String reward, String quantity, String chance, String notes)
+    DropSource pickaxe()
     {
-        return monster.equals(name) && item.equals(reward) && "1".equals(quantity) && rate.equals(chance) && "".equals(notes);
+        return new DropSource("Dragon pickaxe", monster, "1", this == ARTIO ? "1/358" : "1/256", "");
     }
 
     DropSource component()
