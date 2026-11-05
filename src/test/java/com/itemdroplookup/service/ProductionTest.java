@@ -20,13 +20,27 @@ public class ProductionTest
         for (String input : List.of("Copper ore", "Tin ore"))
             assertFalse(sources.searchByItemName(input).stream().anyMatch(s -> s.getSourceType().equals("Production")));
         List<AcquisitionMethod> methods = ProductionRecipeAdapter.readBundled(gson);
-        assertEquals(1, methods.size());
+        assertEquals(2, methods.size());
         AcquisitionMethod method = methods.get(0);
         assertEquals("production:bronze-bar:normal-furnace", method.getId());
         assertEquals("", method.getLocationText());
         assertTrue(method.getSearchText().contains("Smithing 1"));
         assertTrue(method.getSearchText().contains("1 × Copper ore"));
         assertTrue(method.getSearchText().contains("1 × Tin ore"));
+    }
+
+    @Test public void malformedCookingOrBronzeIsIsolatedFromItsNeighbor()
+    {
+        java.io.InputStream invalid = new java.io.ByteArrayInputStream("{\"schemaVersion\":1}".getBytes(StandardCharsets.UTF_8));
+        List<AcquisitionMethod> bronze = ProductionRecipeAdapter.read(gson,
+                getClass().getResourceAsStream("/production_recipes.json"), invalid);
+        assertEquals(1, bronze.size());
+        assertEquals("Bronze bar", bronze.get(0).getItemName());
+        List<AcquisitionMethod> cooking = ProductionRecipeAdapter.read(gson, null,
+                getClass().getResourceAsStream("/cooking_recipes.json"));
+        assertEquals(1, cooking.size());
+        assertEquals("Cooking range", cooking.get(0).getSourceName());
+        assertTrue(cooking.get(0).getSearchText().contains("Makes on success"));
     }
 
     @Test public void groundSpawnsRetainTheirOwnTaskScopeAndDoNotCountAsRecipes()

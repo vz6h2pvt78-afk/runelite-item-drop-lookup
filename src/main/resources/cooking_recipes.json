@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "recipes": [
+    {
+      "id": "production:shrimps:cooking-range",
+      "action": "Cook",
+      "facility": "Cooking range",
+      "inputs": [
+        {
+          "itemName": "Raw shrimps",
+          "quantity": 1
+        }
+      ],
+      "output": {
+        "itemName": "Shrimps",
+        "quantity": 1
+      },
+      "outputBasis": "ON_SUCCESS",
+      "failure": "BURN",
+      "skill": "Cooking",
+      "level": 1,
+      "membersOnly": false,
+      "tools": [],
+      "alternateFacilityNote": "Raw shrimps can also be cooked on a fire.",
+      "evidence": [
+        {
+          "page": "Shrimps",
+          "revisionId": 15183319,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Shrimps?oldid=15183319"
+        },
+        {
+          "page": "Raw shrimps",
+          "revisionId": 15331265,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Raw_shrimps?oldid=15331265"
+        }
+      ]
+    }
+  ]
+}

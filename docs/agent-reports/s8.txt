@@ -1,0 +1,8 @@
+S8 - Cooking shrimps
+
+Shrimps now has one Production method. The cooking range consumes one Raw shrimps, requires Cooking 1 and produces one Shrimps on success. The card states that cooking can burn and mentions the fire alternative separately. Exact raw-item Gathering, the Bronze recipe, and all other lookups were checked against S7. Shrimps was the only changed result in the 5,664-query comparison. Both Java runs passed 180 tests and Python passed 135. Package/API, sidebar bounds, offline generation and recovery passed. Try Shrimps, Raw shrimps, and Copy report from each method. Human gameplay and real clipboard review are pending. The two older Slayer equipment labels remain deferred.
+
+Starting commit 4fb928d90564db26401dbd8e76c4cb5a47636099
+Build development-2026-11-04-s8-cooking-shrimps
+Official package SHA256 8f98fda4dec0c822ef816a114abb74660983265e35ae28a1cae77b175727d612
+Human acceptance pending.

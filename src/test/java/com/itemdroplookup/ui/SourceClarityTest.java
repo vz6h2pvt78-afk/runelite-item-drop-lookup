@@ -257,6 +257,39 @@ public class SourceClarityTest
         assertNull(service.findExactBulkOffer("Sawmill voucher (x10)"));
     }
 
+    @Test public void cookingCountsOnlySuccessfulOutputAndReportsItsActualContext() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            Gson g = new Gson();
+            List<String> reports = new ArrayList<>();
+            DropLookupService drops = new DropLookupService(g);
+            ItemSourceLookupService sources = new ItemSourceLookupService(g);
+            ItemPriceLookupService prices = new ItemPriceLookupService(g);
+            for (String other : List.of("Raw shrimps", "Burnt shrimp"))
+                assertFalse(new ItemSearchSelection(other, drops, sources, prices).sources.stream()
+                        .anyMatch(s -> s.getAcquisitionMethod() != null && s.getAcquisitionMethod().getId().equals("production:shrimps:cooking-range")));
+            ItemDropLookupPanel panel = new ItemDropLookupPanel(drops,sources,prices,
+                    new MonsterLocationLookupService(g),new AccessRequirementLookupService(g),reports::add);
+            MorningFeedbackTest.search(panel,"Shrimps");
+            PanelTestSupport.openSources(panel);
+            JComboBox<?> filters = (JComboBox<?>)PanelTestSupport.find(panel,"sourceTypeFilter");
+            for (String filter : List.of("All", "Non-NPC Sources", "Production"))
+            {
+                filters.setSelectedItem(filter);
+                assertEquals(1,named(panel,"itemSourceCard").size());
+                assertTrue(MorningFeedbackTest.labels(panel).contains("Makes on success"));
+                assertTrue(MorningFeedbackTest.labels(panel).contains("Can burn while cooking"));
+            }
+            MorningFeedbackTest.click(panel,"copyReport");
+            assertTrue(reports.get(0).contains("Production: Cooking range | 1 × Raw shrimps → 1 × Shrimps on success | Can burn"));
+            filters.setSelectedItem("Gathering");
+            assertEquals(0,named(panel,"itemSourceCard").size());
+            MorningFeedbackTest.click(panel,"copyReport");
+            assertFalse(reports.get(1).contains("Production: Cooking range"));
+            panel.dispose();
+        });
+    }
+
     @Test public void bulkPurchaseReportTracksOnlyMatchingVisibleOffers() throws Exception
     {
         SwingUtilities.invokeAndWait(() -> {

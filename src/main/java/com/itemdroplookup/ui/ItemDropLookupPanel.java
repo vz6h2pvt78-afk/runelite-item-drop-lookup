@@ -517,15 +517,15 @@ public class ItemDropLookupPanel extends PluginPanel
         if (family.isPresent() && !viewState.selectedItem.matches(".*\\([1-4]\\)$")) resultsPanel.add(makeSummaryLabel("Showing all available doses"));
     }
 
-    private void addDisplayOptions(ItemSource matchingBulkOffer)
+    private void addDisplayOptions(String matchingOfferReport)
     {
         resultsPanel.add(makeSectionHeader("Display"));
         resultsPanel.add(textSize);
         resultsPanel.add(showPriceCheckbox);
-        if (viewState.selection != null) resultsPanel.add(reportControls(matchingBulkOffer));
+        if (viewState.selection != null) resultsPanel.add(reportControls(matchingOfferReport));
     }
 
-    private JPanel reportControls(ItemSource matchingBulkOffer)
+    private JPanel reportControls(String matchingOfferReport)
     {
         JPanel controls = LookupStyle.column();
         JLabel status = style.text("", false);
@@ -547,8 +547,7 @@ public class ItemDropLookupPanel extends PluginPanel
                         detail == null ? null : detailSource.getMonsterName(), detail == null ? null : detail.saveState());
                 if (viewState.page == LookupViewState.Page.NO_SOURCES) report += "Recorded sources: 0\n";
                 if (detail != null && showingPotionFamily()) report += "Dose item: " + detailSource.getItemName() + "\n";
-                if (matchingBulkOffer != null)
-                    report += "Bulk purchase: " + matchingBulkOffer.getSourceName() + " | " + bulkSummary(matchingBulkOffer) + "\n";
+                if (matchingOfferReport != null) report += matchingOfferReport + "\n";
                 clipboardWriter.accept(report);
                 status.setText("<html>Report copied</html>");
             }
@@ -613,7 +612,7 @@ public class ItemDropLookupPanel extends PluginPanel
         npcFilters.setVisible(showDrops);
         sourceSearchRow.setVisible(!matchingDrops.isEmpty() || !matchingSources.isEmpty());
 
-        ItemSource matchingBulkOffer = null;
+        List<String> matchingOfferReports = new ArrayList<>();
         if (displayedQuery.isEmpty())
         {
             resultsPanel.add(makeLabel("Enter an item name, then press Enter or Search."));
@@ -763,7 +762,10 @@ public class ItemDropLookupPanel extends PluginPanel
                 resultsPanel.add(makeSectionHeader((hasPacks && displaySources.stream().allMatch(s -> SOURCE_TYPE_SHOP.equals(s.getSourceType()) || SOURCE_TYPE_REWARD_SHOP.equals(s.getSourceType())) ? "Buying options" : sourceSectionHeading(selectedFilter)) + " (" + displaySources.size() + ")"));
                 for (ItemSource source : displaySources)
                 {
-                    if (source.getBulkPurchase() != null) matchingBulkOffer = source;
+                    if (source.getBulkPurchase() != null)
+                        matchingOfferReports.add("Bulk purchase: " + source.getSourceName() + " | " + bulkSummary(source));
+                    else if (source.getAcquisitionMethod() != null && source.getAcquisitionMethod().getReportSummary() != null)
+                        matchingOfferReports.add(source.getAcquisitionMethod().getReportSummary());
                     resultsPanel.add(makeItemSourceCard(source));
                 }
             }
@@ -820,7 +822,7 @@ public class ItemDropLookupPanel extends PluginPanel
                 resultsPanel.add(wikiButton(displayedQuery));
             }
         }
-        addDisplayOptions(matchingBulkOffer);
+        addDisplayOptions(matchingOfferReports.isEmpty() ? null : String.join("\n", matchingOfferReports));
         style.refreshTree(searchView);
         resultsPanel.revalidate();
         resultsPanel.repaint();

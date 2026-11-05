@@ -22,6 +22,7 @@ nor their conversion to JSON is used to remove source credits or restrictions.
 Runtime resources under src/main/resources/:
 
 - impling_loot.json presents the reviewed jar outcomes and capture routes from the individual OSRS Wiki impling articles. Its evidence records link the selected revisions.
+- cooking_recipes.json adapts the cooking-range table and the successful and burnt outcomes from Shrimps revision 15183319, with Raw shrimps revision 15331265 as supporting evidence. Permanent links are attached to the recipe. The alternate fire mention comes from the article prose.
 - production_recipes.json and wiki_ground_additions.json select the normal furnace recipe and three Bronze bar pickups from https://oldschool.runescape.wiki/w/Special:PermanentLink/15315107 .
 - shop_locations.json links offers to the listed Forestry and Slayer shop branches. Two Slayer stock entries also record their ammunition identity, purchase quantity and full price. https://oldschool.runescape.wiki/w/Special:PermanentLink/15374369 and https://oldschool.runescape.wiki/w/Special:PermanentLink/15373095 .
 - reviewed_slayer_access.json distinguishes Slayer kill levels, attack conditions, protection and finishing equipment for exact named monsters. Each fact carries the contributor page and permanent revision link.

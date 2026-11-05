@@ -16,6 +16,7 @@ public final class AcquisitionMethod
     private final List<Section> sections;
     private final List<Section> summarySections;
     private final boolean verified;
+    private final String reportSummary;
 
     public AcquisitionMethod(String id, String itemName, String sourceName, String sourceType,
             String wikiPage, String locationText, List<Section> sections, boolean verified)
@@ -26,6 +27,13 @@ public final class AcquisitionMethod
     public AcquisitionMethod(String id, String itemName, String sourceName, String sourceType,
             String wikiPage, String locationText, List<Section> sections, List<Section> summarySections, boolean verified)
     {
+        this(id, itemName, sourceName, sourceType, wikiPage, locationText, sections, summarySections, verified, null);
+    }
+
+    public AcquisitionMethod(String id, String itemName, String sourceName, String sourceType, String wikiPage,
+            String locationText, List<Section> sections, List<Section> summarySections, boolean verified, String reportSummary)
+    {
+        this.reportSummary = reportSummary;
         this.id = id;
         this.itemName = itemName;
         this.sourceName = sourceName;
@@ -45,6 +53,7 @@ public final class AcquisitionMethod
     public String getLocationText() { return locationText; }
     public List<Section> getSections() { return sections; }
     public List<Section> getSummarySections() { return summarySections; }
+    public String getReportSummary() { return reportSummary; }
     public boolean isVerified() { return verified; }
 
     public String getSearchText()

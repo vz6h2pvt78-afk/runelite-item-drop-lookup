@@ -77,14 +77,14 @@ public class ReleaseHardeningTest
                 search(p[0],"pouch"); MorningFeedbackTest.click(p[0],"selectItem:rune pouch");
                 search(p[0],"zzzz-no-item"); backToPrevious(p[0]);
                 assertTrue(MorningFeedbackTest.labels(p[0]).toLowerCase().contains("rune pouch"));
-                search(p[0],"Shrimps"); MorningFeedbackTest.click(p[0],"copyReport");
-                assertTrue(reports.get(0).contains("Item: Shrimps\n"));
+                search(p[0],"Cooked chicken"); MorningFeedbackTest.click(p[0],"copyReport");
+                assertTrue(reports.get(0).contains("Item: Cooked chicken\n"));
                 assertTrue(reports.get(0).contains("View: No sources\n"));
                 assertFalse(reports.get(0).contains("Find source:"));
                 assertFalse(reports.get(0).contains("Method:"));
                 assertFalse(MorningFeedbackTest.labels(p[0]).contains("No matching item"));
                 backToPrevious(p[0]);
-                search(p[0],"rune"); layout(p[0]); search(p[0],"Shrimps");
+                search(p[0],"rune"); layout(p[0]); search(p[0],"Cooked chicken");
                 assertTrue(MorningFeedbackTest.labels(p[0]).contains("No acquisition sources recorded"));
                 p[0].dispose(); p[0].getWrappedPanel().removeNotify();
                 for(Request r:pending)assertFalse(r.current.getAsBoolean());
@@ -118,7 +118,7 @@ public class ReleaseHardeningTest
         AtomicInteger attempts=new AtomicInteger();CompletableFuture<Void> settled=new CompletableFuture<>();
         SwingUtilities.invokeAndWait(()->{
             ItemDropLookupPanel p=panel(text->{attempts.incrementAndGet();throw new IllegalStateException("clipboard busy");},ItemIconProvider.NONE);
-            for(String query:new String[]{"Shrimps","uncut","Goblin mail"})
+            for(String query:new String[]{"Cooked chicken","uncut","Goblin mail"})
             {
                 search(p,query);
                 if(query.equals("Goblin mail")){PanelTestSupport.openSources(p);MorningFeedbackTest.click(p,"openLocations");}

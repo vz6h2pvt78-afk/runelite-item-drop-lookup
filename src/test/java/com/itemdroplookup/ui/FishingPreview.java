@@ -26,7 +26,7 @@ public final class FishingPreview
             AcquisitionPreview.save(wrap, new File(output, "raw-shrimps-gathering.png"));
             MorningFeedbackTest.search(panel, "Shrimps");
             for (int i = 0; i < 10; i++) AcquisitionPreview.layout(wrap);
-            AcquisitionPreview.save(wrap, new File(output, "shrimps-no-sources.png"));
+            AcquisitionPreview.save(wrap, new File(output, "shrimps-cooking-overview.png"));
         });
     }
 }

@@ -100,15 +100,15 @@ public class MorningFeedbackTest
             JTextField finder = (JTextField)PanelTestSupport.find(p,"sourceSearch");
             finder.setText("Varrock"); finder.postActionEvent();
             click(p, "copyReport"); String original = reports.get(0);
-            search(p, "Shrimps");
+            search(p, "Cooked chicken");
             assertTrue(labels(p).contains("No acquisition sources recorded"));
             assertFalse(labels(p).contains("No matching item"));
-            assertFalse(labels(p).contains("Raw shrimps"));
+            assertFalse(labels(p).contains("Raw chicken"));
             assertNull(PanelTestSupport.find(p,"viewAllSources"));
             assertNotNull(((JButton)PanelTestSupport.find(p,"backToPreviousItem")).getIcon());
             click(p, "copyReport"); String empty = reports.get(1);
-            assertTrue(empty.contains("Item: Shrimps\n"));
-            assertTrue(empty.contains("Item query: Shrimps\n"));
+            assertTrue(empty.contains("Item: Cooked chicken\n"));
+            assertTrue(empty.contains("Item query: Cooked chicken\n"));
             assertTrue(empty.contains("View: No sources\n"));
             assertTrue(empty.contains("Recorded sources: 0\n"));
             assertFalse(empty.contains("Find source:"));
@@ -128,8 +128,8 @@ public class MorningFeedbackTest
     {
         SwingUtilities.invokeAndWait(() -> {
             ItemDropLookupPanel p = panel(new ArrayList<>());
-            search(p, "  sHRimps  ");
-            assertTrue(labels(p).contains("Shrimps"));
+            search(p, "  coOKed chICken  ");
+            assertTrue(labels(p).contains("Cooked chicken"));
             assertNull(PanelTestSupport.find(p,"backToPreviousItem"));
             JButton wiki = (JButton)PanelTestSupport.find(p,"itemWiki");
             assertNotNull(wiki);
