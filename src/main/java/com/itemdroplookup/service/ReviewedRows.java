@@ -20,12 +20,24 @@ final class ReviewedRows
 {
     static <T> Map<String,T> read(Gson gson, String resource, String collection, String keyField, BiFunction<JsonObject,String,T> parse)
     {
+        return read(gson, resource, collection, keyField, "schemaVersion," + collection, parse);
+    }
+
+    static <T> Map<String,T> readDatedFacts(Gson gson, String resource, String keyField, BiFunction<JsonObject,String,T> parse)
+    {
+        return read(gson, resource, "facts", keyField, "schemaVersion,checkedAt,facts", parse);
+    }
+
+    private static <T> Map<String,T> read(Gson gson, String resource, String collection, String keyField,
+                                          String header, BiFunction<JsonObject,String,T> parse)
+    {
         Map<String,T> records=new HashMap<>();
         try (InputStream input=ReviewedRows.class.getResourceAsStream(resource))
         {
             if (input==null) return records;
             JsonObject root=gson.fromJson(new InputStreamReader(input,StandardCharsets.UTF_8),JsonObject.class);
-            fields(root,"schemaVersion,"+collection,"");
+            fields(root,header,"");
+            if (root.has("checkedAt")) string(root,"checkedAt");
             integer(root,"schemaVersion",1,1);
             Set<String> seen=new HashSet<>();
             for (JsonElement value : array(root,collection))

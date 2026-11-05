@@ -1,0 +1,8 @@
+S21B - Four Wilderness lair entrances
+
+Hunter's End requires the hard Wilderness Diary or a Callisto boss Slayer task. Callisto's Den, Vet'ion's Rest and Silk Chasm require the medium diary or their own named boss task. The ordinary bear, skeleton or spider assignment does not grant this entrance exception. Facts show only in the exact location, and preserve 5,664 query inventories plus all underlying drop rates, quantities and bindings. Four gates apply in 198 location details. 199 regular and packaged Java tests and 155 Python tests passed, as did all validators, API, standard packaging, eight entrance fault cases and both render sizes. Human-native review and clipboard testing pending.
+
+Starting commit 9fdea9860878fd163a735e21d5092131a679fc95
+Build development-2026-11-04-s21b-wilderness-entrances
+Official package SHA256 f60e33952b5d3959a3c4e2674f50bfe938c98dcba6109c0775221e372976098b
+Human acceptance pending.

@@ -1,6 +1,7 @@
 package com.itemdroplookup.service;
 
 import com.google.gson.Gson;
+import com.itemdroplookup.model.AccessRequirement;
 import com.itemdroplookup.model.DropSource;
 import com.itemdroplookup.model.MonsterLocation;
 import com.itemdroplookup.service.MonsterLocationFilter.MembershipFilter;
@@ -112,6 +113,27 @@ public class MonsterLocationLookupServiceTest
             assertTrue(service.lookupByMonsterName(test[1] + " (quest)").isEmpty());
         }
         assertFalse(service.lookup(drop("Venenatis", "Voidwaker gem", "1/1")).isReviewedEncounter());
+    }
+
+    @Test
+    public void fourWildernessEntrancesKeepTheirIndependentDiaryOrBossAssignment()
+    {
+        AccessRequirementLookupService access = new AccessRequirementLookupService(new Gson());
+        for (String[] test : new String[][] {
+                {"Artio", "hard", "Callisto", "bear"}, {"Callisto", "medium", "Callisto", "bear"},
+                {"Venenatis", "medium", "Venenatis", "spider"}, {"Vet'ion", "medium", "Vet'ion", "skeleton"}})
+        {
+            MonsterLocation place = service.lookupByMonsterName(test[0]).get(0);
+            List<AccessRequirement> facts = access.forLocation(place);
+            assertEquals(1, facts.size());
+            assertEquals("Complete the " + test[1] + " Wilderness Diary or have a " + test[2]
+                    + " boss Slayer task. Ordinary " + test[3] + " tasks do not qualify.", facts.get(0).getText());
+            assertEquals(place.getRevisionId(), facts.get(0).getEvidence().get(0).getRevisionId());
+            assertEquals(MonsterLocation.Wilderness.YES, place.getWilderness());
+            assertTrue(access.forSource(drop(test[0], "Dragon pickaxe", "1/1")).isEmpty());
+        }
+        for (String other : Arrays.asList("Spindel", "Calvar'ion", "King Black Dragon"))
+            assertTrue(access.forLocation(service.lookupByMonsterName(other).get(0)).isEmpty());
     }
 
     @Test

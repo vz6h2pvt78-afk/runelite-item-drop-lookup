@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-05T02:35:00Z",
+  "facts": [
+    {
+      "id": "lair-entry-661c22fc10edd1c47b2c",
+      "monsterName": "Artio",
+      "scope": "LOCATION",
+      "locationId": "661c22fc10edd1c47b2c",
+      "appliesTo": "ACCESS",
+      "type": "CONTEXT",
+      "text": "Complete the hard Wilderness Diary or have a Callisto boss Slayer task. Ordinary bear tasks do not qualify.",
+      "evidence": [
+        {
+          "page": "Artio",
+          "revisionId": 15358758,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Artio?oldid=15358758"
+        }
+      ]
+    },
+    {
+      "id": "lair-entry-7dc3d2578ee79c0d635b",
+      "monsterName": "Callisto",
+      "scope": "LOCATION",
+      "locationId": "7dc3d2578ee79c0d635b",
+      "appliesTo": "ACCESS",
+      "type": "CONTEXT",
+      "text": "Complete the medium Wilderness Diary or have a Callisto boss Slayer task. Ordinary bear tasks do not qualify.",
+      "evidence": [
+        {
+          "page": "Callisto",
+          "revisionId": 15360463,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Callisto?oldid=15360463"
+        }
+      ]
+    },
+    {
+      "id": "lair-entry-443dd543a3e6bc6c8d3b",
+      "monsterName": "Vet'ion",
+      "scope": "LOCATION",
+      "locationId": "443dd543a3e6bc6c8d3b",
+      "appliesTo": "ACCESS",
+      "type": "CONTEXT",
+      "text": "Complete the medium Wilderness Diary or have a Vet'ion boss Slayer task. Ordinary skeleton tasks do not qualify.",
+      "evidence": [
+        {
+          "page": "Vet'ion",
+          "revisionId": 15360817,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Vet'ion?oldid=15360817"
+        }
+      ]
+    },
+    {
+      "id": "lair-entry-f867bf8c06f5f237885a",
+      "monsterName": "Venenatis",
+      "scope": "LOCATION",
+      "locationId": "f867bf8c06f5f237885a",
+      "appliesTo": "ACCESS",
+      "type": "CONTEXT",
+      "text": "Complete the medium Wilderness Diary or have a Venenatis boss Slayer task. Ordinary spider tasks do not qualify.",
+      "evidence": [
+        {
+          "page": "Venenatis",
+          "revisionId": 15361982,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Venenatis?oldid=15361982"
+        }
+      ]
+    }
+  ]
+}
