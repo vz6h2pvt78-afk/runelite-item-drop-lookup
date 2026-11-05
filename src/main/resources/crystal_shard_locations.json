@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "bindings": [
+    {
+      "monsterName": "Dark beast",
+      "itemName": "Crystal shard",
+      "quantity": "3-5",
+      "dropRate": "1/24",
+      "notes": "",
+      "locationId": "5f9a03c81abe69928796",
+      "locationName": "Iorwerth Dungeon",
+      "dropVersion": "",
+      "revisionId": 15350345,
+      "sourceUrl": "https://oldschool.runescape.wiki/w/Dark_beast?oldid=15350345"
+    },
+    {
+      "monsterName": "Greater Nechryael",
+      "itemName": "Crystal shard",
+      "quantity": "3-5",
+      "dropRate": "1/24",
+      "notes": "",
+      "locationId": "51b7c39b8d085595856b",
+      "locationName": "Iorwerth Dungeon",
+      "dropVersion": "Regular",
+      "revisionId": 15341801,
+      "sourceUrl": "https://oldschool.runescape.wiki/w/Greater_Nechryael?oldid=15341801"
+    },
+    {
+      "monsterName": "Kurask",
+      "itemName": "Crystal shard",
+      "quantity": "3-5",
+      "dropRate": "1/24",
+      "notes": "",
+      "locationId": "7d37e4898b37137e6b86",
+      "locationName": "Iorwerth Dungeon",
+      "dropVersion": "",
+      "revisionId": 15386817,
+      "sourceUrl": "https://oldschool.runescape.wiki/w/Kurask?oldid=15386817"
+    },
+    {
+      "monsterName": "Mutated Bloodveld",
+      "itemName": "Crystal shard",
+      "quantity": "3-5",
+      "dropRate": "1/24",
+      "notes": "",
+      "locationId": "5d02c785be1ea0f0d404",
+      "locationName": "Iorwerth Dungeon",
+      "dropVersion": "",
+      "revisionId": 15338397,
+      "sourceUrl": "https://oldschool.runescape.wiki/w/Mutated_Bloodveld?oldid=15338397"
+    },
+    {
+      "monsterName": "Waterfiend",
+      "itemName": "Crystal shard",
+      "quantity": "3-5",
+      "dropRate": "1/24",
+      "notes": "",
+      "locationId": "6c6ac675635c5903fbfe",
+      "locationName": "Iorwerth Dungeon",
+      "dropVersion": "",
+      "revisionId": 15385712,
+      "sourceUrl": "https://oldschool.runescape.wiki/w/Waterfiend?oldid=15385712"
+    }
+  ]
+}

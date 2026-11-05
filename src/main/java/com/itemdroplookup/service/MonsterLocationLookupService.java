@@ -34,6 +34,7 @@ public class MonsterLocationLookupService
     // Only reviewed rewards enter this small index. Raw quantity, rate and notes remain part of the key.
     private final Map<String, Map<List<String>, EncounterWarning>> rewardWarnings = new HashMap<>();
     private final Map<List<String>, RoamingEncounter> roamingEncounters = new HashMap<>();
+    private final Map<List<String>, MonsterLocation> reviewedItemLocations = new HashMap<>();
     // Retain raw binding multiplicity only for the few reviewed item-access targets.
     private final Map<List<String>, Binding> accessBindings = new HashMap<>();
     private static final Comparator<MonsterLocation> LOCATION_ORDER = Comparator
@@ -101,7 +102,10 @@ public class MonsterLocationLookupService
         List<String> signature = key(source.getMonsterName(), source.getItemName(),
                 source.getQuantity(), source.getDropRate(), source.getNotes());
         List<MonsterLocation> verified = byDrop.get(signature);
-        if (verified != null) return new LocationMatch(verified, true, null);
+        if (verified != null) return new LocationMatch(verified, LocationMatch.AssociationOrigin.LEGACY_DROP_BINDING, null);
+        MonsterLocation reviewed = reviewedItemLocations.get(signature);
+        if (reviewed != null) return new LocationMatch(Collections.singletonList(reviewed),
+                LocationMatch.AssociationOrigin.REVIEWED_ITEM_LOCATION, null);
         RoamingEncounter roaming = roamingEncounters.get(signature);
         if (roaming != null) return new LocationMatch(roaming);
         List<MonsterLocation> places = lookupByMonsterName(source.getMonsterName());
@@ -114,7 +118,7 @@ public class MonsterLocationLookupService
             int level = place.getEncounterWildernessLevel();
             warning = new EncounterWarning(level, level, place.getLocation());
         }
-        return new LocationMatch(places, false, warning);
+        return new LocationMatch(places, LocationMatch.AssociationOrigin.NONE, warning);
     }
 
     public Set<String> tableVersions(DropSource source)
@@ -142,7 +146,7 @@ public class MonsterLocationLookupService
         LocationMatch match = lookup(source);
         if (match.getContextKind() == LocationMatch.ContextKind.ROAMING_ENCOUNTER)
             return MonsterLocationFilter.matches(match.getRoamingEncounter(), filter, MonsterLocationFilter.MembershipFilter.ALL);
-        return (match.isVerified() || match.isReviewedEncounter()) && match.getLocations().stream().anyMatch(location ->
+        return (match.hasItemLocationAssociation() || match.isReviewedEncounter()) && match.getLocations().stream().anyMatch(location ->
                 location.isAvailable() && MonsterLocationFilter.matches(location, filter,
                         MonsterLocationFilter.MembershipFilter.ALL));
     }
@@ -168,8 +172,12 @@ public class MonsterLocationLookupService
                 return;
             }
             Map<String, MonsterLocation> byId = new HashMap<>();
+            Set<String> duplicateIds = new LinkedHashSet<>();
+            Set<String> seenIds = new LinkedHashSet<>();
             for (MonsterLocation location : dataset.locations)
             {
+                if (location != null && location.getId() != null && !seenIds.add(location.getId()))
+                    duplicateIds.add(location.getId());
                 if (location == null || location.getId() == null || location.getMonsterName() == null)
                 {
                     continue;
@@ -207,11 +215,15 @@ public class MonsterLocationLookupService
                 roamingEncounters.put(key(source.getMonsterName(), source.getItemName(),
                         source.getQuantity(), source.getDropRate(), source.getNotes()), roaming);
             }
+            for (MonsterLocation place : ReviewedRows.read(gson, "/crystal_shard_locations.json", "bindings", "monsterName",
+                    (row, name) -> ReviewedShardLocation.forMonster(name).read(row, byId, duplicateIds, drops)).values())
+                reviewedItemLocations.put(key(place.getMonsterName(), "Crystal shard", "3-5", "1/24", ""), place);
             Set<String> accessItems = accessItemNames();
             for (Binding binding : dataset.dropBindings)
             {
                 List<String> signature = key(binding.monsterName, binding.itemName, binding.quantity, binding.dropRate, binding.notes);
                 roamingEncounters.remove(signature);
+                reviewedItemLocations.remove(signature);
                 Map<List<String>, EncounterWarning> rewards = rewardWarnings.get(binding.monsterName);
                 if (rewards != null) rewards.remove(Arrays.asList(binding.itemName, binding.quantity, binding.dropRate, binding.notes));
                 if (accessItems.contains(binding.itemName))
@@ -263,6 +275,7 @@ public class MonsterLocationLookupService
         {
             rewardWarnings.clear();
             roamingEncounters.clear();
+            reviewedItemLocations.clear();
             byMonster.clear();
             byDrop.clear();
             commonDrops.clear();
@@ -430,17 +443,18 @@ public class MonsterLocationLookupService
     public static final class LocationMatch
     {
         public enum ContextKind { NONE, FIXED_ENCOUNTER, ROAMING_ENCOUNTER }
+        public enum AssociationOrigin { NONE, LEGACY_DROP_BINDING, REVIEWED_ITEM_LOCATION }
 
         private final List<MonsterLocation> locations;
         private final RoamingEncounter roaming;
-        private final boolean verified;
+        private final AssociationOrigin associationOrigin;
 
         private final EncounterWarning warning;
 
-        private LocationMatch(List<MonsterLocation> locations, boolean verified, EncounterWarning warning)
+        private LocationMatch(List<MonsterLocation> locations, AssociationOrigin associationOrigin, EncounterWarning warning)
         {
             this.locations = locations;
-            this.verified = verified;
+            this.associationOrigin = associationOrigin;
             this.warning = warning;
             this.roaming = null;
         }
@@ -448,7 +462,7 @@ public class MonsterLocationLookupService
         private LocationMatch(RoamingEncounter roaming)
         {
             this.locations = Collections.emptyList();
-            this.verified = false;
+            this.associationOrigin = AssociationOrigin.NONE;
             this.warning = null;
             this.roaming = roaming;
         }
@@ -462,7 +476,10 @@ public class MonsterLocationLookupService
         public RoamingEncounter getRoamingEncounter() { return roaming; }
 
         public List<MonsterLocation> getLocations() { return locations; }
-        public boolean isVerified() { return verified; }
+        /** Retains the legacy generated drop-binding contract. */
+        public boolean isVerified() { return associationOrigin == AssociationOrigin.LEGACY_DROP_BINDING; }
+        public AssociationOrigin getAssociationOrigin() { return associationOrigin; }
+        public boolean hasItemLocationAssociation() { return associationOrigin != AssociationOrigin.NONE; }
 
         /** Fixed encounter evidence is separate from verification of an individual drop. */
         public boolean isReviewedEncounter() { return warning != null; }

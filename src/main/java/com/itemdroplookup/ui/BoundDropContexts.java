@@ -31,7 +31,7 @@ final class BoundDropContexts
                 roaming.put(drop, match.getRoamingEncounter());
                 continue;
             }
-            if (!match.isVerified() && !match.isReviewedEncounter()) continue;
+            if (!match.hasItemLocationAssociation() && !match.isReviewedEncounter()) continue;
             List<MonsterLocation> available = match.getLocations().stream().filter(MonsterLocation::isAvailable)
                     .collect(Collectors.toList());
             if (available.isEmpty()) continue;

@@ -141,7 +141,7 @@ public class MonsterLocationPanel extends JPanel
         membership.setToolTipText("Drop world restrictions also apply. Unknown location membership is excluded by specific filters.");
         showAll.setBackground(LookupStyle.BACK);
         showAll.setName("allMonsterLocations");
-        showAll.setVisible(match.isVerified() && allLocations.stream().anyMatch(location ->
+        showAll.setVisible(match.hasItemLocationAssociation() && allLocations.stream().anyMatch(location ->
                 match.getLocations().stream().noneMatch(matched -> matched.getId().equals(location.getId()))));
         showAll.setToolTipText("Include other drop tables; the item and rate above may not apply there");
 
@@ -228,8 +228,8 @@ public class MonsterLocationPanel extends JPanel
         }
         boolean filtering = wilderness.getSelectedItem() != WildernessFilter.ALL
                 || membership.getSelectedItem() != MembershipFilter.ALL;
-        boolean verifiedView = match.isVerified() && !showAll.isSelected();
-        List<MonsterLocation> locations = verifiedView ? match.getLocations() : allLocations;
+        boolean applicableView = match.hasItemLocationAssociation() && !showAll.isSelected();
+        List<MonsterLocation> locations = applicableView ? match.getLocations() : allLocations;
         wilderness.setVisible(roaming != null || !locations.isEmpty());
         membership.setVisible(roaming != null || !locations.isEmpty());
         if (roaming != null)
@@ -255,14 +255,16 @@ public class MonsterLocationPanel extends JPanel
             {
                 locationsPanel.add(text("The monster’s Wiki page identifies this as its fighting lair.", false, TEXT_WIDTH));
             }
-            else if (!verifiedView)
+            else if (!applicableView)
             {
                 locationsPanel.add(text("Monster locations only: this item and rate may not apply at every location.", false, TEXT_WIDTH));
             }
             List<MonsterLocation> filtered = locations.stream().filter(location -> MonsterLocationFilter.matchesSource(
                     source, location, (WildernessFilter) wilderness.getSelectedItem(), (MembershipFilter) membership.getSelectedItem()))
                     .collect(Collectors.toList());
-            locationsPanel.add(text("Locations: " + filtered.size() + " of " + locations.size(), true, TEXT_WIDTH));
+            String heading = match.getAssociationOrigin() == LocationMatch.AssociationOrigin.REVIEWED_ITEM_LOCATION && applicableView
+                    ? "Applicable locations" : "Locations: " + filtered.size() + " of " + locations.size();
+            locationsPanel.add(text(heading, true, TEXT_WIDTH));
             if (filtering)
             {
                 locationsPanel.add(text("Unknown locations excluded.", false, TEXT_WIDTH));
@@ -386,6 +388,11 @@ public class MonsterLocationPanel extends JPanel
                 report.append("Fighting lair: ").append(place.getLocation()).append(" (Wilderness ")
                         .append(match.encounterLevelText()).append(", PvP danger)\n");
         }
+        if (match.getAssociationOrigin() == LocationMatch.AssociationOrigin.REVIEWED_ITEM_LOCATION)
+            for (MonsterLocation place : match.getLocations())
+                if (MonsterLocationFilter.matchesSource(source, place, (WildernessFilter) wilderness.getSelectedItem(),
+                        (MembershipFilter) membership.getSelectedItem()))
+                    report.append("Reviewed applicable location: ").append(place.getLocation()).append('\n');
         return report.toString();
     }
 

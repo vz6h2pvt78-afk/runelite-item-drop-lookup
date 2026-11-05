@@ -1,0 +1,8 @@
+S40D - Reviewed Crystal shard locations
+
+Five exact ordinary Crystal shard sources now prioritize their existing reviewed Iorwerth Dungeon sites. Separate association provenance preserves legacy binding verification and raw-binding precedence. Dark beast retains Prifddinas or Iorwerth Dungeon eligibility. Other locations remains available with its generic caveat. Copy report includes the reviewed applicable site only while visible. No core drop, binding or location resource changed. Four superior shard rows remain condition-only.254Java207Python,81faultcases,474snapshots per package across3packages, exact5area deltas over13977contexts,15018source-fact parity,42priorresourcesbyteidentical. All10default details and4Other-locations captures inspected. Normal revalidation resolves a non-displayable Dark beast initial width-settlement artifact. Native acceptance remains pending.
+
+Starting commit afac0746bdc5eb5ce06ab5083f1826c9bc1002cf
+Build development-2026-11-05-s40d-shard-locations
+Official package SHA256 a59c28ef8daa71855472713fdfbe2917e8ce2d448623574c413d8aad59f972c5
+Human acceptance pending.
