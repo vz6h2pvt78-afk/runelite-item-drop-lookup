@@ -1,0 +1,8 @@
+S27B - Basilisk jaw task rate and reports
+
+Basilisk Knight's original jaw row remains 1/5000, with the reviewed 1/1000 shown on a Basilisk Slayer task. This is a conditional chance, not a kill requirement. Sentinel rows keep their own rate. Existing Drake tooth/claw behavior is preserved. Only selected source details copy the displayed base and on-task rate; Back restores source-neutral reports. Probability phrases stay together when the narrow sidebar wraps, while copied text uses ordinary spaces. The complete 5,664-query/source inventory matches S27 byte-for-byte. 213 normal and packaged Java tests, 166 Python tests, validators, package/API and both text sizes passed. Nine jaw/clipboard fault scenarios and seven prior Drake scenarios passed. Human-native acceptance pending.
+
+Starting commit 20f60a85ee746eb5bf0f0bcecba036ac05268424
+Build development-2026-11-04-s27b-basilisk-task-rate
+Official package SHA256 ca6452ff4e01d1d90d7d8aa838ac82dc39919f3079d0657a241e36c708108ce0
+Human acceptance pending.

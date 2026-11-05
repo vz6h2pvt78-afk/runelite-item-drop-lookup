@@ -61,6 +61,12 @@ final class DropRatePresentation
         return "On a " + source.getConditionalRate().getTaskName() + " Slayer task: " + format(source.getConditionalRate().getTaskRate());
     }
 
+    static String taskRateDisplayLine(DropSource source)
+    {
+        // Keep the probability together when the task label wraps in the narrow sidebar.
+        return taskRateLine(source).replace("1 in ", "1\u00a0in\u00a0");
+    }
+
     static String detailRateLine(DropSource source)
     {
         return sourceRateLine(source);

@@ -179,7 +179,7 @@ public class MonsterLocationPanel extends JPanel
         }
         locationsPanel.add(text(DropRatePresentation.rateWithContext(source, groupReward), false, TEXT_WIDTH));
         if (groupReward != null) locationsPanel.add(requirementText(groupReward, TEXT_WIDTH, true));
-        if (source.getConditionalRate() != null) locationsPanel.add(text(DropRatePresentation.taskRateLine(source), false, TEXT_WIDTH));
+        if (source.getConditionalRate() != null) locationsPanel.add(text(DropRatePresentation.taskRateDisplayLine(source), false, TEXT_WIDTH));
         if (DropRatePresentation.isDreamCake(source)) locationsPanel.add(text(DropRatePresentation.DREAM_CAKE_NOTE, false, TEXT_WIDTH));
         if (DropRatePresentation.hasUnresolvedAlternate(source))
             locationsPanel.add(text("The Wiki lists 1 in 2 and 1 in 3. Which rate applies here is unverified.", false, TEXT_WIDTH));
@@ -323,6 +323,9 @@ public class MonsterLocationPanel extends JPanel
     String reviewedRewardReport()
     {
         StringBuilder report = new StringBuilder();
+        if (source.getConditionalRate() != null)
+            report.append(DropRatePresentation.sourceRateLine(source)).append('\n')
+                    .append(DropRatePresentation.taskRateLine(source)).append('\n');
         if (groupReward != null)
             report.append(DropRatePresentation.rateWithContext(source, groupReward)).append('\n')
                     .append(groupReward.getLabel()).append(": ").append(groupReward.getText()).append('\n');

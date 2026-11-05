@@ -257,6 +257,27 @@ public class SourceClarityTest
         assertNull(service.findExactBulkOffer("Sawmill voucher (x10)"));
     }
 
+    @Test public void basiliskJawRateIsConditionalAndKeepsItsExactOffTaskSource()
+    {
+        Gson g = new Gson();
+        DropLookupService drops = new DropLookupService(g);
+        List<DropSource> rows = drops.searchByItemName("Basilisk jaw");
+        assertEquals(2,rows.size());
+        DropSource knight = rows.stream().filter(r -> r.getMonsterName().equals("Basilisk Knight")).findFirst().get();
+        assertEquals("1/5000",knight.getDropRate());
+        assertEquals("Base rate: 1 in 5000",DropRatePresentation.sourceRateLine(knight));
+        assertEquals("On a Basilisk Slayer task: 1 in 1000",DropRatePresentation.taskRateLine(knight));
+        assertTrue(DropRatePresentation.taskRateDisplayLine(knight).contains("1\u00a0in\u00a01000"));
+        assertFalse(knight.getConditionalRate().matches("Basilisk","Basilisk jaw","1","1/5000",""));
+        assertFalse(knight.getConditionalRate().matches("Basilisk Knight","Basilisk jaw","2","1/5000",""));
+        assertFalse(knight.getConditionalRate().matches("Basilisk Knight","Basilisk jaw","1","1/1000",""));
+        assertFalse(knight.getConditionalRate().matches("Basilisk Knight","Basilisk jaw","1","1/5000","Other"));
+        assertNull(rows.stream().filter(r -> r.getMonsterName().equals("Basilisk Sentinel")).findFirst().get().getConditionalRate());
+        assertTrue(drops.searchByItemName("Mystic hat (light)").stream().noneMatch(r -> r.getConditionalRate()!=null));
+        assertFalse(new AccessRequirementLookupService(g).forSource(knight).stream().anyMatch(f ->
+                f.getType()==com.itemdroplookup.model.AccessRequirement.Type.ACTIVE_TASK));
+    }
+
     @Test public void drakeTaskRatesKeepTheBaseAndNeverApplyToGuardianDrakes() throws Exception
     {
         Gson g = new Gson();

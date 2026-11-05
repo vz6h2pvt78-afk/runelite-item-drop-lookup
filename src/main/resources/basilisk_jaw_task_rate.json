@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "rates": [
+    {
+      "monsterName": "Basilisk Knight",
+      "itemName": "Basilisk jaw",
+      "quantity": "1",
+      "dropRate": "1/5000",
+      "notes": "",
+      "taskName": "Basilisk",
+      "onTaskRate": "1/1000",
+      "evidence": [
+        {
+          "page": "Basilisk Knight",
+          "revisionId": 15340714,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Basilisk_Knight?oldid=15340714"
+        }
+      ]
+    }
+  ]
+}

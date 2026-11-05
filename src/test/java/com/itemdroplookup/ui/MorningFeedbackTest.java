@@ -30,7 +30,7 @@ public class MorningFeedbackTest
         StringBuilder result = new StringBuilder();
         for (Component c : p.getComponents())
         {
-            if (c instanceof JLabel) result.append(((JLabel)c).getText()).append('\n');
+            if (c instanceof JLabel) result.append(String.valueOf(((JLabel)c).getText()).replace('\u00a0',' ')).append('\n');
             if (c instanceof Container) result.append(labels((Container)c));
         }
         return result.toString();
@@ -347,6 +347,50 @@ public class MorningFeedbackTest
             search(p, "Black mask (10)");
             assertNotNull(PanelTestSupport.find(p, "showDropSources"));
         });
+    }
+
+    @Test public void exactConditionalRatesCopyOnlyFromTheirVisibleSelectedDetails() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            List<String> reports = new ArrayList<>();
+            ItemDropLookupPanel p = panel(reports);
+            for (String[] c : new String[][] {
+                    {"Basilisk jaw","Basilisk Knight","5000","Basilisk","1000"},
+                    {"Drake's tooth","Drake","2560","Drake","512"},
+                    {"Drake's claw","Drake","2560","Drake","512"}})
+            {
+                search(p,c[0]); click(p,"showDropSources");
+                JTextField finder=(JTextField)PanelTestSupport.find(p,"sourceSearch");
+                finder.setText(c[1]);finder.postActionEvent();
+                Component family=PanelTestSupport.find(p,"sourceGroup:"+c[1]);
+                if (family instanceof JButton && ((JButton)family).getText().contains("▸")) ((JButton)family).doClick(0);
+                click(p,"copyReport");String overview=reports.get(reports.size()-1);
+                assertFalse(overview.contains("Base rate:"));
+                JButton open = conditionalDetailButton(p,c[1]);
+                assertNotNull(open);open.doClick(0);click(p,"copyReport");
+                String detail=reports.get(reports.size()-1);
+                assertTrue(detail.contains("Base rate: 1 in "+c[2]+"\n"));
+                assertTrue(detail.contains("On a "+c[3]+" Slayer task: 1 in "+c[4]+"\n"));
+                click(p,"backToResults");click(p,"copyReport");
+                assertEquals(overview,reports.get(reports.size()-1));
+            }
+        });
+    }
+
+    private static JButton conditionalDetailButton(Container root, String monster)
+    {
+        for (Component c : root.getComponents())
+        {
+            if (c instanceof JButton && "openLocations".equals(c.getName())
+                    && ("Locations and requirements for "+monster).equals(((JButton)c).getAccessibleContext().getAccessibleName()))
+                return (JButton)c;
+            if (c instanceof Container)
+            {
+                JButton result=conditionalDetailButton((Container)c,monster);
+                if (result!=null) return result;
+            }
+        }
+        return null;
     }
 
     @Test public void implingSummaryRetainsRateCaveatAndOpeningExceptionWithoutRouteLecture()
