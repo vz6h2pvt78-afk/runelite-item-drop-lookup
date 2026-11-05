@@ -92,6 +92,11 @@ final class LookupStyle
         return "WILDERNESS " + levelText + "\nPvP danger";
     }
 
+    static String roamingDanger(String area)
+    {
+        return "WILDERNESS\n" + area + "\nPvP danger";
+    }
+
     JLabel wildernessWarning()
     {
         return wildernessWarning("WILDERNESS\nPvP danger");

@@ -2,6 +2,7 @@ package com.itemdroplookup.service;
 
 import com.itemdroplookup.model.MonsterLocation;
 import com.itemdroplookup.model.DropSource;
+import com.itemdroplookup.model.RoamingEncounter;
 
 /** The same location predicates are used in details and item results. */
 public final class MonsterLocationFilter
@@ -43,6 +44,13 @@ public final class MonsterLocationFilter
             }
         }
         return matches(location, wilderness, membership);
+    }
+
+    public static boolean matches(RoamingEncounter encounter, WildernessFilter wilderness, MembershipFilter membership)
+    {
+        return (wilderness != WildernessFilter.EXCLUDE || encounter.getWilderness() == MonsterLocation.Wilderness.NO)
+                && (wilderness != WildernessFilter.ONLY || encounter.getWilderness() == MonsterLocation.Wilderness.YES)
+                && (membership != MembershipFilter.F2P || !encounter.isMembersOnly());
     }
 
     public static boolean matches(MonsterLocation location, WildernessFilter wilderness,

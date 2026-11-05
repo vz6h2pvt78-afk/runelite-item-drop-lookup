@@ -3,6 +3,7 @@ package com.itemdroplookup.ui;
 import com.itemdroplookup.model.DropSource;
 import com.itemdroplookup.model.AccessRequirement;
 import com.itemdroplookup.model.MonsterLocation;
+import com.itemdroplookup.model.RoamingEncounter;
 import com.itemdroplookup.service.AccessRequirementLookupService;
 import com.itemdroplookup.service.MonsterLocationFilter;
 import com.itemdroplookup.service.MonsterLocationFilter.MembershipFilter;
@@ -213,14 +214,15 @@ public class MonsterLocationPanel extends JPanel
         {
             locationsPanel.add(text(dropNotes, false, TEXT_WIDTH));
         }
+        RoamingEncounter roaming = match.getRoamingEncounter();
         boolean membersDrop = Boolean.TRUE.equals(source.getMembersOnly());
-        if (membersDrop)
+        if (roaming == null && membersDrop)
         {
             JLabel world = text("This drop requires a members world, even at locations accessible in F2P.", false, TEXT_WIDTH);
             world.setName("dropWorldRestriction");
             locationsPanel.add(world);
         }
-        else if (source.getMembersOnly() == null && membership.getSelectedItem() == MembershipFilter.F2P)
+        else if (roaming == null && source.getMembersOnly() == null && membership.getSelectedItem() == MembershipFilter.F2P)
         {
             locationsPanel.add(text("F2P-accessible areas; this drop's world availability has not been verified.", false, TEXT_WIDTH));
         }
@@ -228,9 +230,17 @@ public class MonsterLocationPanel extends JPanel
                 || membership.getSelectedItem() != MembershipFilter.ALL;
         boolean verifiedView = match.isVerified() && !showAll.isSelected();
         List<MonsterLocation> locations = verifiedView ? match.getLocations() : allLocations;
-        wilderness.setVisible(!locations.isEmpty());
-        membership.setVisible(!locations.isEmpty());
-        if (locations.isEmpty())
+        wilderness.setVisible(roaming != null || !locations.isEmpty());
+        membership.setVisible(roaming != null || !locations.isEmpty());
+        if (roaming != null)
+        {
+            if (MonsterLocationFilter.matches(roaming, (WildernessFilter) wilderness.getSelectedItem(),
+                    (MembershipFilter) membership.getSelectedItem()))
+                locationsPanel.add(roamingCard(roaming));
+            else
+                locationsPanel.add(text("The selected filters hide this members Wilderness encounter.", false, TEXT_WIDTH));
+        }
+        else if (locations.isEmpty())
         {
             locationsPanel.add(text("No location data available for this monster yet.", true, TEXT_WIDTH));
             locationsPanel.add(text("The item source remains in your search results. Missing location data does not mean the monster is unavailable.", false, TEXT_WIDTH));
@@ -272,6 +282,26 @@ public class MonsterLocationPanel extends JPanel
         revalidate();
         repaint();
         javax.swing.SwingUtilities.invokeLater(() -> locationScroll.getVerticalScrollBar().setValue(0));
+    }
+
+    private JPanel roamingCard(RoamingEncounter roaming)
+    {
+        JPanel card = column();
+        card.setName("roamingEncounter");
+        card.setBackground(LookupStyle.CARD);
+        card.setBorder(LookupStyle.cardBorder());
+        int width = TEXT_WIDTH - 16;
+        card.add(text(roaming.getEncounter() + " encounter", true, width));
+        card.add(style.wildernessWarning(LookupStyle.roamingDanger(roaming.getArea())));
+        card.add(text("Members encounter", false, width));
+        card.add(text("Track the follower using the enchanted symbol.", false, width));
+        card.add(text("Locations vary by player and change over time.", false, width));
+        JButton wiki = style.button("Encounter on Wiki", () -> LinkBrowser.browse(roaming.getSourceUrl()), false);
+        wiki.setName("roamingWiki");
+        wiki.setToolTipText("Shared encounter evidence: " + roaming.getSourceUrl()
+                + " | Monster identity and membership: " + roaming.getMonsterSourceUrl());
+        card.add(wiki);
+        return card;
     }
 
     private JPanel locationCard(MonsterLocation location)
@@ -341,6 +371,12 @@ public class MonsterLocationPanel extends JPanel
                     .append(rollContext.getLabel()).append(": ").append(rollContext.getText()).append('\n');
         for (AccessRequirement fact : sourceFacts)
             if (fact.isSpawnContext()) report.append(fact.getLabel()).append(": ").append(fact.getText()).append('\n');
+        RoamingEncounter roaming = match.getRoamingEncounter();
+        if (roaming != null && MonsterLocationFilter.matches(roaming, (WildernessFilter) wilderness.getSelectedItem(),
+                (MembershipFilter) membership.getSelectedItem()))
+            report.append("Encounter: ").append(roaming.getEncounter()).append('\n')
+                    .append("Area: ").append(roaming.getArea()).append(" — roaming\n")
+                    .append("Wilderness: Yes\nMembership: Members\nTracking: ").append(roaming.getTracking()).append('\n');
         if (match.isReviewedEncounter())
         {
             MonsterLocation place = match.getLocations().get(0);

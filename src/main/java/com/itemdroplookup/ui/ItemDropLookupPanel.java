@@ -6,6 +6,7 @@ import com.itemdroplookup.model.DropSourceGroup;
 import com.itemdroplookup.model.ItemPrice;
 import com.itemdroplookup.model.ItemSource;
 import com.itemdroplookup.model.AccessRequirement;
+import com.itemdroplookup.model.RoamingEncounter;
 import com.itemdroplookup.service.AccessRequirementLookupService;
 import com.itemdroplookup.service.DropLookupService;
 import com.itemdroplookup.service.ItemPriceLookupService;
@@ -1202,6 +1203,8 @@ public class ItemDropLookupPanel extends PluginPanel
     {
         String danger = boundContexts.danger(source, (WildernessFilter) wildernessDropdown.getSelectedItem());
         if (danger != null) card.add(style.wildernessWarning(danger));
+        RoamingEncounter roaming = boundContexts.roamingContext(source);
+        if (roaming != null) card.add(makeCardLine(roaming.getEncounter() + "\nMembers encounter", CARD_TEXT_WIDTH));
     }
 
     private void addSourceRequirements(JPanel card, List<AccessRequirement> facts, int wrapWidth, List<AccessRequirement> shared)

@@ -5,6 +5,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.itemdroplookup.model.DropSource;
 import com.itemdroplookup.model.MonsterLocation;
+import com.itemdroplookup.model.RoamingEncounter;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
@@ -32,6 +33,7 @@ public class MonsterLocationLookupService
     private final DropLookupService drops;
     // Only reviewed rewards enter this small index. Raw quantity, rate and notes remain part of the key.
     private final Map<String, Map<List<String>, EncounterWarning>> rewardWarnings = new HashMap<>();
+    private final Map<List<String>, RoamingEncounter> roamingEncounters = new HashMap<>();
     // Retain raw binding multiplicity only for the few reviewed item-access targets.
     private final Map<List<String>, Binding> accessBindings = new HashMap<>();
     private static final Comparator<MonsterLocation> LOCATION_ORDER = Comparator
@@ -96,9 +98,12 @@ public class MonsterLocationLookupService
     public LocationMatch lookup(DropSource source)
     {
         loadOnce();
-        List<MonsterLocation> verified = byDrop.get(key(source.getMonsterName(), source.getItemName(),
-                source.getQuantity(), source.getDropRate(), source.getNotes()));
+        List<String> signature = key(source.getMonsterName(), source.getItemName(),
+                source.getQuantity(), source.getDropRate(), source.getNotes());
+        List<MonsterLocation> verified = byDrop.get(signature);
         if (verified != null) return new LocationMatch(verified, true, null);
+        RoamingEncounter roaming = roamingEncounters.get(signature);
+        if (roaming != null) return new LocationMatch(roaming);
         List<MonsterLocation> places = lookupByMonsterName(source.getMonsterName());
         Map<List<String>, EncounterWarning> rewards = rewardWarnings.get(source.getMonsterName());
         EncounterWarning warning = rewards == null ? null : rewards.get(Arrays.asList(
@@ -135,6 +140,8 @@ public class MonsterLocationLookupService
             return true;
         }
         LocationMatch match = lookup(source);
+        if (match.getContextKind() == LocationMatch.ContextKind.ROAMING_ENCOUNTER)
+            return MonsterLocationFilter.matches(match.getRoamingEncounter(), filter, MonsterLocationFilter.MembershipFilter.ALL);
         return (match.isVerified() || match.isReviewedEncounter()) && match.getLocations().stream().anyMatch(location ->
                 location.isAvailable() && MonsterLocationFilter.matches(location, filter,
                         MonsterLocationFilter.MembershipFilter.ALL));
@@ -193,9 +200,18 @@ public class MonsterLocationLookupService
                 WildernessBossLair lair = WildernessBossLair.forMonster(reward.getMonsterName());
                 addRewardWarning(reward, new EncounterWarning(lair.level, lair.level, lair.location));
             }
+            for (RoamingEncounter roaming : ReviewedRows.read(gson, "/mage_arena_roaming.json", "encounters",
+                    "id", this::readRoamingEncounter).values())
+            {
+                DropSource source = roaming.getSource();
+                roamingEncounters.put(key(source.getMonsterName(), source.getItemName(),
+                        source.getQuantity(), source.getDropRate(), source.getNotes()), roaming);
+            }
             Set<String> accessItems = accessItemNames();
             for (Binding binding : dataset.dropBindings)
             {
+                List<String> signature = key(binding.monsterName, binding.itemName, binding.quantity, binding.dropRate, binding.notes);
+                roamingEncounters.remove(signature);
                 Map<List<String>, EncounterWarning> rewards = rewardWarnings.get(binding.monsterName);
                 if (rewards != null) rewards.remove(Arrays.asList(binding.itemName, binding.quantity, binding.dropRate, binding.notes));
                 if (accessItems.contains(binding.itemName))
@@ -203,7 +219,6 @@ public class MonsterLocationLookupService
                     List<String> rawKey = Arrays.asList(binding.monsterName,binding.itemName,binding.quantity,binding.dropRate,binding.notes);
                     accessBindings.put(rawKey, accessBindings.containsKey(rawKey) ? null : binding);
                 }
-                List<String> signature = key(binding.monsterName, binding.itemName, binding.quantity, binding.dropRate, binding.notes);
                 if (binding.dropVersions != null && !binding.dropVersions.isEmpty())
                     versions.computeIfAbsent(signature, unused -> new LinkedHashSet<>()).addAll(binding.dropVersions);
                 if (binding.dropVersions == null || !binding.dropVersions.isEmpty()
@@ -247,6 +262,7 @@ public class MonsterLocationLookupService
         catch (Exception ex)
         {
             rewardWarnings.clear();
+            roamingEncounters.clear();
             byMonster.clear();
             byDrop.clear();
             commonDrops.clear();
@@ -329,6 +345,47 @@ public class MonsterLocationLookupService
         AcquisitionEventLookupService.integer(row, "wildernessLevel", lair.level, lair.level);
     }
 
+    private RoamingEncounter readRoamingEncounter(JsonObject row, String id)
+    {
+        AcquisitionEventLookupService.fields(row,
+                "id,kind,monsterName,itemName,quantity,dropRate,notes,area,wilderness,membersOnly,tracking,evidence", "");
+        String monster = AcquisitionEventLookupService.string(row, "monsterName");
+        Map<String, String> remains = Map.of("Derwen", "Ent's roots", "Porazdir", "Demon's heart",
+                "Justiciar Zachariah", "Justiciar's hand");
+        Map<String, Integer> revisions = Map.of("Derwen", 15317252, "Porazdir", 15355703, "Justiciar Zachariah", 15384376);
+        AcquisitionEventLookupService.require(remains.containsKey(monster), "Unreviewed roaming follower");
+        String item = AcquisitionEventLookupService.string(row, "itemName");
+        boolean bag = item.equals("Looting bag");
+        String expectedId = "mage-arena-" + monster.toLowerCase(Locale.ROOT).replace(' ', '-') + (bag ? "-bag" : "-remains");
+        AcquisitionEventLookupService.require(id.equals(expectedId) && (bag || item.equals(remains.get(monster)))
+                && AcquisitionEventLookupService.string(row, "quantity").equals("1")
+                && AcquisitionEventLookupService.string(row, "dropRate").equals(bag ? "1/3" : "Always")
+                && AcquisitionEventLookupService.text(row, "notes").isEmpty(), "Changed roaming drop signature");
+        AcquisitionEventLookupService.require(AcquisitionEventLookupService.string(row, "kind").equals("ROAMING_ENCOUNTER")
+                && AcquisitionEventLookupService.string(row, "area").equals("Deep Wilderness")
+                && AcquisitionEventLookupService.string(row, "tracking").equals("Enchanted symbol"),
+                "Unreviewed encounter context");
+        for (String field : List.of("wilderness", "membersOnly"))
+            AcquisitionEventLookupService.require(row.get(field).isJsonPrimitive()
+                    && row.getAsJsonPrimitive(field).isBoolean() && row.get(field).getAsBoolean(), "Unverified encounter " + field);
+        com.google.gson.JsonArray evidence = AcquisitionEventLookupService.array(row, "evidence");
+        AcquisitionEventLookupService.require(evidence.size() == 2, "Missing follower or shared quest provenance");
+        String[] pages = {monster, "Mage Arena II"};
+        int[] expectedRevisions = {revisions.get(monster), 15368856};
+        for (int i = 0; i < pages.length; i++)
+        {
+            JsonObject proof = AcquisitionEventLookupService.object(evidence.get(i));
+            AcquisitionEventLookupService.fields(proof, "page,revisionId,sourceUrl", "");
+            AcquisitionEventLookupService.require(AcquisitionEventLookupService.string(proof, "page").equals(pages[i])
+                    && AcquisitionEventLookupService.string(proof, "sourceUrl").equals("https://oldschool.runescape.wiki/w/"
+                            + pages[i].replace(' ', '_') + "?oldid=" + expectedRevisions[i]), "Changed roaming provenance");
+            AcquisitionEventLookupService.integer(proof, "revisionId", expectedRevisions[i], expectedRevisions[i]);
+        }
+        DropSource source = new DropSource(item, monster, "1", bag ? "1/3" : "Always", "");
+        AcquisitionEventLookupService.require(drops.hasUniqueRecordedDrop(source), "Unmatched roaming drop");
+        return new RoamingEncounter(source, revisions.get(monster));
+    }
+
     private static MonsterLocation readEncounterLair(JsonObject row, String name)
     {
         AcquisitionEventLookupService.fields(row, "monsterName,revisionId,lair,wildernessLevel,combatLevel", "");
@@ -372,7 +429,10 @@ public class MonsterLocationLookupService
 
     public static final class LocationMatch
     {
+        public enum ContextKind { NONE, FIXED_ENCOUNTER, ROAMING_ENCOUNTER }
+
         private final List<MonsterLocation> locations;
+        private final RoamingEncounter roaming;
         private final boolean verified;
 
         private final EncounterWarning warning;
@@ -382,12 +442,29 @@ public class MonsterLocationLookupService
             this.locations = locations;
             this.verified = verified;
             this.warning = warning;
+            this.roaming = null;
         }
+
+        private LocationMatch(RoamingEncounter roaming)
+        {
+            this.locations = Collections.emptyList();
+            this.verified = false;
+            this.warning = null;
+            this.roaming = roaming;
+        }
+
+        public ContextKind getContextKind()
+        {
+            if (roaming != null) return ContextKind.ROAMING_ENCOUNTER;
+            return warning == null ? ContextKind.NONE : ContextKind.FIXED_ENCOUNTER;
+        }
+
+        public RoamingEncounter getRoamingEncounter() { return roaming; }
 
         public List<MonsterLocation> getLocations() { return locations; }
         public boolean isVerified() { return verified; }
 
-        /** Normal encounter evidence is separate from verification of an individual drop. */
+        /** Fixed encounter evidence is separate from verification of an individual drop. */
         public boolean isReviewedEncounter() { return warning != null; }
 
         public int getEncounterWildernessLevel()

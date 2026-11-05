@@ -1,0 +1,8 @@
+S34 - Mage Arena roaming Wilderness context
+
+Six existing Derwen/Porazdir/JusticiarZachariah rows gain reviewed MageArenaII roaming DeepWilderness,tracking andmembers-encounter context. TypedRoamingEncounter/ContextKind keepsisVerifiedfalse andlegacygetLocationsempty. Rawdrops,membership,locations andbindings retain their originaldata. Anyexactbindingincludinginvalid/normalized/conflicting suppressesfallback. Missing/malformedcontext orcoreloadfailure preservesrawsources andwithholdscontext. Card/detailwarningorder,visiblemembership/area filters,Back andselecteddetailCopyreport agree.238Java/189Python,officialstandardpackage/API/validators/fonts passed. Full5664query/13977source inventory,9137catalogqueries and1187potions identicalS33C. Explicitglobalareaaudit provesonly6Wilderness-only gains and6typedcontexts;13971others identical.45servicefaultcases plus9UI/reportfaultcases56reports passed.156two-size roamingreports/24renders,37Wilderness and34combinedreports passed. SharedWikiMageArenaII15368856 plus3pinnedNPCprimaries. Externalresearchclosed15of15;84%before/afterresearch,2resetcredits. Nativevisual/keyboard/actualclipboard/gameplayacceptancepending. ApollohasrequestedS34testing;safe-focusconfirmation requiredbeforeopening.
+
+Starting commit 2be559d3d01f24dfd39ded3f6c8256b4dc9ba600
+Build development-2026-11-04-s34-roaming-wilderness
+Official package SHA256 fa328366e741031312bd184692ae5d12cb869dff758e9b63ed237f5c5ba8515f
+Human acceptance pending.

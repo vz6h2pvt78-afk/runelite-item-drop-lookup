@@ -189,3 +189,7 @@ The exact Bloodthirst rockslug exclusion uses OSRS Wiki contributors’ saved pa
 The additional exact historical exclusions use General Danknuck 15204759, Scavenger runt 15362673, Demon of Balance 15225385, Demon of Darkness 15355707 and Demon of Light 15375355. Each saved primary explicitly establishes removal or replacement. Exact revision links and text hashes are retained with the pinned evidence in tools/fixtures/historical_sources. These adapted texts and data are CC BY-NC-SA 3.0. [OSRS Wiki copyright terms](https://oldschool.runescape.wiki/w/RuneScape:Copyrights).
 
 The exact Unusual Chicken exclusion uses the saved OSRS Wiki revision 15204760, which explicitly states its removal. The pinned text and hash are retained in tools/fixtures/historical_sources/Unusual_Chicken.json under CC BY-NC-SA 3.0. [Permanent source](https://oldschool.runescape.wiki/w/Unusual_Chicken?oldid=15204760).
+
+## Mage Arena II roaming encounters
+
+The six exact roaming-encounter contexts use OSRS Wiki contributors’ Mage Arena II revision 15368856, Derwen 15317252, Porazdir 15355703 and Justiciar Zachariah 15384376. Pinned text, hashes and revision links are retained in tools/fixtures/mage_arena_roaming and mage_arena_roaming.json. These adapted texts and data are CC BY-NC-SA 3.0. [Pinned shared encounter source](https://oldschool.runescape.wiki/w/Mage_Arena_II?oldid=15368856).

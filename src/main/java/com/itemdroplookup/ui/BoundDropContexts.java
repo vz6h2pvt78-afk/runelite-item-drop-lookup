@@ -2,6 +2,7 @@ package com.itemdroplookup.ui;
 
 import com.itemdroplookup.model.DropSource;
 import com.itemdroplookup.model.MonsterLocation;
+import com.itemdroplookup.model.RoamingEncounter;
 import com.itemdroplookup.model.MonsterLocation.Wilderness;
 import com.itemdroplookup.service.MonsterLocationFilter;
 import com.itemdroplookup.service.MonsterLocationFilter.WildernessFilter;
@@ -14,6 +15,7 @@ final class BoundDropContexts
 {
     private final MonsterLocationLookupService service;
     private final Map<DropSource, List<MonsterLocation>> locations = new IdentityHashMap<>();
+    private final Map<DropSource, RoamingEncounter> roaming = new IdentityHashMap<>();
     private final Map<DropSource, MonsterLocationLookupService.LocationMatch> reviewedEncounters = new IdentityHashMap<>();
     private final Set<DropSource> split = Collections.newSetFromMap(new IdentityHashMap<>());
 
@@ -24,6 +26,11 @@ final class BoundDropContexts
         for (DropSource drop : drops)
         {
             MonsterLocationLookupService.LocationMatch match = service.lookup(drop);
+            if (match.getContextKind() == MonsterLocationLookupService.LocationMatch.ContextKind.ROAMING_ENCOUNTER)
+            {
+                roaming.put(drop, match.getRoamingEncounter());
+                continue;
+            }
             if (!match.isVerified() && !match.isReviewedEncounter()) continue;
             List<MonsterLocation> available = match.getLocations().stream().filter(MonsterLocation::isAvailable)
                     .collect(Collectors.toList());
@@ -53,11 +60,18 @@ final class BoundDropContexts
 
     boolean isVariant(DropSource source) { return split.contains(source); }
 
+    RoamingEncounter roamingContext(DropSource source) { return roaming.get(source); }
+
     boolean find(DropSource drop, String query, WildernessFilter filter)
     {
         if (SourceTextMatching.contains(drop.getMonsterName(), query)) return true;
         if (drop.getAnimatorReward() != null && (SourceTextMatching.contains(drop.getAnimatorReward().getSetupText(), query)
                 || drop.getAnimatorReward().getEquipment().stream().anyMatch(item -> SourceTextMatching.contains(item, query)))) return true;
+        RoamingEncounter roamingContext = roaming.get(drop);
+        if (roamingContext != null && filter != WildernessFilter.EXCLUDE
+                && (SourceTextMatching.contains(roamingContext.getArea(), query)
+                    || SourceTextMatching.contains(roamingContext.getEncounter(), query)
+                    || SourceTextMatching.contains(roamingContext.getTracking(), query))) return true;
         MonsterLocationLookupService.LocationMatch encounter = reviewedEncounters.get(drop);
         if (encounter != null && filter != WildernessFilter.EXCLUDE
                 && SourceTextMatching.contains(encounter.encounterShortLocation(), query)) return true;
@@ -76,6 +90,8 @@ final class BoundDropContexts
     String danger(DropSource drop, WildernessFilter filter)
     {
         if (filter == WildernessFilter.EXCLUDE) return null;
+        RoamingEncounter roamingContext = roaming.get(drop);
+        if (roamingContext != null) return LookupStyle.roamingDanger(roamingContext.getArea());
         List<MonsterLocation> places = locations.getOrDefault(drop, Collections.emptyList());
         MonsterLocationLookupService.LocationMatch encounter = reviewedEncounters.get(drop);
         if (encounter != null)
