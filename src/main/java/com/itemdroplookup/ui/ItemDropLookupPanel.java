@@ -214,7 +214,7 @@ public class ItemDropLookupPanel extends PluginPanel
         filterDropdown.getAccessibleContext().setAccessibleName("Acquisition method");
         filterDropdown.addActionListener(e -> { if (!adjustingControls) { viewState.page = LookupViewState.Page.SOURCES; renderResults(); } });
         wildernessDropdown.setName("npcWildernessFilter");
-        wildernessDropdown.setToolTipText("Filter NPC drops by verified usable locations. Other methods are unchanged.");
+        wildernessDropdown.setToolTipText("Filter NPC drops by verified drop locations or a reviewed fighting lair.");
         style.control(wildernessDropdown);
         wildernessDropdown.addActionListener(e -> { if (!adjustingControls) renderResults(); });
         npcFilters.setBackground(LookupStyle.BACK);

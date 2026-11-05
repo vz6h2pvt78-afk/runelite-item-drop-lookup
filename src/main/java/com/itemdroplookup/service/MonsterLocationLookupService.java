@@ -39,6 +39,7 @@ public class MonsterLocationLookupService
     private final Map<List<String>, List<MonsterLocation>> byDrop = new HashMap<>();
     private final Map<List<String>, Set<String>> versions = new HashMap<>();
     private final Set<List<String>> commonDrops = new LinkedHashSet<>();
+    private Map<String, MonsterLocation> encounterLairs = Collections.emptyMap();
     private boolean loaded;
 
     @Inject
@@ -50,7 +51,10 @@ public class MonsterLocationLookupService
     public List<MonsterLocation> lookupByMonsterName(String monsterName)
     {
         loadOnce();
-        return byMonster.getOrDefault(normalize(monsterName), Collections.emptyList());
+        List<MonsterLocation> existing = byMonster.get(normalize(monsterName));
+        if (existing != null) return existing;
+        MonsterLocation lair = encounterLairs.get(monsterName);
+        return lair == null ? Collections.emptyList() : Collections.singletonList(lair);
     }
 
     boolean hasUniqueVerifiedBinding(DropSource drop, String locationId, String version)
@@ -113,7 +117,7 @@ public class MonsterLocationLookupService
             return true;
         }
         LocationMatch match = lookup(source);
-        return match.isVerified() && match.getLocations().stream().anyMatch(location ->
+        return (match.isVerified() || match.isReviewedEncounter()) && match.getLocations().stream().anyMatch(location ->
                 location.isAvailable() && MonsterLocationFilter.matches(location, filter,
                         MonsterLocationFilter.MembershipFilter.ALL));
     }
@@ -195,6 +199,8 @@ public class MonsterLocationLookupService
                     if (!variantTables.contains(signature)) commonDrops.add(signature);
                 }
             });
+            encounterLairs = ReviewedRows.read(gson, "/reviewed_encounter_lairs.json", "lairs", "monsterName",
+                    MonsterLocationLookupService::readEncounterLair);
             byMonster.replaceAll((name, locations) -> {
                 locations.sort(LOCATION_ORDER);
                 return Collections.unmodifiableList(locations);
@@ -212,6 +218,23 @@ public class MonsterLocationLookupService
         {
             loaded = true;
         }
+    }
+
+    private static MonsterLocation readEncounterLair(JsonObject row, String name)
+    {
+        AcquisitionEventLookupService.fields(row, "monsterName,revisionId,lair,wildernessLevel,combatLevel", "");
+        String lair = AcquisitionEventLookupService.string(row, "lair");
+        int revision = AcquisitionEventLookupService.integer(row, "revisionId", 1, Integer.MAX_VALUE);
+        int wilderness = AcquisitionEventLookupService.integer(row, "wildernessLevel", 1, 60);
+        int combat = AcquisitionEventLookupService.integer(row, "combatLevel", 1, 1000);
+        // These two reviewed page revisions establish where the encounter occurs.
+        // A different place, level or revision must be reviewed before affecting safety filters.
+        boolean spindel = name.equals("Spindel") && lair.equals("Web Chasm") && revision == 15358779
+                && wilderness == 29 && combat == 302;
+        boolean calvarion = name.equals("Calvar'ion") && lair.equals("Skeletal Tomb") && revision == 15375801
+                && wilderness == 21 && combat == 264;
+        if (!spindel && !calvarion) throw new IllegalArgumentException("Unreviewed encounter location");
+        return MonsterLocation.reviewedLair(name, lair, wilderness, combat, revision);
     }
 
     private static List<String> key(String monster, String item, String quantity, String rate, String notes)
@@ -238,6 +261,12 @@ public class MonsterLocationLookupService
 
         public List<MonsterLocation> getLocations() { return locations; }
         public boolean isVerified() { return verified; }
+
+        /** Normal encounter evidence is separate from verification of an individual drop. */
+        public boolean isReviewedEncounter()
+        {
+            return !verified && locations.size() == 1 && locations.get(0).getEncounterWildernessLevel() > 0;
+        }
     }
 
     private static class Dataset

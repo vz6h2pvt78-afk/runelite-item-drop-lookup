@@ -1,0 +1,8 @@
+S21A - Two Wilderness fighting lairs
+
+Spindel's Web Chasm is level 29 Wilderness; Calvar'ion's Skeletal Tomb is level 21. Both normal encounters show the skull, PvP warning, named lair and level. Wilderness only includes them and Exclude Wilderness excludes them. General encounter evidence stays distinct from exact drop bindings. The two affected monsters retain 42 and 45 original drop rows across 58 queries. All 5,664 query identities, counts and methods match S20. 198 regular and packaged Java tests, 153 Python tests, API/packaging and validators passed. Eight fault scenarios preserved rewards and unrelated exact bindings. Actual Standard/Larger card and detail renders passed. Human acceptance pending.
+
+Starting commit 21399972d950a5f70b54dc0cfb554ff96c9c47ba
+Build development-2026-11-04-s21a-wilderness-encounters
+Official package SHA256 415945a0dc39cdbd128b49515abeafd6419037875180971c0502e31bdf68dacb
+Human acceptance pending.

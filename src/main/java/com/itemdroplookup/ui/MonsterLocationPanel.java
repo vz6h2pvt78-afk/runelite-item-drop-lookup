@@ -233,7 +233,11 @@ public class MonsterLocationPanel extends JPanel
         }
         else
         {
-            if (!verifiedView)
+            if (match.isReviewedEncounter())
+            {
+                locationsPanel.add(text("The monster’s Wiki page identifies this as its fighting lair.", false, TEXT_WIDTH));
+            }
+            else if (!verifiedView)
             {
                 locationsPanel.add(text("Monster locations only: this item and rate may not apply at every location.", false, TEXT_WIDTH));
             }
@@ -270,7 +274,10 @@ public class MonsterLocationPanel extends JPanel
         card.setBorder(LookupStyle.cardBorder());
         int width = TEXT_WIDTH - 16;
         card.add(text(location.getLocation(), true, width));
-        if (location.getWilderness() == MonsterLocation.Wilderness.YES) card.add(style.wildernessWarning());
+        if (location.getEncounterWildernessLevel() > 0)
+            card.add(style.wildernessWarning(LookupStyle.encounterDanger(location.getEncounterWildernessLevel())));
+        else if (location.getWilderness() == MonsterLocation.Wilderness.YES)
+            card.add(style.wildernessWarning());
         if (!location.isAvailable())
         {
             card.add(text("Unavailable / unreachable", true, width));

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "lairs": [
+    {
+      "monsterName": "Spindel",
+      "revisionId": 15358779,
+      "lair": "Web Chasm",
+      "wildernessLevel": 29,
+      "combatLevel": 302
+    },
+    {
+      "monsterName": "Calvar'ion",
+      "revisionId": 15375801,
+      "lair": "Skeletal Tomb",
+      "wildernessLevel": 21,
+      "combatLevel": 264
+    }
+  ]
+}

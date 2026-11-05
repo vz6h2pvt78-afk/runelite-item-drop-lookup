@@ -213,6 +213,34 @@ public class MorningFeedbackTest
         });
     }
 
+    @Test public void wildernessLairCanBeFoundAndItsWarningSurvivesTheTripToDetails() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            ItemDropLookupPanel p = panel(new ArrayList<>());
+            search(p, "Voidwaker gem");
+            click(p, "showDropSources");
+            JTextField finder = (JTextField)PanelTestSupport.find(p, "sourceSearch");
+            finder.setText("Web Chasm");
+            finder.postActionEvent();
+            JComboBox<?> areas = (JComboBox<?>)PanelTestSupport.find(p, "npcWildernessFilter");
+            areas.setSelectedItem(MonsterLocationFilter.WildernessFilter.ONLY);
+            JLabel danger = (JLabel)PanelTestSupport.find(p, "wildernessWarning");
+            assertNotNull(danger.getIcon());
+            assertEquals("WILDERNESS level 29 PvP danger Web Chasm", danger.getAccessibleContext().getAccessibleName());
+            click(p, "openLocations");
+            Container location = (Container)PanelTestSupport.find(p, "location:encounter:Spindel");
+            assertNotNull(location);
+            assertEquals("WILDERNESS level 29 PvP danger", ((JLabel)PanelTestSupport.find(location,
+                    "wildernessWarning")).getAccessibleContext().getAccessibleName());
+            click(p, "backToResults");
+            areas.setSelectedItem(MonsterLocationFilter.WildernessFilter.EXCLUDE);
+            assertNull(PanelTestSupport.find(p, "openLocations"));
+            assertNotNull(PanelTestSupport.find(p, "recoverNpcAreas"));
+            click(p, "recoverNpcAreas");
+            assertNotNull(PanelTestSupport.find(p, "openLocations"));
+        });
+    }
+
     @Test public void implingSummaryRetainsRateCaveatAndOpeningExceptionWithoutRouteLecture()
     {
         AcquisitionMethod method=selection("Amulet of glory").sources.stream().filter(s->s.getAcquisitionMethod()!=null).findFirst().get().getAcquisitionMethod();

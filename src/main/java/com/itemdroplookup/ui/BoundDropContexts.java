@@ -23,11 +23,12 @@ final class BoundDropContexts
         for (DropSource drop : drops)
         {
             MonsterLocationLookupService.LocationMatch match = service.lookup(drop);
-            if (!match.isVerified()) continue;
+            if (!match.isVerified() && !match.isReviewedEncounter()) continue;
             List<MonsterLocation> available = match.getLocations().stream().filter(MonsterLocation::isAvailable)
                     .collect(Collectors.toList());
             if (available.isEmpty()) continue;
             locations.put(drop, available);
+            if (!match.isVerified()) continue;
             pairs.computeIfAbsent(Arrays.asList(drop.getItemName(), drop.getMonsterName()), k -> new ArrayList<>()).add(drop);
         }
         for (List<DropSource> pair : pairs.values())
@@ -68,6 +69,11 @@ final class BoundDropContexts
     {
         if (filter == WildernessFilter.EXCLUDE) return null;
         List<MonsterLocation> places = locations.getOrDefault(drop, Collections.emptyList());
+        if (places.size() == 1 && places.get(0).getEncounterWildernessLevel() > 0)
+        {
+            MonsterLocation lair = places.get(0);
+            return LookupStyle.encounterDanger(lair.getEncounterWildernessLevel()) + "\n" + lair.getLocation();
+        }
         if (places.stream().noneMatch(l -> l.getWilderness() == Wilderness.YES)) return null;
         if (all(drop, Wilderness.YES) || filter == WildernessFilter.ONLY) return "WILDERNESS\nPvP danger";
         return "Some locations in the WILDERNESS\nPvP danger there";

@@ -31,6 +31,30 @@ public final class MonsterLocation
     private List<String> dropVersions;
     private String version;
     private String sourceUrl;
+    // Set only by the reviewed primary-page encounter reader, never by legacy bindings.
+    private transient int encounterWildernessLevel;
+
+    public static MonsterLocation reviewedLair(String monster, String lair, int wildernessLevel, int combatLevel, int revision)
+    {
+        MonsterLocation place = new MonsterLocation();
+        place.id = "encounter:" + monster;
+        place.monsterName = monster;
+        place.npcName = monster;
+        place.sourcePage = monster;
+        place.revisionId = revision;
+        place.sourceUrl = "https://oldschool.runescape.wiki/w/" + monster + "?oldid=" + revision;
+        place.location = lair;
+        place.wilderness = Wilderness.YES;
+        place.encounterWildernessLevel = wildernessLevel;
+        place.wildernessEvidence = "Normal fighting lair in the monster's primary Wiki page";
+        place.members = true;
+        place.available = true;
+        place.levels = Collections.singletonList(combatLevel);
+        place.levelsText = String.valueOf(combatLevel);
+        return place;
+    }
+
+    public int getEncounterWildernessLevel() { return encounterWildernessLevel; }
 
     public String getId() { return id; }
     public String getMonsterName() { return monsterName; }

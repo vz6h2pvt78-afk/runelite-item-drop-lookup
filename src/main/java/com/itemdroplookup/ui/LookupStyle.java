@@ -87,6 +87,11 @@ final class LookupStyle
         return button;
     }
 
+    static String encounterDanger(int level)
+    {
+        return "WILDERNESS level " + level + "\nPvP danger";
+    }
+
     JLabel wildernessWarning()
     {
         return wildernessWarning("WILDERNESS\nPvP danger");

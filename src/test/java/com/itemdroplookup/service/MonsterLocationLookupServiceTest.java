@@ -88,6 +88,33 @@ public class MonsterLocationLookupServiceTest
     }
 
     @Test
+    public void exactBossLairsParticipateInSafetyWithoutCertifyingIndividualDrops()
+    {
+        DropLookupService drops = new DropLookupService(new Gson());
+        for (String[] test : new String[][] {
+                {"Voidwaker gem", "Spindel", "Web Chasm", "29"},
+                {"Voidwaker blade", "Calvar'ion", "Skeletal Tomb", "21"}})
+        {
+            DropSource source = drops.searchByItemName(test[0]).stream()
+                    .filter(d -> test[1].equals(d.getMonsterName())).findFirst().get();
+            MonsterLocationLookupService.LocationMatch match = service.lookup(source);
+            assertFalse(match.isVerified());
+            assertTrue(match.isReviewedEncounter());
+            MonsterLocation place = match.getLocations().get(0);
+            assertEquals(test[2], place.getLocation());
+            assertEquals(Integer.parseInt(test[3]), place.getEncounterWildernessLevel());
+            assertNull(place.getSpawns());
+            assertTrue(service.tableVersions(source).isEmpty());
+            assertFalse(service.isCommonDrop(source));
+            assertTrue(service.hasQualifyingLocation(source, WildernessFilter.ALL));
+            assertTrue(service.hasQualifyingLocation(source, WildernessFilter.ONLY));
+            assertFalse(service.hasQualifyingLocation(source, WildernessFilter.EXCLUDE));
+            assertTrue(service.lookupByMonsterName(test[1] + " (quest)").isEmpty());
+        }
+        assertFalse(service.lookup(drop("Venenatis", "Voidwaker gem", "1/1")).isReviewedEncounter());
+    }
+
+    @Test
     public void safeLairsAreNotClassifiedFromLeagueRegion()
     {
         for (String monster : Arrays.asList("King Black Dragon", "Corporeal Beast"))

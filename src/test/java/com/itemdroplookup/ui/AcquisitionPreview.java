@@ -24,6 +24,7 @@ public final class AcquisitionPreview
                     {"Mystic robe bottom", "Loot & containers", ""}, {"Snapdragon seed", "Loot & containers", ""},
                     {"Dragon arrow", "Loot & containers", ""}, {"Dragon dagger(p++)", "Loot & containers", ""},
                     {"Mystic boots (dark)", "NPC Drops", "Infernal Mage", "45 Slayer to kill"}, {"Mithril boots", "NPC Drops", "Jelly", "52 Slayer to kill"},
+                    {"Voidwaker gem", "NPC Drops", "Spindel", "Web Chasm", "encounter:Spindel"}, {"Voidwaker blade", "NPC Drops", "Calvar\u0027ion", "Skeletal Tomb", "encounter:Calvar\u0027ion"},
                     {"Steel boots", "NPC Drops", "Pyrefiend", "30 Slayer to kill"}, {"Occult necklace", "NPC Drops", "Smoke devil", "93 Slayer to harm"}, {"Granite legs", "NPC Drops", "Skeletal Wyvern", "icy breath"},
                     {"Mystic boots (light)", "NPC Drops", "Cockatrice", "piercing gaze"}, {"Drake\u0027s tooth", "NPC Drops", "Drake", "84 Slayer to kill"},
                     {"Drake\u0027s claw", "NPC Drops", "Drake", "On a Drake Slayer task"},
