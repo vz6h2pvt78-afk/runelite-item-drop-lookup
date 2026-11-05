@@ -66,6 +66,7 @@ public class AccessRequirementLookupService
         Set<String> ids = new HashSet<>();
         loadResource("/access_requirements.json",ids);
         loadResource("/reviewed_slayer_access.json",ids);
+        loadResource("/shark_bounty_access.json",ids);
         loaded = true;
     }
 

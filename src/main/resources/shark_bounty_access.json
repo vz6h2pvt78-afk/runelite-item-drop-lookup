@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-05T00:00:00Z",
+  "facts": [
+    {
+      "monsterName": "Bull shark",
+      "evidence": [
+        {
+          "page": "Bull shark",
+          "revisionId": 15372302,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Bull_shark?oldid=15372302"
+        }
+      ],
+      "id": "bull-shark-bounty-eligibility",
+      "scope": "MONSTER",
+      "appliesTo": "TASK_ELIGIBILITY",
+      "type": "SKILL",
+      "skill": "Sailing",
+      "level": 30,
+      "text": "30 Sailing to receive bull shark bounty tasks."
+    },
+    {
+      "monsterName": "Bull shark",
+      "evidence": [
+        {
+          "page": "Bull shark",
+          "revisionId": 15372302,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Bull_shark?oldid=15372302"
+        }
+      ],
+      "id": "bull-shark-jaw-bounty",
+      "scope": "ITEM",
+      "itemName": "Bull shark jaw",
+      "appliesTo": "ITEM_DROP",
+      "type": "ACTIVE_TASK",
+      "text": "Only drops on an applicable bounty task. 30 Sailing to receive one."
+    },
+    {
+      "monsterName": "Bull shark",
+      "evidence": [
+        {
+          "page": "Bull shark",
+          "revisionId": 15372302,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Bull_shark?oldid=15372302"
+        }
+      ],
+      "id": "bull-shark-liver-bounty",
+      "scope": "ITEM",
+      "itemName": "Bull shark liver",
+      "appliesTo": "ITEM_DROP",
+      "type": "ACTIVE_TASK",
+      "text": "Only drops on an applicable bounty task. 30 Sailing to receive one."
+    },
+    {
+      "monsterName": "Hammerhead shark",
+      "evidence": [
+        {
+          "page": "Hammerhead shark",
+          "revisionId": 15285222,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Hammerhead_shark?oldid=15285222"
+        }
+      ],
+      "id": "hammerhead-shark-bounty-eligibility",
+      "scope": "MONSTER",
+      "appliesTo": "TASK_ELIGIBILITY",
+      "type": "SKILL",
+      "skill": "Sailing",
+      "level": 40,
+      "text": "40 Sailing to receive hammerhead shark bounty tasks."
+    },
+    {
+      "monsterName": "Hammerhead shark",
+      "evidence": [
+        {
+          "page": "Hammerhead shark",
+          "revisionId": 15285222,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Hammerhead_shark?oldid=15285222"
+        }
+      ],
+      "id": "hammerhead-shark-jaw-bounty",
+      "scope": "ITEM",
+      "itemName": "Hammerhead shark jaw",
+      "appliesTo": "ITEM_DROP",
+      "type": "ACTIVE_TASK",
+      "text": "Only drops on an applicable bounty task. 40 Sailing to receive one."
+    },
+    {
+      "monsterName": "Hammerhead shark",
+      "evidence": [
+        {
+          "page": "Hammerhead shark",
+          "revisionId": 15285222,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Hammerhead_shark?oldid=15285222"
+        }
+      ],
+      "id": "hammerhead-shark-liver-bounty",
+      "scope": "ITEM",
+      "itemName": "Hammerhead shark liver",
+      "appliesTo": "ITEM_DROP",
+      "type": "ACTIVE_TASK",
+      "text": "Only drops on an applicable bounty task. 40 Sailing to receive one."
+    },
+    {
+      "monsterName": "Tiger shark",
+      "evidence": [
+        {
+          "page": "Tiger shark",
+          "revisionId": 15379177,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Tiger_shark?oldid=15379177"
+        }
+      ],
+      "id": "tiger-shark-bounty-eligibility",
+      "scope": "MONSTER",
+      "appliesTo": "TASK_ELIGIBILITY",
+      "type": "SKILL",
+      "skill": "Sailing",
+      "level": 55,
+      "text": "55 Sailing to receive tiger shark bounty tasks."
+    },
+    {
+      "monsterName": "Tiger shark",
+      "evidence": [
+        {
+          "page": "Tiger shark",
+          "revisionId": 15379177,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Tiger_shark?oldid=15379177"
+        }
+      ],
+      "id": "tiger-shark-jaw-bounty",
+      "scope": "ITEM",
+      "itemName": "Tiger shark jaw",
+      "appliesTo": "ITEM_DROP",
+      "type": "ACTIVE_TASK",
+      "text": "Only drops on an applicable bounty task. 55 Sailing to receive one."
+    },
+    {
+      "monsterName": "Tiger shark",
+      "evidence": [
+        {
+          "page": "Tiger shark",
+          "revisionId": 15379177,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Tiger_shark?oldid=15379177"
+        }
+      ],
+      "id": "tiger-shark-liver-bounty",
+      "scope": "ITEM",
+      "itemName": "Tiger shark liver",
+      "appliesTo": "ITEM_DROP",
+      "type": "ACTIVE_TASK",
+      "text": "Only drops on an applicable bounty task. 55 Sailing to receive one."
+    }
+  ]
+}

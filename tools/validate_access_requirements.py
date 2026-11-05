@@ -96,10 +96,12 @@ def main():
     resources = ROOT / "src/main/resources"
     read = lambda name: json.loads((resources / name).read_text(encoding="utf-8"))
     data = read("access_requirements.json")
-    extra = read("reviewed_slayer_access.json")
+    supplements = [read("reviewed_slayer_access.json"), read("shark_bounty_access.json")]
     locations, drops = read("monster_locations.json"), read("wiki_monster_drops.json")
-    errors = validate(extra,locations,drops)
-    data["facts"] += extra["facts"]
+    errors = []
+    for extra in supplements:
+        errors.extend(validate(extra, locations, drops))
+        data["facts"].extend(extra["facts"])
     errors += validate(data, locations, drops)
     for error in errors:
         print(error)

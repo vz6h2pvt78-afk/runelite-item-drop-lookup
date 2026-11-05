@@ -14,6 +14,31 @@ public class SlayerScopeTest
     {
         return access.forSource(new DropSource("Coins",monster,"1","1/2",""));
     }
+    @Test public void sailingBountyLevelsApplyToAssignmentAndSixExactDrops()
+    {
+        for (String[] reviewed : List.of(new String[]{"Bull shark","30"}, new String[]{"Hammerhead shark","40"},
+                new String[]{"Tiger shark","55"}))
+        {
+            String shark = reviewed[0];
+            List<AccessRequirement> ordinary = facts(shark);
+            assertEquals(1, ordinary.size());
+            AccessRequirement eligibility = ordinary.get(0);
+            assertEquals(AccessRequirement.AppliesTo.TASK_ELIGIBILITY, eligibility.getAppliesTo());
+            assertEquals("Sailing", eligibility.getSkill());
+            assertEquals(Integer.valueOf(reviewed[1]), eligibility.getLevel());
+            assertFalse(eligibility.isSourceCardRequirement());
+            for (String suffix : List.of(" jaw", " liver"))
+            {
+                List<AccessRequirement> item = access.forSource(new DropSource(shark + suffix,shark,"1","1/10",""));
+                assertEquals(2, item.size());
+                assertTrue(item.stream().anyMatch(f -> f.getType() == AccessRequirement.Type.ACTIVE_TASK && f.isSourceCardFact()
+                        && f.getText().contains(reviewed[1] + " Sailing to receive one")));
+            }
+            assertTrue(access.forSource(new DropSource(shark + " jaw","Karamjan tiger shark","1","1/2","")).isEmpty());
+        }
+        assertTrue(facts("Orca").isEmpty());
+    }
+
     @Test public void laterMonstersKeepAttackRulesAndProtectionWithTheirExactCreature()
     {
         assertMonster("Basilisk", 40, "Protection", "mirror shield or V's shield");

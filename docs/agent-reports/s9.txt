@@ -1,0 +1,8 @@
+S9 - Sailing bounty conditions
+
+Bull shark, Hammerhead shark and Tiger shark now show their 30, 40 and 55 Sailing requirements for receiving bounty tasks in details. The jaw and liver cards for those three identify the applicable bounty task. Their ordinary loot keeps its original eligibility. The two ambiguous jaw rates retain their recorded values and have a scoped note. Across 5,664 queries the same items, source counts, rates, quantities, bindings and methods matched S8. The new context affected 59 drop records. Both Java runs passed 182 tests, Python passed 137, and package/API, render and recovery checks passed. Three separate warm-search runs had medians of 2.66 to 3.24 ms. Compare Bull shark jaw against another Bull shark drop before accepting.
+
+Starting commit 5fc3d720dcf85107c25802e83e53526a867f0315
+Build development-2026-11-04-s9-shark-bounties
+Official package SHA256 c926f4853b76c7ccf020b2248677234c74d1e4f1d02fdf9379bac18d8fe27492
+Human acceptance pending.

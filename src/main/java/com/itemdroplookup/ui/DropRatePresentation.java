@@ -41,6 +41,7 @@ final class DropRatePresentation
     {
         String reviewed = reviewedRateLine(source);
         if (reviewed != null) return reviewed;
+        if (hasUnresolvedAlternate(source)) return "Recorded rate: " + format(source.getDropRate()) + " (alternate listed)";
         return unresolvedEvent(source.getMonsterName()) ? "Listed rate: " + rawRate(source)
                 : "Rate: " + format(source.getDropRate());
     }
@@ -48,6 +49,15 @@ final class DropRatePresentation
     static String detailRateLine(DropSource source)
     {
         return sourceRateLine(source);
+    }
+
+    static boolean hasUnresolvedAlternate(DropSource source)
+    {
+        if (!"1".equals(source.getQuantity()) || !"".equals(source.getNotes())) return false;
+        return ("Bull shark".equals(source.getMonsterName()) && "Bull shark jaw".equals(source.getItemName())
+                    && "1/3".equals(source.getDropRate()))
+                || ("Hammerhead shark".equals(source.getMonsterName()) && "Hammerhead shark jaw".equals(source.getItemName())
+                    && "1/2".equals(source.getDropRate()));
     }
 
     private static String rawRate(DropSource source)

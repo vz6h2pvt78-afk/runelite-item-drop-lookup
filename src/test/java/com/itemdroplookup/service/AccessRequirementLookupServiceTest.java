@@ -135,7 +135,7 @@ public class AccessRequirementLookupServiceTest
         assertEquals(1, facts("Great white shark", "Great white shark liver").stream()
                 .filter(fact -> fact.getAppliesTo() == AppliesTo.ITEM_DROP).count());
         assertFalse(facts("Great white shark", "Raw shark").stream().anyMatch(AccessRequirement::isSourceCardRequirement));
-        assertTrue(facts("Bull shark", "Great white shark jaw").isEmpty());
+        assertFalse(facts("Bull shark", "Great white shark jaw").stream().anyMatch(AccessRequirement::isSourceCardFact));
     }
 
     @Test

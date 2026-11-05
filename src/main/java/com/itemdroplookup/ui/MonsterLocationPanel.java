@@ -170,6 +170,8 @@ public class MonsterLocationPanel extends JPanel
         locationsPanel.removeAll();
         if (contextTitle != null) locationsPanel.add(text(contextTitle, true, TEXT_WIDTH));
         locationsPanel.add(text(DropRatePresentation.detailRateLine(source), false, TEXT_WIDTH));
+        if (DropRatePresentation.hasUnresolvedAlternate(source))
+            locationsPanel.add(text("The Wiki lists 1 in 2 and 1 in 3. Which rate applies here is unverified.", false, TEXT_WIDTH));
         locationsPanel.add(text("Quantity: " + DropQuantity.display(source), false, TEXT_WIDTH));
         if (!sourceFacts.isEmpty())
         {

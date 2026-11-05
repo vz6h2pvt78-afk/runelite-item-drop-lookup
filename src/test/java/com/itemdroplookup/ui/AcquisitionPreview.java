@@ -23,6 +23,8 @@ public final class AcquisitionPreview
                     {"Logs", "Gathering", ""}, {"Amulet of glory", "Loot & containers", ""},
                     {"Mystic robe bottom", "Loot & containers", ""}, {"Snapdragon seed", "Loot & containers", ""},
                     {"Dragon arrow", "Loot & containers", ""}, {"Dragon dagger(p++)", "Loot & containers", ""},
+                    {"Bull shark jaw", "NPC Drops", "Bull shark", "applicable bounty task"},
+                    {"Hammerhead shark liver", "NPC Drops", "Hammerhead shark", "40 Sailing"},
                     {"Kurask head", "NPC Drops", "Kurask", "Burn damage"}, {"Adamant platelegs", "NPC Drops", "Aberrant spectre", "nose peg"},
                     {"Basilisk head", "NPC Drops", "Basilisk", "mirror shield"}, {"Mystic robe bottom (light)", "NPC Drops", "Turoth", "ordinary attacks"},
                     {"Mystic gloves (light)", "NPC Drops", "Rockslug", "Finishing"}, {"Mystic gloves (dark)", "NPC Drops", "Banshee", "Protection"},

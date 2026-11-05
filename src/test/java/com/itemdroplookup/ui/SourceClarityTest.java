@@ -257,6 +257,32 @@ public class SourceClarityTest
         assertNull(service.findExactBulkOffer("Sawmill voucher (x10)"));
     }
 
+    @Test public void alternateJawRatesAreFlaggedForOnlyTheReviewedDropSignatures() throws Exception
+    {
+        for (String[] row : new String[][]{{"Bull shark","1/3"},{"Hammerhead shark","1/2"}})
+        {
+            DropSource jaw = new DropSource(row[0] + " jaw", row[0], "1", row[1], "");
+            assertTrue(DropRatePresentation.hasUnresolvedAlternate(jaw));
+            assertTrue(DropRatePresentation.sourceRateLine(jaw).contains(DropRatePresentation.format(row[1])));
+            assertEquals(DropRatePresentation.sourceRateLine(jaw),DropRatePresentation.detailRateLine(jaw));
+            assertFalse(DropRatePresentation.hasUnresolvedAlternate(new DropSource(row[0] + " liver", row[0], "1", "1/10", "")));
+            assertFalse(DropRatePresentation.hasUnresolvedAlternate(new DropSource(row[0] + " jaw", row[0], "2", row[1], "")));
+        }
+        assertFalse(DropRatePresentation.hasUnresolvedAlternate(new DropSource("Tiger shark jaw","Tiger shark","1","1/2","")));
+        SwingUtilities.invokeAndWait(() -> {
+            Gson g = new Gson();
+            ItemDropLookupPanel panel = new ItemDropLookupPanel(new DropLookupService(g),new ItemSourceLookupService(g),
+                    new ItemPriceLookupService(g),new MonsterLocationLookupService(g),new AccessRequirementLookupService(g));
+            MorningFeedbackTest.search(panel,"Bull shark jaw");
+            PanelTestSupport.openSources(panel);
+            assertTrue(MorningFeedbackTest.labels(panel).contains("alternate listed"));
+            assertTrue(MorningFeedbackTest.labels(panel).contains("30 Sailing to receive one"));
+            MorningFeedbackTest.click(panel,"openLocations");
+            assertTrue(MorningFeedbackTest.labels(panel).contains("Which rate applies here is unverified"));
+            panel.dispose();
+        });
+    }
+
     @Test public void cookingCountsOnlySuccessfulOutputAndReportsItsActualContext() throws Exception
     {
         SwingUtilities.invokeAndWait(() -> {
