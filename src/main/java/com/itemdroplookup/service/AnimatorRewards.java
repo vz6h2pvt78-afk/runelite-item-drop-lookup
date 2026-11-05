@@ -4,57 +4,19 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.itemdroplookup.model.AnimatorReward;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import lombok.extern.slf4j.Slf4j;
 import static com.itemdroplookup.service.AcquisitionEventLookupService.*;
 
-@Slf4j
 final class AnimatorRewards
 {
     private static final Set<String> METALS = Set.of("Bronze", "Iron", "Steel", "Black", "Mithril", "Adamant", "Rune");
 
     static Map<String, AnimatorReward> read(Gson gson)
     {
-        Map<String, AnimatorReward> result = new HashMap<>();
-        try (InputStream input = AnimatorRewards.class.getResourceAsStream("/animator_rewards.json"))
-        {
-            if (input == null) return result;
-            JsonObject root = gson.fromJson(new InputStreamReader(input, StandardCharsets.UTF_8), JsonObject.class);
-            fields(root, "schemaVersion,rewards", "");
-            integer(root, "schemaVersion", 1, 1);
-            Set<String> seen = new HashSet<>();
-            for (JsonElement element : array(root, "rewards"))
-            {
-                try
-                {
-                    JsonObject row = object(element);
-                    String monster = string(row, "monsterName");
-                    if (!seen.add(monster))
-                    {
-                        result.remove(monster);
-                        continue;
-                    }
-                    result.put(monster, parse(row, monster));
-                }
-                catch (RuntimeException ex)
-                {
-                    log.debug("One animator reward could not be verified", ex);
-                }
-            }
-        }
-        catch (Exception ex)
-        {
-            log.debug("Reviewed animator rewards unavailable", ex);
-        }
-        return result;
+        return ReviewedRows.read(gson, "/animator_rewards.json", "rewards", "monsterName", AnimatorRewards::parse);
     }
 
     private static AnimatorReward parse(JsonObject row, String monster)

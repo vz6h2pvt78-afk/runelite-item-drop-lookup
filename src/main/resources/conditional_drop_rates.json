@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "rates": [
+    {
+      "monsterName": "Drake",
+      "itemName": "Drake's tooth",
+      "quantity": "1",
+      "dropRate": "1/2560",
+      "notes": "",
+      "taskName": "Drake",
+      "onTaskRate": "1/512",
+      "evidence": [
+        {
+          "page": "Drake",
+          "revisionId": 15371749,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Drake?oldid=15371749"
+        }
+      ]
+    },
+    {
+      "monsterName": "Drake",
+      "itemName": "Drake's claw",
+      "quantity": "1",
+      "dropRate": "1/2560",
+      "notes": "",
+      "taskName": "Drake",
+      "onTaskRate": "1/512",
+      "evidence": [
+        {
+          "page": "Drake",
+          "revisionId": 15371749,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Drake?oldid=15371749"
+        }
+      ]
+    }
+  ]
+}

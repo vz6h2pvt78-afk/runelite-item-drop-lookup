@@ -257,6 +257,42 @@ public class SourceClarityTest
         assertNull(service.findExactBulkOffer("Sawmill voucher (x10)"));
     }
 
+    @Test public void drakeTaskRatesKeepTheBaseAndNeverApplyToGuardianDrakes() throws Exception
+    {
+        Gson g = new Gson();
+        DropLookupService drops = new DropLookupService(g);
+        for (String item : List.of("Drake's tooth","Drake's claw"))
+        {
+            List<DropSource> result = drops.searchByItemName(item);
+            assertEquals(2,result.size());
+            DropSource drake = result.get(0);
+            assertEquals("Drake",drake.getMonsterName()); assertEquals("1/2560",drake.getDropRate());
+            assertEquals("Base rate: 1 in 2560",DropRatePresentation.sourceRateLine(drake));
+            assertEquals("On a Drake Slayer task: 1 in 512",DropRatePresentation.taskRateLine(drake));
+            assertFalse(drake.getConditionalRate().matches("Drake",item,"2","1/2560",""));
+            assertFalse(drake.getConditionalRate().matches("Drake",item,"1","1/512",""));
+            assertFalse(drake.getConditionalRate().matches("Drake",item,"1","1/2560","Other"));
+            assertEquals("Guardian Drake",result.get(1).getMonsterName()); assertNull(result.get(1).getConditionalRate());
+            assertFalse(new AccessRequirementLookupService(g).forSource(drake).stream().anyMatch(f ->
+                    f.getType()==com.itemdroplookup.model.AccessRequirement.Type.ACTIVE_TASK));
+        }
+        assertTrue(drops.searchByItemName("Drake bones").stream().noneMatch(s -> s.getConditionalRate()!=null));
+        SwingUtilities.invokeAndWait(() -> {
+            ItemDropLookupPanel p=new ItemDropLookupPanel(drops,new ItemSourceLookupService(g),new ItemPriceLookupService(g),
+                    new MonsterLocationLookupService(g),new AccessRequirementLookupService(g));
+            MorningFeedbackTest.search(p,"Drake's tooth"); MorningFeedbackTest.click(p,"showDropSources");
+            JTextField finder=(JTextField)PanelTestSupport.find(p,"sourceSearch");finder.setText("Drake");finder.postActionEvent();
+            Component family=PanelTestSupport.find(p,"sourceGroup:Drake");
+            if (family instanceof JButton && ((JButton)family).getText().contains("▸")) ((JButton)family).doClick(0);
+            Container card=(Container)named(p,"dropSourceCard").stream().filter(c ->
+                    MorningFeedbackTest.labels((Container)c).contains("Base rate: 1 in 2560")).findFirst().get();
+            assertTrue(MorningFeedbackTest.labels(card).contains("On a Drake Slayer task: 1 in 512"));
+            ((JButton)PanelTestSupport.find(card,"openLocations")).doClick(0);
+            assertTrue(MorningFeedbackTest.labels(p).contains("On a Drake Slayer task: 1 in 512"));
+            p.dispose();
+        });
+    }
+
     @Test public void defenderPrerequisiteBelongsOnlyToTheVisibleBasementSource() throws Exception
     {
         SwingUtilities.invokeAndWait(() -> {

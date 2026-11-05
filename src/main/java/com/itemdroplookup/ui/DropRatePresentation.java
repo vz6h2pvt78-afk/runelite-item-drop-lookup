@@ -39,12 +39,18 @@ final class DropRatePresentation
 
     static String sourceRateLine(DropSource source)
     {
+        if (source.getConditionalRate() != null) return "Base rate: " + format(source.getDropRate());
         String reviewed = reviewedRateLine(source);
         if (reviewed != null) return reviewed;
         if (isDreamCake(source)) return "Rate: Always inside the Nightmare Zone dream";
         if (hasUnresolvedAlternate(source)) return "Recorded rate: " + format(source.getDropRate()) + " (alternate listed)";
         return unresolvedEvent(source.getMonsterName()) ? "Listed rate: " + rawRate(source)
                 : "Rate: " + format(source.getDropRate());
+    }
+
+    static String taskRateLine(DropSource source)
+    {
+        return "On a " + source.getConditionalRate().getTaskName() + " Slayer task: " + format(source.getConditionalRate().getTaskRate());
     }
 
     static String detailRateLine(DropSource source)

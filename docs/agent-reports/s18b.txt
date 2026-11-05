@@ -1,0 +1,8 @@
+S18B - Drake task-specific rates
+
+Drake's tooth and Drake's claw now show their 1/2560 base rate and the separately sourced 1/512 rate while on a Drake Slayer task. The two rates share an explicit named Wiki footnote. The original rows, order, and 5,664-query inventory match S18 byte-for-byte. Guardian Drake and other Drake drops keep their own values. Seven packaged fault scenarios verified malformed or mismatched enrichment fallback, and the integrated player journey captured 22 correct reports. Both Java runs passed 195 tests, Python passed 150, and package/API, Standard/Larger renders, generators and recovery passed. Compare Drake and Guardian Drake under the same tooth/claw search.
+
+Starting commit e60f8912786fa360895f93268e5a7cc8bcd210c6
+Build development-2026-11-04-s18b-drake-task-rates
+Official package SHA256 e84d74b5d5475b86adf6a21d62106439e17fe9c9632332f2afa1b949c53ce74c
+Human acceptance pending.

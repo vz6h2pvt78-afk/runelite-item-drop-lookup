@@ -25,6 +25,7 @@ public final class AcquisitionPreview
                     {"Dragon arrow", "Loot & containers", ""}, {"Dragon dagger(p++)", "Loot & containers", ""},
                     {"Occult necklace", "NPC Drops", "Smoke devil", "93 Slayer to harm"}, {"Granite legs", "NPC Drops", "Skeletal Wyvern", "icy breath"},
                     {"Mystic boots (light)", "NPC Drops", "Cockatrice", "piercing gaze"}, {"Drake\u0027s tooth", "NPC Drops", "Drake", "84 Slayer to kill"},
+                    {"Drake\u0027s claw", "NPC Drops", "Drake", "On a Drake Slayer task"},
                     {"Brine sabre", "NPC Drops", "Brine rat", "47 Slayer to fight"},
                     {"Dragon defender", "NPC Drops", "Rune defender"},
                     {"Butterfly ray fin", "NPC Drops", "Butterfly ray", "40 Sailing"}, {"Narwhal tusk", "NPC Drops", "Narwhal", "62 Sailing"},

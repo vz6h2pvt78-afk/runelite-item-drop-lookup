@@ -175,6 +175,7 @@ public class MonsterLocationPanel extends JPanel
             locationsPanel.add(text(source.getAnimatorReward().getSetupText(), false, TEXT_WIDTH));
         }
         locationsPanel.add(text(DropRatePresentation.detailRateLine(source), false, TEXT_WIDTH));
+        if (source.getConditionalRate() != null) locationsPanel.add(text(DropRatePresentation.taskRateLine(source), false, TEXT_WIDTH));
         if (DropRatePresentation.isDreamCake(source)) locationsPanel.add(text(DropRatePresentation.DREAM_CAKE_NOTE, false, TEXT_WIDTH));
         if (DropRatePresentation.hasUnresolvedAlternate(source))
             locationsPanel.add(text("The Wiki lists 1 in 2 and 1 in 3. Which rate applies here is unverified.", false, TEXT_WIDTH));

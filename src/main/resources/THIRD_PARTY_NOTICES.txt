@@ -26,6 +26,7 @@ Runtime resources under src/main/resources/:
 - production_recipes.json and wiki_ground_additions.json select the normal furnace recipe and three Bronze bar pickups from https://oldschool.runescape.wiki/w/Special:PermanentLink/15315107 .
 - shop_locations.json links offers to the listed Forestry and Slayer shop branches. Two Slayer stock entries also record their ammunition identity, purchase quantity and full price. https://oldschool.runescape.wiki/w/Special:PermanentLink/15374369 and https://oldschool.runescape.wiki/w/Special:PermanentLink/15373095 .
 - Kamil’s Chocolate cake encounter qualification uses https://oldschool.runescape.wiki/w/Special:PermanentLink/15200663 .
+- conditional_drop_rates.json uses the named Drake on-task footnote for the tooth and claw in https://oldschool.runescape.wiki/w/Special:PermanentLink/15371749 .
 - animator_rewards.json records the animator preparation and three stated token awards from each of seven Animated Armour pages. Each entry links the applicable Wiki revision.
 - item_access.json selects the earned Rune defender prerequisite and the basement Cyclops drop from https://oldschool.runescape.wiki/w/Special:PermanentLink/15337742 .
 - ocean_bounty_access.json adapts the Eagle ray, Butterfly ray, Stingray, Narwhal and Orca articles. Each fact links its source revision. Named drop conditions are matched to their recorded quantity, rate and notes.

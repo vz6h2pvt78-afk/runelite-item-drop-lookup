@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.itemdroplookup.model.DropSource;
 import com.itemdroplookup.model.AnimatorReward;
+import com.itemdroplookup.model.ConditionalDropRate;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -72,7 +73,7 @@ public class DropLookupService
                         record.quantity,
                         record.dropRate,
                         record.notes,
-                        record.membersOnly, record.animatorReward
+                        record.membersOnly, record.animatorReward, record.conditionalRate
                 ))
                 .sorted(Comparator.comparing(DropSource::getMonsterName, String.CASE_INSENSITIVE_ORDER))
                 .collect(Collectors.toList());
@@ -216,8 +217,17 @@ public class DropLookupService
             if (dropRecords != null)
             {
                 Map<String, AnimatorReward> reviewed = AnimatorRewards.read(gson);
+                Map<String, ConditionalDropRate> rates = DropTaskRates.read(gson);
+                Map<String, DropRecord> rateMatches = new HashMap<>();
                 for (DropRecord record : dropRecords)
                 {
+                    ConditionalDropRate rate = rates.get(record.itemName);
+                    if (rate != null && rate.matches(record.monsterName, record.itemName, record.quantity, record.dropRate, record.notes))
+                    {
+                        DropRecord first = rateMatches.putIfAbsent(record.itemName, record);
+                        if (first == null) record.conditionalRate = rate;
+                        else first.conditionalRate = null;
+                    }
                     if (!"Warrior guild token".equals(record.itemName) || !"Always".equals(record.dropRate) || !"".equals(record.notes)) continue;
                     AnimatorReward reward = reviewed.get(record.monsterName);
                     if (reward != null && Integer.toString(reward.getBase()).equals(record.quantity)) record.animatorReward = reward;
@@ -247,5 +257,6 @@ public class DropLookupService
         private String notes;
         private Boolean membersOnly;
         private transient AnimatorReward animatorReward;
+        private transient ConditionalDropRate conditionalRate;
     }
 }

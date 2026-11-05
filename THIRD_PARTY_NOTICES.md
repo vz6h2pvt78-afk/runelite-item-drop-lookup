@@ -22,6 +22,7 @@ nor their conversion to JSON is used to remove source credits or restrictions.
 Runtime resources under src/main/resources/:
 
 - The Nightmare Zone qualification of Kamil’s Chocolate cake drop uses Kamil (Nightmare Zone) revision 15200663, preserved in `tools/fixtures/kamil_nightmare_zone.json`.
+- `conditional_drop_rates.json` gives the two task-conditioned Drake rates explicitly identified by the named footnote in Drake revision 15371749. The raw base rows are preserved.
 - `animator_rewards.json` uses the seven pinned Animated Armour articles for the exact equipment and Combat Achievement token quantities. Each linked revision is retained under `tools/fixtures/animator_rewards/`.
 - `item_access.json` ties the Dragon defender prerequisite to the basement Cyclops row from revision 15337742. The Wiki fixture and verified location/version are preserved with the generator.
 - `ocean_bounty_access.json` uses five additional ocean-creature revisions pinned in `tools/fixtures/ocean_bounties/`. It distinguishes assignment from eight individually bound item conditions. Orca contributes only its assignment level.
