@@ -1,4 +1,5 @@
 """Read-only validation of the reviewed requirements sidecar and exact bindings."""
+from collections import Counter
 from datetime import datetime
 import json
 from pathlib import Path
@@ -15,7 +16,7 @@ def norm(value):
     return re.sub(r"\s+", " ", str(value or "").replace("_", " ").replace("\u2019", "'")).strip().casefold()
 
 
-def validate(data, locations, drops):
+def validate(data, locations, drops, *, require_item_signatures=False):
     errors = []
     if not isinstance(data, dict) or data.get("schemaVersion") != 1 or not isinstance(data.get("facts"), list):
         return ["Unsupported or malformed requirements dataset"]
@@ -29,8 +30,10 @@ def validate(data, locations, drops):
     known_monsters = {norm(row.get("monsterName")) for row in drops} | {
         norm(row.get("monsterName")) for row in by_id.values()}
     known_items = {(norm(row.get("monsterName")), norm(row.get("itemName"))) for row in drops}
+    identity_fields = ('monsterName','itemName','quantity','dropRate','notes')
+    raw_rows = Counter(tuple(row.get(k) for k in identity_fields) for row in drops)
     ids = set()
-    allowed = {"id", "monsterName", "scope", "locationId", "itemName", "appliesTo", "type", "text", "skill", "level", "evidence"}
+    allowed = {"id", "monsterName", "scope", "locationId", "itemName", "appliesTo", "type", "text", "skill", "level", "evidence", "dropSignature"}
     for index, fact in enumerate(data["facts"]):
         if not isinstance(fact, dict):
             errors.append(f"Fact {index}: not an object")
@@ -73,6 +76,14 @@ def validate(data, locations, drops):
                 fail("Unknown exact monster/item pair")
             if fact.get("appliesTo") != "ITEM_DROP":
                 fail("ITEM facts must describe ITEM_DROP eligibility")
+        signature = fact.get("dropSignature")
+        if "dropSignature" in fact or (require_item_signatures and fact.get("scope") == "ITEM"):
+            if (fact.get("scope") != "ITEM" or not isinstance(signature, dict)
+                    or not isinstance(fact.get("monsterName"),str) or not isinstance(fact.get("itemName"),str)
+                    or set(signature) != {"quantity","dropRate","notes"} or not all(isinstance(v,str) for v in signature.values())):
+                fail("Invalid or missing exact drop signature")
+            elif raw_rows[(fact["monsterName"],fact["itemName"],signature["quantity"],signature["dropRate"],signature["notes"])] != 1:
+                fail("Orphaned or ambiguous exact drop signature")
         if fact.get("type") == "SKILL":
             if not isinstance(fact.get("skill"), str) or not fact["skill"].strip() or type(fact.get("level")) is not int or not 1 <= fact["level"] <= 99:
                 fail("Invalid skill requirement")
@@ -98,11 +109,12 @@ def main():
     resources = ROOT / "src/main/resources"
     read = lambda name: json.loads((resources / name).read_text(encoding="utf-8"))
     data = read("access_requirements.json")
-    supplements = [read("reviewed_slayer_access.json"), read("shark_bounty_access.json")]
+    supplements = ["reviewed_slayer_access.json", "shark_bounty_access.json", "ocean_bounty_access.json"]
     locations, drops = read("monster_locations.json"), read("wiki_monster_drops.json")
     errors = []
-    for extra in supplements:
-        errors.extend(validate(extra, locations, drops))
+    for name in supplements:
+        extra = read(name)
+        errors.extend(validate(extra, locations, drops, require_item_signatures=name == 'ocean_bounty_access.json'))
         data["facts"].extend(extra["facts"])
     errors += validate(data, locations, drops)
     for error in errors:

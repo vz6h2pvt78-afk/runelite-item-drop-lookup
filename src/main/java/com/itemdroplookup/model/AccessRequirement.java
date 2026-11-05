@@ -15,6 +15,7 @@ public final class AccessRequirement
     private Scope scope;
     private String locationId;
     private String itemName;
+    private RawSignature dropSignature;
     private AppliesTo appliesTo;
     private Type type;
     private String text;
@@ -35,6 +36,25 @@ public final class AccessRequirement
     public List<Evidence> getEvidence()
     {
         return evidence == null ? Collections.emptyList() : Collections.unmodifiableList(evidence);
+    }
+
+    public DropSource boundDrop()
+    {
+        return dropSignature == null ? null : new DropSource(itemName, monsterName, dropSignature.quantity, dropSignature.dropRate, dropSignature.notes);
+    }
+
+    public boolean matchesSignature(DropSource source)
+    {
+        return dropSignature == null || (monsterName.equals(source.getMonsterName()) && itemName.equals(source.getItemName())
+                && dropSignature.quantity.equals(source.getQuantity()) && dropSignature.dropRate.equals(source.getDropRate())
+                && dropSignature.notes.equals(source.getNotes()));
+    }
+
+    private static final class RawSignature
+    {
+        private String quantity;
+        private String dropRate;
+        private String notes;
     }
 
     public String getLabel()

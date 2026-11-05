@@ -36,7 +36,44 @@ public class SlayerScopeTest
             }
             assertTrue(access.forSource(new DropSource(shark + " jaw","Karamjan tiger shark","1","1/2","")).isEmpty());
         }
-        assertTrue(facts("Orca").isEmpty());
+        assertFalse(facts("Orca").stream().anyMatch(AccessRequirement::isSourceCardRequirement));
+    }
+
+    @Test public void oceanBountyFactsFollowExactRawSignaturesAndPreserveOlderMatching()
+    {
+        DropSource tusk = new DropSource("Narwhal tusk","Narwhal","1","1/10","");
+        assertEquals(2, access.forSource(tusk).size());
+        for (DropSource other : List.of(new DropSource("Narwhal tusk","Narwhal","2","1/10",""),
+                new DropSource("Narwhal tusk","Narwhal","1","2/20",""),
+                new DropSource("Narwhal tusk","Narwhal","1","1/10","Other context")))
+        {
+            List<AccessRequirement> facts = access.forSource(other);
+            assertEquals(1, facts.size());
+            assertEquals(Integer.valueOf(62), facts.get(0).getLevel());
+        }
+        for (String item : List.of("Echo pearl","Orca blubber","Orca teeth"))
+        {
+            List<AccessRequirement> orca = access.forSource(new DropSource(item,"Orca","1","1/70",""));
+            assertEquals(1, orca.size());
+            assertEquals(AccessRequirement.AppliesTo.TASK_ELIGIBILITY, orca.get(0).getAppliesTo());
+            assertEquals(Integer.valueOf(80), orca.get(0).getLevel());
+        }
+        assertTrue(access.forSource(new DropSource("Bull shark jaw","Bull shark","2","1/99",""))
+                .stream().anyMatch(f -> f.getType() == AccessRequirement.Type.ACTIVE_TASK));
+    }
+
+    @Test public void anOrphanedOceanFactIsWithheldIndependently()
+    {
+        Gson gson = new Gson();
+        DropLookupService drops = new DropLookupService(gson) {
+            @Override boolean hasUniqueRecordedDrop(DropSource row)
+            {
+                return !row.getItemName().equals("Stingray fin") && super.hasUniqueRecordedDrop(row);
+            }
+        };
+        AccessRequirementLookupService isolated = new AccessRequirementLookupService(gson, drops);
+        assertEquals(1, isolated.forSource(new DropSource("Stingray fin","Stingray","1","1/2","")).size());
+        assertEquals(2, isolated.forSource(new DropSource("Stingray skin","Stingray","1","1/10","")).size());
     }
 
     @Test public void threeNamedMonstersKeepCombatVerbsAndQuestAssignmentSeparate()

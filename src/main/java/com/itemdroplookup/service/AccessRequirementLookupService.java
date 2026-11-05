@@ -1,6 +1,9 @@
 package com.itemdroplookup.service;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import static com.itemdroplookup.service.AcquisitionEventLookupService.*;
 import com.itemdroplookup.model.AccessRequirement;
 import com.itemdroplookup.model.AccessRequirement.Scope;
 import com.itemdroplookup.model.DropSource;
@@ -27,19 +30,27 @@ import lombok.extern.slf4j.Slf4j;
 public class AccessRequirementLookupService
 {
     private final Gson gson;
+    private final DropLookupService drops;
     private final Map<String, List<AccessRequirement>> byMonster = new HashMap<>();
     private boolean loaded;
 
-    @Inject
     public AccessRequirementLookupService(Gson gson)
     {
+        this(gson, new DropLookupService(gson));
+    }
+
+    @Inject
+    public AccessRequirementLookupService(Gson gson, DropLookupService drops)
+    {
         this.gson = gson;
+        this.drops = drops;
     }
 
     public List<AccessRequirement> forSource(DropSource source)
     {
         return facts(source.getMonsterName()).stream().filter(fact -> fact.getScope() == Scope.MONSTER
-                || (fact.getScope() == Scope.ITEM && normalize(fact.getItemName()).equals(normalize(source.getItemName()))))
+                || (fact.getScope() == Scope.ITEM && normalize(fact.getItemName()).equals(normalize(source.getItemName()))
+                        && fact.matchesSignature(source)))
                 .collect(Collectors.collectingAndThen(Collectors.toList(), Collections::unmodifiableList));
     }
 
@@ -67,10 +78,16 @@ public class AccessRequirementLookupService
         loadResource("/access_requirements.json",ids);
         loadResource("/reviewed_slayer_access.json",ids);
         loadResource("/shark_bounty_access.json",ids);
+        loadResource("/ocean_bounty_access.json",ids,true);
         loaded = true;
     }
 
     private void loadResource(String path, Set<String> allIds)
+    {
+        loadResource(path, allIds, false);
+    }
+
+    private void loadResource(String path, Set<String> allIds, boolean requireItemSignatures)
     {
         try (InputStream input = getClass().getResourceAsStream(path))
         {
@@ -78,7 +95,23 @@ public class AccessRequirementLookupService
             {
                 return;
             }
-            Dataset data = gson.fromJson(new InputStreamReader(input, StandardCharsets.UTF_8), Dataset.class);
+            JsonObject raw = gson.fromJson(new InputStreamReader(input, StandardCharsets.UTF_8), JsonObject.class);
+            if (requireItemSignatures)
+            {
+                for (JsonElement element : array(raw, "facts"))
+                {
+                    JsonObject row = object(element);
+                    if ("ITEM".equals(string(row, "scope")))
+                    {
+                        JsonObject signature = object(row.get("dropSignature"));
+                        fields(signature, "quantity,dropRate,notes", "");
+                        string(signature, "quantity");
+                        string(signature, "dropRate");
+                        text(signature, "notes");
+                    }
+                }
+            }
+            Dataset data = gson.fromJson(raw, Dataset.class);
             if (data == null || data.schemaVersion != 1 || data.facts == null || !hasText(data.checkedAt))
             {
                 return;
@@ -94,6 +127,12 @@ public class AccessRequirementLookupService
             allIds.addAll(ids);
             for (AccessRequirement fact : data.facts)
             {
+                DropSource bound = fact.boundDrop();
+                if (bound != null && !drops.hasUniqueRecordedDrop(bound))
+                {
+                    log.debug("Withholding unmatched access fact {}", fact.getId());
+                    continue;
+                }
                 byMonster.computeIfAbsent(normalize(fact.getMonsterName()), key -> new ArrayList<>()).add(fact);
             }
         }
@@ -115,6 +154,9 @@ public class AccessRequirementLookupService
         {
             return false;
         }
+        DropSource bound = fact.boundDrop();
+        if (bound != null && (fact.getScope() != Scope.ITEM || !hasText(bound.getQuantity())
+                || !hasText(bound.getDropRate()) || bound.getNotes() == null)) return false;
         if (fact.getType() == AccessRequirement.Type.SKILL
                 && (!hasText(fact.getSkill()) || fact.getLevel() == null || fact.getLevel() < 1 || fact.getLevel() > 99))
         {

@@ -23,6 +23,7 @@ public final class AcquisitionPreview
                     {"Logs", "Gathering", ""}, {"Amulet of glory", "Loot & containers", ""},
                     {"Mystic robe bottom", "Loot & containers", ""}, {"Snapdragon seed", "Loot & containers", ""},
                     {"Dragon arrow", "Loot & containers", ""}, {"Dragon dagger(p++)", "Loot & containers", ""},
+                    {"Butterfly ray fin", "NPC Drops", "Butterfly ray", "40 Sailing"}, {"Narwhal tusk", "NPC Drops", "Narwhal", "62 Sailing"},
                     {"Chocolate cake", "NPC Drops", "Kamil (Nightmare Zone)", "Keeping the cake"},
                     {"Warrior guild token", "NPC Drops", "Animated Adamant Armour", "magical animator"},
                     {"Black mask (10)", "NPC Drops", "Cave horror", "witchwood icon", "70e74913efa330ff38bc"},

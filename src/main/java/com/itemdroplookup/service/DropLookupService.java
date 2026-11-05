@@ -78,6 +78,13 @@ public class DropLookupService
                 .collect(Collectors.toList());
     }
 
+    boolean hasUniqueRecordedDrop(DropSource key)
+    {
+        return getDropRecords().stream().filter(r -> key.getMonsterName().equals(r.monsterName)
+                && key.getItemName().equals(r.itemName) && key.getQuantity().equals(r.quantity)
+                && key.getDropRate().equals(r.dropRate) && key.getNotes().equals(r.notes)).limit(2).count() == 1;
+    }
+
     private boolean roughlyMatches(String itemName, String query)
     {
         if (itemName.contains(query))

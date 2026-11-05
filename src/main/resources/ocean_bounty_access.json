@@ -1,0 +1,259 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-05T01:10:00Z",
+  "facts": [
+    {
+      "monsterName": "Eagle ray",
+      "evidence": [
+        {
+          "page": "Eagle ray",
+          "revisionId": 15228801,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Eagle_ray?oldid=15228801"
+        }
+      ],
+      "id": "eagle-ray-bounty-eligibility",
+      "scope": "MONSTER",
+      "appliesTo": "TASK_ELIGIBILITY",
+      "type": "SKILL",
+      "skill": "Sailing",
+      "level": 30,
+      "text": "30 Sailing to receive eagle ray bounty tasks."
+    },
+    {
+      "monsterName": "Eagle ray",
+      "evidence": [
+        {
+          "page": "Eagle ray",
+          "revisionId": 15228801,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Eagle_ray?oldid=15228801"
+        }
+      ],
+      "id": "eagle-ray-skin-bounty",
+      "scope": "ITEM",
+      "itemName": "Eagle ray skin",
+      "appliesTo": "ITEM_DROP",
+      "type": "ACTIVE_TASK",
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/10",
+        "notes": ""
+      },
+      "text": "Only drops on an applicable bounty task. 30 Sailing to receive one."
+    },
+    {
+      "monsterName": "Eagle ray",
+      "evidence": [
+        {
+          "page": "Eagle ray",
+          "revisionId": 15228801,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Eagle_ray?oldid=15228801"
+        }
+      ],
+      "id": "eagle-ray-fin-bounty",
+      "scope": "ITEM",
+      "itemName": "Eagle ray fin",
+      "appliesTo": "ITEM_DROP",
+      "type": "ACTIVE_TASK",
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/2",
+        "notes": ""
+      },
+      "text": "Only drops on an applicable bounty task. 30 Sailing to receive one."
+    },
+    {
+      "monsterName": "Butterfly ray",
+      "evidence": [
+        {
+          "page": "Butterfly ray",
+          "revisionId": 15372299,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Butterfly_ray?oldid=15372299"
+        }
+      ],
+      "id": "butterfly-ray-bounty-eligibility",
+      "scope": "MONSTER",
+      "appliesTo": "TASK_ELIGIBILITY",
+      "type": "SKILL",
+      "skill": "Sailing",
+      "level": 40,
+      "text": "40 Sailing to receive butterfly ray bounty tasks."
+    },
+    {
+      "monsterName": "Butterfly ray",
+      "evidence": [
+        {
+          "page": "Butterfly ray",
+          "revisionId": 15372299,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Butterfly_ray?oldid=15372299"
+        }
+      ],
+      "id": "butterfly-ray-skin-bounty",
+      "scope": "ITEM",
+      "itemName": "Butterfly ray skin",
+      "appliesTo": "ITEM_DROP",
+      "type": "ACTIVE_TASK",
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/10",
+        "notes": ""
+      },
+      "text": "Only drops on an applicable bounty task. 40 Sailing to receive one."
+    },
+    {
+      "monsterName": "Butterfly ray",
+      "evidence": [
+        {
+          "page": "Butterfly ray",
+          "revisionId": 15372299,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Butterfly_ray?oldid=15372299"
+        }
+      ],
+      "id": "butterfly-ray-fin-bounty",
+      "scope": "ITEM",
+      "itemName": "Butterfly ray fin",
+      "appliesTo": "ITEM_DROP",
+      "type": "ACTIVE_TASK",
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/2",
+        "notes": ""
+      },
+      "text": "Only drops on an applicable bounty task. 40 Sailing to receive one."
+    },
+    {
+      "monsterName": "Stingray",
+      "evidence": [
+        {
+          "page": "Stingray",
+          "revisionId": 15349228,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Stingray?oldid=15349228"
+        }
+      ],
+      "id": "stingray-bounty-eligibility",
+      "scope": "MONSTER",
+      "appliesTo": "TASK_ELIGIBILITY",
+      "type": "SKILL",
+      "skill": "Sailing",
+      "level": 45,
+      "text": "45 Sailing to receive stingray bounty tasks."
+    },
+    {
+      "monsterName": "Stingray",
+      "evidence": [
+        {
+          "page": "Stingray",
+          "revisionId": 15349228,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Stingray?oldid=15349228"
+        }
+      ],
+      "id": "stingray-skin-bounty",
+      "scope": "ITEM",
+      "itemName": "Stingray skin",
+      "appliesTo": "ITEM_DROP",
+      "type": "ACTIVE_TASK",
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/10",
+        "notes": ""
+      },
+      "text": "Only drops on an applicable bounty task. 45 Sailing to receive one."
+    },
+    {
+      "monsterName": "Stingray",
+      "evidence": [
+        {
+          "page": "Stingray",
+          "revisionId": 15349228,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Stingray?oldid=15349228"
+        }
+      ],
+      "id": "stingray-fin-bounty",
+      "scope": "ITEM",
+      "itemName": "Stingray fin",
+      "appliesTo": "ITEM_DROP",
+      "type": "ACTIVE_TASK",
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/2",
+        "notes": ""
+      },
+      "text": "Only drops on an applicable bounty task. 45 Sailing to receive one."
+    },
+    {
+      "monsterName": "Narwhal",
+      "evidence": [
+        {
+          "page": "Narwhal",
+          "revisionId": 15305362,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Narwhal?oldid=15305362"
+        }
+      ],
+      "id": "narwhal-bounty-eligibility",
+      "scope": "MONSTER",
+      "appliesTo": "TASK_ELIGIBILITY",
+      "type": "SKILL",
+      "skill": "Sailing",
+      "level": 62,
+      "text": "62 Sailing to receive narwhal bounty tasks."
+    },
+    {
+      "monsterName": "Narwhal",
+      "evidence": [
+        {
+          "page": "Narwhal",
+          "revisionId": 15305362,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Narwhal?oldid=15305362"
+        }
+      ],
+      "id": "narwhal-blubber-bounty",
+      "scope": "ITEM",
+      "itemName": "Narwhal blubber",
+      "appliesTo": "ITEM_DROP",
+      "type": "ACTIVE_TASK",
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/2",
+        "notes": ""
+      },
+      "text": "Only drops on an applicable bounty task. 62 Sailing to receive one."
+    },
+    {
+      "monsterName": "Narwhal",
+      "evidence": [
+        {
+          "page": "Narwhal",
+          "revisionId": 15305362,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Narwhal?oldid=15305362"
+        }
+      ],
+      "id": "narwhal-tusk-bounty",
+      "scope": "ITEM",
+      "itemName": "Narwhal tusk",
+      "appliesTo": "ITEM_DROP",
+      "type": "ACTIVE_TASK",
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/10",
+        "notes": ""
+      },
+      "text": "Only drops on an applicable bounty task. 62 Sailing to receive one."
+    },
+    {
+      "monsterName": "Orca",
+      "evidence": [
+        {
+          "page": "Orca",
+          "revisionId": 15358302,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Orca?oldid=15358302"
+        }
+      ],
+      "id": "orca-bounty-eligibility",
+      "scope": "MONSTER",
+      "appliesTo": "TASK_ELIGIBILITY",
+      "type": "SKILL",
+      "skill": "Sailing",
+      "level": 80,
+      "text": "80 Sailing to receive orca bounty tasks."
+    }
+  ]
+}

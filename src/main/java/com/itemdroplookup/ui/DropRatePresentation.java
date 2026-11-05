@@ -66,6 +66,8 @@ final class DropRatePresentation
         return ("Bull shark".equals(source.getMonsterName()) && "Bull shark jaw".equals(source.getItemName())
                     && "1/3".equals(source.getDropRate()))
                 || ("Hammerhead shark".equals(source.getMonsterName()) && "Hammerhead shark jaw".equals(source.getItemName())
+                    && "1/2".equals(source.getDropRate()))
+                || ("Butterfly ray".equals(source.getMonsterName()) && "Butterfly ray fin".equals(source.getItemName())
                     && "1/2".equals(source.getDropRate()));
     }
 

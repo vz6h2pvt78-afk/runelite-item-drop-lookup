@@ -23,6 +23,7 @@ Runtime resources under src/main/resources/:
 
 - The Nightmare Zone qualification of Kamil’s Chocolate cake drop uses Kamil (Nightmare Zone) revision 15200663, preserved in `tools/fixtures/kamil_nightmare_zone.json`.
 - `animator_rewards.json` uses the seven pinned Animated Armour articles for the exact equipment and Combat Achievement token quantities. Each linked revision is retained under `tools/fixtures/animator_rewards/`.
+- `ocean_bounty_access.json` uses five additional ocean-creature revisions pinned in `tools/fixtures/ocean_bounties/`. It distinguishes assignment from eight individually bound item conditions. Orca contributes only its assignment level.
 - `shark_bounty_access.json` adapts three OSRS Wiki shark articles into bounty eligibility and exact jaw/liver conditions. Each fact links its revision, with raw inputs in `tools/fixtures/shark_bounties/`.
 - `reviewed_slayer_access.json` adapts the exact monster pages pinned under `tools/fixtures/slayer_access/`. Each skill and separate combat mechanic carries the source revision.
 - `shop_locations.json` binds existing offers to the named shop versions in Forestry Shop revision 15374369 and Slayer Rewards revision 15373095. Two ammunition stock rows also distinguish the canonical output and purchase quantity from their stock labels. The reviewed inputs and their source links are in `tools/fixtures/shop_sites/`.
