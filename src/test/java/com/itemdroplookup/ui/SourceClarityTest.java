@@ -257,6 +257,33 @@ public class SourceClarityTest
         assertNull(service.findExactBulkOffer("Sawmill voucher (x10)"));
     }
 
+    @Test public void dreamCakeIsQualifiedInTheListAndDetailsWithoutChangingOrdinaryCake() throws Exception
+    {
+        Gson g = new Gson();
+        DropLookupService drops = new DropLookupService(g);
+        List<DropSource> cake = drops.searchByItemName("Chocolate cake");
+        assertEquals(1,cake.stream().filter(DropRatePresentation::isDreamCake).count());
+        assertFalse(cake.stream().anyMatch(d -> d.getMonsterName().equals("Kamil")));
+        for (String monster : List.of("Kamil", "Karamel (Nightmare Zone)", "Black dragon"))
+            assertFalse(DropRatePresentation.isDreamCake(new DropSource("Chocolate cake",monster,"1","Always","")));
+        assertFalse(DropRatePresentation.isDreamCake(new DropSource("Chocolate cake","Kamil (Nightmare Zone)","2","Always","")));
+        SwingUtilities.invokeAndWait(() -> {
+            ItemDropLookupPanel panel = new ItemDropLookupPanel(drops,new ItemSourceLookupService(g),new ItemPriceLookupService(g),
+                    new MonsterLocationLookupService(g),new AccessRequirementLookupService(g));
+            MorningFeedbackTest.search(panel,"Chocolate cake"); PanelTestSupport.openSources(panel);
+            JTextField finder = (JTextField)PanelTestSupport.find(panel,"sourceSearch");
+            finder.setText("Kamil"); finder.postActionEvent();
+            for (int page = 0; page < 2; page++)
+            {
+                String labels = MorningFeedbackTest.labels(panel);
+                assertTrue(labels.contains("Always inside the Nightmare Zone dream"));
+                assertTrue(labels.contains(DropRatePresentation.DREAM_CAKE_NOTE));
+                if (page == 0) MorningFeedbackTest.click(panel,"openLocations");
+            }
+            panel.dispose();
+        });
+    }
+
     @Test public void sevenTokenRewardsKeepOneSourceAndTheMatchingPreparation() throws Exception
     {
         Gson g = new Gson();

@@ -21,6 +21,7 @@ nor their conversion to JSON is used to remove source credits or restrictions.
 
 Runtime resources under src/main/resources/:
 
+- The Nightmare Zone qualification of Kamil’s Chocolate cake drop uses Kamil (Nightmare Zone) revision 15200663, preserved in `tools/fixtures/kamil_nightmare_zone.json`.
 - `animator_rewards.json` uses the seven pinned Animated Armour articles for the exact equipment and Combat Achievement token quantities. Each linked revision is retained under `tools/fixtures/animator_rewards/`.
 - `shark_bounty_access.json` adapts three OSRS Wiki shark articles into bounty eligibility and exact jaw/liver conditions. Each fact links its revision, with raw inputs in `tools/fixtures/shark_bounties/`.
 - `reviewed_slayer_access.json` adapts the exact monster pages pinned under `tools/fixtures/slayer_access/`. Each skill and separate combat mechanic carries the source revision.

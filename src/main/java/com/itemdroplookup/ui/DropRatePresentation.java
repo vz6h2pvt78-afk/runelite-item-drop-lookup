@@ -41,6 +41,7 @@ final class DropRatePresentation
     {
         String reviewed = reviewedRateLine(source);
         if (reviewed != null) return reviewed;
+        if (isDreamCake(source)) return "Rate: Always inside the Nightmare Zone dream";
         if (hasUnresolvedAlternate(source)) return "Recorded rate: " + format(source.getDropRate()) + " (alternate listed)";
         return unresolvedEvent(source.getMonsterName()) ? "Listed rate: " + rawRate(source)
                 : "Rate: " + format(source.getDropRate());
@@ -50,6 +51,14 @@ final class DropRatePresentation
     {
         return sourceRateLine(source);
     }
+
+    static boolean isDreamCake(DropSource source)
+    {
+        return "Kamil (Nightmare Zone)".equals(source.getMonsterName()) && "Chocolate cake".equals(source.getItemName())
+                && "1".equals(source.getQuantity()) && "Always".equals(source.getDropRate()) && "".equals(source.getNotes());
+    }
+
+    static final String DREAM_CAKE_NOTE = "Keeping the cake after leaving the dream is unverified.";
 
     static boolean hasUnresolvedAlternate(DropSource source)
     {

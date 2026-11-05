@@ -1149,6 +1149,7 @@ public class ItemDropLookupPanel extends PluginPanel
             card.add(makeCardLine(source.getAnimatorReward().getSetupText(), wrapWidth));
         }
         card.add(makeCardLine(DropRatePresentation.sourceRateLine(source), wrapWidth));
+        if (DropRatePresentation.isDreamCake(source)) card.add(makeCardLine(DropRatePresentation.DREAM_CAKE_NOTE, wrapWidth));
         card.add(makeCardLine("Quantity: " + DropQuantity.display(source), wrapWidth));
         if (source.getAnimatorReward() != null)
             card.add(makeCardLine(source.getAnimatorReward().getRewardText(), wrapWidth));

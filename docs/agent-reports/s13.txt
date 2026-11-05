@@ -1,0 +1,8 @@
+S13 - Kamil Nightmare Zone context
+
+Chocolate cake now identifies the Always rate as applying inside Kamil's Nightmare Zone dream. The source card and detail explain that keeping the cake afterwards is unverified. The regular quest boss remains suppressed. The exact encounter qualification preserves every source record and the full 5,664-query inventory matches S12 byte-for-byte. Both Java runs passed 187 tests, Python passed 142, and package/API, actual sidebar renders and independent recovery passed. Look up Chocolate cake and compare Kamil (Nightmare Zone) with a dragon source. Live clipboard, navigation and icon acceptance remain Apollo's checks.
+
+Starting commit d9e7cecaacea6b1dcfc2bc03216eb881490d0b1f
+Build development-2026-11-04-s13-kamil-dream-drop
+Official package SHA256 eb859dcd6ea77282b8fd03377e33fdfa09b810a7798e67e3058837c684841747
+Human acceptance pending.
