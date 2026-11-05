@@ -24,6 +24,8 @@ public final class AcquisitionPreview
                     {"Mystic robe bottom", "Loot & containers", ""}, {"Snapdragon seed", "Loot & containers", ""},
                     {"Dragon arrow", "Loot & containers", ""}, {"Dragon dagger(p++)", "Loot & containers", ""},
                     {"Mystic boots (dark)", "NPC Drops", "Infernal Mage", "45 Slayer to kill"}, {"Mithril boots", "NPC Drops", "Jelly", "52 Slayer to kill"},
+                    {"Big bones", "NPC Drops", "Callisto", "most damage"},
+                    {"Bones", "NPC Drops", "Vet'ion", "less damage"},
                     {"Voidwaker hilt", "NPC Drops", "Artio", "Hunter's End", "661c22fc10edd1c47b2c", "Artio"},
                     {"Voidwaker hilt", "NPC Drops", "Callisto", "Callisto's Den", "7dc3d2578ee79c0d635b", "Callisto"},
                     {"Voidwaker blade", "NPC Drops", "Vet'ion", "Vet'ion's Rest", "443dd543a3e6bc6c8d3b", "Vetion"},

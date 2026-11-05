@@ -98,12 +98,44 @@ public class AccessRequirementLookupService
         loadResource(MonsterLocationLookupService.ITEM_ACCESS_RESOURCE,ids,true);
         Map<String,AccessRequirement> gates = ReviewedRows.readDatedFacts(gson, "/lair_access.json",
                 "locationId", this::readLairGate);
-        for (AccessRequirement gate : gates.values())
-        {
-            if (ids.add(gate.getId()))
-                byMonster.computeIfAbsent(normalize(gate.getMonsterName()), unused -> new ArrayList<>()).add(gate);
-        }
+        addReviewedFacts(gates, ids);
+        addReviewedFacts(ReviewedRows.readDatedFacts(gson, "/group_reward_access.json", "id", this::readGroupReward), ids);
         loaded = true;
+    }
+
+    private void addReviewedFacts(Map<String,AccessRequirement> facts, Set<String> ids)
+    {
+        for (AccessRequirement fact : facts.values())
+            if (ids.add(fact.getId()))
+                byMonster.computeIfAbsent(normalize(fact.getMonsterName()), unused -> new ArrayList<>()).add(fact);
+    }
+
+    private AccessRequirement readGroupReward(JsonObject row, String id)
+    {
+        fields(row, "id,monsterName,itemName,scope,appliesTo,type,groupRewardRole,dropSignature,text,evidence", "");
+        JsonObject signature = object(row.get("dropSignature"));
+        fields(signature, "quantity,dropRate,notes", "");
+        string(signature, "quantity");
+        string(signature, "dropRate");
+        text(signature, "notes");
+        AccessRequirement fact = gson.fromJson(row, AccessRequirement.class);
+        require(valid(fact) && fact.getScope() == Scope.ITEM && fact.getAppliesTo() == AccessRequirement.AppliesTo.ITEM_DROP
+                && fact.getType() == AccessRequirement.Type.CONTEXT && fact.getGroupRewardRole() != null
+                && fact.getEvidence().size() == 1, "Invalid group reward");
+        WildernessBossLair boss = WildernessBossLair.forMonster(fact.getMonsterName());
+        AccessRequirement.Evidence proof = fact.getEvidence().get(0);
+        require(boss != WildernessBossLair.ARTIO && proof.getPage().equals(boss.monster) && proof.getRevisionId() == boss.revision
+                && proof.getSourceUrl().equals("https://oldschool.runescape.wiki/w/" + boss.monster + "?oldid=" + boss.revision),
+                "Unreviewed group boss primary");
+        AccessRequirement.GroupRewardRole role = fact.getGroupRewardRole();
+        boolean unique = role == AccessRequirement.GroupRewardRole.PER_KILL_UNIQUE;
+        String item = unique ? boss.item : role == AccessRequirement.GroupRewardRole.TOP_DAMAGE ? "Big bones" : "Bones";
+        DropSource drop = fact.boundDrop();
+        require(id.equals("group-" + boss.name().toLowerCase(Locale.ROOT) + "-" + role.name().toLowerCase(Locale.ROOT))
+                && item.equals(fact.getItemName()) && "1".equals(drop.getQuantity()) && "".equals(drop.getNotes())
+                && (unique ? "1/360" : "Always").equals(drop.getDropRate()) && drops.hasUniqueRecordedDrop(drop),
+                "Unmatched group reward signature");
+        return fact;
     }
 
     private AccessRequirement readLairGate(JsonObject row, String id)
@@ -166,7 +198,7 @@ public class AccessRequirementLookupService
             Set<String> ids = new HashSet<>();
             for (AccessRequirement fact : data.facts)
             {
-                if (!valid(fact) || allIds.contains(fact.getId()) || !ids.add(fact.getId()))
+                if (!valid(fact) || fact.getGroupRewardRole() != null || allIds.contains(fact.getId()) || !ids.add(fact.getId()))
                 {
                     throw new IllegalArgumentException("Invalid bundled access fact");
                 }

@@ -1,0 +1,204 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-05T02:55:00Z",
+  "facts": [
+    {
+      "id": "group-vetion-top_damage",
+      "monsterName": "Vet'ion",
+      "itemName": "Big bones",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "CONTEXT",
+      "groupRewardRole": "TOP_DAMAGE",
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "Always",
+        "notes": ""
+      },
+      "text": "The player who dealt the most damage.",
+      "evidence": [
+        {
+          "page": "Vet'ion",
+          "revisionId": 15360817,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Vet'ion?oldid=15360817"
+        }
+      ]
+    },
+    {
+      "id": "group-vetion-other_eligible",
+      "monsterName": "Vet'ion",
+      "itemName": "Bones",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "CONTEXT",
+      "groupRewardRole": "OTHER_ELIGIBLE",
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "Always",
+        "notes": ""
+      },
+      "text": "Eligible players who dealt less damage than the top contributor.",
+      "evidence": [
+        {
+          "page": "Vet'ion",
+          "revisionId": 15360817,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Vet'ion?oldid=15360817"
+        }
+      ]
+    },
+    {
+      "id": "group-vetion-per_kill_unique",
+      "monsterName": "Vet'ion",
+      "itemName": "Voidwaker blade",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "CONTEXT",
+      "groupRewardRole": "PER_KILL_UNIQUE",
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/360",
+        "notes": ""
+      },
+      "text": "At most one unique per kill. Your damage contribution affects your chance to receive it.",
+      "evidence": [
+        {
+          "page": "Vet'ion",
+          "revisionId": 15360817,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Vet'ion?oldid=15360817"
+        }
+      ]
+    },
+    {
+      "id": "group-venenatis-top_damage",
+      "monsterName": "Venenatis",
+      "itemName": "Big bones",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "CONTEXT",
+      "groupRewardRole": "TOP_DAMAGE",
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "Always",
+        "notes": ""
+      },
+      "text": "The player who dealt the most damage.",
+      "evidence": [
+        {
+          "page": "Venenatis",
+          "revisionId": 15361982,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Venenatis?oldid=15361982"
+        }
+      ]
+    },
+    {
+      "id": "group-venenatis-other_eligible",
+      "monsterName": "Venenatis",
+      "itemName": "Bones",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "CONTEXT",
+      "groupRewardRole": "OTHER_ELIGIBLE",
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "Always",
+        "notes": ""
+      },
+      "text": "Eligible players who dealt less damage than the top contributor.",
+      "evidence": [
+        {
+          "page": "Venenatis",
+          "revisionId": 15361982,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Venenatis?oldid=15361982"
+        }
+      ]
+    },
+    {
+      "id": "group-venenatis-per_kill_unique",
+      "monsterName": "Venenatis",
+      "itemName": "Voidwaker gem",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "CONTEXT",
+      "groupRewardRole": "PER_KILL_UNIQUE",
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/360",
+        "notes": ""
+      },
+      "text": "At most one unique per kill. Your damage contribution affects your chance to receive it.",
+      "evidence": [
+        {
+          "page": "Venenatis",
+          "revisionId": 15361982,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Venenatis?oldid=15361982"
+        }
+      ]
+    },
+    {
+      "id": "group-callisto-top_damage",
+      "monsterName": "Callisto",
+      "itemName": "Big bones",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "CONTEXT",
+      "groupRewardRole": "TOP_DAMAGE",
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "Always",
+        "notes": ""
+      },
+      "text": "The player who dealt the most damage.",
+      "evidence": [
+        {
+          "page": "Callisto",
+          "revisionId": 15360463,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Callisto?oldid=15360463"
+        }
+      ]
+    },
+    {
+      "id": "group-callisto-other_eligible",
+      "monsterName": "Callisto",
+      "itemName": "Bones",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "CONTEXT",
+      "groupRewardRole": "OTHER_ELIGIBLE",
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "Always",
+        "notes": ""
+      },
+      "text": "Eligible players who dealt less damage than the top contributor.",
+      "evidence": [
+        {
+          "page": "Callisto",
+          "revisionId": 15360463,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Callisto?oldid=15360463"
+        }
+      ]
+    },
+    {
+      "id": "group-callisto-per_kill_unique",
+      "monsterName": "Callisto",
+      "itemName": "Voidwaker hilt",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "CONTEXT",
+      "groupRewardRole": "PER_KILL_UNIQUE",
+      "dropSignature": {
+        "quantity": "1",
+        "dropRate": "1/360",
+        "notes": ""
+      },
+      "text": "At most one unique per kill. Your damage contribution affects your chance to receive it.",
+      "evidence": [
+        {
+          "page": "Callisto",
+          "revisionId": 15360463,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Callisto?oldid=15360463"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+[
+  {
+    "name": "Vet'ion",
+    "revisionId": 15360817,
+    "articleSha256": "f0ed19c452e50c0c0233ea640632b7ca88042010455db75140a032e000f71d6c",
+    "bones": [
+      "{{DropsLine|name=Big bones|quantity=1|rarity=Always|raritynotes=<ref group=d>Big bones are dropped for the player who deals the most damage in the fight.</ref>}}",
+      "{{DropsLine|name=Bones|quantity=1|rarity=Always|raritynotes=<ref group=d>Regular bones are dropped for the players who are eligible for drops but did not deal the most damage.</ref>}}"
+    ],
+    "tableHeading": "===Unique===",
+    "instruction": "''The drop rates for uniques are for each kill, rather than for each player. At most one item from this table is dropped per kill.{{CiteTwitter|author=Mod Ash|url=https://twitter.com/JagexAsh/status/1623969908886315009|date=10 February 2023|archiveurl=https://reldo.runescape.wiki/i/99920|archivedate=10 February 2023|quote=The game decides whether or not one will be dropped from the kill, and then decides which of the rewarded players will receive it, which each player's chance of being that recipient depending on their relative contribution.}}''",
+    "unique": "{{DropsLine|name=Voidwaker blade|quantity=1|rarity=1/360|raritynotes=<ref name=\"poll-78-news\"/>}}",
+    "groupQuantities": "The listed quantities are for soloing Vet'ion. In group encounters, Vet'ion's drops, including uniques, will be split proportionally based on damage done. Up to 10 players may obtain drops per kill in this manner, and each of the top 10 players will receive at least 25% of the solo loot quantity."
+  },
+  {
+    "name": "Venenatis",
+    "revisionId": 15361982,
+    "articleSha256": "394a17e9ea91bb689e4cc982ebb79d689f2cdaabd92732fa79393c9781bd859e",
+    "bones": [
+      "{{DropsLine|name=Big bones|quantity=1|rarity=Always|raritynotes=<ref group=d>Big bones are dropped for the player who deals the most damage in the fight.</ref>}}",
+      "{{DropsLine|name=Bones|quantity=1|rarity=Always|raritynotes=<ref group=d>Regular bones are dropped for the players who are eligible for drops but did not deal the most damage.</ref>}}"
+    ],
+    "tableHeading": "===Unique===",
+    "instruction": "''The drop rates for uniques are for each kill, rather than for each player. At most one item from this table is dropped per kill.{{CiteTwitter|author=Mod Ash|url=https://twitter.com/JagexAsh/status/1623969908886315009|date=10 February 2023|archiveurl=https://reldo.runescape.wiki/i/99920|archivedate=10 February 2023|quote=The game decides whether or not one will be dropped from the kill, and then decides which of the rewarded players will receive it, which each player's chance of being that recipient depending on their relative contribution.}}''",
+    "unique": "{{DropsLine|name=Voidwaker gem|quantity=1|rarity=1/360|raritynotes=<ref name=\"news\"/>}}",
+    "groupQuantities": "The listed quantities are for soloing Venenatis. In group encounters, Venenatis's drops, including uniques, will be split proportionally based on damage done. Up to 10 players may obtain drops per kill in this manner, and each of the top 10 players will receive at least 25% of the solo loot quantity."
+  },
+  {
+    "name": "Callisto",
+    "revisionId": 15360463,
+    "articleSha256": "124daa48a9f55b8e5c540d5da69b818b828e38d55209fd40edd1886fca5c8d78",
+    "bones": [
+      "{{DropsLine|name=Big bones|quantity=1|rarity=Always|raritynotes=<ref group=d>Big bones are dropped for the player who deals the most damage in the fight.</ref>}}",
+      "{{DropsLine|name=Bones|quantity=1|rarity=Always|raritynotes=<ref group=d>Regular bones are dropped for the players who are eligible for drops but did not deal the most damage.</ref>}}"
+    ],
+    "tableHeading": "===Unique===",
+    "instruction": "''The drop rates for uniques are for each kill, rather than for each player. At most one item from this table is dropped per kill.{{CiteTwitter|author=Mod Ash|url=https://twitter.com/JagexAsh/status/1623969908886315009|date=10 February 2023|archiveurl=https://reldo.runescape.wiki/i/99920|archivedate=10 February 2023|quote=The game decides whether or not one will be dropped from the kill, and then decides which of the rewarded players will receive it, which each player's chance of being that recipient depending on their relative contribution.}}''",
+    "unique": "{{DropsLine|name=Voidwaker hilt|quantity=1|rarity=1/360|raritynotes=<ref name=\"news\"/>}}",
+    "groupQuantities": "The listed quantities are for soloing Callisto. In group encounters, Callisto's drops, including uniques, will be split proportionally based on damage done. Up to 10 players may obtain drops per kill in this manner, and each of the top 10 players will receive at least 25% of the solo loot quantity."
+  }
+]

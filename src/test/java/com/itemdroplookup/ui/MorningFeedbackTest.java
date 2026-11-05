@@ -241,6 +241,35 @@ public class MorningFeedbackTest
         });
     }
 
+    @Test public void groupedUniqueRateAndRecipientStayWithTheSelectedDetailAndClipboard() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            List<String> reports = new ArrayList<>();
+            ItemDropLookupPanel p = panel(reports);
+            search(p, "Voidwaker hilt");
+            click(p, "showDropSources");
+            JTextField finder = (JTextField)PanelTestSupport.find(p, "sourceSearch");
+            finder.setText("Callisto");
+            finder.postActionEvent();
+            assertTrue(labels(p).contains("1 in 360 per kill"));
+            click(p, "copyReport");
+            assertFalse(reports.get(0).contains("Group drop:"));
+            click(p, "openLocations");
+            assertTrue(labels(p).contains("1 in 360 per kill"));
+            click(p, "copyReport");
+            String details = reports.get(1);
+            assertTrue(details.contains("Rate: 1 in 360 per kill\nGroup drop: At most one unique per kill."));
+            assertTrue(details.contains("Fighting lair: Callisto's Den (Wilderness level 40, PvP danger)"));
+            ((JComboBox<?>)PanelTestSupport.find(p,"detailMembership")).setSelectedItem(MonsterLocationFilter.MembershipFilter.F2P);
+            click(p, "copyReport");
+            assertFalse(reports.get(2).contains("Fighting lair:"));
+            assertTrue(reports.get(2).contains("Group drop:"));
+            click(p, "backToResults");
+            click(p, "copyReport");
+            assertEquals(reports.get(0), reports.get(3));
+        });
+    }
+
     @Test public void implingSummaryRetainsRateCaveatAndOpeningExceptionWithoutRouteLecture()
     {
         AcquisitionMethod method=selection("Amulet of glory").sources.stream().filter(s->s.getAcquisitionMethod()!=null).findFirst().get().getAcquisitionMethod();

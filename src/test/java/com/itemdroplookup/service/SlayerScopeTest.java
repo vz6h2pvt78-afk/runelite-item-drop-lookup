@@ -14,6 +14,25 @@ public class SlayerScopeTest
     {
         return access.forSource(new DropSource("Coins",monster,"1","1/2",""));
     }
+    @Test public void groupRewardRolesMatchOnlyTheirExactBossItemQuantityRateAndNotes()
+    {
+        for (String[] example : new String[][] {{"Callisto","Voidwaker hilt"},{"Vet'ion","Voidwaker blade"},{"Venenatis","Voidwaker gem"}})
+        {
+            for (String[] kind : new String[][] {{"Bones","Always","OTHER_ELIGIBLE"},
+                    {"Big bones","Always","TOP_DAMAGE"},{example[1],"1/360","PER_KILL_UNIQUE"}})
+            {
+                DropSource source = new DropSource(kind[0],example[0],"1",kind[1],"");
+                AccessRequirement fact = AccessRequirement.groupRewardIn(access.forSource(source));
+                assertEquals(kind[2],fact.getGroupRewardRole().name());
+                for (DropSource other : List.of(new DropSource(kind[0],example[0],"2",kind[1],""),
+                        new DropSource(kind[0],example[0],"1","1/912",""),
+                        new DropSource(kind[0],example[0],"1",kind[1],"Another variant"),
+                        new DropSource(kind[0],"Artio","1",kind[1],"")))
+                    assertNull(AccessRequirement.groupRewardIn(access.forSource(other)));
+            }
+        }
+    }
+
     @Test public void sailingBountyLevelsApplyToAssignmentAndSixExactDrops()
     {
         for (String[] reviewed : List.of(new String[]{"Bull shark","30"}, new String[]{"Hammerhead shark","40"},

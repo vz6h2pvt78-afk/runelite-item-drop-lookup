@@ -1,6 +1,7 @@
 package com.itemdroplookup.ui;
 
 import com.itemdroplookup.model.DropSource;
+import com.itemdroplookup.model.AccessRequirement;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -46,6 +47,13 @@ final class DropRatePresentation
         if (hasUnresolvedAlternate(source)) return "Recorded rate: " + format(source.getDropRate()) + " (alternate listed)";
         return unresolvedEvent(source.getMonsterName()) ? "Listed rate: " + rawRate(source)
                 : "Rate: " + format(source.getDropRate());
+    }
+
+    static String rateWithContext(DropSource source, AccessRequirement groupReward)
+    {
+        String rate = sourceRateLine(source);
+        return groupReward != null && groupReward.getGroupRewardRole() == AccessRequirement.GroupRewardRole.PER_KILL_UNIQUE
+                ? rate + " per kill" : rate;
     }
 
     static String taskRateLine(DropSource source)

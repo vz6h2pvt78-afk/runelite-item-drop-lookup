@@ -43,6 +43,7 @@ public class MonsterLocationPanel extends JPanel
     private final AccessRequirementLookupService requirements;
     private final List<AccessRequirement> sourceFacts;
     private final DropSource source;
+    private final AccessRequirement groupReward;
     private final JLabel identity;
 
     JLabel getIdentityHeading() { return identity; }
@@ -111,7 +112,9 @@ public class MonsterLocationPanel extends JPanel
         this.source = source;
         match = service.lookup(source);
         this.requirements = requirements;
-        sourceFacts = requirements.forSource(source);
+        sourceFacts = new java.util.ArrayList<>(requirements.forSource(source));
+        groupReward = AccessRequirement.groupRewardIn(sourceFacts);
+        sourceFacts.remove(groupReward);
         dropNotes = source.getNotes();
         monsterWikiUrl = "https://oldschool.runescape.wiki/w/"
                 + URLEncoder.encode(source.getMonsterName().replace(' ', '_'), StandardCharsets.UTF_8);
@@ -174,7 +177,8 @@ public class MonsterLocationPanel extends JPanel
             locationsPanel.add(text("Create opponent", true, TEXT_WIDTH));
             locationsPanel.add(text(source.getAnimatorReward().getSetupText(), false, TEXT_WIDTH));
         }
-        locationsPanel.add(text(DropRatePresentation.detailRateLine(source), false, TEXT_WIDTH));
+        locationsPanel.add(text(DropRatePresentation.rateWithContext(source, groupReward), false, TEXT_WIDTH));
+        if (groupReward != null) locationsPanel.add(requirementText(groupReward, TEXT_WIDTH, true));
         if (source.getConditionalRate() != null) locationsPanel.add(text(DropRatePresentation.taskRateLine(source), false, TEXT_WIDTH));
         if (DropRatePresentation.isDreamCake(source)) locationsPanel.add(text(DropRatePresentation.DREAM_CAKE_NOTE, false, TEXT_WIDTH));
         if (DropRatePresentation.hasUnresolvedAlternate(source))
@@ -314,6 +318,23 @@ public class MonsterLocationPanel extends JPanel
         }
 
         return card;
+    }
+
+    String reviewedRewardReport()
+    {
+        StringBuilder report = new StringBuilder();
+        if (groupReward != null)
+            report.append(DropRatePresentation.rateWithContext(source, groupReward)).append('\n')
+                    .append(groupReward.getLabel()).append(": ").append(groupReward.getText()).append('\n');
+        if (match.isReviewedEncounter())
+        {
+            MonsterLocation place = match.getLocations().get(0);
+            if (MonsterLocationFilter.matchesSource(source, place, (WildernessFilter) wilderness.getSelectedItem(),
+                    (MembershipFilter) membership.getSelectedItem()))
+                report.append("Fighting lair: ").append(place.getLocation()).append(" (Wilderness level ")
+                        .append(match.getEncounterWildernessLevel()).append(", PvP danger)\n");
+        }
+        return report.toString();
     }
 
     private JLabel requirementText(AccessRequirement fact, int width, boolean includeLabel)

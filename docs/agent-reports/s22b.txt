@@ -1,0 +1,8 @@
+S22B - Group boss reward recipients
+
+Callisto, Vet'ion and Venenatis show who receives Bones and Big bones beside their Always rate. Their Voidwaker component cards explain the 1 in 360 chance per kill, the one-unique maximum and contribution-based recipient. Source details and Copy report preserve the exact review context; filtering out a lair also omits its warning from the report. All 5,664 lookups, underlying drop tuples, rates, quantities and location bindings are preserved. Nine exact new context facts. The normal and packaged suites passed 202 Java tests, 159 Python tests, plus validators, API, packaging and two-size card/detail renders. Eight fault cases and 37 captured reports passed. Native clipboard and appearance await Apollo.
+
+Starting commit 55e9691f1ea7124f46f86c5be325e46f87d4d598
+Build development-2026-11-04-s22b-group-rewards
+Official package SHA256 f6e5ee4286c2902aeefa374e3a8d1309bc78f3a7302df68d2184cc84e35e1529
+Human acceptance pending.

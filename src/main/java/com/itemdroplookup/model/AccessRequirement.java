@@ -10,6 +10,18 @@ public final class AccessRequirement
     public enum AppliesTo { PROTECTION, FINISHING, COMBAT, ACCESS, TASK_ELIGIBILITY, ITEM_DROP, ENCOUNTER_CONTEXT, ACTIVITY_CONTEXT, DROP_CONTEXT }
     public enum Type { SKILL, ACTIVE_TASK, QUEST, EQUIPMENT, CONTEXT, UNLOCK }
 
+    public enum GroupRewardRole { TOP_DAMAGE, OTHER_ELIGIBLE, PER_KILL_UNIQUE }
+    private GroupRewardRole groupRewardRole;
+
+    public GroupRewardRole getGroupRewardRole() { return groupRewardRole; }
+
+    public static AccessRequirement groupRewardIn(List<AccessRequirement> facts)
+    {
+        for (AccessRequirement fact : facts)
+            if (fact.groupRewardRole != null) return fact;
+        return null;
+    }
+
     private String id;
     private String monsterName;
     private Scope scope;
@@ -65,6 +77,7 @@ public final class AccessRequirement
 
     public String getLabel()
     {
+        if (groupRewardRole != null) return groupRewardRole == GroupRewardRole.PER_KILL_UNIQUE ? "Group drop" : "Recipient";
         switch (appliesTo)
         {
             case PROTECTION: return "Protection";
@@ -90,6 +103,8 @@ public final class AccessRequirement
 
     public boolean isSourceCardFact()
     {
+        // The exact group reward is already shown beside its rate.
+        if (groupRewardRole != null) return false;
         return isSourceCardRequirement()
                 || (scope == Scope.MONSTER && (appliesTo == AppliesTo.PROTECTION || appliesTo == AppliesTo.FINISHING))
                 || (scope == Scope.MONSTER && appliesTo == AppliesTo.DROP_CONTEXT && type == Type.CONTEXT);

@@ -549,8 +549,11 @@ public class ItemDropLookupPanel extends PluginPanel
                 if (detail != null && showingPotionFamily()) report += "Dose item: " + detailSource.getItemName() + "\n";
                 if (matchingOfferReport != null) report += matchingOfferReport + "\n";
                 if (detail != null)
+                {
+                    report += detail.reviewedRewardReport();
                     for (AccessRequirement fact : accessRequirementLookupService.itemAccessFor(detailSource))
                         report += fact.getLabel() + ": " + fact.getText() + "\n";
+                }
                 clipboardWriter.accept(report);
                 status.setText("<html>Report copied</html>");
             }
@@ -901,7 +904,7 @@ public class ItemDropLookupPanel extends PluginPanel
             card.add(makeCardTitle(first.getMonsterName(), CARD_TEXT_WIDTH));
             if (hasText(first.getNotes())) card.add(makeCardLine(first.getNotes(), CARD_TEXT_WIDTH));
             addBoundDanger(card, first);
-            addSourceRequirements(card, first, CARD_TEXT_WIDTH, Collections.emptyList());
+            addSourceRequirements(card, accessRequirementLookupService.forSource(first), CARD_TEXT_WIDTH, Collections.emptyList());
             for (DropSource offer : offers)
             {
                 String title = doseLabel(offer.getItemName()) + " × " + DropQuantity.display(offer)
@@ -1149,7 +1152,10 @@ public class ItemDropLookupPanel extends PluginPanel
             card.add(makeCardTitle("Create opponent", wrapWidth));
             card.add(makeCardLine(source.getAnimatorReward().getSetupText(), wrapWidth));
         }
-        card.add(makeCardLine(DropRatePresentation.sourceRateLine(source), wrapWidth));
+        List<AccessRequirement> sourceFacts = accessRequirementLookupService.forSource(source);
+        AccessRequirement groupReward = AccessRequirement.groupRewardIn(sourceFacts);
+        card.add(makeCardLine(DropRatePresentation.rateWithContext(source, groupReward), wrapWidth));
+        if (groupReward != null) addRequirementLine(card, groupReward, wrapWidth);
         if (source.getConditionalRate() != null) card.add(makeCardLine(DropRatePresentation.taskRateLine(source), wrapWidth));
         if (DropRatePresentation.isDreamCake(source)) card.add(makeCardLine(DropRatePresentation.DREAM_CAKE_NOTE, wrapWidth));
         card.add(makeCardLine("Quantity: " + DropQuantity.display(source), wrapWidth));
@@ -1161,7 +1167,7 @@ public class ItemDropLookupPanel extends PluginPanel
             card.add(makeCardLine("Notes: " + source.getNotes(), wrapWidth));
         }
 
-        addSourceRequirements(card, source, wrapWidth, shared);
+        addSourceRequirements(card, sourceFacts, wrapWidth, shared);
 
         card.setName("dropSourceCard");
         MouseAdapter openDetail = new MouseAdapter()
@@ -1193,9 +1199,9 @@ public class ItemDropLookupPanel extends PluginPanel
         if (danger != null) card.add(style.wildernessWarning(danger));
     }
 
-    private void addSourceRequirements(JPanel card, DropSource source, int wrapWidth, List<AccessRequirement> shared)
+    private void addSourceRequirements(JPanel card, List<AccessRequirement> facts, int wrapWidth, List<AccessRequirement> shared)
     {
-        for (AccessRequirement fact : accessRequirementLookupService.forSource(source))
+        for (AccessRequirement fact : facts)
             if (fact.isSourceCardFact() && !shared.contains(fact)) addRequirementLine(card, fact, wrapWidth);
     }
 

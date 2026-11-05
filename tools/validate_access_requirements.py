@@ -33,7 +33,7 @@ def validate(data, locations, drops, *, require_item_signatures=False):
     identity_fields = ('monsterName','itemName','quantity','dropRate','notes')
     raw_rows = Counter(tuple(row.get(k) for k in identity_fields) for row in drops)
     ids = set()
-    allowed = {"id", "monsterName", "scope", "locationId", "itemName", "appliesTo", "type", "text", "skill", "level", "evidence", "dropSignature"}
+    allowed = {"id", "monsterName", "scope", "locationId", "itemName", "appliesTo", "type", "text", "skill", "level", "evidence", "dropSignature", "groupRewardRole"}
     for index, fact in enumerate(data["facts"]):
         if not isinstance(fact, dict):
             errors.append(f"Fact {index}: not an object")
@@ -47,6 +47,10 @@ def validate(data, locations, drops, *, require_item_signatures=False):
             fail("Finishing must be a monster equipment fact")
         if fact.get("appliesTo") == "DROP_CONTEXT" and (fact.get("scope") != "MONSTER" or fact.get("type") != "CONTEXT"):
             fail("Drop context must be a monster context, not an access requirement")
+        if "groupRewardRole" in fact:
+            if (fact.get("scope"),fact.get("appliesTo"),fact.get("type")) != ("ITEM","ITEM_DROP","CONTEXT") or (
+                    fact["groupRewardRole"] not in {"TOP_DAMAGE","OTHER_ELIGIBLE","PER_KILL_UNIQUE"} or "dropSignature" not in fact):
+                fail("Group reward must have an exact item drop context")
         if set(fact) - allowed:
             fail("Unsupported fields (variant constraints must never be silently ignored)")
         for key in ("id", "monsterName", "text"):
@@ -121,12 +125,12 @@ def main():
     resources = ROOT / "src/main/resources"
     read = lambda name: json.loads((resources / name).read_text(encoding="utf-8"))
     data = read("access_requirements.json")
-    supplements = ["reviewed_slayer_access.json", "shark_bounty_access.json", "ocean_bounty_access.json", "item_access.json", "lair_access.json"]
+    supplements = ["reviewed_slayer_access.json", "shark_bounty_access.json", "ocean_bounty_access.json", "item_access.json", "lair_access.json", "group_reward_access.json"]
     locations, drops = read("monster_locations.json"), read("wiki_monster_drops.json")
     errors = []
     for name in supplements:
         extra = read(name)
-        errors.extend(validate(extra, locations, drops, require_item_signatures=name in {'ocean_bounty_access.json','item_access.json'}))
+        errors.extend(validate(extra, locations, drops, require_item_signatures=name in {'ocean_bounty_access.json','item_access.json','group_reward_access.json'}))
         data["facts"].extend(extra["facts"])
     errors += validate(data, locations, drops)
     for error in errors:
