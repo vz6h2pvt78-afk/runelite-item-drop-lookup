@@ -1,0 +1,8 @@
+S28 - Basilisk Sentinel spawn context
+
+Adds one text-only encounter fact to the exact Basilisk Sentinel identity using Sentinel15373808 and Knight15340714. Both primaries are pinned. Card, detail and selected-detail Copy report identify the Knight kill, Basilisk Slayer task and Bigger and Badder unlock as spawn conditions. Raw rates/counts/bindings are preserved. No spawn probability or parent requirements are inferred. Normal and official-package Java215, Python169, all validators, Java11/API/fonts/resources passed. Full5664-query/14040-drop inventory reconciles exactly23 new Sentinel contexts and zero other S27B changes. Thirteen independent enrichment fault scenarios passed with130 in-memory reports. Four two-size renders inspected. Combined34-report journey and9 jaw-rate fault scenarios also passed. Native visuals/clipboard/gameplay remain Apollo acceptance gates. Next approved S29 audits direct regular-roll entries using this same local primary. No external research page spent.
+
+Starting commit 2f937c4469b937e44afd3150c29edaab0ebae9b0
+Build development-2026-11-04-s28-sentinel-spawn
+Official package SHA256 6a75e66f7a59e8eae6c2a8c6b89a5ea112a557c5a1d43867e607701dce711fd4
+Human acceptance pending.

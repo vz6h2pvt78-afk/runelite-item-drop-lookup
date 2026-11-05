@@ -21,6 +21,8 @@ nor their conversion to JSON is used to remove source credits or restrictions.
 
 Runtime resources under src/main/resources/:
 
+- `sentinel_spawn_context.json` adapts the exact Basilisk Sentinel encounter trigger from Sentinel revision 15373808 and Basilisk Knight revision 15340714. Both primary snapshots and their revision links are pinned in `tools/fixtures/`. The adaptation describes spawn conditions without calculating an item probability.
+
 - The Nightmare Zone qualification of Kamil’s Chocolate cake drop uses Kamil (Nightmare Zone) revision 15200663, preserved in `tools/fixtures/kamil_nightmare_zone.json`.
 - `conditional_drop_rates.json` gives the two task-conditioned Drake rates explicitly identified by the named footnote in Drake revision 15371749. The raw base rows are preserved.
 - `animator_rewards.json` uses the seven pinned Animated Armour articles for the exact equipment and Combat Achievement token quantities. Each linked revision is retained under `tools/fixtures/animator_rewards/`.

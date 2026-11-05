@@ -329,6 +329,8 @@ public class MonsterLocationPanel extends JPanel
         if (groupReward != null)
             report.append(DropRatePresentation.rateWithContext(source, groupReward)).append('\n')
                     .append(groupReward.getLabel()).append(": ").append(groupReward.getText()).append('\n');
+        for (AccessRequirement fact : sourceFacts)
+            if (fact.isSpawnContext()) report.append(fact.getLabel()).append(": ").append(fact.getText()).append('\n');
         if (match.isReviewedEncounter())
         {
             MonsterLocation place = match.getLocations().get(0);

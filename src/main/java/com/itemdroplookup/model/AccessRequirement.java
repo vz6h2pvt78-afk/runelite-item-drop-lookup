@@ -90,11 +90,16 @@ public final class AccessRequirement
             case ACCESS: return isItemAccess() ? "Access" : "Location access";
             case TASK_ELIGIBILITY: return "Task eligibility";
             case ITEM_DROP: return "For this drop";
-            case ENCOUNTER_CONTEXT: return "Encounter context";
+            case ENCOUNTER_CONTEXT: return isSpawnContext() ? "Spawn condition" : "Encounter context";
             case ACTIVITY_CONTEXT: return "Activity context";
             case DROP_CONTEXT: return "Drop context";
             default: return "Context";
         }
+    }
+
+    public boolean isSpawnContext()
+    {
+        return scope == Scope.MONSTER && appliesTo == AppliesTo.ENCOUNTER_CONTEXT && type == Type.CONTEXT;
     }
 
     public boolean isSourceCardRequirement()
@@ -107,7 +112,7 @@ public final class AccessRequirement
     {
         // The exact group reward is already shown beside its rate.
         if (groupRewardRole != null) return false;
-        return isSourceCardRequirement()
+        return isSourceCardRequirement() || isSpawnContext()
                 || (scope == Scope.MONSTER && (appliesTo == AppliesTo.PROTECTION || appliesTo == AppliesTo.FINISHING))
                 || (scope == Scope.MONSTER && appliesTo == AppliesTo.DROP_CONTEXT && type == Type.CONTEXT);
     }

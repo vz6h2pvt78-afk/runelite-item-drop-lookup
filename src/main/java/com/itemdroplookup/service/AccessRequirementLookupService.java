@@ -100,6 +100,7 @@ public class AccessRequirementLookupService
                 "locationId", this::readLairGate);
         addReviewedFacts(gates, ids);
         addReviewedFacts(ReviewedRows.readDatedFacts(gson, "/group_reward_access.json", "id", this::readGroupReward), ids);
+        addReviewedFacts(ReviewedRows.readDatedFacts(gson, "/sentinel_spawn_context.json", "id", this::readSentinelSpawn), ids);
         loaded = true;
     }
 
@@ -108,6 +109,25 @@ public class AccessRequirementLookupService
         for (AccessRequirement fact : facts.values())
             if (ids.add(fact.getId()))
                 byMonster.computeIfAbsent(normalize(fact.getMonsterName()), unused -> new ArrayList<>()).add(fact);
+    }
+
+    private AccessRequirement readSentinelSpawn(JsonObject row, String id)
+    {
+        fields(row, "id,monsterName,scope,appliesTo,type,text,evidence", "");
+        AccessRequirement fact = gson.fromJson(row, AccessRequirement.class);
+        require(valid(fact) && fact.isSpawnContext() && id.equals("basilisk-sentinel-spawn")
+                && fact.getMonsterName().equals("Basilisk Sentinel") && fact.getEvidence().size() == 2,
+                "Unreviewed Sentinel encounter");
+        String[] pages = {"Basilisk Sentinel", "Basilisk Knight"};
+        long[] revisions = {15373808, 15340714};
+        for (int i = 0; i < pages.length; i++)
+        {
+            AccessRequirement.Evidence proof = fact.getEvidence().get(i);
+            require(proof.getPage().equals(pages[i]) && proof.getRevisionId() == revisions[i]
+                    && proof.getSourceUrl().equals("https://oldschool.runescape.wiki/w/"
+                            + pages[i].replace(' ', '_') + "?oldid=" + revisions[i]), "Changed Sentinel primary");
+        }
+        return fact;
     }
 
     private AccessRequirement readGroupReward(JsonObject row, String id)

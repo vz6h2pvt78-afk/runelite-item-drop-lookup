@@ -31,6 +31,31 @@ public class AccessRequirementLookupServiceTest
         assertEquals("1", drops.searchByItemName("Adamant sq shield").stream().filter(d -> d.getMonsterName().equals("Night beast")).findFirst().get().getQuantity());
     }
 
+    @Test
+    public void sentinelSpawnContextIsExactAndDistinctFromCombatAndDropEligibility()
+    {
+        List<AccessRequirement> sentinel = facts("Basilisk Sentinel", "Basilisk jaw");
+        assertEquals(1, sentinel.size());
+        AccessRequirement spawn = sentinel.get(0);
+        assertTrue(spawn.isSpawnContext());
+        assertTrue(spawn.isSourceCardFact());
+        assertFalse(spawn.isSourceCardRequirement());
+        assertEquals("Spawn condition", spawn.getLabel());
+        assertEquals("May spawn after killing a Basilisk Knight while on a Basilisk Slayer task with Bigger and Badder unlocked.", spawn.getText());
+        assertEquals(2, spawn.getEvidence().size());
+        assertEquals(15373808L, spawn.getEvidence().get(0).getRevisionId());
+        assertEquals(15340714L, spawn.getEvidence().get(1).getRevisionId());
+        for (String other : new String[]{"Basilisk Knight", "Basilisk", "Night beast", "Vorkath"})
+            assertFalse(facts(other, "Coins").stream().anyMatch(AccessRequirement::isSpawnContext));
+        DropLookupService drops = new DropLookupService(new Gson());
+        List<DropSource> jaw = drops.searchByItemName("Basilisk jaw");
+        assertEquals(2, jaw.size());
+        DropSource source = jaw.stream().filter(d -> d.getMonsterName().equals("Basilisk Sentinel")).findFirst().get();
+        assertEquals("1/1000", source.getDropRate());
+        assertEquals("1", source.getQuantity());
+        assertNull(source.getConditionalRate());
+    }
+
     private final AccessRequirementLookupService requirements = new AccessRequirementLookupService(new Gson());
     private final MonsterLocationLookupService locations = new MonsterLocationLookupService(new Gson());
 

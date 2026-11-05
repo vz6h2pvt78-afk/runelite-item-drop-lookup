@@ -377,6 +377,37 @@ public class MorningFeedbackTest
         });
     }
 
+    @Test public void sentinelSpawnContextCopiesOnlyFromItsSelectedDetail() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            List<String> reports = new ArrayList<>();
+            ItemDropLookupPanel p = panel(reports);
+            search(p,"Basilisk jaw"); click(p,"showDropSources");
+            JButton sentinel = conditionalDetailButton(p,"Basilisk Sentinel");
+            JButton knight = conditionalDetailButton(p,"Basilisk Knight");
+            assertNotNull(sentinel); assertNotNull(knight);
+            String context = "Spawn condition: May spawn after killing a Basilisk Knight while on a Basilisk Slayer task with Bigger and Badder unlocked.";
+            assertTrue(labels(sentinel.getParent()).contains(context));
+            assertFalse(labels(knight.getParent()).contains("Spawn condition"));
+            click(p,"copyReport"); String overview=reports.get(reports.size()-1);
+            assertFalse(overview.contains("Spawn condition"));
+            sentinel.doClick(0);
+            assertTrue(labels(p).contains("Rate: 1 in 1000"));
+            assertNotNull(PanelTestSupport.find(p,"requirement:basilisk-sentinel-spawn"));
+            click(p,"copyReport"); String detail=reports.get(reports.size()-1);
+            assertTrue(detail.contains("Detail source: Basilisk Sentinel"));
+            assertTrue(detail.contains(context));
+            assertFalse(detail.contains("Base rate:"));
+            assertFalse(labels(p).contains("1 in 200"));
+            assertFalse(labels(p).contains("1 in 150"));
+            click(p,"backToResults"); click(p,"copyReport");
+            assertEquals(overview,reports.get(reports.size()-1));
+            conditionalDetailButton(p,"Basilisk Knight").doClick(0); click(p,"copyReport");
+            assertFalse(reports.get(reports.size()-1).contains("Spawn condition"));
+            p.dispose();
+        });
+    }
+
     private static JButton conditionalDetailButton(Container root, String monster)
     {
         for (Component c : root.getComponents())

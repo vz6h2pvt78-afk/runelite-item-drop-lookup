@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-05T05:17:10Z",
+  "facts": [
+    {
+      "id": "basilisk-sentinel-spawn",
+      "monsterName": "Basilisk Sentinel",
+      "scope": "MONSTER",
+      "appliesTo": "ENCOUNTER_CONTEXT",
+      "type": "CONTEXT",
+      "text": "May spawn after killing a Basilisk Knight while on a Basilisk Slayer task with Bigger and Badder unlocked.",
+      "evidence": [
+        {
+          "page": "Basilisk Sentinel",
+          "revisionId": 15373808,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Basilisk_Sentinel?oldid=15373808"
+        },
+        {
+          "page": "Basilisk Knight",
+          "revisionId": 15340714,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Basilisk_Knight?oldid=15340714"
+        }
+      ]
+    }
+  ]
+}
