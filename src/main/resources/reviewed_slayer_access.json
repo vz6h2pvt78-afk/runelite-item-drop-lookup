@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-05T01:52:00Z",
+  "checkedAt": "2026-11-05T02:18:00Z",
   "facts": [
     {
       "monsterName": "Aberrant spectre",
@@ -312,6 +312,40 @@
       "text": "84 Slayer to kill."
     },
     {
+      "monsterName": "Infernal Mage",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Infernal Mage",
+          "revisionId": 15389843,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Infernal_Mage?oldid=15389843"
+        }
+      ],
+      "id": "infernal-mage-slayer",
+      "appliesTo": "COMBAT",
+      "type": "SKILL",
+      "skill": "Slayer",
+      "level": 45,
+      "text": "45 Slayer to kill."
+    },
+    {
+      "monsterName": "Jelly",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Jelly",
+          "revisionId": 15378281,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Jelly?oldid=15378281"
+        }
+      ],
+      "id": "jelly-slayer",
+      "appliesTo": "COMBAT",
+      "type": "SKILL",
+      "skill": "Slayer",
+      "level": 52,
+      "text": "52 Slayer to kill."
+    },
+    {
       "monsterName": "Kurask",
       "scope": "MONSTER",
       "evidence": [
@@ -374,6 +408,23 @@
       "appliesTo": "TASK_ELIGIBILITY",
       "type": "QUEST",
       "text": "Complete Priest in Peril to receive Nechryael Slayer tasks."
+    },
+    {
+      "monsterName": "Pyrefiend",
+      "scope": "MONSTER",
+      "evidence": [
+        {
+          "page": "Pyrefiend",
+          "revisionId": 15355194,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Pyrefiend?oldid=15355194"
+        }
+      ],
+      "id": "pyrefiend-slayer",
+      "appliesTo": "COMBAT",
+      "type": "SKILL",
+      "skill": "Slayer",
+      "level": 30,
+      "text": "30 Slayer to kill."
     },
     {
       "monsterName": "Rockslug",

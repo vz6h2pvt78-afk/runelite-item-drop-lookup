@@ -42,6 +42,13 @@ class SlayerEvidenceTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "combat-level prose"):
             source.facts_for(harm)
 
+    def test_three_boot_sources_have_only_their_own_named_kill_level(self):
+        for name, level in (("Infernal_Mage",45), ("Jelly",52), ("Pyrefiend",30)):
+            pin = json.loads((source.PINS/(name+".json")).read_text(encoding="utf8"))
+            fact, = source.facts_for(pin)
+            self.assertEqual(("MONSTER","COMBAT","SKILL"),(fact["scope"],fact["appliesTo"],fact["type"]))
+            self.assertEqual(f"{level} Slayer to kill.",fact["text"])
+
     def test_smoke_devil_needs_independent_skill_task_and_protection_evidence(self):
         pin = json.loads((source.PINS / "Smoke_devil.json").read_text(encoding="utf8"))
         self.assertEqual(["SKILL","ACTIVE_TASK","EQUIPMENT"], [f["type"] for f in source.facts_for(pin)])

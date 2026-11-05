@@ -1,0 +1,8 @@
+S20 - Slayer boot sources
+
+Infernal Mage requires 45 Slayer to kill, Jelly 52 and Pyrefiend 30. The pinned pages support all three kill levels. The 72 affected source contexts retain all original identities, rates, quantities and location bindings, including both separate Jelly/Mithril boots rows. All 5,664 query identities, counts and methods match S18B. Normal and packaged Java suites passed (196 tests), as did all 151 Python tests, validators, package, API and both preview sizes. Human-native playtest and clipboard acceptance remain pending.
+
+Starting commit d3d19f724cd65f72445aa9550eb6e056d9f0604c
+Build development-2026-11-04-s20-boot-source-levels
+Official package SHA256 54b3846f0654539ecf46c47af7f677757b9551f51e1e874c27e6bf519d9379ed
+Human acceptance pending.

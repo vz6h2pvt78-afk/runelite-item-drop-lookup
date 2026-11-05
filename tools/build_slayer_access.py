@@ -89,7 +89,7 @@ def build():
     locations = json.loads((ROOT / "src/main/resources/monster_locations.json").read_text(encoding="utf8"))
     facts=[fact for p in sorted(PINS.glob("*.json")) for fact in facts_for(json.loads(p.read_text(encoding="utf8")), locations)]
     if not facts or len({f["id"] for f in facts})!=len(facts):raise ValueError("Missing or duplicate facts")
-    return {"schemaVersion":1,"checkedAt":"2026-11-05T01:52:00Z","facts":facts}
+    return {"schemaVersion":1,"checkedAt":"2026-11-05T02:18:00Z","facts":facts}
 
 if __name__=="__main__":
     parser=argparse.ArgumentParser();parser.add_argument("--check",action="store_true");args=parser.parse_args()

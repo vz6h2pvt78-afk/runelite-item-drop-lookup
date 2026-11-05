@@ -62,6 +62,27 @@ public class SlayerScopeTest
                 .stream().anyMatch(f -> f.getType() == AccessRequirement.Type.ACTIVE_TASK));
     }
 
+    @Test public void bootSourcesPreserveEveryExistingDropTupleAndTheirOwnKillLevel()
+    {
+        DropLookupService drops=new DropLookupService(new Gson());
+        for (String[] row : new String[][]{{"Mystic boots (dark)","Infernal Mage","45","1"},
+                {"Mithril boots","Jelly","52","2"},{"Steel boots","Pyrefiend","30","1"}})
+        {
+            List<DropSource> exact = drops.searchByItemName(row[0]).stream().filter(d -> row[1].equals(d.getMonsterName()))
+                    .collect(java.util.stream.Collectors.toList());
+            assertEquals(Integer.parseInt(row[3]),exact.size());
+            for (DropSource source : exact)
+            {
+                List<AccessRequirement> facts = access.forSource(source);
+                assertEquals(1,facts.size());
+                assertEquals(row[2]+" Slayer to kill.",facts.get(0).getText());
+                assertTrue(facts.get(0).isSourceCardRequirement());
+            }
+        }
+        for (String related : List.of("Warped Jelly","Malevolent mage","Flaming pyrelord"))
+            assertFalse(facts(related).stream().anyMatch(f -> List.of("jelly-slayer","infernal-mage-slayer","pyrefiend-slayer").contains(f.getId())));
+    }
+
     @Test public void gearSourcesDistinguishCombatTaskAndProtection()
     {
         List<AccessRequirement> smoke = facts("Smoke devil");
