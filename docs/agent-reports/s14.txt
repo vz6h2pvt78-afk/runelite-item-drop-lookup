@@ -1,0 +1,8 @@
+S14 - NPC area recovery
+
+The stabilization workload found that a sticky area preference could hide Kamil after unrelated cooking and fishing searches. The empty view now offers Show all NPC areas only when that specific change can recover a matching NPC drop. It explains that Wilderness and unverified areas are included. Activating it preserves the item, source finder, method, query and Back behavior. The final 18-report multi-item journey passed and the 5,664-query inventory matched S13 byte-for-byte. Both Java runs passed 188 tests, Python passed 142. Package/API, Standard and Larger sidebar rendering, offline regeneration and independent recovery passed. Native toolbar visuals and actual clipboard acceptance remain human checks.
+
+Starting commit 05b41f2433a0f12d75872b564db881315050dcf2
+Build development-2026-11-04-s14-area-recovery
+Official package SHA256 7bcc271701fe39fd17f83061c1c4dd2a1a9c846fe80cb703f3818f642f6d18ba
+Human acceptance pending.

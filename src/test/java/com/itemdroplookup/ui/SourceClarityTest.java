@@ -257,6 +257,45 @@ public class SourceClarityTest
         assertNull(service.findExactBulkOffer("Sawmill voucher (x10)"));
     }
 
+    @Test public void areaRecoveryRequiresAMatchingHiddenDropAndOnlyRelaxesTheArea() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            Gson g = new Gson();
+            List<String> reports = new ArrayList<>();
+            ItemDropLookupPanel p = new ItemDropLookupPanel(new DropLookupService(g),new ItemSourceLookupService(g),
+                    new ItemPriceLookupService(g),new MonsterLocationLookupService(g),new AccessRequirementLookupService(g),reports::add);
+            MorningFeedbackTest.search(p,"Adamant axe"); MorningFeedbackTest.click(p,"showDropSources");
+            JComboBox<?> area = (JComboBox<?>)PanelTestSupport.find(p,"npcWildernessFilter");
+            area.setSelectedItem(MonsterLocationFilter.WildernessFilter.EXCLUDE);
+            MorningFeedbackTest.search(p,"Shrimps"); MorningFeedbackTest.click(p,"showProductionSources");
+            MorningFeedbackTest.search(p,"Raw shrimps"); MorningFeedbackTest.click(p,"showGatheringSources");
+            MorningFeedbackTest.search(p,"Chocolate cake"); MorningFeedbackTest.click(p,"showDropSources");
+            JTextField finder = (JTextField)PanelTestSupport.find(p,"sourceSearch");
+            finder.setText("Kamil"); finder.postActionEvent();
+            assertEquals(MonsterLocationFilter.WildernessFilter.EXCLUDE,area.getSelectedItem());
+            assertNull(PanelTestSupport.find(p,"openLocations"));
+            assertTrue(MorningFeedbackTest.labels(p).contains("Includes Wilderness"));
+            assertNotNull(PanelTestSupport.find(p,"recoverNpcAreas"));
+            JComboBox<?> methods = (JComboBox<?>)PanelTestSupport.find(p,"sourceTypeFilter");
+            methods.setSelectedItem("Ground pickups"); assertNull(PanelTestSupport.find(p,"recoverNpcAreas"));
+            methods.setSelectedItem("NPC Drops");
+            finder.setText("not an npc"); finder.postActionEvent(); assertNull(PanelTestSupport.find(p,"recoverNpcAreas"));
+            finder.setText("Kamil"); finder.postActionEvent();
+            area.setSelectedItem(MonsterLocationFilter.WildernessFilter.ONLY);
+            MorningFeedbackTest.click(p,"recoverNpcAreas");
+            assertEquals(MonsterLocationFilter.WildernessFilter.ALL,area.getSelectedItem());
+            assertEquals("NPC Drops",methods.getSelectedItem());
+            assertEquals("Kamil",finder.getText());
+            assertNotNull(PanelTestSupport.find(p,"openLocations"));
+            assertNull(PanelTestSupport.find(p,"recoverNpcAreas"));
+            MorningFeedbackTest.click(p,"copyReport"); String recovered = reports.get(0);
+            assertTrue(recovered.contains("Item query: Chocolate cake") && recovered.contains("Find source: Kamil"));
+            MorningFeedbackTest.click(p,"openLocations"); MorningFeedbackTest.click(p,"backToResults");
+            MorningFeedbackTest.click(p,"copyReport"); assertEquals(recovered,reports.get(1));
+            p.dispose();
+        });
+    }
+
     @Test public void dreamCakeIsQualifiedInTheListAndDetailsWithoutChangingOrdinaryCake() throws Exception
     {
         Gson g = new Gson();

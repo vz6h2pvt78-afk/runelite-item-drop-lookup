@@ -86,6 +86,21 @@ public final class AcquisitionPreview
                     System.out.println(name + ": card " + card.getWidth() + "x" + card.getHeight() + "; bounds OK");
                 }
             }
+            MorningFeedbackTest.search(panel,"Chocolate cake");
+            MorningFeedbackTest.click(panel,"showDropSources");
+            ((JComboBox<?>)PanelTestSupport.find(panel,"npcWildernessFilter")).setSelectedItem(MonsterLocationFilter.WildernessFilter.EXCLUDE);
+            JTextField finder=(JTextField)PanelTestSupport.find(panel,"sourceSearch");
+            finder.setText("Kamil"); finder.postActionEvent();
+            for (String size : new String[]{"Standard text","Larger text"})
+            {
+                ((JComboBox<?>)PanelTestSupport.find(panel,"textSize")).setSelectedItem(size);
+                JComponent wrapped=panel.getWrappedPanel();
+                wrapped.setSize(242,650);
+                for (int i=0; i<10; i++) layout(wrapped);
+                JButton recover=(JButton)PanelTestSupport.find(panel,"recoverNpcAreas");
+                if (recover==null || recover.getWidth()==0) throw new IllegalStateException("Area recovery button unavailable");
+                save(wrapped,new File(output,"NPC-area-recovery-"+size.replace(' ','-')+".png"));
+            }
         });
     }
 

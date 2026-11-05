@@ -627,8 +627,7 @@ public class ItemDropLookupPanel extends PluginPanel
                 indexedDrops = matchingDrops;
             }
             List<DropSource> dropResults = showDrops ? matchingDrops.stream()
-                    .filter(source -> monsterLocationLookupService.hasQualifyingLocation(source, locationFilter))
-                    .filter(source -> boundContexts.find(source, sourceQuery, locationFilter))
+                    .filter(source -> npcMatches(source, sourceQuery, locationFilter))
                     .collect(Collectors.toList()) : Collections.emptyList();
             List<ItemSource> sources = matchingSources;
             if (FILTER_SHOPS.equals(selectedFilter))
@@ -801,11 +800,7 @@ public class ItemDropLookupPanel extends PluginPanel
                         emptyMessage = hasLootData ? "No reviewed loot methods match these filters."
                                 : "No reviewed loot methods in the current data.";
                     }
-                    resultsPanel.add(makeNoResultHeader(emptyMessage));
-                    resultsPanel.add(makeLabel("This item has other sources in the local data."));
-                    resultsPanel.add(makeLabel((showDrops ? "Use the Method and NPC area menus above to change filters."
-                            : "Use the Method menu above to choose another source type.")
-                            + (!sourceSearch.getText().isEmpty() ? " Clear search removes only Find source text." : "")));
+                    addFilterRecovery(emptyMessage, showDrops, sourceQuery, locationFilter);
                 }
                 else
                 {
@@ -1345,6 +1340,31 @@ public class ItemDropLookupPanel extends PluginPanel
 
 
         return card;
+    }
+
+    private boolean npcMatches(DropSource source, String finder, WildernessFilter area)
+    {
+        return monsterLocationLookupService.hasQualifyingLocation(source, area) && boundContexts.find(source, finder, area);
+    }
+
+    private void addFilterRecovery(String emptyMessage, boolean showDrops, String finder, WildernessFilter area)
+    {
+        if (showDrops && area != WildernessFilter.ALL && matchingDrops.stream().anyMatch(source -> npcMatches(source, finder, WildernessFilter.ALL)))
+        {
+            resultsPanel.add(makeNoResultHeader("The NPC area filter hides matching drops."));
+            JButton allAreas = style.button("Show all NPC areas", () -> wildernessDropdown.setSelectedItem(WildernessFilter.ALL), false);
+            allAreas.setName("recoverNpcAreas");
+            String scope = "Includes Wilderness and locations with unverified area data.";
+            allAreas.setToolTipText(scope);
+            resultsPanel.add(allAreas);
+            resultsPanel.add(makeLabel(scope));
+            return;
+        }
+        resultsPanel.add(makeNoResultHeader(emptyMessage));
+        resultsPanel.add(makeLabel("This item has other sources in the local data."));
+        resultsPanel.add(makeLabel((showDrops ? "Use the Method and NPC area menus above to change filters."
+                : "Use the Method menu above to choose another source type.")
+                + (!finder.isEmpty() ? " Clear search removes only Find source text." : "")));
     }
 
     private static String bulkSummary(ItemSource source)
