@@ -1,0 +1,8 @@
+S33C - Unusual Chicken source correction
+
+The exact Unusual Chicken source is excluded using saved Wiki revision15204760 and explicit removal prose. Exactlythree additionalrows disappear:Bones,Feather,Thanksgiving dinner. Raw15018rows andlocations remainbyte-identical; full5664query inventory preservesallothercontexts/bindings/facts/methods andmoves13980to13977ordinarycontexts. Thanksgiving dinner remainscanonicalknownzero,ordinaryChicken andsimilarlynamedNPCsretain their ownrows.235Java/186Python, officialstandardpackage/API/validators/fonts passed.9137catalogqueries showonlyfour full/compactBones/Feather sourcecountchanges;allidentities and1187potioncasespreserved.37fault/isolationcases,14newholidayreports,72oldheart/currentcounterpart,14Echo and110shorthandreports passed. Fourheadlessrenderssaved. Nativevisual/clipboard/gameplayacceptancepending. Elevenambiguoushistoricalcasesheld. Externalresearchstill14of15;finalpage approvedforMageArenaIIafterthisrecovery. C3gacceptedfallbackandHubunchanged.
+
+Starting commit a475b7fcad66edbc9820596dfd3af26c22bed012
+Build development-2026-11-04-s33c-unusual-chicken
+Official package SHA256 24e769c7d97367f7b199952deb3cf02c3e44e4695691fc503c018c4fad6a9b46
+Human acceptance pending.

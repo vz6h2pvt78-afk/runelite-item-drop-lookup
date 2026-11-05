@@ -145,6 +145,19 @@ public class SearchIdentityTest
             assertFalse(counterpartItem, search(counterpartItem).drops.isEmpty());
     }
 
+    @Test public void historicalHolidayItemRemainsRecognizedWithoutChangingOrdinaryChicken()
+    {
+        for (String query : List.of("Thanksgiving dinner", "thanksgivingdinner"))
+        {
+            ItemSearchSelection selected = search(query);
+            assertEquals(Collections.singletonList("Thanksgiving dinner"), selected.choices());
+            assertTrue(selected.drops.isEmpty());
+            assertTrue(selected.sources.isEmpty());
+        }
+        assertTrue(search("Feather").drops.stream().anyMatch(row -> row.getMonsterName().equals("Chicken")));
+        assertFalse(search("Feather").drops.stream().anyMatch(row -> row.getMonsterName().equals("Unusual Chicken")));
+    }
+
     @Test public void compactPossessiveBroadAndTypoSearchRemainUseful()
     {
         assertEquals(9,search("uncut").choices().size());

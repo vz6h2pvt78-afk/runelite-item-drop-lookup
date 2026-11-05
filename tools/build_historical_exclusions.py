@@ -15,6 +15,7 @@ REVISIONS = {
     "Demon of Light": 15375355,
     "General Danknuck": 15204759,
     "Scavenger runt": 15362673,
+    "Unusual Chicken": 15204760,
 }
 SUPPORT = {
     "Bloodthirst rockslug": (
@@ -46,6 +47,9 @@ SUPPORT = {
         "|change = Following a balance update, scavenger runts were removed and replaced with their [[Scavenger "
         "beast|bigger versions]] in all scavenger rooms."
     ),
+    "Unusual Chicken": (
+        "They were removed on [[10 December]] [[2014]] with the introduction of the [[Trading post]]."
+    ),
 }
 INFOBOX_NAMES = {"Bloodthirst rockslug": "Bloodthirst rockslug{{Sic}}"}
 
@@ -66,12 +70,12 @@ def exclusion(pin):
 
 def build():
     sources = [exclusion(json.loads(file.read_text(encoding="utf8"))) for file in sorted(PINS.glob("*.json"))]
-    if len(sources) != 6 or {row["monsterName"] for row in sources} != REVISIONS.keys():
-        raise ValueError("Expected the six reviewed historical sources")
+    if len(sources) != 7 or {row["monsterName"] for row in sources} != REVISIONS.keys():
+        raise ValueError("Expected the seven reviewed historical sources")
     raw = json.loads((ROOT / "src/main/resources/wiki_monster_drops.json").read_text(encoding="utf8"))
     rows = [row for row in raw if row["monsterName"] in REVISIONS]
-    if len(rows) != 41 or len({row["itemName"] for row in rows}) != 37:
-        raise ValueError("Re-review the forty-one raw rows and thirty-seven item identities")
+    if len(rows) != 44 or len({row["itemName"] for row in rows}) != 39:
+        raise ValueError("Re-review the forty-four raw rows and thirty-nine item identities")
     return {"schemaVersion": 1, "sources": sources}
 
 
@@ -85,4 +89,4 @@ if __name__ == "__main__":
             raise SystemExit("Historical exclusions differ from reviewed primaries")
     else:
         OUT.write_text(expected, encoding="utf8")
-    print("6 reviewed historical sources,41 retained raw rows and37 derived item identities")
+    print("7 reviewed historical sources,44 retained raw rows and39 derived item identities")

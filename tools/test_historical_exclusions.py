@@ -9,7 +9,7 @@ class HistoricalExclusionTest(unittest.TestCase):
         data = source.build()
         self.assertEqual(data, json.loads(source.OUT.read_text(encoding="utf8")))
         self.assertEqual(set(source.REVISIONS), {row["monsterName"] for row in data["sources"]})
-        self.assertEqual(6, len(data["sources"]))
+        self.assertEqual(7, len(data["sources"]))
 
     def test_revision_identity_and_explicit_prose_are_required(self):
         pin = json.loads(next(source.PINS.glob("*.json")).read_text(encoding="utf8"))
