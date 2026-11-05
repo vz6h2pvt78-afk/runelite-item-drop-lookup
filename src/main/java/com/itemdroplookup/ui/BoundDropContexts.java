@@ -14,6 +14,7 @@ final class BoundDropContexts
 {
     private final MonsterLocationLookupService service;
     private final Map<DropSource, List<MonsterLocation>> locations = new IdentityHashMap<>();
+    private final Map<DropSource, Integer> encounterLevels = new IdentityHashMap<>();
     private final Set<DropSource> split = Collections.newSetFromMap(new IdentityHashMap<>());
 
     BoundDropContexts(MonsterLocationLookupService service, List<DropSource> drops)
@@ -28,7 +29,11 @@ final class BoundDropContexts
                     .collect(Collectors.toList());
             if (available.isEmpty()) continue;
             locations.put(drop, available);
-            if (!match.isVerified()) continue;
+            if (match.isReviewedEncounter())
+            {
+                encounterLevels.put(drop, match.getEncounterWildernessLevel());
+                continue;
+            }
             pairs.computeIfAbsent(Arrays.asList(drop.getItemName(), drop.getMonsterName()), k -> new ArrayList<>()).add(drop);
         }
         for (List<DropSource> pair : pairs.values())
@@ -69,10 +74,11 @@ final class BoundDropContexts
     {
         if (filter == WildernessFilter.EXCLUDE) return null;
         List<MonsterLocation> places = locations.getOrDefault(drop, Collections.emptyList());
-        if (places.size() == 1 && places.get(0).getEncounterWildernessLevel() > 0)
+        Integer encounterLevel = encounterLevels.get(drop);
+        if (encounterLevel != null)
         {
             MonsterLocation lair = places.get(0);
-            return LookupStyle.encounterDanger(lair.getEncounterWildernessLevel()) + "\n" + lair.getLocation();
+            return LookupStyle.encounterDanger(encounterLevel) + "\n" + lair.getLocation();
         }
         if (places.stream().noneMatch(l -> l.getWilderness() == Wilderness.YES)) return null;
         if (all(drop, Wilderness.YES) || filter == WildernessFilter.ONLY) return "WILDERNESS\nPvP danger";

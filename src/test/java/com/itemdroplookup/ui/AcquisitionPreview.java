@@ -24,6 +24,10 @@ public final class AcquisitionPreview
                     {"Mystic robe bottom", "Loot & containers", ""}, {"Snapdragon seed", "Loot & containers", ""},
                     {"Dragon arrow", "Loot & containers", ""}, {"Dragon dagger(p++)", "Loot & containers", ""},
                     {"Mystic boots (dark)", "NPC Drops", "Infernal Mage", "45 Slayer to kill"}, {"Mithril boots", "NPC Drops", "Jelly", "52 Slayer to kill"},
+                    {"Voidwaker hilt", "NPC Drops", "Artio", "Hunter's End", "661c22fc10edd1c47b2c", "Artio"},
+                    {"Voidwaker hilt", "NPC Drops", "Callisto", "Callisto's Den", "7dc3d2578ee79c0d635b", "Callisto"},
+                    {"Voidwaker blade", "NPC Drops", "Vet'ion", "Vet'ion's Rest", "443dd543a3e6bc6c8d3b", "Vetion"},
+                    {"Voidwaker gem", "NPC Drops", "Venenatis", "Silk Chasm", "f867bf8c06f5f237885a", "Venenatis"},
                     {"Magic seed", "NPC Drops", "Artio", "PvP danger", "661c22fc10edd1c47b2c"},
                     {"Mystic earth staff", "NPC Drops", "Callisto", "PvP danger", "7dc3d2578ee79c0d635b"},
                     {"Mystic fire staff", "NPC Drops", "Vet'ion", "PvP danger", "443dd543a3e6bc6c8d3b"},
@@ -74,7 +78,8 @@ public final class AcquisitionPreview
                     JComponent wrapped = panel.getWrappedPanel();
                     wrapped.setSize(242, 650);
                     for (int i = 0; i < 10; i++) layout(wrapped);
-                    String name = scenario[0].replace(' ', '-') + "-" + size.replace(' ', '-');
+                    String name = scenario[0].replace(' ', '-') + (scenario.length == 6 ? "-" + scenario[5] : "")
+                            + "-" + size.replace(' ', '-');
                     save(wrapped, new File(output, name + "-sidebar.png"));
                     JComponent card = (JComponent) PanelTestSupport.find(panel, "itemSourceCard");
                     if (card == null) card = (JComponent) PanelTestSupport.find(panel, "dropSourceCard");
@@ -85,7 +90,7 @@ public final class AcquisitionPreview
                     }
                     checkBounds(card);
                     save(card, new File(output, name + "-card.png"));
-                    if (scenario.length == 5)
+                    if (scenario.length >= 5)
                     {
                         ((JButton)PanelTestSupport.find(card, "openLocations")).doClick(0);
                         for (int i = 0; i < 10; i++) layout(wrapped);

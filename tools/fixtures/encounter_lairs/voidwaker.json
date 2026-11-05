@@ -1,0 +1,42 @@
+[
+  {
+    "monsterName": "Artio",
+    "revisionId": 15358758,
+    "locationId": "661c22fc10edd1c47b2c",
+    "location": "Hunter's End",
+    "primaryEncounterLead": "'''Artio''' is a weaker variant of [[Callisto]] who is fought in the [[Hunter's End]], a [[singles-plus combat]] area in level 21 [[Wilderness]]. To enter Artio's lair, players must have completed the [[Wilderness Diary#Hard|hard Wilderness diary]], '''OR''' they must have a Callisto boss Slayer task (a bear Slayer task does not bypass the diary requirement).",
+    "pageSha256": "ecd02f01eeedf276ad89663715e6184e74caac9c6dba85c37a6c7f48e310b2a6",
+    "componentLine": "{{DropsLine|name=Voidwaker hilt|quantity=1|rarity=1/912|raritynotes=<ref name=\"news\"/>}}",
+    "component": "Voidwaker hilt"
+  },
+  {
+    "monsterName": "Callisto",
+    "revisionId": 15360463,
+    "locationId": "7dc3d2578ee79c0d635b",
+    "location": "Callisto's Den",
+    "primaryEncounterLead": "'''Callisto''' is an enormous bear empowered by the corruption of the [[Wilderness]] that resides in [[Callisto's Den]] at level 40 [[Wilderness]] and is the one of two monsters to drop the [[tyrannical ring]]. ",
+    "pageSha256": "124daa48a9f55b8e5c540d5da69b818b828e38d55209fd40edd1886fca5c8d78",
+    "componentLine": "{{DropsLine|name=Voidwaker hilt|quantity=1|rarity=1/360|raritynotes=<ref name=\"news\"/>}}",
+    "component": "Voidwaker hilt"
+  },
+  {
+    "monsterName": "Vet'ion",
+    "revisionId": 15360817,
+    "locationId": "443dd543a3e6bc6c8d3b",
+    "location": "Vet'ion's Rest",
+    "primaryEncounterLead": "'''Vet'ion''' (pronounced {{IPAc-en|'|v|E|t|i:|@|n}} {{respell|VET|ee|ən}}) is a Zamorakian{{CiteNPC|npc=Andros Mai|quote=Vet'ion was a devout follower of the heretical god Zamorak.|loc=|notes=|name=}} [[Skeleton|skeletal]] champion that resides in [[Vet'ion's Rest]], at level 35 [[Wilderness]]. Like other bosses in the Wilderness, he can also drop the [[dragon pickaxe]].",
+    "pageSha256": "f0ed19c452e50c0c0233ea640632b7ca88042010455db75140a032e000f71d6c",
+    "componentLine": "{{DropsLine|name=Voidwaker blade|quantity=1|rarity=1/360|raritynotes=<ref name=\"poll-78-news\"/>}}",
+    "component": "Voidwaker blade"
+  },
+  {
+    "monsterName": "Venenatis",
+    "revisionId": 15361982,
+    "locationId": "f867bf8c06f5f237885a",
+    "location": "Silk Chasm",
+    "primaryEncounterLead": "'''Venenatis''' is a large spider that resides in the [[Silk Chasm]], at level 35 [[Wilderness]].",
+    "pageSha256": "394a17e9ea91bb689e4cc982ebb79d689f2cdaabd92732fa79393c9781bd859e",
+    "componentLine": "{{DropsLine|name=Voidwaker gem|quantity=1|rarity=1/360|raritynotes=<ref name=\"news\"/>}}",
+    "component": "Voidwaker gem"
+  }
+]

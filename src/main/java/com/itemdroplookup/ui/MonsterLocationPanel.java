@@ -274,8 +274,8 @@ public class MonsterLocationPanel extends JPanel
         card.setBorder(LookupStyle.cardBorder());
         int width = TEXT_WIDTH - 16;
         card.add(text(location.getLocation(), true, width));
-        if (location.getEncounterWildernessLevel() > 0)
-            card.add(style.wildernessWarning(LookupStyle.encounterDanger(location.getEncounterWildernessLevel())));
+        if (match.isReviewedEncounter())
+            card.add(style.wildernessWarning(LookupStyle.encounterDanger(match.getEncounterWildernessLevel())));
         else if (location.getWilderness() == MonsterLocation.Wilderness.YES)
             card.add(style.wildernessWarning());
         if (!location.isAvailable())

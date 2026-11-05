@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "encounters": [
+    {
+      "monsterName": "Artio",
+      "itemName": "Voidwaker hilt",
+      "quantity": "1",
+      "dropRate": "1/912",
+      "notes": "",
+      "locationId": "661c22fc10edd1c47b2c",
+      "lair": "Hunter's End",
+      "revisionId": 15358758,
+      "wildernessLevel": 21
+    },
+    {
+      "monsterName": "Callisto",
+      "itemName": "Voidwaker hilt",
+      "quantity": "1",
+      "dropRate": "1/360",
+      "notes": "",
+      "locationId": "7dc3d2578ee79c0d635b",
+      "lair": "Callisto's Den",
+      "revisionId": 15360463,
+      "wildernessLevel": 40
+    },
+    {
+      "monsterName": "Vet'ion",
+      "itemName": "Voidwaker blade",
+      "quantity": "1",
+      "dropRate": "1/360",
+      "notes": "",
+      "locationId": "443dd543a3e6bc6c8d3b",
+      "lair": "Vet'ion's Rest",
+      "revisionId": 15360817,
+      "wildernessLevel": 35
+    },
+    {
+      "monsterName": "Venenatis",
+      "itemName": "Voidwaker gem",
+      "quantity": "1",
+      "dropRate": "1/360",
+      "notes": "",
+      "locationId": "f867bf8c06f5f237885a",
+      "lair": "Silk Chasm",
+      "revisionId": 15361982,
+      "wildernessLevel": 35
+    }
+  ]
+}

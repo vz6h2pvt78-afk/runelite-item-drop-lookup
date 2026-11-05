@@ -116,6 +116,38 @@ public class MonsterLocationLookupServiceTest
     }
 
     @Test
+    public void onlyFourUnboundVoidwakerRowsUseTheExistingLairsForAreaFiltering()
+    {
+        for (String[] s : new String[][] {
+                {"Artio","Voidwaker hilt","1/912","21"}, {"Callisto","Voidwaker hilt","1/360","40"},
+                {"Vet'ion","Voidwaker blade","1/360","35"}, {"Venenatis","Voidwaker gem","1/360","35"}})
+        {
+            DropSource target = drop(s[0], s[1], s[2]);
+            MonsterLocationLookupService.LocationMatch match = service.lookup(target);
+            assertFalse(match.isVerified());
+            assertTrue(match.isReviewedEncounter());
+            assertEquals(Integer.parseInt(s[3]), match.getEncounterWildernessLevel());
+            assertEquals(1, match.getLocations().size());
+            assertSame(service.lookupByMonsterName(s[0]).get(0), match.getLocations().get(0));
+            assertTrue(service.hasQualifyingLocation(target, WildernessFilter.ONLY));
+            assertFalse(service.hasQualifyingLocation(target, WildernessFilter.EXCLUDE));
+            for (DropSource other : Arrays.asList(drop(s[0], s[1], "1/999"), drop(s[0],"Dragon pickaxe",s[2]),
+                    new DropSource(s[1],s[0],"2",s[2],""), new DropSource(s[1],s[0],"1",s[2],"Quest")))
+                assertFalse(service.lookup(other).isReviewedEncounter());
+        }
+        DropSource bound = serviceDrop("Blood rune", "Artio");
+        assertTrue(service.lookup(bound).isVerified());
+        assertFalse(service.lookup(bound).isReviewedEncounter());
+        assertTrue(service.hasQualifyingLocation(bound, WildernessFilter.ONLY));
+    }
+
+    private DropSource serviceDrop(String item, String monster)
+    {
+        return new DropLookupService(new Gson()).searchByItemName(item).stream()
+                .filter(row -> row.getMonsterName().equals(monster)).findFirst().get();
+    }
+
+    @Test
     public void fourWildernessEntrancesKeepTheirIndependentDiaryOrBossAssignment()
     {
         AccessRequirementLookupService access = new AccessRequirementLookupService(new Gson());

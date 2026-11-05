@@ -1,0 +1,8 @@
+S22A - Voidwaker Wilderness safety
+
+The hilt from Artio and Callisto, blade from Vet'ion, and gem from Venenatis show their named lair, Wilderness level and PvP skull even though their old reward rows lack an exact location binding. Exact binding takes precedence and ambiguous evidence withholds the enhancement. No new locations or bindings. All 5,664 query inventories were byte-identical to S21B. 200 Java tests in regular and packaged runs, 157 Python tests, nine fault cases, validators, package and API gates passed. Both text sizes rendered and the official package is archived. Human acceptance pending.
+
+Starting commit 1b534b8ca8e34394552d1f95f6d34c3307201710
+Build development-2026-11-04-s22a-voidwaker-lair-safety
+Official package SHA256 325dcd4110f889260117a3908da18d1ce1aa144016ab26d64179f1587087d432
+Human acceptance pending.

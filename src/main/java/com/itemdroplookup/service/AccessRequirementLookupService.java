@@ -43,7 +43,7 @@ public class AccessRequirementLookupService
 
     public AccessRequirementLookupService(Gson gson, DropLookupService drops)
     {
-        this(gson, drops, new MonsterLocationLookupService(gson));
+        this(gson, drops, new MonsterLocationLookupService(gson, drops));
     }
 
     @Inject
@@ -106,27 +106,20 @@ public class AccessRequirementLookupService
         loaded = true;
     }
 
-    private static final Map<String,String> ENTRANCES = Map.of(
-            "661c22fc10edd1c47b2c", "Hunter's End", "7dc3d2578ee79c0d635b", "Callisto's Den",
-            "443dd543a3e6bc6c8d3b", "Vet'ion's Rest", "f867bf8c06f5f237885a", "Silk Chasm");
-
     private AccessRequirement readLairGate(JsonObject row, String id)
     {
         fields(row, "id,monsterName,scope,locationId,appliesTo,type,text,evidence", "");
         AccessRequirement gate = gson.fromJson(row, AccessRequirement.class);
         require(valid(gate) && gate.getScope() == Scope.LOCATION && gate.getAppliesTo() == AccessRequirement.AppliesTo.ACCESS
                 && gate.getType() == AccessRequirement.Type.CONTEXT && gate.getId().equals("lair-entry-" + id)
-                && gate.getEvidence().size() == 1 && ENTRANCES.containsKey(id), "Unreviewed entrance");
+                && gate.getEvidence().size() == 1, "Unreviewed entrance");
         AccessRequirement.Evidence proof = gate.getEvidence().get(0);
         List<MonsterLocation> places = locations.lookupByMonsterName(gate.getMonsterName());
-        require(places.size() == 1, "Ambiguous fighting lair");
-        MonsterLocation place = places.get(0);
-        require(id.equals(place.getId()) && ENTRANCES.get(id).equals(place.getLocation())
-                && gate.getMonsterName().equals(place.getMonsterName()) && proof.getPage().equals(place.getSourcePage())
-                && proof.getRevisionId() == place.getRevisionId()
-                && proof.getSourceUrl().equals(place.getSourceUrl() + "?oldid=" + place.getRevisionId())
-                && place.getWilderness() == MonsterLocation.Wilderness.YES
-                && place.isAvailable(), "Lair or primary revision changed");
+        WildernessBossLair lair = WildernessBossLair.forMonster(gate.getMonsterName());
+        require(lair.matchesLocation(places) && id.equals(lair.id) && proof.getPage().equals(lair.monster)
+                && proof.getRevisionId() == lair.revision
+                && proof.getSourceUrl().equals(places.get(0).getSourceUrl() + "?oldid=" + lair.revision),
+                "Lair or primary revision changed");
         return gate;
     }
 

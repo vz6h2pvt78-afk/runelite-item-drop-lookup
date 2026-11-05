@@ -29,6 +29,8 @@ public class MonsterLocationLookupService
 {
     static final String ITEM_ACCESS_RESOURCE = "/item_access.json";
     private final Gson gson;
+    private final DropLookupService drops;
+    private Map<String, WildernessBossLair> componentLairs = Collections.emptyMap();
     // Retain raw binding multiplicity only for the few reviewed item-access targets.
     private final Map<List<String>, Binding> accessBindings = new HashMap<>();
     private static final Comparator<MonsterLocation> LOCATION_ORDER = Comparator
@@ -42,10 +44,16 @@ public class MonsterLocationLookupService
     private Map<String, MonsterLocation> encounterLairs = Collections.emptyMap();
     private boolean loaded;
 
-    @Inject
     public MonsterLocationLookupService(Gson gson)
     {
+        this(gson, new DropLookupService(gson));
+    }
+
+    @Inject
+    public MonsterLocationLookupService(Gson gson, DropLookupService drops)
+    {
         this.gson = gson;
+        this.drops = drops;
     }
 
     public List<MonsterLocation> lookupByMonsterName(String monsterName)
@@ -89,9 +97,13 @@ public class MonsterLocationLookupService
         loadOnce();
         List<MonsterLocation> verified = byDrop.get(key(source.getMonsterName(), source.getItemName(),
                 source.getQuantity(), source.getDropRate(), source.getNotes()));
-        return verified == null
-                ? new LocationMatch(lookupByMonsterName(source.getMonsterName()), false)
-                : new LocationMatch(verified, true);
+        if (verified != null) return new LocationMatch(verified, true, 0);
+        List<MonsterLocation> places = lookupByMonsterName(source.getMonsterName());
+        int level = places.size() == 1 ? places.get(0).getEncounterWildernessLevel() : 0;
+        WildernessBossLair component = componentLairs.get(source.getMonsterName());
+        if (component != null && component.matchesDrop(source.getMonsterName(), source.getItemName(),
+                source.getQuantity(), source.getDropRate(), source.getNotes())) level = component.level;
+        return new LocationMatch(places, false, level);
     }
 
     public Set<String> tableVersions(DropSource source)
@@ -157,9 +169,13 @@ public class MonsterLocationLookupService
             Map<List<String>, Set<MonsterLocation>> associations = new HashMap<>();
             Set<List<String>> invalid = new LinkedHashSet<>();
             Set<List<String>> variantTables = new LinkedHashSet<>();
+            componentLairs = ReviewedRows.read(gson, "/voidwaker_lairs.json", "encounters", "monsterName", this::readComponentLair);
             Set<String> accessItems = accessItemNames();
             for (Binding binding : dataset.dropBindings)
             {
+                WildernessBossLair component = componentLairs.get(binding.monsterName);
+                if (component != null && component.matchesDrop(binding.monsterName, binding.itemName,
+                        binding.quantity, binding.dropRate, binding.notes)) componentLairs.remove(binding.monsterName);
                 if (accessItems.contains(binding.itemName))
                 {
                     List<String> rawKey = Arrays.asList(binding.monsterName,binding.itemName,binding.quantity,binding.dropRate,binding.notes);
@@ -208,6 +224,7 @@ public class MonsterLocationLookupService
         }
         catch (Exception ex)
         {
+            componentLairs = Collections.emptyMap();
             byMonster.clear();
             byDrop.clear();
             commonDrops.clear();
@@ -218,6 +235,24 @@ public class MonsterLocationLookupService
         {
             loaded = true;
         }
+    }
+
+    private WildernessBossLair readComponentLair(JsonObject row, String name)
+    {
+        AcquisitionEventLookupService.fields(row,
+                "monsterName,itemName,quantity,dropRate,notes,locationId,lair,revisionId,wildernessLevel", "");
+        WildernessBossLair lair = WildernessBossLair.forMonster(name);
+        if (!lair.matchesLocation(byMonster.get(normalize(name)))
+                || !lair.id.equals(AcquisitionEventLookupService.string(row, "locationId"))
+                || !lair.location.equals(AcquisitionEventLookupService.string(row, "lair"))
+                || !lair.matchesDrop(name, AcquisitionEventLookupService.string(row, "itemName"),
+                        AcquisitionEventLookupService.string(row, "quantity"), AcquisitionEventLookupService.string(row, "dropRate"),
+                        AcquisitionEventLookupService.text(row, "notes"))
+                || !drops.hasUniqueRecordedDrop(lair.component()))
+            throw new IllegalArgumentException("Unverified Voidwaker encounter");
+        AcquisitionEventLookupService.integer(row, "revisionId", lair.revision, lair.revision);
+        AcquisitionEventLookupService.integer(row, "wildernessLevel", lair.level, lair.level);
+        return lair;
     }
 
     private static MonsterLocation readEncounterLair(JsonObject row, String name)
@@ -253,20 +288,21 @@ public class MonsterLocationLookupService
         private final List<MonsterLocation> locations;
         private final boolean verified;
 
-        private LocationMatch(List<MonsterLocation> locations, boolean verified)
+        private final int encounterLevel;
+
+        private LocationMatch(List<MonsterLocation> locations, boolean verified, int encounterLevel)
         {
             this.locations = locations;
             this.verified = verified;
+            this.encounterLevel = encounterLevel;
         }
 
         public List<MonsterLocation> getLocations() { return locations; }
         public boolean isVerified() { return verified; }
 
         /** Normal encounter evidence is separate from verification of an individual drop. */
-        public boolean isReviewedEncounter()
-        {
-            return !verified && locations.size() == 1 && locations.get(0).getEncounterWildernessLevel() > 0;
-        }
+        public boolean isReviewedEncounter() { return encounterLevel > 0; }
+        public int getEncounterWildernessLevel() { return encounterLevel; }
     }
 
     private static class Dataset
