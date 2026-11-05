@@ -41,6 +41,50 @@ public class SourceFinderTest
         return result;
     }
 
+    @Test public void reviewedDropConditionsAreSearchableWithinTheExistingAreaFilter() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            List<String> reports = new ArrayList<>();
+            ItemDropLookupPanel panel = panel(reports);
+            MorningFeedbackTest.search(panel, "Crystal shard");
+            MorningFeedbackTest.click(panel, "showDropSources");
+            findSource(panel, "Iorwerth");
+            assertEquals(11, count(panel, "dropSourceCard"));
+            String labels = MorningFeedbackTest.labels(panel);
+            for (String source : List.of("Dark beast", "Greater Nechryael", "Kurask", "Mutated Bloodveld",
+                    "Waterfiend", "Insatiable mutated Bloodveld", "King kurask", "Nechryarch", "Night beast"))
+                assertTrue(source, labels.contains(source));
+            MorningFeedbackTest.click(panel, "copyReport");
+            String report = reports.get(reports.size() - 1);
+            assertTrue(report.contains("Find source: Iorwerth"));
+            assertFalse(report.contains("For this drop:"));
+            ((JComboBox<?>) PanelTestSupport.find(panel, "npcWildernessFilter")).setSelectedItem(WildernessFilter.ONLY);
+            assertEquals(0, count(panel, "dropSourceCard"));
+            MorningFeedbackTest.click(panel, "recoverNpcAreas");
+            assertEquals(11, count(panel, "dropSourceCard"));
+            MorningFeedbackTest.click(panel, "copyReport");
+            assertEquals(report, reports.get(reports.size() - 1));
+            findSource(panel, "Prifddinas");
+            assertTrue(MorningFeedbackTest.labels(panel).contains("Dark beast"));
+            assertFalse(MorningFeedbackTest.labels(panel).contains("Waterfiend"));
+            findSource(panel, "No such condition");
+            assertEquals(0, count(panel, "dropSourceCard"));
+            MorningFeedbackTest.click(panel, "clearSourceSearch");
+            assertEquals(13, count(panel, "dropSourceCard"));
+            MorningFeedbackTest.search(panel, "Brittle key");
+            MorningFeedbackTest.click(panel, "showDropSources");
+            findSource(panel, "roof");
+            assertEquals(2, count(panel, "dropSourceCard"));
+            findSource(panel, "Iorwerth");
+            assertEquals(0, count(panel, "dropSourceCard"));
+            MorningFeedbackTest.search(panel, "Adamant sq shield");
+            MorningFeedbackTest.click(panel, "showDropSources");
+            findSource(panel, "Iorwerth");
+            assertFalse(MorningFeedbackTest.labels(panel).contains("Night beast"));
+            panel.dispose();
+        });
+    }
+
     @Test public void comparisonOnlyIgnoresCaseOrdinarySpacesAndApostrophes()
     {
         for (String[] pair : new String[][] {

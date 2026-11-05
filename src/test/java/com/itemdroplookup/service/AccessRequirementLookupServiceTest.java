@@ -186,6 +186,63 @@ public class AccessRequirementLookupServiceTest
         assertFalse(access.forSource(groupBone).stream().anyMatch(AccessRequirement::isBoundItemDropContext));
     }
 
+    @Test
+    public void crystalShardConditionsPreserveGuaranteedRowsAndIndependentNightBeastContext()
+    {
+        Gson gson = new Gson();
+        DropLookupService drops = new DropLookupService(gson);
+        AccessRequirementLookupService access = new AccessRequirementLookupService(gson, drops);
+        java.util.Set<String> expected = java.util.Set.of("Dark beast", "Greater Nechryael", "Kurask",
+                "Mutated Bloodveld", "Waterfiend", "Insatiable mutated Bloodveld", "King kurask", "Nechryarch", "Night beast");
+        java.util.Set<String> seen = new java.util.HashSet<>();
+        List<DropSource> shards = drops.searchByItemName("Crystal shard");
+        assertEquals(13, shards.size());
+        for (DropSource source : shards)
+        {
+            List<AccessRequirement> conditions = access.forSource(source).stream()
+                    .filter(AccessRequirement::isBoundItemDropContext).collect(java.util.stream.Collectors.toList());
+            assertEquals(expected.contains(source.getMonsterName()) ? 1 : 0, conditions.size());
+            if (conditions.isEmpty()) continue;
+            AccessRequirement fact = conditions.get(0);
+            seen.add(source.getMonsterName());
+            assertTrue(fact.getText().contains("Iorwerth Dungeon"));
+            assertFalse(fact.isPerRollContext());
+            assertFalse(fact.isSpawnContext());
+            assertEquals(source.getMonsterName(), fact.getEvidence().get(0).getPage());
+            assertNull(AccessRequirement.perRollContextIn(access.forSource(source)));
+            assertFalse(access.forSource(new DropSource(source.getItemName(), source.getMonsterName(), "999",
+                    source.getDropRate(), source.getNotes())).stream().anyMatch(AccessRequirement::isBoundItemDropContext));
+            assertFalse(access.forSource(new DropSource("Coins", source.getMonsterName(), source.getQuantity(),
+                    source.getDropRate(), source.getNotes())).stream().anyMatch(AccessRequirement::isBoundItemDropContext));
+        }
+        assertEquals(expected, seen);
+        DropSource night = shards.stream().filter(source -> source.getMonsterName().equals("Night beast")).findFirst().get();
+        assertEquals("Always", night.getDropRate());
+        assertEquals("6-10", night.getQuantity());
+        assertTrue(access.forSource(night).stream().anyMatch(fact -> fact.getId().equals("night-beast-drop-roll-context")
+                && fact.getText().contains("Guaranteed and tertiary drops are separate")));
+    }
+
+    @Test
+    public void exactItemConditionsPrecedeGeneralFactsWithoutReorderingThoseFacts()
+    {
+        Gson gson = new Gson();
+        DropLookupService drops = new DropLookupService(gson);
+        AccessRequirementLookupService access = new AccessRequirementLookupService(gson, drops);
+        for (String[] pair : new String[][]{{"Gargoyle", "Brittle key"}, {"Night beast", "Crystal shard"}})
+        {
+            DropSource source = drops.searchByItemName(pair[1]).stream()
+                    .filter(drop -> drop.getMonsterName().equals(pair[0])).findFirst().get();
+            List<AccessRequirement> facts = access.forSource(source);
+            assertTrue(facts.get(0).isBoundItemDropContext());
+            List<String> general = access.forSource(new DropSource("Different item", pair[0], "1", "", "")).stream()
+                    .map(AccessRequirement::getId).collect(java.util.stream.Collectors.toList());
+            List<String> remaining = facts.stream().filter(fact -> !fact.isBoundItemDropContext())
+                    .map(AccessRequirement::getId).collect(java.util.stream.Collectors.toList());
+            assertEquals(general, remaining);
+        }
+    }
+
     private final AccessRequirementLookupService requirements = new AccessRequirementLookupService(new Gson());
     private final MonsterLocationLookupService locations = new MonsterLocationLookupService(new Gson());
 

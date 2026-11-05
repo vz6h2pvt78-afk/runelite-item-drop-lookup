@@ -13,6 +13,7 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -169,6 +170,17 @@ public class AccessRequirementLookupService
     private static final Map<String, Long> BRITTLE_KEY_REVISIONS = Map.of(
             "Gargoyle", 15385687L, "Marble gargoyle", 15383620L);
 
+    private static final Map<String, Long> CRYSTAL_SHARD_REVISIONS = Map.of(
+            "Dark beast", 15350345L, "Greater Nechryael", 15341801L,
+            "Kurask", 15386817L, "Mutated Bloodveld", 15338397L, "Waterfiend", 15385712L,
+            "Insatiable mutated Bloodveld", 15357549L, "King kurask", 15373844L,
+            "Nechryarch", 15373905L, "Night beast", 15373912L);
+    private static final Set<String> GUARANTEED_CRYSTAL_SHARD_SOURCES = Set.of(
+            "Insatiable mutated Bloodveld", "King kurask", "Nechryarch", "Night beast");
+
+    private static final Comparator<AccessRequirement> ITEM_DROP_CONTEXT_FIRST =
+            Comparator.comparing(AccessRequirement::isBoundItemDropContext).reversed();
+
     private final Gson gson;
     private final DropLookupService drops;
     private final MonsterLocationLookupService locations;
@@ -199,6 +211,7 @@ public class AccessRequirementLookupService
         return facts(source.getMonsterName()).stream().filter(fact -> fact.getScope() == Scope.MONSTER
                 || (fact.getScope() == Scope.ITEM && normalize(fact.getItemName()).equals(normalize(source.getItemName()))
                         && fact.matchesSignature(source)))
+                .sorted(ITEM_DROP_CONTEXT_FIRST)
                 .collect(Collectors.collectingAndThen(Collectors.toList(), Collections::unmodifiableList));
     }
 
@@ -244,6 +257,7 @@ public class AccessRequirementLookupService
         addReviewedFacts(ReviewedRows.readDatedFacts(gson, "/sentinel_regular_rolls.json", "id", this::readSentinelRoll), ids);
         addReviewedFacts(ReviewedRows.readDatedFacts(gson, "/superior_regular_rolls.json", "id", this::readSuperiorRoll), ids);
         addReviewedFacts(ReviewedRows.readDatedFacts(gson, "/brittle_key_conditions.json", "id", this::readBrittleKeyCondition), ids);
+        addReviewedFacts(ReviewedRows.readDatedFacts(gson, "/crystal_shard_conditions.json", "id", this::readCrystalShardCondition), ids);
         loaded = true;
     }
 
@@ -254,13 +268,44 @@ public class AccessRequirementLookupService
                 byMonster.computeIfAbsent(normalize(fact.getMonsterName()), unused -> new ArrayList<>()).add(fact);
     }
 
-    private AccessRequirement readBrittleKeyCondition(JsonObject row, String id)
+    private AccessRequirement readBoundItemDropContext(JsonObject row)
     {
         fields(row, "id,monsterName,itemName,scope,appliesTo,type,dropSignature,text,evidence", "");
         fields(object(row.get("dropSignature")), "quantity,dropRate,notes", "");
         AccessRequirement fact = gson.fromJson(row, AccessRequirement.class);
-        require(valid(fact) && fact.isBoundItemDropContext() && fact.getEvidence().size() == 1
-                && BRITTLE_KEY_REVISIONS.containsKey(fact.getMonsterName()), "Unreviewed Brittle key condition");
+        require(valid(fact) && fact.isBoundItemDropContext() && fact.getEvidence().size() == 1,
+                "Unreviewed item-drop context");
+        return fact;
+    }
+
+    private AccessRequirement readCrystalShardCondition(JsonObject row, String id)
+    {
+        AccessRequirement fact = readBoundItemDropContext(row);
+        require(CRYSTAL_SHARD_REVISIONS.containsKey(fact.getMonsterName()), "Unreviewed Crystal shard source");
+        boolean guaranteed = GUARANTEED_CRYSTAL_SHARD_SOURCES.contains(fact.getMonsterName());
+        DropSource drop = fact.boundDrop();
+        require(id.equals("crystal-shard-" + fact.getMonsterName().toLowerCase(Locale.ROOT).replace(' ', '-'))
+                && "Crystal shard".equals(drop.getItemName())
+                && (guaranteed ? "6-10" : "3-5").equals(drop.getQuantity())
+                && (guaranteed ? "Always" : "1/24").equals(drop.getDropRate())
+                && "".equals(drop.getNotes()) && drops.hasUniqueRecordedDrop(drop),
+                "Unmatched Crystal shard signature");
+        long revision = CRYSTAL_SHARD_REVISIONS.get(fact.getMonsterName());
+        AccessRequirement.Evidence proof = fact.getEvidence().get(0);
+        require(proof.getPage().equals(fact.getMonsterName()) && proof.getRevisionId() == revision
+                && proof.getSourceUrl().equals("https://oldschool.runescape.wiki/w/"
+                        + fact.getMonsterName().replace(' ', '_') + "?oldid=" + revision),
+                "Changed Crystal shard primary");
+        String expectedText = fact.getMonsterName().equals("Dark beast")
+                ? "Only drops while in Prifddinas or Iorwerth Dungeon." : "Only drops in Iorwerth Dungeon.";
+        require(expectedText.equals(fact.getText()), "Changed Crystal shard condition");
+        return fact;
+    }
+
+    private AccessRequirement readBrittleKeyCondition(JsonObject row, String id)
+    {
+        AccessRequirement fact = readBoundItemDropContext(row);
+        require(BRITTLE_KEY_REVISIONS.containsKey(fact.getMonsterName()), "Unreviewed Brittle key condition");
         DropSource drop = fact.boundDrop();
         require(id.equals("brittle-key-" + fact.getMonsterName().toLowerCase(Locale.ROOT).replace(' ', '-'))
                 && "Brittle key".equals(drop.getItemName()) && "1".equals(drop.getQuantity())

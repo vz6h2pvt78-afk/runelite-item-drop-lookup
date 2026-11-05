@@ -1366,7 +1366,9 @@ public class ItemDropLookupPanel extends PluginPanel
     private boolean npcMatches(DropSource source, String finder, WildernessFilter area)
     {
         return monsterLocationLookupService.hasQualifyingLocation(source, area) && (boundContexts.find(source, finder, area)
-                || accessRequirementLookupService.itemAccessFor(source).stream().anyMatch(fact -> contains(fact.getText(), finder)));
+                || accessRequirementLookupService.itemAccessFor(source).stream().anyMatch(fact -> contains(fact.getText(), finder))
+                || accessRequirementLookupService.forSource(source).stream().filter(AccessRequirement::isBoundItemDropContext)
+                        .anyMatch(fact -> contains(fact.getText(), finder)));
     }
 
     private void addFilterRecovery(String emptyMessage, boolean showDrops, String finder, WildernessFilter area)

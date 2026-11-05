@@ -1,0 +1,195 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-05T13:56:16Z",
+  "facts": [
+    {
+      "id": "crystal-shard-dark-beast",
+      "monsterName": "Dark beast",
+      "itemName": "Crystal shard",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "CONTEXT",
+      "dropSignature": {
+        "quantity": "3-5",
+        "dropRate": "1/24",
+        "notes": ""
+      },
+      "text": "Only drops while in Prifddinas or Iorwerth Dungeon.",
+      "evidence": [
+        {
+          "page": "Dark beast",
+          "revisionId": 15350345,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Dark_beast?oldid=15350345"
+        }
+      ]
+    },
+    {
+      "id": "crystal-shard-greater-nechryael",
+      "monsterName": "Greater Nechryael",
+      "itemName": "Crystal shard",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "CONTEXT",
+      "dropSignature": {
+        "quantity": "3-5",
+        "dropRate": "1/24",
+        "notes": ""
+      },
+      "text": "Only drops in Iorwerth Dungeon.",
+      "evidence": [
+        {
+          "page": "Greater Nechryael",
+          "revisionId": 15341801,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Greater_Nechryael?oldid=15341801"
+        }
+      ]
+    },
+    {
+      "id": "crystal-shard-kurask",
+      "monsterName": "Kurask",
+      "itemName": "Crystal shard",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "CONTEXT",
+      "dropSignature": {
+        "quantity": "3-5",
+        "dropRate": "1/24",
+        "notes": ""
+      },
+      "text": "Only drops in Iorwerth Dungeon.",
+      "evidence": [
+        {
+          "page": "Kurask",
+          "revisionId": 15386817,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Kurask?oldid=15386817"
+        }
+      ]
+    },
+    {
+      "id": "crystal-shard-mutated-bloodveld",
+      "monsterName": "Mutated Bloodveld",
+      "itemName": "Crystal shard",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "CONTEXT",
+      "dropSignature": {
+        "quantity": "3-5",
+        "dropRate": "1/24",
+        "notes": ""
+      },
+      "text": "Only drops in Iorwerth Dungeon.",
+      "evidence": [
+        {
+          "page": "Mutated Bloodveld",
+          "revisionId": 15338397,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Mutated_Bloodveld?oldid=15338397"
+        }
+      ]
+    },
+    {
+      "id": "crystal-shard-waterfiend",
+      "monsterName": "Waterfiend",
+      "itemName": "Crystal shard",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "CONTEXT",
+      "dropSignature": {
+        "quantity": "3-5",
+        "dropRate": "1/24",
+        "notes": ""
+      },
+      "text": "Only drops in Iorwerth Dungeon.",
+      "evidence": [
+        {
+          "page": "Waterfiend",
+          "revisionId": 15385712,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Waterfiend?oldid=15385712"
+        }
+      ]
+    },
+    {
+      "id": "crystal-shard-insatiable-mutated-bloodveld",
+      "monsterName": "Insatiable mutated Bloodveld",
+      "itemName": "Crystal shard",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "CONTEXT",
+      "dropSignature": {
+        "quantity": "6-10",
+        "dropRate": "Always",
+        "notes": ""
+      },
+      "text": "Only drops in Iorwerth Dungeon.",
+      "evidence": [
+        {
+          "page": "Insatiable mutated Bloodveld",
+          "revisionId": 15357549,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Insatiable_mutated_Bloodveld?oldid=15357549"
+        }
+      ]
+    },
+    {
+      "id": "crystal-shard-king-kurask",
+      "monsterName": "King kurask",
+      "itemName": "Crystal shard",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "CONTEXT",
+      "dropSignature": {
+        "quantity": "6-10",
+        "dropRate": "Always",
+        "notes": ""
+      },
+      "text": "Only drops in Iorwerth Dungeon.",
+      "evidence": [
+        {
+          "page": "King kurask",
+          "revisionId": 15373844,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/King_kurask?oldid=15373844"
+        }
+      ]
+    },
+    {
+      "id": "crystal-shard-nechryarch",
+      "monsterName": "Nechryarch",
+      "itemName": "Crystal shard",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "CONTEXT",
+      "dropSignature": {
+        "quantity": "6-10",
+        "dropRate": "Always",
+        "notes": ""
+      },
+      "text": "Only drops in Iorwerth Dungeon.",
+      "evidence": [
+        {
+          "page": "Nechryarch",
+          "revisionId": 15373905,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Nechryarch?oldid=15373905"
+        }
+      ]
+    },
+    {
+      "id": "crystal-shard-night-beast",
+      "monsterName": "Night beast",
+      "itemName": "Crystal shard",
+      "scope": "ITEM",
+      "appliesTo": "ITEM_DROP",
+      "type": "CONTEXT",
+      "dropSignature": {
+        "quantity": "6-10",
+        "dropRate": "Always",
+        "notes": ""
+      },
+      "text": "Only drops in Iorwerth Dungeon.",
+      "evidence": [
+        {
+          "page": "Night beast",
+          "revisionId": 15373912,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Night_beast?oldid=15373912"
+        }
+      ]
+    }
+  ]
+}

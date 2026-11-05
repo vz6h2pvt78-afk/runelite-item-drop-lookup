@@ -1,0 +1,18 @@
+S40B - Crystal shard conditions and finder
+
+Adds9 independently pinned item-location eligibility facts for Crystal shard. Five ordinary rows keep3-5/1in24 and four guaranteed rows keep6-10/Always. Night beast keeps its established Listed rate wording and general regular-roll paragraph, while its guaranteed shard receives only the Iorwerth condition. Dark beast also names Prifddinas.
+
+Find source now matches visible exact-signature-bound ITEM/ITEM_DROP/CONTEXT text through the existing comparison normalizer. Nine shard rows and the two existing Brittle key conditions form the bounded new searchable set. The Iorwerth query returns9new and2previous source matches. The existing area-filter gate still applies.
+
+Exact drop eligibility is displayed before general source facts. All15018original source contexts prove stable ordering with exactly3visible order changes—Gargoyle/Brittle key, Kurask/Crystal shard and Night beast/Crystal shard. General fact content and relative order are preserved. Initial/final108Copy payloads are byte-identical. The initial green ordering package is preserved separately.
+
+247Java/200Python, full validators, officialJava11/RuneLite1.13.5 package/API and packaged tests/fonts pass.45Crystal failures and31Brittle regressions pass.264finder states prove only14expected match-state changes. All15018source fact inventories differ fromS39 only by9newfacts, and every earlierJSON/fontresource matches. All13977area/context classifications matchS34,including6roaming contexts.
+
+Source/detail previews inspected atStandard/Larger, including long superior name, guaranteedNight, ordinaryDark/Kurask andBrittle hierarchy. Source counts, raw rates, quantities, bindings and location records are preserved. Generic monster-location lists remain explicitly qualified and may include locations where this item does not drop; a future verified-binding review is separate work.
+
+Census corrections are recorded alongside sealedS40A—Night's roll paragraph did not cover location eligibility; Kurask already had Slayer/combat facts. Native acceptance remains pending. S34liveclient retained, C3g/acceptedHub frozen, externalresearchclosed15/15. NextapprovedS40C is3conditionalelite-clue/key rows.
+
+Starting commit f51ae5fa2ed39bb6b18e11974c8298b2b2d9881d
+Build development-2026-11-05-s40b-crystal-shard-conditions
+Official package SHA256 24b2575143d2eab67246ef894cd7ab0f3ae3947ad6dbbfc0dd931c394a8a3e50
+Human acceptance pending.
