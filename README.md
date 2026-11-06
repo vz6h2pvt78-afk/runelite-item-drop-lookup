@@ -6,29 +6,40 @@ Formerly Item Drop Lookup; existing installations and settings are retained.
 
 Find OSRS item drops, shops and selected gathering, rewards and loot methods from the RuneLite sidebar.
 
-**Development candidate.** This branch contains changes beyond the installed
-Plugin Hub release. Source coverage is incomplete, and a missing result
-does not mean that an item is unobtainable.
+Source coverage is incomplete. A missing result does not mean that an item is
+unobtainable. **Copy report** identifies the exact build and dataset in use.
 
 ## Using the plugin
 
 1. Open **Obtainable** in the sidebar and enter an item name.
-2. Use the method dropdown to switch between NPC drops, shops, rewards, gathering
-   and loot. Buying
-   options include verified packs, such as air rune packs and eye of newt packs.
+2. Choose an item when a list appears, then choose a method under **Ways to get it**.
+   The method dropdown switches freely between NPC drops, shops, rewards,
+   gathering, production and loot. Buying options include verified packs such as
+   air rune packs and eye of newt packs.
 3. Open an NPC card for known locations, combat levels and available access notes.
    **Back** keeps your search, filters and scroll position.
 4. Use the Wiki links for missing details or to check a source before travelling.
+
+General searches such as `logs`, `potion`, `fish` and `uncut` show reviewed
+beginner choices. Exact names retain their item identity; for example, `Shark`
+and `Raw shark` remain separate choices. **Back to Matching items** returns to
+the choice list when available.
 
 Search potions by their ordinary name, such as `prayer potion`, to include all
 available doses. Entering a specific dose still restricts that search. Potion
 GE references use the four-dose item when one exists.
 
 An exact recognized item with no recorded sources has its own empty state. For
-example, `Shrimps` keeps the cooked item identity instead of showing `Raw shrimps`.
+example, `Cooked chicken` keeps its identity instead of showing `Raw chicken`.
 Copy report identifies the item and zero recorded sources; Back returns to the
 previous lookup when available. This recognition uses the saved catalog and does
 not imply complete coverage of all OSRS items.
+
+`Zenyte` and `Uncut zenyte` have separate **Production** recipes. The **Find Uncut
+zenyte sources** and **Find Zenyte shard sources** buttons follow the required
+ingredients. Named Back buttons return to the previous recipe. The shard's
+monster drops remain on **Zenyte shard**; they are not drops of the finished gems.
+`Shrimps` also has a reviewed cooking recipe under **Production**.
 
 Raw shrimps includes one reviewed **Gathering** source: small-net fishing at
 Lumbridge Swamp near the Fishing tutor. It states Fishing level 1, a small fishing

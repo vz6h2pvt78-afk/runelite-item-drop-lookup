@@ -10,6 +10,7 @@ terms, and [license review](license-review.md) for license scope and the disclos
 |---|---|---|
 | src/main/resources/wiki_gathering_sources.json | Reviewed Iron ore Mining, Raw shrimps Fishing and ordinary-tree Logs Woodcutting | Separate pinned fixtures and manifests for each activity; tools/build_gathering_sources.py checks all three offline; limited named-location coverage, no inferred rates/eligibility |
 | tools/fixtures/gathering_sources.json, fishing_sources.json, woodcutting_sources.json | Saved Wiki item/resource/location revisions | Full wikitext and snapshot/revision hashes; not shipped in the plugin; same Wiki attribution and terms; derived provenance in docs/data/ |
+| src/main/resources/zenyte_production.json | Two reviewed creation recipes: Zenyte cutting and Uncut zenyte fusion | Zenyte revision 15357771 and Uncut zenyte revision 15218231; raw articles and rendered quantities pinned in tools/fixtures/zenyte_production.json; build_zenyte_production.py checks both; existing shard drops unchanged |
 | src/main/resources/acquisition_events.json | Reviewed Ent harvest and Dragon impling ordinary-loot events | Revision-pinned associations; full 19-outcome loot table separate from lookup coverage; tools/validate_acquisition_events.py checks pinned text and exact source/location identities |
 | tools/fixtures/acquisition_event_evidence.json | Ent, Dragon impling, Dragon impling jar and Impling Wiki revisions | Offline wikitext/SHA evidence, not shipped in the plugin; same Wiki attribution and terms |
 | src/main/resources/wiki_monster_drops.json | OSRS Wiki monster pages; tools/build_wiki_drops.py parses and normalizes drop tables | monsterName is the source page; old revision IDs were not recorded |
@@ -36,9 +37,12 @@ terms, and [license review](license-review.md) for license scope and the disclos
 `src/main/java`, `src/test/java` and the Python tools are project implementations
 and tests; they use external APIs/libraries by dependency rather than embedding
 those libraries. The initial plugin/config/test scaffold and Gradle project
-structure descend from the RuneLite public-domain template. No additional
-copied third-party implementation or external art was identified in the current
-tracked tree. This records the available Git/source evidence, not an exhaustive
+structure descend from the RuneLite public-domain template. Current bundled
+assets also include reviewed monster portraits, the Atkinson Hyperlegible font
+and the maintainer-supplied Obtainable satchel artwork. Their sources, licenses
+and attribution are recorded in the third-party notices and bundled artwork/font
+notices; they are not covered by the original-code license merely because they
+ship with the plugin. This records the available Git/source evidence, not an
 independent authorship guarantee for all historical contributions.
 
 `gradlew`, `gradlew.bat` and `gradle/wrapper/gradle-wrapper.jar` are upstream Gradle
