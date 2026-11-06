@@ -70,6 +70,24 @@ public class DropLookupService
             }
         }
 
+        return toSources(matches);
+    }
+
+    /** Broad chooser discovery only; strict matching and its fallback remain separate. */
+    public List<DropSource> discoverByItemName(String itemName)
+    {
+        if (itemName == null || itemName.trim().isEmpty()) return Collections.emptyList();
+        String query = ItemNameMatching.resolveAlias(itemName);
+        Map<String, Integer> ranks = new HashMap<>();
+        List<DropRecord> matches = getDropRecords().stream()
+                .filter(record -> ranks.computeIfAbsent(record.itemName,
+                        name -> ItemNameMatching.rank(query, name)) != Integer.MAX_VALUE)
+                .collect(Collectors.toList());
+        return toSources(matches);
+    }
+
+    private List<DropSource> toSources(java.util.Collection<DropRecord> matches)
+    {
         return matches.stream()
                 .filter(record -> AcquisitionSourceRules.isOrdinaryDrop(record.itemName, record.monsterName)
                         && !reviewedExcludedSources.contains(record.monsterName))

@@ -88,8 +88,8 @@ public class ChooserPanelTest
     {
         SwingUtilities.invokeAndWait(() -> { start(); search("prayer"); layout(1000); });
         SwingUtilities.invokeAndWait(() -> {
-            assertEquals(3, choices(panel).size());
-            assertEquals(3, pending.size());
+            assertEquals(5, choices(panel).size()); // Includes both whole-word prayer scrolls.
+            assertEquals(5, pending.size());
             assertTrue(pending.stream().anyMatch(p -> p.name.equals("Prayer potion(4)")));
             assertTrue(pending.stream().anyMatch(p -> p.name.equals("Prayer mix(2)")));
             assertTrue(pending.stream().anyMatch(p -> p.name.equals("Prayer enhance (+)(4)")));

@@ -21,6 +21,7 @@ final class ItemSearchSelection
     final List<ItemSource> sources;
     private final ItemPriceLookupService prices;
     private final boolean explicitDose;
+    private final boolean broadDiscovery;
     private final Optional<String> exactCatalogItem;
     private final Optional<String> unqualifiedPotionFamily;
 
@@ -32,6 +33,7 @@ final class ItemSearchSelection
         if (exactOffer != null)
         {
             explicitDose = false;
+            broadDiscovery = false;
             unqualifiedPotionFamily = Optional.empty();
             exactCatalogItem = prices.findExactItemName(exactOffer.getItemName());
             drops = Collections.emptyList();
@@ -85,6 +87,22 @@ final class ItemSearchSelection
         // Known kill-then-harvest pairs have a Gathering projection, including an
         // honest fallback when reviewed event details cannot be loaded.
         foundDrops = foundDrops.stream().filter(d -> !sourceService.isHarvestSource(d)).collect(Collectors.toList());
+        // Preserve existing resolved identities and singleton auto-selection. Only
+        // a genuinely ambiguous chooser may gather additional compatible names.
+        TreeSet<String> strictChoices = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
+        foundDrops.forEach(d -> strictChoices.add(choice(d.getItemName())));
+        foundSources.forEach(s -> strictChoices.add(choice(s.getItemName())));
+        final String resolvedQuery = query;
+        boolean hasExact = strictChoices.stream().anyMatch(name -> ItemNameMatching.rank(resolvedQuery, name) <= 1);
+        boolean hasCompatible = strictChoices.stream().anyMatch(name -> ItemNameMatching.rank(resolvedQuery, name) != Integer.MAX_VALUE);
+        broadDiscovery = !exactCatalogItem.isPresent() && !family.isPresent()
+                && !hasExact && hasCompatible && strictChoices.size() > 1;
+        if (broadDiscovery)
+        {
+            foundDrops = dropsService.discoverByItemName(query).stream()
+                    .filter(d -> !sourceService.isHarvestSource(d)).collect(Collectors.toList());
+            foundSources = sourceService.discoverByItemName(query);
+        }
         drops = Collections.unmodifiableList(new ArrayList<>(foundDrops));
         sources = Collections.unmodifiableList(new ArrayList<>(foundSources));
     }
@@ -95,7 +113,9 @@ final class ItemSearchSelection
         drops.forEach(d -> result.add(choice(d.getItemName())));
         sources.forEach(s -> result.add(choice(s.getItemName())));
         if (result.isEmpty()) unqualifiedPotionFamily.or(() -> exactCatalogItem).ifPresent(result::add);
-        return new ArrayList<>(result);
+        List<String> ordered = new ArrayList<>(result);
+        if (broadDiscovery) ordered.sort(ItemChoiceRanking.forQuery(query));
+        return ordered;
     }
 
     List<DropSource> dropsFor(String selected)

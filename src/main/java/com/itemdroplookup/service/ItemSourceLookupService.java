@@ -133,6 +133,19 @@ public class ItemSourceLookupService
                 .collect(Collectors.toList());
     }
 
+    /** Broad chooser discovery only; exact/bulk identity resolution is unchanged. */
+    public List<ItemSource> discoverByItemName(String itemName)
+    {
+        if (itemName == null || itemName.trim().isEmpty()) return Collections.emptyList();
+        String query = ItemNameMatching.resolveAlias(itemName);
+        Map<String, Integer> ranks = new HashMap<>();
+        return getItemSourceRecords().stream()
+                .filter(record -> ranks.computeIfAbsent(record.itemName,
+                        name -> ItemNameMatching.rank(query, name)) != Integer.MAX_VALUE)
+                .map(record -> record.bulkSource != null ? record.bulkSource : record.toSource(null))
+                .collect(Collectors.toList());
+    }
+
     private List<ItemSourceRecord> getItemSourceRecords()
     {
         if (itemSourceRecords != null)

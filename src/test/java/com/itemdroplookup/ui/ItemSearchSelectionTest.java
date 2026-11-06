@@ -13,6 +13,44 @@ public class ItemSearchSelectionTest
         return new ItemSearchSelection(query, new DropLookupService(gson), new ItemSourceLookupService(gson), new ItemPriceLookupService(gson));
     }
 
+    @Test public void broadDiscoveryFindsWholeWordsWithoutChangingSelectedSources()
+    {
+        Gson gson = new Gson();
+        DropLookupService drops = new DropLookupService(gson);
+        ItemSourceLookupService sources = new ItemSourceLookupService(gson);
+        ItemPriceLookupService prices = new ItemPriceLookupService(gson);
+        for (String query : new String[]{"sword", "cape", "boots", "ring", "staff", "shield", "axe", "bow", "helm", "key", "ore", "seed"})
+        {
+            ItemSearchSelection broad = new ItemSearchSelection(query, drops, sources, prices);
+            assertFalse(query, broad.choices().isEmpty());
+            for (String item : broad.choices())
+            {
+                ItemSearchSelection exact = new ItemSearchSelection(item, drops, sources, prices);
+                assertEquals(query + " / drops / " + item, gson.toJson(exact.dropsFor(item)), gson.toJson(broad.dropsFor(item)));
+                assertEquals(query + " / sources / " + item, gson.toJson(exact.sourcesFor(item)), gson.toJson(broad.sourcesFor(item)));
+            }
+        }
+        java.util.List<String> swords = new ItemSearchSelection("sword", drops, sources, prices).choices();
+        assertTrue(swords.contains("Bronze sword"));
+        assertTrue(swords.contains("Swordfish"));
+        assertTrue(swords.indexOf("Bronze sword") < swords.indexOf("Swordfish"));
+    }
+
+    @Test public void chooserRankingUsesWordsWithoutInferringItemCategories()
+    {
+        java.util.List<String> names = new java.util.ArrayList<>(java.util.Arrays.asList(
+                "Swordfish", "Godsword shard 1", "Rune sword", "Swords and emblem", "Bronze sword"));
+        names.sort(ItemChoiceRanking.forQuery("sword"));
+        assertEquals(java.util.Arrays.asList("Bronze sword", "Rune sword", "Swordfish", "Swords and emblem", "Godsword shard 1"), names);
+        assertEquals(java.util.Collections.singletonList("Shark"), search("shark").choices());
+        assertEquals(java.util.Collections.singletonList("Dragon sword"), search("dragon sword").choices());
+        assertEquals(java.util.Collections.singletonList("Black mask"), search("black mask").choices());
+        assertEquals(java.util.Collections.singletonList("Amulet of glory(4)"), search("amulet of glory (4)").choices());
+        assertEquals(java.util.Collections.singletonList("Rune dagger(p++)"), search("rune dagger p++").choices());
+        assertEquals(java.util.Collections.singletonList("Dragon warhammer"), search("dwh").choices());
+        assertEquals(java.util.Collections.singletonList("Twisted bow"), search("tbow").choices());
+    }
+
     @Test public void reviewedFamilyIdentitySurvivesMissingSourcesAndIntrinsicNumerals()
     {
         for (String name : new String[]{"Stamina potion", "Super energy", "Serum 207"})

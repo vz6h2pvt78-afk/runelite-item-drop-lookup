@@ -1,0 +1,8 @@
+S46 - Word-aware chooser discovery
+
+S46 broad chooser discovery: compatible prefix/contains candidates gathered only for existing ambiguous choosers, then ranked by whole words/final word before embedded substrings. Strict ItemNameMatching remains unchanged; canonical/compact/alias/qualifier/potion-family/singleton auto-selection and exact post-selection source identity preserved. Sword now includes real swords before Swordfish. Full S45 comparison: 11,369 queries across 5,653 catalogue names, compact forms, aliases and scenarios; only 12 broad chooser scenarios changed, all other choices/source hashes identical. Requested 12-term selected-source parity passed; 14 select/source/Back journeys in both text sizes restore exact chooser/report. 271 normal and packaged Java tests, 215 Python, all validators/generators and RuneLite 1.13.6 API/package checks passed. Dataset unchanged. Intentional limit: source-backed chooser only; known zero-source items remain available through exact search; staff and axe preserve prior exact/singleton resolution. Human/native icon and chooser acceptance pending; full wrapper and independent recovery follow this saved checkpoint. No publication.
+
+Starting commit b22e9640c6d31edb1a8542bab4f6f094286c1398
+Build development-2026-11-05-s46-chooser-discovery
+Official package SHA256 54214f48cb18544f7758cdee636a35aaea499e88726ca4f1b995d7b35506f21f
+Human acceptance pending.
