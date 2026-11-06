@@ -98,7 +98,7 @@ public final class AcquisitionPreview
                     if (card == null) card = (JComponent) PanelTestSupport.find(panel, "dropSourceCard");
                     if (scenario.length >= 4)
                     {
-                        card = exactMonsterCard(wrapped, scenario[2] + " → " + scenario[0], scenario[3]);
+                        card = exactMonsterCard(wrapped, scenario[2], scenario[3]);
                         if (card == null) throw new IllegalStateException("Missing reviewed monster card: " + scenario[2]);
                     }
                     checkBounds(card);

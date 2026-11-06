@@ -12,7 +12,6 @@ import java.awt.Container;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
@@ -50,7 +49,7 @@ public class SharedHerbPanelTest
             MonsterLocationPanel herb = detail("Goblin", "Grimy harralander", "1/585.1");
             assertEquals(0, named(herb, "location:1b37fd40efb415e153fb").size());
             ((JComboBox<?>) named(herb, "detailMembership").get(0)).setSelectedItem(MembershipFilter.F2P);
-            ((JCheckBox) named(herb, "allMonsterLocations").get(0)).doClick();
+            ((JButton) named(herb, "allMonsterLocations").get(0)).doClick();
             assertEquals(0, locationCount(herb));
             MonsterLocationPanel mail = detail("Goblin", "Goblin mail", "5/128");
             ((JComboBox<?>) named(mail, "detailMembership").get(0)).setSelectedItem(MembershipFilter.F2P);

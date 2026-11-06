@@ -43,7 +43,8 @@ public class EliteClueConditionTest
                     assertFalse(sourceReport.contains("For this drop:"));
                     MorningFeedbackTest.click(panel, "openLocations");
                     String visible = MorningFeedbackTest.labels(panel);
-                    assertTrue(visible.contains(example[1] + " → " + example[0]));
+                    assertTrue(visible.contains(example[1]));
+                    assertTrue(visible.contains(example[0]));
                     assertTrue(visible.contains("Rate: Always"));
                     assertTrue(visible.contains(example[2]));
                     MorningFeedbackTest.click(panel, "copyReport");

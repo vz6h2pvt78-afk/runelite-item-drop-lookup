@@ -1,0 +1,8 @@
+S43 - Player clarity and Goblin group artwork
+
+Apollo native feedback: explain other monster locations before expansion; separate them from applicable locations and filters. Replace checkbox with Show/Hide disclosure, preserving scroll. Simplify exact NPC source titles; keep selected item and source as separate detail headings. Remove repeated item artwork from ordinary/grouped NPC headings, with one bundled representative Goblin group image and text fallback elsewhere. Existing item choice/detail icons and potion-dose controls remain. Dataset and 41 prior JSON resources unchanged. 257 Java / 209 Python tests, official package/API/font checks pass; 474 baseline reports/source/location sets match, 106 grouped children and 332 report checks pass, artwork plus 3 failure cases pass. Native acceptance pending. S42 and C3g preserved; no Hub/push/publication.
+
+Starting commit c67c248ca4d0f0b614661d2ff4a4f9fd54badfd3
+Build development-2026-11-05-s43-player-clarity
+Official package SHA256 6dab9cf48badfc7a424b6d906f0ce35ab97138cda55030072fe959fe99ae921f
+Human acceptance pending.

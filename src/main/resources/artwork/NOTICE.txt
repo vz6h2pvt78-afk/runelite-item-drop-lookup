@@ -1,0 +1,9 @@
+Goblin group illustration
+Game artwork copyright Jagex Ltd. Obtained from OSRS Wiki contributors.
+File: https://oldschool.runescape.wiki/w/File:Goblin.png
+File description revision: https://oldschool.runescape.wiki/w/Special:PermanentLink/14951860
+Source thumbnail: https://oldschool.runescape.wiki/images/thumb/Goblin.png/27px-Goblin.png?3c3d8
+Downloaded 2026-11-05; 27 by 39 pixels; no further image edits.
+This image is game media, not covered by the Wiki text license or this project's BSD license.
+It represents the Goblin group only, not the appearance or mechanics of every variant.
+SHA-256: 334d2b27eacedfad4e946c6651eaaf981ea1e0697c7371a04e11ec0ae696fe2f

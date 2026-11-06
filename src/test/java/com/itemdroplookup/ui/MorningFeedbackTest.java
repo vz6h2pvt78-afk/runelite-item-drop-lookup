@@ -202,7 +202,8 @@ public class MorningFeedbackTest
                 String item=monster.equals("Zulrah")?"Dragonstone":monster.equals("Gargoyle")?"Granite maul":"Adamant axe";
                 DropSource source=new DropLookupService(gson).searchByItemName(item).stream().filter(d->d.getMonsterName().equals(monster)).findFirst().get();
                 MonsterLocationPanel p=new MonsterLocationPanel(source,item,new MonsterLocationLookupService(gson),new AccessRequirementLookupService(gson),MonsterLocationFilter.WildernessFilter.ALL,()->{});
-                assertTrue(((JLabel)PanelTestSupport.find(p,"sourceItemHeading")).getText().contains(monster+" → "+item));
+                assertTrue(((JLabel)PanelTestSupport.find(p,"sourceItemHeading")).getText().contains(item));
+                assertTrue(((JLabel)PanelTestSupport.find(p,"detailSourceHeading")).getText().contains(monster));
                 assertNotNull(((JButton)PanelTestSupport.find(p,"backToResults")).getIcon());
                 assertFalse(labels(p).contains("Outside Wilderness"));
                 assertFalse(labels(p).contains("Wilderness status unknown"));

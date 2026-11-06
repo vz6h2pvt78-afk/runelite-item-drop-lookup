@@ -45,8 +45,15 @@ public class ReviewedShardLocationPanelTest
                 assertTrue(detail.reviewedRewardReport().contains("Reviewed applicable location: Iorwerth Dungeon\n"));
                 if (name.equals("Dark beast"))
                     assertTrue(MorningFeedbackTest.labels(detail).contains("Prifddinas or Iorwerth Dungeon"));
-                JCheckBox other = (JCheckBox) PanelTestSupport.find(detail, "allMonsterLocations");
+                JButton other = (JButton) PanelTestSupport.find(detail, "allMonsterLocations");
+                assertTrue(other.getAccessibleContext().getAccessibleName().startsWith("Show other monster locations"));
+                Component explanation = PanelTestSupport.find(detail, "otherLocationsExplanation");
+                assertNotNull(explanation);
+                for (Component ancestor = other; ancestor != null; ancestor = ancestor.getParent())
+                    assertTrue("Other locations must be discoverable with filters collapsed", ancestor.isVisible());
+                assertTrue(MorningFeedbackTest.labels(detail).contains("This item and drop rate are not confirmed there."));
                 other.doClick(0);
+                assertTrue(other.getAccessibleContext().getAccessibleName().startsWith("Hide other monster locations"));
                 assertEquals(locations.lookupByMonsterName(name).size(), locationCards(detail));
                 assertTrue(MorningFeedbackTest.labels(detail).contains("Monster locations only"));
                 assertTrue(detail.reviewedRewardReport().contains("Reviewed applicable location: Iorwerth Dungeon\n"));

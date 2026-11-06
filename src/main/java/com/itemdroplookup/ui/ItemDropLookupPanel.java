@@ -1051,6 +1051,12 @@ public class ItemDropLookupPanel extends PluginPanel
         String groupKey = sourceViewKey() + "|" + group.getParentName();
         JButton header = style.button(expandedGroups.contains(groupKey) ? expandedText : collapsedText, () -> { }, false);
         header.setName("sourceGroup:" + group.getParentName());
+        javax.swing.Icon groupArtwork = GroupArtwork.forGroup(group.getParentName());
+        if (groupArtwork != null)
+        {
+            header.setIcon(groupArtwork);
+            header.setIconTextGap(8);
+        }
         header.setHorizontalAlignment(JButton.LEFT);
         header.setAlignmentX(LEFT_ALIGNMENT);
         header.setOpaque(true);
@@ -1098,7 +1104,7 @@ public class ItemDropLookupPanel extends PluginPanel
         card.setBorder(LookupStyle.cardBorder());
         card.setName("dropSourceCard");
         card.setBackground(LookupStyle.CARD);
-        JLabel title = itemTitle(first.getItemName(), first.getMonsterName() + " → " + first.getItemName(), CARD_TEXT_WIDTH);
+        JLabel title = makeCardTitle(first.getMonsterName(), CARD_TEXT_WIDTH);
         title.setName("dropContextGroup");
         card.add(title);
         List<AccessRequirement> shared = new ArrayList<>(accessRequirementLookupService.forSource(first));
@@ -1148,7 +1154,12 @@ public class ItemDropLookupPanel extends PluginPanel
     private void appendDropContext(JPanel card, DropSource source, int wrapWidth, boolean contextRow, List<AccessRequirement> shared)
     {
         int firstComponent = card.getComponentCount();
-        if (!contextRow) card.add(itemTitle(source.getItemName(), source.getMonsterName() + " → " + source.getItemName(), wrapWidth));
+        if (!contextRow)
+        {
+            JLabel title = makeCardTitle(source.getMonsterName(), wrapWidth);
+            title.setName("dropSourceHeading");
+            card.add(title);
+        }
         if (boundContexts.isVariant(source)) card.add(makeCardTitle(boundContexts.variantTitle(source), wrapWidth));
         addBoundDanger(card, source);
 

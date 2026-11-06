@@ -19,7 +19,6 @@ import java.util.stream.Collectors;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -36,7 +35,7 @@ public class MonsterLocationPanel extends JPanel
     private final JScrollPane locationScroll = new JScrollPane();
     private final JComboBox<WildernessFilter> wilderness = new IntentionalComboBox<>(WildernessFilter.values());
     private final JComboBox<MembershipFilter> membership = new IntentionalComboBox<>(MembershipFilter.values());
-    private final JCheckBox showAll = new JCheckBox("Other locations");
+    private final JButton showAll;
     private final LocationMatch match;
     private final List<MonsterLocation> allLocations;
     private final String dropNotes;
@@ -109,6 +108,7 @@ public class MonsterLocationPanel extends JPanel
     {
         super(new BorderLayout());
         this.style = style;
+        showAll = style.button("Show other monster locations", this::toggleOtherLocations, false);
         setBackground(LookupStyle.BACK);
         setName("monsterDetail");
         this.source = source;
@@ -126,9 +126,12 @@ public class MonsterLocationPanel extends JPanel
         JButton backButton = style.backButton("Back to results", back);
         backButton.setName("backToResults");
         header.add(backButton);
-        identity = text(source.getMonsterName() + " → " + source.getItemName(), true, TEXT_WIDTH);
+        identity = text(source.getItemName(), true, TEXT_WIDTH);
         identity.setName("sourceItemHeading");
         header.add(identity);
+        JLabel sourceHeading = text(source.getMonsterName(), true, TEXT_WIDTH);
+        sourceHeading.setName("detailSourceHeading");
+        header.add(sourceHeading);
         if (!source.getItemName().equalsIgnoreCase(searchQuery.trim()))
         {
             header.add(text("Searched: " + searchQuery, false, TEXT_WIDTH));
@@ -139,11 +142,10 @@ public class MonsterLocationPanel extends JPanel
         membership.setName("detailMembership");
         wilderness.setToolTipText("Wilderness describes the kill location, not the journey. Unknown locations are excluded by specific filters.");
         membership.setToolTipText("Drop world restrictions also apply. Unknown location membership is excluded by specific filters.");
-        showAll.setBackground(LookupStyle.BACK);
         showAll.setName("allMonsterLocations");
         showAll.setVisible(match.hasItemLocationAssociation() && allLocations.stream().anyMatch(location ->
                 match.getLocations().stream().noneMatch(matched -> matched.getId().equals(location.getId()))));
-        showAll.setToolTipText("Include other drop tables; the item and rate above may not apply there");
+        showAll.setToolTipText("This item and drop rate are not confirmed at the other monster locations.");
 
         for (JComboBox<?> combo : new JComboBox<?>[] {wilderness, membership})
         {
@@ -152,8 +154,6 @@ public class MonsterLocationPanel extends JPanel
             combo.setAlignmentX(LEFT_ALIGNMENT);
             combo.addActionListener(e -> renderLocations());
         }
-        style.control(showAll);
-        showAll.addActionListener(e -> renderLocations());
         add(header, BorderLayout.NORTH);
         JPanel body = LookupStyle.scrollBody(locationsPanel);
         locationScroll.setViewportView(body);
@@ -171,6 +171,17 @@ public class MonsterLocationPanel extends JPanel
     }
 
     private void renderLocations()
+    {
+        renderLocations(0);
+    }
+
+    private void toggleOtherLocations()
+    {
+        showAll.setSelected(!showAll.isSelected());
+        renderLocations(locationScroll.getVerticalScrollBar().getValue());
+    }
+
+    private void renderLocations(int scrollPosition)
     {
         if (adjusting) return;
         locationsPanel.removeAll();
@@ -207,7 +218,6 @@ public class MonsterLocationPanel extends JPanel
         JPanel filters = column();
         filters.add(wilderness);
         filters.add(membership);
-        filters.add(showAll);
         filters.setVisible(filtersExpanded);
         locationsPanel.add(filters);
         if (hasText(dropNotes))
@@ -255,27 +265,50 @@ public class MonsterLocationPanel extends JPanel
             {
                 locationsPanel.add(text("The monster’s Wiki page identifies this as its fighting lair.", false, TEXT_WIDTH));
             }
-            else if (!applicableView)
+            else if (!applicableView && !showAll.isVisible())
             {
                 locationsPanel.add(text("Monster locations only: this item and rate may not apply at every location.", false, TEXT_WIDTH));
             }
             List<MonsterLocation> filtered = locations.stream().filter(location -> MonsterLocationFilter.matchesSource(
                     source, location, (WildernessFilter) wilderness.getSelectedItem(), (MembershipFilter) membership.getSelectedItem()))
                     .collect(Collectors.toList());
-            String heading = match.getAssociationOrigin() == LocationMatch.AssociationOrigin.REVIEWED_ITEM_LOCATION && applicableView
+            String heading = showAll.isVisible()
+                    || match.getAssociationOrigin() == LocationMatch.AssociationOrigin.REVIEWED_ITEM_LOCATION && applicableView
                     ? "Applicable locations" : "Locations: " + filtered.size() + " of " + locations.size();
             locationsPanel.add(text(heading, true, TEXT_WIDTH));
             if (filtering)
             {
                 locationsPanel.add(text("Unknown locations excluded.", false, TEXT_WIDTH));
             }
-            if (filtered.isEmpty())
+            List<MonsterLocation> primary = showAll.isVisible() ? filtered.stream()
+                    .filter(this::isApplicableLocation).collect(Collectors.toList()) : filtered;
+            if (primary.isEmpty())
             {
                 locationsPanel.add(text(membersDrop && membership.getSelectedItem() == MembershipFilter.F2P
                         ? "No F2P acquisition locations for this drop. Choose Any membership to see its locations."
+                        : showAll.isVisible() ? "No applicable locations match these filters."
                         : "No known locations match these filters. Use the location menus to include other areas or memberships.", false, TEXT_WIDTH));
             }
-            filtered.forEach(location -> locationsPanel.add(locationCard(location)));
+            primary.forEach(location -> locationsPanel.add(locationCard(location)));
+            if (showAll.isVisible())
+            {
+                locationsPanel.add(text("Other monster locations", true, TEXT_WIDTH));
+                JLabel explanation = text("These are other known locations for this monster. This item and drop rate are not confirmed there.", false, TEXT_WIDTH);
+                explanation.setName("otherLocationsExplanation");
+                locationsPanel.add(explanation);
+                String action = (showAll.isSelected() ? "Hide" : "Show") + " other monster locations";
+                showAll.setText("<html>" + action + "</html>");
+                showAll.getAccessibleContext().setAccessibleName(action);
+                locationsPanel.add(showAll);
+                if (showAll.isSelected())
+                {
+                    locationsPanel.add(text("Monster locations only: this item and rate may not apply at every location.", false, TEXT_WIDTH));
+                    List<MonsterLocation> other = filtered.stream().filter(location -> !isApplicableLocation(location))
+                            .collect(Collectors.toList());
+                    if (other.isEmpty()) locationsPanel.add(text("No other monster locations match these filters.", false, TEXT_WIDTH));
+                    other.forEach(location -> locationsPanel.add(locationCard(location)));
+                }
+            }
         }
         JLabel coverage = text("Requirements coverage is incomplete; other conditions may apply.", false, TEXT_WIDTH);
         coverage.setName("requirementsCoverage");
@@ -283,7 +316,12 @@ public class MonsterLocationPanel extends JPanel
         if (reportControls != null) locationsPanel.add(reportControls);
         revalidate();
         repaint();
-        javax.swing.SwingUtilities.invokeLater(() -> locationScroll.getVerticalScrollBar().setValue(0));
+        javax.swing.SwingUtilities.invokeLater(() -> locationScroll.getVerticalScrollBar().setValue(scrollPosition));
+    }
+
+    private boolean isApplicableLocation(MonsterLocation location)
+    {
+        return match.getLocations().stream().anyMatch(applicable -> applicable.getId().equals(location.getId()));
     }
 
     private JPanel roamingCard(RoamingEncounter roaming)

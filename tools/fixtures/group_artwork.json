@@ -1,0 +1,49 @@
+{
+  "group": "Goblin",
+  "file": "File:Goblin.png",
+  "descriptionRevision": 14951860,
+  "sourceImageInfo": {
+    "continue": {
+      "iistart": "2021-05-06T21:00:21Z",
+      "continue": "||"
+    },
+    "query": {
+      "pages": {
+        "311593": {
+          "pageid": 311593,
+          "ns": 6,
+          "title": "File:Goblin.png",
+          "imagerepository": "local",
+          "imageinfo": [
+            {
+              "size": 197768,
+              "width": 1058,
+              "height": 1541,
+              "thumburl": "https://oldschool.runescape.wiki/images/thumb/Goblin.png/27px-Goblin.png?3c3d8",
+              "thumbwidth": 27,
+              "thumbheight": 40,
+              "responsiveUrls": {
+                "2": "https://oldschool.runescape.wiki/images/thumb/Goblin.png/54px-Goblin.png?3c3d8"
+              },
+              "url": "https://oldschool.runescape.wiki/images/Goblin.png?3c3d8",
+              "descriptionurl": "https://oldschool.runescape.wiki/w/File:Goblin.png",
+              "descriptionshorturl": "https://oldschool.runescape.wiki/index.php?curid=311593",
+              "sha1": "c272dc49eab881e10395510ff684270bfed377dd"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "sha256": "334d2b27eacedfad4e946c6651eaaf981ea1e0697c7371a04e11ec0ae696fe2f",
+  "role": "decorative group only",
+  "runtimeNetwork": false,
+  "fileLicenseTemplate": "Monster license|Goblin#Level 2",
+  "copyright": "Jagex Ltd.",
+  "templateLicenseRevision": 14875618,
+  "actualPngDimensions": [
+    27,
+    39
+  ],
+  "imageInfoDimensionNote": "ImageInfo reported thumbheight 40; decoded downloaded PNG is 39 high."
+}

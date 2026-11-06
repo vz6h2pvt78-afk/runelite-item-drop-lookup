@@ -45,7 +45,8 @@ public class SourceClarityTest
                 String item = row.getAccessibleContext().getAccessibleName().contains("potion(2)") ? "Prayer potion(2)" : "Prayer potion(4)";
                 assertTrue(row.getText().contains(item.endsWith("(2)") ? "2-dose × 2" : "4-dose × 1"));
                 row.doClick(0);
-                assertTrue(MorningFeedbackTest.labels(panel).contains("Tormented Demon → " + item));
+                assertTrue(((JLabel)PanelTestSupport.find(panel,"sourceItemHeading")).getText().contains(item));
+                assertTrue(((JLabel)PanelTestSupport.find(panel,"detailSourceHeading")).getText().contains("Tormented Demon"));
                 MorningFeedbackTest.click(panel, "copyReport");
                 assertTrue(reports.get(reports.size()-1).contains("Dose item: " + item));
                 MorningFeedbackTest.click(panel, "backToResults");

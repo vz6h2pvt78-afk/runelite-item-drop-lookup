@@ -197,3 +197,15 @@ The exact Unusual Chicken exclusion uses the saved OSRS Wiki revision 15204760, 
 ## Mage Arena II roaming encounters
 
 The six exact roaming-encounter contexts use OSRS Wiki contributors’ Mage Arena II revision 15368856, Derwen 15317252, Porazdir 15355703 and Justiciar Zachariah 15384376. Pinned text, hashes and revision links are retained in tools/fixtures/mage_arena_roaming and mage_arena_roaming.json. These adapted texts and data are CC BY-NC-SA 3.0. [Pinned shared encounter source](https://oldschool.runescape.wiki/w/Mage_Arena_II?oldid=15368856).
+
+## Goblin group artwork
+
+Goblin group illustration
+Game artwork copyright Jagex Ltd. Obtained from OSRS Wiki contributors.
+File: https://oldschool.runescape.wiki/w/File:Goblin.png
+File description revision: https://oldschool.runescape.wiki/w/Special:PermanentLink/14951860
+Source thumbnail: https://oldschool.runescape.wiki/images/thumb/Goblin.png/27px-Goblin.png?3c3d8
+Downloaded 2026-11-05; 27 by 39 pixels; no further image edits.
+This image is game media, not covered by the Wiki text license or this project's BSD license.
+It represents the Goblin group only, not the appearance or mechanics of every variant.
+SHA-256: 334d2b27eacedfad4e946c6651eaaf981ea1e0697c7371a04e11ec0ae696fe2f
