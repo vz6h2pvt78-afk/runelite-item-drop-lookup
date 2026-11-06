@@ -20,7 +20,7 @@ public class ProductionTest
         for (String input : List.of("Copper ore", "Tin ore"))
             assertFalse(sources.searchByItemName(input).stream().anyMatch(s -> s.getSourceType().equals("Production")));
         List<AcquisitionMethod> methods = ProductionRecipeAdapter.readBundled(gson);
-        assertEquals(2, methods.size());
+        assertEquals(4, methods.size());
         AcquisitionMethod method = methods.get(0);
         assertEquals("production:bronze-bar:normal-furnace", method.getId());
         assertEquals("", method.getLocationText());

@@ -17,6 +17,7 @@ public final class AcquisitionMethod
     private final List<Section> summarySections;
     private final boolean verified;
     private final String reportSummary;
+    private final List<RelatedItemAction> relatedItemActions;
 
     public AcquisitionMethod(String id, String itemName, String sourceName, String sourceType,
             String wikiPage, String locationText, List<Section> sections, boolean verified)
@@ -33,6 +34,15 @@ public final class AcquisitionMethod
     public AcquisitionMethod(String id, String itemName, String sourceName, String sourceType, String wikiPage,
             String locationText, List<Section> sections, List<Section> summarySections, boolean verified, String reportSummary)
     {
+        this(id, itemName, sourceName, sourceType, wikiPage, locationText, sections, summarySections,
+                verified, reportSummary, null);
+    }
+
+    public AcquisitionMethod(String id, String itemName, String sourceName, String sourceType, String wikiPage,
+            String locationText, List<Section> sections, List<Section> summarySections, boolean verified,
+            String reportSummary, List<RelatedItemAction> relatedItemActions)
+    {
+        this.relatedItemActions = relatedItemActions == null ? null : List.copyOf(relatedItemActions);
         this.reportSummary = reportSummary;
         this.id = id;
         this.itemName = itemName;
@@ -55,6 +65,22 @@ public final class AcquisitionMethod
     public List<Section> getSummarySections() { return summarySections; }
     public String getReportSummary() { return reportSummary; }
     public boolean isVerified() { return verified; }
+    public List<RelatedItemAction> getRelatedItemActions()
+    { return relatedItemActions == null ? Collections.emptyList() : relatedItemActions; }
+
+    /** Explicit reviewed navigation, independent of ingredient artwork. */
+    public static final class RelatedItemAction
+    {
+        private final String itemName;
+        private final String label;
+        public RelatedItemAction(String itemName, String label)
+        {
+            this.itemName = itemName;
+            this.label = label;
+        }
+        public String getItemName() { return itemName; }
+        public String getLabel() { return label; }
+    }
 
     public String getSearchText()
     {

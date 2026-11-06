@@ -18,8 +18,11 @@ final class ProductionRecipeAdapter
 {
     static List<AcquisitionMethod> readBundled(Gson gson)
     {
-        return read(gson, ProductionRecipeAdapter.class.getResourceAsStream("/production_recipes.json"),
+        List<AcquisitionMethod> methods = read(gson, ProductionRecipeAdapter.class.getResourceAsStream("/production_recipes.json"),
                 ProductionRecipeAdapter.class.getResourceAsStream("/cooking_recipes.json"));
+        methods.addAll(ZenyteProductionAdapter.read(gson,
+                ProductionRecipeAdapter.class.getResourceAsStream("/zenyte_production.json")));
+        return methods;
     }
 
     static List<AcquisitionMethod> read(Gson gson, InputStream bronze, InputStream cooking)

@@ -1,0 +1,8 @@
+S49 - Zenyte acquisition route
+
+Adds exactly two revision-pinned Production methods: Zenyte cutting and Uncut zenyte fusion. The fusion recipe states one Zenyte shard plus one cut Onyx, Crafting 70 without boosts, Monkey Madness II completed, zombie monkey greegree (small or big), members, wall of flame beneath Temple of Marimbo on Ape Atoll. Cutting states one Uncut zenyte, chisel, Crafting 89 with boosts, members. Explicit Find ingredient sources buttons navigate canonical identities only, with bounded two-hop parent history and exact Back/filter/report/scroll restoration. Existing shard drops remain Demonic gorilla 1/300 and Tortured gorilla 1/3000. Malformed optional actions withhold buttons without losing recipes; malformed recipes are isolated. Full 284 normal Java and 284 standard-package/current-runtime tests, 222 Python tests, API/resource/font/validator/generator checks passed. All 42 prior JSON resources unchanged; 5653 canonical source identities match except two intended new methods. All 13538 query comparisons preserve existing choices/order/drop/strict identity; seven loose token queries additionally discover the two newly source-backed gems. Standard/larger renders inspected. S48/C3g preserved. Native human acceptance, official distribution and independent recovery gates remain separate; no push/publication.
+
+Starting commit a302f987c518c45daa7d22f9f0680b58849cc1de
+Build development-2026-11-05-s49-zenyte-route
+Official package SHA256 35d048dd9042732c987e59839b362de824ac0cc10e9f2d4655131004c5975c2b
+Human acceptance pending.

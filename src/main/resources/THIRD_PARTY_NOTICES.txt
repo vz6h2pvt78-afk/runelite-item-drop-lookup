@@ -21,6 +21,8 @@ nor their conversion to JSON is used to remove source credits or restrictions.
 
 Runtime resources under src/main/resources/:
 
+- `zenyte_production.json` adapts the creation recipes from Zenyte revision 15357771 and Uncut zenyte revision 15218231. The revision-pinned raw articles and rendered recipe tables are retained in `tools/fixtures/zenyte_production.json`, alongside Zenyte shard revision 15209720. Quantities, separate Crafting levels, boostability, the cut Onyx ingredient, quest, greegree and wall-of-flame conditions remain explicit. Existing shard NPC drops are unchanged.
+
 - impling_loot.json presents the reviewed jar outcomes and capture routes from the individual OSRS Wiki impling articles. Its evidence records link the selected revisions.
 - cooking_recipes.json adapts the cooking-range table and the successful and burnt outcomes from Shrimps revision 15183319, with Raw shrimps revision 15331265 as supporting evidence. Permanent links are attached to the recipe. The alternate fire mention comes from the article prose.
 - production_recipes.json and wiki_ground_additions.json select the normal furnace recipe and three Bronze bar pickups from https://oldschool.runescape.wiki/w/Special:PermanentLink/15315107 .

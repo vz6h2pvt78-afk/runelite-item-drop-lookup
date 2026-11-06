@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "recipes": [
+    {
+      "id": "production:uncut-zenyte:wall-of-flame",
+      "output": {
+        "itemName": "Uncut zenyte",
+        "quantity": 1
+      },
+      "inputs": [
+        {
+          "itemName": "Zenyte shard",
+          "quantity": 1
+        },
+        {
+          "itemName": "Onyx",
+          "quantity": 1
+        }
+      ],
+      "sourceName": "Fuse an uncut zenyte",
+      "locationText": "Wall of flame beneath the Temple of Marimbo, Ape Atoll.",
+      "requirements": [
+        "Crafting 70 (cannot be boosted).",
+        "Complete Monkey Madness II.",
+        "Wear a zombie monkey greegree (small or big).",
+        "Members only."
+      ],
+      "evidence": [
+        {
+          "page": "Uncut zenyte",
+          "revisionId": 15218231,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Uncut_zenyte?oldid=15218231"
+        }
+      ],
+      "relatedItemActions": [
+        {
+          "itemName": "Zenyte shard",
+          "label": "Find Zenyte shard sources"
+        }
+      ]
+    },
+    {
+      "id": "production:zenyte:chisel",
+      "output": {
+        "itemName": "Zenyte",
+        "quantity": 1
+      },
+      "inputs": [
+        {
+          "itemName": "Uncut zenyte",
+          "quantity": 1
+        }
+      ],
+      "sourceName": "Cut an uncut zenyte",
+      "locationText": "",
+      "requirements": [
+        "Crafting 89 (boosts allowed).",
+        "Chisel required.",
+        "Members only."
+      ],
+      "evidence": [
+        {
+          "page": "Zenyte",
+          "revisionId": 15357771,
+          "sourceUrl": "https://oldschool.runescape.wiki/w/Zenyte?oldid=15357771"
+        }
+      ],
+      "relatedItemActions": [
+        {
+          "itemName": "Uncut zenyte",
+          "label": "Find Uncut zenyte sources"
+        }
+      ]
+    }
+  ]
+}

@@ -21,6 +21,8 @@ nor their conversion to JSON is used to remove source credits or restrictions.
 
 Runtime resources under src/main/resources/:
 
+- `zenyte_production.json` adapts the creation recipes from Zenyte revision 15357771 and Uncut zenyte revision 15218231. The revision-pinned raw articles and rendered recipe tables are retained in `tools/fixtures/zenyte_production.json`, alongside Zenyte shard revision 15209720. Quantities, separate Crafting levels, boostability, the cut Onyx ingredient, quest, greegree and wall-of-flame conditions remain explicit. Existing shard NPC drops are unchanged.
+
 - `league_echo_exclusions.json` identifies 14 exact League encounters using individually pinned source articles in `tools/fixtures/echo_sources/`. Each entry links its own primary revision. Raw drops are retained, while ordinary acquisition views exclude these reviewed sources. Item identities are derived from their recorded rows.
 - `bone_reward_lairs.json` reuses the pinned Callisto (15360463), Vet’ion (15360817) and Venenatis (15361982) encounter and bone-recipient excerpts under `tools/fixtures/encounter_lairs/`. The six adapted safety associations preserve the separate recipient conditions and add no exact drop-location bindings.
 - `dragon_warhammer_source.json` adapts one direct pre-roll row from `Template:Uniques/Lizardman shaman` revision 14669471 and its ordinary parent transclusion in Lizardman shaman revision 15371945. Both raw primaries are pinned in `tools/fixtures/dragon_warhammer/`. No item-specific location binding is created.

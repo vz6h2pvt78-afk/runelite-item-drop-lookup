@@ -59,7 +59,7 @@ public class BrowseSelectionTest
         assertTrue(logs.sourcesFor("Logs").stream().allMatch(s -> s.getItemName().equals("Logs")));
         assertTrue(logs.sourcesFor("Logs").stream().anyMatch(s -> s.getSourceName().equals("Chop ordinary trees")));
         assertTrue(logs.sourcesFor("Logs").stream().anyMatch(s -> s.getSourceName().equals("Ent trunk")));
-        assertTrue(search("uncut").sourcesFor("Uncut zenyte").isEmpty());
+        assertEquals(1, search("uncut").sourcesFor("Uncut zenyte").size());
         assertTrue(search("uncut").dropsFor("Uncut zenyte").isEmpty());
     }
 

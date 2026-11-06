@@ -128,6 +128,7 @@ public class ItemDropLookupPanel extends PluginPanel
     private final JPanel resultsPanel = LookupStyle.column();
     private LookupViewState viewState = new LookupViewState();
     private ItemHistory previousItem;
+    private boolean followingRelatedItem;
     private LookupStyle style = new LookupStyle(LookupStyle.STANDARD_SIZE);
     private final JComboBox<String> textSize = new IntentionalComboBox<>(new String[] {"Standard text", "Larger text"});
     private final JPanel controlsPanel = LookupStyle.column();
@@ -289,7 +290,8 @@ public class ItemDropLookupPanel extends PluginPanel
         Runnable release = () -> {
             sourceSearchTimer.stop();
             viewState.detailStates.clear();
-            if (previousItem != null) previousItem.view.detailStates.clear();
+            for (ItemHistory entry = previousItem; entry != null; entry = entry.parent)
+                entry.view.detailStates.clear();
             previousItem = null;
             detailSource = null;
             indexedDrops = null;
@@ -309,6 +311,8 @@ public class ItemDropLookupPanel extends PluginPanel
         WildernessFilter area;
         String finder;
         int scroll;
+        boolean relatedLookup;
+        ItemHistory parent;
     }
 
     private void rememberItem()
@@ -316,6 +320,8 @@ public class ItemDropLookupPanel extends PluginPanel
         if (viewState.page != LookupViewState.Page.OVERVIEW && viewState.page != LookupViewState.Page.SOURCES) return;
         ItemHistory saved = new ItemHistory();
         saved.view = viewState.copy();
+        saved.relatedLookup = followingRelatedItem;
+        saved.parent = followingRelatedItem ? previousItem : null;
         saved.method = (String) filterDropdown.getSelectedItem();
         saved.area = (WildernessFilter) wildernessDropdown.getSelectedItem();
         saved.finder = sourceSearch.getText();
@@ -328,7 +334,7 @@ public class ItemDropLookupPanel extends PluginPanel
         if (previousItem == null) return;
         sourceSearchTimer.stop();
         ItemHistory saved = previousItem;
-        previousItem = null;
+        previousItem = saved.parent;
         viewState = saved.view;
         displayedQuery = viewState.query;
         adjustingControls = true;
@@ -352,10 +358,12 @@ public class ItemDropLookupPanel extends PluginPanel
             savedSourceScroll.put(sourceViewKey(), resultsScroll.getVerticalScrollBar().getValue());
         String query = searchField.getText().trim();
         rememberItem();
-        if (viewState.selection == null || !query.equals(viewState.query))
+        if (followingRelatedItem || viewState.selection == null || !query.equals(viewState.query))
         {
             displayedQuery = query;
-            viewState.beginSelection(query, new ItemSearchSelection(query, dropLookupService, itemSourceLookupService, itemPriceLookupService));
+            viewState.beginSelection(query, followingRelatedItem
+                    ? ItemSearchSelection.canonicalItem(query, dropLookupService, itemSourceLookupService, itemPriceLookupService)
+                    : new ItemSearchSelection(query, dropLookupService, itemSourceLookupService, itemPriceLookupService));
             indexedDrops = null;
             boundContexts = null;
             matchingDrops = Collections.emptyList();
@@ -376,7 +384,7 @@ public class ItemDropLookupPanel extends PluginPanel
             showNoSources();
             return;
         }
-        previousItem = null;
+        if (!followingRelatedItem) previousItem = null;
         if (!item.equals(viewState.selectedItem))
         {
             viewState.overviewScroll = 0;
@@ -387,6 +395,45 @@ public class ItemDropLookupPanel extends PluginPanel
         viewState.selectedItem = item;
         viewState.page = LookupViewState.Page.OVERVIEW;
         showOverview();
+    }
+
+    /** Related routes are deliberately bounded to the two reviewed ingredient hops. */
+    boolean canFollowRelatedItem(String canonicalName)
+    {
+        if (canonicalName == null || canonicalName.equals(viewState.selectedItem)) return false;
+        int depth = 0;
+        for (ItemHistory entry = previousItem; entry != null && entry.relatedLookup; entry = entry.parent)
+        {
+            if (canonicalName.equals(entry.view.selectedItem) || ++depth >= 2) return false;
+        }
+        return true;
+    }
+
+    private void openRelatedItem(String canonicalName)
+    {
+        if (!canFollowRelatedItem(canonicalName)) return;
+        followingRelatedItem = true;
+        try
+        {
+            searchField.setText(canonicalName);
+            performSearch();
+        }
+        finally { followingRelatedItem = false; }
+        adjustingControls = true;
+        filterDropdown.setSelectedItem(FILTER_ALL);
+        wildernessDropdown.setSelectedItem(WildernessFilter.ALL);
+        sourceSearch.setText("");
+        adjustingControls = false;
+        if (viewState.page == LookupViewState.Page.OVERVIEW) openMethod(FILTER_ALL);
+        else if (viewState.page == LookupViewState.Page.NO_SOURCES) showNoSources();
+    }
+
+    private JButton relatedBack()
+    {
+        if (previousItem == null || !previousItem.relatedLookup) return null;
+        JButton back = style.backButton("Back to " + previousItem.view.selectedItem, this::restorePreviousItem);
+        back.setName("backToRelatedItem");
+        return back;
     }
 
     private void showNoSources()
@@ -462,6 +509,8 @@ public class ItemDropLookupPanel extends PluginPanel
         overviewBack.setVisible(false);
         resultsPanel.removeAll();
         priceLabels.clear();
+        JButton relatedBack = relatedBack();
+        if (relatedBack != null) resultsPanel.add(relatedBack);
         if (viewState.selection != null && viewState.selection.hasChooser())
         {
             JButton back = style.backButton("Matching items", () -> { rememberItem(); showItemChoices(); });
@@ -632,6 +681,8 @@ public class ItemDropLookupPanel extends PluginPanel
         priceLabels.clear();
         overviewBack.setVisible(true);
         resultsPanel.add(makeItemHeader(viewState.selectedItem), 0);
+        JButton relatedBack = relatedBack();
+        if (relatedBack != null) resultsPanel.add(relatedBack, 0);
         if (controlsPanel.getParent() != resultsPanel) resultsPanel.add(controlsPanel);
         clearSearch.setVisible(!sourceSearch.getText().isEmpty());
         String selectedFilter = (String) filterDropdown.getSelectedItem();
@@ -1292,6 +1343,13 @@ public class ItemDropLookupPanel extends PluginPanel
             AcquisitionMethod method = source.getAcquisitionMethod();
             card.putClientProperty("acquisitionMethodId", method.getId());
             card.add(makeCardTitle(method.getSourceName(), CARD_TEXT_WIDTH));
+            for (AcquisitionMethod.RelatedItemAction action : method.getRelatedItemActions())
+            {
+                if (!canFollowRelatedItem(action.getItemName())) continue;
+                JButton find = style.button(action.getLabel(), () -> openRelatedItem(action.getItemName()), false);
+                find.setName("findRelatedItem:" + action.getItemName());
+                card.add(find);
+            }
             for (AcquisitionMethod.Section section : method.getSummarySections())
             {
                 card.add(Box.createVerticalStrut(6));

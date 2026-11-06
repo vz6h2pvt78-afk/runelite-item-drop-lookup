@@ -35,11 +35,17 @@ final class ItemSearchSelection
 
     ItemSearchSelection(String query, DropLookupService dropsService, ItemSourceLookupService sourceService, ItemPriceLookupService prices)
     {
-        this(query, dropsService, sourceService, prices, false);
+        this(query, dropsService, sourceService, prices, false, false);
+    }
+
+    static ItemSearchSelection canonicalItem(String name, DropLookupService drops, ItemSourceLookupService sources,
+                                             ItemPriceLookupService prices)
+    {
+        return new ItemSearchSelection(name, drops, sources, prices, true, true);
     }
 
     private ItemSearchSelection(String query, DropLookupService dropsService, ItemSourceLookupService sourceService,
-                                ItemPriceLookupService prices, boolean canonicalSelection)
+                                ItemPriceLookupService prices, boolean canonicalSelection, boolean literalOnly)
     {
         this.query = query;
         this.prices = prices;
@@ -47,6 +53,18 @@ final class ItemSearchSelection
         this.sourceService = sourceService;
         browseMembers = canonicalSelection ? Collections.emptyList()
                 : prices.findBrowseGroup(query).map(group -> group.getMembers()).orElse(Collections.emptyList());
+        if (literalOnly)
+        {
+            explicitDose = true;
+            broadDiscovery = false;
+            unqualifiedPotionFamily = Optional.empty();
+            exactCatalogItem = Optional.of(query);
+            drops = Collections.unmodifiableList(dropsService.findByExactNames(Set.of(query)).stream()
+                    .filter(d -> d.getItemName().equals(this.query) && !sourceService.isHarvestSource(d)).collect(Collectors.toList()));
+            sources = Collections.unmodifiableList(sourceService.findByExactNames(Set.of(query)).stream()
+                    .filter(s -> s.getItemName().equals(this.query)).collect(Collectors.toList()));
+            return;
+        }
         if (isBrowse())
         {
             explicitDose = false;
@@ -155,7 +173,7 @@ final class ItemSearchSelection
     private ItemSearchSelection selected(String item)
     {
         return selectedItems.computeIfAbsent(item,
-                name -> new ItemSearchSelection(name, dropsService, sourceService, prices, true));
+                name -> new ItemSearchSelection(name, dropsService, sourceService, prices, true, false));
     }
 
     List<String> choices()
