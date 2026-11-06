@@ -68,7 +68,7 @@ public class ReleaseHardeningTest
                 p[0].getWrappedPanel().addNotify(); search(p[0],"uncut"); layout(p[0]);
             });
             SwingUtilities.invokeAndWait(()->{
-                assertEquals(9,choices(p[0]).size()); assertTrue(pending.size()>0);
+                assertEquals(10,choices(p[0]).size()); assertTrue(pending.size()>0);
                 p[0].getScrollPane().getVerticalScrollBar().setValue(800);
                 MorningFeedbackTest.click(p[0],"selectItem:Uncut emerald"); PanelTestSupport.openSources(p[0]);
                 ((JComboBox<?>)PanelTestSupport.find(p[0],"sourceTypeFilter")).setSelectedItem("NPC Drops");

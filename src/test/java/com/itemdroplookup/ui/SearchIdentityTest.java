@@ -160,7 +160,7 @@ public class SearchIdentityTest
 
     @Test public void compactPossessiveBroadAndTypoSearchRemainUseful()
     {
-        assertEquals(9,search("uncut").choices().size());
+        assertEquals(10,search("uncut").choices().size());
         assertEquals(Collections.singletonList("rune pouch"),search("runepouch").choices());
         assertEquals(Collections.singletonList("Rune pouch note"),search("Rune pouch note").choices());
         assertEquals(sourceSet(search("Zulrah's scales")),sourceSet(search("zulrahscales")));

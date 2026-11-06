@@ -28,6 +28,7 @@ public class GatheringSourcePanelTest
                 new MonsterLocationLookupService(gson), new AccessRequirementLookupService(gson));
         ((JTextField) named(panel, "itemSearch").get(0)).setText(query);
         ((JButton) named(panel, "searchButton").get(0)).doClick();
+        if ("Logs".equals(query)) MorningFeedbackTest.click(panel, "selectItem:Logs");
         PanelTestSupport.openSources(panel);
         return panel;
     }
@@ -257,9 +258,10 @@ public class GatheringSourcePanelTest
         for (String query : new String[] {"Oak logs", "Willow logs", "Maple logs", "Yew logs", "Magic logs", "Raw shrimps"})
             assertTrue(sources.searchByItemName(query).stream().noneMatch(s -> "Chop ordinary trees".equals(s.getSourceName())));
         ItemSearchSelection logs = new ItemSearchSelection("Logs", new DropLookupService(gson), sources, new ItemPriceLookupService(gson));
-        assertEquals(java.util.Collections.singletonList("Logs"), logs.choices());
-        assertEquals(2, logs.sources.stream().filter(s -> "Gathering".equals(s.getSourceType())).count());
-        assertEquals(1, logs.sources.stream().filter(s -> "Chop ordinary trees".equals(s.getSourceName()) && s.getAcquisitionMethod() == null).count());
+        assertTrue(logs.isBrowse());
+        assertTrue(logs.choices().contains("Logs"));
+        assertEquals(2, logs.sourcesFor("Logs").stream().filter(s -> "Gathering".equals(s.getSourceType())).count());
+        assertEquals(1, logs.sourcesFor("Logs").stream().filter(s -> "Chop ordinary trees".equals(s.getSourceName()) && s.getAcquisitionMethod() == null).count());
     }
 
     private static List<Component> named(Container parent, String name)

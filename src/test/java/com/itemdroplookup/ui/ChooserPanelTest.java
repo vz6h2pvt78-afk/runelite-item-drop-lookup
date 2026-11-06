@@ -62,17 +62,17 @@ public class ChooserPanelTest
     {
         SwingUtilities.invokeAndWait(() -> { start(); search("uncut"); layout(1000); });
         SwingUtilities.invokeAndWait(() -> {
-            assertEquals(9,choices(panel).size()); assertEquals(9,pending.size());
-            for(int i=0;i<9;i++) assertEquals(choices(panel).get(i).getName(),"selectItem:"+pending.get(i).name);
+            assertEquals(10,choices(panel).size()); assertEquals(10,pending.size());
+            for(int i=0;i<10;i++) assertEquals(choices(panel).get(i).getName(),"selectItem:"+pending.get(i).name);
             MorningFeedbackTest.click(panel,"copyReport");
             MorningFeedbackTest.click(panel,"selectItem:Uncut emerald");
             for(Pending p:pending) { assertFalse(p.current.getAsBoolean()); p.complete(); }
             MorningFeedbackTest.click(panel,"backToItems"); layout(1000);
         });
         SwingUtilities.invokeAndWait(() -> {
-            assertEquals(18,pending.size());
+            assertEquals(20,pending.size());
             for(JButton button:choices(panel)) assertFalse(button.getIcon() instanceof ImageIcon);
-            for(int i=9;i<18;i++) pending.get(i).complete();
+            for(int i=10;i<20;i++) pending.get(i).complete();
         });
         SwingUtilities.invokeAndWait(() -> {
             for(JButton button:choices(panel)) assertTrue(button.getIcon() instanceof ImageIcon);
@@ -103,6 +103,59 @@ public class ChooserPanelTest
             assertTrue(reports.get(0).contains("Item: Prayer mix\n"));
             assertFalse(reports.get(0).contains("Item: Prayer mix(2)"));
             panel.dispose(); panel.getWrappedPanel().removeNotify();
+        });
+    }
+
+    @Test public void genericSingletonPrefixesOpenChooserAndBackRestoresIt() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            start();
+            for (String[] scenario : new String[][]{{"potion", "Prayer potion"}, {"potions", "Super restore"}, {"log", "Magic logs"}, {"logs", "Logs"}, {"fish", "Raw shark"}, {"uncut", "Uncut emerald"}, {"uncut gem", "Uncut ruby"}, {"uncut gems", "Uncut zenyte"}, {"axe", "Dragon axe"}})
+            {
+                search(scenario[0]); layout(1000);
+                List<String> before = new ArrayList<>();
+                choices(panel).forEach(button -> before.add(button.getName()));
+                assertTrue(scenario[0], before.size() > 1);
+                MorningFeedbackTest.click(panel, "copyReport");
+                String chooserReport = reports.get(reports.size() - 1);
+                assertTrue(chooserReport.contains("View: Matching items"));
+                MorningFeedbackTest.click(panel, "selectItem:" + scenario[1]);
+                MorningFeedbackTest.click(panel, "copyReport");
+                assertTrue(reports.get(reports.size() - 1).contains("Item: " + scenario[1] + "\n"));
+                MorningFeedbackTest.click(panel, "backToItems");
+                List<String> restored = new ArrayList<>();
+                choices(panel).forEach(button -> restored.add(button.getName()));
+                assertEquals(before, restored);
+                MorningFeedbackTest.click(panel, "copyReport");
+                assertEquals(chooserReport, reports.get(reports.size() - 1));
+            }
+            panel.dispose(); panel.getWrappedPanel().removeNotify();
+        });
+    }
+
+
+    @Test public void aReviewedSingleMemberGroupStillOffersAnExplicitChoice() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> {
+            Gson gson = new Gson();
+            ItemBrowseRegistry.Group group = gson.fromJson("{\"members\":[\"Logs\"]}", ItemBrowseRegistry.Group.class);
+            ItemPriceLookupService prices = new ItemPriceLookupService(gson) {
+                @Override public Optional<ItemBrowseRegistry.Group> findBrowseGroup(String query)
+                { return "timber".equals(query) ? Optional.of(group) : Optional.empty(); }
+            };
+            ItemDropLookupPanel one = new ItemDropLookupPanel(new DropLookupService(gson),
+                    new ItemSourceLookupService(gson), prices, new MonsterLocationLookupService(gson),
+                    new AccessRequirementLookupService(gson), reports::add);
+            MorningFeedbackTest.search(one, "timber");
+            assertEquals(1, choices(one).size());
+            MorningFeedbackTest.click(one, "copyReport");
+            assertTrue(reports.get(0).contains("View: Matching items"));
+            MorningFeedbackTest.click(one, "selectItem:Logs");
+            MorningFeedbackTest.click(one, "copyReport");
+            assertTrue(reports.get(1).contains("Item: Logs\n"));
+            MorningFeedbackTest.click(one, "backToItems");
+            assertEquals(1, choices(one).size());
+            one.dispose();
         });
     }
 

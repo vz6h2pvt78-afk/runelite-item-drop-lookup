@@ -81,7 +81,7 @@ public class MorningFeedbackTest
             search(p,"uncut"); click(p,"selectItem:Uncut emerald");
             JButton back=(JButton)PanelTestSupport.find(p,"backToItems");
             assertNotNull(back.getIcon()); back.doClick(0);
-            assertEquals(9,new ItemSearchSelection("uncut",new DropLookupService(gson),new ItemSourceLookupService(gson),new ItemPriceLookupService(gson)).choices().size());
+            assertEquals(10,new ItemSearchSelection("uncut",new DropLookupService(gson),new ItemSourceLookupService(gson),new ItemPriceLookupService(gson)).choices().size());
             click(p,"backToPreviousItem");
             assertTrue(labels(p).contains("Uncut emerald"));
             assertNotNull(PanelTestSupport.find(p,"viewAllSources"));

@@ -61,7 +61,7 @@ public class SourceClarityTest
         SwingUtilities.invokeAndWait(() -> {
             Gson gson = new Gson();
             DropLookupService drops = new DropLookupService(gson) {
-                @Override public List<DropSource> searchByItemName(String name)
+                @Override public List<DropSource> findByExactNames(java.util.Set<String> names)
                 {
                     return List.of(new DropSource("Prayer potion(2)", "Tormented Demon", "2", "1/51", ""),
                             new DropSource("Prayer potion(4)", "Tormented Demon", "1", "1/99", "Other form"));

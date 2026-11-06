@@ -1,0 +1,22 @@
+S48 - Beginner browse candidate
+
+S48 beginner browse candidate. Builds on frozen S47 4f340b28132ba72eab779dc55b62f206865e584c; S47, C3g and accepted Plugin Hub release remain unchanged.
+
+Apollo's contract: specific names lead to exact identities; generic words help a new player choose.
+Reviewed browse manifest: log/logs -> 14 conventional Woodcutting logs (ordinary Logs selectable); potion/potions -> 93 ordinary persistent potion/mix families, one choice per family; fish -> 62 exact raw/cooked food-fish identities; uncut/uncut gem/uncut gems -> ten gems.
+Raid/dream/blighted supplies, oils/dressing, pyre logs, trophies/tools and incidental substrings remain available through specific searches. No account-level inference or semantic guessing.
+Registered browse always shows choices, including a one-member group. Explicit Logs override only; Staff and exact aliases/qualifiers/packs/doses/known-zero identities remain protected.
+Generic compatible discovery gathers the complete pool before deciding whether a non-exact word has one choice.
+Every selected browse member uses a cached exact selection; Back preserves the same source objects. Known-zero selections now offer Back to the matching list.
+Prayer enhance (+) and Xeric's aid (+) direct family queries recover four existing explicit-dose(4) source rows each. No source facts, drop rates, requirements, locations or aliases changed.
+
+Verification: 277 normal Java tests, 277 standard-package Java tests using actual RuneLite 1.13.6 dependencies, 219 Python tests; validators, Java11/API restrictions, packaged resources/fonts and offline previews pass. Full 13,538-query S47 comparison and all expanded-selection parity gates are saved. Final exact-commit official distribution/current-runtime and independent recovery proofs are sealed separately after this archive.
+All 41 prior JSON datasets and strict matcher/aliases are unchanged; only reviewed browse metadata changes the report dataset fingerprint.
+Native item-artwork rendering and Apollo's acceptance are pending; offline previews intentionally have no RuneLite-native item image provider.
+No push, merge, public feedback launch, telemetry, purchases, resets or Plugin Hub mutation.
+Final search proof: 146 changed query outcomes among 13,538: six registered browse spellings and 140 complete-pool corrections. All 1,693 selections across 149 expanded/browse queries and 1,191 distinct item choices preserve exact current selection state; S47 source parity holds except the two documented (+) family repairs. All 32 offline chooser/select/source/Back journeys pass at both text sizes. Four-category membership tests and malformed/ambiguous registry checks pass.
+
+Starting commit 4f340b28132ba72eab779dc55b62f206865e584c
+Build development-2026-11-05-s48-beginner-browse
+Official package SHA256 7780135b355631af32d94e0367d0ceb1b8aebe70440a0ea84e3acb9526ba3937
+Human acceptance pending.

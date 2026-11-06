@@ -24,6 +24,15 @@ public class ItemPriceLookupService
     private final Gson gson;
     private List<ItemPriceRecord> itemPriceRecords;
     private Map<String, String> potionFamilies;
+    private ItemBrowseRegistry browseRegistry;
+
+    /** Catalog browse metadata; no acquisition rules or alias substitution. */
+    public Optional<ItemBrowseRegistry.Group> findBrowseGroup(String query)
+    {
+        if (browseRegistry == null) browseRegistry = new ItemBrowseRegistry(gson);
+        return browseRegistry.find(query).filter(group -> group.overridesCanonical()
+                || !findExactItemName(query).isPresent() && !findPotionFamily(query).isPresent());
+    }
 
     /** Verified potion families only: charged jewellery and waterskins are not doses. */
     public Optional<String> findPotionFamily(String itemName)

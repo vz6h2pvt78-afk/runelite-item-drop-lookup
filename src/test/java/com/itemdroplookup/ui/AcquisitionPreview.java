@@ -75,6 +75,7 @@ public final class AcquisitionPreview
                 JTextField search = (JTextField) PanelTestSupport.find(panel, "itemSearch");
                 search.setText(scenario[0]);
                 search.postActionEvent();
+                if ("Logs".equals(scenario[0])) MorningFeedbackTest.click(panel, "selectItem:Logs");
                 for (String size : new String[]{"Standard text", "Larger text"})
                 {
                     ((JComboBox<?>) PanelTestSupport.find(panel, "textSize")).setSelectedItem(size);

@@ -51,6 +51,33 @@ public class ItemSearchSelectionTest
         assertEquals(java.util.Collections.singletonList("Twisted bow"), search("tbow").choices());
     }
 
+    @Test public void genericWordsGatherAllCompatibleItemsBeforeAutoSelection()
+    {
+        Gson gson = new Gson();
+        DropLookupService drops = new DropLookupService(gson);
+        ItemSourceLookupService sources = new ItemSourceLookupService(gson);
+        ItemPriceLookupService prices = new ItemPriceLookupService(gson);
+        for (String[] scenario : new String[][]{
+                {"potion", "Prayer potion", "Attack potion"},
+                {"log", "Logs", "Magic logs"},
+                {"axe", "Bronze axe", "Dragon axe"}})
+        {
+            ItemSearchSelection broad = new ItemSearchSelection(scenario[0], drops, sources, prices);
+            assertTrue(scenario[0], broad.choices().size() > 1);
+            assertTrue(scenario[0], broad.choices().contains(scenario[1]));
+            assertTrue(scenario[0], broad.choices().contains(scenario[2]));
+            for (String item : broad.choices())
+            {
+                ItemSearchSelection exact = new ItemSearchSelection(item, drops, sources, prices);
+                assertEquals(scenario[0] + " / drops / " + item, gson.toJson(exact.dropsFor(item)), gson.toJson(broad.dropsFor(item)));
+                assertEquals(scenario[0] + " / sources / " + item, gson.toJson(exact.sourcesFor(item)), gson.toJson(broad.sourcesFor(item)));
+            }
+        }
+        assertEquals(java.util.Collections.singletonList("Potion (Apothecary)"), search("Potion (Apothecary)").choices());
+        assertEquals(search("log").choices(), search("Logs").choices());
+        assertEquals(java.util.Collections.singletonList("Staff"), search("staff").choices());
+    }
+
     @Test public void reviewedFamilyIdentitySurvivesMissingSourcesAndIntrinsicNumerals()
     {
         for (String name : new String[]{"Stamina potion", "Super energy", "Serum 207"})
@@ -118,7 +145,7 @@ public class ItemSearchSelectionTest
 
     @Test public void broadItemsAliasesAndCompactNamesRemainDiscoverable()
     {
-        assertEquals(9, search("uncut").choices().size());
+        assertEquals(10, search("uncut").choices().size());
         assertTrue(search("pouch").choices().size() > 1);
         assertEquals(java.util.Collections.singletonList("rune pouch"), search("runepouch").choices());
         assertEquals(java.util.Collections.singletonList("Dragon boots"), search("dboots").choices());

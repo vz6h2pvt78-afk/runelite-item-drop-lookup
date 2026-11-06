@@ -133,6 +133,16 @@ public class ItemSourceLookupService
                 .collect(Collectors.toList());
     }
 
+    /** Exact reviewed family members only; retain all original source records and order. */
+    public List<ItemSource> findByExactNames(Set<String> names)
+    {
+        Set<String> keys = names.stream().map(ItemNameMatching::compact).collect(Collectors.toSet());
+        return getItemSourceRecords().stream()
+                .filter(record -> keys.contains(ItemNameMatching.compact(record.itemName)))
+                .map(record -> record.bulkSource != null ? record.bulkSource : record.toSource(null))
+                .collect(Collectors.toList());
+    }
+
     /** Broad chooser discovery only; exact/bulk identity resolution is unchanged. */
     public List<ItemSource> discoverByItemName(String itemName)
     {

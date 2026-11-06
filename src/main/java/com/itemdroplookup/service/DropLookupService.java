@@ -73,6 +73,14 @@ public class DropLookupService
         return toSources(matches);
     }
 
+    /** Exact reviewed family members only; no fuzzy or qualifier fallback. */
+    public List<DropSource> findByExactNames(Set<String> names)
+    {
+        Set<String> keys = names.stream().map(ItemNameMatching::compact).collect(Collectors.toSet());
+        return toSources(getDropRecords().stream()
+                .filter(record -> keys.contains(ItemNameMatching.compact(record.itemName))).collect(Collectors.toList()));
+    }
+
     /** Broad chooser discovery only; strict matching and its fallback remain separate. */
     public List<DropSource> discoverByItemName(String itemName)
     {

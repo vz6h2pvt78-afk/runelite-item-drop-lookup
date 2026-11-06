@@ -362,7 +362,7 @@ public class ItemDropLookupPanel extends PluginPanel
             matchingSources = Collections.emptyList();
         }
         List<String> choices = viewState.selection.choices();
-        if (choices.size() == 1) selectItem(choices.get(0));
+        if (choices.size() == 1 && !viewState.selection.isBrowse()) selectItem(choices.get(0));
         else showItemChoices();
     }
 
@@ -402,6 +402,12 @@ public class ItemDropLookupPanel extends PluginPanel
             JButton back = style.backButton(previousItem.view.page == LookupViewState.Page.SOURCES
                     ? "Back to results" : "Back to item", this::restorePreviousItem);
             back.setName("backToPreviousItem");
+            resultsPanel.add(back);
+        }
+        if (viewState.selection != null && viewState.selection.hasChooser())
+        {
+            JButton back = style.backButton("Matching items", this::showItemChoices);
+            back.setName("backToItems");
             resultsPanel.add(back);
         }
         resultsPanel.add(makeItemHeader(viewState.selectedItem));
@@ -456,7 +462,7 @@ public class ItemDropLookupPanel extends PluginPanel
         overviewBack.setVisible(false);
         resultsPanel.removeAll();
         priceLabels.clear();
-        if (viewState.selection != null && viewState.selection.choices().size() > 1)
+        if (viewState.selection != null && viewState.selection.hasChooser())
         {
             JButton back = style.backButton("Matching items", () -> { rememberItem(); showItemChoices(); });
             back.setName("backToItems");

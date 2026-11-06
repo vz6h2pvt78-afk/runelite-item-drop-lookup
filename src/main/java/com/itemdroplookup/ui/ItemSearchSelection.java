@@ -10,6 +10,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Set;
+import java.util.LinkedHashSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
@@ -20,6 +24,10 @@ final class ItemSearchSelection
     final List<DropSource> drops;
     final List<ItemSource> sources;
     private final ItemPriceLookupService prices;
+    private final DropLookupService dropsService;
+    private final ItemSourceLookupService sourceService;
+    private final List<String> browseMembers;
+    private final Map<String, ItemSearchSelection> selectedItems = new HashMap<>();
     private final boolean explicitDose;
     private final boolean broadDiscovery;
     private final Optional<String> exactCatalogItem;
@@ -27,8 +35,28 @@ final class ItemSearchSelection
 
     ItemSearchSelection(String query, DropLookupService dropsService, ItemSourceLookupService sourceService, ItemPriceLookupService prices)
     {
+        this(query, dropsService, sourceService, prices, false);
+    }
+
+    private ItemSearchSelection(String query, DropLookupService dropsService, ItemSourceLookupService sourceService,
+                                ItemPriceLookupService prices, boolean canonicalSelection)
+    {
         this.query = query;
         this.prices = prices;
+        this.dropsService = dropsService;
+        this.sourceService = sourceService;
+        browseMembers = canonicalSelection ? Collections.emptyList()
+                : prices.findBrowseGroup(query).map(group -> group.getMembers()).orElse(Collections.emptyList());
+        if (isBrowse())
+        {
+            explicitDose = false;
+            broadDiscovery = false;
+            unqualifiedPotionFamily = Optional.empty();
+            exactCatalogItem = Optional.empty();
+            drops = Collections.emptyList();
+            sources = Collections.emptyList();
+            return;
+        }
         ItemSource exactOffer = sourceService.findExactBulkOffer(query);
         if (exactOffer != null)
         {
@@ -51,10 +79,21 @@ final class ItemSearchSelection
         // Establish an exact known identity before gathering source candidates.
         // Unqualified potion families deliberately retain their existing dose view.
         exactCatalogItem = family.isPresent() && !explicitDose ? Optional.empty() : prices.findExactItemName(canonicalQuery)
-                .or(() -> dropsService.findReviewedSourceItemName(canonicalQuery));
+                .or(() -> dropsService.findReviewedSourceItemName(canonicalQuery))
+                .or(() -> canonicalSelection ? Optional.of(canonicalQuery) : Optional.empty());
         String lookup = family.isPresent() && !explicitDose ? family.get() : exactCatalogItem.orElse(query);
         List<DropSource> foundDrops = dropsService.searchByItemName(lookup);
         List<ItemSource> foundSources = sourceService.searchByItemName(lookup);
+        if (family.isPresent() && !explicitDose)
+        {
+            // A reviewed family includes its doses even when its own name has a qualifier, e.g. (+).
+            // Do not relax qualifier matching for any ordinary item or explicit dose query.
+            Set<String> members = new LinkedHashSet<>();
+            members.add(family.get());
+            for (int dose = 1; dose <= 4; dose++) members.add(family.get() + "(" + dose + ")");
+            foundDrops = dropsService.findByExactNames(members);
+            foundSources = sourceService.findByExactNames(members);
+        }
         String exactName = ItemNameMatching.compact(query);
         if (family.isPresent())
         {
@@ -87,8 +126,9 @@ final class ItemSearchSelection
         // Known kill-then-harvest pairs have a Gathering projection, including an
         // honest fallback when reviewed event details cannot be loaded.
         foundDrops = foundDrops.stream().filter(d -> !sourceService.isHarvestSource(d)).collect(Collectors.toList());
-        // Preserve existing resolved identities and singleton auto-selection. Only
-        // a genuinely ambiguous chooser may gather additional compatible names.
+        // Exact identities still win. A non-exact prefix may look unique only
+        // because the strict tier omitted other compatible contains matches.
+        // Gather those before the UI decides whether there is one item or a chooser.
         TreeSet<String> strictChoices = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
         foundDrops.forEach(d -> strictChoices.add(choice(d.getItemName())));
         foundSources.forEach(s -> strictChoices.add(choice(s.getItemName())));
@@ -96,7 +136,7 @@ final class ItemSearchSelection
         boolean hasExact = strictChoices.stream().anyMatch(name -> ItemNameMatching.rank(resolvedQuery, name) <= 1);
         boolean hasCompatible = strictChoices.stream().anyMatch(name -> ItemNameMatching.rank(resolvedQuery, name) != Integer.MAX_VALUE);
         broadDiscovery = !exactCatalogItem.isPresent() && !family.isPresent()
-                && !hasExact && hasCompatible && strictChoices.size() > 1;
+                && !hasExact && hasCompatible;
         if (broadDiscovery)
         {
             foundDrops = dropsService.discoverByItemName(query).stream()
@@ -107,8 +147,20 @@ final class ItemSearchSelection
         sources = Collections.unmodifiableList(new ArrayList<>(foundSources));
     }
 
+    boolean isBrowse() { return !browseMembers.isEmpty(); }
+
+    boolean hasChooser() { return isBrowse() || choices().size() > 1; }
+
+    /** Cache exact selected objects so Back/detail state keeps the same source identities. */
+    private ItemSearchSelection selected(String item)
+    {
+        return selectedItems.computeIfAbsent(item,
+                name -> new ItemSearchSelection(name, dropsService, sourceService, prices, true));
+    }
+
     List<String> choices()
     {
+        if (isBrowse()) return browseMembers;
         TreeSet<String> result = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
         drops.forEach(d -> result.add(choice(d.getItemName())));
         sources.forEach(s -> result.add(choice(s.getItemName())));
@@ -120,11 +172,13 @@ final class ItemSearchSelection
 
     List<DropSource> dropsFor(String selected)
     {
+        if (isBrowse() || broadDiscovery) return selected(selected).dropsFor(selected);
         return drops.stream().filter(d -> choice(d.getItemName()).equalsIgnoreCase(selected)).collect(Collectors.toList());
     }
 
     List<ItemSource> sourcesFor(String selected)
     {
+        if (isBrowse() || broadDiscovery) return selected(selected).sourcesFor(selected);
         return sources.stream().filter(s -> choice(s.getItemName()).equalsIgnoreCase(selected)).collect(Collectors.toList());
     }
 
@@ -148,7 +202,7 @@ final class ItemSearchSelection
                     .filter(name -> ItemNameMatching.compact(name).equals(key)).findFirst();
             if (source.isPresent()) return source.get();
         }
-        return selected;
+        return isBrowse() ? selected(selected).iconItem(selected) : selected;
     }
 
     private String choice(String name)
