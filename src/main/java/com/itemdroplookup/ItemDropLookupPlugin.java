@@ -16,13 +16,16 @@ import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.ClientToolbar;
 import net.runelite.client.ui.NavigationButton;
+import net.runelite.client.util.ImageUtil;
 
 @Slf4j
 @PluginDescriptor(
-        name = "Item Drop Lookup"
+        name = "Obtainable"
 )
 public class ItemDropLookupPlugin extends Plugin
 {
+    private static final BufferedImage ICON = ImageUtil.loadImageResource(ItemDropLookupPlugin.class, "/obtainable-icon.png");
+
     @Inject
     private ClientToolbar clientToolbar;
 
@@ -53,21 +56,16 @@ public class ItemDropLookupPlugin extends Plugin
         panel = new ItemDropLookupPanel(dropLookupService, itemSourceLookupService, itemPriceLookupService,
                 monsterLocationLookupService, accessRequirementLookupService, itemIconService);
 
-        BufferedImage icon = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
-        java.awt.Graphics2D graphics = icon.createGraphics();
-        graphics.fillOval(2, 2, 12, 12);
-        graphics.dispose();
-
         navButton = NavigationButton.builder()
-                .tooltip("Item Drop Lookup")
-                .icon(icon)
+                .tooltip("Obtainable")
+                .icon(ICON)
                 .priority(5)
                 .panel(panel)
                 .build();
 
         clientToolbar.addNavigation(navButton);
 
-        log.debug("Item Drop Lookup started!");
+        log.debug("Obtainable started!");
     }
 
     @Override
@@ -85,7 +83,7 @@ public class ItemDropLookupPlugin extends Plugin
             clientToolbar.removeNavigation(removedButton);
         }
 
-        log.debug("Item Drop Lookup stopped!");
+        log.debug("Obtainable stopped!");
     }
 
     @Provides

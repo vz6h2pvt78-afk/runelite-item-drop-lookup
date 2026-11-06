@@ -1,4 +1,8 @@
-# Item Drop Lookup
+# Obtainable
+
+**Find where and how to obtain any item.**
+
+Formerly Item Drop Lookup; existing installations and settings are retained.
 
 Find OSRS item drops, shops and selected gathering, rewards and loot methods from the RuneLite sidebar.
 
@@ -8,7 +12,7 @@ does not mean that an item is unobtainable.
 
 ## Using the plugin
 
-1. Open **Item Drop Lookup** in the sidebar and enter an item name.
+1. Open **Obtainable** in the sidebar and enter an item name.
 2. Use the method dropdown to switch between NPC drops, shops, rewards, gathering
    and loot. Buying
    options include verified packs, such as air rune packs and eye of newt packs.

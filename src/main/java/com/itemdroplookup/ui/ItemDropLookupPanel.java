@@ -271,7 +271,8 @@ public class ItemDropLookupPanel extends PluginPanel
         resultsScroll.getVerticalScrollBar().setUnitIncrement(28);
         searchView.add(resultsScroll, BorderLayout.CENTER);
         add(searchView, BorderLayout.CENTER);
-        resultsPanel.add(makeLabel("Find an item, then choose how to get it."));
+        resultsPanel.add(style.text("Obtainable", true));
+        resultsPanel.add(makeLabel("Find where and how to obtain any item."));
         addDisplayOptions(null);
     }
 

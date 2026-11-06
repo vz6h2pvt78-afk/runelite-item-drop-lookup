@@ -1,0 +1,8 @@
+S47 - Obtainable final candidate
+
+Final bounded stabilization candidate: Obtainable public name, approved tagline, welcome screen and Copy report title; exact Apollo-approved satchel derivative at 16px toolbar and 48px Hub. Original image SHA256 8d3c2e5a6a51e77e3c21f7fe4b914e1a87f60859837913f9dadf666c6b3dac8f; 48px SHA256 d392ef67d7bbf9c1fdc367b5fbdb9b99aca52141d5d458a83da826804d84e7b6. Java packages/classes, config group, repository and Hub manifest identity unchanged. All work through S45 heading/icon fixes and S46 broad chooser discovery included. 271 normal+packaged Java, 215 Python, generators/validators, Java11 and current RuneLite1.13.6 API/package checks passed. 11,369 queries match S46 exactly. 474 NPC states +120 other-method states preserve facts, locations and Copy fields, except approved title/build changes. 14 chooser journeys and 156 roaming reports pass; 41 JSON resources byte-identical. Independent clean recovery and full v5 wrapper follow the frozen checkpoint. Human gates: native tiny icon, added chooser pictures, final search usability and clipboard title. Deferred: old axe singleton behavior, data coverage gaps, three held monster portraits. No public mutation; exact final candidate requires Apollo acceptance before publication.
+
+Starting commit 17be5f1f26d9e96423f460e7ecfcd353fedc6b5d
+Build development-2026-11-05-s47-obtainable-branding
+Official package SHA256 b2e4e82d5382833cfa9a0b415d663e8522c4aad778670af990bc2f4b88c898f0
+Human acceptance pending.

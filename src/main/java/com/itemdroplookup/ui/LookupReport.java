@@ -13,7 +13,7 @@ final class LookupReport
     static String create(String item, String query, String find, String method, String area,
                          String view, String detailSource, MonsterLocationPanel.State detail)
     {
-        StringBuilder text = new StringBuilder("Item Drop Lookup report\n");
+        StringBuilder text = new StringBuilder("Obtainable report\n");
         line(text, "Item", item);
         line(text, "Item query", query);
         line(text, "Find source", find);

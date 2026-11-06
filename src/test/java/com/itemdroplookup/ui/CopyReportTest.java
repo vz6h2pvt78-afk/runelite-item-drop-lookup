@@ -46,7 +46,7 @@ public class CopyReportTest
             copy.doClick(0);
             assertEquals(1, copied.size());
             String report = copied.get(0);
-            assertTrue(report.startsWith("Item Drop Lookup report\nItem: Spade\nItem query: Spade\n"));
+            assertTrue(report.startsWith("Obtainable report\nItem: Spade\nItem query: Spade\n"));
             assertTrue(report.contains("Find source: no matching source\nMethod: Shops\nView: Sources\n"));
             assertFalse(report.contains("UNSUBMITTED"));
             assertFalse(report.contains("NPC area:"));
