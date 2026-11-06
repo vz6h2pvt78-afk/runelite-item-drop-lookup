@@ -139,7 +139,8 @@ public class SourceClarityTest
             JTextField finder = (JTextField)PanelTestSupport.find(p,"sourceSearch");
             finder.setText("Copper ore");
             finder.postActionEvent();
-            assertTrue(MorningFeedbackTest.labels(p).contains("Normal furnace → Bronze bar"));
+            assertTrue(MorningFeedbackTest.labels(p).contains("Normal furnace"));
+            assertFalse(MorningFeedbackTest.labels(p).contains("Normal furnace → Bronze bar"));
             MorningFeedbackTest.click(p,"copyReport");
             assertTrue(reports.get(0).contains("Item: Bronze bar") && reports.get(0).contains("Method: Production"));
             assertFalse(reports.get(0).contains("NPC area:"));

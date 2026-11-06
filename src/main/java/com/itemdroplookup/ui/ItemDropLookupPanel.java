@@ -434,7 +434,9 @@ public class ItemDropLookupPanel extends PluginPanel
         {
             JButton choose = style.button(item, () -> selectItem(item), false);
             choose.setName("selectItem:" + item);
-            chooserIcons.add(item, choose);
+            String iconItem = viewState.selection.iconItem(item);
+            chooserIcons.add(iconItem, choose);
+            if (!iconItem.equals(item)) choose.setToolTipText(itemArtworkTooltip(item, iconItem));
             resultsPanel.add(choose);
             resultsPanel.add(makeSmallSpacer());
         }
@@ -927,7 +929,7 @@ public class ItemDropLookupPanel extends PluginPanel
                         + "\n" + DropRatePresentation.sourceRateLine(offer);
                 JButton row = style.button(title, () -> showMonsterDetails(offer), false);
                 row.setName("openLocations");
-                row.getAccessibleContext().setAccessibleName(first.getMonsterName() + " → " + offer.getItemName() + ", " + title + ", view details");
+                row.getAccessibleContext().setAccessibleName(first.getMonsterName() + ", " + offer.getItemName() + ", " + title + ", view details");
                 row.setToolTipText("View " + offer.getItemName() + " drop details");
                 chooserIcons.add(offer.getItemName(), row);
                 card.add(row);
@@ -1282,7 +1284,7 @@ public class ItemDropLookupPanel extends PluginPanel
         {
             AcquisitionMethod method = source.getAcquisitionMethod();
             card.putClientProperty("acquisitionMethodId", method.getId());
-            card.add(itemTitle(source.getItemName(), method.getSourceName() + " → " + source.getItemName(), CARD_TEXT_WIDTH));
+            card.add(makeCardTitle(method.getSourceName(), CARD_TEXT_WIDTH));
             for (AcquisitionMethod.Section section : method.getSummarySections())
             {
                 card.add(Box.createVerticalStrut(6));
@@ -1309,10 +1311,10 @@ public class ItemDropLookupPanel extends PluginPanel
         String shop = hasText(source.getSourceName()) ? source.getSourceName() : source.getSourceType();
         if (showingPotionFamily())
         {
-            card.add(itemTitle(source.getItemName(), shop, CARD_TEXT_WIDTH));
+            card.add(makeCardTitle(shop, CARD_TEXT_WIDTH));
             card.add(makeCardLine(doseLabel(source.getItemName()), CARD_TEXT_WIDTH));
         }
-        else card.add(itemTitle(source.getItemName(), shop + " → " + source.getItemName(), CARD_TEXT_WIDTH));
+        else card.add(makeCardTitle(shop, CARD_TEXT_WIDTH));
         boolean pack = source.getPackQuantity() > 0;
         if (pack)
         {
@@ -1550,9 +1552,16 @@ public class ItemDropLookupPanel extends PluginPanel
     private JLabel makeItemHeader(String text)
     {
         JLabel label = makeWrappedLabel(text, PANEL_TEXT_WIDTH, true, new EmptyBorder(10, 0, 6, 0));
-        if (!itemPriceLookupService.findPotionFamily(text).filter(text::equalsIgnoreCase).isPresent())
-            chooserIcons.add(text, label);
+        String iconItem = viewState.selection == null ? text : viewState.selection.iconItem(text);
+        chooserIcons.add(iconItem, label);
+        if (!iconItem.equals(text)) label.setToolTipText(itemArtworkTooltip(text, iconItem));
         return label;
+    }
+
+    private String itemArtworkTooltip(String item, String iconItem)
+    {
+        return "Herb pack".equals(item) ? "Picture: clean herb, representing the herb-pack reward."
+                : "Picture: " + iconItem + ". Includes all available doses.";
     }
 
     private JLabel itemTitle(String item, String title, int width)

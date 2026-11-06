@@ -1,0 +1,18 @@
+S45 - Source headings and chooser icons
+
+Apollo accepted S44 visually and requested source-only headings plus testing before the update. This checkpoint removes redundant Source -> Item headings/repeated selected-item icons from shops, rewards, gathering, production and loot; pack names/contents, recipe inputs/outputs, dose labels, Back arrows and Copy semantics remain explicit.
+
+Missing chooser artwork: verified potion families use the highest known representative dose (four where available, two for mixes), with tooltip disclosure and unchanged selected family/offers/report identity. Exact doses remain exact. Eleven reviewed native-ID fallbacks cover Herb box, Herb sack, Red egg, Red goblin mail, Red naval shirt, Red navy slacks, Red satchel and four Prayer enhance (+) doses. Live exact-name/note/placeholder and ambiguity guards remain. Apollo explicitly approved a clean-herb representative for Herb pack: Guam leaf artwork only, reward identity unchanged. No full cache scan, networking, new dependency or mechanic data.
+
+Validation: 269 Java tests in normal and official packaged execution; 215 Python tests; all data/artwork/identity validators; Java 11 and official RuneLite 1.13.5 standard package/API compatibility; 98 APIs, no missing/disallowed references; 362 generated layouts with representative source cards visually inspected at Standard/Larger text. Against S44, 474 NPC/location states and 120 states across 12 other-item/six-method scenarios preserve facts and normalized Copy reports, including Back and no-match recovery. Six exact roaming rows at two sizes passed 156 reports including hidden F2P/Exclude contexts. 22 icon request-path cancellation/guard cases plus new exact-ID/family-selection regression tests pass. All 41 baseline JSON resources unchanged. Full census retains 13,982 active rows, 1,011 exact sources, 884 family keys and all artwork.
+
+Official compatibility package SHA256 a8a8db79c49deda4a0296b487fb584c1b9e6cce7cdac290b225a05d9a587ac04. Dataset b2cd1afad959887389c126392b346ba683d376f161963ac23136473ee7308fee.
+
+Fresh Git-backed official v5 Hub fixture/current RuneLite 1.13.6 API prepared. Exact committed-source full wrapper and independent recovery are supplemental gates to run immediately after this save. Prior wrapper failure diagnosed as copied manifest outside any Git repository; archived evidence unchanged. New chooser artwork still needs native visual confirmation; S44 monster artwork acceptance remains valid. S44, S43, C3g and accepted Hub release remain preserved. No push/publication/reset.
+
+Apollo also approved bounded S46 chooser-only word-aware ordering and separate S47 Obtainable branding in the existing GPT review chat; neither is included here.
+
+Starting commit 43500a50f662c42741b7d2e414c9f54db9f2cde7
+Build development-2026-11-05-s45-source-headings
+Official package SHA256 a8a8db79c49deda4a0296b487fb584c1b9e6cce7cdac290b225a05d9a587ac04
+Human acceptance pending.

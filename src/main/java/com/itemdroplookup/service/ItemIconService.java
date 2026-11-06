@@ -19,12 +19,23 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public final class ItemIconService implements ItemIconProvider
 {
-    // These exact remains have local RuneLite IDs even when the price index has no entry.
-    // The live definition must still pass the name, note and placeholder checks below.
-    private static final Map<String, Integer> REVIEWED_ICON_IDS = Map.of(
-            "ent's roots", ItemID.MA2_GUTHIX_HEART,
-            "demon's heart", ItemID.MA2_ZAMORAK_HEART,
-            "justiciar's hand", ItemID.MA2_SARADOMIN_HEART);
+    // Reviewed native identities omitted by RuneLite's tradeable price index.
+    // Every live definition must still pass the exact name, note and placeholder guards.
+    private static final Map<String, Integer> REVIEWED_ICON_IDS = Map.ofEntries(
+            Map.entry("ent's roots", ItemID.MA2_GUTHIX_HEART),
+            Map.entry("demon's heart", ItemID.MA2_ZAMORAK_HEART),
+            Map.entry("justiciar's hand", ItemID.MA2_SARADOMIN_HEART),
+            Map.entry("herb box", ItemID.NZONE_HERBBOX),
+            Map.entry("herb sack", ItemID.SLAYER_HERB_SACK),
+            Map.entry("red egg", ItemID.BARBASSAULT_EGG_02),
+            Map.entry("red goblin mail", ItemID.GOBLIN_ARMOUR_RED),
+            Map.entry("red naval shirt", ItemID.BREW_UNIFORM_RED),
+            Map.entry("red navy slacks", ItemID.BREW_NAVY_SLACKS_RED),
+            Map.entry("red satchel", ItemID.TOL_RED_SACK),
+            Map.entry("prayer enhance (+)(1)", ItemID.RAIDS_VIAL_PRAYER_STRONG_1),
+            Map.entry("prayer enhance (+)(2)", ItemID.RAIDS_VIAL_PRAYER_STRONG_2),
+            Map.entry("prayer enhance (+)(3)", ItemID.RAIDS_VIAL_PRAYER_STRONG_3),
+            Map.entry("prayer enhance (+)(4)", ItemID.RAIDS_VIAL_PRAYER_STRONG_4));
 
     private final ItemManager items;
     private final ClientThread clientThread;

@@ -32,6 +32,26 @@ public class ItemSearchSelectionTest
         assertEquals(java.util.Collections.singletonList("Super energy"), search("super energy potion").choices());
     }
 
+    @Test public void representativePotionArtworkDoesNotNarrowTheSelectedFamily()
+    {
+        ItemSearchSelection prayer = search("prayer");
+        java.util.List<String> choices = prayer.choices();
+        assertEquals("Prayer potion(4)", prayer.iconItem("Prayer potion"));
+        assertEquals("Prayer mix(2)", prayer.iconItem("Prayer mix"));
+        assertEquals("Prayer enhance (+)(4)", prayer.iconItem("Prayer enhance (+)"));
+        assertEquals(choices, prayer.choices());
+        assertEquals(4, prayer.dropsFor("Prayer potion").stream().map(d -> d.getItemName()).distinct().count());
+        ItemSearchSelection exact = search("Prayer potion(1)");
+        assertEquals("Prayer potion(1)", exact.iconItem("Prayer potion(1)"));
+        assertTrue(exact.drops.stream().allMatch(d -> d.getItemName().equals("Prayer potion(1)")));
+        assertEquals("Stamina potion(4)", search("stam").iconItem("Stamina potion"));
+        assertEquals("Antidote++(4)", search("Antidote++").iconItem("Antidote++"));
+        assertEquals("Red goblin mail", search("red").iconItem("Red goblin mail"));
+        assertEquals("Guam leaf", search("herb").iconItem("Herb pack"));
+        assertTrue(search("herb").choices().contains("Herb pack"));
+        assertEquals("Amulet of glory", search("glory").iconItem("Amulet of glory"));
+    }
+
     @Test public void exactIdentityWinsBeforeFilteringWhileVerifiedPacksSurvive()
     {
         ItemSearchSelection stone = search("dragonstone");

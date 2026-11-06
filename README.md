@@ -90,7 +90,7 @@ Only `src/main/java` and `src/main/resources` are used by that standard build.
 The development `shadowJar` is not the Plugin Hub distribution.
 
 Offline Python generators are in `tools/`. Diagnostics and generation inputs
-are in `tools/data/`; runtime resources contain only lookup data, the selected font
+are in `tools/data/`; runtime resources contain lookup data, reviewed monster portraits, the selected font
 and attribution/license notices. Review generated changes and curated corrections
 before replacing an existing snapshot. See [monster location generation](docs/monster-locations.md).
 

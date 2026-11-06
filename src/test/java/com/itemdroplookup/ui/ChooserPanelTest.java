@@ -84,6 +84,28 @@ public class ChooserPanelTest
         });
     }
 
+    @Test public void potionChooserRequestsExactPicturesWhileKeepingFamilyButtons() throws Exception
+    {
+        SwingUtilities.invokeAndWait(() -> { start(); search("prayer"); layout(1000); });
+        SwingUtilities.invokeAndWait(() -> {
+            assertEquals(3, choices(panel).size());
+            assertEquals(3, pending.size());
+            assertTrue(pending.stream().anyMatch(p -> p.name.equals("Prayer potion(4)")));
+            assertTrue(pending.stream().anyMatch(p -> p.name.equals("Prayer mix(2)")));
+            assertTrue(pending.stream().anyMatch(p -> p.name.equals("Prayer enhance (+)(4)")));
+            JButton choice = (JButton) PanelTestSupport.find(panel, "selectItem:Prayer mix");
+            assertTrue(choice.getToolTipText().contains("Prayer mix(2)"));
+            choice.doClick(0); layout(1000);
+        });
+        SwingUtilities.invokeAndWait(() -> {
+            assertTrue(pending.stream().anyMatch(p -> p.current.getAsBoolean() && p.name.equals("Prayer mix(2)")));
+            MorningFeedbackTest.click(panel, "copyReport");
+            assertTrue(reports.get(0).contains("Item: Prayer mix\n"));
+            assertFalse(reports.get(0).contains("Item: Prayer mix(2)"));
+            panel.dispose(); panel.getWrappedPanel().removeNotify();
+        });
+    }
+
     @Test public void BroadChooserLoadsOnlyViewportAndFallbackRetainsKeyboardButtons() throws Exception
     {
         SwingUtilities.invokeAndWait(() -> { start(); search("rune"); layout(650); });

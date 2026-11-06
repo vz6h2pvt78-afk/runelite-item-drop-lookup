@@ -108,6 +108,29 @@ final class ItemSearchSelection
         return sources.stream().filter(s -> choice(s.getItemName()).equalsIgnoreCase(selected)).collect(Collectors.toList());
     }
 
+    /** Artwork only: a representative dose never changes selection or source identity. */
+    String iconItem(String selected)
+    {
+        if ("Herb pack".equals(selected)) return "Guam leaf"; // Representative reward artwork approved by Apollo.
+        Optional<String> family = prices.findPotionFamily(selected).filter(selected::equalsIgnoreCase);
+        if (!family.isPresent()) return selected;
+        List<String> exactNames = new ArrayList<>();
+        drops.forEach(d -> exactNames.add(d.getItemName()));
+        sources.forEach(s -> exactNames.add(s.getItemName()));
+        for (int dose = 4; dose >= 1; dose--)
+        {
+            String candidate = family.get() + "(" + dose + ")";
+            String key = ItemNameMatching.compact(candidate);
+            Optional<String> catalog = prices.findExactItemName(candidate)
+                    .filter(name -> ItemNameMatching.compact(name).equals(key));
+            if (catalog.isPresent()) return catalog.get();
+            Optional<String> source = exactNames.stream()
+                    .filter(name -> ItemNameMatching.compact(name).equals(key)).findFirst();
+            if (source.isPresent()) return source.get();
+        }
+        return selected;
+    }
+
     private String choice(String name)
     {
         return explicitDose ? name : prices.findPotionFamily(name).orElse(name);

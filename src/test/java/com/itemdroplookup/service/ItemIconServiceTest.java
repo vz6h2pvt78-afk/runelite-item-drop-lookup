@@ -68,6 +68,31 @@ public class ItemIconServiceTest
         assertFalse(ItemIconService.acceptedDefinition("Ent's roots", "Ent's roots", -1, 14401));
     }
 
+    @Test public void reportedUntradeableItemsUseReviewedNormalIdentitiesOnly()
+    {
+        java.util.Map<String,Integer> expected = java.util.Map.ofEntries(
+                java.util.Map.entry("Herb box", 11738), java.util.Map.entry("Herb sack", 13226),
+                java.util.Map.entry("Red egg", 10532), java.util.Map.entry("Red goblin mail", 9054),
+                java.util.Map.entry("Red naval shirt", 8954), java.util.Map.entry("Red navy slacks", 8993),
+                java.util.Map.entry("Red satchel", 10879),
+                java.util.Map.entry("Prayer enhance (+)(1)", 20969),
+                java.util.Map.entry("Prayer enhance (+)(2)", 20970),
+                java.util.Map.entry("Prayer enhance (+)(3)", 20971),
+                java.util.Map.entry("Prayer enhance (+)(4)", 20972));
+        expected.forEach((name,id) -> {
+            assertEquals(name, id, ItemIconService.exactId(name, Collections.emptyList()));
+            assertNull(name, ItemIconService.exactId(name + " extra", Collections.emptyList()));
+            assertFalse(ItemIconService.acceptedDefinition(name, name, 799, -1));
+            assertFalse(ItemIconService.acceptedDefinition(name, name, -1, 14401));
+            assertFalse(ItemIconService.acceptedDefinition(name, "Other item", -1, -1));
+        });
+        assertNull(ItemIconService.exactId("Herb pack", Collections.emptyList()));
+        assertNull(ItemIconService.exactId("Prayer enhance (+)", Collections.emptyList()));
+        assertNull(ItemIconService.exactId("Prayer enhance (-)(4)", Collections.emptyList()));
+        assertNull(ItemIconService.exactId("Red satchel",
+                Arrays.asList(item(10879,"Red satchel"), item(25620,"Red satchel"))));
+    }
+
     @Test public void ActualDefinitionMustMatchNameAndNormalForm()
     {
         assertTrue(ItemIconService.acceptedDefinition("Rune pouch note", "Rune pouch note", -1, -1));

@@ -23,14 +23,17 @@ public class CardHierarchyTest
             if(c instanceof Container) { if("itemSourceCard".equals(c.getName()))result.add((Container)c); else result.addAll(cards((Container)c)); }
         return result;
     }
-    @Test public void packHeadingUsesContentsIdentityAndCostPrecedesLocation() throws Exception
+    @Test public void packContentsStayExplicitUnderSourceOnlyHeadingAndCostPrecedesLocation() throws Exception
     {
         SwingUtilities.invokeAndWait(()->{
             ItemDropLookupPanel p=panel(); MorningFeedbackTest.search(p,"Air rune");
             MorningFeedbackTest.click(p,"showOtherSources");
             Container pack=cards(p).stream().filter(c->MorningFeedbackTest.labels(c).contains("Buy pack") && MorningFeedbackTest.labels(c).contains("Air rune pack")).findFirst().get();
             String text=MorningFeedbackTest.labels(pack);
-            assertTrue(((JLabel)pack.getComponent(0)).getText().contains("→ Air rune</html>"));
+            JLabel heading = (JLabel) pack.getComponent(0);
+            assertFalse(heading.getText().contains("→"));
+            assertFalse(heading.getText().contains("Air rune"));
+            assertNull("The selected item picture is not repeated in a source heading", heading.getIcon());
             assertTrue(text.contains("100 × Air rune"));
             assertTrue(text.contains("per pack"));
             assertTrue(text.indexOf("Cost:")<text.indexOf("Location:"));
