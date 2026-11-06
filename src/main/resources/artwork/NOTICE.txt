@@ -1,9 +1,13 @@
-Goblin group illustration
-Game artwork copyright Jagex Ltd. Obtained from OSRS Wiki contributors.
-File: https://oldschool.runescape.wiki/w/File:Goblin.png
-File description revision: https://oldschool.runescape.wiki/w/Special:PermanentLink/14951860
-Source thumbnail: https://oldschool.runescape.wiki/images/thumb/Goblin.png/27px-Goblin.png?3c3d8
-Downloaded 2026-11-05; 27 by 39 pixels; no further image edits.
-This image is game media, not covered by the Wiki text license or this project's BSD license.
-It represents the Goblin group only, not the appearance or mechanics of every variant.
-SHA-256: 334d2b27eacedfad4e946c6651eaaf981ea1e0697c7371a04e11ec0ae696fe2f
+Monster portraits
+Game artwork copyright Jagex Ltd. Obtained from OSRS Wiki contributors on 2026-11-05.
+These images are game media, not covered by the Wiki text license or this project's BSD license.
+Each runtime portrait is an aspect-preserving 36 by 40 transparent PNG.
+A portrait illustrates a reviewed form of the named source or an explicitly reviewed group;
+it does not describe every visual variant, drop, location, level, or requirement.
+No artwork is downloaded during plugin use.
+Individual file-page links, original image hashes, thumbnail URLs, local hashes,
+own-page revision evidence, representative choices and held cases are recorded in
+tools/data/monster_artwork_review.json.
+The retained original goblin.png is the accepted S43 reference, SHA-256
+334d2b27eacedfad4e946c6651eaaf981ea1e0697c7371a04e11ec0ae696fe2f;
+the runtime Goblin portrait preserves those pixels with transparent centering.

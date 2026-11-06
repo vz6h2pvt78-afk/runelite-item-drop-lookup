@@ -1,0 +1,8 @@
+S44 - Reviewed monster artwork
+
+Attempted all 1,011 active exact sources. 1,008 reviewed exact-source portraits, 64 separately reviewed group headers and 979 offline PNGs (2,217,617 bytes). Three source holds: Goblin raider, Shark (Sailing), Wild dog (Last Man Standing). Three group holds: Guard, Mogre, Wild dog. Accepted Goblin pixels retained; grouped child rows remain image-free. Worker-only resource reads, visible-header loading, bounded 96-entry positive/negative cache and 32-task queue, lifecycle/stale-result guards, no runtime network. No mechanics/grouping/search/Copy changes; rename remains separate. Full normal and official-JAR-first 266 Java tests; 215 Python tests; data/artwork validators; official Java11/RuneLite1.13.5 API/package checks passed. Packaged census identical to S43:13,982 rows,1,011 exact sources,884 family keys; all41 baseline JSON resources unchanged. 474 states have identical source/location sets and normalized Copy reports;12 families at2 sizes,106 child actions,332 reports passed. All1,011 artwork selections/holds visually reviewed across16 sheets;48 real-panel headless samples at both sizes passed bounds checks. Native human visual/scroll/clipboard acceptance pending. S43 and C3g preserved; no push, publication or Hub change. Wild dog LMS historical-status observation recorded separately for future mechanics review.
+
+Starting commit 10390c9c83d26ccb2d21ca4d22953804bfb5b4d3
+Build development-2026-11-05-s44-monster-artwork
+Official package SHA256 066efad47adc8a2b87caba78b6fb6b9cd3a0d7e995c14d768090539630f4e562
+Human acceptance pending.

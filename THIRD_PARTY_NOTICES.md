@@ -150,8 +150,8 @@ obligations associated with redistribution of historical copies.
 RuneScape and Old School RuneScape are Jagex trademarks. Game names, item names
 and game facts remain subject to applicable third-party rights. This project
 does not claim ownership of them and is not affiliated with Jagex, RuneLite,
-Weird Gloop or the OSRS Wiki. No external art, screenshots or sound assets
-are shipped in the plugin; its toolbar icon is drawn by the plugin.
+Weird Gloop or the OSRS Wiki. The monster portraits described below are bundled
+game media; the toolbar icon is drawn by the plugin.
 
 ## Atkinson Hyperlegible
 
@@ -198,7 +198,19 @@ The exact Unusual Chicken exclusion uses the saved OSRS Wiki revision 15204760, 
 
 The six exact roaming-encounter contexts use OSRS Wiki contributors’ Mage Arena II revision 15368856, Derwen 15317252, Porazdir 15355703 and Justiciar Zachariah 15384376. Pinned text, hashes and revision links are retained in tools/fixtures/mage_arena_roaming and mage_arena_roaming.json. These adapted texts and data are CC BY-NC-SA 3.0. [Pinned shared encounter source](https://oldschool.runescape.wiki/w/Mage_Arena_II?oldid=15368856).
 
-## Goblin group artwork
+## Monster artwork
+
+Game artwork is copyright Jagex Ltd., obtained from OSRS Wiki game-media files.
+The 979 bundled portrait files cover 1,008 exact source names and 64 explicitly
+reviewed group headers. Three sources and three group representatives remain
+text-only. These images are not covered by the project BSD license or the Wiki
+text license. Per-file source links, original hashes, download URLs, own-article
+revisions, normalized hashes and review outcomes are recorded in
+`tools/data/monster_artwork_review.json`. Portraits are cropped to their alpha
+bounds, fitted proportionally and centered within 36 by 40 transparent pixels.
+No runtime image downloads occur.
+
+### Preserved S43 Goblin reference
 
 Goblin group illustration
 Game artwork copyright Jagex Ltd. Obtained from OSRS Wiki contributors.

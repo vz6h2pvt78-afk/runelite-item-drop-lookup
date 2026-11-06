@@ -40,13 +40,10 @@ public class GroupedSourceArtworkTest
                 finder.setText(pair[1]); finder.postActionEvent();
                 JButton group = (JButton) PanelTestSupport.find(panel, "sourceGroup:" + pair[1]);
                 assertNotNull(group);
-                if (pair[1].equals("Goblin"))
-                {
-                    assertNotNull(group.getIcon());
-                    assertEquals(27, group.getIcon().getIconWidth());
-                    assertEquals(39, group.getIcon().getIconHeight());
-                }
-                else assertNull("Unreviewed groups keep a text-only header", group.getIcon());
+                assertTrue("Both group representatives are explicitly reviewed",
+                        MonsterArtwork.loadCatalogue(MonsterArtwork.class::getResourceAsStream)
+                                .containsKey("G\t" + pair[1]));
+                // The separate artwork tests wait for asynchronous visible-header loading.
                 group.doClick(0);
                 List<JLabel> rows = titles(group.getParent());
                 assertEquals(4, rows.size());

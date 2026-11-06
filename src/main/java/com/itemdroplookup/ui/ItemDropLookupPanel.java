@@ -101,6 +101,7 @@ public class ItemDropLookupPanel extends PluginPanel
     private String displayedQuery = "";
     private final JScrollPane resultsScroll = new JScrollPane();
     private final ChooserIcons chooserIcons;
+    private final MonsterArtwork monsterArtwork;
     private MonsterLocationPanel detail;
     private final JTextField sourceSearch = new JTextField();
     private final JPanel sourceSearchRow = new JPanel(new BorderLayout(5, 0));
@@ -183,6 +184,7 @@ public class ItemDropLookupPanel extends PluginPanel
         this.accessRequirementLookupService = accessRequirementLookupService;
         this.clipboardWriter = clipboardWriter;
         chooserIcons = new ChooserIcons(resultsScroll, iconProvider);
+        monsterArtwork = new MonsterArtwork(resultsScroll);
 
         setLayout(new BorderLayout());
         setBorder(new EmptyBorder(8, 8, 8, 8));
@@ -282,6 +284,7 @@ public class ItemDropLookupPanel extends PluginPanel
     public void dispose()
     {
         chooserIcons.dispose();
+        monsterArtwork.dispose();
         Runnable release = () -> {
             sourceSearchTimer.stop();
             viewState.detailStates.clear();
@@ -388,6 +391,7 @@ public class ItemDropLookupPanel extends PluginPanel
     private void showNoSources()
     {
         chooserIcons.clear();
+        monsterArtwork.clear();
         viewState.page = LookupViewState.Page.NO_SOURCES;
         overviewBack.setVisible(false);
         resultsPanel.removeAll();
@@ -411,6 +415,7 @@ public class ItemDropLookupPanel extends PluginPanel
     private void showItemChoices()
     {
         chooserIcons.clear();
+        monsterArtwork.clear();
         viewState.page = LookupViewState.Page.ITEMS;
         overviewBack.setVisible(false);
         resultsPanel.removeAll();
@@ -441,6 +446,7 @@ public class ItemDropLookupPanel extends PluginPanel
     private void showOverview()
     {
         chooserIcons.clear();
+        monsterArtwork.clear();
         if (viewState.page == LookupViewState.Page.SOURCES)
             savedSourceScroll.put(sourceViewKey(), resultsScroll.getVerticalScrollBar().getValue());
         viewState.page = LookupViewState.Page.OVERVIEW;
@@ -598,6 +604,7 @@ public class ItemDropLookupPanel extends PluginPanel
         SwingUtilities.invokeLater(() -> {
             resultsScroll.getVerticalScrollBar().setValue(position);
             chooserIcons.requestVisible();
+            monsterArtwork.requestVisible();
         });
     }
 
@@ -608,6 +615,7 @@ public class ItemDropLookupPanel extends PluginPanel
             return;
         }
         chooserIcons.clear();
+        monsterArtwork.clear();
         // Keep the live dropdowns and source field attached while refreshing
         // results, so changing a selection does not dismiss their popup/focus.
         for (Component child : resultsPanel.getComponents())
@@ -839,6 +847,7 @@ public class ItemDropLookupPanel extends PluginPanel
         SwingUtilities.invokeLater(() -> {
             resultsScroll.getVerticalScrollBar().setValue(0);
             chooserIcons.requestVisible();
+            monsterArtwork.requestVisible();
         });
     }
 
@@ -906,7 +915,9 @@ public class ItemDropLookupPanel extends PluginPanel
             card.setName("dropSourceCard");
             card.setBackground(LookupStyle.CARD);
             card.setBorder(LookupStyle.cardBorder());
-            card.add(makeCardTitle(first.getMonsterName(), CARD_TEXT_WIDTH));
+            JLabel heading = makeCardTitle(first.getMonsterName(), CARD_TEXT_WIDTH);
+            monsterArtwork.addSource(first.getMonsterName(), heading);
+            card.add(heading);
             if (hasText(first.getNotes())) card.add(makeCardLine(first.getNotes(), CARD_TEXT_WIDTH));
             addBoundDanger(card, first);
             addSourceRequirements(card, accessRequirementLookupService.forSource(first), CARD_TEXT_WIDTH, Collections.emptyList());
@@ -1051,12 +1062,7 @@ public class ItemDropLookupPanel extends PluginPanel
         String groupKey = sourceViewKey() + "|" + group.getParentName();
         JButton header = style.button(expandedGroups.contains(groupKey) ? expandedText : collapsedText, () -> { }, false);
         header.setName("sourceGroup:" + group.getParentName());
-        javax.swing.Icon groupArtwork = GroupArtwork.forGroup(group.getParentName());
-        if (groupArtwork != null)
-        {
-            header.setIcon(groupArtwork);
-            header.setIconTextGap(8);
-        }
+        monsterArtwork.addGroup(group.getParentName(), header);
         header.setHorizontalAlignment(JButton.LEFT);
         header.setAlignmentX(LEFT_ALIGNMENT);
         header.setOpaque(true);
@@ -1106,6 +1112,7 @@ public class ItemDropLookupPanel extends PluginPanel
         card.setBackground(LookupStyle.CARD);
         JLabel title = makeCardTitle(first.getMonsterName(), CARD_TEXT_WIDTH);
         title.setName("dropContextGroup");
+        monsterArtwork.addSource(first.getMonsterName(), title);
         card.add(title);
         List<AccessRequirement> shared = new ArrayList<>(accessRequirementLookupService.forSource(first));
         shared.removeIf(fact -> !fact.isSourceCardFact() || fact.getScope() != AccessRequirement.Scope.MONSTER
@@ -1114,7 +1121,7 @@ public class ItemDropLookupPanel extends PluginPanel
         for (DropSource member : members)
         {
             card.add(makeSmallSpacer());
-            appendDropContext(card, member, CARD_TEXT_WIDTH, true, shared);
+            appendDropContext(card, member, CARD_TEXT_WIDTH, true, false, shared);
         }
         return card;
     }
@@ -1146,18 +1153,19 @@ public class ItemDropLookupPanel extends PluginPanel
             ));
         }
 
-        appendDropContext(card, source, nested ? NESTED_CARD_TEXT_WIDTH : CARD_TEXT_WIDTH, false, Collections.emptyList());
+        appendDropContext(card, source, nested ? NESTED_CARD_TEXT_WIDTH : CARD_TEXT_WIDTH, false, !nested, Collections.emptyList());
         card.setAlignmentX(LEFT_ALIGNMENT);
         return card;
     }
 
-    private void appendDropContext(JPanel card, DropSource source, int wrapWidth, boolean contextRow, List<AccessRequirement> shared)
+    private void appendDropContext(JPanel card, DropSource source, int wrapWidth, boolean contextRow, boolean portrait, List<AccessRequirement> shared)
     {
         int firstComponent = card.getComponentCount();
         if (!contextRow)
         {
             JLabel title = makeCardTitle(source.getMonsterName(), wrapWidth);
             title.setName("dropSourceHeading");
+            if (portrait) monsterArtwork.addSource(source.getMonsterName(), title);
             card.add(title);
         }
         if (boundContexts.isVariant(source)) card.add(makeCardTitle(boundContexts.variantTitle(source), wrapWidth));
